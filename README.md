@@ -10,7 +10,7 @@ Pocket apps for one kind of clay at a time. Not terminals. Not global software.
 | [`pocket-notebook/`](./pocket-notebook/) | **CO.MYPT-002-NOTES** | desk · work-brain / JSON library |
 | [`pocket-journal/`](./pocket-journal/) | **CO.MYPT-003-JOURNAL** | desk · `.bok` books · map / why / pulls |
 
-**SophiaDesk** (consider desk) moved 2026-08-07 → [`../le-awn-industries/sophia-desk/`](../le-awn-industries/sophia-desk/) · **CO.LEA-001-DESK** · not pocket clay.
+**SophiaDesk** (consider desk) → [`../le-awn-industries/el-desks-for-her/sophia-desk/`](../le-awn-industries/el-desks-for-her/sophia-desk/) · **CO.LEA-001-DESK** · green house · not pocket clay.
 
 **Receiver** (multi-object felt, half-state) lives under Deck Host: [`../the-deck-host/receiver/`](../the-deck-host/receiver/) · **CO.RECV-001** · not a My Pocket Things bay.
 

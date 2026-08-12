@@ -1,0 +1,2 @@
+<?php
+loadContent('body', 'test');
