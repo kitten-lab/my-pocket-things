@@ -13,3 +13,8 @@ require_once STARCORE_ROOT . '/stars/theConsoleLogger.php'; // for logging messa
 require_once STARCORE_ROOT . '/stars/theDeliverer.php'; // for delivering content to the page
 require_once STARCORE_ROOT . '/stars/theShellshill.php'; // for loading the shell structure
 require_once STARCORE_ROOT . '/stars/theDoorOpener.php'; // for opening the door to the requested page
+require_once STARCORE_ROOT . '/stars/theCodeGenerator.php'; // for generating random codes
+require_once STARCORE_ROOT . '/stars/theChipReader.php'; // for opening a chip paper and asking it questions
+require_once STARCORE_ROOT . '/stars/theDirectoryFinder.php'; // for finding directories and files in the storage
+require_once STARCORE_ROOT . '/stars/theInputSanitizer.php'; // for sanitizing user input
+require_once STARCORE_ROOT . '/stars/theToolGetter.php'; // for seating tools into drop spots

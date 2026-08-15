@@ -1,0 +1,25 @@
+---
+library:
+  file: ~storage/library/chips/SLX-MSG-HUF_432.chip
+  type: chip
+  class: message
+chip:
+  cuid: MSG-HUF_432
+  auth: ELEKTROSTAR
+  title: Message from Test
+origin:
+  space: STAR-LUX
+  type: contact
+  tool: contact_post.php
+contact:
+  to: ELEKTROSTAR
+  to_space: STAR-LUX
+  from: Test
+  from_space: TEST
+notch:
+  mint: 2026-08-13 15:38:52
+  tags: [contact, message]
+  cites: []
+  owners: [ELEKTROSTAR, Test]
+---
+123 445

@@ -1,0 +1,25 @@
+---
+library:
+  file: ~storage/library/chips/SLX-MSG-PYF_406.chip
+  type: chip
+  class: message
+chip:
+  cuid: MSG-PYF_406
+  auth: ELEKTROSTAR
+  title: Message from EL BARA
+origin:
+  space: STAR-LUX
+  type: contact
+  tool: contact_post.php
+contact:
+  to: ELEKTROSTAR
+  to_address: ELEKTROSTAR@starcore.org
+  from: EL BARA
+  from_address: AB@CU.COM
+notch:
+  mint: 2026-08-12 19:35:52
+  tags: [contact, message]
+  cites: []
+  owners: [ELEKTROSTAR, EL BARA]
+---
+I am experiencing a weird amount of lag.

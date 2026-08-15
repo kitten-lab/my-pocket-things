@@ -1,0 +1,296 @@
+@font-face {
+  font-family: "Px437 Apricot 200L";
+  src: url("../simple/fonts/Px437_Apricot_200L.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Px437 AST PremiumExec";
+  src: url("../simple/fonts/Px437_AST_PremiumExec.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+* { box-sizing: border-box; }
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+
+body.leak {
+  margin: 0;
+  background: #5a0000;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28) 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(#ff0008 0 28%, #8a0008 28% 42%, #4a0010 42% 100%);
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Px437 AST PremiumExec", "Courier New", monospace;
+}
+
+.leak-nav {
+  background: #1a0038;
+  border-bottom: 0;
+  padding: 0.45rem 1rem;
+  text-align: center;
+}
+
+.leak-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.leak-nav a {
+  color: #ff2a2a;
+  text-decoration: none;
+  font-family: "Px437 AST PremiumExec", monospace;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.leak-nav a:hover { color: #fff; }
+
+.leak-mast {
+  text-align: center;
+  padding: 0 0 1.4rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35) 0 2px,
+      transparent 2px 4px
+    ),
+    #e60000;
+}
+
+.leak-mast .word {
+  display: inline-block;
+  margin: 1.2rem 0 0.55rem;
+  padding: 0.15rem 0.45rem 0.05rem;
+  background: #ff0000;
+  color: #fff;
+  font-family: "Px437 Apricot 200L", monospace;
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.leak-mast .word a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.leak-mast .flag {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  padding: 0.15rem 0.45rem;
+  background: #0018d8;
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.leak-mast .stripe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8vw;
+  margin: 0;
+  padding: 1.1rem 1rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28) 0 2px,
+      transparent 2px 4px
+    ),
+    #0016e0;
+}
+
+.leak-mast .ouo,
+.leak-mast .ava {
+  margin: 0;
+  color: #fff;
+  letter-spacing: 0.35em;
+  font-size: 0.95rem;
+}
+
+.leak-mast .door {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 3px solid #c00;
+  background: #000;
+}
+
+.leak-mast blockquote {
+  max-width: none;
+  margin: 1.3rem 1rem 0;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+.leak-mast blockquote footer {
+  margin-top: 0.45rem;
+  color: #fff;
+  background: none;
+  font-style: normal;
+}
+
+.leak-stream {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+.leak-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.leak-item {
+  list-style: none;
+  margin: 0;
+}
+
+.leak-item .face {
+  display: block;
+  margin: 0;
+  background: #0016e0;
+}
+
+.leak-item .face img,
+.chip-box .chip-face img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.leak-item .face img {
+  filter: grayscale(1) contrast(1.7) brightness(1.05);
+  mix-blend-mode: screen;
+}
+
+.leak-item .when {
+  margin: 0.45rem 0 0.2rem;
+  color: #ffb0b0;
+  font-size: 0.68rem;
+}
+
+.leak-item h2 {
+  font-family: "Px437 Apricot 200L", monospace;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  background: #0016e0;
+  color: #fff;
+  padding: 0.45rem 0.4rem 0.35rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.leak-item h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.leak-item .by,
+.chip-box .by {
+  margin: 0.25rem 0 0.4rem;
+  color: #ffb0b0;
+  font-size: 0.72rem;
+}
+
+.leak-item .dek {
+  margin: 0.45rem 0 0.4rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.leak-item .more {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.68rem;
+}
+
+.chip-box .chip-title {
+  font-family: "Px437 Apricot 200L", monospace;
+  text-transform: uppercase;
+  background: #0016e0;
+  display: inline-block;
+  padding: 0.2rem 0.35rem;
+}
+
+.chip-box .chip-dek { color: #fff; }
+
+.chip-box .chip-face { background: #0016e0; }
+
+.chip-box .chip-face img {
+  filter: grayscale(1) contrast(1.7);
+  mix-blend-mode: screen;
+}
+
+.chip-letter { line-height: 1.7; }
+
+.desk { max-width: 36rem; }
+.desk h1 { text-transform: uppercase; }
+.desk input,
+.desk textarea,
+.desk select {
+  width: 100%;
+  background: #111;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.4rem;
+  margin: 0.2rem 0 0.7rem;
+  font: inherit;
+}
+
+.leak-foot {
+  text-align: center;
+  padding: 2rem 1rem 2.4rem;
+  background: #3a0000;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.leak-foot .door {
+  width: 88px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.6rem;
+}
+
+.leak-foot a {
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 800px) {
+  .leak-feed { grid-template-columns: 1fr; }
+  .leak-mast .stripe { gap: 1.2rem; }
+}

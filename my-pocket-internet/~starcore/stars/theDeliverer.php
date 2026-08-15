@@ -27,3 +27,11 @@ function setDelivery(string $location, string $payload) {
     return $payload;
   };
 }
+
+/** Queue a PHP file to run when that drop fires. Echo nothing (include's 1 stays off the page). */
+function loadRun(string $location, string $file): void {
+  $GLOBALS['DropSpot'][$location][] = function () use ($file) {
+    include $file;
+    return '';
+  };
+}

@@ -1,0 +1,15 @@
+---
+library:
+  file: ~storage/library/kinds/GOODS.chip
+  type: chip
+  class: kind
+kind:
+  type: GOODS
+  letter: no
+  good: yes
+  cite: no
+  auth: space
+prop:
+  lines: []
+---
+A file. The mint writes the good and a paper that cites it. Rename this kind, or copy it, to grow a new file-type.

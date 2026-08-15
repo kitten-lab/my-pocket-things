@@ -1,0 +1,15 @@
+---
+library:
+  file: ~storage/library/kinds/ARTICLE.chip
+  type: chip
+  class: kind
+kind:
+  type: ARTICLE
+  letter: yes
+  good: yes
+  cite: yes
+  auth: writer
+prop:
+  lines: [dek]
+---
+A letter with a dek and a writer. This file is the convention. Rename kind.type to change the chip TYPE. Add names to prop.lines to grow the form.

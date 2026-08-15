@@ -1,0 +1,586 @@
+@font-face {
+  font-family: "Px437 Apricot 200L";
+  src: url("fonts/Px437_Apricot_200L.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Px437 AST PremiumExec";
+  src: url("fonts/Px437_AST_PremiumExec.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+:root {
+  --purple: #9b51e0;
+  --green: #06ff00;
+  --title: #17ff00;
+  --cyan: #00ffee;
+  --yellow: #fcfa00;
+  --seek: #00ff40;
+  --floor: #007515;
+  --crate: #00430c;
+  --ink: #1d1d1d;
+  --paper: #ffffff;
+  --mute: #555555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--paper);
+  background: #000;
+  font-family: "Px437 AST PremiumExec", "Courier New", monospace;
+}
+
+a {
+  color: inherit;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+
+.skip:focus {
+  left: 8px;
+  top: 8px;
+  z-index: 20;
+  background: #000;
+  color: var(--green);
+  padding: 0.4rem 0.6rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--purple);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 4px, transparent 1px);
+  background-size: 100% 6px;
+  border-bottom: 10px solid var(--green);
+  padding: 1rem 1.2rem;
+}
+
+header .mast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem 1.2rem;
+}
+
+header .typer {
+  width: 150px;
+  height: 150px;
+  image-rendering: pixelated;
+}
+
+header h1 {
+  margin: 0;
+  font-family: "Px437 Apricot 200L", "Courier New", monospace;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--title);
+}
+
+header h1 a {
+  color: var(--title);
+  text-decoration: none;
+}
+
+nav {
+  display: none;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.hero {
+  background-color: #000;
+  background-image: url("../../../~storage/CHESTERS-IMPORTS/house/dress/chester-logo.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 1.6rem 1rem 2.2rem;
+}
+
+.hero .arrival {
+  display: block;
+  margin: 0 auto 1.2rem;
+  max-width: 356px;
+  width: 100%;
+  height: auto;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--cyan);
+  font-family: "Px437 Apricot 200L", "Courier New", monospace;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  line-height: 1.25;
+}
+
+.floor {
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6) 4px, transparent 1px),
+    url("../../../~storage/CHESTERS-IMPORTS/house/dress/web-temp-banner.png");
+  background-size: 100% 6px, cover;
+  background-position: 0 0, center;
+  padding: 2.4rem 1rem 3rem;
+}
+
+.seek {
+  max-width: 720px;
+  margin: 0 auto 1.4rem;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--paper);
+  font-family: "Px437 Apricot 200L", "Courier New", monospace;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  border: 6px solid var(--seek);
+}
+
+.crate-row {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--floor);
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.products {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  background: var(--crate);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.product-card {
+  color: var(--paper);
+  text-align: center;
+}
+
+.product-card .thumb {
+  display: block;
+  padding: 0.8rem;
+}
+
+.product-card .thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-card h2,
+.product-card h3 {
+  margin: 0 0 0.75rem;
+  font-family: "Px437 AST PremiumExec", "Courier New", monospace;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.product-card h2 a,
+.product-card h3 a {
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.price {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin: 0 0 0.8rem;
+}
+
+.read-more {
+  display: block;
+  width: 100%;
+  background: var(--purple);
+  color: var(--paper);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0.7rem 0.6rem;
+  border: 0;
+  border-radius: 0;
+}
+
+.read-more:hover,
+.chip-more:hover {
+  filter: brightness(1.08);
+}
+
+.chip-list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  background: var(--crate);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.chip-card {
+  color: var(--paper);
+  text-align: center;
+}
+
+.chip-card .chip-face {
+  display: block;
+  padding: 0.8rem;
+}
+
+.chip-card .chip-face img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.chip-card .chip-title {
+  margin: 0 0 0.75rem;
+  font-family: "Px437 AST PremiumExec", "Courier New", monospace;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.chip-card .chip-title a {
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.chip-card .chip-price,
+.floor .chip-price {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin: 0 0 0.8rem;
+}
+
+.chip-more {
+  display: block;
+  width: 100%;
+  background: var(--purple);
+  color: var(--paper);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0.7rem 0.6rem;
+  border: 0;
+  border-radius: 0;
+}
+
+.page .chip-list {
+  background: var(--crate);
+}
+
+.chip-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.chip-box .chip-face img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chip-box .chip-title {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.page .chip-box .chip-price {
+  color: #111;
+  font-size: 1.4rem;
+}
+
+.chip-stock {
+  color: #a00;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.chip-box .chip-letter {
+  grid-column: 1 / -1;
+}
+
+.page .chip-box .chip-letter {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+@media (max-width: 720px) {
+  .chip-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page {
+  background: var(--paper);
+  color: var(--ink);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.4rem 3rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.page h1,
+.page h2 {
+  font-family: "Px437 Apricot 200L", Georgia, serif;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.page a {
+  color: var(--purple);
+}
+
+.shop-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--mute);
+  margin: 0 0 1.2rem;
+}
+
+.product-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.product-stage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-stage h1 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.product-stage .price {
+  color: #111;
+  font-size: 1.4rem;
+}
+
+.stock {
+  color: #a00;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.meta {
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+
+.tabs {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.tabs menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  font-family: "Px437 AST PremiumExec", monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tabs menu a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.tabs menu a:hover,
+.tabs menu .on {
+  text-decoration: underline;
+}
+
+.notes pre {
+  white-space: pre-wrap;
+  background: #111;
+  color: #d8ffb0;
+  padding: 0.8rem 1rem;
+  font-family: "Px437 AST PremiumExec", "Courier New", monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.notes p {
+  margin: 0.7rem 0;
+}
+
+.review-box {
+  border-top: 1px dashed #ccc;
+  margin-top: 1.4rem;
+  padding-top: 0.8rem;
+}
+
+.review-box label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+
+.review-box input,
+.review-box textarea,
+.review-box select {
+  width: 100%;
+  max-width: 28rem;
+  padding: 0.4rem;
+  font: inherit;
+}
+
+.review-box button,
+.ghost-btn,
+.page a.ghost-btn {
+  display: inline-block;
+  margin-top: 0.6rem;
+  background: var(--purple);
+  color: #fff;
+  border: 0;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Px437 AST PremiumExec", monospace;
+  cursor: default;
+}
+
+blockquote {
+  border-left: 3px solid #ccc;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  color: #444;
+}
+
+footer {
+  background: #f7f7f7;
+  color: #404040;
+  text-align: left;
+  padding: 2rem 1.2rem 1.4rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.92rem;
+}
+
+footer a {
+  color: #404040;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.foot-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.2rem 1.6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.foot-cols h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  color: #6d28d9;
+  font-family: Georgia, serif;
+  font-weight: 600;
+}
+
+.foot-cols ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.foot-cols li {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 2rem 0 0.8rem;
+  padding: 0;
+}
+
+.socials a {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+  color: #404040;
+  border-radius: 50%;
+  font-family: "Px437 AST PremiumExec", monospace;
+  font-size: 0.7rem;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+.credit {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0.6rem 0 0;
+}
+
+@media (max-width: 720px) {
+  header .typer {
+    width: 96px;
+    height: 96px;
+  }
+
+  .product-stage {
+    grid-template-columns: 1fr;
+  }
+}

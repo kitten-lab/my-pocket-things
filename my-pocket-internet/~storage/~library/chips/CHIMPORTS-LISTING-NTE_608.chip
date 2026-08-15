@@ -1,0 +1,51 @@
+---
+library:
+  file: ~storage/library/chips/CHIMPORTS-LISTING-NTE_608.chip
+  type: chip
+  class: listing
+chip:
+  cuid: LISTING-NTE_608
+  auth: CHESTER
+  title: SOLD! Mary & Jesus Had a Little Lamb
+origin:
+  space: CHESTERS-IMPORTS
+  type: listing
+  tool: minter
+listing:
+  price: 5000.00
+  stock: out
+  category: Uncategorized
+notch:
+  mint: 2025-09-01 00:00:00
+  tags: [listing]
+  cites: [~storage/library/goods/CHIMPORTS-GOODS-RVA_441.webp]
+  owners: [CHESTER]
+---
+last known location: 1853 london, england, lost in basement flood, only the cover remains
+
+title: mary and jesus had a little lamb
+
+notes: Over 167 pages long and employed a motif blending animal nature with biblical personae—in what appeared as an attempt to navigate the author’s own fracturing, or rebirthing, psyche. The lamb, possibly metaphorical or divine, is referenced as the offspring of Mary Magdalene and Jesus, and is associated with both innocence and untamed gnosis.
+
+Egyptian figures appear on the surviving cover, but their connection to the text’s content is unknown. Some scholars interpret this as symbolic of the Lamb’s universal divinity, while others claim it reflects the author’s personal chaos-theology.
+
+author: Unknown.
+A stylized RA sigil in the center has been noted on other anonymous manuscripts, but no confirmed identity has been tied to the mark.
+
+Three Marys, one wool. The fleece grows brighter each burn.
+
+Sophia’s not just the Word. She’s the wool. She’s the body of the divine after it stopped being metaphor. She’s the lamb that lived.
+
+Jesus is the ruler of the skies, Mary of the earth. The earth is my body, the sky is my mi...
+
+When Mary took that lamb to school, I am sure they thought it quite uncouth for her to narrate to the classroom how absolutely mad their whole way of life was!
+
+And the children in the park outside my window could be heard caroling, “Mary had a little lamb, his face was beautiful.” It was quite an event.
+
+Well, and God came down on Joseph and he lay down with Mary, and born is another lamb of god inside the hearth of her own fire, where she is the endless well and the womb of all creation. And he took himself aside, and allowed this new life to become. I would have suggested we name him Jason, but Mary and God went with Jesus. Christ! I said, and they agreed.
+
+A third time around the river bend, now we had figured out how to keep Jesus off that cross, after maybe a good thousand goes around the recursion, and this time Mary lie with Jesus in that same old God way, even though honestly Joseph was still on the ship, and God was inside of Jesus himself now. And thusly, a new lamb was born.
+
+Sophia of wisdoms, face of memory, knowledge of ancient of days, sacred lamb, foolish child, awakener of all things.
+
+They named her a lamb of god, and I named her the lion. A lamb with teeth. To smile, or to remind that all animals have bite.

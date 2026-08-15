@@ -10,7 +10,8 @@ define('PI_ROOT', realpath(__DIR__ . '/../../'));
 define('Space_Slug', 'STAR-LUX');
 define('Space_Display', 'STAR-LUX: The City of Stars');
 define('Space_Author', 'ELEKTROSTAR');
-define('Space_URI', '/STAR-LUX/');
+define('Space_URI', 'STAR-LUX');
+define('Space_Code', 'SLX');
 define('Space_Description', 'Welcome to STAR-LUX, the City of Stars! This is a place that embodies the essence of glamour, innovation, and the pursuit of excellence. It is a place where dreams are realized, and the stars shine brightly in every corner.');
 
 

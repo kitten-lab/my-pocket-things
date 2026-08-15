@@ -1,0 +1,19 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-GOODS-FRG_301.chip
+  type: chip
+  class: goods
+chip:
+  cuid: GOODS-FRG_301
+  auth: MYTHLEAK
+  title: frogging the wires
+origin:
+  space: MYTHLEAK
+  type: goods
+  tool: minter
+notch:
+  mint: 2025-09-30 00:00:00
+  tags: [goods]
+  cites: [~storage/library/goods/LEAK-GOODS-FRG_301.png]
+  owners: [MYTHLEAK]
+---

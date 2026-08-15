@@ -1,0 +1,24 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-ARTICLE-KXM_318.chip
+  type: chip
+  class: article
+chip:
+  cuid: ARTICLE-KXM_318
+  auth: MYTHLEAK
+  title: THE GODS ARE UNSPOOLING THE MECHANICS OF REALITY
+origin:
+  space: MYTHLEAK
+  type: article
+  tool: minter
+article:
+  dek: THEY ARE FROGGING THE WIRES, SWEAR ITS NOT “REALLY” FALLING APART
+notch:
+  mint: 2025-09-30 00:00:00
+  tags: [article]
+  cites: [~storage/library/goods/LEAK-GOODS-FRG_301.png]
+  owners: [MYTHLEAK]
+---
+There seems to have been some mix-up on the loom, and no one is sure which way is up or down anymore. “We’re going to have to frog the whole thing,” the lead Weaver was rumored to have said in private. “RIP IT! RIP IT!” the choir of frogs declared.
+
+Any unintended volcanic eruptions or earthquakes tied back to this event will not be citable in your insurance claims, under the standard acts of God clauses. Consider contacting your local agent for details about supplementary insurance. We are sure you won’t regret it.

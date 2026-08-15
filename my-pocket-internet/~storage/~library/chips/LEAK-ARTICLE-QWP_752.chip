@@ -1,0 +1,24 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-ARTICLE-QWP_752.chip
+  type: chip
+  class: article
+chip:
+  cuid: ARTICLE-QWP_752
+  auth: MYTHLEAK
+  title: PROMETHEUS REGRETS HIS CHOICE
+origin:
+  space: MYTHLEAK
+  type: article
+  tool: minter
+article:
+  dek: CLAIMS IF SOMEONE LETS HIM DOWN, HE’LL GIVE THE LIGHT BACK
+notch:
+  mint: 2025-08-15 00:00:00
+  tags: [article]
+  cites: [~storage/library/goods/LEAK-GOODS-PRM_615.png]
+  owners: [MYTHLEAK]
+---
+Prometheus is sick of his life of daily liver destruction, and has recently admitted to regretting his original decision. “I thought it was an act of love,” he admitted. Sources close to the mythic thief seem suspicious of his “crime-of-passion” claims, stating he can’t be trusted. “They always claim they’ll change when the going gets rough,” said one river Nymph. “He downright stole that light and gave it away like he was its master,” said another.
+
+The ghost of Carl Jung was unable to be reached for psychiatric insights on the matter.

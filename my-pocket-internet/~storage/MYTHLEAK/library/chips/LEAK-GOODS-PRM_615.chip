@@ -1,0 +1,19 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-GOODS-PRM_615.chip
+  type: chip
+  class: goods
+chip:
+  cuid: GOODS-PRM_615
+  auth: MYTHLEAK
+  title: prometheus
+origin:
+  space: MYTHLEAK
+  type: goods
+  tool: minter
+notch:
+  mint: 2025-08-15 00:00:00
+  tags: [goods]
+  cites: [~storage/library/goods/LEAK-GOODS-PRM_615.png]
+  owners: [MYTHLEAK]
+---

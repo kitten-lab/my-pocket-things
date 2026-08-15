@@ -1,0 +1,26 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-ARTICLE-BHR_903.chip
+  type: chip
+  class: article
+chip:
+  cuid: ARTICLE-BHR_903
+  auth: MYTHLEAK
+  title: APRODITE MISSING SINCE SPRING
+origin:
+  space: MYTHLEAK
+  type: article
+  tool: minter
+article:
+  dek: REPORTS STATE HADES “SENT HER BACK ON SCHEDULE”
+notch:
+  mint: 2025-09-09 00:00:00
+  tags: [article]
+  cites: [~storage/library/goods/LEAK-GOODS-HAD_109.webp]
+  owners: [MYTHLEAK]
+---
+Despite her scheduled arrival, Aphrodite still has not returned to any location within the Holy Above and Below since before Easter. Multiple sources reported to MYTHLEAK’s tip line sightings throughout The Skyline. MYTHLEAK was unable to corroborate the reports.
+
+The Wire Web’s Dark Lattice Network sent a striking claim:
+
+“SHE HAS LEFT TO FORM HER OWN CYCLES,” one poster on the imported.to Social Network site said.

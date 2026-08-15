@@ -1,0 +1,19 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-GOODS-PRN_228.chip
+  type: chip
+  class: goods
+chip:
+  cuid: GOODS-PRN_228
+  auth: MYTHLEAK
+  title: archetypal princess
+origin:
+  space: MYTHLEAK
+  type: goods
+  tool: minter
+notch:
+  mint: 2025-09-28 00:00:00
+  tags: [goods]
+  cites: [~storage/library/goods/LEAK-GOODS-PRN_228.png]
+  owners: [MYTHLEAK]
+---

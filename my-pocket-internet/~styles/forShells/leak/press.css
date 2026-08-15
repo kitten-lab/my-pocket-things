@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+  --void: #070707;
+  --blood: #c41616;
+  --ash: #d8d0c4;
+  --mute: #8a8278;
+}
+
+* { box-sizing: border-box; }
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+
+body.leak {
+  margin: 0;
+  background: var(--void);
+  color: var(--ash);
+  font-family: "IM Fell English", Georgia, serif;
+}
+
+.leak-nav {
+  padding: 0.7rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.leak-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.leak-nav a {
+  color: var(--ash);
+  text-decoration: none;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.leak-nav a:hover { color: var(--blood); }
+
+.leak-mast {
+  text-align: center;
+  padding: 1.6rem 1rem 2rem;
+}
+
+.leak-mast .word {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.leak-mast .stripe {
+  display: block;
+}
+
+.leak-mast .flag {
+  margin: 0 0 1.4rem;
+  color: var(--blood);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.leak-mast .ouo,
+.leak-mast .ava {
+  margin: 0.4rem 0;
+  font-family: Cinzel, Georgia, serif;
+  letter-spacing: 0.55em;
+  font-size: 1.1rem;
+}
+
+.leak-mast .door {
+  display: block;
+  margin: 0.4rem auto;
+  width: min(280px, 70vw);
+  height: auto;
+}
+
+.leak-mast blockquote {
+  max-width: 22rem;
+  margin: 1.4rem auto 0;
+  font-style: italic;
+  color: var(--mute);
+  border: 0;
+  padding: 0;
+}
+
+.leak-mast blockquote footer {
+  margin-top: 0.5rem;
+  font-style: normal;
+  background: none;
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.leak-stream {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+.leak-item {
+  list-style: none;
+  margin: 0 0 3.2rem;
+  padding: 0;
+}
+
+.leak-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.leak-item .face {
+  display: block;
+  margin: 0 0 0.8rem;
+}
+
+.leak-item .face img,
+.chip-box .chip-face img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.leak-item .when {
+  color: var(--mute);
+  font-size: 0.8rem;
+  margin: 0 0 0.35rem;
+}
+
+.leak-item h2 {
+  font-family: Cinzel, Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.85rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.55rem;
+  line-height: 1.2;
+}
+
+.leak-item h2 a {
+  color: var(--ash);
+  text-decoration: none;
+}
+
+.leak-item h2 a:hover { color: #fff; }
+
+.leak-item .by,
+.chip-box .by {
+  margin: 0.25rem 0 0.45rem;
+  color: var(--mute);
+  font-size: 0.85rem;
+}
+
+.leak-item .dek {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.7rem;
+  color: #eee;
+}
+
+.leak-item .more {
+  color: var(--blood);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.chip-box .chip-title {
+  font-family: Cinzel, Georgia, serif;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+.chip-box .chip-dek {
+  text-transform: uppercase;
+  color: var(--blood);
+  margin: 0 0 1rem;
+}
+
+.chip-letter { line-height: 1.7; }
+
+.desk { max-width: 36rem; }
+.desk h1 {
+  font-family: Cinzel, Georgia, serif;
+  text-transform: uppercase;
+}
+.desk input,
+.desk textarea,
+.desk select {
+  width: 100%;
+  background: #111;
+  color: var(--ash);
+  border: 1px solid #444;
+  padding: 0.4rem;
+  margin: 0.2rem 0 0.7rem;
+  font: inherit;
+}
+
+.leak-foot {
+  text-align: center;
+  padding: 2rem 1rem 2.4rem;
+  border-top: 1px solid #2a2a2a;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.leak-foot .door {
+  width: 88px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.6rem;
+}
+
+.leak-foot a {
+  color: var(--ash);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+}

@@ -1,0 +1,19 @@
+---
+library:
+  file: ~storage/library/chips/LEAK-GOODS-OBS_774.chip
+  type: chip
+  class: goods
+chip:
+  cuid: GOODS-OBS_774
+  auth: MYTHLEAK
+  title: god writing
+origin:
+  space: MYTHLEAK
+  type: goods
+  tool: minter
+notch:
+  mint: 2025-09-28 00:00:00
+  tags: [goods]
+  cites: [~storage/library/goods/LEAK-GOODS-OBS_774.png]
+  owners: [MYTHLEAK]
+---

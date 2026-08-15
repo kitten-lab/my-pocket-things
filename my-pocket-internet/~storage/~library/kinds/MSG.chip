@@ -1,0 +1,15 @@
+---
+library:
+  file: ~storage/library/kinds/MSG.chip
+  type: chip
+  class: kind
+kind:
+  type: MSG
+  letter: yes
+  good: no
+  cite: no
+  auth: writer
+prop:
+  lines: [from, from_space]
+---
+A letter. from and from_space are properties. chip.auth is the writer.

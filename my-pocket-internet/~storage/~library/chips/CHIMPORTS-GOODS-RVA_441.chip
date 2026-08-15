@@ -1,0 +1,19 @@
+---
+library:
+  file: ~storage/library/chips/CHIMPORTS-GOODS-RVA_441.chip
+  type: chip
+  class: goods
+chip:
+  cuid: GOODS-RVA_441
+  auth: CHESTER
+  title: Mary & Jesus Had a Little Lamb
+origin:
+  space: CHESTERS-IMPORTS
+  type: goods
+  tool: minter
+notch:
+  mint: 2025-09-01 00:00:00
+  tags: [goods]
+  cites: [~storage/library/goods/CHIMPORTS-GOODS-RVA_441.webp]
+  owners: [CHESTER]
+---

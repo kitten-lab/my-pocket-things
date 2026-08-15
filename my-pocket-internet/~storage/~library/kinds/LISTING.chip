@@ -1,0 +1,15 @@
+---
+library:
+  file: ~storage/library/kinds/LISTING.chip
+  type: chip
+  class: kind
+kind:
+  type: LISTING
+  letter: yes
+  good: yes
+  cite: yes
+  auth: space
+prop:
+  lines: [price, stock, category]
+---
+A priced paper. Change prop.lines or kind.type here. The minter will follow.

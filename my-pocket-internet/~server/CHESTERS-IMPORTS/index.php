@@ -15,10 +15,10 @@ require_once(STARCORE_ROOT . '/invokeCore.php');
 // load the content for the space and announce the space to the console
 consoleLogger('ENVIRONMENT: ' . ENVIRONMENT, 'BOOT_MSG');
 consoleLogger(Space_Slug . ' by ' . Space_Author . " > " . Space_Description, "BOOT_MSG");
-require_once(STORAGE_ROOT . '/' . Space_Slug . '/defineContent.php');
+include_once(STORAGE_ROOT . '/' . Space_Slug . '/defineContent.php');
 
 // generate the shell for rendering the space
-generateShell('simple', 'space-manager');
+generateShell('simple', 'chester');
 
 ?>
 
