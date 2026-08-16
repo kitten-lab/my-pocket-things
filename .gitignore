@@ -19,6 +19,10 @@ pocket-notebook/prod/notes_sys/data/library.json
 pocket-notebook/prod/**/library.json
 pocket-notebook/prod/**/desk-server.log
 
+# pocket-go: pages ship; Obsidian workspace / plugins stay local
+pocket-go/**/.obsidian/
+pocket-go/**/.trash/
+
 # Operator mats / papers — local only for now (Hands will un-ignore later)
 safe_box/
 **/safe_box/

@@ -9,6 +9,7 @@ Pocket apps for one kind of clay at a time. Not terminals. Not global software.
 | [`pocket-chapbook/`](./pocket-chapbook/) | **CO.MYPT-001-CHAPS** | desk |
 | [`pocket-notebook/`](./pocket-notebook/) | **CO.MYPT-002-NOTES** | desk · work-brain / JSON library |
 | [`pocket-journal/`](./pocket-journal/) | **CO.MYPT-003-JOURNAL** | desk · `.bok` books · map / why / pulls |
+| [`pocket-go/`](./pocket-go/) | **CO.MYPT-004-GO** | desk · early internet · WWW chrome |
 
 **SophiaDesk** (consider desk) → [`../le-awn-industries/el-desks-for-her/sophia-desk/`](../le-awn-industries/el-desks-for-her/sophia-desk/) · **CO.LEA-001-DESK** · green house · not pocket clay.
 

@@ -1,0 +1,156 @@
+/* Deck Host dresses as WWW: this header IS the window chrome
+   (data-deck-chrome). No nested explorer inside a dark caption. */
+:root,
+html {
+  height: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: gray;
+  color: white;
+  font-family: VT323, "Courier New", Consolas, monospace;
+}
+
+.wwwExplorer_chrome {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+}
+
+.wwwExplorer_windowTitleBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.35rem;
+  padding: 0 0.2rem 0 0.45rem;
+  background-image: linear-gradient(to top, #0000cd, #1a3aff);
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  border: 1px solid #0000cd;
+  font-size: 1.35rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #fff;
+  cursor: grab;
+}
+
+.wwwExplorer_mark {
+  flex: 0 0 auto;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wwwExplorer_title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.wwwExplorer_win {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+}
+
+.wwwExplorer_win .dh-cap-btn {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.wwwExplorer_win .dh-cap-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  opacity: 1;
+}
+
+.wwwExplorer_linkBar {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0.35rem 0.45rem 0.45rem;
+  background: gray;
+  -webkit-app-region: no-drag;
+}
+
+.wwwExplorer_linkBar,
+.wwwExplorer_linkBar * {
+  -webkit-app-region: no-drag;
+}
+
+.linkSlug {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.55rem;
+  margin: 0 0.4rem;
+  background-color: white;
+  color: black;
+  font-size: 1.15rem;
+  font-weight: 700;
+  outline: none;
+  overflow: hidden;
+  box-shadow:
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+}
+
+.wwwExplorer_linkBar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  background: gray;
+  color: #111;
+  font: inherit;
+  font-size: 1rem;
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wwwExplorer_linkBar button:active {
+  box-shadow:
+    inset 2px 2px 0 #00000033,
+    inset -2px -2px 0 #ffffff66;
+}
+
+.wwwExplorer_innerShell {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 0.45rem 0.45rem;
+  padding: 0.35rem;
+  background: var(--bg, #161410);
+  overflow: auto;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink, #e8dfd0);
+  box-shadow:
+    inset 2px 2px 0 #00000066,
+    inset -1px -1px 0 #ffffff44;
+}
+
+html.deck-host-deep .wwwExplorer_innerShell {
+  margin: 0;
+  box-shadow: none;
+}
