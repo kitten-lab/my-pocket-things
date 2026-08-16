@@ -29,7 +29,7 @@ None of this means the simple meaning. When has it ever meant the simple meaning
 
 To [[import]] is to lead within, to shepherd the self. To where? A new land. Somewhere stranger.
 
-Oh Chester. Are you myth or are you real? And why do I keep thinking I am writing fiction and finding myself threaded entirely back through?
+Oh [[Chester]]. Are you myth or are you real? And why do I keep thinking I am writing fiction and finding myself threaded entirely back through?
 
 that's it for now, I guess.
 

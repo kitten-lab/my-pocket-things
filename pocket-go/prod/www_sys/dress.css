@@ -1,5 +1,5 @@
 :root {
-  --bg: #161410;
+  --bg: #000;
   --paper: #1e1a14;
   --ink: #e8dfd0;
   --mute: #9a8f7e;
@@ -26,22 +26,30 @@
 .wwwExplorer_innerShell h3 { font-weight: 600; letter-spacing: -0.02em; }
 .wwwExplorer_innerShell a { color: var(--accent); }
 .wiki { border-bottom: 1px dotted var(--accent); text-decoration: none; }
-.worlds {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  gap: 0.75rem;
-}
-.world {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.9rem 1rem;
-  background: var(--paper);
-  border-left: 4px solid var(--accent);
-  color: var(--ink);
+.tag {
+  display: inline-block;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.78em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  padding: 0.08em 0.45em;
+  margin: 0 0.2em 0.15em 0;
   text-decoration: none;
+  line-height: 1.5;
 }
-.world span { color: var(--mute); font-family: monospace; font-size: 0.75rem; }
+.uses {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+.uses h2 {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mute);
+  letter-spacing: 0;
+}
 .dir { list-style: none; padding: 0; }
 .dir li { padding: 0.2rem 0; border-bottom: 1px solid var(--line); }
 .fm {

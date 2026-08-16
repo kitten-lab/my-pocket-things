@@ -19,6 +19,9 @@ PORT = int(os.environ.get("GO_PORT", os.environ.get("LIBRARY_PORT", "43210")))
 SKU = "CO.MYPT-004-GO"
 SKIP = {".obsidian", ".agents", ".claude", ".opencode", ".git", "~reader"}
 ENV_NAME = re.compile(r"^[A-Za-z0-9_-]+$")
+WIKI_RE = re.compile(r"\[\[([^\]|#]+)(?:\|[^\]]+)?\]\]")
+TAG_RE = re.compile(r"(?<![&/\w])#([A-Za-z][\w/-]*)")
+HEADING_RE = re.compile(r"^(#{1,5})\s+(.*)$")
 
 _vault_env = os.environ.get("BONEYARD_VAULT", "").strip()
 VAULT = Path(_vault_env).resolve() if _vault_env else (ROOT / "~library")
@@ -37,17 +40,9 @@ STATIC = {
     "/www.css": ("text/css; charset=utf-8", SYS / "www.css"),
     "/www.js": ("text/javascript; charset=utf-8", SYS / "www.js"),
     "/dress.css": ("text/css; charset=utf-8", SYS / "dress.css"),
+    "/index.css": ("text/css; charset=utf-8", SYS / "index.css"),
 }
-
-
-def worlds() -> list[Path]:
-    if not VAULT.is_dir():
-        return []
-    out = []
-    for p in sorted(VAULT.iterdir(), key=lambda x: x.name.lower()):
-        if p.is_dir() and p.name not in SKIP and not p.name.startswith("."):
-            out.append(p)
-    return out
+INDEX_NAME = "_index.md"
 
 
 def safe_rel(rel: str) -> Path | None:
@@ -125,23 +120,33 @@ def md_lite(src: str) -> str:
         buf.clear()
 
     def inline(s: str) -> str:
+        held: list[str] = []
+
+        def hold(bit: str) -> str:
+            held.append(bit)
+            return f"\x00@{len(held) - 1}@\x00"
+
+        s = re.sub(
+            r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]",
+            lambda m: hold(
+                f'<a class="wiki" href="/?q={html.escape(m.group(1), True)}">'
+                f"{html.escape(m.group(2) or m.group(1))}</a>"
+            ),
+            s,
+        )
+        s = TAG_RE.sub(lambda m: hold(tag_chip(m.group(1))), s)
         s = html.escape(s)
         s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
         s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
         s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
-        s = re.sub(
-            r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]",
-            lambda m: f'<a class="wiki" href="/?q={html.escape(m.group(1), True)}">{html.escape(m.group(2) or m.group(1))}</a>',
-            s,
-        )
-        return s
+        return re.sub(r"\x00@(\d+)@\x00", lambda m: held[int(m.group(1))], s)
 
     for line in lines:
-        if line.startswith("#"):
+        hm = HEADING_RE.match(line)
+        if hm:
             flush()
-            n = len(line) - len(line.lstrip("#"))
-            n = min(max(n, 1), 5)
-            out.append(f"<h{n}>" + inline(line[n:].strip()) + f"</h{n}>")
+            n = min(max(len(hm.group(1)), 1), 5)
+            out.append(f"<h{n}>" + inline(hm.group(2).strip()) + f"</h{n}>")
         elif line.strip() == "---":
             flush()
             out.append("<hr>")
@@ -159,20 +164,280 @@ def md_lite(src: str) -> str:
     return "\n".join(out)
 
 
-def find_note(title: str) -> str | None:
+def iter_notes() -> list[Path]:
     if not VAULT.is_dir():
-        return None
-    needle = title.strip().lower()
-    hits: list[Path] = []
+        return []
+    out: list[Path] = []
     for p in VAULT.rglob("*.md"):
         if any(part in SKIP for part in p.relative_to(VAULT).parts):
             continue
-        if p.stem.lower() == needle or p.stem.lower().startswith(needle):
+        if p.name.lower() == INDEX_NAME:
+            continue
+        out.append(p)
+    return out
+
+
+def split_tags(raw: str) -> list[str]:
+    s = str(raw).strip().strip("[]")
+    tags = []
+    for part in re.split(r",\s*", s):
+        part = part.strip().strip("#").strip()
+        if part:
+            tags.append(part)
+    return tags
+
+
+def tag_chip(name: str) -> str:
+    slug = name.strip().lstrip("#")
+    return (
+        f'<a class="tag" href="/?t={html.escape(slug, True)}">'
+        f"#{html.escape(slug)}</a>"
+    )
+
+
+def wiki_target(raw: str) -> str:
+    t = raw.strip().replace("\\", "/")
+    return t.split("/")[-1].strip().lower()
+
+
+def hit_list(paths: list[Path]) -> str:
+    if not paths:
+        return "<p>none.</p>"
+    items = []
+    for p in sorted(paths, key=lambda x: x.as_posix().lower()):
+        rel = p.relative_to(VAULT).as_posix()
+        items.append(
+            f'<li><a href="/?p={html.escape(rel, True)}">{html.escape(p.stem)}</a>'
+            f'<span class="hit-path">{html.escape(rel)}</span></li>'
+        )
+    return "<ul class='dir hits'>" + "".join(items) + "</ul>"
+
+
+def lookup_wiki(title: str) -> tuple[list[Path], list[Path], list[Path]]:
+    raw = title.strip().replace("\\", "/")
+    needle = wiki_target(raw)
+    want_path = raw.lower()[:-3] if raw.lower().endswith(".md") else raw.lower()
+    want_path = want_path if "/" in raw else ""
+    exact: list[Path] = []
+    nearby: list[Path] = []
+    linked: list[Path] = []
+    path_hits: list[Path] = []
+    for p in iter_notes():
+        rel = p.relative_to(VAULT).as_posix()[:-3].lower()
+        stem = p.stem.lower()
+        if want_path and rel == want_path:
+            path_hits.append(p)
+        if stem == needle:
+            exact.append(p)
+        elif needle and stem.startswith(needle):
+            nearby.append(p)
+        try:
+            text = p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        for m in WIKI_RE.finditer(text):
+            if wiki_target(m.group(1)) == needle:
+                linked.append(p)
+                break
+    if len(path_hits) == 1:
+        exact = path_hits
+    exact_ids = {id(p) for p in exact}
+    linked = [p for p in linked if id(p) not in exact_ids]
+    nearby = [p for p in nearby if id(p) not in exact_ids]
+    return exact, nearby, linked
+
+
+def wiki_page(query: str, exact: list[Path], nearby: list[Path], linked: list[Path]) -> bytes:
+    q = html.escape(query)
+    bits = [f"<h1>[[{q}]]</h1>"]
+    if exact:
+        bits.append("<h2>this name</h2>" + hit_list(exact))
+    if nearby:
+        bits.append("<h2>nearby names</h2>" + hit_list(nearby))
+    if linked:
+        bits.append("<h2>linked from</h2>" + hit_list(linked))
+    if not exact and not nearby and not linked:
+        bits.append("<p>no file by that name, and nobody wikilinked it.</p>")
+    return page(f"[[{query}]]", "\n".join(bits), "#6e6254", "query", f"/?q={query}")
+
+
+def notes_with_tag(slug: str) -> list[Path]:
+    needle = slug.strip().lstrip("#").lower()
+    hits: list[Path] = []
+    for p in iter_notes():
+        try:
+            text = p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        meta, body = parse_fm(text)
+        tags = {t.lower() for k, v in meta.items() if k.lower() in ("tags", "tag") for t in split_tags(str(v))}
+        tags.update(m.group(1).lower() for m in TAG_RE.finditer(body))
+        if needle in tags:
             hits.append(p)
-    if not hits:
+    return hits
+
+
+def tag_page(slug: str) -> bytes:
+    slug = slug.strip().lstrip("#")
+    hits = notes_with_tag(slug)
+    body = f"<h1>{tag_chip(slug)}</h1>" + hit_list(hits)
+    return page(f"#{slug}", body, "#6e6254", "tag", f"/?t={slug}")
+
+
+def fm_row(k: str, v: str) -> str:
+    if k.lower() in ("tags", "tag"):
+        chips = "".join(tag_chip(t) for t in split_tags(str(v)))
+        dd = chips or html.escape(str(v))
+    else:
+        dd = html.escape(str(v))
+    return f"<div><dt>{html.escape(k)}</dt><dd>{dd}</dd></div>"
+
+
+def is_vault_root(folder: Path) -> bool:
+    try:
+        return folder.resolve() == VAULT.resolve()
+    except OSError:
+        return False
+
+
+def load_index(folder: Path) -> tuple[dict, str] | None:
+    p = folder / INDEX_NAME
+    if not p.is_file():
         return None
-    rel = hits[0].relative_to(VAULT).as_posix()
-    return "/?p=" + rel
+    text = p.read_text(encoding="utf-8", errors="replace")
+    return parse_fm(text)
+
+
+def visible_kids(folder: Path) -> list[Path]:
+    if not folder.is_dir():
+        return []
+    kids = []
+    for p in sorted(folder.iterdir(), key=lambda x: (not x.is_dir(), x.name.lower())):
+        if p.name in SKIP or p.name.startswith(".") or p.name.startswith("_"):
+            continue
+        if p.is_dir() or p.suffix.lower() == ".md":
+            kids.append(p)
+    return kids
+
+
+def door_cards(folder: Path) -> str:
+    cards = []
+    for w in visible_kids(folder):
+        if not w.is_dir():
+            continue
+        n = sum(1 for _ in w.rglob("*.md") if "~reader" not in _.parts and _.name.lower() != INDEX_NAME)
+        accent = accent_for(w.name, {})
+        r = w.relative_to(VAULT).as_posix()
+        cards.append(
+            f'<a class="world" href="/?p={html.escape(r, True)}" style="--accent:{accent}">'
+            f"<strong>{html.escape(w.name)}</strong><span>{n} notes</span></a>"
+        )
+    if not cards:
+        return "<p>no folders here.</p>"
+    return "<div class='worlds'>" + "".join(cards) + "</div>"
+
+
+def file_list(folder: Path) -> str:
+    items = []
+    for p in visible_kids(folder):
+        r = p.relative_to(VAULT).as_posix()
+        mark = "/" if p.is_dir() else ""
+        items.append(
+            f'<li><a href="/?p={html.escape(r, True)}">{html.escape(p.name)}{mark}</a></li>'
+        )
+    if not items:
+        return "<p>empty.</p>"
+    return "<ul class='dir'>" + "".join(items) + "</ul>"
+
+
+def fill_slots(body: str, folder: Path) -> str:
+    doors = door_cards(folder)
+    files = file_list(folder)
+    had = False
+    if "{{doors}}" in body or "{{worlds}}" in body:
+        body = body.replace("{{doors}}", doors).replace("{{worlds}}", doors)
+        had = True
+    if "{{files}}" in body or "{{list}}" in body:
+        body = body.replace("{{files}}", files).replace("{{list}}", files)
+        had = True
+    if not had:
+        body = body + "\n" + (doors if is_vault_root(folder) else files)
+    return body
+
+
+def uses_of(name: str, current: Path | None = None) -> tuple[list[Path], list[Path]]:
+    exact, _nearby, linked = lookup_wiki(name)
+    here = None
+    if current is not None:
+        try:
+            here = current.resolve()
+        except OSError:
+            here = current
+    if here is not None:
+        exact = [p for p in exact if p.resolve() != here]
+        linked = [p for p in linked if p.resolve() != here]
+    return exact, linked
+
+
+def uses_block(name: str, current: Path | None = None, empty: bool = False) -> str:
+    others, linked = uses_of(name, current)
+    bits = []
+    if others:
+        bits.append("<h2>also this name</h2>" + hit_list(others))
+    if linked:
+        bits.append(
+            f"<h2>uses of [[{html.escape(name)}]]</h2>" + hit_list(linked)
+        )
+    if not bits:
+        if not empty:
+            return ""
+        bits.append("<p>no other bags of this word yet.</p>")
+    return "<section class='uses'>" + "".join(bits) + "</section>"
+
+
+def fill_uses(body: str, name: str, current: Path) -> str:
+    has_slot = "{{uses}}" in body or "{{bags}}" in body
+    block = uses_block(name, current, empty=has_slot)
+    if has_slot:
+        return body.replace("{{uses}}", block).replace("{{bags}}", block)
+    if block:
+        return body + "\n" + block
+    return body
+
+
+def folder_crumbs(rel: str) -> str:
+    if not rel:
+        return ""
+    return " / ".join(
+        f'<a href="/?p={html.escape("/".join(Path(rel).parts[: i + 1]), True)}">{html.escape(part)}</a>'
+        for i, part in enumerate(Path(rel).parts)
+    )
+
+
+def render_folder(folder: Path) -> bytes:
+    rel = "" if is_vault_root(folder) else folder.relative_to(VAULT).as_posix()
+    extras = ["/index.css"] if (SYS / "index.css").is_file() else []
+    loaded = load_index(folder)
+    if loaded:
+        meta, src = loaded
+        title = meta.get("title") or (folder.name if rel else "root")
+        body = fill_slots(md_lite(src), folder)
+        crumb = folder_crumbs(rel) if rel else html.escape(str(meta.get("crumb") or title))
+        bar = "/" if not rel else pocket_bar(rel, True)
+        return page(
+            title,
+            body,
+            accent_for(rel, meta),
+            crumb,
+            bar,
+            meta.get("environment"),
+            extras,
+        )
+    if not rel:
+        body = "<h1>root</h1>" + door_cards(folder)
+        return page("root", body, "#6e6254", "root", "/", extra_css=extras)
+    body = f"<h1>{html.escape(folder.name)}</h1>" + file_list(folder)
+    return page(folder.name, body, accent_for(rel, {}), folder_crumbs(rel), pocket_bar(rel, True), extra_css=extras)
 
 
 def page(
@@ -182,11 +447,14 @@ def page(
     crumb: str,
     bar: str = "/",
     environment: str | None = None,
+    extra_css: list[str] | None = None,
 ) -> bytes:
     skin = env_name(environment)
     extra = ""
+    for href in extra_css or []:
+        extra += f'<link rel="stylesheet" href="{html.escape(href, True)}">\n'
     if skin:
-        extra = f'<link rel="stylesheet" href="/styles/{html.escape(skin, True)}.css">\n'
+        extra += f'<link rel="stylesheet" href="/styles/{html.escape(skin, True)}.css">\n'
     html_out = f"""<!doctype html>
 <html lang="en" data-pocket="{html.escape(bar, True)}">
 <head>
@@ -200,7 +468,7 @@ def page(
 <body>
 <header class="wwwExplorer_chrome" data-deck-chrome>
   <div class="wwwExplorer_windowTitleBar" data-deck-drag>
-    <span class="wwwExplorer_mark" data-deck-menu title="Menu">&gt;| WWW</span>
+    <span class="wwwExplorer_mark" data-deck-menu title="Menu">mypi:go</span>
     <span class="wwwExplorer_title">{html.escape(title)}</span>
     <div class="wwwExplorer_win" data-deck-window-controls aria-label="Window"></div>
   </div>
@@ -289,18 +557,30 @@ class Handler(BaseHTTPRequestHandler):
             return
         qs = parse_qs(u.query)
         if "q" in qs:
-            dest = find_note(qs["q"][0])
-            self.send_response(302)
-            self.send_header("Location", dest or "/")
-            self.end_headers()
+            q = qs["q"][0]
+            exact, nearby, linked = lookup_wiki(q)
+            if len(exact) == 1:
+                rel = exact[0].relative_to(VAULT).as_posix()
+                self.send_response(302)
+                self.send_header("Location", "/?p=" + rel)
+                self.end_headers()
+                return
+            self.send_html(wiki_page(q, exact, nearby, linked))
+            return
+        if "t" in qs:
+            self.send_html(tag_page(qs["t"][0]))
             return
         rel = unquote(qs.get("p", [""])[0]).strip("/")
-        if not rel:
+        if not rel or rel.lower() in ("_index", INDEX_NAME):
             self.send_html(self.index())
             return
         target = safe_rel(rel)
         if target is None or not target.exists():
             self.send_html(page("missing", "<p>gone.</p>", "#6e6254", rel, pocket_bar(rel)), 404)
+            return
+        if target.is_file() and target.name.lower() == INDEX_NAME:
+            parent = target.parent
+            self.send_html(self.index() if is_vault_root(parent) else self.listing(parent))
             return
         if target.is_dir():
             self.send_html(self.listing(target))
@@ -311,12 +591,9 @@ class Handler(BaseHTTPRequestHandler):
             accent = accent_for(rel, meta)
             bits = []
             if meta:
-                rows = "".join(
-                    f"<div><dt>{html.escape(k)}</dt><dd>{html.escape(str(v))}</dd></div>"
-                    for k, v in meta.items()
-                )
+                rows = "".join(fm_row(k, str(v)) for k, v in meta.items())
                 bits.append(f"<dl class='fm'>{rows}</dl>")
-            bits.append(md_lite(body))
+            bits.append(fill_uses(md_lite(body), target.stem, target))
             crumb = " / ".join(
                 f'<a href="/?p={html.escape("/".join(Path(rel).parts[: i + 1]), True)}">{html.escape(part)}</a>'
                 for i, part in enumerate(Path(rel).parts)
@@ -335,37 +612,10 @@ class Handler(BaseHTTPRequestHandler):
         self.send_html(page("no", "<p>not a note.</p>", "#6e6254", rel, pocket_bar(rel)), 415)
 
     def index(self) -> bytes:
-        cards = []
-        for w in worlds():
-            n = sum(1 for _ in w.rglob("*.md") if "~reader" not in _.parts)
-            accent = accent_for(w.name, {})
-            cards.append(
-                f'<a class="world" href="/?p={html.escape(w.name, True)}" style="--accent:{accent}">'
-                f"<strong>{html.escape(w.name)}</strong><span>{n} notes</span></a>"
-            )
-        body = "<h1>worlds</h1><div class='worlds'>" + "".join(cards) + "</div>"
-        if not cards:
-            body = "<h1>worlds</h1><p>vault is empty — drop notes in ~library.</p>"
-        return page("worlds", body, "#6e6254", "home", "/")
+        return render_folder(VAULT)
 
     def listing(self, folder: Path) -> bytes:
-        rel = folder.relative_to(VAULT).as_posix()
-        items = []
-        for p in sorted(folder.iterdir(), key=lambda x: (not x.is_dir(), x.name.lower())):
-            if p.name in SKIP or p.name.startswith("."):
-                continue
-            if p.is_dir() or p.suffix.lower() == ".md":
-                r = p.relative_to(VAULT).as_posix()
-                mark = "/" if p.is_dir() else ""
-                items.append(
-                    f'<li><a href="/?p={html.escape(r, True)}">{html.escape(p.name)}{mark}</a></li>'
-                )
-        crumb = " / ".join(
-            f'<a href="/?p={html.escape("/".join(Path(rel).parts[: i + 1]), True)}">{html.escape(part)}</a>'
-            for i, part in enumerate(Path(rel).parts)
-        )
-        body = f"<h1>{html.escape(folder.name)}</h1><ul class='dir'>{''.join(items)}</ul>"
-        return page(folder.name, body, accent_for(rel, {}), crumb, pocket_bar(rel, True))
+        return render_folder(folder)
 
 
 if __name__ == "__main__":

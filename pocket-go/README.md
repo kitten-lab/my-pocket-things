@@ -23,11 +23,13 @@ run-go.bat
 
 Pocket paths, not `?p=`:
 
-- `/` — worlds
+- `/` — home (`~library/_index.md`)
 - `/Chester's Imports/` — folder
 - `/Chester's Imports/.../note.md` — note
 
 Wiki `[[links]]` still resolve. Extra skins via note frontmatter `environment: terminal-io` → `www_sys/styles/terminal-io.css`.
+
+Home (`/`) is [`~library/_index.md`](./~library/_index.md). Drop `_index.md` in any folder the same way — optional. Tokens: `{{doors}}` folder cards, `{{files}}` the note/folder list. Look: `prod/www_sys/index.css`. Don't need to touch `server.py`.
 
 GO on a path that is not a vault path is a later pocket door (my-pocket-internet rooms). Not this cut.
 

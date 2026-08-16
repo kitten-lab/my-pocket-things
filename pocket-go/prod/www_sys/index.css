@@ -1,0 +1,21 @@
+/* Home / root only. Notes keep dress.css. */
+.worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+.world {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  color: var(--ink);
+  text-decoration: none;
+}
+.world span {
+  color: var(--mute);
+  font-family: monospace;
+  font-size: 0.75rem;
+}
