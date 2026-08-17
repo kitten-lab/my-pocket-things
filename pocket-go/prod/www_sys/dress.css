@@ -1,67 +1,117 @@
+/* Default document: Netscape didn't show up. Environment skins may override :root. */
 :root {
-  --bg: #000;
-  --paper: #1e1a14;
-  --ink: #e8dfd0;
-  --mute: #9a8f7e;
-  --line: #3a342c;
-  --accent: #6e6254;
+  --bg: #ffffff;
+  --paper: #c0c0c0;
+  --ink: #000000;
+  --mute: #404040;
+  --line: #808080;
+  --accent: blue;
+  --visited: purple;
+  --active: red;
 }
 .wwwExplorer_innerShell,
 .wwwExplorer_innerShell * { box-sizing: border-box; }
 .wwwExplorer_innerShell {
   background: var(--bg);
   color: var(--ink);
-  font: 16px/1.55 "Georgia", "Times New Roman", serif;
+  font: 16px/1.4 "Times New Roman", Times, serif;
 }
 .wwwExplorer_innerShell .crumb {
   color: var(--mute);
-  font-family: "Consolas", "Courier New", monospace;
-  font-size: 0.82rem;
-  padding: 0.4rem 0.85rem 0;
+  font-size: 14px;
+  padding: 8px 12px 0;
 }
-.wwwExplorer_innerShell .crumb a { color: var(--mute); }
-#browserWindow { max-width: 42rem; padding: 1.5rem 1.25rem 4rem; }
+#browserWindow { max-width: 640px; padding: 8px 16px 48px; }
 .wwwExplorer_innerShell h1,
 .wwwExplorer_innerShell h2,
-.wwwExplorer_innerShell h3 { font-weight: 600; letter-spacing: -0.02em; }
-.wwwExplorer_innerShell a { color: var(--accent); }
-.wiki { border-bottom: 1px dotted var(--accent); text-decoration: none; }
-.tag {
-  display: inline-block;
-  font-family: "Consolas", "Courier New", monospace;
-  font-size: 0.78em;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
-  padding: 0.08em 0.45em;
-  margin: 0 0.2em 0.15em 0;
-  text-decoration: none;
-  line-height: 1.5;
-}
-.uses {
-  margin-top: 2.5rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line);
-}
-.uses h2 {
-  font-family: "Consolas", "Courier New", monospace;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--mute);
+.wwwExplorer_innerShell h3 {
+  font-weight: bold;
   letter-spacing: 0;
 }
-.dir { list-style: none; padding: 0; }
-.dir li { padding: 0.2rem 0; border-bottom: 1px solid var(--line); }
-.fm {
-  font-family: monospace;
-  font-size: 0.78rem;
-  color: var(--mute);
-  border: 1px solid var(--line);
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 1.5rem;
+.wwwExplorer_innerShell a:link { color: var(--accent); }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: var(--visited); }
+.wiki { text-decoration: underline; }
+.tag {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  color: blue;
+  text-decoration: underline;
 }
-.fm div { display: grid; grid-template-columns: 8rem 1fr; gap: 0.4rem; }
-.fm dt { color: var(--accent); }
-pre.tbl { margin: 0; font-size: 0.8rem; color: var(--mute); }
-.wwwExplorer_innerShell code { font-size: 0.88em; }
-.wwwExplorer_innerShell hr { border: 0; border-top: 1px solid var(--line); }
+.tag.been { color: purple; }
+.uses {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 2px groove var(--paper);
+}
+.uses h2 {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--ink);
+}
+.headers {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 2px groove var(--paper);
+  color: var(--mute);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+}
+.headers summary {
+  cursor: pointer;
+  color: var(--mute);
+  width: max-content;
+}
+.headers .fm {
+  margin: 0.6em 0 0;
+}
+.dir { padding-left: 1.4em; }
+.dir li { padding: 0.1em 0; }
+.hits .hit-path {
+  display: block;
+  color: var(--mute);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+.fm {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  color: var(--ink);
+  border: 1px solid #000;
+  background: var(--paper);
+  padding: 6px 8px;
+}
+.fm div { display: grid; grid-template-columns: 8em 1fr; gap: 0.25em 0.6em; }
+.fm dt { color: var(--ink); font-weight: bold; }
+pre.tbl { margin: 0; font-size: 13px; }
+.wwwExplorer_innerShell pre.code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  font-style: normal;
+  white-space: pre;
+  margin: 0.8em 0;
+  overflow-x: auto;
+}
+.wwwExplorer_innerShell code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+.wwwExplorer_innerShell img.pic {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.pic-miss { color: var(--mute); font-family: "Courier New", Courier, monospace; font-size: 13px; }
+.wwwExplorer_innerShell hr {
+  border: 0;
+  height: 2px;
+  background: var(--line);
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: var(--ink);
+  margin: 0;
+  padding: 0;
+}

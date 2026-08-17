@@ -7,21 +7,49 @@ import html
 import json
 import os
 import re
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 
 SYS = Path(__file__).resolve().parent
 ROOT = SYS.parents[1]  # pocket-go/
 STYLES = SYS / "styles"
+BEEN_FILE = ROOT / "prod" / "been.json"
+BEEN_LOCK = threading.Lock()
 HOST = "127.0.0.1"
 PORT = int(os.environ.get("GO_PORT", os.environ.get("LIBRARY_PORT", "43210")))
 SKU = "CO.MYPT-004-GO"
+GO_HOST = "library"
 SKIP = {".obsidian", ".agents", ".claude", ".opencode", ".git", "~reader"}
 ENV_NAME = re.compile(r"^[A-Za-z0-9_-]+$")
 WIKI_RE = re.compile(r"\[\[([^\]|#]+)(?:\|[^\]]+)?\]\]")
 TAG_RE = re.compile(r"(?<![&/\w])#([A-Za-z][\w/-]*)")
 HEADING_RE = re.compile(r"^(#{1,5})\s+(.*)$")
+DRESS_LEAD = re.compile(
+    r"^(?:\{\{\.([A-Za-z][\w.-]*?)(?:#([A-Za-z][\w-]*))?\}\}|\{\{#([A-Za-z][\w-]*)\}\})\s*"
+)
+SPAN_RE = re.compile(
+    r"\{\{span:(\.[A-Za-z][\w.-]*(?:#[A-Za-z][\w-]*)?|#[A-Za-z][\w-]*|[A-Za-z][\w.-]*)\}\}(.*?)\{\{/span\}\}"
+)
+DIV_OPEN = re.compile(
+    r"^\{\{(?:div|block):(\.[A-Za-z][\w.-]*(?:#[A-Za-z][\w-]*)?|#[A-Za-z][\w-]*|[A-Za-z][\w.-]*)\}\}\s*$"
+)
+DIV_CLOSE = re.compile(r"^\{\{/(?:div|block)\}\}\s*$")
+IMG_EMBED_RE = re.compile(r"!\[\[([^\]|#]+)(?:\|([^\]]+))?\]\]")
+IMG_TOKEN_RE = re.compile(r"\{\{img:([^}|]+)(?:\|([^}]*))?\}\}")
+IMG_MD_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+IMAGE_EXT = {".gif", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".bmp", ".ico"}
+IMAGE_TYPE = {
+    ".gif": "image/gif",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".webp": "image/webp",
+    ".svg": "image/svg+xml",
+    ".bmp": "image/bmp",
+    ".ico": "image/x-icon",
+}
 
 _vault_env = os.environ.get("BONEYARD_VAULT", "").strip()
 VAULT = Path(_vault_env).resolve() if _vault_env else (ROOT / "~library")
@@ -43,6 +71,42 @@ STATIC = {
     "/index.css": ("text/css; charset=utf-8", SYS / "index.css"),
 }
 INDEX_NAME = "_index.md"
+BEEN_MAX = 2000
+
+
+def been_clean(raw) -> list[str]:
+    if isinstance(raw, dict):
+        raw = raw.get("been", [])
+    if not isinstance(raw, list):
+        return []
+    out: list[str] = []
+    seen: set[str] = set()
+    for x in raw:
+        if not isinstance(x, str) or not x.startswith("/") or len(x) > 500:
+            continue
+        if x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+    return out[-BEEN_MAX:]
+
+
+def been_load() -> list[str]:
+    with BEEN_LOCK:
+        if not BEEN_FILE.is_file():
+            return []
+        try:
+            return been_clean(json.loads(BEEN_FILE.read_text(encoding="utf-8")))
+        except (OSError, json.JSONDecodeError):
+            return []
+
+
+def been_save(keys: list[str]) -> list[str]:
+    clean = been_clean(keys)
+    with BEEN_LOCK:
+        BEEN_FILE.parent.mkdir(parents=True, exist_ok=True)
+        BEEN_FILE.write_text(json.dumps({"been": clean}, indent=0) + "\n", encoding="utf-8")
+    return clean
 
 
 def safe_rel(rel: str) -> Path | None:
@@ -59,13 +123,54 @@ def safe_rel(rel: str) -> Path | None:
     return target
 
 
+def find_media(name: str) -> Path | None:
+    raw = name.strip().replace("\\", "/").strip("/")
+    if not raw or "://" in raw:
+        return None
+    if "/" in raw:
+        target = safe_rel(raw)
+        if target is not None and target.is_file() and target.suffix.lower() in IMAGE_EXT:
+            return target
+    needle = Path(raw).name.lower()
+    hits: list[Path] = []
+    if VAULT.is_dir():
+        for p in VAULT.rglob("*"):
+            if not p.is_file() or p.suffix.lower() not in IMAGE_EXT:
+                continue
+            if p.name.lower() != needle:
+                continue
+            if any(part in SKIP for part in p.relative_to(VAULT).parts):
+                continue
+            hits.append(p)
+    if not hits:
+        return None
+    hits.sort(key=lambda x: x.as_posix().lower())
+    return hits[0]
+
+
+def img_tag(name: str, alt: str = "") -> str:
+    p = find_media(name)
+    if p is None:
+        label = html.escape(name.strip() or "picture")
+        return f'<span class="pic-miss">[no picture: {label}]</span>'
+    rel = p.relative_to(VAULT).as_posix()
+    src = "/i/" + quote(rel, safe="/")
+    label = (alt or "").strip() or p.name
+    return (
+        f'<img class="pic" src="{html.escape(src, True)}" '
+        f'alt="{html.escape(label, True)}">'
+    )
+
+
 def pocket_bar(rel: str, is_dir: bool = False) -> str:
+    host = "go." + GO_HOST
     if not rel:
-        return "/"
-    p = "/" + rel.replace("\\", "/").strip("/")
+        return host + "/"
+    p = rel.replace("\\", "/").strip("/")
+    bar = host + "/" + p
     if is_dir:
-        p += "/"
-    return p
+        bar += "/"
+    return bar
 
 
 def parse_fm(text: str) -> tuple[dict, str]:
@@ -107,17 +212,71 @@ def env_name(raw: str | None) -> str | None:
     return name
 
 
+def parse_spec(spec: str) -> tuple[str, str]:
+    spec = spec.strip()
+    cls, eid = "", ""
+    if spec.startswith("#"):
+        eid = spec[1:]
+    else:
+        if spec.startswith("."):
+            spec = spec[1:]
+        if "#" in spec:
+            spec, eid = spec.split("#", 1)
+        cls = " ".join(p for p in spec.split(".") if p)
+    cls = " ".join(c for c in cls.split() if ENV_NAME.fullmatch(c))
+    if eid and not ENV_NAME.fullmatch(eid):
+        eid = ""
+    return cls, eid
+
+
+def html_attrs(cls: str, eid: str) -> str:
+    bits = []
+    if cls:
+        bits.append(f'class="{html.escape(cls, True)}"')
+    if eid:
+        bits.append(f'id="{html.escape(eid, True)}"')
+    return (" " + " ".join(bits)) if bits else ""
+
+
+def take_dress(s: str) -> tuple[str, str, str]:
+    classes: list[str] = []
+    eid = ""
+    while True:
+        m = DRESS_LEAD.match(s)
+        if not m:
+            break
+        if m.group(1):
+            classes.extend(p for p in m.group(1).split(".") if ENV_NAME.fullmatch(p))
+            if m.group(2) and ENV_NAME.fullmatch(m.group(2)):
+                eid = m.group(2)
+        elif m.group(3) and ENV_NAME.fullmatch(m.group(3)):
+            eid = m.group(3)
+        s = s[m.end() :]
+    return s, " ".join(classes), eid
+
+
 def md_lite(src: str) -> str:
     lines = src.replace("\r\n", "\n").split("\n")
     out: list[str] = []
     buf: list[str] = []
+    open_divs = 0
+
+    fence: list[str] | None = None
 
     def flush() -> None:
         if not buf:
             return
-        para = " ".join(buf)
-        out.append("<p>" + inline(para) + "</p>")
+        para, cls, eid = take_dress(" ".join(buf))
+        out.append(f"<p{html_attrs(cls, eid)}>" + inline(para) + "</p>")
         buf.clear()
+
+    def flush_fence() -> None:
+        nonlocal fence
+        if fence is None:
+            return
+        body = html.escape("\n".join(fence))
+        out.append(f"<pre class='code'><code>{body}</code></pre>")
+        fence = None
 
     def inline(s: str) -> str:
         held: list[str] = []
@@ -127,6 +286,23 @@ def md_lite(src: str) -> str:
             return f"\x00@{len(held) - 1}@\x00"
 
         s = re.sub(
+            r"`([^`]+)`",
+            lambda m: hold("<code>" + html.escape(m.group(1)) + "</code>"),
+            s,
+        )
+        s = IMG_EMBED_RE.sub(
+            lambda m: hold(img_tag(m.group(1), m.group(2) or "")),
+            s,
+        )
+        s = IMG_TOKEN_RE.sub(
+            lambda m: hold(img_tag(m.group(1), m.group(2) or "")),
+            s,
+        )
+        s = IMG_MD_RE.sub(
+            lambda m: hold(img_tag(m.group(2), m.group(1) or "")),
+            s,
+        )
+        s = re.sub(
             r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]",
             lambda m: hold(
                 f'<a class="wiki" href="/?q={html.escape(m.group(1), True)}">'
@@ -135,18 +311,47 @@ def md_lite(src: str) -> str:
             s,
         )
         s = TAG_RE.sub(lambda m: hold(tag_chip(m.group(1))), s)
+        s = SPAN_RE.sub(
+            lambda m: hold(f"<span{html_attrs(*parse_spec(m.group(1)))}>")
+            + m.group(2)
+            + hold("</span>"),
+            s,
+        )
         s = html.escape(s)
         s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
         s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
-        s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
         return re.sub(r"\x00@(\d+)@\x00", lambda m: held[int(m.group(1))], s)
 
     for line in lines:
+        if fence is not None:
+            if line.strip().startswith("```"):
+                flush_fence()
+            else:
+                fence.append(line)
+            continue
+        if line.strip().startswith("```"):
+            flush()
+            fence = []
+            continue
+        raw = line.strip()
+        opened = DIV_OPEN.match(raw)
+        if opened:
+            flush()
+            out.append(f"<div{html_attrs(*parse_spec(opened.group(1)))}>")
+            open_divs += 1
+            continue
+        if DIV_CLOSE.match(raw):
+            flush()
+            if open_divs:
+                out.append("</div>")
+                open_divs -= 1
+            continue
         hm = HEADING_RE.match(line)
         if hm:
             flush()
             n = min(max(len(hm.group(1)), 1), 5)
-            out.append(f"<h{n}>" + inline(hm.group(2).strip()) + f"</h{n}>")
+            text, cls, eid = take_dress(hm.group(2).strip())
+            out.append(f"<h{n}{html_attrs(cls, eid)}>" + inline(text) + f"</h{n}>")
         elif line.strip() == "---":
             flush()
             out.append("<hr>")
@@ -155,12 +360,17 @@ def md_lite(src: str) -> str:
             out.append("<pre class='tbl'>" + html.escape(line) + "</pre>")
         elif re.match(r"^[-*]\s+", line):
             flush()
-            out.append("<li>" + inline(re.sub(r"^[-*]\s+", "", line)) + "</li>")
+            text, cls, eid = take_dress(re.sub(r"^[-*]\s+", "", line))
+            out.append(f"<li{html_attrs(cls, eid)}>" + inline(text) + "</li>")
         elif not line.strip():
             flush()
         else:
             buf.append(line)
     flush()
+    flush_fence()
+    while open_divs:
+        out.append("</div>")
+        open_divs -= 1
     return "\n".join(out)
 
 
@@ -258,7 +468,7 @@ def wiki_page(query: str, exact: list[Path], nearby: list[Path], linked: list[Pa
         bits.append("<h2>linked from</h2>" + hit_list(linked))
     if not exact and not nearby and not linked:
         bits.append("<p>no file by that name, and nobody wikilinked it.</p>")
-    return page(f"[[{query}]]", "\n".join(bits), "#6e6254", "query", f"/?q={query}")
+    return page(f"[[{query}]]", "\n".join(bits), "#6e6254", "query", pocket_bar(""))
 
 
 def notes_with_tag(slug: str) -> list[Path]:
@@ -281,7 +491,27 @@ def tag_page(slug: str) -> bytes:
     slug = slug.strip().lstrip("#")
     hits = notes_with_tag(slug)
     body = f"<h1>{tag_chip(slug)}</h1>" + hit_list(hits)
-    return page(f"#{slug}", body, "#6e6254", "tag", f"/?t={slug}")
+    return page(f"#{slug}", body, "#6e6254", "tag", pocket_bar(""))
+
+
+def fm_inline(s: str) -> str:
+    held: list[str] = []
+
+    def hold(bit: str) -> str:
+        held.append(bit)
+        return f"\x00@{len(held) - 1}@\x00"
+
+    s = re.sub(
+        r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]",
+        lambda m: hold(
+            f'<a class="wiki" href="/?q={html.escape(m.group(1), True)}">'
+            f"{html.escape(m.group(2) or m.group(1))}</a>"
+        ),
+        s,
+    )
+    s = TAG_RE.sub(lambda m: hold(tag_chip(m.group(1))), s)
+    s = html.escape(s)
+    return re.sub(r"\x00@(\d+)@\x00", lambda m: held[int(m.group(1))], s)
 
 
 def fm_row(k: str, v: str) -> str:
@@ -289,8 +519,20 @@ def fm_row(k: str, v: str) -> str:
         chips = "".join(tag_chip(t) for t in split_tags(str(v)))
         dd = chips or html.escape(str(v))
     else:
-        dd = html.escape(str(v))
+        dd = fm_inline(str(v))
     return f"<div><dt>{html.escape(k)}</dt><dd>{dd}</dd></div>"
+
+
+def headers_block(meta: dict) -> str:
+    if not meta:
+        return ""
+    rows = "".join(fm_row(k, str(v)) for k, v in meta.items())
+    return (
+        "<details class='headers'>"
+        "<summary>headers</summary>"
+        f"<dl class='fm'>{rows}</dl>"
+        "</details>"
+    )
 
 
 def is_vault_root(folder: Path) -> bool:
@@ -337,31 +579,45 @@ def door_cards(folder: Path) -> str:
     return "<div class='worlds'>" + "".join(cards) + "</div>"
 
 
-def file_list(folder: Path) -> str:
+def file_list(folder: Path, kind: str = "files") -> str:
     items = []
     for p in visible_kids(folder):
+        if kind == "files" and p.is_dir():
+            continue
+        if kind == "dirs" and not p.is_dir():
+            continue
         r = p.relative_to(VAULT).as_posix()
         mark = "/" if p.is_dir() else ""
         items.append(
             f'<li><a href="/?p={html.escape(r, True)}">{html.escape(p.name)}{mark}</a></li>'
         )
     if not items:
+        if kind == "files":
+            return "<p>no notes here.</p>"
+        if kind == "dirs":
+            return "<p>no folders here.</p>"
         return "<p>empty.</p>"
     return "<ul class='dir'>" + "".join(items) + "</ul>"
 
 
 def fill_slots(body: str, folder: Path) -> str:
     doors = door_cards(folder)
-    files = file_list(folder)
+    notes = file_list(folder, "files")
+    listing = file_list(folder, "all")
+    rel = "" if is_vault_root(folder) else folder.relative_to(VAULT).as_posix()
     had = False
     if "{{doors}}" in body or "{{worlds}}" in body:
         body = body.replace("{{doors}}", doors).replace("{{worlds}}", doors)
         had = True
-    if "{{files}}" in body or "{{list}}" in body:
-        body = body.replace("{{files}}", files).replace("{{list}}", files)
+    if "{{files}}" in body:
+        body = body.replace("{{files}}", notes)
         had = True
+    if "{{dir}}" in body or "{{list}}" in body:
+        body = body.replace("{{dir}}", listing).replace("{{list}}", listing)
+        had = True
+    body = place_crumb(body, rel)
     if not had:
-        body = body + "\n" + (doors if is_vault_root(folder) else files)
+        body = body + "\n" + (doors if is_vault_root(folder) else listing)
     return body
 
 
@@ -399,19 +655,47 @@ def fill_uses(body: str, name: str, current: Path) -> str:
     has_slot = "{{uses}}" in body or "{{bags}}" in body
     block = uses_block(name, current, empty=has_slot)
     if has_slot:
-        return body.replace("{{uses}}", block).replace("{{bags}}", block)
-    if block:
-        return body + "\n" + block
-    return body
+        body = body.replace("{{uses}}", block).replace("{{bags}}", block)
+    elif block:
+        body = body + "\n" + block
+    rel = current.relative_to(VAULT).as_posix()
+    return place_crumb(body, rel)
 
 
 def folder_crumbs(rel: str) -> str:
+    home = '<a href="/">~/</a>'
     if not rel:
-        return ""
-    return " / ".join(
+        return home
+    rest = " / ".join(
         f'<a href="/?p={html.escape("/".join(Path(rel).parts[: i + 1]), True)}">{html.escape(part)}</a>'
         for i, part in enumerate(Path(rel).parts)
     )
+    return home + " / " + rest
+
+
+def crumb_back(rel: str) -> str:
+    parts = Path(rel.replace("\\", "/")).parts if rel else ()
+    if not parts:
+        return ""
+    parent = parts[:-1]
+    if not parent:
+        link = '<a class="crumbback" href="/">../</a>'
+    else:
+        dest = "/".join(parent)
+        link = (
+            f'<a class="crumbback" href="/?p={html.escape(dest, True)}">'
+            f"../{html.escape(parent[-1])}</a>"
+        )
+    return f'<nav class="crumb crumb-back">{link}</nav>'
+
+
+def place_crumb(body: str, rel: str) -> str:
+    nav = f'<nav class="crumb">{folder_crumbs(rel)}</nav>'
+    if "{{crumb}}" in body or "{{bread}}" in body:
+        body = body.replace("{{crumb}}", nav).replace("{{bread}}", nav)
+    if "{{crumbback}}" in body:
+        body = body.replace("{{crumbback}}", crumb_back(rel))
+    return body
 
 
 def render_folder(folder: Path) -> bytes:
@@ -422,8 +706,8 @@ def render_folder(folder: Path) -> bytes:
         meta, src = loaded
         title = meta.get("title") or (folder.name if rel else "root")
         body = fill_slots(md_lite(src), folder)
-        crumb = folder_crumbs(rel) if rel else html.escape(str(meta.get("crumb") or title))
-        bar = "/" if not rel else pocket_bar(rel, True)
+        crumb = folder_crumbs(rel)
+        bar = pocket_bar(rel, True)
         return page(
             title,
             body,
@@ -435,8 +719,8 @@ def render_folder(folder: Path) -> bytes:
         )
     if not rel:
         body = "<h1>root</h1>" + door_cards(folder)
-        return page("root", body, "#6e6254", "root", "/", extra_css=extras)
-    body = f"<h1>{html.escape(folder.name)}</h1>" + file_list(folder)
+        return page("root", body, "#6e6254", folder_crumbs(""), pocket_bar(""), extra_css=extras)
+    body = f"<h1>{html.escape(folder.name)}</h1>" + file_list(folder, "all")
     return page(folder.name, body, accent_for(rel, {}), folder_crumbs(rel), pocket_bar(rel, True), extra_css=extras)
 
 
@@ -463,7 +747,7 @@ def page(
 <title>{html.escape(title)} · pocket-go</title>
 <link rel="stylesheet" href="/www.css">
 <link rel="stylesheet" href="/dress.css">
-<style>:root {{ --accent: {accent}; }}</style>
+<style>:root {{ --note-accent: {accent}; }}</style>
 {extra}</head>
 <body>
 <header class="wwwExplorer_chrome" data-deck-chrome>
@@ -477,16 +761,16 @@ def page(
     <button type="button" data-webbar="forward">forward</button>
     <button type="button" id="REFRESH" data-webbar="refresh"
             title="Shift/Ctrl+click = hard refresh">refresh</button>
-    <span id="wwwBar" class="linkSlug" contenteditable="true" spellcheck="false">{html.escape(bar)}</span>
+    <span id="wwwBar" class="linkSlug" spellcheck="false" title="click a piece to go · double-click to type">{html.escape(bar)}</span>
     <button type="button" id="GO" data-webbar="go">GO!</button>
   </div>
 </header>
 <div class="wwwExplorer_innerShell">
-  <nav class="crumb">{crumb}</nav>
   <main id="browserWindow">
 {body}
   </main>
 </div>
+<footer class="wwwExplorer_status"><span id="wwwStatus">Done</span></footer>
 <script src="/www.js"></script>
 </body></html>"""
     return html_out.encode("utf-8")
@@ -545,6 +829,25 @@ class Handler(BaseHTTPRequestHandler):
                 "application/json; charset=utf-8",
             )
             return
+        if u.path == "/api/been":
+            self.send_bytes(
+                json.dumps({"been": been_load()}).encode("utf-8"),
+                "application/json; charset=utf-8",
+            )
+            return
+        if u.path.startswith("/i/"):
+            rel = unquote(u.path[len("/i/") :]).strip("/")
+            target = safe_rel(rel)
+            if (
+                target is None
+                or not target.is_file()
+                or target.suffix.lower() not in IMAGE_EXT
+            ):
+                self.send_error(404)
+                return
+            ctype = IMAGE_TYPE.get(target.suffix.lower(), "application/octet-stream")
+            self.send_bytes(target.read_bytes(), ctype)
+            return
         if u.path in STATIC:
             ctype, file = STATIC[u.path]
             if not file.is_file():
@@ -589,15 +892,11 @@ class Handler(BaseHTTPRequestHandler):
             text = target.read_text(encoding="utf-8", errors="replace")
             meta, body = parse_fm(text)
             accent = accent_for(rel, meta)
-            bits = []
-            if meta:
-                rows = "".join(fm_row(k, str(v)) for k, v in meta.items())
-                bits.append(f"<dl class='fm'>{rows}</dl>")
-            bits.append(fill_uses(md_lite(body), target.stem, target))
-            crumb = " / ".join(
-                f'<a href="/?p={html.escape("/".join(Path(rel).parts[: i + 1]), True)}">{html.escape(part)}</a>'
-                for i, part in enumerate(Path(rel).parts)
-            )
+            bits = [fill_uses(md_lite(body), target.stem, target)]
+            slip = headers_block(meta)
+            if slip:
+                bits.append(slip)
+            crumb = folder_crumbs(rel)
             self.send_html(
                 page(
                     target.stem,
@@ -610,6 +909,33 @@ class Handler(BaseHTTPRequestHandler):
             )
             return
         self.send_html(page("no", "<p>not a note.</p>", "#6e6254", rel, pocket_bar(rel)), 415)
+
+    def do_POST(self) -> None:
+        u = urlparse(self.path)
+        if u.path != "/api/been":
+            self.send_error(404)
+            return
+        try:
+            n = int(self.headers.get("Content-Length", "0") or 0)
+        except ValueError:
+            n = 0
+        if n < 0 or n > 200_000:
+            self.send_error(413)
+            return
+        raw = self.rfile.read(n) if n else b"[]"
+        try:
+            data = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            self.send_error(400)
+            return
+        have = been_load()
+        incoming = been_clean(data)
+        merged = been_clean(have + incoming)
+        saved = been_save(merged)
+        self.send_bytes(
+            json.dumps({"been": saved}).encode("utf-8"),
+            "application/json; charset=utf-8",
+        )
 
     def index(self) -> bytes:
         return render_folder(VAULT)

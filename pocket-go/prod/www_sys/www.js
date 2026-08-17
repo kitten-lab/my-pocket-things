@@ -1,11 +1,8 @@
 /**
- * Pocket Library webBAR — back / forward / refresh / GO.
- * Address bar shows a pocket path (/world/note.md), not ?p=.
- * Paths that are not vault paths are later pocket doors (my-pocket-internet).
+ * Pocket Go webBAR — back / forward / refresh / GO.
+ * Address bar shows go.library/… (vault). Other go.{{name}} hosts are later doors.
  */
 (function () {
-  var FUTURE = ["mythleak", "chesters-imports", "star-lux", "starlux"];
-
   function barEl() {
     return document.getElementById("wwwBar");
   }
@@ -20,10 +17,59 @@
     return p;
   }
 
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
   function paintBar() {
     var el = barEl();
     if (!el) return;
-    el.textContent = pocketPath();
+    var raw = pocketPath();
+    el.setAttribute("data-raw", raw);
+    if (el === document.activeElement && el.getAttribute("contenteditable") === "true") {
+      el.textContent = raw;
+      return;
+    }
+    var hm = raw.match(/^go\.([A-Za-z0-9_-]+)(\/.*)?$/i);
+    if (!hm) {
+      el.textContent = raw;
+      return;
+    }
+    var bits = ['<a href="/">go.' + esc(hm[1]) + "</a>"];
+    var rest = (hm[2] || "").replace(/^\/+/, "").replace(/\/+$/, "");
+    var trailing = /\/\s*$/.test(hm[2] || "/");
+    if (rest) {
+      var parts = rest.split("/");
+      var acc = [];
+      parts.forEach(function (part) {
+        acc.push(part);
+        bits.push("/");
+        bits.push('<a href="/?p=' + encodeURI(acc.join("/")) + '">' + esc(part) + "</a>");
+      });
+    }
+    if (trailing) bits.push("/");
+    el.removeAttribute("contenteditable");
+    el.innerHTML = bits.join("");
+  }
+
+  function editBar() {
+    var el = barEl();
+    if (!el) return;
+    var raw = el.getAttribute("data-raw") || pocketPath();
+    el.setAttribute("contenteditable", "true");
+    el.textContent = raw;
+    el.focus();
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
   }
 
   window.WWWBack = function WWWBack() {
@@ -58,11 +104,6 @@
     }
   };
 
-  function isFutureDoor(raw) {
-    var slug = raw.replace(/^\/+/, "").split("/")[0].toLowerCase();
-    return FUTURE.indexOf(slug) !== -1;
-  }
-
   window.LetsGO = function LetsGO() {
     var el = barEl();
     if (!el) return;
@@ -74,19 +115,26 @@
       window.location.assign(raw);
       return;
     }
-    if (raw.charAt(0) !== "/") {
-      raw = "/" + raw;
+
+    var host = "library";
+    var path = raw;
+    var hm = raw.match(/^go\.([A-Za-z0-9_-]+)(\/.*)?$/i);
+    if (hm) {
+      host = hm[1].toLowerCase();
+      path = hm[2] || "/";
+    } else if (raw.charAt(0) !== "/") {
+      path = "/" + raw;
     }
-    if (raw === "/") {
+
+    if (host !== "library") {
+      console.warn("pocket door later — not this cut:", "go." + host);
+      return;
+    }
+    if (path === "/" || path === "") {
       window.location.assign("/");
       return;
     }
-    // later: my-pocket-internet rooms (mythleak, star-lux, …)
-    if (isFutureDoor(raw)) {
-      console.warn("pocket door later — not this cut:", raw);
-      return;
-    }
-    var p = raw.replace(/^\/+/, "");
+    var p = path.replace(/^\/+/, "");
     window.location.assign("/?p=" + encodeURI(p));
   };
 
@@ -99,11 +147,23 @@
   paintBar();
   window.addEventListener("pageshow", paintBar);
 
+  el.addEventListener("dblclick", function (e) {
+    e.preventDefault();
+    editBar();
+  });
   el.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       window.LetsGO();
     }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      paintBar();
+      el.blur();
+    }
+  });
+  el.addEventListener("blur", function () {
+    if (el.getAttribute("contenteditable") === "true") paintBar();
   });
 
   if (!window.__webbarKeysBound) {
@@ -147,4 +207,175 @@
       } else if (act === "go") window.LetsGO();
     });
   });
+
+  var BEEN_KEY = "pocket-go-been";
+  var beenMem = [];
+  var beenLoaded = false;
+
+  function beenList() {
+    if (beenLoaded) return beenMem;
+    try {
+      var raw = localStorage.getItem(BEEN_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function beenSave(arr) {
+    if (arr.length > 2000) arr = arr.slice(arr.length - 2000);
+    beenMem = arr;
+    try {
+      localStorage.setItem(BEEN_KEY, JSON.stringify(arr));
+    } catch (e) {}
+  }
+
+  function beenPush(arr) {
+    beenSave(arr);
+    if (!beenLoaded) return;
+    try {
+      var req = new XMLHttpRequest();
+      req.open("POST", "/api/been");
+      req.setRequestHeader("Content-Type", "application/json");
+      req.send(JSON.stringify({ been: arr }));
+    } catch (e) {}
+  }
+
+  function beenKey(href) {
+    try {
+      var u = new URL(href, window.location.href);
+      u.searchParams.delete("_cb");
+      u.hash = "";
+      return u.pathname + u.search;
+    } catch (e) {
+      return href;
+    }
+  }
+
+  function beenRemember(href) {
+    var keys = [beenKey(href)];
+    try {
+      var u = new URL(href, window.location.href);
+      var p = u.searchParams.get("p");
+      if (p) {
+        var stem = p.replace(/\\/g, "/").split("/").pop().replace(/\.md$/i, "");
+        if (stem) keys.push("/?q=" + stem);
+      }
+    } catch (e) {}
+    var arr = beenList().slice();
+    var changed = false;
+    keys.forEach(function (k) {
+      if (k && arr.indexOf(k) < 0) {
+        arr.push(k);
+        changed = true;
+      }
+    });
+    if (changed) beenPush(arr);
+    else beenSave(arr);
+    return arr;
+  }
+
+  function beenPaint(arr) {
+    arr = arr || beenList();
+    var shell = document.querySelector(".wwwExplorer_innerShell");
+    if (!shell) return;
+    shell.querySelectorAll("a[href]").forEach(function (a) {
+      if (arr.indexOf(beenKey(a.href)) >= 0) a.classList.add("been");
+    });
+  }
+
+  function beenHydrate() {
+    var req = new XMLHttpRequest();
+    req.open("GET", "/api/been");
+    req.onload = function () {
+      var disk = [];
+      try {
+        var data = JSON.parse(req.responseText);
+        disk = data.been || [];
+      } catch (e) {}
+      if (!Array.isArray(disk)) disk = [];
+      var local = beenList();
+      var merged = disk.slice();
+      local.forEach(function (k) {
+        if (k && merged.indexOf(k) < 0) merged.push(k);
+      });
+      beenLoaded = true;
+      beenSave(merged);
+      beenRemember(window.location.href);
+      beenPaint();
+      beenPush(beenList());
+    };
+    req.onerror = function () {
+      beenLoaded = true;
+      beenRemember(window.location.href);
+      beenPaint();
+    };
+    req.send();
+  }
+
+  beenHydrate();
+  document.addEventListener(
+    "click",
+    function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a || !a.closest(".wwwExplorer_innerShell")) return;
+      beenRemember(a.href);
+      a.classList.add("been");
+    },
+    true
+  );
+
+  var statusEl = document.getElementById("wwwStatus");
+  var STATUS_IDLE = "Done";
+
+  function pocketSpeak(href) {
+    try {
+      var u = new URL(href, window.location.href);
+    } catch (e) {
+      return "";
+    }
+    if (u.pathname.indexOf("/i/") === 0) {
+      var pic = decodeURIComponent(u.pathname.split("/").pop() || "");
+      return pic ? "picture: " + pic : "picture";
+    }
+    var q = u.searchParams.get("q");
+    if (q) return "go.library  [[" + q + "]]";
+    var t = u.searchParams.get("t");
+    if (t) return "go.library  #" + t;
+    var p = u.searchParams.get("p");
+    if (p) {
+      p = p.replace(/\\/g, "/").replace(/^\/+/, "");
+      if (!/\.md$/i.test(p) && p.slice(-1) !== "/") p += "/";
+      return "go.library/" + p;
+    }
+    if (u.pathname === "/" || u.pathname === "") return "go.library/";
+    return "go.library";
+  }
+
+  function paintStatus(text) {
+    if (!statusEl) return;
+    statusEl.textContent = text || STATUS_IDLE;
+  }
+
+  document.addEventListener(
+    "mouseover",
+    function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a) return;
+      paintStatus(pocketSpeak(a.href));
+    },
+    true
+  );
+  document.addEventListener(
+    "mouseout",
+    function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a) return;
+      var next = e.relatedTarget;
+      if (next && a.contains(next)) return;
+      paintStatus(STATUS_IDLE);
+    },
+    true
+  );
 })();

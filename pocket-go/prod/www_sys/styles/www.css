@@ -1,0 +1,95 @@
+:root {
+  --bg: #000000;
+  --paper: #222222;
+  --ink: #ffffff;
+  --mute: #404040;
+  --line: #808080;
+  --accent: rgb(43, 255, 0);
+  --visited: rgb(255, 225, 0);
+  --active: rgb(0, 213, 255);
+}
+.wwwExplorer_innerShell {
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+}
+
+.fm {
+  font-size:  11px;
+  font-weight: normal;
+  color: var(--active);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+}
+
+.crumb {
+  font-size: 10px !important;
+  font-weight: normal;
+  color: var(--active);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  padding: 5px !important;
+  border: 1px solid var(--mute);
+  border-radius: 4px;
+}
+
+.crumb::before {
+  content: "CRUMB: ";
+  color: var(--active);
+  padding-right: 4px;
+}
+
+.crumb a {
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.crumb a.been:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.crumb a.been {
+  color: var(--line);
+  text-decoration: none;
+}
+.tagshelf {
+  font-size: 10px;
+  color: var(--line);
+}
+
+.tagshelf a, .tagshelf a.been {
+  color: var(--active) !important;
+  text-decoration: none;
+}
+
+.tag {
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  text-decoration: none;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background-color: var(--paper);
+}
+
+.tag:hover, .tag a:hover, .tag a.been:hover {
+  color: var(--paper) !important;
+  background-color: var(--line);
+  text-decoration: none;
+}
+
+hr {
+  height: 0.5px !important;
+  background-color: var(--mute) !important;
+  margin: 8px 0;
+}
+
+.headers {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--mute);
+  color: var(--mute);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  font-size: 13px;
+}
