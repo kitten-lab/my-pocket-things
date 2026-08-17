@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+:root {
+  --bg: #000000;
+  --paper: #222222;
+  --ink: #ffffff;
+  --mute: #404040;
+  --line: #808080;
+  --accent: rgb(43, 255, 0);
+  --visited: rgb(255, 225, 0);
+  --active: rgb(0, 213, 255);
+  --seek: #0400ff;
+}
+.wwwExplorer_innerShell {
+  font-family: 'VT323', "Consolas", "Courier New", monospace;
+  font-style: italic;
+  font-size: 22px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+  font-weight: 200 !important;
+}
+
+.side {
+  position: fixed;
+  width: 200px;
+  height: 76%;
+  border-right: 5px solid var(--line);
+  color: var(--ink);
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: var(--line);
+}
+
+.side li::marker {
+  color: var(--line);
+  content: "→ ";
+}
+
+.content {
+  position: absolute;
+  left: 200px;
+  padding: 20px 60px;
+  margin: 8px;
+  overflow: auto;
+  height: 77%;
+}
+
+.content p {
+  padding: 5px 0;
+  width: 77%;
+  color: var(--line);
+  font-weight: 200;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 13px;
+}
+
+span.accent {
+  color: var(--accent);
+  font-weight: bold;
+  text-shadow: 0 0 2px var(--paper), 0 0 4px var(--active), 0 0 6px var(--active);
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wwwExplorer_innerShell pre.code  {
+  font-size: 11px !important;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+
+
+.mast {
+  position: sticky;
+  width: 100%;
+  left: 0;
+  right: 0;
+  font-size: 5rem;
+  background-color: var(--seek);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 4px, transparent 1px);
+  background-size: 100% 6px;
+  padding: 0 10px;
+  margin: 0;
+  border-bottom: 10px groove var(--accent);
+  color: var(--ink);
+  text-shadow: 0 0 2px var(--active), 0 0 4px var(--active), 0 0 6px var(--active);
+}
+
+p.mast::after {
+  content: "BROUGHT TO YOU BY CHESTER'S IMPORTS & EXPORTS";
+  height: 1px;
+  background-color: var(--accent);
+  font-size: 11px;
+  position: relative;
+  color: black;
+  padding: 3px;
+  opacity: 0.8;
+  left: -200px;
+  top: 5px;
+}
+
+.fm {
+  font-size:  11px;
+  font-weight: normal;
+  color: var(--active);
+  font-family: 'VT323', "Consolas", "Courier New", monospace;
+}
+
+.tagshelf {
+  font-size: 10px;
+  color: var(--line);
+}
+
+.tagshelf a, .tagshelf a.been {
+  color: var(--line) !important;
+  text-decoration: none;
+}
+
+.tag {
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  text-decoration: none;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background-color: var(--paper);
+}
+
+.tag:hover, .tag a:hover, .tag a.been:hover {
+  color: var(--paper) !important;
+  background-color: var(--line);
+  text-decoration: none;
+}
+
+hr {
+  height: 0.5px !important;
+  background-color: var(--mute) !important;
+  margin: 8px 0;
+}
+
+.headers {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--mute);
+  color: var(--mute);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  font-size: 13px;
+}
+
+a.world {
+  border: 3px groove rgb(0, 240, 0) !important;
+  padding: 10px 12px !important;
+  background-color: rgb(0, 115, 0) !important;
+  background-image: linear-gradient(rgba(0, 55, 22, 0.6) 4px, transparent 1px);
+  background-size: 100% 6px;
+  color: rgb(0, 240, 0) !important;
+  align-items: center;
+  text-align: center;
+  text-shadow: 0 0 2px var(--paper), 0 0 4px var(--active), 0 0 6px var(--active);
+}
+
+a.world:hover {
+  border: 3px groove red !important;
+  background-color: rgb(115, 0, 0) !important;
+  background-image: linear-gradient(rgba(55, 0, 22, 0.6) 4px, transparent 1px);
+  background-size: 100% 6px;
+  color: orange !important;
+  text-shadow: 0 0 2px red, 0 0 4px red, 0 0 6px red;
+}
+
+.world span {
+  color: var(--ink);
+  font-size: 8px;
+  display: block;
+  position: relative;
+  align-items: center;
+  text-align: center;
+}

@@ -1,9 +1,9 @@
 ---
-title: root
-color:
-environment:
+title: go.library root
+environment: classic
 ---
-# root
-
-Could you even put more words here? 
+# pocketGo *go.library* root
+---
+### First time here? A few quick places to go!
 {{files}}
+{{doors}}

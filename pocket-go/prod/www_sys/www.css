@@ -103,10 +103,16 @@ body {
   font-weight: 700;
   outline: none;
   overflow: hidden;
+  white-space: nowrap;
   box-shadow:
     1px 1px 0 #ffffff66,
     -1px -1px 0 #00000066;
 }
+.linkSlug a {
+  color: black;
+  text-decoration: none;
+}
+.linkSlug a:hover { text-decoration: underline; }
 
 .wwwExplorer_linkBar button {
   display: flex;
@@ -138,19 +144,100 @@ body {
 .wwwExplorer_innerShell {
   flex: 1 1 auto;
   min-height: 0;
-  margin: 0 0.45rem 0.45rem;
+  margin: 0 0.45rem 0;
   padding: 0.35rem;
-  background: var(--bg, #161410);
+  background: var(--bg, #ffffff);
   overflow: auto;
   font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink, #e8dfd0);
+  line-height: 1.4;
+  color: var(--ink, #000000);
   box-shadow:
     inset 2px 2px 0 #00000066,
     inset -1px -1px 0 #ffffff44;
 }
 
+.wwwExplorer_status {
+  flex: 0 0 auto;
+  margin: 0.25rem 0.45rem 0.45rem;
+  padding: 0.15rem 0.45rem;
+  background: gray;
+  color: #111;
+  font-size: 1rem;
+  font-weight: 700;
+  min-height: 1.35rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-shadow:
+    inset 2px 2px 0 #00000033,
+    inset -1px -1px 0 #ffffff66;
+}
+
 html.deck-host-deep .wwwExplorer_innerShell {
   margin: 0;
   box-shadow: none;
+}
+html.deck-host-deep .wwwExplorer_status {
+  margin: 0;
+}
+
+.wwwExplorer_innerShell {
+  scrollbar-width: auto;
+  scrollbar-color: gray silver;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-track {
+  background: silver;
+  box-shadow:
+    inset 1px 1px 0 #00000066,
+    inset -1px -1px 0 #ffffff44;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
+  background: gray;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-thumb:active {
+  box-shadow:
+    inset 2px 2px 0 #00000033,
+    inset -2px -2px 0 #ffffff66;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='8,4 12,11 4,11' fill='%23111'/%3E%3C/svg%3E");
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='4,5 12,5 8,12' fill='%23111'/%3E%3C/svg%3E");
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='4,8 11,4 11,12' fill='%23111'/%3E%3C/svg%3E");
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='5,4 12,8 5,12' fill='%23111'/%3E%3C/svg%3E");
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button:active {
+  box-shadow:
+    inset 2px 2px 0 #00000033,
+    inset -2px -2px 0 #ffffff66;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-corner {
+  background: gray;
 }
