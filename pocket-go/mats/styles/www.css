@@ -1,0 +1,133 @@
+:root {
+  --bg: #ffffff;
+  --paper: #f0f0f0;
+  --ink: #000000;
+  --mute: #404040;
+  --line: #808080;
+  --accent: rgb(22, 134, 0);
+  --visited: rgb(151, 0, 50);
+  --active: rgb(0, 10, 151);
+}
+.wwwExplorer_innerShell {
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+}
+
+.fm {
+  font-size:  11px;
+  font-weight: normal;
+  color: var(--active);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+}
+.tagshelf {
+  font-size: 10px;
+  color: var(--line);
+}
+
+.crumb {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 75px;
+  padding: 5px;
+  font-size: 8px !important;
+}
+
+.crumb a {
+  color: var(--active);
+  text-decoration: none;
+}
+
+.crumb::before {
+  content: "current location: ";
+  color: var(--active);
+  font-weight: bold;
+}
+
+.tagshelf a, .tagshelf a.been {
+  color: var(--active) !important;
+  text-decoration: none;
+}
+
+.tag {
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  text-decoration: none;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background-color: var(--paper);
+}
+
+.tag:hover, .tag a:hover, .tag a.been:hover {
+  color: var(--paper) !important;
+  background-color: var(--line);
+  text-decoration: none;
+}
+
+hr {
+  height: 0.5px !important;
+  background-color: var(--mute) !important;
+  margin: 8px 0;
+}
+
+.headers {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--mute);
+  color: var(--mute);
+  font-family: "Consolas", "Courier New", monospace;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* image elements - special styles for specific images */
+.floatimg1 {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+/* {{doors}} wraps the room links in .worlds — that inner box is the flex row. */
+.flexor .worlds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: stretch;
+}
+
+.flexor a.world {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 10em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6em 0.8em;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--active);
+  text-decoration: none;
+}
+
+.flexor a.world span {
+  display: block;
+  color: var(--mute);
+  font-size: 10px;
+}
+
+span.note-details::after {
+  content: " notes";
+}
+
+.flexor a.world:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.flexor a.world:visited,
+.flexor a.world.been {
+  color: var(--visited);
+}

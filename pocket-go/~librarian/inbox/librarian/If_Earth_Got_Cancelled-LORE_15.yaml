@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/librarian/If_Earth_Got_Cancelled-LORE_15.md
+crate: crate.527B83691BA06707
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: Gravity

@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/_index.md
+crate: crate.418975D8812649ED
+fields:
+  - type: input
+    label: name
+    value: the CPJ
+  - type: input
+    label: color
+    value: brown
+  - type: input
+    label: type
+    value: journal
+  - type: input
+    label: motif
+    value: vines and leaves
+  - type: input
+    label: references
+    value: The First Journal of Her

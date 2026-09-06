@@ -1,0 +1,26 @@
+house: PULLS
+keyword: glenshadows
+needles:
+  - glenshadow
+  - glen shadow
+source: yard.db messages_fts
+order: face_serial, seq
+gate: first-user-5
+fts_hits_glenshadow: 226
+included:
+  - OT-044.T01.B578
+  - OT-053.T01.B872
+  - OT-053.T01.B1263
+  - OT-057.T01.B354
+  - OT-109.T01.B536
+skipped_assistant_before_gate:
+  - OT-044.T01.B579
+  - OT-053.T01.B1266
+  - OT-057.T01.B355
+pulled_through:
+  zip: OT-109.T01.B536
+  face_serial: 109
+  seq: 536
+  bag_code: 157-OT-109
+next: user turns matching needles after pulled_through
+page: /~pulls/glenshadows.md

@@ -1,0 +1,38 @@
+# optional. folders under ~hosts still become go.{name} with no line here.
+#
+# alias a folder whose disk name is not the go.* name:
+# dir:
+#   folder: THE-DIR
+#   title: THE DIR
+#
+# title a room that already exists as ~hosts/terminal:
+# terminal:
+#   title: terminal
+
+danyi:
+  title: DANYI.COM
+
+cc:
+  title: CC · Carl Core
+
+glass:
+  title: glass · compost shards
+
+buddy:
+  title: buddy — companion desk
+
+agentK:
+  title: AGENT K — basement archive
+
+works:
+  title: Works — books / songs / shows sat with
+
+trays:
+  title: trays — living lore punches
+
+bay:
+  title: bay — intake
+
+inbox:
+  title: inbox (→ trays / bay)
+

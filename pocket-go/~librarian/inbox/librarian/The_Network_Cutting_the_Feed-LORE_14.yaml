@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/librarian/The_Network_Cutting_the_Feed-LORE_14.md
+crate: crate.BCD582985F879C4F
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: Gravity

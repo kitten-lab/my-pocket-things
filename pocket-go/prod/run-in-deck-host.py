@@ -23,8 +23,11 @@ def main() -> int:
     if not DECK.is_file():
         print(f"Deck Host missing: {DECK}", file=sys.stderr)
         return 1
-    w = os.environ.get("GO_WIDTH", "1024")
-    h = os.environ.get("GO_HEIGHT", "768")
+    # Microsite first: 800×600, then ⤢ steps to 1024×768.
+    w = os.environ.get("GO_WIDTH", "800")
+    h = os.environ.get("GO_HEIGHT", "600")
+    os.environ.setdefault("DECK_HOST_EXPANDED_WIDTH", "1024")
+    os.environ.setdefault("DECK_HOST_EXPANDED_HEIGHT", "768")
     cmd = [
         sys.executable,
         str(DECK),

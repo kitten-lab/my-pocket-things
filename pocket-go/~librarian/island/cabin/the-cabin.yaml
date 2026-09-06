@@ -1,0 +1,19 @@
+﻿house: LIBRARIAN
+pocket: go.island/cabin/the-cabin.md
+crate: crate.3D312CA17C26396C
+fields:
+  - type: input
+    label: name
+    value: The Cabin
+  - type: input
+    label: class
+    value: room
+  - type: input
+    label: known for
+    value: Jacob / Lost; hangs off The Map
+  - type: input
+    label: references
+    value: The Cabin Hangs Off
+  - type: input
+    label: door
+    value: The Map

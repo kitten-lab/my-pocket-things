@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.danyi/Forget Me Knots.md
+crate: crate.BCC361E671874DF5
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

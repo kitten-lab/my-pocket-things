@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --bg: #1a0c0c;
+  --paper: #f4ead4;
+  --ink: #1c1010;
+  --mute: #7a5348;
+  --line: #8a4038;
+  --accent: #c45c48;
+  --visited: #6e2e38;
+  --active: #a33b3b;
+  --felt: #4a1518;
+  --oxblood: #5c1c22;
+  --lamp: rgba(201, 90, 60, 0.28);
+  --manila: #e6d2a8;
+  --brass: #c4a15a;
+}
+
+.wwwExplorer_innerShell {
+  --rail: 220px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 18px,
+      rgba(0, 0, 0, 0.22) 18px 20px
+    ),
+    radial-gradient(ellipse at 78% 8%, var(--lamp), transparent 42%),
+    linear-gradient(180deg, #2a1014 0%, var(--bg) 45%, #0e0606 100%);
+  color: var(--ink);
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mast mast"
+    "side content"
+    "foot foot";
+}
+
+#browserWindow > :not(.mast):not(.side):not(.content):not(.foot) {
+  grid-column: 1 / -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+}
+
+.mast {
+  grid-area: mast;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 1.1rem 0.65rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 2.1rem;
+  letter-spacing: 0.34em;
+  text-align: left;
+  color: #f4e4d4;
+  background: var(--felt);
+  border-bottom: 3px solid var(--brass);
+  text-shadow: 0 0 18px rgba(196, 92, 72, 0.45);
+}
+
+p.mast::after {
+  content: "investigations · private";
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: #e8c4b0;
+  margin-top: 0.2rem;
+}
+
+.side {
+  grid-area: side;
+  background: var(--oxblood);
+  color: #f0d8cc;
+  border-right: 1px solid #2a0c10;
+  padding: 0.7rem 0.65rem 1rem;
+  overflow: auto;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.92rem;
+}
+
+.side .card {
+  background: var(--manila);
+  color: var(--ink);
+  border: 1px solid #c4a070;
+  padding: 0.55rem 0.65rem 0.7rem;
+  margin-bottom: 0.65rem;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.side .accent {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.side a:link,
+.side a.crumbback {
+  color: #f4c4b0;
+}
+
+.side .card a:link {
+  color: #7a2e14;
+}
+
+.content {
+  grid-area: content;
+  background:
+    radial-gradient(ellipse at 12% 88%, rgba(140, 70, 40, 0.12), transparent 36%),
+    var(--paper);
+  color: var(--ink);
+  padding: 1.3rem 1.6rem 2rem;
+  overflow: auto;
+  box-shadow: inset 8px 0 16px rgba(40, 10, 10, 0.12);
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p,
+.content li {
+  max-width: none;
+  line-height: 1.55;
+}
+
+.content li {
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+}
+
+.foot {
+  grid-area: foot;
+  padding: 0.35rem 1rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: #e8c8b8;
+  background: #120808;
+  border-top: 1px solid var(--brass);
+}
+
+.wwwExplorer_innerShell a:link { color: #8a3020; }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: var(--visited); }
+
+.tagshelf {
+  color: #c9a090;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.tabs {
+  margin: 0 0 0.9rem;
+}
+
+.tabs p,
+.side .tabs p {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c9a090;
+  margin: 0 0 0.35rem;
+}
+
+.side ul.dir,
+.side .tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side ul.dir li,
+.side .tabs li {
+  padding: 0;
+  margin: 0 0 0.28rem;
+}
+
+.side ul.dir a,
+.side .tabs a {
+  display: block;
+  padding: 0.38rem 0.65rem;
+  text-decoration: none;
+  color: var(--ink) !important;
+  background: var(--manila);
+  border: 1px solid #c4a070;
+  border-left: 4px solid var(--felt);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.side ul.dir a:hover,
+.side .tabs a:hover {
+  background: #f0dcb8;
+  border-left-color: var(--accent);
+}
+
+.content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--oxblood) #e8dcc4;
+}
+
+.side {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brass) var(--felt);
+}
+
+.wwwExplorer_innerShell {
+  scrollbar-width: thin;
+  scrollbar-color: var(--oxblood) #2a1014;
+}
+
+.wwwExplorer_innerShell::-webkit-scrollbar,
+.content::-webkit-scrollbar,
+.side::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.wwwExplorer_innerShell::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: #e8dcc4;
+  border-left: 1px solid var(--line);
+}
+
+.side::-webkit-scrollbar-track {
+  background: #2a0c10;
+}
+
+.wwwExplorer_innerShell::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb,
+.side::-webkit-scrollbar-thumb {
+  background: var(--oxblood);
+  border: 1px solid var(--brass);
+}
+
+.content pre {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.95rem;
+  background: #fff8ee;
+  border: 1px dashed var(--line);
+  padding: 0.7rem 0.9rem;
+  max-width: 22rem;
+  box-shadow: 3px 4px 0 rgba(90, 30, 20, 0.12);
+}
+
+.casecard {
+  background: var(--manila);
+  color: var(--ink);
+  border: 1px solid #c4a070;
+  padding: 0.55rem 0.65rem 0.7rem;
+  margin-bottom: 0.65rem;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25);
+  border-left: 4px solid var(--felt);
+}

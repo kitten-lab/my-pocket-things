@@ -1,0 +1,66 @@
+house: CHARLIE
+pocket: go.inbox/agent/Love_That_Consumes-LORE_15.md
+crate: crate.8E4760FC29E94E77
+next: 1
+thoughts:
+  - id: consume
+    at: 1788557265
+    leaf: |
+      consume
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: love
+    at: 1788557264
+    leaf: |
+      love
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: metaphor
+    at: 1788557263
+    leaf: |
+      metaphor
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: wound
+    at: 1788557262
+    leaf: |
+      wound
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: race
+    at: 1788557261
+    leaf: |
+      race
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "love*consumes>not-metaphor"
+    at: 1788557265
+    from: love
+    rel: consumes
+    to: not-metaphor
+  - id: "song*already-knew>consume"
+    at: 1788557264
+    from: song
+    rel: already-knew
+    to: consume
+  - id: "echo*affixes>cannibal"
+    at: 1788557263
+    from: echo
+    rel: affixes
+    to: cannibal
+  - id: "wound*races>mind"
+    at: 1788557262
+    from: wound
+    rel: races
+    to: mind

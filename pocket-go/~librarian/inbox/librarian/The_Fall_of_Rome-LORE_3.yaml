@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/librarian/The_Fall_of_Rome-LORE_3.md
+crate: crate.3BB566B5107D4E21
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: Gravity

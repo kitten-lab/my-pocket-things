@@ -1,0 +1,40 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-000.md
+crate: crate.F285D5219F3741A8
+next: 1
+thoughts:
+  - id: bloom
+    at: 1788467287
+    leaf: |
+      bloom
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: creation
+    at: 1788467286
+    leaf: |
+      creation
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: not-conqueror
+    at: 1788467285
+    leaf: |
+      not-conqueror
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "bloom*awake>creation"
+    at: 1788467287
+    from: bloom
+    rel: awake
+    to: creation
+  - id: "creation*walks>not-conqueror"
+    at: 1788467286
+    from: creation
+    rel: walks
+    to: not-conqueror

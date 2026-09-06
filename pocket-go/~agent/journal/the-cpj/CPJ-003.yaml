@@ -1,0 +1,7 @@
+house: AGENT
+pocket: go.journal/the-cpj/CPJ-003.md
+crate: crate.B0E90C07A1ECD2A8
+fields:
+  - type: input
+    label: overrides
+    value: sissy poo

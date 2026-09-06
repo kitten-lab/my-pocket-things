@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.works/_index.md
+crate: crate.EE4D411617722167
+fields:
+  - type: input
+    label: name
+    value: Works
+  - type: input
+    label: type
+    value: shelf
+  - type: input
+    label: contains
+    value: books; songs; shows

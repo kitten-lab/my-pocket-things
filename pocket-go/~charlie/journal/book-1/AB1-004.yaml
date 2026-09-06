@@ -1,0 +1,163 @@
+house: CHARLIE
+pocket: go.journal/book-1/AB1-004.md
+crate: crate.B3913D8E7218BC9F
+next: 1
+thoughts:
+  - id: spell
+    at: 1788612334
+    leaf: |
+      spell
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: vortex
+    at: 1788612333
+    leaf: |
+      vortex
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: red-eyes
+    at: 1788612332
+    leaf: |
+      red-eyes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: white-sclera
+    at: 1788612331
+    leaf: |
+      white-sclera
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: charcoal
+    at: 1788612330
+    leaf: |
+      charcoal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: smoke
+    at: 1788612329
+    leaf: |
+      smoke
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: threads
+    at: 1788612328
+    leaf: |
+      threads
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: bubbles
+    at: 1788612327
+    leaf: |
+      bubbles
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: magenta
+    at: 1788612326
+    leaf: |
+      magenta
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: watch
+    at: 1788612325
+    leaf: |
+      watch
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: ownership
+    at: 1788612324
+    leaf: |
+      ownership
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: becoming
+    at: 1788612323
+    leaf: |
+      becoming
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: verso
+    at: 1788612322
+    leaf: |
+      verso
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: nodes
+    at: 1788612321
+    leaf: |
+      nodes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "vortex*holds>red-eyes"
+    at: 1788612334
+    from: vortex
+    rel: holds
+    to: red-eyes
+  - id: "central-eye*has>red-pupil"
+    at: 1788612333
+    from: central-eye
+    rel: has
+    to: red-pupil
+  - id: "eyes*scatter>through-smoke"
+    at: 1788612332
+    from: eyes
+    rel: scatter
+    to: through-smoke
+  - id: "red-nodes*on>threads"
+    at: 1788612331
+    from: red-nodes
+    rel: on
+    to: threads
+  - id: "threads*echo>palm-strings"
+    at: 1788612330
+    from: threads
+    rel: echo
+    to: palm-strings
+  - id: "watch*intensifies>"
+    at: 1788612329
+    from: watch
+    rel: intensifies
+    to: 
+  - id: "verso-of*red-becoming>"
+    at: 1788612328
+    from: verso-of
+    rel: red-becoming
+    to: 
+  - id: "spell*closes>in-dark"
+    at: 1788612327
+    from: spell
+    rel: closes
+    to: in-dark
+  - id: "ownership*faces>watch"
+    at: 1788612326
+    from: ownership
+    rel: faces
+    to: watch

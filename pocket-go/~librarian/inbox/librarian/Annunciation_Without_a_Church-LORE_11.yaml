@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.inbox/librarian/Annunciation_Without_a_Church-LORE_11.md
+crate: crate.AF6C1F2631674C43
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Lore
+  - type: input
+    label: card type
+    value: Gravity
+  - type: input
+    label: references
+    value: Point Zero; Internal Memo

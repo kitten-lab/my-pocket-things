@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.agentK/_index.md
+crate: crate.36479A2C337C181D
+fields:
+  - type: input
+    label: name
+    value: AGENT K
+  - type: input
+    label: color
+    value: black
+  - type: input
+    label: type
+    value: underground
+  - type: input
+    label: known for
+    value: sleeper cabinets; case files that may be her own missions
+  - type: input
+    label: references
+    value: Internal Memo

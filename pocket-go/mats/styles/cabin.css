@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
+
+/* Cabin — hangs off the island.
+   Jacob's cabin off the map: wood, rope, lantern, slight offset.
+   Not a brown palette-swap of trays/cpj — a room that leans off-edge. */
+:root {
+  --night: #14100c;
+  --siding: #2a1e14;
+  --plank: #3a2a1c;
+  --grain: #4a3424;
+  --rope: #a88858;
+  --lantern: #e8a848;
+  --glow: #f0c878;
+  --paper: #f2e6cc;
+  --ink: #22180f;
+  --mute: #7a6850;
+  --line: #6a5038;
+  --accent: #b06028;
+  --visited: #6a4858;
+  --active: #d87838;
+  --strip: #b06028;
+  --card-strip: #8a4030;
+  --stamp: #e8a848;
+  --nail: #8a7860;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(232, 168, 72, 0.14), transparent 38%),
+    radial-gradient(ellipse at 88% 80%, rgba(80, 40, 20, 0.35), transparent 45%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 13px,
+      rgba(0, 0, 0, 0.07) 13px 14px
+    ),
+    linear-gradient(165deg, #1c140e 0%, var(--night) 48%, #0c0a08 100%);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0.65rem 0.85rem 1rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  overflow: hidden;
+}
+
+.mast p:empty { display: none; }
+
+.mast {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  margin: 0.15rem 0.35rem 0.25rem 0.1rem;
+  padding: 0.75rem 1rem 0.8rem 1.15rem;
+  background:
+    linear-gradient(135deg, rgba(232, 168, 72, 0.12), transparent 42%),
+    linear-gradient(180deg, #3a2a1c 0%, var(--siding) 60%, #1e1610 100%);
+  color: #f0e4cc;
+  border: 2px solid #0e0a08;
+  box-shadow:
+    4px 5px 0 #0a0806,
+    0 14px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(240, 200, 120, 0.1);
+  transform: rotate(-0.7deg);
+  transform-origin: left top;
+}
+
+.mast::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: -0.35rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, #c8b898, var(--nail) 55%, #3a3020);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.mast::after {
+  content: "hangs off the map";
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.28rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 168, 72, 0.5);
+  pointer-events: none;
+}
+
+.plate {
+  position: relative;
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: clamp(1.25rem, 3.8vw, 1.75rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--glow);
+  text-shadow: 0 0 16px rgba(232, 168, 72, 0.35);
+}
+
+.hand {
+  position: relative;
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: #d4c0a0;
+  opacity: 0.88;
+}
+
+.mast .crumb {
+  position: relative;
+  margin: 0 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: #c4a878;
+  z-index: 1;
+}
+
+.mast a:link,
+.mast a:visited,
+.mast a.been {
+  color: var(--lantern) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(232, 168, 72, 0.45);
+}
+
+.spread {
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  margin: 0.35rem 0.55rem 0.2rem 1.15rem;
+  max-width: 40rem;
+  width: calc(100% - 2.2rem);
+  padding: 1.2rem 1.4rem 2.2rem;
+  background:
+    radial-gradient(ellipse at 78% 8%, rgba(232, 168, 72, 0.12), transparent 36%),
+    linear-gradient(180deg, #f6edd8 0%, var(--paper) 100%);
+  border: 1px solid #5a4030;
+  outline: 1px dashed rgba(168, 136, 88, 0.55);
+  outline-offset: 4px;
+  box-shadow:
+    -10px 12px 0 rgba(20, 16, 12, 0.55),
+    0 16px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 40px rgba(90, 64, 40, 0.06);
+  transform: rotate(0.55deg);
+  transform-origin: top right;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mute) var(--paper);
+}
+
+.spread::before {
+  content: "";
+  position: absolute;
+  left: -0.15rem;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  width: 0.28rem;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--rope) 0 8px,
+      #6a5030 8px 10px,
+      transparent 10px 14px
+    );
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.spread::after {
+  content: "";
+  position: absolute;
+  right: 0.55rem;
+  top: 0.45rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 168, 72, 0.22), transparent 68%);
+  pointer-events: none;
+}
+
+.spread > * {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+}
+
+.spread > p:empty { display: none; }
+
+.spread p,
+.spread li {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.98rem;
+  line-height: 1.62;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+
+.spread h1,
+.spread h2,
+.spread h3 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #3a2414;
+  line-height: 1.25;
+  margin: 0.15rem 0 0.6rem;
+}
+
+.spread h1 { font-size: 1.35rem; color: var(--accent); }
+.spread h2 { font-size: 1.15rem; }
+.spread h3 { font-size: 1.02rem; }
+
+.spread ul,
+.spread ul.dir {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.spread ul li { margin: 0; padding: 0; }
+
+.spread ul a,
+.spread ul.dir a {
+  display: block;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  text-decoration: none;
+  color: var(--ink) !important;
+  border-bottom: 1px dotted rgba(176, 96, 40, 0.25);
+  padding: 0.05rem 0;
+}
+
+.spread ul.dir a::before {
+  content: "— ";
+  color: var(--rope);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.spread ul a:hover,
+.spread ul.dir a:hover { color: var(--accent) !important; }
+
+.spread a:link { color: var(--accent); }
+.spread a:visited,
+.spread a.been { color: var(--visited); }
+
+.spread hr {
+  border: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rope) 0 6px,
+    transparent 6px 10px
+  );
+  margin: 0.85rem 0 1rem;
+  opacity: 0.55;
+}
+
+.spread .world span {
+  display: inline;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .doors,
+.wwwExplorer_innerShell .door-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.2rem, 1fr));
+  gap: 0.5rem;
+  margin: 0.55rem 0 0.95rem;
+}
+
+.wwwExplorer_innerShell .doors a,
+.wwwExplorer_innerShell .door {
+  background: linear-gradient(180deg, #4a3424 0%, #322418 100%);
+  border: 1px solid #1a120c;
+  border-top: 2px solid var(--rope);
+  color: #f0e4cc !important;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.35);
+  font-family: "Special Elite", monospace;
+  letter-spacing: 0.04em;
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  display: none;
+}
+
+.tagshelf,
+.headers,
+.tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--mute);
+}
+
+.mast .flipper {
+  margin-left: 0.55rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  z-index: 1;
+}
+
+.mast .flip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  padding: 0.1rem 0.48rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lantern) !important;
+  text-decoration: none;
+  border: 1px solid rgba(232, 168, 72, 0.4);
+  background: rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.mast .flip:hover {
+  background: rgba(232, 168, 72, 0.14);
+  border-color: rgba(232, 168, 72, 0.75);
+}
+
+.mast .flip.next { flex-direction: row-reverse; }
+.mast .flip .way { font-size: 0; }
+.mast .flip.prev .way::after { content: "<"; font-size: 0.64rem; }
+.mast .flip.next .way::after { content: ">"; font-size: 0.64rem; }
+.mast .flip.none {
+  opacity: 0.32;
+  border-style: dashed;
+  cursor: default;
+}
+
+.spread::-webkit-scrollbar { width: 9px; }
+.spread::-webkit-scrollbar-thumb {
+  background: #6a5038;
+  border: 1px solid #c8b090;
+}
+
+@media (max-width: 1024px) {
+  .spread {
+    max-width: 36rem;
+    margin-left: 0.85rem;
+  }
+  .mast::after { display: none; }
+}
+
+@media (max-width: 860px) {
+  #browserWindow { padding: 0.45rem 0.55rem 0.75rem; }
+  .mast {
+    margin: 0.1rem 0.2rem 0.2rem 0;
+    padding: 0.6rem 0.8rem 0.65rem 1rem;
+    transform: rotate(-0.4deg);
+  }
+  .spread {
+    width: calc(100% - 1.4rem);
+    margin: 0.25rem 0.35rem 0.15rem 0.7rem;
+    padding: 1rem 1.1rem 1.7rem;
+    transform: rotate(0.35deg);
+    outline-offset: 3px;
+  }
+  .wwwExplorer_innerShell .doors,
+  .wwwExplorer_innerShell .door-grid {
+    grid-template-columns: repeat(auto-fill, minmax(8.2rem, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .mast {
+    transform: none;
+    padding: 0.55rem 0.7rem;
+  }
+  .hand { width: 100%; font-size: 0.78rem; }
+  .mast .crumb { margin: 0; width: 100%; }
+  .spread {
+    transform: none;
+    width: calc(100% - 0.5rem);
+    margin: 0.2rem 0.15rem 0;
+    outline-offset: 2px;
+  }
+  .spread::before { display: none; }
+}

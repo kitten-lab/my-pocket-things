@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Special+Elite&family=IBM+Plex+Mono:wght@400&display=swap");
+
+/* THE CPJ - inside a brown journal. Left: the written page. Right: the facing board. */
+:root {
+  --hide: #4a3220;
+  --hide-deep: #2e1e12;
+  --board: #6a4526;
+  --leaf: #f0e4ca;
+  --leaf-edge: #d8c7a4;
+  --ink: #302c27;
+  --pencil: #5a4a34;
+  --mute: #8a7a5e;
+  --vine: #6d7a48;
+  --gilt: #c8a45c;
+  --accent: #7a4a22;
+  --visited: #5c3f52;
+  --split: 58%;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(200, 164, 92, 0.16), transparent 55%),
+    repeating-linear-gradient(92deg, rgba(0, 0, 0, 0.05) 0 2px, transparent 2px 7px),
+    linear-gradient(180deg, #5a3a22 0%, var(--hide) 45%, var(--hide-deep) 100%);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0.7rem 0.9rem 0.9rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  overflow: hidden;
+}
+
+/* gilt lettering pressed into the cover */
+.mast p:empty { display: none; }
+
+.mast {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.9rem;
+  padding: 0 0.15rem;
+}
+
+.plate {
+  margin: 0;
+  font-family: "Special Elite", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.32em;
+  color: var(--gilt);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.hand {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #e0cfa8;
+  opacity: 0.78;
+}
+
+.mast .crumb {
+  margin: 0 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #d8c49c;
+}
+
+.mast a:link,
+.mast a:visited,
+.mast a.been {
+  color: var(--gilt) !important;
+  text-decoration: none;
+}
+
+/* the open journal: written page left, board right, always both */
+.spread {
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: var(--split) calc(100% - var(--split));
+  align-content: start;
+  margin: 0;
+  padding: 1.5rem 0 3rem;
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 0 var(--split),
+      rgba(0, 0, 0, 0.32) var(--split),
+      rgba(0, 0, 0, 0) calc(var(--split) + 20px)
+    ),
+    radial-gradient(ellipse at 28% 40%, rgba(255, 255, 255, 0.35), transparent 62%),
+    repeating-linear-gradient(74deg, rgba(120, 90, 50, 0.045) 0 3px, transparent 3px 9px),
+    linear-gradient(90deg, var(--leaf) 0 var(--split), var(--board) var(--split) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  box-shadow:
+    0 0 0 1px var(--leaf-edge),
+    0 18px 34px rgba(0, 0, 0, 0.45),
+    inset 0 0 80px rgba(120, 90, 50, 0.16);
+  scrollbar-width: thin;
+  scrollbar-color: var(--pencil) var(--leaf);
+}
+
+.spread > * {
+  grid-column: 1;
+  margin: 0;
+  padding-left: 2.6rem;
+  padding-right: 2.2rem;
+  min-width: 0;
+}
+
+.spread > p:empty { display: none; }
+
+/* the transcription. typed, on a fixed grid, so the shape of the page survives */
+.spread p,
+.spread li {
+  font-family: "Courier Prime", "IBM Plex Mono", "Courier New", monospace;
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--ink);
+  white-space: pre-wrap;
+  margin-bottom: 1.62rem;
+  tab-size: 4;
+}
+
+.spread h1,
+.spread h2,
+.spread h3 {
+  font-family: "Courier Prime", "IBM Plex Mono", monospace;
+  font-weight: 700;
+  color: #201d19;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.62rem;
+}
+
+.spread h1 { font-size: 1.3rem; }
+.spread h2 { font-size: 1.14rem; }
+.spread h3 { font-size: 1.04rem; }
+
+/* transcription marks, for what the hand actually did */
+.spread .strike {
+  text-decoration: line-through;
+  text-decoration-color: rgba(60, 50, 40, 0.8);
+  text-decoration-thickness: 2px;
+  opacity: 0.6;
+}
+
+.spread .up {
+  display: inline-block;
+  font-size: 0.76em;
+  vertical-align: super;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.spread .unsure {
+  border-bottom: 1px dotted rgba(60, 50, 40, 0.65);
+  opacity: 0.72;
+  font-style: italic;
+}
+
+.spread .draw {
+  font-style: italic;
+  color: var(--mute);
+}
+
+.spread pre,
+.wwwExplorer_innerShell pre.code {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  background: transparent;
+  border: 0;
+  margin-bottom: 1.05rem;
+  white-space: pre-wrap;
+  color: var(--pencil);
+  overflow-x: auto;
+}
+
+.spread ul,
+.spread ul.dir {
+  list-style: none;
+  margin-bottom: 1.05rem;
+}
+
+.spread ul li { margin: 0; padding: 0; }
+
+.spread ul a,
+.spread ul.dir a {
+  display: block;
+  font-family: "Courier Prime", "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  line-height: 1.9;
+  text-decoration: none;
+  color: var(--ink) !important;
+  background: transparent;
+  border: 0;
+}
+
+.spread ul.dir a::before {
+  content: "- ";
+  color: var(--vine);
+}
+
+.spread ul a:hover,
+.spread ul.dir a:hover { color: var(--accent) !important; }
+
+.spread .world span {
+  display: inline;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+}
+
+.spread a:link { color: var(--accent); }
+.spread a:visited,
+.spread a.been { color: var(--visited); }
+
+.spread hr {
+  border: 0;
+  height: 1px;
+  background: rgba(120, 90, 50, 0.3);
+  margin-bottom: 1.05rem;
+}
+
+/* the facing board */
+.spread > figure.jacket {
+  grid-column: 2;
+  grid-row: 1 / span 999;
+  align-self: start;
+  position: sticky;
+  top: 0;
+  margin: 0 1.3rem 1.4rem;
+  padding: 0;
+  width: auto;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 12%, rgba(200, 164, 92, 0.22), transparent 55%),
+    repeating-linear-gradient(74deg, rgba(0, 0, 0, 0.06) 0 3px, transparent 3px 9px),
+    #5a3a1e;
+  border: 1px solid #3a2410;
+  border-left: 7px solid #452a14;
+  border-radius: 2px 5px 5px 2px;
+  box-shadow:
+    10px 12px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(200, 164, 92, 0.22),
+    inset 0 0 44px rgba(0, 0, 0, 0.35);
+}
+
+/* pressed vine tooling, for pages with no scan yet */
+.spread > figure.jacket::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(200, 164, 92, 0.4);
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(109, 122, 72, 0.3) 0 5px, transparent 6px),
+    radial-gradient(circle at 82% 30%, rgba(109, 122, 72, 0.26) 0 4px, transparent 5px),
+    radial-gradient(circle at 30% 78%, rgba(109, 122, 72, 0.24) 0 6px, transparent 7px),
+    radial-gradient(circle at 72% 84%, rgba(109, 122, 72, 0.22) 0 4px, transparent 5px);
+  pointer-events: none;
+}
+
+/* a real scan: the whole page, tipped onto the board */
+.spread > figure.jacket.has-cover {
+  aspect-ratio: auto;
+  display: block;
+  overflow: visible;
+  padding: 0.5rem 0.5rem 0.6rem;
+  background: #4c2f16;
+  border-left-width: 1px;
+  border-radius: 2px;
+}
+
+.spread > figure.jacket.has-cover::before { content: none; }
+
+.spread > figure.jacket.has-cover img.jacket-art {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: saturate(0.94) contrast(1.04);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.spread > figure.jacket.has-cover .name { display: none; }
+
+.spread > figure.jacket .name {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 1.1rem;
+  padding: 0.28rem 0.7rem;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: #f0e2c2;
+  background: rgba(46, 30, 18, 0.6);
+  border-top: 1px solid rgba(200, 164, 92, 0.45);
+  border-bottom: 1px solid rgba(200, 164, 92, 0.45);
+}
+
+.tagshelf,
+.headers,
+.tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--mute);
+}
+
+/* flipping through the pages */
+.mast .flipper {
+  margin-left: 0.8rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+
+.mast .flip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.32rem;
+  padding: 0.12rem 0.55rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gilt) !important;
+  text-decoration: none;
+  border: 1px solid rgba(200, 164, 92, 0.42);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+
+.mast .flip:hover {
+  background: rgba(200, 164, 92, 0.16);
+  border-color: rgba(200, 164, 92, 0.8);
+}
+
+.mast .flip.next { flex-direction: row-reverse; }
+
+.mast .flip .way { font-size: 0; }
+.mast .flip.prev .way::after { content: "<"; font-size: 0.66rem; }
+.mast .flip.next .way::after { content: ">"; font-size: 0.66rem; }
+
+.mast .flip.none {
+  opacity: 0.32;
+  border-style: dashed;
+  cursor: default;
+}
+
+.spread::-webkit-scrollbar { width: 10px; }
+
+.spread::-webkit-scrollbar-thumb {
+  background: var(--pencil);
+  border: 1px solid var(--leaf-edge);
+}
+
+/* narrow: the board slims, the page keeps the room */
+@media (max-width: 760px) {
+  :root { --split: 64%; }
+  .spread > * { padding-left: 1.9rem; padding-right: 1.5rem; }
+  .spread p, .spread li { font-size: 0.96rem; }
+  .spread > figure.jacket { margin: 0 0.9rem 1rem; }
+}
+
+/* too narrow to be a spread at all */
+@media (max-width: 460px) {
+  .spread {
+    grid-template-columns: minmax(0, 1fr);
+    background-image:
+      radial-gradient(ellipse at 28% 40%, rgba(255, 255, 255, 0.35), transparent 62%),
+      repeating-linear-gradient(74deg, rgba(120, 90, 50, 0.045) 0 3px, transparent 3px 9px),
+      linear-gradient(var(--leaf), var(--leaf));
+  }
+  .spread > figure.jacket {
+    grid-column: 1;
+    grid-row: auto;
+    position: static;
+    margin: 0 1.9rem 1.2rem;
+    max-width: 16rem;
+  }
+}

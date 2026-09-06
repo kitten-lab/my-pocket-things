@@ -1,0 +1,100 @@
+house: CHARLIE
+pocket: go.island/cabin/the-cabin.md
+crate: crate.3D312CA17C26396C
+next: 1
+thoughts:
+  - id: cabin
+    at: 1788648110
+    leaf: |
+      cabin
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: island
+    at: 1788648109
+    leaf: |
+      island
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: jacob
+    at: 1788648108
+    leaf: |
+      jacob
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lost
+    at: 1788648107
+    leaf: |
+      lost
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: hangs
+    at: 1788648106
+    leaf: |
+      hangs
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: reopen
+    at: 1788648105
+    leaf: |
+      reopen
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: walkable
+    at: 1788648104
+    leaf: |
+      walkable
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: door
+    at: 1788648103
+    leaf: |
+      door
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "cabin*hangs-off>island"
+    at: 1788648110
+    from: cabin
+    rel: hangs-off
+    to: island
+  - id: "jacob*names>cabin"
+    at: 1788648109
+    from: jacob
+    rel: names
+    to: cabin
+  - id: "lost*holds>cabin"
+    at: 1788648108
+    from: lost
+    rel: holds
+    to: cabin
+  - id: "cabin*is>reopenable"
+    at: 1788648107
+    from: cabin
+    rel: is
+    to: reopenable
+  - id: "door*walks-back>island"
+    at: 1788648106
+    from: door
+    rel: walks-back
+    to: island
+  - id: "walkable*not>bay"
+    at: 1788648105
+    from: walkable
+    rel: not
+    to: bay

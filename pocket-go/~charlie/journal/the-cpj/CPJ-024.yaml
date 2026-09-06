@@ -1,0 +1,174 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-024.md
+crate: crate.927CB7ACEB6CCD1B
+next: 1
+thoughts:
+  - id: devil
+    at: 1788560027
+    leaf: |
+      devil
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: blue-eyes
+    at: 1788560026
+    leaf: |
+      blue-eyes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: shadow
+    at: 1788560025
+    leaf: |
+      shadow
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: disguise
+    at: 1788560024
+    leaf: |
+      disguise
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: deception
+    at: 1788560023
+    leaf: |
+      deception
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tranquilized
+    at: 1788560022
+    leaf: |
+      tranquilized
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lies
+    at: 1788560021
+    leaf: |
+      lies
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: work
+    at: 1788560020
+    leaf: |
+      work
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: bersoft
+    at: 1788560019
+    leaf: |
+      bersoft
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: payroll
+    at: 1788560018
+    leaf: |
+      payroll
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: shame
+    at: 1788560017
+    leaf: |
+      shame
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: solutions
+    at: 1788560016
+    leaf: |
+      solutions
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: meaning
+    at: 1788560015
+    leaf: |
+      meaning
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: golden-ball-chain
+    at: 1788560014
+    leaf: |
+      golden-ball-chain
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: questions
+    at: 1788560013
+    leaf: |
+      questions
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: poetry
+    at: 1788560012
+    leaf: |
+      poetry
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "devil*wears>blue-eyes"
+    at: 1788560027
+    from: devil
+    rel: wears
+    to: blue-eyes
+  - id: "shadow*of>myself"
+    at: 1788560026
+    from: shadow
+    rel: of
+    to: myself
+  - id: "heart*was>tranquilized"
+    at: 1788560025
+    from: heart
+    rel: was
+    to: tranquilized
+  - id: "sensation*of>lies"
+    at: 1788560024
+    from: sensation
+    rel: of
+    to: lies
+  - id: "bersoft*is>golden-ball-chain"
+    at: 1788560023
+    from: bersoft
+    rel: is
+    to: golden-ball-chain
+  - id: "love*to>work"
+    at: 1788560022
+    from: love
+    rel: to
+    to: work
+  - id: "seek*solutions>"
+    at: 1788560021
+    from: seek
+    rel: solutions
+    to: 
+  - id: "questions*repeat>"
+    at: 1788560020
+    from: questions
+    rel: repeat
+    to: 

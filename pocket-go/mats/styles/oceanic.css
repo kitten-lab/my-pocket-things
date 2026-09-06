@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Barlow+Condensed:wght@600;700&display=swap");
+
+/* Oceanic — front section / fuselage / flight-manifest.
+   Crash mains hall. Thin Book-of-Hours coat — not Island shore, not a dossier. */
+:root {
+  --deep: #1a2430;
+  --hull: #243044;
+  --seat: #2c3a4e;
+  --foam: #d8e4f0;
+  --paper: #f4f0e8;
+  --manifest: #ebe4d6;
+  --ink: #1c2430;
+  --mute: #6a7888;
+  --line: #9aa8b8;
+  --accent: #c45c28;
+  --visited: #5a4a68;
+  --active: #e07838;
+  --stripe: #c45c28;
+  --plate: #e8f0f8;
+  --strip: #c45c28;
+  --card-strip: #2a5080;
+  --stamp: #e8c878;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    linear-gradient(90deg, var(--stripe) 0 5px, transparent 5px),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 22px,
+      rgba(200, 220, 240, 0.03) 22px 23px
+    ),
+    linear-gradient(180deg, #1e2a3a 0%, var(--deep) 55%, #121820 100%);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 15.5px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0.55rem 0.85rem 0.9rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2,
+.wwwExplorer_innerShell h3 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8f0f8;
+  line-height: 1.2;
+  margin: 0.15rem 0 0.55rem;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.wwwExplorer_innerShell h1 { font-size: 1.55rem; }
+.wwwExplorer_innerShell h2 { font-size: 1.2rem; color: #c8d8e8; }
+.wwwExplorer_innerShell h3 { font-size: 1.05rem; color: #b0c0d0; }
+
+.wwwExplorer_innerShell p,
+.wwwExplorer_innerShell li {
+  font-family: "Source Serif 4", Georgia, serif;
+  color: #d0dae4;
+  margin-bottom: 0.7rem;
+}
+
+.wwwExplorer_innerShell a:link { color: #e8a060; }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: #a898c0; }
+
+.wwwExplorer_innerShell ul,
+.wwwExplorer_innerShell ul.dir {
+  list-style: none;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+  max-width: 28rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--manifest) 100%);
+  border: 1px solid rgba(154, 168, 184, 0.55);
+  border-left: 4px solid var(--stripe);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+.wwwExplorer_innerShell ul li { margin: 0; padding: 0; }
+
+.wwwExplorer_innerShell ul a,
+.wwwExplorer_innerShell ul.dir a {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+  text-decoration: none;
+  color: var(--ink) !important;
+  border-bottom: 1px dotted rgba(36, 48, 68, 0.18);
+  padding: 0.12rem 0.75rem;
+}
+
+.wwwExplorer_innerShell ul.dir a::before {
+  content: "seat ";
+  color: var(--accent);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wwwExplorer_innerShell ul a:hover,
+.wwwExplorer_innerShell ul.dir a:hover {
+  color: var(--accent) !important;
+  background: rgba(196, 92, 40, 0.06);
+}
+
+.wwwExplorer_innerShell hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--stripe), transparent 70%);
+  margin: 0.75rem 0 0.9rem;
+  opacity: 0.7;
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  display: none;
+}
+
+.mast {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.75rem;
+  margin: 0 0 0.35rem;
+  padding: 0.55rem 0.85rem 0.6rem;
+  background: linear-gradient(90deg, #2a3a50 0%, var(--hull) 60%, #1a2430 100%);
+  border: 1px solid rgba(200, 220, 240, 0.2);
+  border-bottom: 3px solid var(--stripe);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.mast::after {
+  content: "front  ·  oceanic 815  ·  manifest";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.28rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200, 220, 240, 0.4);
+  pointer-events: none;
+}
+
+.plate {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plate);
+}
+
+.hand {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #b0c0d0;
+}
+
+.mast .crumb {
+  margin: 0 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  color: #9aacbc;
+  z-index: 1;
+}
+
+.mast a:link,
+.mast a:visited,
+.mast a.been {
+  color: #e8a060 !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(232, 160, 96, 0.4);
+}
+
+.spread {
+  position: relative;
+  min-height: 0;
+  overflow: auto;
+  margin: 0.2rem auto 0;
+  max-width: 40rem;
+  width: calc(100% - 1rem);
+  padding: 1.1rem 1.35rem 2rem;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--manifest) 100%);
+  border: 1px solid rgba(154, 168, 184, 0.5);
+  border-left: 4px solid var(--stripe);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+}
+
+.spread p,
+.spread li { color: var(--ink); }
+
+.spread h1,
+.spread h2,
+.spread h3 {
+  color: #243044;
+  text-shadow: none;
+}
+
+.spread ul,
+.spread ul.dir {
+  max-width: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-left: 0;
+}
+
+@media (max-width: 640px) {
+  .mast::after { display: none; }
+  .wwwExplorer_innerShell ul,
+  .wwwExplorer_innerShell ul.dir { max-width: none; }
+}

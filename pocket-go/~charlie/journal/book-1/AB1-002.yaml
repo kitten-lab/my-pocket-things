@@ -1,0 +1,184 @@
+house: CHARLIE
+pocket: go.journal/book-1/AB1-002.md
+crate: crate.A9962B77399DCBD4
+next: 1
+thoughts:
+  - id: spell
+    at: 1788612514
+    leaf: |
+      spell
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: palm
+    at: 1788612513
+    leaf: |
+      palm
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: handprint
+    at: 1788612512
+    leaf: |
+      handprint
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: eyes
+    at: 1788612511
+    leaf: |
+      eyes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: strings
+    at: 1788612510
+    leaf: |
+      strings
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: nebula
+    at: 1788612509
+    leaf: |
+      nebula
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: saturn
+    at: 1788612508
+    leaf: |
+      saturn
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: crown
+    at: 1788612507
+    leaf: |
+      crown
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: crescents
+    at: 1788612506
+    leaf: |
+      crescents
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tear
+    at: 1788612505
+    leaf: |
+      tear
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: stars
+    at: 1788612504
+    leaf: |
+      stars
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: splatters
+    at: 1788612503
+    leaf: |
+      splatters
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: threads
+    at: 1788612502
+    leaf: |
+      threads
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: watch
+    at: 1788612501
+    leaf: |
+      watch
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: in-and-out
+    at: 1788612500
+    leaf: |
+      in-and-out
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: verso
+    at: 1788612499
+    leaf: |
+      verso
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "palm*holds>eyes"
+    at: 1788612514
+    from: palm
+    rel: holds
+    to: eyes
+  - id: "eyes*laced-on>strings"
+    at: 1788612513
+    from: eyes
+    rel: laced-on
+    to: strings
+  - id: "strings*are>spell-wires"
+    at: 1788612512
+    from: strings
+    rel: are
+    to: spell-wires
+  - id: "saturn*rings>an-eye"
+    at: 1788612511
+    from: saturn
+    rel: rings
+    to: an-eye
+  - id: "crown*marks>one"
+    at: 1788612510
+    from: crown
+    rel: marks
+    to: one
+  - id: "crescents*mark>one"
+    at: 1788612509
+    from: crescents
+    rel: mark
+    to: one
+  - id: "tear*marks>one"
+    at: 1788612508
+    from: tear
+    rel: marks
+    to: one
+  - id: "hand*through>nebula"
+    at: 1788612507
+    from: hand
+    rel: through
+    to: nebula
+  - id: "verso-of*beam>"
+    at: 1788612506
+    from: verso-of
+    rel: beam
+    to: 
+  - id: "watch*begins>"
+    at: 1788612505
+    from: watch
+    rel: begins
+    to: 

@@ -1,0 +1,407 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&family=Special+Elite&display=swap");
+
+:root {
+  --bg: #b08960;
+  --paper: #f6f1de;
+  --ink: #1e2438;
+  --mute: #6a7a92;
+  --line: #c5d8ee;
+  --accent: #2a4a8a;
+  --visited: #6a3a58;
+  --active: #c45c48;
+  --margin: #e07a7a;
+  --kraft: #8a6a48;
+  --card: #efe6cc;
+  --cork: #c4a06a;
+  --wood: #b08960;
+}
+
+.wwwExplorer_innerShell {
+  --rail: 176px;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(255, 248, 230, 0.28), transparent 42%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(90, 50, 20, 0.07) 0 2px,
+      transparent 2px 13px
+    ),
+    linear-gradient(180deg, #c4a878 0%, var(--wood) 55%, #8a6844 100%);
+  color: var(--ink);
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--rail);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mast side"
+    "content side"
+    "foot side";
+}
+
+#browserWindow > :not(.mast):not(.side):not(.content):not(.foot) {
+  grid-column: 1 / -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.mast {
+  grid-area: mast;
+  width: max-content;
+  max-width: calc(100% - 2.2rem);
+  margin: 0.75rem 0 0.15rem 1.35rem;
+  padding: 0.28rem 1.05rem 0.4rem;
+  font-family: "Caveat", cursive;
+  font-size: 2.15rem;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #2a2438;
+  background: var(--paper);
+  border: 0;
+  box-shadow:
+    0 0 0 1px rgba(80, 50, 20, 0.12),
+    3px 4px 0 rgba(40, 24, 12, 0.16);
+  transform: rotate(-1.15deg);
+  text-shadow: none;
+}
+
+p.mast::after {
+  content: "tuesdays, and the rest of the week";
+  display: block;
+  font-family: "Caveat", cursive;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #7a5a40;
+  margin-top: -0.1rem;
+  text-transform: none;
+}
+
+.mast.drawer::after {
+  content: none;
+}
+
+.side {
+  grid-area: side;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(90, 50, 20, 0.14) 0 7px, transparent 8px),
+    radial-gradient(circle at 72% 28%, rgba(90, 50, 20, 0.12) 0 6px, transparent 7px),
+    radial-gradient(circle at 40% 62%, rgba(90, 50, 20, 0.1) 0 8px, transparent 9px),
+    radial-gradient(circle at 80% 78%, rgba(90, 50, 20, 0.12) 0 5px, transparent 6px),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 11px,
+      rgba(80, 40, 10, 0.05) 11px 12px
+    ),
+    var(--cork);
+  color: #3a2818;
+  border-left: 1px solid #8a6840;
+  padding: 0.9rem 0.7rem 1.1rem 0.75rem;
+  overflow: auto;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #8a6840 var(--cork);
+}
+
+.side h3 {
+  font-family: "Caveat", cursive;
+  font-size: 1.55rem;
+  letter-spacing: 0.02em;
+  color: #3a2818;
+  font-weight: 700;
+}
+
+.side .card {
+  margin: 0 0 0.85rem;
+  padding: 0.45rem 0.5rem 0.55rem;
+  background: #f6f1de;
+  box-shadow: 2px 2px 0 rgba(40, 24, 12, 0.18);
+  transform: rotate(0.8deg);
+}
+
+.side .card:nth-of-type(2) {
+  transform: rotate(-0.7deg);
+  background: #f3e6a8;
+}
+
+.side .accent,
+span.accent {
+  color: #8a3a28;
+  font-family: "Caveat", cursive;
+  font-size: 1.2rem;
+}
+
+.side a:link,
+.side a.crumbback {
+  color: #3a2818;
+}
+
+.content {
+  grid-area: content;
+  min-height: 0;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 86% 18%, rgba(70, 35, 15, 0.1) 0 52px, transparent 78px),
+    radial-gradient(ellipse at 86% 18%, transparent 58px, rgba(70, 35, 15, 0.08) 60px, rgba(70, 35, 15, 0.08) 64px, transparent 66px),
+    repeating-linear-gradient(
+      90deg,
+      rgba(90, 50, 20, 0.05) 0 2px,
+      transparent 2px 16px
+    ),
+    linear-gradient(180deg, #c9ad82 0%, #b08960 100%);
+  color: var(--ink);
+  padding: 0.85rem 1.4rem 1.4rem 1.5rem;
+  overflow: auto;
+  box-shadow: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--kraft) #c9ad82;
+}
+
+.content .headline,
+.content p.headline,
+.content h2.headline {
+  font-family: "Caveat", cursive;
+  font-size: 2.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: #f4ead4;
+  text-shadow: 0 1px 0 rgba(40, 24, 12, 0.35);
+  max-width: none;
+  margin: 0 0 0.55rem;
+  padding: 0;
+}
+
+.content > p {
+  max-width: 36rem;
+  margin: 0;
+  padding: 0.15rem 0;
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #f4ead4;
+  text-shadow: 0 1px 0 rgba(40, 24, 12, 0.28);
+  white-space: pre-wrap;
+}
+
+.writingblock {
+  --sheet-line: 28px;
+  position: relative;
+  max-width: 40rem;
+  margin: 0.35rem 0 1.4rem;
+  padding: 0.55rem 1.45rem 1.8rem 5.1rem;
+  background:
+    radial-gradient(circle at 22px 28px, #d8d0c4 7px, transparent 8px),
+    radial-gradient(circle at 22px 88px, #d8d0c4 7px, transparent 8px),
+    radial-gradient(circle at 22px 148px, #d8d0c4 7px, transparent 8px),
+    linear-gradient(90deg, transparent 4.25rem, var(--margin) 4.25rem, var(--margin) calc(4.25rem + 2px), transparent calc(4.25rem + 2px)),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 calc(var(--sheet-line) - 1px),
+      var(--line) calc(var(--sheet-line) - 1px) var(--sheet-line)
+    ),
+    var(--paper);
+  background-attachment: local;
+  color: var(--ink);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.65) inset,
+    4px 8px 18px rgba(40, 24, 12, 0.22);
+}
+
+.writingblock h1,
+.writingblock h2,
+.writingblock h3,
+.writingblock h4,
+.writingblock h5,
+.writingblock h6,
+.writingblock p,
+.writingblock li {
+  max-width: 34rem;
+  line-height: var(--sheet-line);
+}
+
+.writingblock p {
+  margin: 0;
+  padding: 0;
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  font-size: 1.22rem;
+  color: var(--ink);
+  text-shadow: none;
+  white-space: pre-wrap;
+}
+
+.writingblock li {
+  font-family: "Patrick Hand", cursive;
+}
+
+.foot {
+  grid-area: foot;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin: 0 0 0.7rem 1.5rem;
+  padding: 0.2rem 0.85rem 0.28rem;
+  font-family: "Caveat", cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: #5a4030;
+  background: #e8dcc0;
+  border: 0;
+  text-align: left;
+  transform: rotate(0.55deg);
+  box-shadow: 2px 2px 0 rgba(40, 24, 12, 0.14);
+}
+
+.wwwExplorer_innerShell a:link { color: var(--accent); }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: var(--visited); }
+
+.tagshelf {
+  color: #5a4030;
+  font-size: 0.95rem;
+  font-family: "Caveat", cursive;
+  margin-top: 0.7rem;
+}
+
+.tagshelf a,
+.tagshelf a.been {
+  color: #5a4030 !important;
+  text-decoration: none;
+}
+
+.tag {
+  font-family: "Patrick Hand", cursive;
+  text-decoration: none;
+  padding: 1px 5px;
+  border: 1px dashed #8a6840;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.side ul.dir,
+.side .tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0.7rem;
+}
+
+.side ul.dir li {
+  padding: 0;
+  margin: 0;
+}
+
+.side ul.dir a {
+  display: block;
+  margin: 0.4rem 0.05rem;
+  padding: 0.4rem 0.5rem 0.45rem;
+  text-decoration: none;
+  color: #2a1c10 !important;
+  border: 0;
+  background: #f3e6a8;
+  box-shadow: 2px 2px 0 rgba(40, 24, 12, 0.16);
+  font-family: "Caveat", cursive;
+  font-size: 1.28rem;
+  transform: rotate(-1.1deg);
+}
+
+.side ul.dir li:nth-child(2n) a {
+  background: #f6f1de;
+  transform: rotate(1.15deg);
+}
+
+.side ul.dir li:nth-child(3n) a {
+  background: #e4f0c8;
+  transform: rotate(-0.4deg);
+}
+
+.side ul.dir a:hover {
+  color: #8a3a28 !important;
+}
+
+.content ul.dir {
+  list-style: none;
+  padding: 0.15rem 0 1rem;
+  margin: 0.35rem 0 0.6rem;
+}
+
+.content ul.dir li {
+  margin: 0.45rem 0;
+  padding: 0;
+  max-width: 26rem;
+}
+
+.content ul.dir a {
+  display: block;
+  padding: 0.45rem 0.75rem 0.5rem;
+  text-decoration: none;
+  color: var(--ink) !important;
+  background: var(--paper);
+  border: 0;
+  box-shadow: 3px 4px 0 rgba(40, 24, 12, 0.16);
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.15rem;
+  transform: rotate(-0.5deg);
+}
+
+.content ul.dir li:nth-child(even) a {
+  transform: rotate(0.65deg);
+}
+
+.content ul.dir a:hover {
+  color: var(--accent) !important;
+}
+
+.headers {
+  margin-top: 1.4em;
+  padding-top: 0.35em;
+  border-top: 1px dashed rgba(244, 234, 212, 0.45);
+  color: #efe4cc;
+  font-family: "Caveat", cursive;
+  font-size: 1.05rem;
+}
+
+.content pre,
+.wwwExplorer_innerShell pre.code {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.1rem;
+  background: rgba(246, 241, 222, 0.9);
+  border: 0;
+  padding: 0.5rem 0.8rem;
+  max-width: 38rem;
+  white-space: pre-wrap;
+  box-shadow: 2px 3px 0 rgba(40, 24, 12, 0.14);
+}
+
+.writingblock pre {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: rgba(244, 234, 212, 0.35);
+  margin: 0.6rem 0 0.8rem;
+}
+
+.writingblock hr {
+  background: var(--line);
+}

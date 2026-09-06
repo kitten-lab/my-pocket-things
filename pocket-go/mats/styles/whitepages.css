@@ -1,0 +1,451 @@
+/* whitepages — find a name, open a sheet. Cabinet around a listing card. */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+:root {
+  --bg: #2c2822;
+  --paper: #f4ead8;
+  --ink: #1c1812;
+  --mute: #6e6558;
+  --line: #c4b49a;
+  --accent: #1e3a5f;
+  --visited: #5c3d6e;
+  --active: #8a2a28;
+  --card: #fbf6ea;
+  --rule: #1e3a5f;
+  --stamp: #9a2420;
+  --felt: #3a342c;
+}
+
+.wwwExplorer_innerShell {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(244, 234, 216, 0.06), transparent 42%),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Source Serif 4", "Georgia", serif;
+  font-size: 16px;
+  font-style: normal;
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#browserWindow > .side {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Libre Franklin", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.mast {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 1.2rem 0.38rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #f4ead8;
+  background: #141210;
+  border-bottom: 3px solid var(--paper);
+}
+
+p.mast::after {
+  content: "FIND A PERSON";
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #8a9ab0;
+}
+
+span.note-details {
+  display: none;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.15rem 1.2rem 2.2rem;
+  color: var(--ink);
+  background: var(--felt);
+  scrollbar-width: thin;
+  scrollbar-color: #8a8070 var(--felt);
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--felt);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #6a6258;
+  border: 0;
+}
+
+.content::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.content > p,
+.content > h1,
+.content > h2,
+.content > h3,
+.content > ul,
+.content > ol {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content h3.looking {
+  max-width: 40rem;
+  margin: 0 auto 0.85rem;
+  padding: 0;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b0a898;
+  border: 0;
+}
+
+.content h3.looking a {
+  color: #d8c8a8;
+  text-decoration: none;
+  border-bottom: 1px dotted #8a8070;
+}
+
+.content h3.found {
+  display: block;
+  width: max-content;
+  max-width: 40rem;
+  margin: 0 auto 1rem 0;
+  margin-left: max(0px, calc(50% - 20rem));
+  padding: 0.22rem 0.55rem 0.18rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  background: transparent;
+  border: 2px solid var(--stamp);
+  transform: rotate(-2.8deg);
+}
+
+.content h1 {
+  display: grid;
+  grid-template-columns: 6.6rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 0.35rem 1rem;
+  align-items: end;
+  margin: 0 auto 0.35rem;
+  padding: 0.85rem 0.9rem 0.75rem;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: none;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid #1c1812;
+  box-shadow: 3px 3px 0 #141210;
+}
+
+.content h1::before {
+  content: "";
+  grid-row: 1 / span 2;
+  width: 6.6rem;
+  height: 8.1rem;
+  background:
+    linear-gradient(135deg, transparent 48%, #2a2620 48% 52%, transparent 52%),
+    repeating-linear-gradient(
+      to bottom,
+      #ddd4c4 0 9px,
+      #d0c6b4 9px 10px
+    );
+  border: 1px solid #1c1812;
+}
+
+.content h1::after {
+  content: "listing";
+  grid-column: 2;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.content > p.vencode {
+  max-width: 40rem;
+  margin: 0 auto 1.1rem;
+  padding: 0.15rem 0.9rem 0;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d8c8a8;
+}
+
+.content > p.vencode::before {
+  content: none;
+}
+
+.content h2 {
+  max-width: 40rem;
+  margin: 1.15rem auto 0;
+  padding: 0.22rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  border: 0;
+}
+
+.content h3 {
+  margin: 1rem auto 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.content h3.vencode,
+.content h3.types,
+.content h3.aliases,
+.content h3.classification,
+.content h3.echoes,
+.content h3.cites {
+  display: grid;
+  grid-template-columns: 9.2rem minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: baseline;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.48rem 0.7rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  background: var(--card);
+  border: 0;
+  border-bottom: 1px dotted #8a7a62;
+}
+
+.content h3.vencode:last-of-type,
+.content h3.types:last-of-type,
+.content h3.aliases:last-of-type,
+.content h3.classification:last-of-type,
+.content h3.echoes:last-of-type,
+.content h3.cites:last-of-type {
+  border-bottom: 1px solid #1c1812;
+}
+
+.content h3.vencode::before,
+.content h3.types::before,
+.content h3.aliases::before,
+.content h3.classification::before,
+.content h3.echoes::before,
+.content h3.cites::before {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.content h3.vencode::before { content: "vencode"; }
+.content h3.types::before { content: "ven type(s)"; }
+.content h3.aliases::before { content: "aliases"; }
+.content h3.classification::before { content: "classification"; }
+.content h3.echoes::before { content: "echo-nodes"; }
+.content h3.cites::before { content: "cites"; }
+
+.content h3.cites:empty::after {
+  content: "—";
+  font-style: normal;
+  color: var(--mute);
+}
+
+.content h2 + p {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.7rem 0.75rem 0.85rem;
+  min-height: 4.5rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--card) 0 1.55em,
+      #e4d8c0 1.55em 1.6em
+    );
+  border: 1px solid #1c1812;
+  border-top: 0;
+}
+
+.content p {
+  margin: 0;
+  padding: 0.28rem 0;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: #2a2620;
+}
+
+.content ul.dir.files {
+  list-style: none;
+  max-width: 40rem;
+  padding: 0.4rem 0.5rem 0.6rem;
+  margin: 0.5rem auto 1.2rem;
+  background: var(--card);
+  border: 1px solid #1c1812;
+  box-shadow: 3px 3px 0 #141210;
+  columns: 1;
+}
+
+.content ul.dir.files li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.content ul.dir.files a {
+  display: block;
+  padding: 0.38rem 0.2rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--accent) !important;
+}
+
+.content ul.dir.files a:hover {
+  background: #efe6d2;
+}
+
+.content ul.dir.files a.been {
+  color: var(--visited) !important;
+}
+
+.content > li,
+.content > ul:not(.hits):not(.files) > li {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 0.15rem 0 0.15rem 0.2rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.95rem;
+  border-bottom: 1px dotted #ddd6c8;
+}
+
+.content a.wiki {
+  color: var(--accent);
+}
+
+.content blockquote,
+.content blockquote.window {
+  margin: 0.5rem auto 0.8rem;
+  padding: 0.5rem 0.75rem;
+  max-width: 40rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+}
+
+.foot {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.26rem 1.2rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8278;
+  background: #141210;
+  border-top: 1px solid #4a443c;
+}
+
+.foot a {
+  color: #d8c8a8;
+  text-decoration: none;
+}
+
+.wwwExplorer_innerShell a:link {
+  color: var(--accent);
+}
+
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been {
+  color: var(--visited);
+}
+
+.wwwExplorer_innerShell .crumb {
+  position: static;
+  padding: 0 0 0.55rem;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 10px !important;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  max-width: 40rem;
+  margin: 1.6rem auto 0;
+  padding-top: 0.45rem;
+  border-top: 1px solid #4a443c;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 10px;
+  color: #8a8278;
+}
+
+.wwwExplorer_innerShell .headers summary,
+.wwwExplorer_innerShell .uses summary {
+  cursor: pointer;
+  width: max-content;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}

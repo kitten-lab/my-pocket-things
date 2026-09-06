@@ -41,6 +41,13 @@ body {
   white-space: nowrap;
   color: #fff;
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.wwwExplorer_windowTitleBar:active {
+  cursor: grabbing;
 }
 
 .wwwExplorer_mark {
@@ -51,6 +58,13 @@ body {
   background: #5b5b5b;
   padding: 0.2rem 0.5rem;
   color: #fff;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-app-region: no-drag;
 }
 
 .wwwExplorer_title {
@@ -59,23 +73,71 @@ body {
   text-overflow: ellipsis;
   min-width: 0;
   font-size: 1.05rem;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .wwwExplorer_win {
   flex: 0 0 auto;
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  gap: 3px;
   margin-left: auto;
+  -webkit-app-region: no-drag;
+  user-select: none;
 }
 
 .wwwExplorer_win .dh-cap-btn {
-  color: #fff;
-  opacity: 0.9;
+  width: 22px;
+  height: 20px;
+  min-width: 22px;
+  padding: 0;
+  line-height: 18px;
+  opacity: 1;
+  color: #111;
+  background: gray;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  font: 11px "JetBrains Mono", "Courier New", Consolas, monospace;
+  box-shadow:
+    inset -1px -1px 0 #00000033,
+    inset 1px 1px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+  cursor: pointer;
 }
 
 .wwwExplorer_win .dh-cap-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: #c0c0c0;
+  color: #111;
   opacity: 1;
+}
+
+.wwwExplorer_win .dh-cap-btn:active {
+  box-shadow:
+    inset 1px 1px 0 #00000033,
+    inset -1px -1px 0 #ffffff66;
+}
+
+.wwwExplorer_win .dh-cap-btn.close:hover {
+  background: gray;
+  color: #111;
+}
+
+.wwwExplorer_win .dh-cap-btn svg {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 3px auto;
+  stroke: #111;
+}
+
+.wwwExplorer_win .dh-eye {
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 3px auto;
+  color: #111;
 }
 
 .wwwExplorer_linkBar {
@@ -104,15 +166,11 @@ body {
   outline: none;
   overflow: hidden;
   white-space: nowrap;
+  cursor: text;
   box-shadow:
     1px 1px 0 #ffffff66,
     -1px -1px 0 #00000066;
 }
-.linkSlug a {
-  color: black;
-  text-decoration: none;
-}
-.linkSlug a:hover { text-decoration: underline; }
 
 .wwwExplorer_linkBar button {
   display: flex;
@@ -135,25 +193,66 @@ body {
   user-select: none;
 }
 
+.wwwExplorer_linkBar button[data-webbar="back"],
+.wwwExplorer_linkBar button[data-webbar="forward"],
+.wwwExplorer_linkBar button[data-webbar="refresh"],
+.wwwExplorer_linkBar button[data-webbar="home"] {
+  min-width: 2.1rem;
+  width: 2.1rem;
+  padding: 0.2rem;
+}
+
+.wwwExplorer_linkBar button svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.wwwExplorer_linkBar button[data-webbar="refresh"] svg,
+.wwwExplorer_linkBar button[data-webbar="home"] svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.wwwExplorer_linkBar button[data-webbar="refresh"] polygon,
+.wwwExplorer_linkBar button[data-webbar="home"] path:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
 .wwwExplorer_linkBar button:active {
   box-shadow:
     inset 2px 2px 0 #00000033,
     inset -2px -2px 0 #ffffff66;
 }
 
+.wwwExplorer_stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
 .wwwExplorer_innerShell {
   flex: 1 1 auto;
   min-height: 0;
-  margin: 0 0.45rem 0;
-  padding: 0.35rem;
+  min-width: 0;
+  margin: 0.25rem 0.45rem 0;
+  padding: 0;
+  position: relative;
   background: var(--bg, #ffffff);
   overflow: auto;
   font-size: 16px;
   line-height: 1.4;
   color: var(--ink, #000000);
-  box-shadow:
-    inset 2px 2px 0 #00000066,
-    inset -1px -1px 0 #ffffff44;
+  border-style: solid;
+  border-width: 2px 1px 1px 2px;
+  border-color: #00000066 #ffffff44 #ffffff44 #00000066;
 }
 
 .wwwExplorer_status {
@@ -173,14 +272,6 @@ body {
     inset -1px -1px 0 #ffffff66;
 }
 
-html.deck-host-deep .wwwExplorer_innerShell {
-  margin: 0;
-  box-shadow: none;
-}
-html.deck-host-deep .wwwExplorer_status {
-  margin: 0;
-}
-
 .wwwExplorer_innerShell {
   scrollbar-width: auto;
   scrollbar-color: gray silver;
@@ -190,7 +281,7 @@ html.deck-host-deep .wwwExplorer_status {
   height: 16px;
 }
 .wwwExplorer_innerShell::-webkit-scrollbar-track {
-  background: silver;
+  background: var(--paper, silver);
   box-shadow:
     inset 1px 1px 0 #00000066,
     inset -1px -1px 0 #ffffff44;

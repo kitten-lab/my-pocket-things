@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-000.md
+crate: crate.F285D5219F3741A8
+fields:
+  - type: input
+    label: author
+    value: Ori'el
+  - type: input
+    label: hand
+    value: bubble font
+  - type: input
+    label: script
+    value: Martian
+  - type: input
+    label: page
+    value: inside cover
+  - type: input
+    label: class
+    value: found

@@ -1,0 +1,37 @@
+house: CHARLIE
+pocket: go.journal/librarian/journal-entry-01.md
+crate: crate.274F527A43B685C8
+next: 1
+thoughts:
+  - id: ouroboros
+    at: 1788206102
+    leaf: |
+      ouroboros
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: recursive
+    at: 1788206090
+    leaf: |
+      recursive
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: holes
+    at: 1788206077
+    leaf: |
+      holes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: creation
+    at: 1788206070
+    leaf: |
+      creation
+    tags: []
+    namespaces: []
+    times: []
+    cites: []

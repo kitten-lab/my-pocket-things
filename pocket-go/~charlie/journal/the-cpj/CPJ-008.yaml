@@ -1,0 +1,214 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-008.md
+crate: crate.14E254205DB5A772
+next: 1
+thoughts:
+  - id: esoteric
+    at: 1788559749
+    leaf: |
+      esoteric
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: mother-energy
+    at: 1788559748
+    leaf: |
+      mother-energy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: moon
+    at: 1788559747
+    leaf: |
+      moon
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: mistakes
+    at: 1788559746
+    leaf: |
+      mistakes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: doodles
+    at: 1788559745
+    leaf: |
+      doodles
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: time-machine
+    at: 1788559744
+    leaf: |
+      time-machine
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: honesty
+    at: 1788559743
+    leaf: |
+      honesty
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: perfection
+    at: 1788559742
+    leaf: |
+      perfection
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: flaw
+    at: 1788559741
+    leaf: |
+      flaw
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: journaling
+    at: 1788559740
+    leaf: |
+      journaling
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: wonder
+    at: 1788559739
+    leaf: |
+      wonder
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tarot
+    at: 1788559738
+    leaf: |
+      tarot
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: oracles
+    at: 1788559737
+    leaf: |
+      oracles
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: mystery
+    at: 1788559736
+    leaf: |
+      mystery
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lamentations
+    at: 1788559735
+    leaf: |
+      lamentations
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: sixteen
+    at: 1788559734
+    leaf: |
+      sixteen
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: thirty-six
+    at: 1788559733
+    leaf: |
+      thirty-six
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: goals
+    at: 1788559732
+    leaf: |
+      goals
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: flux
+    at: 1788559731
+    leaf: |
+      flux
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: change
+    at: 1788559730
+    leaf: |
+      change
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: universe
+    at: 1788559729
+    leaf: |
+      universe
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "mistakes*are>me"
+    at: 1788559749
+    from: mistakes
+    rel: are
+    to: me
+  - id: "writing*is>time-machine"
+    at: 1788559748
+    from: writing
+    rel: is
+    to: time-machine
+  - id: "real*beats>curated"
+    at: 1788559747
+    from: real
+    rel: beats
+    to: curated
+  - id: "perfection*and>flaw"
+    at: 1788559746
+    from: perfection
+    rel: and
+    to: flaw
+  - id: "goals*are-in>flux"
+    at: 1788559745
+    from: goals
+    rel: are-in
+    to: flux
+  - id: "move-with*change>"
+    at: 1788559744
+    from: move-with
+    rel: change
+    to: 
+  - id: "moon*holds>connection"
+    at: 1788559743
+    from: moon
+    rel: holds
+    to: connection
+  - id: "sixteen*sought>love"
+    at: 1788559742
+    from: sixteen
+    rel: sought
+    to: love

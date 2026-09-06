@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&display=swap");
+
+/* A notebook, not a hall. Entries sit on one page. */
+:root {
+  --bg: #202e20;
+  --paper: #f3ead4;
+  --ink: #2a2218;
+  --mute: #7a6c58;
+  --line: #ddd0b6;
+  --accent: #6a4028;
+  --visited: #5a3848;
+  --active: #8a3020;
+  --margin: #c45c4a;
+  --desk: #202e22;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(90, 72, 48, 0.45), transparent 52%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.06) 0 1px,
+      transparent 1px 11px
+    ),
+    linear-gradient(180deg, #202e20 0%, var(--desk) 55%, #141e14 100%);
+  color: var(--ink);
+  font-family: Literata, Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.62;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) var(--desk);
+}
+
+#browserWindow {
+  box-sizing: border-box;
+  max-width: 50rem;
+  width: calc(100% - 2.4rem);
+  min-height: calc(100% - 2.4rem);
+  margin: 1.2rem auto 1.8rem;
+  padding: 1.5rem 2.1rem 2.6rem 2.55rem;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 1.85rem,
+      var(--margin) 1.85rem 1.92rem,
+      transparent 1.92rem
+    ),
+    repeating-linear-gradient(
+      transparent 0 1.58rem,
+      rgba(90, 70, 40, 0.07) 1.58rem 1.64rem
+    ),
+    var(--paper);
+  box-shadow:
+    0 0 0 1px #c8b898,
+    8px 10px 0 rgba(0, 0, 0, 0.28);
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  padding: 0 0 0.85rem;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2,
+.wwwExplorer_innerShell h3 {
+  font-family: Literata, Georgia, serif;
+  font-weight: 200;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin: 1.15rem 0 0.35rem;
+  padding: 0;
+}
+
+.wwwExplorer_innerShell h1 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.wwwExplorer_innerShell h2 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+.wwwExplorer_innerShell .consideration {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 0.8;
+  color: darkred;
+  padding: 0.25rem 0 0.25rem;
+}
+
+.consideration::before {
+  content: "•";
+  margin-right: 0.25rem;
+  color: rgba(139, 0, 0, 0.589);
+}
+
+.wwwExplorer_innerShell p {
+  margin: 0 0 0.35rem;
+  line-height: 1.8;
+  color: var(--mute);
+  font-weight: 200;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.wwwExplorer_innerShell p:last-child {
+  margin-bottom: 0;
+}
+
+.wwwExplorer_innerShell p strong {
+  font-weight: 600;
+  font-size: 1.08em;
+  font-style: normal;
+}
+
+.wwwExplorer_innerShell p em {
+  font-style: normal;
+  font-size: 1.08em;
+}
+
+
+.wwwExplorer_innerShell blockquote {
+  margin: 0.35rem 0 0.7rem 0.35rem;
+  padding: 0.5rem 1rem;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+
+.wwwExplorer_innerShell .chips {
+  max-width: none;
+  margin: 0 0 1rem;
+}
+
+.wwwExplorer_innerShell .chip {
+  background: #efe4cc;
+  border-color: #d4c4a4;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+.wwwExplorer_innerShell .chip-label {
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .chip-value {
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+  border-top: 1px dotted #c4b090;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 11px;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell hr {
+  height: 0.5px;
+  border: none;
+  background: var(--line);
+}

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+:root {
+  --active: rgb(0, 213, 255);
+  --accent: rgb(43, 255, 0);
+  --visited: rgb(255, 225, 0);
+  --ink: #ffffff;
+  --mute: #404040;
+  --paper: #222222;
+  --line: #808080;
+  --purple: #9b51e0;
+  --green: #06ff00;
+  --title: #17ff00;
+  --cyan: #00ffee;
+  --yellow: #fcfa00;
+  --bg: #000000;
+  --seek: #00ff40;
+  --floor: #007515;
+}
+
+.wwwExplorer_innerShell {
+  font-family: "Consolas", "Courier New", monospace;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.world span {
+  color: var(--ink);
+}
+
+
+.hero {
+  position: absolute;
+  font-family: "VT323", "Courier New", monospace;
+  top: 70px;
+  left: 8px;
+  right: 8px;
+  z-index: 10;
+  background-color: var(--purple);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6) 4px, transparent 1px);
+  background-size: 100% 6px;
+  border-bottom: 10px solid var(--green);
+  font-size: 2.5rem;
+  text-shadow: 0 0 2px var(--green), 0 0 4px var(--green), 0 0 6px var(--green), 5px 5px 0 var(--paper);
+}
+
+.mast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem 1.2rem;
+}
+
+.mast::after {
+  content: "NEW DROPS EVERY TUESDAY AND FRIDAY";
+  height: 1px;
+  background-color: var(--green);
+  font-size: 11px;
+  position: relative;
+  color: black;
+  padding: 3px;
+  opacity: 0.8;
+  left: calc(var(--rail) * -1);
+  top: 5px;
+}
+
+.content {
+  margin-top: 60px;
+}

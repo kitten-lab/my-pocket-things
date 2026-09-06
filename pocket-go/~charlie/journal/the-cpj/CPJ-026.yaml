@@ -1,0 +1,190 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-026.md
+crate: crate.F7C6D11A4098A03C
+next: 1
+thoughts:
+  - id: alchemy
+    at: 1788559867
+    leaf: |
+      alchemy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: vfa
+    at: 1788559866
+    leaf: |
+      vfa
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: masc
+    at: 1788559865
+    leaf: |
+      masc
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: femme
+    at: 1788559864
+    leaf: |
+      femme
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: combine
+    at: 1788559863
+    leaf: |
+      combine
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: three-six-nine
+    at: 1788559862
+    leaf: |
+      three-six-nine
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: bask
+    at: 1788559861
+    leaf: |
+      bask
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: light
+    at: 1788559860
+    leaf: |
+      light
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: darkness
+    at: 1788559859
+    leaf: |
+      darkness
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: meaningless
+    at: 1788559858
+    leaf: |
+      meaningless
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: shadow
+    at: 1788559857
+    leaf: |
+      shadow
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: blue-eyes
+    at: 1788559856
+    leaf: |
+      blue-eyes
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: square-edges
+    at: 1788559855
+    leaf: |
+      square-edges
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: safety
+    at: 1788559854
+    leaf: |
+      safety
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: fear
+    at: 1788559853
+    leaf: |
+      fear
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: deep
+    at: 1788559852
+    leaf: |
+      deep
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: triple-moon
+    at: 1788559851
+    leaf: |
+      triple-moon
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: infinity
+    at: 1788559850
+    leaf: |
+      infinity
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "masc*combine>femme"
+    at: 1788559867
+    from: masc
+    rel: combine
+    to: femme
+  - id: "bask-in-light*cast>darkness"
+    at: 1788559866
+    from: bask-in-light
+    rel: cast
+    to: darkness
+  - id: "shadow*had>skin"
+    at: 1788559865
+    from: shadow
+    rel: had
+    to: skin
+  - id: "shadow*had>blue-eyes"
+    at: 1788559864
+    from: shadow
+    rel: had
+    to: blue-eyes
+  - id: "square-edges*no>safety"
+    at: 1788559863
+    from: square-edges
+    rel: no
+    to: safety
+  - id: "fear*of>the-deep"
+    at: 1788559862
+    from: fear
+    rel: of
+    to: the-deep
+  - id: "meaningless-page*number>one"
+    at: 1788559861
+    from: meaningless-page
+    rel: number
+    to: one
+  - id: "three-six-nine*marks>"
+    at: 1788559860
+    from: three-six-nine
+    rel: marks
+    to: 

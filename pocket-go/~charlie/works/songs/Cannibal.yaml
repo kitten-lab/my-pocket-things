@@ -1,0 +1,100 @@
+house: CHARLIE
+pocket: go.works/songs/Cannibal.md
+crate: crate.D6E9787428AA57C5
+next: 1
+thoughts:
+  - id: cannibal
+    at: 1788557265
+    leaf: |
+      cannibal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: consume
+    at: 1788557264
+    leaf: |
+      consume
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tally-hall
+    at: 1788557263
+    leaf: |
+      tally-hall
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: song
+    at: 1788557262
+    leaf: |
+      song
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: hazbin-hotel
+    at: 1788557261
+    leaf: |
+      hazbin-hotel
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: has-been-hotel
+    at: 1788557260
+    leaf: |
+      has-been-hotel
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: cannibal-town
+    at: 1788557259
+    leaf: |
+      cannibal-town
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: glitch-slip
+    at: 1788557258
+    leaf: |
+      glitch-slip
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "cannibal*echoes>consume"
+    at: 1788557265
+    from: cannibal
+    rel: echoes
+    to: consume
+  - id: "love*consumes>not-metaphor"
+    at: 1788557264
+    from: love
+    rel: consumes
+    to: not-metaphor
+  - id: "cannibal*affixes>love-that-consumes"
+    at: 1788557263
+    from: cannibal
+    rel: affixes
+    to: love-that-consumes
+  - id: "has-been-hotel*glitch-slip>hazbin-hotel"
+    at: 1788557262
+    from: has-been-hotel
+    rel: glitch-slip
+    to: hazbin-hotel
+  - id: "cannibal-town*rides>consume"
+    at: 1788557261
+    from: cannibal-town
+    rel: rides
+    to: consume
+  - id: "hazbin-hotel*rides>consume"
+    at: 1788557260
+    from: hazbin-hotel
+    rel: rides
+    to: consume

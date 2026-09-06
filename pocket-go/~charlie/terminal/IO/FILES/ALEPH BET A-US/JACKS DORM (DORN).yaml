@@ -1,0 +1,37 @@
+house: CHARLIE
+pocket: go.terminal/IO/FILES/ALEPH BET A-US/JACKS DORM (DORN).md
+crate: crate.11080C1C45D5CC33
+next: 1
+thoughts:
+  - id: anima
+    at: 1788213450
+    leaf: |
+      anima
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: animus
+    at: 1788213450
+    leaf: |
+      animus
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "encode*jason>jsn"
+    at: 1788231015
+    from: encode
+    rel: jason
+    to: jsn
+  - id: "dorn*meaning>thorn"
+    at: 1788230931
+    from: dorn
+    rel: meaning
+    to: thorn
+  - id: "dorm*glitch-slip>dorn"
+    at: 1788230405
+    from: dorm
+    rel: glitch-slip
+    to: dorn
