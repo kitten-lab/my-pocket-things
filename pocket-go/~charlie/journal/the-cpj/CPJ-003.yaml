@@ -1,0 +1,27 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-003.md
+crate: crate.B0E90C07A1ECD2A8
+next: 1
+thoughts:
+  - id: journal
+    at: 1788467282
+    leaf: |
+      journal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: truest-connections
+    at: 1788467281
+    leaf: |
+      truest-connections
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "journal*dedicated-to>truest-connections"
+    at: 1788467282
+    from: journal
+    rel: dedicated-to
+    to: truest-connections

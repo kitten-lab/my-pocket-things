@@ -1,0 +1,161 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-029.md
+crate: crate.EA782556C59288CF
+next: 1
+thoughts:
+  - id: placeholders
+    at: 1788559627
+    leaf: |
+      placeholders
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: cliffhangers
+    at: 1788559626
+    leaf: |
+      cliffhangers
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: carrot
+    at: 1788559625
+    leaf: |
+      carrot
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: freedom
+    at: 1788559624
+    leaf: |
+      freedom
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: season
+    at: 1788559623
+    leaf: |
+      season
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: episode
+    at: 1788559622
+    leaf: |
+      episode
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: reveal
+    at: 1788559621
+    leaf: |
+      reveal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: cancelled
+    at: 1788559620
+    leaf: |
+      cancelled
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: show
+    at: 1788559619
+    leaf: |
+      show
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: yin-yang
+    at: 1788559618
+    leaf: |
+      yin-yang
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: spirals
+    at: 1788559617
+    leaf: |
+      spirals
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: collective
+    at: 1788559616
+    leaf: |
+      collective
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: subconscious
+    at: 1788559615
+    leaf: |
+      subconscious
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: internet
+    at: 1788559614
+    leaf: |
+      internet
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: hanging-moments
+    at: 1788559613
+    leaf: |
+      hanging-moments
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "placeholders*always>"
+    at: 1788559627
+    from: placeholders
+    rel: always
+    to: 
+  - id: "cliffhangers*dangle>carrot"
+    at: 1788559626
+    from: cliffhangers
+    rel: dangle
+    to: carrot
+  - id: "tune-in*next>season"
+    at: 1788559625
+    from: tune-in
+    rel: next
+    to: season
+  - id: "show*may-be>cancelled"
+    at: 1788559624
+    from: show
+    rel: may-be
+    to: cancelled
+  - id: "collective-subconscious*like>internet"
+    at: 1788559623
+    from: collective-subconscious
+    rel: like
+    to: internet
+  - id: "spirals*mark>page"
+    at: 1788559622
+    from: spirals
+    rel: mark
+    to: page
+  - id: "hanging-moments*promise>freedom"
+    at: 1788559621
+    from: hanging-moments
+    rel: promise
+    to: freedom

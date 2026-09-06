@@ -1,0 +1,2238 @@
+/* Charlie lookup — mypi:bay. Amber phosphor CRT, not Times search. */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Black+Ops+One&family=IBM+Plex+Mono:wght@400;500&family=Share+Tech+Mono&family=Special+Elite&display=swap");
+
+body.is-tagbay {
+  --bay: #100c04;
+  --bay-hi: #1e1608;
+  --phosphor: #ffc14a;
+  --ink: #ffe7a0;
+  --dust: #c9a04a;
+  --mute: #8a6a28;
+  --dim: #6a5018;
+  --rule: rgba(255, 193, 74, 0.28);
+  background: #100c04;
+  color: var(--ink);
+}
+
+body.is-tagbay .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #100c04, #2a1c08);
+  border-color: #8a5a18;
+  color: #ffc14a;
+  text-shadow: 0 0 10px rgba(255, 180, 40, 0.45);
+}
+
+body.is-tagbay .wwwExplorer_mark {
+  background: #1a1204;
+  color: #ffc14a;
+  border: 1px solid #8a5a18;
+  box-shadow: 0 0 8px rgba(255, 180, 40, 0.18);
+}
+
+body.is-tagbay .wwwExplorer_title {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  letter-spacing: 0.08em;
+}
+
+body.is-tagbay .wwwExplorer_linkBar {
+  background: #1a1408;
+  border-top: 1px solid #3a2810;
+}
+
+body.is-tagbay .wwwExplorer_linkBar button {
+  background: #241808;
+  color: #ffc14a;
+  border-color: #8a5a18;
+  box-shadow:
+    inset -1px -1px 0 #00000088,
+    inset 1px 1px 0 #ffc14a22;
+}
+
+body.is-tagbay .wwwExplorer_linkBar button:active {
+  box-shadow: inset 1px 1px 0 #00000088;
+}
+
+body.is-tagbay .linkSlug {
+  background: #0c0a04;
+  color: #ffc14a;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  box-shadow:
+    inset 1px 1px 0 #000000aa,
+    0 0 0 1px #8a5a18;
+}
+
+body.is-tagbay .wwwExplorer_status {
+  background: #1a1408;
+  color: #8a6a28;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 #00000066;
+}
+
+body.is-tagbay .wwwExplorer_innerShell {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 180, 40, 0.045) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(ellipse at 50% -10%, rgba(255, 180, 40, 0.16), transparent 52%),
+    #100c04;
+  color: #ffe7a0;
+  font: 12px/1.45 "Share Tech Mono", "Courier New", monospace;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.16);
+  border-color: #3a2810 #1a1204 #1a1204 #3a2810;
+  box-shadow:
+    inset 0 0 48px rgba(0, 0, 0, 0.55),
+    inset 0 0 2px rgba(255, 180, 40, 0.25);
+  scrollbar-width: thin;
+  scrollbar-color: #ffc14a #100c04;
+}
+
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar,
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+}
+
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-track,
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-corner {
+  background: #100c04;
+  box-shadow: none;
+}
+
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-thumb,
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+  background: #8a5a18;
+  border: 1px solid #ffc14a;
+  box-shadow: none;
+}
+
+body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+  background-image: none;
+}
+
+body.is-tagbay #browserWindow {
+  padding: 1.1rem 1.35rem 1.8rem;
+  max-width: 52rem;
+}
+
+body.is-tagbay .wwwExplorer_innerShell p {
+  white-space: normal;
+}
+
+body.is-tagbay .wwwExplorer_innerShell h1,
+body.is-tagbay .wwwExplorer_innerShell h2,
+body.is-tagbay .wwwExplorer_innerShell h3 {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.tagbay {
+  position: relative;
+}
+
+.tagbay-mast {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  margin: 0 0 1.15rem;
+  padding: 0.15rem 0 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bay, #100c04);
+  box-shadow: 0 10px 14px -8px rgba(0, 0, 0, 0.55);
+}
+
+.tagbay-sys {
+  margin: 0 0 0.45rem;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-shadow: none;
+}
+
+.tagbay-sys span {
+  color: var(--phosphor);
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.45);
+}
+
+body.is-tagbay #GO.is-desk {
+  min-width: 5.2rem;
+  background: #ffc14a;
+  color: #100c04;
+  border-color: #ffe7a0;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-shadow: none;
+  box-shadow:
+    0 0 14px rgba(255, 180, 40, 0.55),
+    inset 1px 1px 0 #fff3c488;
+}
+
+body.is-tagbay #GO.is-desk:active {
+  box-shadow: inset 1px 1px 0 #00000066;
+}
+
+#tagbay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  overflow: auto;
+  padding: 1.1rem 1.35rem 1.8rem;
+  max-width: none;
+}
+
+body.is-tagbay #tagbay-layer {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 180, 40, 0.045) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(ellipse at 50% -10%, rgba(255, 180, 40, 0.16), transparent 52%),
+    #100c04;
+  color: #ffe7a0;
+  font: 12px/1.45 "Share Tech Mono", "Courier New", monospace;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.16);
+  scrollbar-width: thin;
+  scrollbar-color: #ffc14a #100c04;
+}
+
+#tagbay-layer[hidden] {
+  display: none !important;
+}
+
+body.is-tagbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
+body.is-libbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
+body.is-agentbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
+body.is-tpsbay .wwwExplorer_stage:has(#tagbay-layer:not([hidden])),
+body.is-cratebay .wwwExplorer_stage:has(#tagbay-layer:not([hidden])) {
+  overflow: hidden;
+}
+
+#tagbay-layer .tagbay {
+  max-width: 52rem;
+}
+
+.tagbay-mast h1 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--phosphor);
+  text-shadow: 0 0 14px rgba(255, 180, 40, 0.55);
+}
+
+.tagbay-hash {
+  color: var(--mute);
+  margin-right: 0.08em;
+  text-shadow: none;
+}
+
+.tagbay-cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1em;
+  margin-left: 0.12em;
+  vertical-align: -0.08em;
+  background: var(--phosphor);
+  box-shadow: 0 0 8px rgba(255, 180, 40, 0.7);
+  animation: tagbay-blink 1.05s steps(1) infinite;
+}
+
+@keyframes tagbay-blink {
+  50% { opacity: 0; }
+}
+
+.tagbay-void {
+  margin: 1.4rem 0 0;
+  color: var(--mute);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.tagbay-chest {
+  margin: 0 0 1.05rem;
+  padding: 0.15rem 0 0.15rem;
+  border-left: 2px solid var(--rule);
+  padding-left: 0.75rem;
+}
+
+.tagbay-chest-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin: 0 0 0.28rem;
+}
+
+.tagbay-chest-head h2 {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-shadow: none;
+}
+
+.tagbay-n {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--dim);
+  text-shadow: none;
+}
+
+.tagbay-chest.is-focus {
+  border-left-color: var(--phosphor);
+}
+
+.tagbay-hit.is-here {
+  background: rgba(255, 180, 40, 0.08);
+  box-shadow: inset 2px 0 0 var(--phosphor);
+}
+
+.tagbay-hit.is-here .tagbay-note::after {
+  content: " here";
+  margin-left: 0.35em;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-shadow: none;
+}
+
+.tagbay-chest ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tagbay-hit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 38%);
+  gap: 0.15rem 1.1rem;
+  align-items: baseline;
+  padding: 0.32rem 0.15rem 0.3rem 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.tagbay-hit:last-child {
+  border-bottom: 0;
+}
+
+.tagbay-hit:hover {
+  background: rgba(255, 180, 40, 0.06);
+  box-shadow: inset 2px 0 0 var(--phosphor);
+}
+
+.tagbay-hit-main {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.65rem;
+}
+
+.tagbay-chain {
+  display: inline;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+body.is-tagbay .tagbay-chain a:link,
+body.is-tagbay .tagbay-chain a:visited {
+  color: var(--phosphor);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.35);
+}
+
+body.is-tagbay .tagbay-chain a:hover {
+  color: #fff3c4;
+}
+
+body.is-tagbay .tagbay-chain a.cork-rel:link,
+body.is-tagbay .tagbay-chain a.cork-rel:visited {
+  color: var(--dust);
+  text-shadow: none;
+  letter-spacing: 0.06em;
+}
+
+body.is-tagbay .tagbay-chain a.cork-rel:hover {
+  color: var(--ink);
+}
+
+.tagbay-chain .charlie-sep {
+  color: var(--dim);
+  padding: 0 0.12em;
+  text-shadow: none;
+}
+
+body.is-tagbay a.tagbay-note:link,
+body.is-tagbay a.tagbay-note:visited {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+body.is-tagbay a.tagbay-note:hover {
+  color: var(--phosphor);
+}
+
+.tagbay-meta {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--mute);
+  text-shadow: none;
+  text-align: right;
+}
+
+.tagbay-meta .hit-path {
+  display: inline;
+  font: inherit;
+  color: var(--dim);
+}
+
+.tagbay-meta .tagbay-crate-id + .hit-path::before,
+.tagbay-meta .tagbay-off + .hit-path::before {
+  content: " · ";
+  color: var(--dim);
+}
+
+.tagbay-meta .tagbay-crate-id {
+  display: inline;
+  margin: 0;
+  font: inherit;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  user-select: all;
+  text-decoration: none;
+}
+
+.tagbay-meta a.tagbay-crate-id:hover {
+  text-decoration: underline;
+}
+
+.tagbay-meta .tagbay-off {
+  display: inline;
+  margin: 0;
+  font-style: italic;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--dim);
+}
+
+@media (max-width: 720px) {
+  body.is-tagbay #browserWindow,
+  body.is-libbay #browserWindow,
+  body.is-agentbay #browserWindow,
+  body.is-tpsbay #browserWindow,
+  body.is-cratebay #browserWindow,
+  #tagbay-layer {
+    padding: 0.85rem 0.8rem 1.4rem;
+  }
+
+  .tagbay-hit {
+    grid-template-columns: 1fr;
+    gap: 0.12rem;
+  }
+
+  .tagbay-meta {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tagbay-cursor {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+body.is-sheet .tagbay-cursor {
+  display: none;
+}
+
+.tagbay-sub {
+  margin: 0.35rem 0 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  text-shadow: none;
+}
+
+.tagbay-bin {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+  margin: 0.55rem 0 0;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tagbay-bin a {
+  color: var(--mute);
+  text-decoration: none;
+}
+
+.tagbay-bin a.is-on {
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+body.is-libbay .tagbay-bin a.is-on {
+  color: #2a3f3d;
+  border-bottom-color: #2a3f3d;
+}
+
+body.is-agentbay .tagbay-bin a.is-on {
+  color: #c4202a;
+  border-bottom-color: #c4202a;
+}
+
+.tagbay-vals {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.4rem;
+}
+
+a.tagbay-val {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--mute);
+}
+
+a.tagbay-field {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Librarian catalog — booth green, manila slip. mypi:lib */
+body.is-libbay {
+  --bay: #2a3f3d;
+  --phosphor: #2a3f3d;
+  --ink: #24160e;
+  --dust: #8a4a38;
+  --mute: #6a4a38;
+  --dim: #8a6a50;
+  --rule: rgba(42, 63, 61, 0.28);
+  background: #2a3f3d;
+  color: var(--ink);
+}
+
+body.is-libbay .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #1e2e2c, #3a5450);
+  border-color: #1e2e2c;
+  color: #f4ead4;
+  text-shadow: none;
+}
+
+body.is-libbay .wwwExplorer_mark {
+  background: #4a6a50;
+  color: #f4ead4;
+  border: 1px solid #1e2e2c;
+}
+
+body.is-libbay .wwwExplorer_title {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+body.is-libbay .wwwExplorer_linkBar {
+  background: #243834;
+  border-top: 1px solid #1e2e2c;
+}
+
+body.is-libbay .wwwExplorer_linkBar button {
+  background: #3a5450;
+  color: #f4ead4;
+  border-color: #1e2e2c;
+  box-shadow:
+    inset -1px -1px 0 #00000066,
+    inset 1px 1px 0 #ffffff22;
+}
+
+body.is-libbay .linkSlug {
+  background: #f6e2c8;
+  color: #24160e;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  box-shadow:
+    inset 1px 1px 0 #00000033,
+    0 0 0 1px #6a4a38;
+}
+
+body.is-libbay .wwwExplorer_status {
+  background: #243834;
+  color: #c4b8a0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.is-libbay .wwwExplorer_innerShell,
+body.is-libbay #tagbay-layer {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 0, 0, 0.06) 11px 12px
+    ),
+    #f6e2c8;
+  color: #24160e;
+  font: 12px/1.45 "Special Elite", "Courier New", monospace;
+  text-shadow: none;
+  border-color: #1e2e2c #3a5450 #3a5450 #1e2e2c;
+  box-shadow: inset 2px 2px 0 #00000022;
+  scrollbar-width: thin;
+  scrollbar-color: #4a6a50 #f6e2c8;
+}
+
+body.is-libbay #browserWindow {
+  padding: 1.1rem 1.35rem 1.8rem;
+  max-width: 52rem;
+}
+
+body.is-libbay .wwwExplorer_innerShell p,
+body.is-libbay #tagbay-layer p {
+  white-space: normal;
+}
+
+body.is-libbay .wwwExplorer_innerShell h1,
+body.is-libbay .wwwExplorer_innerShell h2,
+body.is-libbay .tagbay-mast h1 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: none;
+  color: #24160e;
+}
+
+body.is-libbay .tagbay-sys span {
+  color: #2a3f3d;
+  text-shadow: none;
+}
+
+body.is-libbay .tagbay-cursor {
+  background: #2a3f3d;
+  box-shadow: none;
+}
+
+body.is-libbay #GO.is-desk {
+  min-width: 5.2rem;
+  background: #f6e2c8;
+  color: #24160e;
+  border-color: #f4ead4;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-shadow: none;
+  box-shadow: 0 0 10px rgba(244, 234, 212, 0.35);
+}
+
+body.is-libbay a.tagbay-note:link,
+body.is-libbay a.tagbay-note:visited,
+body.is-libbay a.tagbay-field:link,
+body.is-libbay a.tagbay-field:visited {
+  color: #24160e;
+  text-decoration: none;
+}
+
+body.is-libbay a.tagbay-note:hover,
+body.is-libbay a.tagbay-field:hover {
+  color: #8a4a38;
+}
+
+body.is-libbay a.tagbay-val:link,
+body.is-libbay a.tagbay-val:visited {
+  color: #6a4a38;
+  border-bottom: 1px dotted #8a4a38;
+}
+
+body.is-libbay a.tagbay-val:hover {
+  color: #8a4a38;
+}
+
+body.is-libbay .tagbay-hit:hover {
+  background: rgba(42, 63, 61, 0.08);
+  box-shadow: inset 2px 0 0 #2a3f3d;
+}
+
+/* Agent index — stamp red hunt. mypi:hunt */
+body.is-agentbay {
+  --bay: #140808;
+  --phosphor: #ff3a32;
+  --ink: #1a0c0c;
+  --dust: #c4202a;
+  --mute: #6a1410;
+  --dim: #8a4038;
+  --rule: rgba(196, 32, 42, 0.28);
+  background: #140808;
+  color: var(--ink);
+}
+
+body.is-agentbay .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #0e0404, #2a1010);
+  border-color: #6a1818;
+  color: #f4dcd4;
+  text-shadow: none;
+}
+
+body.is-agentbay .wwwExplorer_mark {
+  background: #c4202a;
+  color: #f4dcd4;
+  border: 1px solid #6a1818;
+}
+
+body.is-agentbay .wwwExplorer_title {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  letter-spacing: 0.06em;
+}
+
+body.is-agentbay .wwwExplorer_linkBar {
+  background: #1a0808;
+  border-top: 1px solid #6a1818;
+}
+
+body.is-agentbay .wwwExplorer_linkBar button {
+  background: #2a1010;
+  color: #ff3a32;
+  border-color: #6a1818;
+  box-shadow:
+    inset -1px -1px 0 #00000088,
+    inset 1px 1px 0 #c4202a33;
+}
+
+body.is-agentbay .linkSlug {
+  background: #1a0808;
+  color: #ff3a32;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 400;
+  box-shadow:
+    inset 1px 1px 0 #000000aa,
+    0 0 0 1px #6a1818;
+}
+
+body.is-agentbay .wwwExplorer_status {
+  background: #1a0808;
+  color: #8a4038;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.is-agentbay .wwwExplorer_innerShell,
+body.is-agentbay #tagbay-layer {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 28px,
+      rgba(180, 20, 30, 0.08) 28px 29px
+    ),
+    linear-gradient(180deg, #f4dcd4 0%, #ecc8bc 55%, #d8a898 100%);
+  color: #1a0c0c;
+  font: 12px/1.45 "Share Tech Mono", "Courier New", monospace;
+  text-shadow: none;
+  border-color: #6a1818 #2a1010 #2a1010 #6a1818;
+  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.35);
+  scrollbar-width: thin;
+  scrollbar-color: #c4202a #1a0808;
+}
+
+body.is-agentbay #browserWindow {
+  padding: 1.1rem 1.35rem 1.8rem;
+  max-width: 52rem;
+}
+
+body.is-agentbay .wwwExplorer_innerShell p,
+body.is-agentbay #tagbay-layer p {
+  white-space: normal;
+}
+
+body.is-agentbay .wwwExplorer_innerShell h1,
+body.is-agentbay .tagbay-mast h1 {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  color: #c4202a;
+}
+
+body.is-agentbay .tagbay-sys span {
+  color: #c4202a;
+  text-shadow: none;
+}
+
+body.is-agentbay .tagbay-cursor {
+  background: #c4202a;
+  box-shadow: 0 0 8px rgba(196, 32, 42, 0.5);
+}
+
+body.is-agentbay #GO.is-desk {
+  min-width: 5.2rem;
+  background: #c4202a;
+  color: #f4dcd4;
+  border-color: #ff3a32;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-shadow: none;
+  box-shadow: 0 0 12px rgba(196, 32, 42, 0.45);
+}
+
+body.is-agentbay a.tagbay-note:link,
+body.is-agentbay a.tagbay-note:visited,
+body.is-agentbay a.tagbay-field:link,
+body.is-agentbay a.tagbay-field:visited,
+body.is-agentbay a.tagbay-crate-id:link,
+body.is-agentbay a.tagbay-crate-id:visited {
+  color: #c4202a;
+  text-decoration: none;
+}
+
+body.is-agentbay a.tagbay-note:hover,
+body.is-agentbay a.tagbay-field:hover,
+body.is-agentbay a.tagbay-crate-id:hover {
+  color: #ff3a32;
+}
+
+body.is-agentbay a.tagbay-val:link,
+body.is-agentbay a.tagbay-val:visited {
+  color: #c4202a;
+  border-bottom: 1px dotted #c4202a;
+}
+
+body.is-agentbay a.tagbay-val:hover {
+  color: #c4202a;
+}
+
+body.is-agentbay .tagbay-hit:hover {
+  background: rgba(196, 32, 42, 0.08);
+  box-shadow: inset 2px 0 0 #c4202a;
+}
+
+/* TPS report — carbon copy, time clock. */
+body.is-tpsbay {
+  --bay: #2a2c28;
+  --ink: #1c1e18;
+  --stamp: #c42820;
+  --paper: #eef0e4;
+  background: #2a2c28;
+  color: var(--ink);
+}
+
+body.is-tpsbay .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #1c1e1a, #3a3c34);
+  border-color: #8a8c78;
+  color: #eef0e4;
+}
+
+body.is-tpsbay .wwwExplorer_mark {
+  background: #eef0e4;
+  color: #c42820;
+  border: 1px solid #8a8c78;
+}
+
+body.is-tpsbay .wwwExplorer_title {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+
+body.is-tpsbay .wwwExplorer_stage {
+  position: relative;
+}
+
+body.is-tpsbay .wwwExplorer_innerShell,
+body.is-tpsbay #tagbay-layer {
+  background: #2a2c28;
+}
+
+body.is-tpsbay #tagbay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  padding: 0.6rem 0.7rem 0.8rem;
+}
+
+body.is-tpsbay .tagbay,
+body.is-tpsbay #tagbay-layer .tagbay {
+  max-width: none;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.85rem 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 12px/1.45 "IBM Plex Mono", "Courier New", monospace;
+  border-color: #8a8c78 #3a3c34 #3a3c34 #8a8c78;
+  box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+body.is-tpsbay .tagbay-mast h1 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1c1e18;
+}
+
+body.is-tpsbay .tagbay-sys span {
+  color: #c42820;
+}
+
+body.is-tpsbay .tagbay-cursor {
+  background: #c42820;
+}
+
+body.is-tpsbay #GO.is-desk {
+  min-width: 5.2rem;
+  background: #c42820;
+  color: #eef0e4;
+  border-color: #8a2018;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+body.is-tpsbay a.tagbay-note:link,
+body.is-tpsbay a.tagbay-note:visited,
+body.is-tpsbay a.tagbay-field:link,
+body.is-tpsbay a.tagbay-field:visited {
+  color: #1c1e18;
+  text-decoration: none;
+}
+
+body.is-tpsbay a.tagbay-note:hover,
+body.is-tpsbay a.tagbay-field:hover {
+  color: #c42820;
+}
+
+body.is-tpsbay a.tagbay-val:link,
+body.is-tpsbay a.tagbay-val:visited {
+  color: #4a4c40;
+  border-bottom: 1px dotted #c42820;
+}
+
+body.is-tpsbay .tagbay-hit:hover {
+  background: rgba(196, 40, 32, 0.08);
+  box-shadow: inset 2px 0 0 #c42820;
+}
+
+body.is-tpsbay .tps-hit-vals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+}
+
+body.is-tpsbay .tps-hit-stamp {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.65rem;
+}
+
+body.is-tpsbay a.tps-kind:link,
+body.is-tpsbay a.tps-kind:visited {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c42820;
+  border-bottom: 0;
+}
+
+body.is-tpsbay a.tps-kind:hover {
+  color: #1c1e18;
+}
+
+body.is-tpsbay a.tps-hit-when:link,
+body.is-tpsbay a.tps-hit-when:visited,
+body.is-tpsbay .tps-hit-when {
+  font-size: 10px;
+  color: #4a4c40;
+  text-decoration: none;
+  border-bottom: 1px dotted #8a8c78;
+}
+
+body.is-tpsbay a.tps-hit-when:hover {
+  color: #c42820;
+}
+
+body.is-tpsbay .tps-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  margin: 0.45rem 0 0;
+  font-size: 11px;
+}
+
+body.is-tpsbay .tps-crumb-bit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  padding: 0.08rem 0.28rem;
+  background: #dce0d4;
+  border: 1px solid #8a8c7866;
+}
+
+body.is-tpsbay a.tps-crumb-on:link,
+body.is-tpsbay a.tps-crumb-on:visited {
+  color: #1c1e18;
+  text-decoration: none;
+}
+
+body.is-tpsbay a.tps-crumb-x:link,
+body.is-tpsbay a.tps-crumb-x:visited {
+  color: #c42820;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+body.is-tpsbay .tps-narrow {
+  margin: 0 0 0.85rem;
+}
+
+body.is-tpsbay .tps-narrow .catalog-head {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c42820;
+  margin: 0 0 0.28rem;
+}
+
+body.is-tpsbay .tps-bin {
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: 0.15rem 0.55rem;
+  align-items: baseline;
+  margin: 0.12rem 0;
+}
+
+body.is-tpsbay .tps-bin-label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a5c50;
+}
+
+body.is-tpsbay .tps-bucket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+body.is-tpsbay .tps-bucket .catalog-hit {
+  margin: 0;
+  padding: 0.06rem 0.28rem;
+  border: 1px solid #8a8c7888;
+  background: #e4e6da;
+  color: #1c1e18;
+  text-decoration: none;
+}
+
+body.is-tpsbay .tps-bucket .catalog-hit:hover {
+  background: #1c1e18;
+  color: #eef0e4;
+}
+
+body.is-tpsbay .tps-n {
+  margin-left: 0.2rem;
+  font-size: 9px;
+  color: #5a5c50;
+}
+
+body.is-tpsbay .tagbay-chest h2 {
+  color: #c42820;
+}
+
+body.is-tpsbay li.tps-table-hit {
+  display: block;
+  padding: 0;
+  border: 0;
+  grid-template-columns: none;
+}
+
+body.is-tpsbay li.tps-table-hit:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+body.is-tpsbay .tps-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+body.is-tpsbay .tps-table col.tps-col-when { width: 22%; }
+body.is-tpsbay .tps-table col.tps-col-page { width: 34%; }
+body.is-tpsbay .tps-table col.tps-col-environment { width: 16%; }
+body.is-tpsbay .tps-table col.tps-col-path { width: 28%; }
+
+body.is-tpsbay .tps-table th,
+body.is-tpsbay .tps-table td {
+  text-align: left;
+  padding: 0.32rem 0.55rem;
+  vertical-align: baseline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.is-tpsbay .tps-table thead th {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a5c50;
+  border-bottom: 1px solid #8a8c78;
+}
+
+body.is-tpsbay .tps-table thead a:link,
+body.is-tpsbay .tps-table thead a:visited {
+  color: #5a5c50;
+  text-decoration: none;
+}
+
+body.is-tpsbay .tps-table thead a:hover {
+  color: #c42820;
+}
+
+body.is-tpsbay .tps-table tbody tr {
+  border-bottom: 1px dotted #8a8c7844;
+}
+
+body.is-tpsbay .tps-table tbody tr:hover {
+  background: rgba(196, 40, 32, 0.08);
+}
+
+body.is-tpsbay .tps-table a:link,
+body.is-tpsbay .tps-table a:visited {
+  color: #1c1e18;
+  text-decoration: none;
+}
+
+body.is-tpsbay .tps-table a:hover {
+  color: #c42820;
+}
+
+body.is-tpsbay .tps-col-environment {
+  color: #3a5a40;
+  letter-spacing: 0.04em;
+}
+
+/* Crate report — cardboard box, darker kraft. Not manila, not Librarian. */
+body.is-cratebay {
+  --bay: #4a3224;
+  --ink: #2a1c12;
+  --stamp: #6b3d22;
+  --paper: #c49a62;
+  --flap: #d4b07a;
+  --edge: #7a5230;
+  --box: #a67c4a;
+  background: #4a3224;
+  color: var(--ink);
+}
+
+body.is-cratebay .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #2a1c12, #5c3e28);
+  border-color: #7a5230;
+  color: #ead4b0;
+}
+
+body.is-cratebay .wwwExplorer_mark {
+  background: #c49a62;
+  color: #2a1c12;
+  border: 1px solid #7a5230;
+}
+
+body.is-cratebay .wwwExplorer_title {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+
+body.is-cratebay .wwwExplorer_stage {
+  position: relative;
+}
+
+body.is-cratebay .wwwExplorer_innerShell,
+body.is-cratebay #tagbay-layer {
+  background: #4a3224;
+}
+
+body.is-cratebay #tagbay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  padding: 0.6rem 0.7rem 0.8rem;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #6b3d22 #c49a62;
+}
+
+body.is-cratebay,
+body.is-cratebay .wwwExplorer_innerShell {
+  scrollbar-width: thin;
+  scrollbar-color: #6b3d22 #c49a62;
+}
+
+body.is-cratebay #tagbay-layer::-webkit-scrollbar,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+  width: 11px;
+  height: 11px;
+}
+
+body.is-cratebay #tagbay-layer::-webkit-scrollbar-track,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-track,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-corner {
+  background: #4a3224;
+}
+
+body.is-cratebay #tagbay-layer::-webkit-scrollbar-thumb,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-thumb,
+body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+  background: #6b3d22;
+  border: 1px solid #7a5230;
+}
+
+body.is-cratebay .tagbay,
+body.is-cratebay #tagbay-layer .tagbay {
+  max-width: none;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.85rem 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 12px/1.45 "IBM Plex Mono", "Courier New", monospace;
+  border-color: #d4b07a #5c3e28 #5c3e28 #d4b07a;
+  box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.35);
+}
+
+body.is-cratebay .tagbay-mast h1 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+body.is-cratebay .tagbay.is-lore .tagbay-mast h1 {
+  letter-spacing: 0.06em;
+}
+
+body.is-cratebay .crate-kind {
+  display: block;
+  margin: 0 0 0.1rem;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--stamp);
+}
+
+body.is-cratebay .crate-deck {
+  display: block;
+  margin: 0 0 0.2rem;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #5a4838;
+}
+
+body.is-cratebay .tagbay-mast .crate-deck {
+  margin: 0.15rem 0 0.1rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--stamp);
+}
+
+body.is-cratebay .tagbay-hit.is-lore {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0.55rem 0.7rem 0.5rem;
+  overflow: hidden;
+  border: 1px solid #7a5230;
+  border-bottom: 1px solid #5c3e28;
+  background: var(--flap);
+  box-shadow: 2px 2px 0 rgba(42, 28, 18, 0.28);
+}
+
+body.is-cratebay .tagbay-chest.is-tiles ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 0.7rem 0.75rem;
+}
+
+body.is-cratebay .tagbay-chest.is-tiles .tagbay-hit {
+  grid-template-columns: 1fr;
+  min-width: 0;
+  max-width: 100%;
+  border-bottom: 0;
+}
+
+body.is-cratebay .tagbay-chest.is-tiles .tagbay-hit:hover {
+  background: #dcb888;
+  box-shadow: 3px 3px 0 rgba(42, 28, 18, 0.32);
+}
+
+body.is-cratebay .tagbay-chest.is-chips ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.4rem;
+}
+
+body.is-cratebay .crate-chip {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.18rem 0.55rem 0.16rem;
+  border: 1px solid #7a5230;
+  border-bottom: 1px solid #5c3e28;
+  background: var(--flap);
+  grid-template-columns: auto;
+  gap: 0;
+}
+
+body.is-cratebay .crate-chip .tagbay-hit-main {
+  display: inline;
+}
+
+body.is-cratebay .crate-chip .tagbay-note {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+body.is-cratebay .crate-chip:hover {
+  background: #dcb888;
+  box-shadow: none;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .tagbay-hit-main {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .crate-house {
+  display: block;
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+body.is-cratebay .tagbay-hit.is-lore .crate-kind {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #6a5a4a;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .crate-deck {
+  margin: 0 0 0.15rem;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .tagbay-meta {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: 0.4rem;
+  padding-top: 0.32rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  border-top: 1px solid #8a6238;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .tagbay-meta .tagbay-crate-id,
+body.is-cratebay .tagbay-hit.is-lore .tagbay-meta .hit-path {
+  display: inline;
+}
+
+body.is-cratebay .tagbay-hit.is-lore .tagbay-note {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+body.is-cratebay .tagbay-sys span {
+  color: var(--stamp);
+}
+
+body.is-cratebay .tagbay-cursor {
+  background: var(--stamp);
+}
+
+body.is-cratebay #GO.is-desk {
+  min-width: 5.2rem;
+  background: var(--stamp);
+  color: #ead4b0;
+  border-color: #3a2418;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+body.is-cratebay a.tagbay-note:link,
+body.is-cratebay a.tagbay-note:visited,
+body.is-cratebay a.tagbay-field:link,
+body.is-cratebay a.tagbay-field:visited {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+body.is-cratebay a.tagbay-note:hover,
+body.is-cratebay a.tagbay-field:hover {
+  color: var(--stamp);
+}
+
+body.is-cratebay a.tagbay-val:link,
+body.is-cratebay a.tagbay-val:visited {
+  color: #4a3224;
+  border-bottom: 1px dotted var(--stamp);
+}
+
+body.is-cratebay .tagbay-hit:hover {
+  background: rgba(107, 61, 34, 0.14);
+  box-shadow: inset 2px 0 0 var(--stamp);
+}
+
+body.is-cratebay .tagbay-chest h2 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a4838;
+}
+
+body.is-cratebay .crate-house,
+body.is-cratebay .crate-mark {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+body.is-cratebay .crate-line {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 11px;
+  color: #5a4838;
+}
+
+body.is-cratebay a.tps-kind:link,
+body.is-cratebay a.tps-kind:visited {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  text-decoration: none;
+}
+
+body.is-cratebay a.tps-kind:hover,
+body.is-cratebay a.tps-hit-when:hover {
+  color: var(--ink);
+}
+
+body.is-cratebay a.tps-hit-when:link,
+body.is-cratebay a.tps-hit-when:visited,
+body.is-cratebay .tps-hit-when {
+  color: #5a4838;
+  text-decoration: none;
+}
+
+body.is-cratebay .tagbay-chain a:link,
+body.is-cratebay .tagbay-chain a:visited {
+  color: #5a4838;
+}
+
+body.is-cratebay .tagbay-chain a:hover {
+  color: var(--stamp);
+}
+
+/* Lookup windows — the window is the report. No www bar, no DESK. */
+body.is-sheet {
+  color: var(--ink, #241c14);
+}
+
+.sheet-cap {
+  flex: 0 0 auto;
+}
+
+.sheet-cap-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 1.85rem;
+  padding: 0 0.35rem 0 0.7rem;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.sheet-cap-bar:active {
+  cursor: grabbing;
+}
+
+.sheet-cap-mark {
+  flex: 0 0 auto;
+  font: 700 9px/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  -webkit-app-region: drag;
+}
+
+.sheet-cap-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font: 700 12px/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: grab;
+}
+
+.sheet-cap .wwwExplorer_win {
+  margin-left: auto;
+}
+
+.sheet-cap .wwwExplorer_win .dh-cap-btn {
+  box-shadow: none;
+}
+
+.sheet-face {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+body.is-sheet .tagbay,
+body.is-sheet #browserWindow > .tagbay {
+  max-width: none;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.75rem 0.95rem 1.15rem;
+  border: 0;
+  box-shadow: none;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Sheet lookup windows fill the frame — no 52rem reading measure on #browserWindow */
+body.is-sheet.is-tagbay #browserWindow,
+body.is-sheet.is-libbay #browserWindow,
+body.is-sheet.is-agentbay #browserWindow,
+body.is-sheet.is-tpsbay #browserWindow,
+body.is-sheet.is-cratebay #browserWindow,
+body.is-sheet #browserWindow.sheet-face {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+body.is-sheet.is-cratebay {
+  background: #c49a62;
+}
+
+body.is-sheet.is-cratebay .sheet-cap-bar {
+  background: #5c3e28;
+  border-bottom: 1px solid #3a2418;
+  color: #ead4b0;
+}
+
+body.is-sheet.is-cratebay .sheet-cap-mark {
+  color: #d4b07a;
+}
+
+body.is-sheet.is-cratebay .sheet-cap-title {
+  color: #ead4b0;
+}
+
+body.is-sheet.is-cratebay .sheet-cap .wwwExplorer_win .dh-cap-btn {
+  background: #5c3e28;
+  color: #ead4b0;
+  border-color: #7a5230;
+}
+
+body.is-sheet.is-cratebay .sheet-cap .wwwExplorer_win .dh-cap-btn:hover {
+  background: #7a5230;
+  color: #ead4b0;
+}
+
+body.is-sheet.is-cratebay .sheet-cap .wwwExplorer_win .dh-cap-btn.close:hover {
+  background: #6b3d22;
+  color: #ead4b0;
+}
+
+body.is-sheet.is-cratebay .sheet-face {
+  scrollbar-width: thin;
+  scrollbar-color: #6b3d22 #c49a62;
+}
+
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar,
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar-button {
+  width: 11px;
+  height: 11px;
+}
+
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar-track,
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar-corner {
+  background: #c49a62;
+}
+
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar-thumb,
+body.is-sheet.is-cratebay .sheet-face::-webkit-scrollbar-button {
+  background: #6b3d22;
+  border: 1px solid #7a5230;
+}
+
+body.is-sheet.is-cratebay .tagbay,
+body.is-sheet.is-cratebay #browserWindow > .tagbay {
+  background: transparent;
+}
+
+body.is-sheet.is-tagbay {
+  background: #100c04;
+}
+
+body.is-sheet.is-tagbay .sheet-cap-bar {
+  background: #100c04;
+  border-bottom: 1px solid #8a5a18;
+  color: #ffc14a;
+}
+
+body.is-sheet.is-tagbay .sheet-cap-mark,
+body.is-sheet.is-tagbay .sheet-cap-title {
+  color: #ffc14a;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  text-shadow: 0 0 10px rgba(255, 180, 40, 0.45);
+}
+
+body.is-sheet.is-tagbay .sheet-cap-title {
+  text-transform: none;
+  letter-spacing: 0.08em;
+}
+
+body.is-sheet.is-tagbay .sheet-cap .wwwExplorer_win .dh-cap-btn {
+  background: #1a1204;
+  color: #ffc14a;
+  border-color: #8a5a18;
+}
+
+body.is-sheet.is-tagbay .sheet-cap .wwwExplorer_win .dh-cap-btn:hover,
+body.is-sheet.is-tagbay .sheet-cap .wwwExplorer_win .dh-cap-btn.close:hover {
+  background: #8a5a18;
+  color: #100c04;
+}
+
+body.is-sheet.is-tagbay .sheet-face {
+  scrollbar-width: thin;
+  scrollbar-color: #ffc14a #100c04;
+}
+
+body.is-sheet.is-libbay {
+  background: #f6e2c8;
+}
+
+body.is-sheet.is-libbay .sheet-cap-bar {
+  background: #2a3f3d;
+  border-bottom: 1px solid #1e2e2c;
+  color: #f4ead4;
+}
+
+body.is-sheet.is-libbay .sheet-cap-mark,
+body.is-sheet.is-libbay .sheet-cap-title {
+  color: #f4ead4;
+}
+
+body.is-sheet.is-libbay .sheet-cap .wwwExplorer_win .dh-cap-btn {
+  background: #3a5450;
+  color: #f4ead4;
+  border-color: #1e2e2c;
+}
+
+body.is-sheet.is-libbay .sheet-cap .wwwExplorer_win .dh-cap-btn:hover {
+  background: #4a6a50;
+  color: #f4ead4;
+}
+
+body.is-sheet.is-libbay .sheet-cap .wwwExplorer_win .dh-cap-btn.close:hover {
+  background: #8a4a38;
+  color: #f4ead4;
+}
+
+body.is-sheet.is-libbay .sheet-face {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 0, 0, 0.06) 11px 12px
+    ),
+    #f6e2c8;
+  scrollbar-width: thin;
+  scrollbar-color: #4a6a50 #f6e2c8;
+}
+
+body.is-sheet.is-agentbay {
+  background: #140808;
+}
+
+body.is-sheet.is-agentbay .sheet-cap-bar {
+  background: #140808;
+  border-bottom: 1px solid #6a1818;
+  color: #f4dcd4;
+}
+
+body.is-sheet.is-agentbay .sheet-cap-mark,
+body.is-sheet.is-agentbay .sheet-cap-title {
+  color: #ff3a32;
+}
+
+body.is-sheet.is-agentbay .sheet-cap-title {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  text-transform: none;
+  letter-spacing: 0.06em;
+}
+
+body.is-sheet.is-agentbay .sheet-cap .wwwExplorer_win .dh-cap-btn {
+  background: #1a0808;
+  color: #ff3a32;
+  border-color: #6a1818;
+}
+
+body.is-sheet.is-agentbay .sheet-cap .wwwExplorer_win .dh-cap-btn:hover,
+body.is-sheet.is-agentbay .sheet-cap .wwwExplorer_win .dh-cap-btn.close:hover {
+  background: #c4202a;
+  color: #f4dcd4;
+}
+
+body.is-sheet.is-agentbay .sheet-face {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 28px,
+      rgba(180, 20, 30, 0.08) 28px 29px
+    ),
+    linear-gradient(180deg, #f4dcd4 0%, #ecc8bc 55%, #d8a898 100%);
+  color: #1a0c0c;
+  scrollbar-width: thin;
+  scrollbar-color: #c4202a #1a0808;
+}
+
+body.is-sheet.is-tpsbay {
+  background: #eef0e4;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap-bar {
+  background: #2a2c28;
+  border-bottom: 1px solid #8a8c78;
+  color: #eef0e4;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap-mark {
+  color: #c42820;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap-title {
+  color: #eef0e4;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  text-transform: none;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap .wwwExplorer_win .dh-cap-btn {
+  background: #3a3c34;
+  color: #eef0e4;
+  border-color: #8a8c78;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap .wwwExplorer_win .dh-cap-btn:hover {
+  background: #4a4c44;
+  color: #eef0e4;
+}
+
+body.is-sheet.is-tpsbay .sheet-cap .wwwExplorer_win .dh-cap-btn.close:hover {
+  background: #c42820;
+  color: #eef0e4;
+}
+
+body.is-sheet.is-tpsbay .sheet-face {
+  scrollbar-width: thin;
+  scrollbar-color: #8a8c78 #eef0e4;
+}
+
+body.is-sheet.is-tpsbay .tagbay,
+body.is-sheet.is-tpsbay #browserWindow > .tagbay {
+  background: transparent;
+}
+
+.sheet-resize {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  z-index: 80;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 46%, currentColor 46%);
+  opacity: 0.35;
+  color: #5a4838;
+  -webkit-app-region: no-drag;
+}
+
+.sheet-resize:hover {
+  opacity: 0.7;
+}
+
+body.is-sheet.is-tagbay .sheet-resize {
+  color: #ffc14a;
+}
+
+body.is-sheet.is-libbay .sheet-resize {
+  color: #2a3f3d;
+}
+
+body.is-sheet.is-agentbay .sheet-resize {
+  color: #c4202a;
+}
+
+body.is-sheet.is-tpsbay .sheet-resize {
+  color: #8a8c78;
+}
+
+body.is-sheet.is-cratebay .sheet-resize {
+  color: #6b3d22;
+}
+
+/* clustered Charlie / crate threads */
+
+/* subject + bins stack as one card — never sit in the 2-col hit grid */
+.tagbay-hit.tagbay-page,
+.tagbay-hit.tagbay-thread-subject {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.2rem;
+  padding: 0.55rem 0.35rem 0.65rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tagbay-hit.tagbay-page .tagbay-meta,
+.tagbay-hit.tagbay-thread-subject .tagbay-meta {
+  text-align: left;
+  margin-top: 0.05rem;
+}
+
+.tagbay-page .charlie-bins,
+.tagbay-thread-subject .charlie-bins {
+  margin: 0.4rem 0 0.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.charlie-bin {
+  margin: 0;
+  padding: 0.4rem 0.55rem 0.5rem;
+  border: 1px solid var(--rule);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.charlie-bin-rel {
+  margin: 0 0 0.35rem;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dust, #c4a06a);
+}
+
+.charlie-bin-rel a:link,
+.charlie-bin-rel a:visited {
+  color: inherit;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.charlie-bin-rel a:hover {
+  color: var(--phosphor, #ffb428);
+  text-decoration: underline;
+}
+
+.charlie-bin-words {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.4rem;
+}
+
+.charlie-bin-word {
+  margin: 0;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid rgba(255, 180, 40, 0.35);
+  background: #1a1208;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.charlie-bin-word a:link,
+.charlie-bin-word a:visited {
+  color: var(--phosphor, #ffb428) !important;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.35);
+}
+
+.charlie-bin-word a:hover {
+  color: #fff3c4 !important;
+  text-decoration: underline;
+}
+
+.charlie-bin-pair {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+}
+
+.charlie-sep-soft {
+  opacity: 0.55;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--dim, #8a7358);
+}
+
+.tagbay-chain-subject {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tagbay-chain-subject a:link,
+.tagbay-chain-subject a:visited {
+  color: var(--phosphor, #ffb428);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.35);
+}
+
+.tagbay-chain-subject a:hover {
+  color: #fff3c4;
+}
+
+/* paper crate skin — dark ink on cream chips */
+body.is-cratebay .charlie-bin {
+  background: rgba(255, 248, 232, 0.72);
+  border-color: #8a6238;
+  box-shadow: 2px 2px 0 rgba(42, 28, 18, 0.12);
+}
+
+body.is-cratebay .charlie-bin-rel,
+body.is-cratebay .charlie-bin-rel a:link,
+body.is-cratebay .charlie-bin-rel a:visited {
+  color: #5a4838;
+  text-shadow: none;
+}
+
+body.is-cratebay .charlie-bin-rel a:hover {
+  color: #24160e;
+}
+
+body.is-cratebay .charlie-bin-word {
+  background: #fffdf6;
+  border-color: #8a6238;
+}
+
+body.is-cratebay .charlie-bin-word a:link,
+body.is-cratebay .charlie-bin-word a:visited {
+  color: #24160e !important;
+  text-shadow: none;
+}
+
+body.is-cratebay .charlie-bin-word a:hover {
+  color: #6b2a12 !important;
+}
+
+body.is-cratebay .tagbay-chain-subject a:link,
+body.is-cratebay .tagbay-chain-subject a:visited {
+  color: #24160e;
+  text-shadow: none;
+}
+
+body.is-cratebay .tagbay-chain-subject a:hover {
+  color: #6b2a12;
+}
+
+body.is-cratebay .tagbay-hit.tagbay-thread-subject {
+  border-bottom-color: #8a6238;
+  padding-left: 0.15rem;
+  border-left: 3px solid #8a6238;
+  margin: 0.15rem 0;
+  padding-left: 0.65rem;
+}
+
+.tagbay-fold {
+  list-style: none;
+  border-bottom: 0 !important;
+  padding: 0.35rem 0 0 !important;
+  display: block;
+  grid-column: 1 / -1;
+}
+
+.tagbay-more {
+  margin: 0.15rem 0 0;
+}
+
+.tagbay-more > summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute, #6a5340);
+  list-style: none;
+}
+
+.tagbay-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tagbay-more[open] > summary {
+  margin-bottom: 0.35rem;
+}
+
+.tagbay-more > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.is-cratebay .tagbay-more > summary {
+  color: #6a5340;
+}
+
+
+/* Charlie: connector bin leads; page is a quiet cite */
+.tagbay-hit.tagbay-relbin {
+  display: block;
+  grid-template-columns: none;
+  padding: 0.35rem 0 0.55rem;
+  border-bottom: 0;
+}
+.tagbay-hit.tagbay-relbin:hover {
+  background: transparent;
+}
+.tagbay-relbin > .charlie-bin {
+  width: 100%;
+}
+.charlie-bin-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.charlie-bin-page {
+  margin: 0;
+}
+.charlie-bin-cite {
+  margin: 0.28rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.55rem;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--mute, #8a6a28);
+}
+.charlie-bin-cite a.tagbay-note:link,
+.charlie-bin-cite a.tagbay-note:visited {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--mute, #8a6a28) !important;
+  text-shadow: none !important;
+}
+.charlie-bin-cite a.tagbay-note:hover {
+  color: var(--phosphor, #ffc14a) !important;
+  text-decoration: underline;
+}
+.charlie-bin-cite-meta {
+  font-size: 10px;
+  opacity: 0.75;
+  color: var(--dim, #6a5018);
+}
+.charlie-bin-cite.is-here a.tagbay-note:link,
+.charlie-bin-cite.is-here a.tagbay-note:visited,
+.charlie-bin-page.is-here .charlie-bin-cite a.tagbay-note:link,
+.charlie-bin-page.is-here .charlie-bin-cite a.tagbay-note:visited {
+  color: var(--dust, #c9a04a) !important;
+}
+body.is-cratebay .charlie-bin-cite,
+body.is-cratebay .charlie-bin-cite a.tagbay-note:link,
+body.is-cratebay .charlie-bin-cite a.tagbay-note:visited {
+  color: #6a5340 !important;
+  text-shadow: none !important;
+}
+body.is-cratebay .charlie-bin-cite-meta {
+  color: #8a7358;
+}
+
+.tagbay-relbin .charlie-bin-rel {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.45rem;
+  color: var(--phosphor, #ffc14a);
+}
+.tagbay-relbin .charlie-bin-rel a:link,
+.tagbay-relbin .charlie-bin-rel a:visited {
+  color: inherit;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.35);
+}
+body.is-cratebay .tagbay-relbin .charlie-bin-rel,
+body.is-cratebay .tagbay-relbin .charlie-bin-rel a:link,
+body.is-cratebay .tagbay-relbin .charlie-bin-rel a:visited {
+  color: #24160e;
+  text-shadow: none;
+}
+
+
+/* sticky mast skins */
+body.is-tagbay .tagbay-mast {
+  background:
+    linear-gradient(180deg, #100c04 70%, rgba(16, 12, 4, 0.92) 100%);
+  box-shadow: 0 12px 16px -10px rgba(0, 0, 0, 0.75);
+}
+
+body.is-cratebay .tagbay-mast {
+  background: #f6e2c8;
+  box-shadow: 0 10px 12px -8px rgba(42, 28, 18, 0.28);
+}
+
+body.is-libbay .tagbay-mast,
+body.is-agentbay .tagbay-mast,
+body.is-tpsbay .tagbay-mast {
+  background: var(--bay, #100c04);
+}
+
+
+/* character-sheet density — quieter type across bay reports */
+.tagbay-sys {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.3rem;
+}
+.tagbay-sub {
+  font-size: 10px;
+}
+.tagbay-chest-head h2 {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+.tagbay-n {
+  font-size: 9px;
+}
+.tagbay-meta {
+  font-size: 9px;
+}
+a.tagbay-note:link,
+a.tagbay-note:visited {
+  font-size: inherit;
+}
+.charlie-bin {
+  padding: 0.28rem 0.45rem 0.35rem;
+}
+.charlie-bin-rel {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.25rem;
+}
+.tagbay-relbin .charlie-bin-rel {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.3rem;
+}
+.charlie-bin-word {
+  font-size: 11px;
+  padding: 0.08rem 0.38rem;
+  line-height: 1.3;
+}
+.charlie-bin-cite {
+  font-size: 10px;
+  margin-top: 0.2rem;
+}
+.charlie-bin-cite a.tagbay-note:link,
+.charlie-bin-cite a.tagbay-note:visited {
+  font-size: 10px;
+}
+.charlie-bin-cite-meta {
+  font-size: 9px;
+}
+.tagbay-chain-subject {
+  font-size: 0.95rem;
+}
+.tagbay-more > summary {
+  font-size: 10px;
+}
+body.is-tagbay .tagbay,
+body.is-tagbay #tagbay-layer .tagbay,
+body.is-sheet.is-tagbay .tagbay {
+  font-size: 11px;
+  line-height: 1.4;
+}
+body.is-cratebay .tagbay,
+body.is-cratebay #tagbay-layer .tagbay,
+body.is-sheet.is-cratebay .tagbay {
+  font: 11px/1.4 "IBM Plex Mono", "Courier New", monospace;
+}
+body.is-libbay .tagbay,
+body.is-agentbay .tagbay,
+body.is-tpsbay .tagbay,
+body.is-sheet.is-libbay .tagbay,
+body.is-sheet.is-agentbay .tagbay,
+body.is-sheet.is-tpsbay .tagbay {
+  font-size: 11px;
+  line-height: 1.4;
+}
+

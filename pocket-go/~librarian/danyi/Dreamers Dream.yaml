@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.danyi/Dreamers Dream.md
+crate: crate.47B5DBACFA808840
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

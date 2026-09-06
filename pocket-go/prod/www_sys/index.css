@@ -16,3 +16,6 @@
   font-size: 13px;
   text-decoration: none;
 }
+span.note-details::after {
+  content: " notes";
+}

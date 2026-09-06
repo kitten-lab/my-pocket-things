@@ -1,0 +1,1098 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Special+Elite&display=swap");
+
+:root {
+  --bg: #c4baa4;
+  --paper: #f7f1dc;
+  --ink: #2a2418;
+  --mute: #6a6154;
+  --line: #b7ae9c;
+  --accent: #3a4a78;
+  --visited: #6a3a58;
+  --active: #8a3a28;
+  --rule: rgba(70, 120, 160, 0.22);
+  --margin: #c45c4a;
+  --card-strip: var(--margin);
+  --blotter: #c4baa4;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 248, 230, 0.22), transparent 48%),
+    linear-gradient(180deg, #d2c8b0 0%, var(--blotter) 42%, #b4aa92 100%);
+  color: var(--ink);
+  font-family: Literata, Georgia, serif;
+  font-size: 16px;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.9rem 1rem 1.6rem;
+  margin: 0;
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  padding: 0.35rem 0.4rem 0.2rem;
+}
+
+.wwwExplorer_innerShell .mast {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.55rem;
+  letter-spacing: 0.12em;
+  color: #3a3226;
+  margin: 0.35rem 0.2rem 0.85rem;
+  padding: 0;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2,
+.wwwExplorer_innerShell h3 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a:link { color: var(--accent); }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: var(--visited); }
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  display: none;
+}
+
+/* the card itself — 3×5-ish index card */
+.lorecard {
+  position: relative;
+  box-sizing: border-box;
+  width: min(22.5rem, 100%);
+  min-height: 13.8rem;
+  margin: 1.4rem auto 2rem;
+  padding: 1.05rem 1.15rem 1.85rem 1.2rem;
+  background: var(--paper);
+  box-shadow:
+    1px 1px 0 #d4cbb4,
+    3px 4px 8px rgba(40, 30, 10, 0.16),
+    0 0 0 1px #c4b898;
+  border-radius: 1px 2px 3px 1px;
+}
+
+.lorecard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.38rem;
+  background: var(--card-strip, var(--margin));
+}
+
+.lorecard::after {
+  content: "";
+  position: absolute;
+  bottom: 0.48rem;
+  left: 50%;
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-left: -0.36rem;
+  border-radius: 50%;
+  background: var(--blotter);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+.lorecard > :first-child {
+  margin-top: 0.15rem;
+}
+
+.lorecard p {
+  margin: 0;
+  padding: 0 0 0.12rem;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.lorecard p:empty {
+  display: none;
+}
+
+.lorecard .kicker {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--card-strip, var(--margin));
+}
+
+.lorecard .made,
+.lorecard .house {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lorecard h1 {
+  margin: 0.15rem 0 0.35rem;
+  padding: 0;
+  font-size: 1.28rem;
+  line-height: 1.52rem;
+}
+
+.lorecard .line {
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  min-height: 3.05rem;
+}
+
+.lorecard .from {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: var(--mute);
+  margin-top: 0.45rem;
+}
+
+.lorecard .from a {
+  font-style: normal;
+}
+
+.lorecard .edges {
+  margin-top: 0.2rem;
+}
+
+.lorecard .lore-edges {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lorecard .lore-edge {
+  margin: 0;
+  padding: 0.08rem 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--mute);
+}
+
+.lorecard .lore-edge a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.lorecard .lore-edge a:hover {
+  text-decoration: underline;
+}
+
+.lorecard .lore-edge code {
+  display: block;
+  font-size: 0.58rem;
+  color: var(--mute);
+}
+
+.lorecard .lore-edge.is-born a::after {
+  content: " born";
+  margin-left: 0.35em;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lorecard .cite,
+.lorecard .foot,
+.lorecard .id {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--mute);
+}
+
+.lorecard .id {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.42rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+}
+
+.lorecard.has-back {
+  padding-bottom: 1.15rem;
+}
+
+.lorecard.has-back .id {
+  position: static;
+  display: none;
+}
+
+.lorecard .card-back {
+  margin: 0.7rem 0 0;
+  padding: 0.55rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.lorecard .card-meta-row {
+  display: grid;
+  grid-template-columns: 6.6rem 1fr;
+  gap: 0.2rem 0.55rem;
+  margin: 0;
+  padding: 0.12rem 0;
+  align-items: start;
+}
+
+.lorecard .card-back dt {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lorecard .card-back dd {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.lorecard .card-back code {
+  display: block;
+  font-size: 0.58rem;
+  color: var(--mute);
+}
+
+.lorecard .card-meta-crate {
+  display: block;
+  margin: 0 0 0.28rem;
+}
+
+.lorecard .card-meta-crate:last-child {
+  margin-bottom: 0;
+}
+
+/* inbox tray — titles as little cards */
+ul.dir {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 0.9rem;
+  list-style: none;
+  margin: 0.4rem 0 1.4rem;
+  padding: 0.2rem 0.15rem;
+}
+
+ul.dir li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.dir a,
+ul.dir a:link,
+ul.dir a:visited,
+ul.dir a.been {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+  width: 10.6rem;
+  min-height: 6.5rem;
+  padding: 0.7rem 0.7rem 0.85rem;
+  background:
+    linear-gradient(var(--card-strip, #c45c4a), var(--card-strip, #c45c4a)) top / 100% 0.32rem no-repeat,
+    var(--paper);
+  box-shadow:
+    1px 2px 0 rgba(40, 30, 10, 0.12),
+    0 0 0 1px #c4b898;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+ul.dir a:hover {
+  transform: translate(-1px, -2px);
+  box-shadow:
+    2px 4px 0 rgba(40, 30, 10, 0.14),
+    0 0 0 1px #b8ac90;
+}
+
+ul.dir a .name {
+  display: block;
+}
+
+/* printed card faces — {{faces}} / {{cards}} */
+.faces {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin: 0.5rem 0 1.6rem;
+  padding: 0.2rem 0.1rem;
+}
+
+.face-deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.35rem 1.2rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.face-deck-label {
+  flex: 1 0 100%;
+  margin: 0 0 0.15rem;
+  padding: 0 0 0.35rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--card-strip, #8a5a32);
+  border-bottom: 1px solid color-mix(in srgb, var(--card-strip, #8a5a32) 35%, transparent);
+}
+
+.faces .face {
+  min-width: 0;
+  max-width: none;
+}
+
+.face[data-card="1"] {
+  /* a real filed card, not a loose note wearing the skin */
+}
+
+.face[data-href] {
+  cursor: pointer;
+}
+
+.face[data-href]:hover .lorecard,
+.face[data-href]:focus .lorecard {
+  outline: none;
+  box-shadow:
+    0 10px 18px rgba(40, 28, 16, 0.18),
+    0 2px 0 rgba(255, 255, 245, 0.35) inset,
+    0 0 0 1px #b8a888;
+}
+
+.face[data-href]:focus {
+  outline: none;
+}
+
+.face[data-href]:focus-visible {
+  outline: 2px solid var(--card-strip, #8a5a32);
+  outline-offset: 4px;
+}
+
+.faces .lorecard {
+  margin: 0;
+  width: 22.5rem;
+  max-width: calc(100vw - 2.4rem);
+}
+
+/* a filed card — tray room when still in the drawer */
+body.is-lorecard #browserWindow {
+  display: block;
+  padding: 0.55rem 0.65rem 1rem;
+}
+
+body.is-lorecard:not(.is-tray-room) #browserWindow {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.4rem;
+}
+
+body.is-lorecard .crumb,
+body.is-lorecard .mast {
+  display: none;
+}
+
+/* still-in-the-tray — each mouth owns wood, lip, shell */
+/* Fill the www stage (title+linkbar+status stay outside), not 100vh */
+body.is-tray-room .wwwExplorer_stage {
+  min-height: 0;
+}
+
+body.is-tray-room .wwwExplorer_innerShell {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+}
+
+body.is-tray-room #browserWindow {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0.35rem 0.45rem 0.4rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body.is-tray-room .tray-room {
+  --tray-wood: #2a4034;
+  --tray-wood-hi: #3a5646;
+  --tray-lip: #e2ebe0;
+  --tray-lip-mid: #c9d6c8;
+  --tray-lip-lo: #aebcaa;
+  --tray-slot: rgba(30, 50, 38, 0.14);
+  --tray-border: rgba(32, 52, 40, 0.36);
+  --tray-name: #e8f4ea;
+  --tray-accent: #2d6a4f;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(15rem, 30vw, 19rem);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mouth mouth"
+    "stage rail"
+    "hinter hinter";
+  gap: 0.55rem 0.9rem;
+  align-items: stretch;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  padding: 0.15rem 0.1rem 0.35rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body.is-tray-room .tray-room[data-mouth="librarian"] {
+  --tray-wood: #2a4034;
+  --tray-wood-hi: #3a5646;
+  --tray-lip: #e2ebe0;
+  --tray-lip-mid: #c9d6c8;
+  --tray-lip-lo: #aebcaa;
+  --tray-slot: rgba(30, 50, 38, 0.14);
+  --tray-border: rgba(32, 52, 40, 0.36);
+  --tray-name: #e8f4ea;
+  --tray-accent: #2d6a4f;
+}
+
+body.is-tray-room .tray-room[data-mouth="agent"] {
+  --tray-wood: #4a2828;
+  --tray-wood-hi: #5c3434;
+  --tray-lip: #f0e2dc;
+  --tray-lip-mid: #ddc8c0;
+  --tray-lip-lo: #c4a8a0;
+  --tray-slot: rgba(90, 30, 30, 0.12);
+  --tray-border: rgba(70, 28, 28, 0.38);
+  --tray-name: #f8ece8;
+  --tray-accent: #a83c38;
+}
+
+body.is-tray-room .tray-room[data-mouth="charlie"] {
+  --tray-wood: #3a2840;
+  --tray-wood-hi: #4a3454;
+  --tray-lip: #ebe2f0;
+  --tray-lip-mid: #d4c6dc;
+  --tray-lip-lo: #b8a8c4;
+  --tray-slot: rgba(60, 30, 70, 0.12);
+  --tray-border: rgba(50, 30, 60, 0.38);
+  --tray-name: #f0e8f6;
+  --tray-accent: #6a3a58;
+}
+
+body.is-tray-room .tray-room[data-mouth="tps"] {
+  --tray-wood: #4a3a22;
+  --tray-wood-hi: #5c4a2e;
+  --tray-lip: #f2e8d4;
+  --tray-lip-mid: #dfd0b4;
+  --tray-lip-lo: #c4b090;
+  --tray-slot: rgba(80, 55, 20, 0.12);
+  --tray-border: rgba(70, 50, 20, 0.38);
+  --tray-name: #f8f0dc;
+  --tray-accent: #8a5a20;
+}
+
+body.is-tray-room .wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(255, 250, 235, 0.28), transparent 44%),
+    linear-gradient(180deg, #c4ceba 0%, #b0bea8 42%, #8f9f88 100%);
+}
+
+body.is-tray-room:has(.tray-room[data-mouth="librarian"]) .wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(255, 250, 235, 0.26), transparent 44%),
+    radial-gradient(ellipse at 96% 4%, rgba(45, 106, 79, 0.18), transparent 38%),
+    linear-gradient(180deg, #c4ceba 0%, #b0bea8 42%, #8f9f88 100%);
+}
+
+body.is-tray-room:has(.tray-room[data-mouth="agent"]) .wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(255, 240, 230, 0.3), transparent 44%),
+    radial-gradient(ellipse at 96% 4%, rgba(168, 60, 56, 0.22), transparent 40%),
+    linear-gradient(180deg, #d4b8b0 0%, #c4a098 42%, #9a7870 100%);
+}
+
+body.is-tray-room:has(.tray-room[data-mouth="charlie"]) .wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(250, 240, 255, 0.28), transparent 44%),
+    radial-gradient(ellipse at 96% 4%, rgba(106, 58, 88, 0.22), transparent 40%),
+    linear-gradient(180deg, #c8b8c8 0%, #b4a0b4 42%, #8e788e 100%);
+}
+
+body.is-tray-room:has(.tray-room[data-mouth="tps"]) .wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(255, 248, 230, 0.3), transparent 44%),
+    radial-gradient(ellipse at 96% 4%, rgba(138, 90, 32, 0.2), transparent 40%),
+    linear-gradient(180deg, #d4c4a0 0%, #c0ae88 42%, #9a8868 100%);
+}
+
+body.is-tray-room .tray-mouth {
+  grid-area: mouth;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.28rem 0.55rem 0.32rem;
+  background: linear-gradient(180deg, var(--tray-wood-hi) 0%, var(--tray-wood) 100%);
+  border: 1px solid color-mix(in srgb, var(--tray-wood) 80%, #000);
+  border-radius: 2px 2px 0 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 240, 0.08);
+}
+
+body.is-tray-room .tray-mouth-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+body.is-tray-room .tray-mouth-up,
+body.is-tray-room .tray-mouth-name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tray-name);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+body.is-tray-room .tray-mouth-up {
+  opacity: 0.72;
+  letter-spacing: 0.14em;
+}
+
+body.is-tray-room .tray-mouth-up:hover,
+body.is-tray-room .tray-mouth-name:hover {
+  opacity: 1;
+  border-bottom-color: color-mix(in srgb, var(--tray-name) 55%, transparent);
+}
+
+body.is-tray-room .tray-mouth-sep {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--tray-name);
+  opacity: 0.45;
+}
+
+body.is-tray-room a.tray-mouth-name {
+  letter-spacing: 0.22em;
+}
+
+
+body.is-tray-room .tray-mouth::after {
+  content: "";
+  flex: 1;
+  height: 0.28rem;
+  border-radius: 1px;
+  background: var(--tray-accent);
+  opacity: 0.95;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--tray-accent) 45%, transparent);
+}
+
+body.is-tray-room .tray-stage {
+  grid-area: stage;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 1.1rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 230, 0.18), transparent 50%),
+    var(--tray-lip);
+  border: 1px solid var(--tray-border);
+  border-radius: 0 0 2px 2px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 240, 0.1);
+}
+
+body.is-tray-room .tray-stage .lorecard {
+  margin: 0 auto;
+  width: min(24rem, 100%);
+}
+
+body.is-tray-room .tray-rail {
+  grid-area: rail;
+  min-width: 0;
+  max-height: none;
+  overflow: auto;
+  padding: 0.45rem 0.4rem 0.55rem;
+  background:
+    linear-gradient(180deg, var(--tray-lip), var(--tray-lip-mid) 55%, var(--tray-lip-lo));
+  border: 1px solid var(--tray-border);
+  border-radius: 0 0 2px 2px;
+  box-shadow: inset 2px 0 0 rgba(255, 255, 240, 0.14);
+}
+
+body.is-tray-room .tray-rail::before {
+  content: "In this tray";
+  display: block;
+  margin: 0 0 0.35rem;
+  padding: 0 0.2rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tray-accent);
+  opacity: 0.9;
+}
+
+body.is-tray-room .tray-rail-empty {
+  margin: 0;
+  padding: 0.4rem;
+  opacity: 0.35;
+  font-size: 0.7rem;
+}
+
+body.is-tray-room .tray-index {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+body.is-tray-room .tray-index-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.1rem;
+  padding: 0.45rem 0.5rem 0.48rem 0.55rem;
+  text-decoration: none;
+  color: #1a2030;
+  background: color-mix(in srgb, #fffaf0 88%, var(--tray-lip));
+  border: 1px solid color-mix(in srgb, var(--tray-border) 70%, transparent);
+  border-left: 0.28rem solid var(--card-strip, var(--tray-accent));
+  border-radius: 1px;
+  box-shadow: none;
+}
+
+body.is-tray-room .tray-index-item:hover {
+  background: #fffaf0;
+  border-color: var(--tray-accent);
+}
+
+body.is-tray-room .tray-index-item.is-here {
+  background: #fffaf0;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tray-accent) 55%, transparent);
+  border-left-width: 0.34rem;
+  order: -1;
+}
+
+body.is-tray-room .tray-index-class {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tray-accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.is-tray-room .tray-index-title {
+  font-family: Literata, Georgia, serif;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  color: #1a2030;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+body.is-tray-room .tray-hinterland {
+  grid-area: hinter;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: stretch;
+  margin: 0;
+  padding: 0.55rem 0.45rem 0.35rem;
+  border-top: 1px dashed var(--tray-border);
+  background: color-mix(in srgb, var(--tray-lip) 70%, transparent);
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+}
+
+body.is-tray-room .tray-hinter-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tray-accent);
+}
+
+body.is-tray-room .tray-hinter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: stretch;
+}
+
+body.is-tray-room .tray-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  box-sizing: border-box;
+  width: auto;
+  max-width: 16rem;
+  min-width: 8.5rem;
+  min-height: 0;
+  padding: 0.4rem 0.55rem 0.45rem;
+  background: color-mix(in srgb, #fffaf0 88%, var(--tray-lip));
+  border: 1px solid color-mix(in srgb, var(--tray-accent) 30%, #c4b898);
+  border-left: 0.28rem solid var(--tray-accent);
+  box-shadow: none;
+  text-decoration: none;
+  color: #1a2030;
+}
+
+body.is-tray-room .tray-slip-where {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: var(--tray-accent);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.is-tray-room .tray-slip-title {
+  display: block;
+  font-family: Literata, Georgia, serif;
+  font-size: 0.84rem;
+  letter-spacing: 0;
+  line-height: 1.25;
+  color: #1a2030;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body.is-tray-room .tray-slip code,
+body.is-tray-room .tray-slip.is-miss {
+  display: none;
+}
+
+/* kill leftover full-face rail chrome if any */
+body.is-tray-room .tray-rail .faces,
+body.is-tray-room .tray-rail .face,
+body.is-tray-room .tray-rail .lorecard,
+body.is-tray-room .tray-rail .flip {
+  display: none !important;
+}
+
+/* 800x600: keep card | tray-list columns — cards are discrete enough */
+@media (max-width: 820px) {
+  body.is-tray-room .tray-room {
+    grid-template-columns: minmax(0, 1fr) minmax(9.5rem, 11.5rem);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "mouth mouth"
+      "stage rail"
+      "hinter hinter";
+    gap: 0.4rem 0.55rem;
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  body.is-tray-room .tray-stage {
+    align-items: center;
+    padding: 0.55rem 0.4rem;
+  }
+
+  body.is-tray-room .tray-stage .lorecard {
+    width: min(18.5rem, 100%);
+  }
+
+  body.is-tray-room .tray-rail {
+    max-height: none;
+    overflow: auto;
+    padding: 0.35rem 0.28rem 0.4rem;
+  }
+
+  body.is-tray-room .tray-index {
+    flex-direction: column;
+    gap: 0.22rem;
+  }
+
+  body.is-tray-room .tray-index-item {
+    width: auto;
+    padding: 0.35rem 0.4rem 0.38rem 0.45rem;
+  }
+
+  body.is-tray-room .tray-index-class {
+    font-size: 0.52rem;
+  }
+
+  body.is-tray-room .tray-index-title {
+    font-size: 0.74rem;
+  }
+
+  body.is-tray-room .tray-hinterland {
+    padding: 0.4rem 0.3rem 0.25rem;
+  }
+
+  body.is-tray-room .tray-slip {
+    min-width: 8rem;
+    max-width: 12rem;
+  }
+
+  body.is-tray-room .tray-slip-title {
+    font-size: 0.78rem;
+  }
+}
+
+/* 1024+: held stage, wider rail, no dead void under the card */
+@media (min-width: 1000px) {
+  body.is-tray-room .tray-room {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    gap: 0.7rem 1.1rem;
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  body.is-tray-room .tray-stage {
+    padding: 1.35rem 1.25rem;
+  }
+
+  body.is-tray-room .tray-stage .lorecard {
+    width: min(26rem, 100%);
+  }
+
+  body.is-tray-room .tray-index-title {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* tray-native scrollbars — same simple shape, mouth/lip colors (not pocket chrome) */
+body.is-tray-room .tray-rail,
+body.is-tray-room .tray-hinterland,
+body.is-tray-room .tray-hinter-list {
+  scrollbar-width: auto;
+  scrollbar-color: var(--tray-wood) var(--tray-lip-mid);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-track,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-track,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-track {
+  background: var(--tray-lip-mid);
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--tray-wood) 35%, transparent),
+    inset -1px -1px 0 rgba(255, 255, 240, 0.35);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-thumb,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-thumb,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--tray-wood-hi), var(--tray-wood));
+  border: 1px solid color-mix(in srgb, var(--tray-wood) 80%, #000);
+  box-shadow:
+    inset -1px -1px 0 color-mix(in srgb, var(--tray-wood) 55%, #000),
+    inset 1px 1px 0 rgba(255, 255, 240, 0.18),
+    1px 1px 0 rgba(255, 255, 240, 0.12),
+    -1px -1px 0 color-mix(in srgb, var(--tray-wood) 40%, transparent);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-thumb:active,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-thumb:active,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-thumb:active {
+  background: var(--tray-accent);
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--tray-wood) 60%, #000),
+    inset -1px -1px 0 rgba(255, 255, 240, 0.12);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: var(--tray-lip);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid color-mix(in srgb, var(--tray-border) 90%, #000);
+  box-shadow:
+    inset -1px -1px 0 color-mix(in srgb, var(--tray-wood) 25%, transparent),
+    inset 1px 1px 0 rgba(255, 255, 240, 0.4);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button:vertical:decrement,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button:vertical:decrement,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='7,3 11,10 3,10' fill='%232a4034'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button:vertical:increment,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button:vertical:increment,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='3,4 11,4 7,11' fill='%232a4034'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button:horizontal:decrement,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button:horizontal:decrement,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='3,7 10,3 10,11' fill='%232a4034'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button:horizontal:increment,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button:horizontal:increment,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='4,3 11,7 4,11' fill='%232a4034'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-button:active,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-button:active,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-button:active {
+  background-color: var(--tray-lip-lo);
+  box-shadow:
+    inset 1px 1px 0 color-mix(in srgb, var(--tray-wood) 35%, transparent),
+    inset -1px -1px 0 rgba(255, 255, 240, 0.25);
+}
+body.is-tray-room .tray-rail::-webkit-scrollbar-corner,
+body.is-tray-room .tray-hinterland::-webkit-scrollbar-corner,
+body.is-tray-room .tray-hinter-list::-webkit-scrollbar-corner {
+  background: var(--tray-lip-mid);
+}
+
+/* mouth-tinted arrow glyphs so agent/charlie/tps match their wood */
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:vertical:decrement,
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:vertical:increment,
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:horizontal:decrement,
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:horizontal:increment {
+  background-image: none;
+}
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='7,3 11,10 3,10' fill='%234a2828'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-room[data-mouth="agent"] .tray-rail::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='3,4 11,4 7,11' fill='%234a2828'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-room[data-mouth="charlie"] .tray-rail::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='7,3 11,10 3,10' fill='%233a2840'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-room[data-mouth="charlie"] .tray-rail::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='3,4 11,4 7,11' fill='%233a2840'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-room[data-mouth="tps"] .tray-rail::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='7,3 11,10 3,10' fill='%234a3a22'/%3E%3C/svg%3E");
+}
+body.is-tray-room .tray-room[data-mouth="tps"] .tray-rail::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpolygon points='3,4 11,4 7,11' fill='%234a3a22'/%3E%3C/svg%3E");
+}
+
+/* pop sheet — small copy, same face */
+body.is-sheet.is-lorecard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 248, 230, 0.22), transparent 48%),
+    linear-gradient(180deg, #d2c8b0 0%, var(--blotter) 42%, #b4aa92 100%);
+  color: var(--ink);
+  font-family: Literata, Georgia, serif;
+}
+
+body.is-sheet.is-lorecard .sheet-cap-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 1.85rem;
+  padding: 0 0.35rem 0 0.7rem;
+  background: #3a3226;
+  color: #f7f1dc;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+body.is-sheet.is-lorecard .sheet-cap-mark,
+body.is-sheet.is-lorecard .sheet-cap-title {
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  -webkit-app-region: drag;
+}
+
+body.is-sheet.is-lorecard .sheet-cap-mark {
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--card-strip, var(--margin));
+}
+
+body.is-sheet.is-lorecard .sheet-cap-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: grab;
+}
+
+body.is-sheet.is-lorecard .sheet-face {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  padding: 1.15rem 0.7rem 1.5rem;
+}
+
+body.is-sheet.is-lorecard .lorecard {
+  margin: 0 auto;
+  width: min(22.5rem, 100%);
+}
+
+body.is-sheet.is-lorecard .lorecard.has-back {
+  min-height: 0;
+  width: min(24rem, 100%);
+}
+
+body.is-sheet.is-lorecard .card-miss {
+  margin: 2rem auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+body.is-sheet.is-lorecard .sheet-resize {
+  background: #3a3226;
+}

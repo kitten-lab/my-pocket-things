@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/agent/She_Does_Not_Hear_Herself-LORE_6.md
+crate: crate.0829C434434C5934
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Agent
+  - type: input
+    label: card type
+    value: channel

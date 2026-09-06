@@ -1,0 +1,115 @@
+{
+	"nodes": [
+		{
+			"id": "104012bd588a1645",
+			"type": "group",
+			"x": -520,
+			"y": -100,
+			"width": 420,
+			"height": 400,
+			"color": "4",
+			"label": "Stable Beliefs"
+		},
+		{
+			"id": "87c9d63e075fb1c4",
+			"type": "group",
+			"x": -80,
+			"y": -100,
+			"width": 360,
+			"height": 400,
+			"color": "1",
+			"label": "Negative Beliefs - To Repair"
+		},
+		{
+			"id": "0db04716a5d202e0",
+			"type": "file",
+			"file": "lexicon/Beliefs/z.beliefs.txt - Beliefs.md",
+			"x": -275,
+			"y": -460,
+			"width": 404,
+			"height": 220
+		},
+		{
+			"id": "1174f867dbd3b519",
+			"type": "text",
+			"text": "TO AQUIRE\nNeed can surface love more fully — presence anchors harder when called on.",
+			"x": 300,
+			"y": 96,
+			"width": 153,
+			"height": 144,
+			"color": "3"
+		},
+		{
+			"id": "8f2678653167aaa8",
+			"type": "text",
+			"text": "-NEG\n[['I always ruin everything']]",
+			"x": -20,
+			"y": -77,
+			"width": 239,
+			"height": 50,
+			"color": "1"
+		},
+		{
+			"id": "244ef1a74b3f6682",
+			"type": "text",
+			"text": "-NEG\n[['I am a disappointment']]",
+			"x": -20,
+			"y": -17,
+			"width": 239,
+			"height": 50,
+			"color": "1"
+		},
+		{
+			"id": "023e3a261881954a",
+			"type": "text",
+			"text": "-NEG\n[['It's all my fault']]",
+			"x": -20,
+			"y": 46,
+			"width": 239,
+			"height": 50,
+			"color": "1"
+		},
+		{
+			"id": "15082499660f3d0b",
+			"type": "text",
+			"text": "-NEG #belief-in-repair \n\n[[True Love Meets My Needs - 'My needs make love vanish']]",
+			"x": -20,
+			"y": 118,
+			"width": 239,
+			"height": 82,
+			"color": "1"
+		},
+		{
+			"id": "5ea2dcf467ab9d49",
+			"type": "text",
+			"text": "+POS #stable-belief\n\n[[I am funny]]",
+			"x": -300,
+			"y": -84,
+			"width": 180,
+			"height": 67,
+			"color": "4"
+		},
+		{
+			"id": "558f770ed13ace9a",
+			"type": "text",
+			"text": "+POS #stable-belief\n\n[[I am tenacious]]",
+			"x": -500,
+			"y": -84,
+			"width": 180,
+			"height": 67,
+			"color": "4"
+		}
+	],
+	"edges": [
+		{
+			"id": "319c8d5c5a46a716",
+			"fromNode": "15082499660f3d0b",
+			"fromSide": "right",
+			"toNode": "1174f867dbd3b519",
+			"toSide": "left"
+		}
+	],
+	"metadata": {
+		"crate": "crate.3B1D57360CBB1D32"
+	}
+}

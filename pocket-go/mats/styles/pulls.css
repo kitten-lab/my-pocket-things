@@ -1,0 +1,207 @@
+/* pulls — glassine review. Not a terminal. Inner shell must scroll. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap");
+
+:root {
+  --bg: #f4eee2;
+  --paper: #f7f1e4;
+  --ink: #221c16;
+  --mute: #6a5e50;
+  --line: #c4b49a;
+  --accent: #8a5a18;
+  --visited: #6e3d48;
+  --active: #b45c28;
+  --room: #1c1914;
+  --slip: #fffaf0;
+  --glass: #c9a227;
+  --chip: #2a2418;
+}
+
+.wwwExplorer_innerShell {
+  display: block;
+  overflow: auto;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, 0.12), transparent 46%),
+    linear-gradient(180deg, #2a241c 0%, var(--room) 55%, #12100c 100%);
+  color: var(--ink);
+  font-family: Newsreader, "Palatino Linotype", Palatino, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.wwwExplorer_innerShell p {
+  white-space: normal;
+}
+
+#browserWindow {
+  max-width: 42rem;
+  margin: 1.1rem auto 2.4rem;
+  padding: 1.35rem 1.6rem 2.4rem;
+  background: var(--slip);
+  box-shadow:
+    0 0 0 1px #00000055,
+    0 12px 40px #00000088;
+}
+
+.wwwExplorer_innerShell .crumb {
+  position: static;
+  padding: 0 0 0.7rem;
+  margin: 0 0 0.8rem;
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 11px !important;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  border-bottom: 1px dashed var(--line);
+}
+
+.wwwExplorer_innerShell .crumb::before {
+  content: "PULL  ·  ";
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.wwwExplorer_innerShell .crumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.wwwExplorer_innerShell h1 {
+  margin: 0 0 0.7rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--chip);
+}
+
+.wwwExplorer_innerShell h1::after {
+  content: "review slip";
+  display: block;
+  margin-top: 0.25rem;
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell h2 {
+  margin: 1.6rem 0 0.45rem;
+  padding: 0.28rem 0.55rem;
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--glass);
+  background: var(--chip);
+  border-left: 3px solid var(--glass);
+}
+
+.wwwExplorer_innerShell h3 {
+  margin: 1.2rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--chip);
+}
+
+.wwwExplorer_innerShell a:link {
+  color: var(--accent);
+}
+
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been {
+  color: var(--visited);
+}
+
+.wwwExplorer_innerShell hr {
+  height: 0;
+  margin: 1.4rem 0;
+  border: 0;
+  border-top: 1px dashed var(--line);
+  background: none;
+}
+
+.wwwExplorer_innerShell code {
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 0.84em;
+  color: #5a3a10;
+  background: #f0e6d0;
+  padding: 0.05em 0.28em;
+}
+
+.wwwExplorer_innerShell blockquote.window {
+  margin: 0.45rem 0 0.7rem;
+  padding: 0.75rem 0.9rem 0.8rem 1rem;
+  background: #fffdf7;
+  border: 1px solid #e6d7b4;
+  border-left: 4px solid var(--glass);
+  box-shadow: inset 0 1px 0 #ffffffaa;
+}
+
+.wwwExplorer_innerShell blockquote.window p {
+  margin: 0 0 0.55rem;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: #2a2218;
+}
+
+.wwwExplorer_innerShell blockquote.window p:last-child {
+  margin-bottom: 0;
+}
+
+.wwwExplorer_innerShell .turn {
+  margin: 0 0 0.35rem;
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .furniture {
+  margin: 0.55rem 0 0;
+  font-size: 0.95rem;
+  color: #4a4034;
+}
+
+.wwwExplorer_innerShell ul.dir {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+}
+
+.wwwExplorer_innerShell ul.dir.files li,
+.wwwExplorer_innerShell .content ul.dir:not(.hits) li {
+  margin: 0 0 0.35rem;
+}
+
+.wwwExplorer_innerShell ul.dir.files a,
+.wwwExplorer_innerShell .content ul.dir:not(.hits) a {
+  display: inline-block;
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 13px;
+  padding: 0.25rem 0.5rem;
+  background: var(--chip);
+  color: var(--glass) !important;
+  text-decoration: none;
+}
+
+.wwwExplorer_innerShell .headers {
+  margin-top: 2rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--line);
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-size: 11px;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .tag {
+  font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--accent);
+  background: #f0e6d0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  text-decoration: none;
+  padding: 0.1rem 0.3rem;
+}

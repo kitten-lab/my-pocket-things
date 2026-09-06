@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+/* mypi-start — gift lobby / early-2000s personal start screen */
+:root {
+  --bg: #e8f6f1;
+  --paper: #f7fffb;
+  --ink: #14241f;
+  --mute: #4a6b5f;
+  --line: #1d3d34;
+  --accent: #0d9488;
+  --visited: #0f766e;
+  --active: #f43f5e;
+  --rule: rgba(13, 148, 136, 0.28);
+  --strip: #0d9488;
+  --card-strip: #0d9488;
+  --stamp: #f43f5e;
+  --chip: #d5f0e8;
+  --hero: #0b3d36;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -8%, rgba(244, 63, 94, 0.14), transparent 42%),
+    radial-gradient(ellipse at 88% 8%, rgba(13, 148, 136, 0.18), transparent 40%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent 0 18px,
+      rgba(13, 148, 136, 0.035) 18px 19px
+    ),
+    linear-gradient(165deg, #f3fffa 0%, var(--bg) 48%, #d9efe7 100%);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.55rem 0.75rem 1.2rem;
+  margin: 0;
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  margin: 0 0 0.55rem;
+}
+
+.mypi-hero {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  background:
+    linear-gradient(135deg, #0b3d36 0%, #12574c 55%, #0d9488 100%);
+  color: #f3fffa;
+  border: 3px solid #081f1a;
+  box-shadow:
+    4px 4px 0 #081f1a,
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.mypi-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -40% auto;
+  width: 55%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.35), transparent 68%);
+  pointer-events: none;
+}
+
+.mypi-kicker {
+  position: relative;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9ff0e0;
+  margin: 0 0 0.25rem;
+}
+
+.mypi-wordmark {
+  position: relative;
+  font-family: "Syne", "Arial Black", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 7vw, 3.1rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.35rem;
+  text-transform: none;
+}
+
+.mypi-lede {
+  position: relative;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.92rem;
+  max-width: 28rem;
+  color: #d7fff4;
+  margin: 0;
+}
+
+.mypi-doors {
+  margin: 0.2rem 0 0;
+}
+
+.mypi-doors-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 0.45rem;
+}
+
+.wwwExplorer_innerShell .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.45rem;
+}
+
+.wwwExplorer_innerShell a.world {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 3.8rem;
+  padding: 0.45rem 0.5rem 0.4rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 var(--line);
+  text-decoration: none;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+}
+
+.wwwExplorer_innerShell a.world:hover {
+  background: #fff;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--stamp);
+  border-color: var(--stamp);
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a.world:visited {
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a.world strong {
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.15;
+}
+
+.wwwExplorer_innerShell a.world .note-details {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  margin-top: 0.25rem;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2 {
+  font-family: "Syne", sans-serif;
+}
+
+body.is-start .wwwExplorer_mark {
+  letter-spacing: 0.02em;
+}
+
+.wwwExplorer_innerShell a.world.has-deck {
+  min-height: 5rem;
+}
+
+.wwwExplorer_innerShell a.world .door-deck {
+  display: block;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--mute);
+  margin-top: 0.2rem;
+}
+
+.wwwExplorer_innerShell a.world:hover .door-deck {
+  color: var(--ink);
+}

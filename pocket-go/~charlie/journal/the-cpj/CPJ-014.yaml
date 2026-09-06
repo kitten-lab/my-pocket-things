@@ -1,0 +1,153 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-014.md
+crate: crate.2D295AB654F14C47
+next: 1
+thoughts:
+  - id: her
+    at: 1788559449
+    leaf: |
+      her
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: prism
+    at: 1788559448
+    leaf: |
+      prism
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lesson
+    at: 1788559447
+    leaf: |
+      lesson
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: friendship
+    at: 1788559446
+    leaf: |
+      friendship
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: husband
+    at: 1788559445
+    leaf: |
+      husband
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: introversion
+    at: 1788559444
+    leaf: |
+      introversion
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: reliance
+    at: 1788559443
+    leaf: |
+      reliance
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: no-drive
+    at: 1788559442
+    leaf: |
+      no-drive
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: coffee-shop
+    at: 1788559441
+    leaf: |
+      coffee-shop
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: gala
+    at: 1788559440
+    leaf: |
+      gala
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: dresses
+    at: 1788559439
+    leaf: |
+      dresses
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: texts
+    at: 1788559438
+    leaf: |
+      texts
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: soul-friend
+    at: 1788559437
+    leaf: |
+      soul-friend
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: feature-family
+    at: 1788559436
+    leaf: |
+      feature-family
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "her*is>prism"
+    at: 1788559449
+    from: her
+    rel: is
+    to: prism
+  - id: "her*teaches>lesson"
+    at: 1788559448
+    from: her
+    rel: teaches
+    to: lesson
+  - id: "friendship*sought>"
+    at: 1788559447
+    from: friendship
+    rel: sought
+    to: 
+  - id: "reliance*on>husband"
+    at: 1788559446
+    from: reliance
+    rel: on
+    to: husband
+  - id: "coffee-shop*invites>gala"
+    at: 1788559445
+    from: coffee-shop
+    rel: invites
+    to: gala
+  - id: "dresses*draw>deeper"
+    at: 1788559444
+    from: dresses
+    rel: draw
+    to: deeper
+  - id: "story-of-her*unfolds>"
+    at: 1788559443
+    from: story-of-her
+    rel: unfolds
+    to: 

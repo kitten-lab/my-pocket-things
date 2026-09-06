@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-018.md
+crate: crate.F0D331614502A4E0
+fields:
+  - type: input
+    label: page
+    value: "018"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: spread
+  - type: input
+    label: topics covered
+    value: tarot, new year, transition

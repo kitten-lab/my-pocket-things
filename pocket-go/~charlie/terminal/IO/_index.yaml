@@ -1,0 +1,61 @@
+house: CHARLIE
+pocket: go.terminal/IO
+crate: crate.6088810EE27498BA
+next: 1
+thoughts:
+  - id: 8
+    at: 1788224813
+    leaf: |
+      8
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: chesters-imports
+    at: 1788224799
+    leaf: |
+      chesters-imports
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: sdk-808
+    at: 1788224782
+    leaf: |
+      sdk-808
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: sam
+    at: 1788224780
+    leaf: |
+      sam
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: io
+    at: 1788224768
+    leaf: |
+      io
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: terminal
+    at: 1788224766
+    leaf: |
+      terminal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: login
+    at: 1788224764
+    leaf: |
+      login
+    tags: []
+    namespaces: []
+    times: []
+    cites: []

@@ -1,0 +1,2538 @@
+/* Librarian blotter — Papers Please slips on the desk. Not visitor chrome. */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Black+Ops+One&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Share+Tech+Mono&family=Special+Elite&display=swap");
+
+.librarian {
+  --booth: #2a3f3d;
+  --booth-hi: #3a5450;
+  --slip: #f6e2c8;
+  --slip-pink: #f3d4bc;
+  --rule: #8a4a38;
+  --ink: #24160e;
+  --stamp: #b4202a;
+  --ok: #2f6b4a;
+  --mute: #6a4a38;
+  display: none;
+  position: relative;
+  flex: 0 0 18.5rem;
+  width: 18.5rem;
+  min-width: 15rem;
+  max-width: 23rem;
+  min-height: 0;
+  margin: 0 0.45rem 0 0;
+  padding: 0;
+  flex-direction: column;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 0, 0, 0.12) 11px 12px
+    ),
+    linear-gradient(180deg, var(--booth-hi) 0 2.1rem, var(--booth) 2.1rem);
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow:
+    inset 2px 2px 0 #ffffff22,
+    inset -1px -1px 0 #00000088;
+}
+
+body.librarian-open #librarian,
+body.readme-open #readme,
+body.agent-open #agent,
+body.charlie-open #charlie,
+body.tps-open #tps,
+body.cards-open #cards {
+  display: flex;
+}
+
+/* README — classic BIOS: clean blue and white. The letter for this room. */
+.librarian.is-readme {
+  --booth: #0000aa;
+  --booth-hi: #0000cc;
+  --slip: #0000aa;
+  --slip-pink: #0000aa;
+  --rule: #ffff55;
+  --ink: #ffffff;
+  --stamp: #55ffff;
+  --ok: #0000aa;
+  --mute: #aaaaaa;
+  flex-basis: 22rem;
+  width: 22rem;
+  max-width: 28rem;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  color: #ffffff;
+  background: #0000aa;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+
+.librarian.is-readme .librarian-head {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+}
+
+.librarian.is-readme .librarian-head strong::after {
+  content: " · bios";
+  color: #ffff55;
+  font-size: 10px;
+}
+
+.librarian.is-readme .librarian-count,
+.librarian.is-readme .librarian-path {
+  color: #55ffff;
+}
+
+.librarian.is-readme .librarian-head .tagbay-copy {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.librarian-pop {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #ffffff;
+  border-color: #ffffff;
+  background: transparent;
+}
+
+.librarian.is-readme .librarian-kicker {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #ffff55;
+  border-bottom: 1px solid #ffffff;
+}
+
+.librarian.is-readme .librarian-composer {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #0000aa;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+  color: #ffffff;
+  margin: 0.15rem 0.45rem 0.45rem;
+  padding: 0.45rem 0.5rem 0.4rem;
+}
+
+.librarian.is-readme .librarian-letter,
+.librarian.is-readme .librarian-leaf {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: auto;
+  resize: none;
+  color: #ffffff;
+  background: #0000aa;
+  border: 0;
+  border-bottom: 0;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  caret-color: #ffff55;
+}
+
+.librarian.is-readme .librarian-leaf::placeholder {
+  color: #aaaaaa;
+}
+
+.librarian.is-readme .librarian-store {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  border: 1px solid #ffffff;
+  background: #0000aa;
+  color: #ffffff;
+  box-shadow: none;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  letter-spacing: 0.08em;
+}
+
+.librarian.is-readme .librarian-store:hover {
+  background: #ffffff;
+  color: #0000aa;
+}
+
+.librarian.is-readme .librarian-hint,
+.librarian.is-readme .librarian-status {
+  color: #aaaaaa;
+}
+
+.librarian.is-readme .readme-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0 0 0.35rem;
+}
+
+.librarian.is-readme .readme-clay-tabs {
+  margin: 0 0 0.45rem;
+}
+
+.librarian.is-readme .readme-tab {
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #aaaaaa;
+  font-family: inherit;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem 0.08rem;
+  cursor: pointer;
+}
+
+.librarian.is-readme .readme-tab.is-on {
+  color: #ffff55;
+  background: #0000cc;
+}
+
+.librarian.is-readme #readmeRoom,
+.librarian.is-readme #readmePage {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.librarian.is-readme #readmePage[hidden],
+.librarian.is-readme #readmeRoom[hidden] {
+  display: none;
+}
+
+.librarian.is-readme #readmePage label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffff55;
+  margin: 0.15rem 0 0.1rem;
+}
+
+.librarian.is-readme .readme-headers {
+  flex: 0 0 auto;
+  min-height: 6.5rem;
+  max-height: 9rem;
+  border-bottom: 1px solid #ffffff55;
+}
+
+.librarian.is-readme .tagbay-crate-id {
+  color: #ffff55;
+}
+
+.librarian.is-readme .librarian-stack {
+  display: none;
+}
+
+.librarian.is-readme.librarian-off .librarian-stack {
+  display: block;
+  flex: 1 1 auto;
+  background: #0000aa;
+  border: 1px solid #ffffff;
+  color: #aaaaaa;
+}
+
+.librarian.is-readme,
+html[data-sidecar="readme"],
+html[data-sidecar="readme"] .wwwExplorer_innerShell {
+  scrollbar-width: thin;
+  scrollbar-color: var(--booth-hi) var(--slip);
+}
+
+.librarian.is-readme *::-webkit-scrollbar,
+html[data-sidecar="readme"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.librarian.is-readme *::-webkit-scrollbar-track,
+html[data-sidecar="readme"] *::-webkit-scrollbar-track {
+  background: #000088;
+}
+
+.librarian.is-readme *::-webkit-scrollbar-thumb,
+html[data-sidecar="readme"] *::-webkit-scrollbar-thumb {
+  background: #55ffff;
+  border: 1px solid #ffffff;
+}
+
+.librarian.is-readme *::-webkit-scrollbar-thumb:hover,
+html[data-sidecar="readme"] *::-webkit-scrollbar-thumb:hover {
+  background: #ffff55;
+}
+
+.librarian.is-readme *::-webkit-scrollbar-button,
+html[data-sidecar="readme"] *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.librarian.is-readme *::-webkit-scrollbar-corner,
+html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
+  background: #0000aa;
+}
+
+/* Agent — agentK cabinet, but blood: dirt shell, stamp heat, manila scan. */
+.librarian.is-agent {
+  --booth: #140808;
+  --booth-hi: #1e0c0c;
+  --slip: #f3e6c4;
+  --slip-pink: #ecc8bc;
+  --rule: #c4202a;
+  --ink: #1a0c0c;
+  --stamp: #e01820;
+  --ok: #c4202a;
+  --mute: #8a4038;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(80, 0, 0, 0.22) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(ellipse at 70% -10%, rgba(220, 20, 30, 0.32), transparent 48%),
+    linear-gradient(180deg, #2a1010 0 2.1rem, #140808 2.1rem);
+}
+
+.librarian.is-agent .librarian-head {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  letter-spacing: 0.1em;
+  color: #ff3a32;
+  text-shadow:
+    2px 0 0 rgba(255, 0, 40, 0.55),
+    -2px 0 0 rgba(80, 0, 0, 0.7),
+    0 0 12px rgba(255, 40, 40, 0.45);
+}
+
+.librarian.is-agent .librarian-head strong::after {
+  content: " · hunt";
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #c9a227;
+  text-shadow: none;
+}
+
+.librarian.is-agent .librarian-count,
+.librarian.is-agent .librarian-path {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #e07068;
+}
+
+.librarian.is-agent .librarian-pop {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #ff3a32;
+  border-color: #c4202a;
+}
+
+/* Charlie — amber phosphor term. Yellow of the four. */
+.librarian.is-charlie {
+  --booth: #1a1204;
+  --booth-hi: #241808;
+  --slip: #140e04;
+  --slip-pink: #1e1608;
+  --rule: #ffc14a;
+  --ink: #ffe7a0;
+  --stamp: #ffc14a;
+  --ok: #3a2a0c;
+  --mute: #8a6a28;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #ffe7a0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 180, 40, 0.05) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 180, 40, 0.16), transparent 55%),
+    linear-gradient(180deg, #241808 0 2.1rem, #1a1204 2.1rem);
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.22);
+}
+
+.librarian.is-charlie .librarian-head {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #ffc14a;
+  text-shadow: 0 0 10px rgba(255, 180, 40, 0.5);
+}
+
+.librarian.is-charlie .librarian-head strong::after {
+  content: " · term";
+  color: #8a6a28;
+  text-shadow: none;
+}
+
+.librarian.is-charlie .librarian-count,
+.librarian.is-charlie .librarian-path {
+  color: #8a6a28;
+  text-shadow: none;
+}
+
+.librarian.is-charlie .librarian-pop {
+  color: #ffc14a;
+  border-color: #8a5a18;
+}
+
+.librarian.is-charlie .librarian-kicker {
+  color: #ffc14a;
+  border-bottom: 1px solid #8a5a18;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-charlie .librarian-composer {
+  background: #120e04;
+  border: 1px solid #8a5a18;
+  box-shadow: inset 0 0 18px rgba(255, 180, 40, 0.1);
+  padding: 0.4rem 0.5rem 0.35rem;
+  margin: 0 0.45rem 0.35rem;
+}
+
+.librarian.is-charlie .librarian-leaf,
+.librarian.is-charlie .tagbay-input.librarian-leaf {
+  color: #ffc14a;
+  background: #0c0a04;
+  border: 0;
+  border-bottom: 1px solid #8a5a18;
+  caret-color: #ffc14a;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-charlie .librarian-leaf::placeholder {
+  color: #6a5018;
+}
+
+.charlie-tri {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.1rem minmax(0, 1fr) 1.1rem minmax(0, 1fr);
+  align-items: end;
+  column-gap: 0.2rem;
+  margin: 0 0 0.35rem;
+}
+
+.charlie-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a6a28;
+}
+
+.charlie-sep {
+  color: #8a6a28;
+  font-size: 12px;
+  letter-spacing: 0;
+  user-select: none;
+  text-shadow: none;
+  text-align: center;
+  padding-bottom: 0.35rem;
+}
+
+.librarian.is-charlie .charlie-tri .librarian-leaf,
+.librarian.is-charlie .charlie-tri .tagbay-input.librarian-leaf {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 1.85rem;
+  min-height: 1.85rem;
+  margin: 0;
+  padding: 0.2rem 0.28rem;
+  border: 1px solid #8a5a18;
+  border-bottom-color: #ffc14a;
+  background: #0c0a04;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  color: #ffc14a;
+}
+
+.cork-board.cork-threads {
+  min-height: 0;
+  margin-bottom: 0.55rem;
+}
+
+.librarian.is-charlie .librarian-stack {
+  margin: 0 0.45rem 0.55rem;
+  padding: 0.35rem 0.45rem 0.55rem;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 180, 40, 0.06) 0 1px,
+      transparent 1px 3px
+    ),
+    #100c04;
+  border: 1px solid #8a5a18;
+  box-shadow:
+    inset 0 0 28px rgba(255, 180, 40, 0.1),
+    0 0 12px rgba(255, 180, 40, 0.08);
+  scrollbar-width: thin;
+  scrollbar-color: #ffc14a #100c04;
+}
+
+.librarian.is-charlie,
+html[data-sidecar="charlie"],
+html[data-sidecar="charlie"] .wwwExplorer_innerShell {
+  scrollbar-width: thin;
+  scrollbar-color: #ffc14a #100c04;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar,
+html[data-sidecar="charlie"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar-track,
+html[data-sidecar="charlie"] *::-webkit-scrollbar-track {
+  background: #100c04;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar-thumb,
+html[data-sidecar="charlie"] *::-webkit-scrollbar-thumb {
+  background: #8a5a18;
+  border: 1px solid #ffc14a;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar-thumb:hover,
+html[data-sidecar="charlie"] *::-webkit-scrollbar-thumb:hover {
+  background: #ffc14a;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar-button,
+html[data-sidecar="charlie"] *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.librarian.is-charlie *::-webkit-scrollbar-corner,
+html[data-sidecar="charlie"] *::-webkit-scrollbar-corner {
+  background: #1a1204;
+}
+
+.librarian.is-charlie .librarian-empty {
+  margin: 0;
+  padding: 0.4rem 0.1rem;
+  background: transparent;
+  border: 0;
+  color: #8a6a28;
+  font-size: 11px;
+  text-shadow: none;
+}
+
+.librarian.is-charlie .librarian-store {
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  border: 1px solid #ffc14a;
+  padding: 0.2rem 0.5rem 0.16rem;
+  box-shadow: none;
+  background: #1a1204;
+  color: #ffc14a;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-charlie .catalog-head {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 400;
+  color: #8a6a28;
+  letter-spacing: 0.16em;
+}
+
+.librarian.is-charlie .catalog-lore-row {
+  border-bottom: 1px dotted rgba(255, 193, 74, 0.28);
+}
+
+.librarian.is-charlie .catalog-lore {
+  border-bottom: 0;
+  color: #ffe7a0 !important;
+}
+
+.librarian.is-charlie .catalog-lore strong {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffc14a;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.4);
+}
+
+.librarian.is-charlie .catalog-type {
+  font-family: inherit;
+  color: #8a6a28;
+}
+
+.librarian.is-charlie .lore-pick {
+  border-bottom-color: rgba(255, 193, 74, 0.28);
+}
+
+.librarian.is-charlie .lore-pick em,
+.librarian.is-charlie .lore-pick .catalog-type {
+  color: #8a6a28;
+}
+
+.librarian.is-charlie .lore-pick .catalog-line {
+  font-family: inherit;
+  color: #c9a04a;
+}
+
+.librarian-onto {
+  margin: 0 0 0.5rem;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.librarian.is-charlie .librarian-actions {
+  flex-wrap: wrap;
+}
+
+.librarian.is-charlie .librarian-status {
+  color: #8a6a28;
+}
+
+.librarian.is-charlie .tagbay-crate-id {
+  color: #ffc14a;
+}
+
+.librarian.is-charlie .librarian-modal {
+  background: rgba(16, 12, 4, 0.72);
+}
+
+.librarian.is-charlie .librarian-modal-card {
+  background: #120e04;
+  border: 1px solid #ffc14a;
+  box-shadow: 0 0 18px rgba(255, 180, 40, 0.2);
+  color: #ffe7a0;
+}
+
+.librarian.is-charlie .librarian-modal-card strong,
+.librarian.is-charlie .librarian-modal-card label {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #ffc14a;
+}
+
+/* Librarian catalog — organization card, not ISSUE SLIP stamps. */
+.librarian.is-catalog .librarian-head strong::after {
+  content: " · catalog";
+}
+
+.librarian.is-catalog .librarian-composer {
+  background: var(--slip);
+  padding: 0.4rem 0.5rem 0.35rem;
+}
+
+.librarian.is-catalog .librarian-kicker {
+  margin-bottom: 0.35rem;
+}
+
+.librarian.is-catalog .librarian-stack {
+  margin: 0 0.45rem 0.55rem;
+  padding: 0.4rem 0.5rem 0.55rem;
+  background: var(--slip);
+  border: 1px solid #6a4030;
+  box-shadow:
+    1px 1px 0 #00000055,
+    2px 2px 0 #00000022;
+}
+
+.librarian.is-catalog .librarian-empty {
+  margin: 0;
+  padding: 0.15rem 0;
+  background: transparent;
+  border: 0;
+}
+
+.librarian.is-agent.is-catalog .librarian-head strong::after {
+  content: " · index";
+}
+
+.librarian.is-agent.is-catalog .librarian-composer {
+  background: var(--slip);
+  border: 1px solid #6a1818;
+  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
+}
+
+.librarian.is-agent.is-catalog .librarian-stack {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 28px,
+      rgba(180, 20, 30, 0.08) 28px 29px
+    ),
+    linear-gradient(180deg, #f4dcd4 0%, #ecc8bc 55%, #d8a898 100%);
+  border: 1px solid #6a1818;
+  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
+  color: #1a0c0c;
+}
+
+.librarian.is-agent .catalog-actions .librarian-store {
+  box-shadow: none;
+  border-radius: 0;
+  background: #1a0808;
+  color: #ff3a32;
+  border: 1px solid #c4202a;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-agent .catalog-label,
+.librarian.is-agent .catalog-type,
+.librarian.is-agent .catalog-hit,
+.librarian.is-agent .catalog-edit,
+.librarian.is-agent .catalog-pop,
+.librarian.is-agent .catalog-drop {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-agent .catalog-type {
+  color: #c4202a;
+}
+
+.librarian.is-agent .catalog-hit,
+.librarian.is-agent .catalog-label {
+  color: #6a1410;
+}
+
+.librarian.is-agent .catalog-drop {
+  color: #e01820;
+}
+
+.librarian.is-agent .librarian-modal-card {
+  border: 1px solid #6a1818;
+  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
+}
+
+.librarian.is-agent .librarian-modal-card strong {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  color: #c4202a;
+}
+
+.tagbay-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem 0.45rem;
+  padding: 0.35rem 0.45rem 0.35rem 0.55rem;
+  background: var(--slip);
+  border: 1px solid #8a6a38;
+  box-shadow: 1px 1px 0 #00000044;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.tagbay-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tagbay-count {
+  flex: 0 0 auto;
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.tagbay-also {
+  display: none;
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  flex: 1 0 100%;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 10px;
+}
+
+.tagbay-label.is-open .tagbay-also {
+  display: block;
+}
+
+.tagbay-also a {
+  color: var(--rule) !important;
+  text-decoration: underline;
+}
+
+.tagbay-crate {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.55rem 0.4rem;
+  font-size: 10px;
+}
+
+.tagbay-crate-id {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  color: #f4ead4;
+  user-select: all;
+}
+
+a.tagbay-crate-id {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.tagbay-crate-id:hover {
+  text-decoration: underline;
+}
+
+.tagbay-off {
+  font-style: italic;
+  color: #c4b8a0;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.tagbay-copy,
+.tagbay-issue {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #8a6a38;
+  background: var(--slip);
+  color: var(--ink);
+  padding: 0.1rem 0.35rem;
+  cursor: pointer;
+}
+
+.tagbay-ledger-title {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tagbay-ledger-blurb {
+  color: var(--mute);
+  max-width: 38rem;
+}
+
+.tagbay-ledger .tagbay-crate-id {
+  display: block;
+  color: var(--ink);
+  margin-top: 0.15rem;
+}
+
+.tagbay-ledger .tagbay-off {
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.cork-board {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-height: 8rem;
+  padding: 0.1rem 0 0.25rem;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.cork-pin,
+.cork-lore {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: 0.15rem 0.4rem;
+  min-width: 0;
+  max-width: none;
+  padding: 0.22rem 0.1rem 0.2rem 0.15rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 180, 40, 0.16);
+  box-shadow: none;
+  font-family: inherit;
+  color: #ffe7a0;
+  text-decoration: none;
+  transform: none;
+}
+
+.cork-pin:nth-child(2n),
+.cork-lore:nth-child(2n),
+.cork-pin:nth-child(3n),
+.cork-lore:nth-child(3n),
+.cork-pin:nth-child(4n),
+.cork-lore:nth-child(4n) {
+  transform: none;
+  background: transparent;
+}
+
+.cork-pin.is-open {
+  z-index: 2;
+  transform: none;
+  background: rgba(255, 180, 40, 0.08);
+  box-shadow: inset 2px 0 0 #ffc14a;
+}
+
+.cork-head {
+  display: none;
+}
+
+.cork-name {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  color: #ffc14a;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.4);
+}
+
+.cork-hash {
+  display: inline-block;
+  margin-right: 0.28em;
+  font-size: 0.85em;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: 0;
+  color: #8a6a28;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.cork-unpin {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #8a6a28;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cork-unpin:hover {
+  color: #ffc14a;
+}
+
+.cork-pin.cork-thread {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.35em;
+}
+
+.cork-thread .cork-name,
+.cork-thread .cork-gap {
+  flex: 0 1 auto;
+}
+
+.cork-thread .cork-rel,
+.cork-thread .charlie-sep {
+  flex: 0 0 auto;
+  padding-bottom: 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-shadow: none;
+}
+
+.cork-thread .charlie-sep {
+  color: #8a6a28;
+}
+
+a.cork-rel {
+  color: #c9a04a;
+  text-decoration: none;
+  text-shadow: none;
+  letter-spacing: 0.06em;
+}
+
+a.cork-rel:hover {
+  color: #ffe7a0;
+}
+
+.tagbay-ledger-kicker {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a6a28;
+  margin: 1.1rem 0 0.35rem;
+}
+
+.tagbay-chain {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.tagbay-chain a:not(.cork-rel) {
+  color: #ffc14a;
+  text-decoration: none;
+}
+
+.cork-thread .cork-unpin {
+  margin-left: auto;
+}
+
+.cork-gap {
+  color: #6a5018;
+  text-shadow: none;
+}
+
+.cork-also {
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: #8a6a28;
+  cursor: pointer;
+}
+
+.cork-pin .tagbay-also {
+  grid-column: 1 / -1;
+  font-size: 10px;
+  color: #8a6a28;
+}
+
+.cork-pin.cork-hash-pin {
+  display: block;
+  grid-template-columns: none;
+  color: #ffc14a;
+  text-decoration: none;
+}
+
+.cork-pin.cork-hash-pin:hover {
+  background: rgba(255, 180, 40, 0.08);
+}
+
+.librarian.is-charlie .cork-hashes .catalog-head {
+  color: #8a6a28;
+}
+
+.cork-block {
+  margin: 0 0 0.55rem;
+}
+
+.cork-label {
+  padding: 0.2rem 0.1rem 0.28rem;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a6a28;
+}
+
+.cork-lore {
+  display: block;
+  padding: 0.38rem 0.12rem 0.42rem;
+  margin: 0 0 0.12rem;
+  border-bottom: 1px dotted rgba(255, 193, 74, 0.28);
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.cork-lore:hover {
+  background: rgba(255, 180, 40, 0.08);
+}
+
+.cork-lore strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #ffc14a;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.4);
+}
+
+.cork-lore em {
+  display: block;
+  font-family: inherit;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a6a28;
+}
+
+.cork-line {
+  display: block;
+  margin-top: 0.14rem;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.4;
+  color: #c9a04a;
+  text-shadow: none;
+}
+
+html.deck-host-deep .librarian {
+  margin: 0;
+  box-shadow: none;
+  border-left: 1px solid #000;
+}
+
+.librarian-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.4rem 0.55rem 0.2rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f4e6c8;
+}
+
+.librarian-head strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.librarian-head strong::after {
+  content: " · printouts";
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #c4b48a;
+  font-size: 10px;
+}
+
+.librarian-pop {
+  flex: 0 0 auto;
+  margin-left: 0.15rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid #8a6a38;
+  background: var(--slip);
+  color: var(--ink);
+  padding: 0.08rem 0.35rem;
+  cursor: pointer;
+}
+
+.librarian-pop:hover {
+  filter: brightness(1.08);
+}
+
+html[data-sidecar] .wwwExplorer_stage {
+  margin: 0;
+  padding: 0 0.35rem 0.35rem;
+}
+
+html[data-sidecar="readme"] body {
+  background: #0000aa;
+}
+html[data-sidecar="readme"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #000088, #0000cc);
+  border-color: #ffffff;
+}
+html[data-sidecar="readme"] .wwwExplorer_mark {
+  background: #ffffff;
+  color: #0000aa;
+}
+
+.sheet-resize {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  z-index: 200;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 46%, currentColor 46%);
+  opacity: 0.55;
+  color: #5a4838;
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+}
+
+.sheet-resize:hover {
+  opacity: 0.9;
+}
+
+html[data-sidecar="readme"] .sheet-resize {
+  color: #ffff55;
+  opacity: 0.85;
+}
+html[data-sidecar="librarian"] .wwwExplorer_mark {
+  background: #4a6a50;
+  color: #f4ead4;
+}
+html[data-sidecar="charlie"] .wwwExplorer_mark {
+  background: #1a1204;
+  color: #ffc14a;
+}
+html[data-sidecar="agent"] .wwwExplorer_mark {
+  background: #c4202a;
+  color: #f4dcd4;
+}
+
+html[data-sidecar="librarian"] body {
+  background: #2a3f3d;
+}
+html[data-sidecar="librarian"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #1e2e2c, #3a5450);
+  border-color: #1e2e2c;
+}
+
+html[data-sidecar="charlie"] body {
+  background: #1a1204;
+}
+html[data-sidecar="charlie"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #100c04, #241808);
+  border-color: #8a5a18;
+}
+
+html[data-sidecar="agent"] body {
+  background: #140808;
+}
+html[data-sidecar="agent"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #0e0404, #2a1010);
+  border-color: #6a1818;
+}
+
+html[data-sidecar="tps"] body {
+  background: #2a2c28;
+}
+html[data-sidecar="tps"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #1c1e1a, #3a3c34);
+  border-color: #8a8c78;
+}
+html[data-sidecar="tps"] .wwwExplorer_mark {
+  background: #eef0e4;
+  color: #c42820;
+}
+
+/* TPS — carbon copy time card. Not booth green, not phosphor. */
+.librarian.is-tps {
+  --booth: #2a2c28;
+  --booth-hi: #3a3c34;
+  --slip: #eef0e4;
+  --slip-pink: #e4e6da;
+  --rule: #8a8c78;
+  --ink: #1c1e18;
+  --stamp: #c42820;
+  --ok: #3a3c34;
+  --mute: #6a6c60;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.04) 0 1px,
+      transparent 1px 18px
+    ),
+    linear-gradient(180deg, #4a4c44 0 2.1rem, #2a2c28 2.1rem);
+}
+
+.librarian.is-tps .librarian-head {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.16em;
+  color: #eef0e4;
+}
+
+.librarian.is-tps .librarian-head strong::after {
+  content: " · time";
+  color: #c42820;
+}
+
+.librarian.is-tps .librarian-store {
+  background: #1c1e18;
+  color: #eef0e4;
+  border-color: #8a8c78;
+}
+
+.librarian.is-tps .librarian-path {
+  color: #c8cab8;
+}
+
+.librarian.is-tps .librarian-composer,
+.librarian.is-tps .librarian-stack {
+  margin: 0 0.45rem 0.45rem;
+  padding: 0.4rem 0.5rem 0.45rem;
+  background: var(--slip);
+  border: 1px solid #8a8c78;
+  box-shadow:
+    1px 1px 0 #00000055,
+    2px 2px 0 #00000022;
+  color: var(--ink);
+}
+
+.librarian.is-tps .librarian-composer {
+  padding: 0.45rem 0.5rem 0.4rem 0.7rem;
+}
+
+.librarian.is-tps .librarian-stack {
+  margin-top: 0;
+}
+
+.librarian.is-tps .librarian-kicker {
+  color: #c42820;
+}
+
+.librarian.is-tps .catalog-head {
+  color: #c42820;
+  letter-spacing: 0.14em;
+  border-bottom-color: #8a8c7866;
+}
+
+.librarian.is-tps .librarian-empty {
+  margin: 0;
+  padding: 0.2rem 0;
+  background: transparent;
+  border: 0;
+  color: #4a4c40;
+}
+
+.librarian.is-tps .tps-when {
+  display: block;
+  color: #1c1e18;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.librarian.is-tps .tps-when:hover {
+  color: #c42820;
+  text-decoration: underline;
+}
+
+.librarian.is-tps .tps-unix {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: #5a5c50;
+}
+
+.librarian.is-tps .tps-bin {
+  display: grid;
+  grid-template-columns: 3.6rem 1fr;
+  gap: 0.15rem 0.45rem;
+  align-items: baseline;
+  margin: 0.18rem 0;
+}
+
+.librarian.is-tps .tps-bin-label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a5c50;
+}
+
+.librarian.is-tps .tps-bucket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.librarian.is-tps .tps-n {
+  margin-left: 0.2rem;
+  font-size: 9px;
+  color: #5a5c50;
+}
+
+.librarian.is-tps .catalog-row.tps-stamp {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.1rem 0.35rem;
+  border-bottom-color: #8a8c7844;
+}
+
+.librarian.is-tps .catalog-row.tps-stamp .catalog-label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c42820;
+}
+
+.librarian.is-tps .catalog-row.tps-stamp .catalog-value {
+  grid-column: 1 / -1;
+}
+
+.librarian.is-tps .tps-bucket .catalog-hit {
+  margin: 0;
+  padding: 0.06rem 0.28rem;
+  border: 1px solid #8a8c7888;
+  background: #e4e6da;
+  color: #1c1e18;
+}
+
+.librarian.is-tps .tps-bucket .catalog-hit:hover {
+  background: #1c1e18;
+  color: #eef0e4;
+  text-decoration: none;
+}
+
+html[data-sidecar] .librarian,
+html[data-sidecar] body.readme-open #readme,
+html[data-sidecar] body.librarian-open #librarian,
+html[data-sidecar] body.agent-open #agent,
+html[data-sidecar] body.charlie-open #charlie,
+html[data-sidecar] body.tps-open #tps,
+html[data-sidecar] body.cards-open #cards {
+  display: flex !important;
+  flex: 1 1 auto;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+}
+
+html[data-sidecar] .librarian.is-readme {
+  flex-basis: auto !important;
+}
+
+/* Desk dock — smaller type so chrome stays one line. Rails keep full size. */
+html:not([data-sidecar]):not([data-sheet]) .librarian {
+  font-size: 11px;
+  line-height: 1.28;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian-head {
+  flex-wrap: nowrap;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian-head strong {
+  font-size: 11px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian-head strong::after {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian-kicker {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian-store,
+html:not([data-sidecar]):not([data-sheet]) .catalog-actions .librarian-store {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  padding: 0.28rem 0.35rem 0.22rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-readme .readme-tab {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .charlie-slot {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-tri .librarian-leaf,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-tri .tagbay-input.librarian-leaf {
+  font-size: 10px;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .tagbay-label {
+  flex-wrap: nowrap;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .tagbay-crate-id {
+  font-size: 8px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .cork-lore strong,
+html:not([data-sidecar]):not([data-sheet]) .cork-name {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .cork-lore em {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .cork-line {
+  font-size: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-head {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-row,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .catalog-row.tps-stamp {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.2rem 0.28rem;
+  font-size: 9px;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-type {
+  order: 1;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-label {
+  order: 2;
+  flex: 0 0 auto;
+  max-width: 42%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-value {
+  order: 3;
+  grid-column: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-tools {
+  order: 4;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .catalog-hit {
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .catalog-row.tps-stamp .catalog-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .catalog-row.tps-stamp .catalog-value {
+  grid-column: auto;
+}
+
+/* Expanded / maximized — a little more dock, not a second page. */
+html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian {
+  flex: 0 0 21rem;
+  width: 21rem;
+  max-width: 24rem;
+}
+
+html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme {
+  flex-basis: 24.5rem;
+  width: 24.5rem;
+  max-width: 27rem;
+}
+
+@media (min-width: 980px) {
+  html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian {
+    flex: 0 0 21rem;
+    width: 21rem;
+    max-width: 24rem;
+  }
+
+  html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian.is-readme {
+    flex-basis: 24.5rem;
+    width: 24.5rem;
+    max-width: 27rem;
+  }
+}
+
+.librarian-path {
+  flex: 0 0 auto;
+  padding: 0 0.55rem 0.35rem;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: #b8a888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.librarian-composer {
+  flex: 0 0 auto;
+  margin: 0.15rem 0.45rem 0.45rem;
+  padding: 0.45rem 0.5rem 0.4rem 0.7rem;
+  background:
+    radial-gradient(circle at 0 0.55rem, var(--booth) 0.22rem, transparent 0.24rem) 0 0 / 100% 0.85rem repeat-y,
+    var(--slip);
+  box-shadow:
+    1px 1px 0 #00000055,
+    2px 2px 0 #00000022;
+  border: 1px solid #6a4030;
+}
+
+.librarian-kicker {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin: 0 0 0.3rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid var(--rule);
+}
+
+.librarian-leaf {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 4.4rem;
+  resize: vertical;
+  padding: 0.35rem 0.3rem;
+  font: inherit;
+  font-size: 12px;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 1.15em,
+      #e2c4a8 1.15em 1.2em
+    );
+  border: 0;
+  border-bottom: 1px dashed #8a5a40;
+  box-shadow: none;
+  outline: none;
+}
+
+.librarian-leaf::placeholder {
+  color: #a08068;
+}
+
+.tagbay-input.librarian-leaf {
+  min-height: 1.8rem;
+  height: 1.8rem;
+  resize: none;
+  padding: 0.25rem 0.15rem;
+}
+
+.librarian-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.librarian-store {
+  min-width: 4.8rem;
+  padding: 0.22rem 0.55rem 0.18rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f4efe4;
+  background: var(--ok);
+  border: 2px solid #1a3a28;
+  border-radius: 50%;
+  width: 3.4rem;
+  height: 3.4rem;
+  min-width: 0;
+  box-shadow: inset 0 0 0 2px #f4efe466;
+  cursor: pointer;
+}
+
+.librarian-store:active {
+  transform: translate(1px, 1px);
+}
+
+.librarian-hint {
+  font-size: 9px;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+}
+
+.librarian-status {
+  min-height: 1.1rem;
+  margin: 0.25rem 0 0;
+  font-size: 10px;
+  color: var(--mute);
+}
+
+.librarian-status.is-err {
+  color: var(--stamp);
+}
+
+.librarian-stack {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 0.45rem 0.55rem;
+  scrollbar-width: thin;
+  scrollbar-color: #6a8a70 var(--booth);
+}
+
+.librarian-stack::-webkit-scrollbar {
+  width: 6px;
+}
+
+.librarian-stack::-webkit-scrollbar-track {
+  background: var(--booth);
+}
+
+.librarian-stack::-webkit-scrollbar-thumb {
+  background: #6a8a70;
+  border: 0;
+}
+
+.librarian-stack::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.librarian-empty {
+  margin: 0.55rem 0.2rem;
+  padding: 0.55rem 0.5rem;
+  background: var(--slip-pink);
+  border: 1px dashed var(--rule);
+  color: var(--mute);
+  font-size: 11px;
+}
+
+.librarian-thought {
+  position: relative;
+  margin: 0 0 0.38rem;
+  padding: 0.28rem 0.4rem 0.32rem 0.65rem;
+  font-family: "IBM Plex Mono", "Consolas", "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(circle at 0 0.45rem, var(--booth) 0.18rem, transparent 0.2rem) 0 0 / 100% 0.7rem repeat-y,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 1.32em,
+      rgba(138, 74, 56, 0.1) 1.32em 1.36em
+    ),
+    var(--slip);
+  border: 1px solid #6a4030;
+  box-shadow:
+    1px 1px 0 #00000044,
+    2px 3px 0 #00000018;
+}
+
+.librarian-thought:nth-child(odd) {
+  transform: rotate(-0.4deg);
+  background-color: var(--slip);
+}
+
+.librarian-thought:nth-child(even) {
+  transform: rotate(0.45deg);
+  background-color: var(--slip-pink);
+}
+
+.librarian-thought::before {
+  content: "FIELD NOTE";
+  display: block;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin-bottom: 0.12rem;
+  padding-bottom: 0.08rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.librarian-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-size: 8px;
+  letter-spacing: 0.02em;
+  color: var(--mute);
+  margin-bottom: 0.18rem;
+}
+
+.librarian-id {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.librarian-drop {
+  margin-left: auto;
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  background: transparent;
+  border: 1.5px solid var(--stamp);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--stamp);
+  cursor: pointer;
+  transform: rotate(12deg);
+}
+
+.librarian-drop:hover {
+  background: #b4202a18;
+}
+
+.librarian-drop:active {
+  transform: rotate(12deg) translate(1px, 1px);
+}
+
+.librarian-thought.is-amending {
+  transform: none;
+}
+
+.librarian-body {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 10px;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  cursor: text;
+}
+
+.librarian-amend {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 3.4rem;
+  margin: 0;
+  padding: 0.15rem 0;
+  resize: vertical;
+  font: inherit;
+  font-size: 10px;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed var(--rule);
+  outline: none;
+}
+
+.librarian-thought.is-amending::after {
+  content: "Ctrl+Enter keep · Esc cancel";
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lbr-chip {
+  display: inline;
+  font-weight: 500;
+  padding: 0 0.08rem;
+}
+
+.lbr-tag {
+  color: #2c4a8a;
+}
+
+.lbr-ns {
+  color: var(--ok);
+}
+
+.lbr-time {
+  color: #c45c26;
+}
+
+.lbr-cite,
+a.lbr-cite:link,
+a.lbr-cite:visited {
+  color: #6b3fa0;
+  text-decoration: none;
+}
+
+a.lbr-cite:hover {
+  text-decoration: underline;
+}
+
+.librarian-off .librarian-composer,
+.librarian-off .librarian-stack {
+  opacity: 0.72;
+}
+
+.catalog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.catalog-actions .librarian-store {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 0.38rem 0.45rem 0.32rem;
+  border-radius: 1px;
+  border-width: 1px;
+  box-shadow: 1px 1px 0 #1a3a28;
+  letter-spacing: 0.12em;
+}
+
+.librarian-modal-actions .librarian-store {
+  width: auto;
+  height: auto;
+  min-width: 4.4rem;
+  min-height: 0;
+  padding: 0.22rem 0.55rem 0.18rem;
+  border-radius: 1px;
+  border-width: 1px;
+  box-shadow: none;
+}
+
+.catalog-block {
+  margin: 0 0 0.7rem;
+}
+
+.catalog-block:last-child {
+  margin-bottom: 0;
+}
+
+.catalog-head {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 0.28rem;
+  padding-bottom: 0.12rem;
+  border-bottom: 1px solid #00000033;
+}
+
+.catalog-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.08rem 0.35rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px dotted #00000022;
+  font-size: 10px;
+}
+
+.catalog-tools {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+}
+
+.catalog-edit,
+.catalog-pop,
+.catalog-drop {
+  padding: 0 0.2rem;
+  border: 0;
+  background: transparent;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+  cursor: pointer;
+}
+
+.catalog-drop {
+  color: var(--stamp);
+  font-size: 11px;
+  text-transform: none;
+}
+
+.catalog-label {
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.catalog-label:hover,
+.catalog-hit:hover {
+  text-decoration: underline;
+}
+
+.catalog-hit {
+  display: inline-block;
+  margin: 0 0.35em 0.15em 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.catalog-type {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.catalog-chips {
+  display: block;
+  margin-top: 0.08rem;
+}
+
+.catalog-lore .catalog-type,
+.catalog-chips .catalog-type {
+  display: inline-block;
+  margin-right: 0.45em;
+}
+
+.catalog-lore .catalog-type:last-child,
+.catalog-chips .catalog-type:last-child {
+  margin-right: 0;
+}
+
+
+.catalog-value {
+  grid-column: 1 / -1;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.catalog-lore {
+  display: block;
+  padding: 0.32rem 0;
+  border-bottom: 0;
+  color: var(--ink) !important;
+  text-decoration: none;
+}
+
+.catalog-lore-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem;
+  align-items: start;
+  border-bottom: 1px dotted #00000022;
+}
+
+.catalog-lore strong {
+  display: block;
+  font-size: 11px;
+}
+
+.catalog-line {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--mute);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.lore-pick {
+  display: block;
+  margin: 0 0 0.35rem;
+  padding: 0.28rem 0.2rem 0.32rem;
+  border-bottom: 1px dotted #00000022;
+  cursor: pointer;
+}
+
+.lore-pick input {
+  margin: 0 0.4rem 0 0;
+  vertical-align: top;
+}
+
+.lore-pick strong {
+  display: inline;
+  font-size: 12px;
+}
+
+.lore-pick em {
+  display: block;
+  margin-left: 1.4rem;
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lore-pick .catalog-line,
+.lore-pick .catalog-type {
+  margin-left: 1.4rem;
+}
+
+.lore-pick.is-on {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.librarian-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(20, 16, 12, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.2rem 0.4rem 0.5rem;
+}
+
+.librarian-modal[hidden] {
+  display: none;
+}
+
+.librarian-modal-card {
+  width: 100%;
+  max-height: calc(100% - 0.5rem);
+  overflow: auto;
+  background: var(--slip);
+  border: 1px solid #6a4030;
+  box-shadow:
+    1px 1px 0 #00000055,
+    2px 2px 0 #00000022;
+  padding: 0.55rem 0.55rem 0.5rem;
+  color: var(--ink);
+}
+
+.librarian-modal-card strong {
+  display: block;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 0.45rem;
+}
+
+.librarian-modal-card label {
+  display: block;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rule);
+  margin: 0.35rem 0 0.12rem;
+}
+
+.librarian-modal-card select,
+.librarian-modal-card input,
+.librarian-modal-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.catalog-check {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 11px;
+}
+
+.catalog-check input {
+  width: auto;
+}
+
+.librarian-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.librarian-modal-actions button {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid #6a4030;
+  background: var(--slip);
+  color: var(--ink);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.catalog-onto {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0 0.55rem 0.35rem;
+}
+
+.catalog-onto-btn {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid #8a6a38;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+
+.catalog-onto-btn.is-on {
+  background: var(--slip);
+}
+
+.catalog-bag {
+  margin: 0 0 0.7rem;
+  padding: 0.35rem 0.45rem 0.2rem;
+  border: 1px dotted transparent;
+}
+
+.catalog-bag.is-shell {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: #8a6a3844;
+}
+
+.catalog-bag.is-on {
+  border-color: #8a6a38;
+}
+
+.catalog-bag > .catalog-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+
+/* CARDS — thin read-only lore shelf. Traveler dress, scaled for desk/sidecar. */
+.librarian.is-cards {
+  --paper: #f7f1dc;
+  --ink: #2a2418;
+  --mute: #6a6154;
+  --line: #b7ae9c;
+  --accent: #3a4a78;
+  --margin: #c45c4a;
+  --card-strip: var(--margin);
+  --blotter: #c4baa4;
+  --booth: #3a3226;
+  --rule: #b7ae9c;
+  --stamp: #8a5a32;
+  flex-basis: 24rem;
+  width: 24rem;
+  max-width: 32rem;
+  font-family: Literata, Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 248, 230, 0.22), transparent 48%),
+    linear-gradient(180deg, #d2c8b0 0%, var(--blotter) 42%, #b4aa92 100%);
+  box-shadow: inset 0 0 0 1px #a89c82;
+}
+
+.librarian.is-cards .librarian-head {
+  color: #3a3226;
+  border-bottom: 1px solid rgba(58, 50, 38, 0.28);
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.12em;
+}
+
+.librarian.is-cards .librarian-head strong::after {
+  content: "";
+}
+
+.librarian.is-cards .librarian-count,
+.librarian.is-cards .librarian-path,
+.librarian.is-cards .librarian-hint,
+.librarian.is-cards .librarian-status,
+.librarian.is-cards .librarian-kicker {
+  color: var(--mute);
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+.librarian.is-cards .librarian-kicker {
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--card-strip, var(--margin));
+}
+
+.librarian.is-cards .librarian-composer {
+  background: transparent;
+  border-bottom: 1px solid rgba(58, 50, 38, 0.18);
+}
+
+.librarian.is-cards .librarian-stack {
+  padding: 0.45rem 0.55rem 0.85rem;
+  overflow: auto;
+}
+
+.librarian.is-cards .librarian-empty {
+  color: var(--mute);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  background: transparent;
+  border: 0;
+}
+
+.librarian.is-cards .card-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.65rem 0.55rem;
+  align-items: start;
+}
+
+.librarian.is-cards .card-shelf-item {
+  margin: 0;
+  min-width: 0;
+}
+
+/* Compact traveler card inside the shelf (not giant single papers). */
+.librarian.is-cards .lorecard {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 9.5rem;
+  margin: 0;
+  padding: 0.72rem 0.75rem 1.35rem 0.8rem;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow:
+    1px 1px 0 #d4cbb4,
+    2px 3px 6px rgba(40, 30, 10, 0.14),
+    0 0 0 1px #c4b898;
+  border-radius: 1px 2px 3px 1px;
+  font-size: 0.82rem;
+}
+
+.librarian.is-cards .lorecard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.28rem;
+  background: var(--card-strip, var(--margin));
+}
+
+.librarian.is-cards .lorecard::after {
+  content: "";
+  position: absolute;
+  bottom: 0.36rem;
+  left: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: -0.275rem;
+  border-radius: 50%;
+  background: var(--blotter);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22);
+}
+
+.librarian.is-cards .lorecard > :first-child {
+  margin-top: 0.1rem;
+}
+
+.librarian.is-cards .lorecard p {
+  margin: 0;
+  padding: 0 0 0.08rem;
+  line-height: 1.35;
+}
+
+.librarian.is-cards .lorecard p:empty {
+  display: none;
+}
+
+.librarian.is-cards .lorecard .kicker {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--card-strip, var(--margin));
+}
+
+.librarian.is-cards .lorecard .made,
+.librarian.is-cards .lorecard .house {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.librarian.is-cards .lorecard h1 {
+  margin: 0.1rem 0 0.25rem;
+  padding: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: var(--ink);
+}
+
+.librarian.is-cards .lorecard .line {
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  min-height: 2.1rem;
+}
+
+.librarian.is-cards .lorecard .id {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+}
+
+.librarian.is-cards .lorecard.has-back {
+  padding-bottom: 0.85rem;
+}
+
+.librarian.is-cards .lorecard.has-back .id {
+  display: none;
+}
+
+.librarian.is-cards .lorecard .card-back {
+  margin: 0.45rem 0 0;
+  padding: 0.4rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.librarian.is-cards .lorecard .card-meta-row {
+  display: grid;
+  grid-template-columns: 4.8rem 1fr;
+  gap: 0.12rem 0.35rem;
+  margin: 0;
+  padding: 0.06rem 0;
+}
+
+.librarian.is-cards .lorecard .card-back dt,
+.librarian.is-cards .lorecard .card-back dd {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.52rem;
+  color: var(--mute);
+}
+
+.librarian.is-cards .lorecard .card-back dd {
+  color: var(--ink);
+  word-break: break-word;
+}
+
+
+/* Face first — click opens the full shelf (meta / back). */
+.librarian.is-cards .card-shelf-item {
+  cursor: pointer;
+}
+
+.librarian.is-cards .card-shelf-item:focus-visible {
+  outline: 2px solid var(--card-strip, var(--margin));
+  outline-offset: 2px;
+}
+
+.librarian.is-cards .card-shelf-item .lorecard .card-back,
+.librarian.is-cards .card-shelf-item .lorecard .edges,
+.librarian.is-cards .card-shelf-item .lorecard .lore-edges,
+.librarian.is-cards .card-shelf-item .lorecard .from,
+.librarian.is-cards .card-shelf-item .lorecard .id,
+.librarian.is-cards .card-shelf-item .lorecard .cite,
+.librarian.is-cards .card-shelf-item .lorecard .foot {
+  display: none !important;
+}
+
+.librarian.is-cards .card-shelf-item.is-open {
+  grid-column: 1 / -1;
+}
+
+.librarian.is-cards .card-shelf-item.is-open .lorecard .card-back {
+  display: block !important;
+}
+
+.librarian.is-cards .card-shelf-item.is-open .lorecard .edges,
+.librarian.is-cards .card-shelf-item.is-open .lorecard .lore-edges,
+.librarian.is-cards .card-shelf-item.is-open .lorecard .from,
+.librarian.is-cards .card-shelf-item.is-open .lorecard .id,
+.librarian.is-cards .card-shelf-item.is-open .lorecard .cite,
+.librarian.is-cards .card-shelf-item.is-open .lorecard .foot {
+  display: block !important;
+}
+
+.librarian.is-cards .card-shelf-item.is-open .lorecard .card-meta-row {
+  display: grid !important;
+}
+
+html[data-sidecar="cards"] .librarian.is-cards {
+  flex-basis: auto !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0.85rem 0.75rem;
+  padding: 0.2rem;
+}
+
+@media (max-width: 1024px) {
+  .librarian.is-cards {
+    flex-basis: 22rem;
+    width: 22rem;
+  }
+  .librarian.is-cards .card-shelf {
+    grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .librarian.is-cards .card-shelf {
+    grid-template-columns: 1fr;
+  }
+}

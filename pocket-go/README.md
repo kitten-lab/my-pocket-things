@@ -7,7 +7,7 @@
 
 **My Pocket Go** — a little net. Worlds as pages. Deck Host dresses as a Win 3.1 WWW explorer for this ROM: the blue title bar and address bar *are* the window chrome (`data-deck-chrome`). Not a library. Not a terminal.
 
-Vault clay lives in [`~library/`](./~library/) (the Obsidian root). Reader code lives in `prod/www_sys/`.
+Worlds live in [`~hosts/`](./~hosts/). Home is [`~hosts/start.md`](./~hosts/start.md). A folder there is `go.(name)` the moment it exists. Skins and pictures live in [`mats/`](./mats/) (`styles/`, `imgs/`). Reader chrome lives in `prod/www_sys/`. Drawers (librarian, charlie, readme, agent) live beside the worlds — not visitor pages, not hosts.
 
 ### Run
 
@@ -23,25 +23,12 @@ run-go.bat
 
 Pocket paths, not `?p=`:
 
-- `/` — home (`~library/_index.md`)
-- `/Chester's Imports/` — folder
-- `/Chester's Imports/.../note.md` — note
+- `/` — start (`~hosts/start.md`)
+- `go.terminal/` — a host, if `~hosts/terminal/` exists
+- `go.stores/bookstore/note.md` — a note in a host
 
-Wiki `[[links]]` still resolve. Extra skins via note frontmatter `environment: terminal-io` → `www_sys/styles/terminal-io.css`.
+Wiki `[[links]]` still resolve, inside the host you are on. Extra skins via note frontmatter `environment: terminal-io` → `mats/styles/terminal-io.css`.
 
-Home (`/`) is [`~library/_index.md`](./~library/_index.md). Drop `_index.md` in any folder the same way — optional. Tokens: `{{doors}}` folder cards, `{{files}}` the note/folder list. Look: `prod/www_sys/index.css`. Don't need to touch `server.py`.
+Home (`/`) is [`~hosts/start.md`](./~hosts/start.md). Drop `_index.md` in any host folder the same way — optional. Every `{{token}}` is listed in [`KEYS.md`](./KEYS.md). Look: `prod/www_sys/index.css`. Don't need to touch `server.py`.
 
-GO on a path that is not a vault path is a later pocket door (my-pocket-internet rooms). Not this cut.
-
-### Vault
-
-Default: `pocket-go/~library`. Override: `BONEYARD_VAULT`.
-
-Worlds were copied here from `C:\_BONEYARD`. When nothing has that folder open (Obsidian / Cursor), turn the old path into a junction:
-
-```bat
-rename C:\_BONEYARD _BONEYARD_PRE_LIBRARY
-mklink /J C:\_BONEYARD C:\ALICE_BOX\my-pocket-things\pocket-go\~library
-```
-
-Until then, open Obsidian on `pocket-go/~library`. `C:\_BONEYARD\go-boneyard.bat` already launches this ROM.
+Type `go.{name}/` in the bar. If that folder is not in `~hosts/` yet, the pocket says the room isn't here now. Hosts are found, not predefined. Optional aliases: [`~hosts/_hosts.yaml`](./~hosts/_hosts.yaml).

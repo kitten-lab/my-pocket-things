@@ -1,0 +1,16 @@
+﻿house: LIBRARIAN
+pocket: go.island/cabin/_index.md
+crate: crate.92619DB310E9DD2B
+fields:
+  - type: input
+    label: name
+    value: Cabin
+  - type: input
+    label: color
+    value: brown
+  - type: input
+    label: type
+    value: walkable room
+  - type: input
+    label: known for
+    value: hangs off the island; not a tray

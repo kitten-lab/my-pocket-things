@@ -1,0 +1,470 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap");
+
+/* TERMINAL.ROOT - the vestibule. Not a console. The place you pick a letter. */
+:root {
+  --bg: #050604;
+  --paper: #0c0e0a;
+  --ink: #8a9178;
+  --mute: #3a3f32;
+  --line: #4a5240;
+  --accent: #c4a04a;
+  --visited: #6a7058;
+  --active: #e8d090;
+  --seek: #1a1c14;
+  --burn: #c43028;
+  --view: #3cb038;
+  --tone: #c88828;
+  --fog: rgba(140, 150, 100, 0.06);
+  --rail: 240px;
+  --glass: "Share Tech Mono", "VT323", "Consolas", monospace;
+  --arcade: "VT323", "Share Tech Mono", monospace;
+  --scan: linear-gradient(rgba(0, 0, 0, 0.55) 1px, transparent 1px);
+  --scan-size: 100% 4px;
+}
+
+.wwwExplorer_innerShell {
+  --rail: 240px;
+  font-family: var(--glass);
+  font-style: normal;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(80, 90, 40, 0.18), transparent 55%),
+    radial-gradient(ellipse at 80% 10%, rgba(180, 40, 30, 0.07), transparent 40%),
+    radial-gradient(ellipse at 20% 0%, rgba(40, 80, 40, 0.1), transparent 45%),
+    var(--scan),
+    var(--bg);
+  background-size: auto, auto, auto, var(--scan-size), auto;
+  box-shadow: inset 0 0 18vh rgba(0, 0, 0, 0.85);
+  animation: root-roll 9s linear infinite;
+}
+
+.wwwExplorer_innerShell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 2px,
+      rgba(0, 0, 0, 0.08) 2px 3px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  animation: root-scan-drift 6s linear infinite;
+}
+
+.wwwExplorer_innerShell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 41;
+  background: linear-gradient(
+    100deg,
+    transparent 40%,
+    rgba(196, 160, 74, 0.04) 49.5%,
+    rgba(60, 176, 56, 0.03) 50.5%,
+    transparent 60%
+  );
+  background-size: 220% 100%;
+  animation: root-tear 7.5s steps(2, end) infinite;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+}
+
+.wwwExplorer_innerShell,
+.wwwExplorer_innerShell p,
+.wwwExplorer_innerShell li {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  font-family: var(--arcade);
+  font-style: normal;
+  font-weight: 300 !important;
+  letter-spacing: 0.08em;
+  color: transparent;
+  background: linear-gradient(180deg, #e8d090 0%, #8a9178 55%, #4a5240 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(196, 160, 74, 0.25));
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mast mast"
+    "side content"
+    "foot foot";
+}
+
+#browserWindow > :not(.mast):not(.side):not(.content):not(.foot) {
+  grid-column: 1 / -1;
+}
+
+.mast {
+  grid-area: mast;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 2.4rem;
+  margin: 0;
+  padding: 0.45rem 1rem 0.4rem;
+  font-family: var(--arcade);
+  font-size: 1.35rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #1a1c14;
+  background:
+    linear-gradient(90deg, #c4a04a 0%, #8a7040 40%, #3a3420 100%);
+  border-bottom: 1px solid #2a2818;
+  text-shadow:
+    -1px 0 rgba(60, 176, 56, 0.55),
+    1px 0 rgba(196, 48, 40, 0.55);
+  animation: root-mast-glitch 4.8s steps(1, end) infinite;
+}
+
+p.mast::after {
+  content: "NO CONSOLE SELECTED";
+  position: static;
+  left: auto;
+  top: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.2em 0.55em;
+  font-family: var(--glass);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  background: #0c0e0a;
+  color: #c4a04a;
+  opacity: 0.9;
+  animation: root-blink 3.6s steps(2, end) infinite;
+}
+
+@keyframes root-blink {
+  0%, 92% { opacity: 0.9; }
+  96% { opacity: 0.15; }
+  100% { opacity: 0.9; }
+}
+
+.side {
+  grid-area: side;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.1rem 0.85rem 1.4rem;
+  border-right: 1px solid #2a2e22;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 70%),
+    var(--seek);
+  box-shadow: inset -10px 0 24px rgba(0, 0, 0, 0.55);
+  text-transform: uppercase;
+  font-style: normal;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mute) var(--seek);
+}
+
+.side .label,
+.side h3,
+.side h4,
+.side h5 {
+  margin: 0 0 0.85rem;
+  font-family: var(--glass);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  color: var(--mute);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  filter: none;
+}
+
+.side .hum {
+  margin-top: 1.2rem;
+  font-family: var(--glass);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  color: var(--mute);
+  opacity: 0.75;
+}
+
+.side ul.dir,
+.side ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.side li::marker { content: none; }
+
+.content {
+  grid-area: content;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.6rem 2.4rem 2.2rem;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 0%, var(--fog), transparent 55%),
+    var(--paper);
+  scrollbar-color: var(--mute) var(--paper);
+  scrollbar-width: thin;
+  position: relative;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--scan);
+  background-size: var(--scan-size);
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.content > * {
+  position: relative;
+  z-index: 1;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.content p {
+  padding: 0.35rem 0;
+  width: auto;
+  max-width: 38rem;
+  font-family: var(--glass);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #9aa288;
+}
+
+.content p:nth-child(3n) {
+  animation: root-text-jitter 8s steps(1, end) infinite;
+}
+
+.content p:nth-child(5n) {
+  text-shadow:
+    -0.5px 0 rgba(60, 176, 56, 0.25),
+    0.5px 0 rgba(196, 48, 40, 0.25);
+}
+
+.content pre,
+.wwwExplorer_innerShell pre.code {
+  font-family: var(--glass);
+  font-size: 0.82rem !important;
+  color: #b8c0a0;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #2a2e22;
+  padding: 0.9em 1em;
+  max-width: 42rem;
+}
+
+span.accent {
+  color: var(--accent);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(196, 160, 74, 0.45);
+  background: none;
+}
+
+span.accent2 {
+  color: var(--burn);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(196, 48, 40, 0.45);
+}
+
+.foot {
+  grid-area: foot;
+  margin: 0;
+  padding: 0.35rem 1rem;
+  font-family: var(--glass);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a6048;
+  background: #080906;
+  border-top: 1px solid #22261c;
+}
+
+.fm {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--active);
+  font-family: var(--glass);
+}
+
+.tagshelf {
+  margin-top: 1rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+}
+
+.tagshelf a,
+.tagshelf a.been {
+  color: var(--mute) !important;
+  text-decoration: none;
+}
+
+.tag {
+  font-family: var(--glass);
+  font-style: normal;
+  text-decoration: none;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--ink);
+}
+
+.tag:hover,
+.tag a:hover,
+.tag a.been:hover {
+  color: var(--bg) !important;
+  background-color: var(--accent);
+  text-decoration: none;
+}
+
+hr {
+  height: 1px !important;
+  border: 0;
+  background-color: var(--mute) !important;
+  margin: 0.7rem 0;
+  opacity: 0.5;
+}
+
+.headers {
+  margin-top: 1.5em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--mute);
+  color: var(--mute);
+  font-family: var(--glass);
+  font-style: normal;
+  font-size: 12px;
+}
+
+/* the letters - big, quiet, waiting */
+a.world {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 4.2rem;
+  border: 1px solid #2a2e22 !important;
+  padding: 0.85rem 0.7rem !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
+    #0a0c08 !important;
+  color: #6a7058 !important;
+  text-align: center;
+  text-decoration: none !important;
+  text-shadow: none;
+  letter-spacing: 0.2em;
+  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+  animation: root-port-idle 5.4s steps(1, end) infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+a.world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 160, 74, 0.08) 48%,
+    rgba(60, 176, 56, 0.06) 52%,
+    transparent 100%
+  );
+  transform: translateX(-120%);
+  animation: root-port-sweep 6.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+a.world .name,
+a.world {
+  font-family: var(--arcade);
+  font-size: 1.55rem;
+}
+
+.world span {
+  display: block;
+  font-family: var(--glass);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  color: #4a5240;
+  text-align: center;
+}
+
+a.world:hover {
+  background-color: #0a0c08 !important;
+  box-shadow: 0 0 24px rgba(196, 160, 74, 0.12);
+}
+
+a.world.door-ab {
+  border-color: #3a1814 !important;
+}
+a.world.door-ab:hover {
+  border-color: var(--burn) !important;
+  color: var(--burn) !important;
+  text-shadow: 0 0 12px rgba(196, 48, 40, 0.45);
+  box-shadow: 0 0 28px rgba(196, 48, 40, 0.18);
+}
+
+a.world.door-io {
+  border-color: #143014 !important;
+}
+a.world.door-io:hover {
+  border-color: var(--view) !important;
+  color: var(--view) !important;
+  text-shadow: 0 0 12px rgba(60, 176, 56, 0.45);
+  box-shadow: 0 0 28px rgba(60, 176, 56, 0.18);
+}
+
+a.world.door-jx {
+  border-color: #3a2810 !important;
+}
+a.world.door-jx:hover {
+  border-color: var(--tone) !important;
+  color: var(--tone) !important;
+  text-shadow: 0 0 12px rgba(200, 136, 40, 0.45);
+  box-shadow: 0 0 28px rgba(200, 136, 40, 0.18);
+}
+
+.wwwExplorer_innerShell::-webkit-scrollbar { width: 10px; height: 10px; }
+.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
+  background: var(--mute) !important;
+  border: 1px solid #1a1c14;
+}
+.wwwExplorer_innerShell::-webkit-scrollbar-button { display: none; }

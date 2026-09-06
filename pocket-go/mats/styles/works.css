@@ -1,0 +1,611 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Syne:wght@600;700;800&display=swap");
+
+/* Works — card-catalog coat.
+   Steel drawer cabinet, manila slips, quiet Hours subtitle.
+   Not bookstore oak, not buddy velvet, not inbox blotter. */
+:root {
+  --bg: #1c222a;
+  --cabinet: #2a323c;
+  --felt: #242c36;
+  --paper: #f7f0e2;
+  --slip: #fffaf0;
+  --ink: #12161c;
+  --mute: #4a5564;
+  --line: #c4b49a;
+  --accent: #8b3a36;
+  --visited: #5a4a6e;
+  --active: #b04842;
+  --ribbon: #a83c38;
+  --pewter: #8a96a4;
+  --rule: rgba(138, 150, 164, 0.35);
+  --strip: #8b3a36;
+  --card-strip: #8b3a36;
+  --stamp: #a83c38;
+  --hours: #9aa8b8;
+  --chip: #dfe6ee;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 12% -6%, rgba(168, 60, 56, 0.12), transparent 42%),
+    radial-gradient(ellipse at 92% 8%, rgba(138, 150, 164, 0.14), transparent 38%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 0, 0, 0.045) 11px 12px
+    ),
+    linear-gradient(180deg, #262e38 0%, var(--bg) 48%, #12161c 100%);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.55rem 0.75rem 1.25rem;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  color: var(--hours);
+  margin: 0 0 0.45rem;
+  padding: 0.1rem 0.15rem;
+}
+
+.wwwExplorer_innerShell .crumb a {
+  color: var(--pewter);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(138, 150, 164, 0.45);
+}
+
+/* ——— little-website mast / hero ——— */
+.wwwExplorer_innerShell .works-hero,
+.wwwExplorer_innerShell p.mast {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  background:
+    linear-gradient(135deg, rgba(168, 60, 56, 0.16), transparent 40%),
+    linear-gradient(180deg, #343e4a 0%, var(--cabinet) 58%, #1e242c 100%);
+  color: #eef2f6;
+  border: 2px solid #0e1218;
+  box-shadow:
+    3px 3px 0 #0e1218,
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.wwwExplorer_innerShell .works-hero::before,
+.wwwExplorer_innerShell p.mast::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.42rem;
+  background: linear-gradient(180deg, var(--ribbon), #6a2420 70%, #3a1816);
+}
+
+.wwwExplorer_innerShell .works-hero::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  bottom: -55%;
+  width: 48%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(154, 168, 184, 0.22), transparent 68%);
+  pointer-events: none;
+}
+
+.wwwExplorer_innerShell .works-kicker,
+.wwwExplorer_innerShell p.works-kicker {
+  position: relative;
+  margin: 0 0 0.28rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hours);
+}
+
+.wwwExplorer_innerShell .works-wordmark,
+.wwwExplorer_innerShell p.works-wordmark,
+.wwwExplorer_innerShell p.mast {
+  position: relative;
+  margin: 0 0 0.28rem;
+  font-family: Syne, "Arial Narrow", sans-serif;
+  font-size: clamp(1.85rem, 6vw, 2.7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f6f0e4;
+  text-shadow: 0 0 18px rgba(168, 60, 56, 0.28);
+}
+
+.wwwExplorer_innerShell p.mast {
+  font-size: clamp(1.55rem, 5vw, 2.2rem);
+  padding-left: 1.15rem;
+}
+
+.wwwExplorer_innerShell p.mast::after {
+  content: "sat with  ·  filed as slips  ·  kept";
+  display: block;
+  margin-top: 0.28rem;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #c8d0da;
+  text-shadow: none;
+}
+
+.wwwExplorer_innerShell .works-lede,
+.wwwExplorer_innerShell p.works-lede {
+  position: relative;
+  margin: 0;
+  max-width: 34rem;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: #c8d0da;
+}
+
+/* ——— drawer bay ——— */
+.wwwExplorer_innerShell .works-drawers,
+.wwwExplorer_innerShell .works-slips {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.75rem 0.85rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 30%),
+    var(--felt);
+  border: 1px solid #3a4450;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.wwwExplorer_innerShell .works-drawers-label,
+.wwwExplorer_innerShell .works-slips-label,
+.wwwExplorer_innerShell p.works-drawers-label,
+.wwwExplorer_innerShell p.works-slips-label {
+  margin: 0 0 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hours);
+}
+
+/* kind doors as drawer pulls */
+.wwwExplorer_innerShell .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.45rem;
+}
+
+.wwwExplorer_innerShell a.world {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 3.9rem;
+  padding: 0.5rem 0.55rem 0.45rem 0.7rem;
+  background:
+    linear-gradient(180deg, #f6eedc 0%, var(--paper) 100%);
+  color: var(--ink);
+  border: 1px solid #1a2030;
+  box-shadow:
+    2px 2px 0 #0e1218,
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-family: Syne, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.wwwExplorer_innerShell a.world::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 0.28rem;
+  background: var(--ribbon);
+}
+
+.wwwExplorer_innerShell a.world.door-songs::before { background: #3a5a7a; }
+.wwwExplorer_innerShell a.world.door-books::before { background: #6a4a2a; }
+.wwwExplorer_innerShell a.world.door-shows::before { background: #4a3a5a; }
+
+.wwwExplorer_innerShell a.world:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ribbon);
+  border-color: var(--ribbon);
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a.world:visited {
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a.world strong {
+  display: block;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.wwwExplorer_innerShell a.world .door-deck {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--mute);
+  line-height: 1.25;
+}
+
+.wwwExplorer_innerShell a.world .note-details {
+  margin-top: 0.28rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell a.world:hover .door-deck,
+.wwwExplorer_innerShell a.world:hover .note-details {
+  color: #3a3030;
+}
+
+/* ——— catalog faces / work slips ——— */
+.wwwExplorer_innerShell .faces {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: stretch;
+  margin: 0.35rem 0 1rem;
+  padding: 0.15rem 0;
+}
+
+.wwwExplorer_innerShell .face-deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 0.75rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.wwwExplorer_innerShell .face-deck-label {
+  flex: 1 0 100%;
+  margin: 0 0 0.1rem;
+  padding: 0 0 0.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #3a4554;
+  border-bottom: 1px solid rgba(58, 69, 84, 0.28);
+}
+
+.wwwExplorer_innerShell .faces .face {
+  position: relative;
+  min-width: 11.5rem;
+  max-width: 18.5rem;
+  width: 100%;
+  padding: 0.7rem 0.75rem 0.8rem;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--slip) 0 1.45em,
+      rgba(138, 150, 164, 0.12) 1.45em 1.5em
+    );
+  color: var(--ink);
+  border: 1px solid #1a2030;
+  box-shadow:
+    2px 2px 0 #0e1218,
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.wwwExplorer_innerShell .faces .face::before {
+  content: "SLIP";
+  position: absolute;
+  top: 0.35rem;
+  right: 0.4rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ribbon);
+  opacity: 0.55;
+}
+
+.wwwExplorer_innerShell .faces .face[data-card="1"]::before {
+  content: "CARD";
+}
+
+.wwwExplorer_innerShell .faces .face h1,
+.wwwExplorer_innerShell .faces .face h2,
+.wwwExplorer_innerShell .faces .face h3 {
+  margin: 0 0 0.35rem;
+  padding: 0 2.2rem 0.25rem 0;
+  font-family: Syne, "Arial Narrow", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(168, 60, 56, 0.35);
+}
+
+.wwwExplorer_innerShell .faces .face p {
+  margin: 0;
+  padding: 0.1rem 0;
+  font-size: 0.84rem;
+  color: #1a2030;
+}
+
+.wwwExplorer_innerShell .faces .face .kicker,
+.wwwExplorer_innerShell .faces .face .made,
+.wwwExplorer_innerShell .faces .face .house {
+  color: #6a3030;
+}
+
+.wwwExplorer_innerShell .faces .face .line {
+  color: #1a2030;
+}
+
+.wwwExplorer_innerShell .faces .face .lorecard {
+  background: transparent;
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell .face[data-href]:hover {
+  outline: none;
+  box-shadow:
+    3px 3px 0 var(--ribbon),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: var(--ribbon);
+}
+
+.wwwExplorer_innerShell .face[data-href]:focus-visible {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 3px;
+}
+
+/* traveler lorecard faces keep their own chrome when present */
+.wwwExplorer_innerShell .faces .face[data-card="1"] .lorecard {
+  margin: 0;
+  width: 100%;
+  max-width: 22.5rem;
+  box-shadow: none;
+}
+
+/* ——— content paper / song slip pages ——— */
+.wwwExplorer_innerShell .content,
+.wwwExplorer_innerShell > #browserWindow > :not(.works-hero):not(.works-drawers):not(.works-slips):not(.crumb):not(.mast):not(.foot):not(.worlds):not(.faces) {
+  /* soft fallthrough — most body lives as direct children */
+}
+
+#browserWindow > h1,
+#browserWindow > h2,
+#browserWindow > h3,
+#browserWindow > p,
+#browserWindow > ul,
+#browserWindow > ol,
+#browserWindow > blockquote,
+#browserWindow > pre,
+#browserWindow > hr,
+#browserWindow > .headers,
+#browserWindow > .uses {
+  max-width: 38rem;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2,
+.wwwExplorer_innerShell h3 {
+  margin: 0 0 0.45rem;
+  padding: 0;
+  font-family: Syne, "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #eef2f6;
+}
+
+.wwwExplorer_innerShell h1 {
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+}
+
+/* work slip — open note on manila card */
+.wwwExplorer_innerShell h1:not(.face-deck-label):not(.works-wordmark) {
+  display: block;
+  width: fit-content;
+  max-width: min(38rem, 100%);
+  margin: 0.35rem 0 0.65rem;
+  padding: 0.65rem 0.85rem 0.55rem;
+  background: var(--slip);
+  color: var(--ink);
+  border: 1px solid #1a2030;
+  box-shadow: 2px 2px 0 #0e1218;
+  position: relative;
+}
+
+.wwwExplorer_innerShell h1:not(.face-deck-label):not(.works-wordmark)::after {
+  content: "work slip";
+  display: block;
+  margin-top: 0.25rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ribbon);
+}
+
+.wwwExplorer_innerShell p {
+  margin: 0;
+  padding: 0.28rem 0;
+  color: #d8dee6;
+  font-size: 0.95rem;
+}
+
+.wwwExplorer_innerShell a.world p {
+  color: inherit;
+}
+
+/* Catalog slips sit on manila — dark ink, never the cabinet's pale body color. */
+.wwwExplorer_innerShell .faces .face,
+.wwwExplorer_innerShell .faces .face p,
+.wwwExplorer_innerShell .faces .face h1,
+.wwwExplorer_innerShell .faces .face h2,
+.wwwExplorer_innerShell .faces .face h3,
+.wwwExplorer_innerShell .faces .face .line {
+  color: #12161c !important;
+}
+
+.wwwExplorer_innerShell .faces .face a:link,
+.wwwExplorer_innerShell .faces .face a:visited {
+  color: #6a2828 !important;
+}
+
+/* body paragraphs after a slip title sit on a quiet blotter card
+   (cabinet dark ground only — never inside .face) */
+.wwwExplorer_innerShell > #browserWindow > h1 + p,
+.wwwExplorer_innerShell > #browserWindow > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark):not(.works-drawers-label):not(.works-slips-label):not(.mast):not(.works-slips-label),
+.wwwExplorer_innerShell .content > h1 + p,
+.wwwExplorer_innerShell .content > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark) {
+  max-width: 38rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(242, 230, 206, 0.08);
+  border-left: 3px solid rgba(168, 60, 56, 0.55);
+  color: #dce2ea;
+}
+
+.wwwExplorer_innerShell a:link {
+  color: #d8a0a0;
+}
+
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been {
+  color: #b0a0c4;
+}
+
+.wwwExplorer_innerShell ul.dir {
+  list-style: none;
+  margin: 0.4rem 0 1rem;
+  padding: 0;
+}
+
+.wwwExplorer_innerShell ul.dir a {
+  display: block;
+  padding: 0.35rem 0.2rem;
+  text-decoration: none;
+  color: #e8eef4 !important;
+  border-bottom: 1px dotted rgba(138, 150, 164, 0.35);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+}
+
+.wwwExplorer_innerShell ul.dir a:hover {
+  color: #f0c8c4 !important;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wwwExplorer_innerShell .foot {
+  margin-top: auto;
+  padding: 0.28rem 0.2rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a7382;
+  border-top: 1px solid #3a4450;
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  margin-top: 1.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #3a4450;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: #6a7382;
+}
+
+.wwwExplorer_innerShell hr {
+  border: 0;
+  height: 1px;
+  background: #3a4450;
+  margin: 0.8rem 0;
+}
+
+.wwwExplorer_innerShell pre,
+.wwwExplorer_innerShell pre.code {
+  max-width: 38rem;
+  padding: 0.65rem 0.8rem;
+  background: var(--slip);
+  color: var(--ink);
+  border: 1px dashed #8a6a4a;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+  box-shadow: 2px 2px 0 rgba(14, 18, 24, 0.35);
+}
+
+/* ——— room holds at 800×600 and 1024 ——— */
+@media (max-width: 860px) {
+  #browserWindow {
+    padding: 0.45rem 0.55rem 1rem;
+  }
+
+  .wwwExplorer_innerShell .worlds {
+    grid-template-columns: repeat(auto-fill, minmax(9.2rem, 1fr));
+  }
+
+  .wwwExplorer_innerShell .faces .face {
+    max-width: 100%;
+  }
+
+  .wwwExplorer_innerShell .works-hero,
+  .wwwExplorer_innerShell p.mast {
+    padding: 0.7rem 0.75rem 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wwwExplorer_innerShell .worlds {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wwwExplorer_innerShell .works-wordmark,
+  .wwwExplorer_innerShell p.works-wordmark,
+  .wwwExplorer_innerShell p.mast {
+    letter-spacing: 0.05em;
+  }
+}

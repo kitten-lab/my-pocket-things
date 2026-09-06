@@ -1,0 +1,169 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-027.md
+crate: crate.0B166DF21C020CB4
+next: 1
+thoughts:
+  - id: self
+    at: 1788559787
+    leaf: |
+      self
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: projection
+    at: 1788559786
+    leaf: |
+      projection
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: choices
+    at: 1788559785
+    leaf: |
+      choices
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: cultures
+    at: 1788559784
+    leaf: |
+      cultures
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: family
+    at: 1788559783
+    leaf: |
+      family
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: church
+    at: 1788559782
+    leaf: |
+      church
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: country
+    at: 1788559781
+    leaf: |
+      country
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: community
+    at: 1788559780
+    leaf: |
+      community
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: perception
+    at: 1788559779
+    leaf: |
+      perception
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: dream
+    at: 1788559778
+    leaf: |
+      dream
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: truth
+    at: 1788559777
+    leaf: |
+      truth
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: empathy
+    at: 1788559776
+    leaf: |
+      empathy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: katy
+    at: 1788559775
+    leaf: |
+      katy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: insects
+    at: 1788559774
+    leaf: |
+      insects
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: spirits
+    at: 1788559773
+    leaf: |
+      spirits
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lens
+    at: 1788559772
+    leaf: |
+      lens
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "self*is>projection"
+    at: 1788559787
+    from: self
+    rel: is
+    to: projection
+  - id: "cultures*alter>self"
+    at: 1788559786
+    from: cultures
+    rel: alter
+    to: self
+  - id: "unknown-parts*filled-by>dream"
+    at: 1788559785
+    from: unknown-parts
+    rel: filled-by
+    to: dream
+  - id: "empathy*reads>through-lens"
+    at: 1788559784
+    from: empathy
+    rel: reads
+    to: through-lens
+  - id: "words*acquire>dream"
+    at: 1788559783
+    from: words
+    rel: acquire
+    to: dream
+  - id: "insects*sign-of>bad-spirits"
+    at: 1788559782
+    from: insects
+    rel: sign-of
+    to: bad-spirits
+  - id: "katy*notes>sign"
+    at: 1788559781
+    from: katy
+    rel: notes
+    to: sign

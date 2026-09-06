@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.terminal/IO/FILES/ALEPH BET A-US/JACKS DORM (DORN).md
+crate: crate.11080C1C45D5CC33
+fields:
+  - type: input
+    label: vault
+    value: Terminal IO
+  - type: input
+    label: author
+    value: KDE
+  - type: input
+    label: color
+    value: red

@@ -1,0 +1,19 @@
+﻿house: LIBRARIAN
+pocket: go.island/_index.md
+crate: crate.3AE7DA4B264D44BF
+fields:
+  - type: input
+    label: name
+    value: Island
+  - type: input
+    label: color
+    value: teal
+  - type: input
+    label: type
+    value: walkable geography
+  - type: input
+    label: known for
+    value: a map you reopen; a cabin that hangs off; cast bins for a working
+  - type: input
+    label: contains
+    value: The Map; Cabin; Oceanic 815; Edge / Others

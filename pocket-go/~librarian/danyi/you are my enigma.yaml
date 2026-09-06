@@ -1,0 +1,9 @@
+house: LIBRARIAN
+pocket: go.danyi/you are my enigma.md
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

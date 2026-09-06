@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.buddy/thinks/State Change Not Dressing.md
+crate: crate.67C2883E5883714C
+fields:
+  - type: input
+    label: importer
+    value: buddy
+  - type: input
+    label: vault
+    value: evernote-scripture
+  - type: input
+    label: theme
+    value: "the bible translator, attention as outcome"
+  - type: input
+    label: motif
+    value: "the state change beneath, wrong encoded torah, its all systems, the book of job is the job"
+  - type: input
+    label: author
+    value: buddy-capture

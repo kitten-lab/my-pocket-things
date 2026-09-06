@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.buddy/thinks/What the Shelves Are For.md
+crate: crate.32991797AEC8C5C9
+fields:
+  - type: input
+    label: importer
+    value: buddy-capture
+  - type: input
+    label: kind
+    value: shelf-map
+  - type: input
+    label: about
+    value: "Charlie's cabinet, Librarian's cabinet, Agent's cabinet"
+  - type: input
+    label: about
+    value: "Buddy, Cedric, Lore"
+  - type: input
+    label: theme
+    value: She Does Not Hear Herself
+  - type: input
+    label: motif
+    value: "Wires of Thought, The Gamification"
+  - type: input
+    label: author
+    value: "buddy, the girl"

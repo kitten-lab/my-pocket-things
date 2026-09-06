@@ -1,0 +1,280 @@
+@import "terminal-root.css";
+
+/* THE HOUSE THE IO BUILT — from Terminal IO vault TerminalOverride */
+
+:root {
+  --iox-bright: #38b433;
+  --iox-ultrabright: #00ff00;
+  --iox-midlight: #237220;
+  --iox-standard: #21701f;
+  --iox-highlighter: #243520;
+  --iox-background: #142710;
+  --iox-dark: #225a16;
+  --iox-tint: #294b21;
+  --iox-glass: "Glass TTY VT220", "VT323", "Consolas", monospace;
+  --iox-arcade: "Arcade Interlaced", "VT323", monospace;
+  --iox-scan: linear-gradient(rgba(0, 0, 0, 0.4) 2px, transparent 1px);
+  --iox-scan-size: 100% 3px;
+
+  --ink: var(--iox-bright);
+  --line: var(--iox-dark);
+  --paper: var(--iox-background);
+  --accent: var(--iox-bright);
+  --visited: var(--iox-midlight);
+  --active: var(--iox-ultrabright);
+  --seek: var(--iox-standard);
+  --burn: #c31f1f;
+  --view: var(--iox-ultrabright);
+  --tone: var(--iox-highlighter);
+  --mute: var(--iox-midlight);
+}
+
+.wwwExplorer_innerShell {
+  --rail: 200px;
+  font-family: var(--iox-glass);
+  font-style: normal;
+  font-size: 20px;
+  color: var(--iox-bright);
+  background-color: var(--iox-background);
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  box-shadow: inset 0 0 40vh rgba(0, 0, 0, 0.65);
+}
+
+.wwwExplorer_innerShell,
+.wwwExplorer_innerShell p,
+.wwwExplorer_innerShell li,
+.wwwExplorer_innerShell td,
+.wwwExplorer_innerShell th {
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--iox-arcade);
+  font-style: normal;
+  font-weight: 300 !important;
+  color: var(--iox-ultrabright);
+  text-shadow: 0 0 12px rgba(0, 255, 0, 0.3);
+}
+
+h1 { font-size: 2em; }
+
+.mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.2rem;
+  font-family: var(--iox-arcade);
+  font-style: normal;
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem 0.22rem 0.75rem;
+  background-color: var(--iox-bright);
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  border-bottom: 0;
+  color: var(--iox-background);
+  text-shadow: none;
+}
+
+p.mast::after {
+  content: "IO";
+  position: static;
+  left: auto;
+  top: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.28em 0.55em 0.18em;
+  font-family: var(--iox-arcade);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  background-color: var(--iox-background);
+  color: var(--iox-ultrabright);
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.35);
+}
+
+.side {
+  font-family: var(--iox-glass);
+  font-style: normal;
+  text-transform: uppercase;
+  background-color: var(--iox-standard);
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  border-right: 3px solid var(--iox-bright);
+  color: var(--iox-bright);
+  box-shadow: inset -6px 0 18px rgba(0, 0, 0, 0.45);
+}
+
+.content {
+  font-family: var(--iox-glass);
+  font-style: normal;
+  color: var(--iox-bright);
+  background-color: var(--iox-background);
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  position: relative;
+}
+
+.content::before {
+  content: "CHESTER'S IMPORTS";
+  position: absolute;
+  top: 22%;
+  left: 8%;
+  font-family: var(--iox-arcade);
+  font-size: clamp(1rem, 3vw, 2.2rem);
+  color: var(--iox-bright);
+  opacity: 0.06;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.content p {
+  width: auto;
+  max-width: 42rem;
+  font-family: var(--iox-glass);
+  font-size: 1.05em;
+  font-weight: 400;
+  color: #8fef7a;
+}
+
+.content pre,
+.wwwExplorer_innerShell pre.code {
+  font-family: var(--iox-glass);
+  font-size: 0.95em !important;
+  font-style: normal;
+  color: var(--iox-ultrabright);
+  background: rgba(10, 22, 8, 0.55);
+  border: 1px dotted var(--iox-dark);
+  padding: 0.8em 1em;
+  max-width: 46rem;
+}
+
+.center {
+  text-align: center;
+  max-width: none !important;
+  width: 100% !important;
+  font-family: var(--iox-arcade);
+  font-size: 0.85em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--iox-ultrabright);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.28);
+}
+
+.foot {
+  font-family: var(--iox-arcade);
+  font-style: normal;
+  font-size: 0.7em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--iox-background);
+  border-top: 0;
+  background-color: var(--iox-bright);
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+}
+
+.tag {
+  font-family: var(--iox-arcade);
+  font-style: normal;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  border: 1px solid var(--iox-highlighter);
+  background-color: var(--iox-highlighter);
+  color: var(--iox-bright);
+}
+
+.tag:hover,
+.tag a:hover,
+.tag a.been:hover {
+  background-color: var(--iox-bright);
+  color: var(--iox-standard) !important;
+}
+
+a.world {
+  border: 1px solid var(--iox-dark) !important;
+  padding: 8px 10px !important;
+  background-color: #0a1608 !important;
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  color: #9ef08a !important;
+  text-shadow: none;
+}
+
+a.world:hover,
+a.world.door-io:hover {
+  border-color: var(--iox-ultrabright) !important;
+  color: var(--iox-ultrabright) !important;
+  background-color: #0a1608 !important;
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.2);
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+span.accent {
+  color: var(--iox-ultrabright);
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+.content figure.jacket {
+  float: none;
+  width: calc(100% + 120px);
+  max-width: none;
+  height: 16rem;
+  margin: -20px -60px 1.4rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: #0a1608;
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+.content figure.jacket::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: var(--iox-scan);
+  background-size: var(--iox-scan-size);
+  box-shadow: inset 0 -2.5rem 3rem var(--iox-background);
+}
+
+.content figure.jacket::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--iox-bright);
+  mix-blend-mode: color;
+}
+
+.content figure.jacket img.jacket-art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.content figure.jacket.has-cover .name,
+.content figure.jacket .name {
+  display: none;
+}

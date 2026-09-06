@@ -1,0 +1,209 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-007.md
+crate: crate.1E549C43521673B1
+next: 1
+thoughts:
+  - id: old-journal
+    at: 1788559849
+    leaf: |
+      old-journal
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: teen
+    at: 1788559848
+    leaf: |
+      teen
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: drama
+    at: 1788559847
+    leaf: |
+      drama
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: popularity
+    at: 1788559846
+    leaf: |
+      popularity
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: the-event
+    at: 1788559845
+    leaf: |
+      the-event
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lost
+    at: 1788559844
+    leaf: |
+      lost
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: joy
+    at: 1788559843
+    leaf: |
+      joy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: loving-kindness
+    at: 1788559842
+    leaf: |
+      loving-kindness
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: connection
+    at: 1788559841
+    leaf: |
+      connection
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: toxic-relationships
+    at: 1788559840
+    leaf: |
+      toxic-relationships
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: family
+    at: 1788559839
+    leaf: |
+      family
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: friends
+    at: 1788559838
+    leaf: |
+      friends
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: lovers
+    at: 1788559837
+    leaf: |
+      lovers
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: self
+    at: 1788559836
+    leaf: |
+      self
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: mysticism
+    at: 1788559835
+    leaf: |
+      mysticism
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: religion
+    at: 1788559834
+    leaf: |
+      religion
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: unification
+    at: 1788559833
+    leaf: |
+      unification
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: rights
+    at: 1788559832
+    leaf: |
+      rights
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: poetry
+    at: 1788559831
+    leaf: |
+      poetry
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: doodles
+    at: 1788559830
+    leaf: |
+      doodles
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: waxing-crescent
+    at: 1788559829
+    leaf: |
+      waxing-crescent
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "old-journal*found-again>joy"
+    at: 1788559849
+    from: old-journal
+    rel: found-again
+    to: joy
+  - id: "teen*laments>drama"
+    at: 1788559848
+    from: teen
+    rel: laments
+    to: drama
+  - id: "popularity*is>disease-sticker"
+    at: 1788559847
+    from: popularity
+    rel: is
+    to: disease-sticker
+  - id: "journal*feared-taken-in>the-event"
+    at: 1788559846
+    from: journal
+    rel: feared-taken-in
+    to: the-event
+  - id: "self*sought>connection"
+    at: 1788559845
+    from: self
+    rel: sought
+    to: connection
+  - id: "mysticism*was-already>there"
+    at: 1788559844
+    from: mysticism
+    rel: was-already
+    to: there
+  - id: "truths*were>unashamed"
+    at: 1788559843
+    from: truths
+    rel: were
+    to: unashamed

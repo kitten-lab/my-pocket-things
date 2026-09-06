@@ -1,0 +1,132 @@
+house: CHARLIE
+pocket: go.journal/the-cpj/CPJ-016.md
+crate: crate.DFB114DB067A526D
+next: 1
+thoughts:
+  - id: pepito
+    at: 1788559861
+    leaf: |
+      pepito
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: pepper
+    at: 1788559860
+    leaf: |
+      pepper
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: corgi
+    at: 1788559859
+    leaf: |
+      corgi
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: rip
+    at: 1788559858
+    leaf: |
+      rip
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: heart
+    at: 1788559857
+    leaf: |
+      heart
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: rainbow-bridge
+    at: 1788559856
+    leaf: |
+      rainbow-bridge
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: good-boy
+    at: 1788559855
+    leaf: |
+      good-boy
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: chariot
+    at: 1788559854
+    leaf: |
+      chariot
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tarot
+    at: 1788559853
+    leaf: |
+      tarot
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: drawing
+    at: 1788559852
+    leaf: |
+      drawing
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: hearts
+    at: 1788559851
+    leaf: |
+      hearts
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: december-thirtieth
+    at: 1788559850
+    leaf: |
+      december-thirtieth
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "pepito*was>good-boy"
+    at: 1788559861
+    from: pepito
+    rel: was
+    to: good-boy
+  - id: "heart*ran-out-of>beats"
+    at: 1788559860
+    from: heart
+    rel: ran-out-of
+    to: beats
+  - id: "see-you*on>rainbow-bridge"
+    at: 1788559859
+    from: see-you
+    rel: on
+    to: rainbow-bridge
+  - id: "chariot*marks>night"
+    at: 1788559858
+    from: chariot
+    rel: marks
+    to: night
+  - id: "pepper*also-called>pepito"
+    at: 1788559857
+    from: pepper
+    rel: also-called
+    to: pepito
+  - id: "rip*closes>night"
+    at: 1788559856
+    from: rip
+    rel: closes
+    to: night

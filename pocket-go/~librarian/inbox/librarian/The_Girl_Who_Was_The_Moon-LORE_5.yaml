@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/librarian/The_Girl_Who_Was_The_Moon-LORE_5.md
+crate: crate.4B050EBD20B799C6
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: master

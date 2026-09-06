@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+/* bay — rough intake coat (moves or dies) */
+:root {
+  --bg: #161410;
+  --paper: #221c16;
+  --ink: #efe4d2;
+  --mute: #9a8470;
+  --line: #4a3c2c;
+  --accent: #e07040;
+  --visited: #c4a078;
+  --active: #ffb060;
+  --rule: rgba(224, 112, 64, 0.3);
+  --strip: #c45828;
+  --card-strip: #c45828;
+  --stamp: #f0a868;
+  --chip: #2a2218;
+  --hero: #1e1812;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 6% 0%, rgba(224, 112, 64, 0.16), transparent 42%),
+    radial-gradient(ellipse at 98% 12%, rgba(120, 80, 40, 0.14), transparent 38%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      rgba(0, 0, 0, 0.08) 3px 4px
+    ),
+    linear-gradient(180deg, #1c1610 0%, var(--bg) 50%, #0e0c08 100%);
+  color: var(--ink);
+  font-family: Literata, Georgia, serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.65rem 0.85rem 1.6rem;
+  margin: 0;
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--mute);
+  padding: 0.3rem 0.25rem 0.15rem;
+}
+
+.wwwExplorer_innerShell .mast {
+  font-family: Syne, "IBM Plex Mono", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--stamp);
+  margin: 0.4rem 0.15rem 0.9rem;
+}
+
+.wwwExplorer_innerShell h1,
+.wwwExplorer_innerShell h2,
+.wwwExplorer_innerShell h3 {
+  font-family: Syne, sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell a:link { color: var(--accent); }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: var(--visited); }
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  display: none;
+}
+
+.wwwExplorer_innerShell .doors a,
+.wwwExplorer_innerShell .door {
+  background: var(--chip);
+  border: 1px dashed var(--line);
+  color: var(--ink);
+}

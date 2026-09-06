@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+
+/* boybots — shared scrap shelf / crew locker under bay */
+:root {
+  --bg: #1c1812;
+  --paper: #241e16;
+  --ink: #f2e6d4;
+  --mute: #a89078;
+  --line: #4a3c2c;
+  --accent: #e8a04a;
+  --visited: #d4b07a;
+  --active: #ffc878;
+  --rule: rgba(232, 160, 74, 0.28);
+  --strip: #c47828;
+  --card-strip: #c47828;
+  --stamp: #f0c078;
+  --chip: #2e261c;
+  --hero: #2a2218;
+}
+
+.wwwExplorer_innerShell {
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(232, 160, 74, 0.18), transparent 40%),
+    radial-gradient(ellipse at 95% 10%, rgba(196, 120, 40, 0.12), transparent 36%),
+    linear-gradient(180deg, #221c14 0%, var(--bg) 42%, #14100c 100%);
+  color: var(--ink);
+  font-family: Literata, Georgia, serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.65rem 0.85rem 1.6rem;
+  margin: 0;
+}
+
+.wwwExplorer_innerShell .crumb {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  padding: 0.25rem 0.2rem 0.45rem;
+}
+
+.wwwExplorer_innerShell .bb-hero {
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding: 1.1rem 1.1rem 1rem;
+  background:
+    linear-gradient(135deg, rgba(232, 160, 74, 0.14), transparent 42%),
+    linear-gradient(180deg, #322818 0%, var(--hero) 55%, #1a1510 100%);
+  border: 1px solid rgba(232, 160, 74, 0.42);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    6px 8px 0 rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 220, 160, 0.08);
+  overflow: hidden;
+}
+
+.wwwExplorer_innerShell .bb-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8a5018, #e8a04a 45%, #ffc878 80%, #8a5018);
+}
+
+.wwwExplorer_innerShell .bb-kicker,
+.wwwExplorer_innerShell p.bb-kicker {
+  margin: 0 0 0.35rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stamp);
+}
+
+.wwwExplorer_innerShell .bb-wordmark,
+.wwwExplorer_innerShell p.bb-wordmark {
+  margin: 0 0 0.4rem;
+  font-family: Syne, "Arial Narrow", sans-serif;
+  font-size: clamp(1.9rem, 5.5vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #fff4e4;
+  text-shadow: 0 0 18px rgba(232, 160, 74, 0.35);
+}
+
+.wwwExplorer_innerShell .bb-lede,
+.wwwExplorer_innerShell p.bb-lede {
+  margin: 0;
+  max-width: 38rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #d8c4a8;
+}
+
+.wwwExplorer_innerShell .bb-crew,
+.wwwExplorer_innerShell .bb-shelf {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.8rem 0.85rem;
+  background: rgba(36, 30, 22, 0.85);
+  border: 1px solid var(--line);
+}
+
+.wwwExplorer_innerShell .bb-crew-label,
+.wwwExplorer_innerShell .bb-shelf-label,
+.wwwExplorer_innerShell p.bb-crew-label,
+.wwwExplorer_innerShell p.bb-shelf-label {
+  margin: 0 0 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell .bb-crew p:not(.bb-crew-label) {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.wwwExplorer_innerShell .bb-back,
+.wwwExplorer_innerShell p.bb-back {
+  margin: 0 0 0.85rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.wwwExplorer_innerShell h1 {
+  font-family: Syne, "Arial Narrow", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff4e4;
+  margin: 0.35rem 0 0.6rem;
+}
+
+.wwwExplorer_innerShell h2 {
+  font-family: Syne, sans-serif;
+  font-size: 1rem;
+  color: var(--accent);
+  margin: 1rem 0 0.4rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wwwExplorer_innerShell p { margin: 0.4rem 0 0.55rem; }
+.wwwExplorer_innerShell ul { margin: 0.35rem 0 0.7rem; padding-left: 1.15rem; }
+.wwwExplorer_innerShell li { margin: 0.25rem 0; }
+
+.wwwExplorer_innerShell a:link { color: var(--accent); }
+.wwwExplorer_innerShell a:visited { color: var(--visited); }
+.wwwExplorer_innerShell a:hover { color: var(--active); }
+
+.wwwExplorer_innerShell ul.dir.files {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.wwwExplorer_innerShell ul.dir.files a {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.wwwExplorer_innerShell ul.dir.files a:hover {
+  border-color: var(--accent);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.wwwExplorer_innerShell ul.dir.files .name {
+  font-family: Syne, sans-serif;
+  font-weight: 600;
+  color: #fff4e4;
+}
+
+.wwwExplorer_innerShell .bb-hero.is-sub {
+  padding: 0.85rem 1rem 0.8rem;
+  margin-bottom: 0.95rem;
+}
+.wwwExplorer_innerShell .bb-hero.is-sub .bb-wordmark,
+.wwwExplorer_innerShell .bb-hero.is-sub p.bb-wordmark {
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+}
+.wwwExplorer_innerShell .bb-hero.is-sub .bb-lede,
+.wwwExplorer_innerShell .bb-hero.is-sub p.bb-lede {
+  font-size: 0.85rem;
+}
+.wwwExplorer_innerShell .worlds,
+.wwwExplorer_innerShell .doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.15rem 0 0.2rem;
+}
+.wwwExplorer_innerShell a.world {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 6.5rem;
+  padding: 0.5rem 0.65rem;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.32);
+}
+.wwwExplorer_innerShell a.world strong {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.wwwExplorer_innerShell a.world:hover {
+  border-color: var(--accent);
+  color: #fff;
+}

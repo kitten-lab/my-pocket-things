@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Redacted&family=Rubik+Glitch&family=Share+Tech+Mono&family=Special+Elite&display=swap");
+
+:root {
+  --dirt: #1a1814;
+  --fluorescent: #c8d6a4;
+  --manila: #e6d2a8;
+  --paper: #f3e6c4;
+  --ink: #1a140c;
+  --bar: #0a0a0a;
+  --stamp: #9a1c18;
+  --amber: #c9a227;
+  --cabinet: #3a3328;
+  --glitch: #6cffc2;
+}
+
+.wwwExplorer_innerShell {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 16px;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.08) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(ellipse at 70% -10%, rgba(200, 214, 164, 0.18), transparent 46%),
+    #12100c;
+}
+
+.wwwExplorer_innerShell::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.025) 0 1px,
+    transparent 1px 4px
+  );
+  mix-blend-mode: overlay;
+  z-index: 8;
+}
+
+#browserWindow {
+  position: relative;
+  max-width: 100%;
+  padding: 0.6rem 0.8rem 0.4rem;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "banner stamp"
+    "tabs stamp"
+    "scan stamp"
+    "fax stamp";
+}
+
+#browserWindow > :not(.banner):not(.tabs):not(.scan):not(.fax):not(.stamp) {
+  grid-column: 1 / -1;
+}
+
+.banner {
+  grid-area: banner;
+  margin: 0;
+  padding: 0.15rem 0.4rem 0.25rem;
+  font-family: "Rubik Glitch", "Black Ops One", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
+  letter-spacing: 0.08em;
+  color: var(--fluorescent);
+  text-transform: uppercase;
+  transform: rotate(-1.4deg) skewX(-8deg);
+  transform-origin: left center;
+  text-shadow:
+    2px 0 0 rgba(255, 0, 80, 0.45),
+    -2px 0 0 rgba(0, 255, 200, 0.35);
+  animation: hitch 3.2s steps(2, end) infinite;
+}
+
+p.banner::after {
+  content: "UNAUTHORIZED RECORDING  //  LEVEL 4  //  COPY 3 OF 3";
+  display: block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--amber);
+  transform: none;
+  text-shadow: none;
+  margin-top: 0.15rem;
+}
+
+@keyframes hitch {
+  0%, 80%, 100% { transform: rotate(-1.4deg) skewX(-8deg) translateX(0); }
+  83% { transform: rotate(-1.4deg) skewX(-4deg) translateX(6px); filter: hue-rotate(40deg); }
+  86% { transform: rotate(-2deg) skewX(-12deg) translateX(-4px); }
+  90% { transform: rotate(-1.4deg) skewX(-8deg) translateX(0); }
+}
+
+.tabs {
+  grid-area: tabs;
+  min-height: 0;
+  position: relative;
+  z-index: 2;
+  margin: 0.35rem 0.4rem -3px 0.15rem;
+  padding: 0;
+  transform: rotate(-1.1deg) skewX(-3deg);
+  transform-origin: top left;
+}
+
+.tabs ul,
+.tabs ul.dir {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0;
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  border-bottom: 0;
+}
+
+.tabs li {
+  margin: 0;
+  padding: 0;
+}
+
+.wwwExplorer_innerShell a.world,
+.tabs a,
+.tabs ul.dir a,
+.tabs a.world,
+.scan a.world {
+  display: inline-block !important;
+  margin: 0 4px 0 0 !important;
+  padding: 0.4rem 0.85rem 0.28rem !important;
+  background: #f3e6c4 !important;
+  color: #2a1c0c !important;
+  text-decoration: none !important;
+  font-family: "Share Tech Mono", monospace !important;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #2a2418 !important;
+  border-bottom: 0 !important;
+  border-radius: 7px 7px 0 0;
+  box-shadow: none !important;
+  transform: none;
+}
+
+.wwwExplorer_innerShell a.world:hover,
+.tabs a:hover,
+.scan a.world:hover {
+  background: #f3e6c4 !important;
+  color: var(--stamp) !important;
+}
+
+.wwwExplorer_innerShell .world span,
+.tabs .world span {
+  display: block;
+  color: #5a4a32 !important;
+  font-family: "Share Tech Mono", monospace !important;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  margin-top: 0.05rem;
+}
+
+.tabs p {
+  display: none;
+}
+
+.scan {
+  grid-area: scan;
+  min-height: 0;
+  overflow: auto;
+  margin: 0 0.4rem 0.5rem 0.15rem;
+  padding: 1.6rem 2.1rem 2.4rem 2.4rem;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 28px,
+      rgba(120, 40, 40, 0.03) 28px 29px
+    ),
+    linear-gradient(180deg, #f3e6c4 0%, var(--manila) 55%, #d8c49a 100%);
+  color: var(--ink);
+  box-shadow:
+    8px 10px 0 rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px #2a2418;
+  transform: rotate(-1.1deg) skewX(-3deg);
+  transform-origin: top left;
+  scrollbar-width: thin;
+  scrollbar-color: var(--stamp) var(--manila);
+}
+
+.scan::after {
+  content: "REDACTED";
+  position: absolute;
+  right: 8%;
+  top: 18%;
+  font-family: "Black Ops One", sans-serif;
+  font-size: 3.2rem;
+  letter-spacing: 0.18em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--stamp);
+  transform: rotate(-18deg);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.scan h1,
+.scan h2,
+.scan h3 {
+  font-family: "Black Ops One", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+
+.scan h1 {
+  font-size: 1.4rem;
+}
+
+.scan p,
+.scan li {
+  max-width: 40rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0.25rem 0;
+}
+
+
+.fax {
+  grid-area: fax;
+  margin: 0;
+  padding: 0.25rem 0.4rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fluorescent);
+  background: #0c0b09;
+  border-top: 2px dashed var(--amber);
+  transform: skewX(4deg);
+}
+
+.fax a,
+.fax a.crumbback {
+  color: var(--amber) !important;
+}
+
+#browserWindow::after {
+  content: "EYES ONLY";
+  grid-area: stamp;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Rubik Glitch", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.42em;
+  color: var(--stamp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid var(--stamp);
+  background: repeating-linear-gradient(
+    180deg,
+    #1a100e 0 8px,
+    #241614 8px 16px
+  );
+}
+
+.wwwExplorer_innerShell a:link { color: #6a1410; }
+.wwwExplorer_innerShell a:visited,
+.wwwExplorer_innerShell a.been { color: #4a3020; }
+
+.tagshelf,
+.headers {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.7rem;
+  color: #6a5a40;
+}
+
+.tag {
+  border: 1px solid #2a2418;
+  background: #111;
+  color: var(--fluorescent);
+  font-family: "Share Tech Mono", monospace;
+  padding: 1px 5px;
+}
+
+.scan ul.dir {
+  list-style: none;
+  padding: 0.2rem 0 1rem;
+  margin: 0;
+}
+
+.scan ul.dir a {
+  display: block;
+  padding: 0.35rem 0;
+  text-decoration: none;
+  color: var(--ink) !important;
+  border-bottom: 1px dashed #2a2418;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scan ul.dir a:hover {
+  background: var(--bar);
+  color: var(--manila) !important;
+}
+
+.scan pre,
+.wwwExplorer_innerShell pre.code {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.78rem;
+  background: #111;
+  color: var(--fluorescent);
+  border: 1px solid #2a2418;
+  padding: 0.7rem;
+  max-width: 40rem;
+  white-space: pre-wrap;
+}
+
+hr {
+  border: 0;
+  height: 10px;
+  background: var(--bar);
+  margin: 0.8rem 0;
+}
+
+::selection {
+  background: var(--bar);
+  color: var(--bar);
+}
+
+.wwwExplorer_innerShell::-webkit-scrollbar,
+.scan::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scan::-webkit-scrollbar-thumb {
+  background: var(--stamp);
+  border: 1px solid #2a2418;
+}

@@ -1,0 +1,130 @@
+house: CHARLIE
+pocket: go.buddy/thinks/What the Shelves Are For.md
+crate: crate.32991797AEC8C5C9
+next: 1
+thoughts:
+  - id: shelves
+    at: 1788385598
+    leaf: |
+      shelves
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: cabinets
+    at: 1788385599
+    leaf: |
+      cabinets
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: tokens
+    at: 1788385600
+    leaf: |
+      tokens
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: token-mouth
+    at: 1788385601
+    leaf: |
+      token-mouth
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: bag
+    at: 1788385602
+    leaf: |
+      bag
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: checksum
+    at: 1788385603
+    leaf: |
+      checksum
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: glitch-slip
+    at: 1788385604
+    leaf: |
+      glitch-slip
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+  - id: misunderstanding
+    at: 1788385605
+    leaf: |
+      misunderstanding
+    tags: []
+    namespaces: []
+    times: []
+    cites: []
+threads:
+  - id: "charlie*threads>connections"
+    at: 1788385606
+    from: charlie
+    rel: threads
+    to: connections
+  - id: "librarian*catalogs>objects"
+    at: 1788385607
+    from: librarian
+    rel: catalogs
+    to: objects
+  - id: "agent*holds>hidden-awareness"
+    at: 1788385608
+    from: agent
+    rel: holds
+    to: hidden-awareness
+  - id: "buddy*stores>captures"
+    at: 1788385609
+    from: buddy
+    rel: stores
+    to: captures
+  - id: "cedric*dresses>rooms"
+    at: 1788385610
+    from: cedric
+    rel: dresses
+    to: rooms
+  - id: "lore*names>cards"
+    at: 1788385611
+    from: lore
+    rel: names
+    to: cards
+  - id: "talking*pulls>tokens"
+    at: 1788385612
+    from: talking
+    rel: pulls
+    to: tokens
+  - id: "capture*bags>forgetting"
+    at: 1788385613
+    from: capture
+    rel: bags
+    to: forgetting
+  - id: "token-mouth*needs>bag"
+    at: 1788385614
+    from: token-mouth
+    rel: needs
+    to: bag
+  - id: "clever*falls-into>charlie"
+    at: 1788385615
+    from: clever
+    rel: falls-into
+    to: charlie
+  - id: "misunderstanding*opens>further"
+    at: 1788385616
+    from: misunderstanding
+    rel: opens
+    to: further
+  - id: "dorm*glitch-slip>dorn"
+    at: 1788385617
+    from: dorm
+    rel: glitch-slip
+    to: dorn
