@@ -17,7 +17,7 @@
   --active: #9a50a8;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   --rail-w: 11.5rem;
   background: var(--bg);
   color: var(--ink);

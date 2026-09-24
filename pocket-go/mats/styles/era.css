@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* era - worldline pad. Tractor-feed sheet, sprocket rail on the RIGHT,
+   punch-clock plate on top. Not hunt felt, not codes bureau. */
+
+:root {
+  --strip: #c42820;
+  --desk: #161814;
+  --desk-hi: #24261e;
+  --sheet: #eef0e4;
+  --rule: #c42820;
+  --ink: #1c1e18;
+  --mute: #6a6c60;
+  --sprocket: #2a2c24;
+  --paper: var(--sheet);
+  --ghost: #00000021;
+}
+
+.go-shell {
+  
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.06) 0 1px, transparent 1.6px),
+    linear-gradient(180deg, var(--desk-hi) 0, var(--desk) 100%);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: auto;
+}
+
+.era-board {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.era-clockface {
+  flex: 0 0 auto;
+  margin: 0.55em 0.55em 0;
+  padding: 0.45em 0.7em 0.4em;
+  background: #eef0e4;
+  border: 1px solid #8a8c78;
+  border-left: 3px solid var(--rule);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.95em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+.era-clockface .tag-search,
+.era-clockface .era-search {
+  margin-top: 0.35em;
+}
+
+.era-feed {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0.4em 0.55em 0.45em;
+  overflow: hidden;
+}
+
+.era-platen {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.7em 0.9em 1.1em;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--sheet) 0 17px,
+      var(--ghost) 17px 18px
+    );
+  border: 1px solid var(--ghost);
+  box-shadow: 2px 3px 0 #00000044;
+}
+
+.era-rail {
+  flex: 0 0 9em;
+  min-width: 7.5em;
+  min-height: 0;
+  overflow: auto;
+  margin-left: 0.45em;
+  padding: 0.45em 0.4em 0.55em 0.55em;
+  background: #1c1e18;
+  border: 1px solid #000;
+  border-right: 0.55em double #2a2c24;
+  color: #c8cab8;
+}
+
+.era-rail .dir,
+.era-rail .tree,
+.era-rail .dir-tree {
+  font-size: 0.85em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.era-rail .dir a {
+  color: #c8cab8;
+  text-decoration: none;
+}
+
+.era-rail .dir .on .name,
+.era-rail .dir a:hover .name {
+  color: #eef0e4;
+}
+
+.era-lip {
+  flex: 0 0 auto;
+  margin: 0 0.55em 0.45em;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.72em;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8a8c78;
+}
+
+.era-slip,
+.eralook .era-slip,
+.era-entry {
+  margin: 0.45em 0;
+  padding: 0.4em 0.55em;
+  background: #f6f7ee;
+  border: 1px solid #8a8c78;
+  border-left: 3px solid var(--rule);
+}
+
+.era-slip-title {
+  color: var(--rule);
+  text-decoration: none;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eralook-mark {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rule);
+  font-size: 0.78em;
+}
+
+.eralook ul,
+.era-sits {
+  list-style: none;
+  margin: 0.4em 0 0;
+  padding: 0;
+}
+
+.era-sit-row {
+  margin: 0.35em 0 0;
+  padding: 0.2em 0 0.25em 0.55em;
+  border-left: 1px dashed #8a8c78;
+}
+
+.era-sit-page {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.era-sit-when {
+  display: inline-block;
+  margin-left: 0.55em;
+  color: var(--mute);
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+.era-sit-note {
+  margin: 0.15em 0 0;
+  color: var(--mute);
+}
+
+.era-sits-empty {
+  margin: 0.25em 0 0;
+  color: var(--mute);
+  font-size: 0.85em;
+}

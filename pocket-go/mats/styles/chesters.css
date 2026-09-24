@@ -1,0 +1,121 @@
+:root {
+  --bg: #111111;
+  --paper: #111111;
+  --ink: #e0e0e0;
+  --mute: #888888;
+  --line: #555555;
+  --accent: #ff3333;
+  --visited: #ff6666;
+  --active: #ff3333;
+}
+
+.go-shell {
+  font-family: "Courier New", monospace;
+  font-style: normal;
+  background: #111;
+  color: #e0e0e0;
+}
+
+.go-shell .ci-header {
+  background: #222;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid #ff3333;
+}
+
+.go-shell .ci-header h1,
+.go-shell .ci-title {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #ff3333;
+  text-shadow: 0 0 5px #ff0000;
+}
+
+.go-shell .ci-lede {
+  font-style: italic;
+  margin: 0.4em 0 0;
+}
+
+.go-shell .ci-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.go-shell .ci-nav a,
+.go-shell .ci-nav span {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.go-shell .ci-nav a:hover::after,
+.go-shell .ci-nav span:hover::after {
+  content: " [ERROR 404]";
+  color: #ff3333;
+  position: absolute;
+  left: 100%;
+  margin-left: 0.3rem;
+}
+
+.go-shell .products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.go-shell .product {
+  border: 1px dashed #555;
+  padding: 1rem;
+  background: #1a1a1a;
+}
+
+.go-shell .product:hover {
+  border-color: #ff3333;
+  box-shadow: 0 0 10px #ff3333;
+}
+
+.go-shell .product h2,
+.go-shell .product .name {
+  font-size: 1.1rem;
+  color: #ff6666;
+  margin-top: 0;
+}
+
+.go-shell .glitch {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.go-shell .ci-buy {
+  display: inline-block;
+  margin-top: 0.6em;
+  padding: 0.25em 0.6em;
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: #222;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.go-shell .ci-buy.is-out {
+  opacity: 0.5;
+}
+
+.go-shell .ci-foot {
+  background: #222;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  border-top: 2px solid #ff3333;
+}
+
+.go-shell .ci-foot a {
+  color: #ff3333;
+  text-decoration: none;
+}

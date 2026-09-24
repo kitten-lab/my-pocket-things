@@ -1,0 +1,10 @@
+/* coat: see — minted by BIOS */
+.go-shell {
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.go-shell h1 {
+  font-size: 36px;
+  font-family: var(--font-elite);
+}

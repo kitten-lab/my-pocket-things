@@ -9,7 +9,7 @@
   margin: 0 0 6px;
 }
 .world.been { color: var(--visited); }
-.world span {
+.world span.note-details {
   display: block;
   color: var(--mute);
   font-family: "Courier New", Courier, monospace;

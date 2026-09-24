@@ -1,0 +1,284 @@
+/* links — Link Importium. Customs dock for URLs you might hang crates on later.
+   Playable :root knobs. Plain dock / rail / slip names. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap");
+
+:root {
+  --void: #0c1210;
+  --dock: #141c18;
+  --steel: #1e2a24;
+  --paper: #e8f0e6;
+  --slip: #f2f7f0;
+  --ink: #142018;
+  --mute: #6a7a70;
+  --line: #3a4a42;
+  --accent: #c4a035;
+  --seal: #2a8a6a;
+  --visited: #5a6e78;
+  --active: #e0c060;
+  --glass: 14px;
+  --rail: 15rem;
+  --mast-size: 1.75rem;
+  --chip-bg: color-mix(in srgb, var(--steel) 55%, transparent);
+  --scroll-thumb: color-mix(in srgb, var(--seal) 38%, transparent);
+  --scroll-track: transparent;
+}
+
+.go-shell {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(42, 138, 106, 0.14), transparent 42%),
+    radial-gradient(ellipse at 90% 100%, rgba(196, 160, 53, 0.08), transparent 45%),
+    linear-gradient(180deg, var(--dock) 0%, var(--void) 100%);
+  color: var(--paper);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: var(--glass);
+  line-height: 1.45;
+}
+
+#browserWindow {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+}
+
+#browserWindow > .side {
+  display: none;
+}
+
+.dock {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.mast,
+.go-shell .mast {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.85rem 1.25rem 0.25rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: var(--mast-size);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: transparent;
+}
+
+.mast a,
+.go-shell .mast a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.deck-line {
+  flex: 0 0 auto;
+  padding: 0 1.25rem 0.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.bay {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+.rail {
+  flex: 0 0 var(--rail);
+  min-width: 0;
+  overflow: auto;
+  padding: 0.75rem 0.85rem 1.5rem;
+  background: color-mix(in srgb, var(--steel) 88%, black);
+  border-right: 1px solid var(--line);
+  color: var(--paper);
+  font-size: 0.82rem;
+}
+
+.rail .root-up,
+.rail .crumbback {
+  display: block;
+  margin: 0 0 0.75rem;
+  color: var(--mute);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.rail .root-up a,
+.rail a {
+  color: var(--seal);
+}
+
+.rail a:hover {
+  color: var(--active);
+}
+
+.rail ul.dir,
+.rail ul.files,
+.content ul.dir.files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail ul.dir li,
+.rail ul.files li,
+.content ul.dir.files li {
+  margin: 0 0 0.35rem;
+  padding: 0;
+}
+
+.rail ul.dir a,
+.rail ul.files a,
+.content ul.dir.files a {
+  display: block;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  border-left: 3px solid var(--seal);
+  background: color-mix(in srgb, var(--void) 55%, transparent);
+  color: var(--paper) !important;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.rail ul.dir a:hover,
+.rail ul.files a:hover,
+.content ul.dir.files a:hover {
+  border-left-color: var(--accent);
+  color: var(--active) !important;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 1rem 1.25rem 2rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--steel) 40%, transparent), transparent 8rem),
+    var(--void);
+  color: var(--paper);
+}
+
+.content .slip,
+.content .paper,
+.go-shell .paper {
+  max-width: 40rem;
+  margin: 0;
+  padding: 1rem 1.15rem 1.4rem;
+  background: var(--slip);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent),
+    0 10px 28px rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+}
+
+.content a {
+  color: var(--seal);
+}
+
+.content a:visited {
+  color: var(--visited);
+}
+
+h1, h2, h3, h4 {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  color: color-mix(in srgb, var(--seal) 70%, var(--ink));
+}
+.content .lorecard h1,
+.content .lorecard h2,
+.content .lorecard h3,
+.content .lorecard h4 {
+  color: var(--lc-ink, #2a2418) !important;
+  font-family: Literata, Georgia, serif !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+.content .lorecard,
+.content .lorecard p,
+.content .lorecard .line {
+  color: var(--lc-ink, #2a2418);
+}
+.content .lorecard a {
+  color: var(--lc-accent, #3a4a78) !important;
+}
+
+/* quiet rails — seal whisper, louder on hover */
+.go-shell,
+.go-shell * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+.go-shell::-webkit-scrollbar,
+.go-shell *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell::-webkit-scrollbar-track,
+.go-shell *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.go-shell::-webkit-scrollbar-thumb,
+.go-shell *::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: none;
+}
+.go-shell:hover::-webkit-scrollbar-thumb,
+.go-shell *:hover::-webkit-scrollbar-thumb,
+.go-shell::-webkit-scrollbar-thumb:hover,
+.go-shell *::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb);
+}
+.go-shell::-webkit-scrollbar-corner,
+.go-shell *::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.go-shell::-webkit-scrollbar-button,
+.go-shell *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 640px) {
+  .bay {
+    flex-direction: column;
+  }
+  .rail {
+    flex: 0 0 auto;
+    max-height: 40%;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+}

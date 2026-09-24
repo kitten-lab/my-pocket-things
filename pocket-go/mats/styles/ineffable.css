@@ -1,0 +1,186 @@
+/* Ineffable Box — sealed chambers for events */
+:root {
+  --void: #07080c;
+  --steel: #141820;
+  --line: #2e3644;
+  --ink: #e6ebf2;
+  --mute: #8b95a8;
+  --seal: #ff3b3b;
+  --brass: #e6b84d;
+  --cool: #5ec8ff;
+  --rail: 12rem;
+}
+
+.go-shell {
+  background:
+    linear-gradient(180deg, rgba(255,59,59,0.05), transparent 28%),
+    repeating-linear-gradient(90deg, transparent 0 11px, rgba(255,255,255,0.015) 11px 12px),
+    radial-gradient(ellipse at 50% 0%, #1a1f2a, var(--void) 70%);
+  color: var(--ink);
+  font-family: "Share Tech Mono", "IBM Plex Mono", Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+#browserWindow { max-width: none; margin: 0; padding: 0; }
+.go-shell .headers,
+.go-shell .uses { display: none; }
+
+.go-shell .box { min-height: calc(100vh - 5.5rem); }
+
+.go-shell .lid {
+  padding: 0.85rem 1rem 0.9rem;
+  border-bottom: 2px solid var(--seal);
+  background: color-mix(in srgb, var(--steel) 92%, #000);
+  box-shadow: inset 0 -1px 0 rgba(230,184,77,0.25);
+}
+.go-shell .stamp,
+.go-shell .stamp p {
+  margin: 0;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--brass);
+  text-shadow: 0 0 14px rgba(230,184,77,0.28);
+}
+.go-shell .sub,
+.go-shell .sub p {
+  margin: 0.25rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .chambers {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: calc(100vh - 10rem);
+}
+.go-shell .rail {
+  border-right: 1px solid var(--line);
+  background: var(--steel);
+  padding: 0.65rem 0.55rem 1rem;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: calc(100vh - 5.5rem);
+  overflow: auto;
+}
+.go-shell span.here {
+  display: inline-block;
+  margin: 0.3rem 0 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cool);
+}
+.go-shell .root-up { margin-bottom: 0.35rem; font-size: 0.75rem; }
+.go-shell .root-up a { color: var(--mute); }
+
+.go-shell .rail .worlds,
+.go-shell .rail ul.dir,
+.go-shell .rail ul.files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.go-shell .rail a.world,
+.go-shell .rail ul.dir a,
+.go-shell .rail ul.files a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.35rem 0.4rem;
+  margin: 0.2rem 0;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--void) 70%, #000);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.go-shell .rail a.world:hover,
+.go-shell .rail ul.dir a:hover,
+.go-shell .rail ul.files a:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+.go-shell .rail a.on,
+.go-shell .rail ul.dir a.on,
+.go-shell .rail ul.files a.on {
+  border-color: var(--seal);
+  color: var(--brass);
+  box-shadow: inset 3px 0 0 var(--seal);
+}
+.go-shell .rail a.on .name { color: var(--brass); }
+.go-shell .rail a.world .door-deck,
+.go-shell .rail a.world .note-details { display: none; }
+.go-shell .rail a.world strong { font-weight: 700; color: inherit; }
+
+.go-shell .content {
+  padding: 0.9rem 1.15rem 1.5rem;
+  max-width: 42rem;
+}
+.go-shell .content h1 {
+  color: var(--brass);
+  letter-spacing: 0.06em;
+  font-size: 1.35rem;
+}
+.go-shell .content a:link { color: var(--cool); }
+.go-shell .content a:visited { color: #7aa; }
+.go-shell .content ul.dir {
+  list-style: none;
+  margin: 0.6rem 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.go-shell .content ul.dir a {
+  display: block;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--steel);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.go-shell .content ul.dir a:hover {
+  border-color: var(--seal);
+  color: var(--brass);
+}
+
+@media (max-width: 640px) {
+  .go-shell .chambers { grid-template-columns: 1fr; }
+  .go-shell .rail {
+    position: static;
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+/* face chips on chamber doors */
+.go-shell .rail a.door-omens { border-left: 3px solid #c4a574; }
+.go-shell .rail a.door-hymns { border-left: 3px solid #e89bb8; }
+.go-shell .rail a.door-secrets { border-left: 3px solid #b07cff; }
+
+.go-shell form.pg-injector .pg-injector-field {
+  border-color: var(--line);
+  background: color-mix(in srgb, var(--void) 70%, #000);
+  color: var(--ink);
+}
+.go-shell form.pg-injector .pg-injector-field:focus {
+  outline: none;
+  border-color: var(--brass);
+}
+.go-shell form.pg-injector button {
+  background: var(--steel);
+  color: var(--brass);
+  border: 1px solid var(--brass);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.go-shell form.pg-injector button:hover {
+  border-color: var(--seal);
+  color: var(--ink);
+}

@@ -1,206 +1,935 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
 
-.wwwExplorer_innerShell {
-  background: linear-gradient(180deg, #d8d2c4 0%, var(--bg) 40%, #b8b09e 100%);
-  scrollbar-width: thin;
-  scrollbar-color:  #cac2ae #d8d2c4;
+/* build-desk — typewriter documentation world
+   continuous paper, no cardboard folders, no paragraph white-boxes */
+
+:root {
+  --bg: #cfc6b0;
+  --paper: #f4ecd8;
+  --ink: #1a1814;
+  --mute: #5c5346;
+  --line: #3d362c;
+  --accent: #2f5e68;
+  --visited: #5a3d4a;
+  --active: #8b3a2a;
+  --ribbon: #417986;
+  --platen: #2a2620;
+  --rail: 11.5rem;
 }
+
+.go-shell {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 2px,
+      rgba(60, 50, 35, 0.03) 2px 3px
+    ),
+    linear-gradient(180deg, #d8d0bc 0%, var(--bg) 42%, #b8b09a 100%);
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.55;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mute) var(--bg);
+}
+
+#browserWindow {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0.6rem 0.75rem 1.4rem;
+}
+
+/* when a side rail is present (AIDM shell) */
+#browserWindow:has(> .side) {
+  max-width: 64rem;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    "mast mast"
+    "side content";
+  gap: 0 0.75rem;
+  align-items: start;
+}
+
+#browserWindow > .mast { grid-area: mast; }
+#browserWindow > .side { grid-area: side; }
+#browserWindow > .content { grid-area: content; min-width: 0; }
 
 .mast {
-  font-family: Inter, sans-serif;
-  background-color: #cac2ae;
-  font-size: 2rem;
-  padding: 5px;
-  border-bottom: 1px solid #b8b09e;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  margin-left: 2px;
-  margin-top: 4px !important;
-  color: #417986;
-  letter-spacing: 0.1em;
-}
-
-h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #4a365e;
-  margin-bottom: 1rem;
-  font-family: JetBrains Mono, monospace;
-  text-align: center;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  margin-bottom: 3rem;
-  border-bottom: 6px solid #417986;
-  background-color: #f0f0f0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  font-family: "Special Elite", "Courier Prime", monospace;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--paper);
+  background: var(--platen);
+  border: 2px solid var(--line);
+  border-bottom-width: 4px;
+  box-shadow: 2px 2px 0 rgba(26, 24, 20, 0.25);
+  padding: 0.45rem 0.75rem 0.55rem;
+  margin: 0 0 0.75rem;
 }
 
 .mast::before {
-  content: "🏗️";
+  content: "build · ";
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+  font-size: 0.75em;
 }
 
-/* little cardboard folders — {{dir}} tiles */
-ul.dir {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.45rem 1.2rem;
-  align-items: flex-start;
-  list-style: none;
-  margin: 0.35rem 1rem 1.6rem;
-  padding: 0.7rem 0 0;
+.crumb,
+.crumbback,
+a.crumbback {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
 }
 
-ul.dir li {
+/* —— side rail (page index) —— */
+.side {
+  position: sticky;
+  top: 0.4rem;
+  padding: 0.55rem 0.45rem 0.85rem;
+  background: #ebe3cf;
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 rgba(26, 24, 20, 0.18);
+  max-height: calc(100vh - 4rem);
+  overflow: auto;
+  font-size: 0.78rem;
+}
+
+.side .card {
+  margin: 0 0 0.55rem;
+  padding: 0.35rem 0.4rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed var(--mute);
+  box-shadow: none;
+  font-family: "Special Elite", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ribbon);
+}
+
+.side ul.dir,
+.side ul.files {
   list-style: none;
+  margin: 0.2rem 0 0.6rem;
+  padding: 0;
+  display: block;
+}
+
+.side ul.dir li,
+.side ul.files li {
   margin: 0;
   padding: 0;
 }
 
-ul.dir a,
-ul.dir a:link,
-ul.dir a:visited,
-ul.dir a.been {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  box-sizing: border-box;
-  flex: 0 0 8.6rem;
-  width: 8.6rem;
-  min-height: 6.4rem;
-  padding: 0.7rem 0.5rem 0.5rem;
-  background:
-    linear-gradient(180deg, rgba(255, 248, 230, 0.35) 0%, transparent 38%),
-    linear-gradient(165deg, #e8d4a6 0%, #d4b57c 48%, #c6a66c 100%);
-  border-radius: 2px 7px 4px 4px;
-  box-shadow:
-    inset 0 1px 0 #f6ead0,
-    inset 0 -2px 0 #b89558,
-    1px 3px 0 rgba(70, 52, 24, 0.12);
-  color: #417986;
-  text-decoration: none;
-}
-
-ul.dir a::before {
-  content: "";
-  position: absolute;
-  top: -0.5rem;
-  left: 0.45rem;
-  width: 2.7rem;
-  height: 0.62rem;
-  background: linear-gradient(180deg, #efe0b8 0%, #d7be88 100%);
-  border-radius: 5px 11px 0 0;
-  box-shadow: inset 0 1px 0 #f7efd8;
-}
-
-ul.dir a .name {
+.side ul.dir a,
+.side ul.files a,
+.side ul.dir a:link,
+.side ul.files a:link {
   display: block;
-  padding: 0.42rem 0.38rem 0.48rem;
-  background: linear-gradient(180deg, #fbf6e8 0%, #efe4c6 100%);
-  border: 1px solid #cbb48a;
-  border-radius: 2px;
-  box-shadow: inset 0 1px 0 #fffdf6;
-  font-family: Inter, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.25;
-  text-align: center;
+  padding: 0.22rem 0.3rem;
+  margin: 0.08rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.74rem;
+  line-height: 1.3;
+  min-height: 0;
+  width: auto;
+  flex: none;
+}
+
+.side ul.dir a::before,
+.side ul.files a::before {
+  content: none;
+  display: none;
+}
+
+.side ul.dir a .name,
+.side ul.files a .name {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
   word-break: break-word;
 }
 
-ul.dir a:hover,
-ul.dir a:hover:link {
-  color: #2f5e68;
-  filter: brightness(1.04);
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 #f6ead0,
-    inset 0 -2px 0 #b89558,
-    1px 5px 0 rgba(70, 52, 24, 0.14);
+.side ul.dir a:hover,
+.side ul.files a:hover {
+  background: rgba(65, 121, 134, 0.12);
+  color: var(--accent);
+  transform: none;
+  filter: none;
 }
 
-ul.dir a:hover .name {
-  background: linear-gradient(180deg, #fffdf4 0%, #f3e8cc 100%);
+.side ul.dir a.on,
+.side ul.files a.on {
+  background: var(--platen);
+  color: var(--paper);
 }
 
-/* open folder — the page inside a {{div:papers}} */
-.papers {
+.side ul.dir a.been .name,
+.side ul.files a.been .name {
+  color: var(--visited);
+}
+
+/* —— continuous paper (docs body) —— */
+.papers,
+.content {
   position: relative;
-  isolation: isolate;
-  margin: 1.75rem 1.5rem 2.2rem 1.65rem;
-  padding: 1.4rem 1.55rem 1.75rem;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 28%),
-    linear-gradient(180deg, #fbf7ec 0%, #f3ead2 100%);
-  border-radius: 1px 2px 2px 1px;
+  margin: 0 0 1.2rem;
+  padding: 1.1rem 1.25rem 1.5rem;
+  background: var(--paper);
+  border: 2px solid var(--line);
   box-shadow:
-    inset 0 1px 0 #fffdf8,
-    2px 3px 0 rgba(70, 52, 24, 0.06);
-  color: #3a3228;
-  font-family: Inter, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.58;
+    inset 0 0 0 1px rgba(255, 252, 245, 0.5),
+    3px 3px 0 rgba(26, 24, 20, 0.18);
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
 }
 
-.papers::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -0.9rem;
-  right: -0.7rem;
-  top: -1rem;
-  bottom: -0.55rem;
-  background:
-    linear-gradient(180deg, rgba(255, 248, 230, 0.3) 0%, transparent 36%),
-    linear-gradient(165deg, #e8d4a6 0%, #d4b57c 48%, #c6a66c 100%);
-  border-radius: 2px 8px 5px 4px;
-  box-shadow:
-    inset 0 1px 0 #f6ead0,
-    inset 0 -2px 0 #b89558,
-    1px 3px 0 rgba(70, 52, 24, 0.12);
-}
-
+.papers::before,
 .papers::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: -1.5rem;
-  left: 0.1rem;
-  width: 4.4rem;
-  height: 0.72rem;
-  background: linear-gradient(180deg, #efe0b8 0%, #d7be88 100%);
-  border-radius: 5px 12px 0 0;
-  box-shadow: inset 0 1px 0 #f7efd8;
+  content: none;
+  display: none;
 }
 
-.papers h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #4a365e;
-  margin-bottom: 1rem;
-  font-family: JetBrains Mono, monospace;
-  text-align: center;
-}
-
-.papers p {
-  font-family: JetBrains Mono, monospace;
+/* kill the old white-box paragraphs */
+.papers p,
+.content p {
   margin: 0 0 0.85em;
-  font-size: 1rem;
-  background-color:#fffdf4;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
-  line-height: 1.8;
-  border-radius: 3px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
-.papers p:last-child {
+.papers p:last-child,
+.content p:last-child {
   margin-bottom: 0;
+}
+
+/* —— five header levels —— */
+.papers h1, .content h1,
+.papers h2, .content h2,
+.papers h3, .content h3,
+.papers h4, .content h4,
+.papers h5, .content h5,
+.papers h6, .content h6 {
+  font-family: "Special Elite", "Courier Prime", monospace;
+  font-weight: 400;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+  margin: 1.35rem 0 0.55rem;
+  padding: 0;
+  letter-spacing: 0.04em;
+}
+
+.papers h1, .content h1 {
+  font-size: 1.65rem;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+.papers h2, .content h2 {
+  font-size: 1.28rem;
+  border-bottom: 1px dashed var(--mute);
+  padding-bottom: 0.25rem;
+}
+
+.papers h3, .content h3 {
+  font-size: 1.08rem;
+  color: var(--ribbon);
+}
+
+.papers h4, .content h4 {
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mute);
+}
+
+.papers h5, .content h5,
+.papers h6, .content h6 {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--mute);
+  letter-spacing: 0.03em;
+}
+
+/* —— directory / file lists as typewriter indexes (not cardboard) —— */
+ul.dir,
+ul.files {
+  list-style: none;
+  margin: 0.6rem 0 1.1rem;
+  padding: 0.35rem 0 0.35rem 0.15rem;
+  display: block;
+  border-left: 2px solid rgba(61, 54, 44, 0.35);
+}
+
+ul.dir li,
+ul.files li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.dir a,
+ul.files a,
+ul.dir a:link,
+ul.files a:link,
+ul.dir a:visited,
+ul.files a:visited,
+ul.dir a.been,
+ul.files a.been {
+  position: static;
+  display: block;
+  flex: none;
+  width: auto;
+  min-height: 0;
+  padding: 0.28rem 0.55rem;
+  margin: 0.1rem 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.92rem;
+  font-weight: 400;
+  transform: none;
+  filter: none;
+}
+
+ul.dir a::before,
+ul.files a::before,
+ul.dir a::after,
+ul.files a::after {
+  content: none !important;
+  display: none !important;
+}
+
+ul.dir a .name,
+ul.files a .name {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+}
+
+ul.dir a:hover,
+ul.files a:hover {
+  background: rgba(65, 121, 134, 0.1);
+  color: var(--ink);
+  transform: none;
+  filter: none;
+  box-shadow: none;
+}
+
+ul.dir a:hover .name,
+ul.files a:hover .name {
+  background: none;
+}
+
+/* folder marker in body lists */
+.content > ul.dir a .name::before,
+.papers ul.dir a .name::before {
+  content: "[dir] ";
+  color: var(--mute);
+  text-decoration: none;
+}
+
+.content > ul.files a .name::before,
+.papers ul.files a .name::before {
+  content: "[doc] ";
+  color: var(--mute);
+}
+
+/* —— tables —— */
+.papers table.md-table,
+.content table.md-table,
+.papers table,
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.85rem 0 1.1rem;
+  font-size: 0.88rem;
+  background: rgba(255, 252, 245, 0.45);
+}
+
+.papers table th,
+.content table th,
+.papers table.md-table th,
+.content table.md-table th,
+.papers table td,
+.content table td,
+.papers table.md-table td,
+.content table.md-table td {
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.papers table th,
+.content table th,
+.papers table.md-table th,
+.content table.md-table th {
+  background: rgba(42, 38, 32, 0.08);
+  font-family: "Special Elite", monospace;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+
+/* —— lists / checkboxes —— */
+.papers ul.bullets,
+.content ul.bullets,
+.papers ul,
+.content ul {
+  margin: 0.4rem 0 0.9rem 0.2rem;
+  padding-left: 1.2rem;
+}
+
+.papers li,
+.content li {
+  margin: 0.2rem 0;
+}
+
+.papers ul.bullets li,
+.content ul.bullets li {
+  list-style: none;
+  margin-left: -0.4rem;
+}
+
+.papers input[type="checkbox"],
+.content input[type="checkbox"] {
+  margin-right: 0.4rem;
+  accent-color: var(--ribbon);
+}
+
+/* —— links / tags / wiki —— */
+.papers a,
+.content a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+.papers a:visited,
+.content a:visited {
+  color: var(--visited);
+}
+
+.papers a.wiki,
+.content a.wiki {
+  border-bottom: 1px dotted var(--accent);
+  text-decoration: none;
+}
+
+.papers a.tag,
+.content a.tag {
+  color: var(--ribbon);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(65, 121, 134, 0.35);
+}
+
+.papers a.cite,
+.content a.cite {
+  font-size: 0.85em;
+  color: var(--mute);
+}
+
+.papers code,
+.content code {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.9em;
+  background: rgba(42, 38, 32, 0.06);
+  padding: 0.05em 0.28em;
+  border: 1px solid rgba(61, 54, 44, 0.2);
+}
+
+.papers pre.code,
+.content pre.code {
+  margin: 0.75rem 0 1rem;
+  padding: 0.7rem 0.85rem;
+  background: #2a2620;
+  color: #f4ecd8;
+  border: 2px solid var(--line);
+  overflow: auto;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.papers blockquote,
+.content blockquote {
+  margin: 0.7rem 0 1rem;
+  padding: 0.35rem 0.75rem;
+  border-left: 3px solid var(--ribbon);
+  color: var(--mute);
+  font-style: italic;
+}
+
+.papers hr,
+.content hr {
+  border: 0;
+  border-top: 1px dashed var(--mute);
+  margin: 1.2rem 0;
+}
+
+.papers strong,
+.content strong {
+  font-weight: 700;
+}
+
+.papers em,
+.content em {
+  font-style: italic;
+}
+
+/* 800 / 1024 comfort */
+@media (max-width: 860px) {
+  :root { --rail: 9.5rem; }
+  #browserWindow:has(> .side) {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+  }
+  .papers, .content {
+    padding: 0.85rem 0.9rem 1.15rem;
+  }
+}
+
+/* -- build lobby doors / content folder cabinets -- */
+.content ul.dir:not(.files) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.65rem;
+  border-left: 0;
+  padding: 0.4rem 0 0.8rem;
+  margin: 0.5rem 0 1.1rem;
+}
+.content ul.dir:not(.files) a,
+.content ul.dir:not(.files) a:link,
+.content ul.dir:not(.files) a:visited {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 4.6rem;
+  padding: 0.55rem 0.6rem 0.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.55) 0%, transparent 40%),
+    var(--paper);
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 rgba(26, 24, 20, 0.2);
+  text-decoration: none;
+  color: var(--ink) !important;
+}
+.content ul.dir:not(.files) a::before {
+  content: "DIR";
+  display: block !important;
+  font-family: "Special Elite", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--ribbon);
+  margin-bottom: 0.25rem;
+}
+.content ul.dir:not(.files) a .name {
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.content ul.dir:not(.files) a .name::before { content: none; }
+.content ul.dir:not(.files) a:hover {
+  background: #fffaf0;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ribbon);
+  color: var(--ink) !important;
+}
+.content ul.dir.files,
+.content ul.files {
+  display: block;
+  border-left: 2px solid rgba(61, 54, 44, 0.35);
+  grid-template-columns: none;
+}
+.content ul.dir.files a,
+.content ul.files a {
+  min-height: 0;
+  display: block;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0.28rem 0.55rem;
+}
+.content ul.dir.files a::before,
+.content ul.files a::before { content: none !important; }
+
+/* -- AIDM side rail: dirs as compact drawers -- */
+.side .worlds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.15rem 0 0.55rem;
+}
+.side a.world,
+.side a.world:link,
+.side a.world:visited {
+  display: block;
+  min-height: 0;
+  padding: 0.4rem 0.45rem 0.35rem;
+  background: #e4dcc6;
+  border: 2px solid var(--line);
+  box-shadow: 1px 1px 0 rgba(26, 24, 20, 0.18);
+  text-decoration: none;
+  color: var(--ink) !important;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.side a.world strong {
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+.side a.world .door-deck,
+.side a.world .note-details {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.62rem;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+}
+.side a.world:hover {
+  background: #f0e8d4;
+  transform: none;
+  box-shadow: 2px 2px 0 var(--ribbon);
+}
+
+/* sources drawer — archive / filing look */
+.side a.world.door-sources {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 6px,
+      rgba(65, 121, 134, 0.07) 6px 7px
+    ),
+    linear-gradient(180deg, #d8e4e6 0%, #c5d4d6 100%);
+  border-color: var(--ribbon);
+  border-style: solid;
+  border-width: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    2px 2px 0 rgba(47, 94, 104, 0.35);
+}
+.side a.world.door-sources::before {
+  content: "ARCHIVE";
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: var(--ribbon);
+  margin-bottom: 0.2rem;
+}
+.side a.world.door-sources strong { color: var(--platen); }
+.side a.world.door-sources .note-details::before { content: "files - "; }
+.side a.world.door-sources:hover {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 6px,
+      rgba(65, 121, 134, 0.1) 6px 7px
+    ),
+    #e8f2f3;
+  box-shadow: 2px 2px 0 var(--platen);
+}
+
+/* -- build main doors ({{doors}} outside the side rail) -- */
+main .worlds,
+.content .worlds,
+body .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.7rem;
+  margin: 0.55rem 0 1rem;
+}
+/* side rail keeps column drawers */
+.side .worlds {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: none;
+  gap: 0.35rem;
+  margin: 0.15rem 0 0.55rem;
+}
+a.world,
+a.world:link,
+a.world:visited {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 5.2rem;
+  padding: 0.55rem 0.65rem 0.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.55) 0%, transparent 42%),
+    var(--paper);
+  border: 2px solid var(--line);
+  box-shadow: 2px 2px 0 rgba(26, 24, 20, 0.2);
+  text-decoration: none;
+  color: var(--ink) !important;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+a.world::before {
+  content: "DOOR";
+  font-family: "Special Elite", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--ribbon);
+  margin-bottom: 0.2rem;
+}
+a.world strong {
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+a.world .door-deck,
+a.world .note-details {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  color: var(--mute);
+  letter-spacing: 0.03em;
+}
+a.world:hover {
+  background: #fffaf0;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ribbon);
+  color: var(--ink) !important;
+}
+/* compact override when parked in the rail */
+.side a.world,
+.side a.world:link,
+.side a.world:visited {
+  min-height: 0;
+  display: block;
+  padding: 0.4rem 0.45rem 0.35rem;
+  background: #e4dcc6;
+  box-shadow: 1px 1px 0 rgba(26, 24, 20, 0.18);
+  font-size: 0.74rem;
+}
+.side a.world::before { content: none; }
+.side a.world strong { font-size: 0.82rem; letter-spacing: 0.06em; }
+.side a.world:hover {
+  background: #f0e8d4;
+  transform: none;
+  box-shadow: 2px 2px 0 var(--ribbon);
+}
+
+/* -- drawer crumbs / nested archive rail -- */
+nav.crumb,
+nav.shellcrumb {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  margin: 0.15rem 0 0.65rem;
+  padding: 0.25rem 0 0.35rem;
+  border-bottom: 1px dashed rgba(61, 54, 44, 0.35);
+}
+nav.crumb a,
+nav.shellcrumb a,
+nav.crumb a:link,
+nav.shellcrumb a:link {
+  color: var(--ribbon) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(65, 121, 134, 0.45);
+}
+nav.crumb a:hover,
+nav.shellcrumb a:hover {
+  color: var(--platen) !important;
+  border-bottom-style: solid;
+}
+.side a.world.door-extracts,
+.side a.world.door-structures {
+  background: #e4dcc6;
+  border-color: var(--line);
+}
+.side a.world.door-extracts::before,
+.side a.world.door-structures::before {
+  content: "FOLDER";
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: var(--ribbon);
+  margin-bottom: 0.15rem;
+}
+
+/* -- rail dir quiet + selected paper ink -- */
+.side ul.dir a.on,
+.side ul.files a.on,
+.side ul.dir a.on:link,
+.side ul.files a.on:link,
+.side ul.dir a.on:visited,
+.side ul.files a.on:visited {
+  background: var(--platen);
+  color: var(--paper) !important;
+}
+.side ul.dir a.on .name,
+.side ul.files a.on .name,
+.side ul.dir a.on:hover,
+.side ul.files a.on:hover,
+.side ul.dir a.on:hover .name,
+.side ul.files a.on:hover .name,
+.side ul.dir a.on.been .name,
+.side ul.files a.on.been .name {
+  color: var(--paper) !important;
+}
+/* folders in the rail listing — same row weight as papers, small DIR tag */
+.side ul.dir a .name {
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+}
+.side ul.dir li a[href*="/"] .name {
+  /* keep equal weight; trailing slash already marks folders */
+}
+.side ul.dir a:not(.on)::before {
+  content: none;
+}
+/* if engine marks dirs somehow, stay quiet — no cabinet tiles in rail */
+.side .worlds { display: none; }
+
+/* -- place + quiet folders in rail dir -- */
+.side .here,
+.side span.here {
+  display: block;
+  font-family: "Special Elite", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--platen);
+  line-height: 1.2;
+}
+.side .here::before,
+.side span.here::before {
+  content: "in ";
+  font-family: "Courier Prime", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+.side nav.shellcrumb {
+  margin: 0.1rem 0 0.45rem;
+  padding: 0.15rem 0 0.3rem;
+  font-size: 0.65rem;
+}
+/* folders vs papers in one {{dir}} list — quiet, equal weight */
+.side ul.dir a:not([href*=".md"]):not([href*=".lorecard"]) .name {
+  color: var(--accent);
+}
+.side ul.dir a:not([href*=".md"]):not([href*=".lorecard"]) .name::after {
+  content: "";
+}
+.side ul.dir a:not([href*=".md"]):not([href*=".lorecard"])::before {
+  content: "DIR ";
+  font-family: "Special Elite", monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  color: var(--ribbon);
+  margin-right: 0.2rem;
+}
+.side ul.dir a[href*=".md"]::before {
+  content: none;
+}
+.side ul.dir a.on:not([href*=".md"])::before {
+  color: var(--paper);
+}
+.side ul.dir a.on:not([href*=".md"]) .name {
+  color: var(--paper) !important;
+}
+
+/* -- aidm mockup pics -- */
+.content img.pic {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.55rem 0 1.1rem;
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(26, 24, 20, 0.18);
+  background: #1a1814;
+}
+.content .pic-miss {
+  display: block;
+  margin: 0.4rem 0 0.8rem;
+  padding: 0.35rem 0.5rem;
+  font-family: "Courier Prime", monospace;
+  font-size: 0.78rem;
+  color: var(--active);
+  border: 1px dashed var(--active);
+}
+
+
+/* -- pic zoom (click {{img}} like jacket covers) -- */
+.content a.pic-zoom {
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+  text-decoration: none;
+  cursor: zoom-in;
+  border: 0;
+  color: inherit;
+}
+.content a.pic-zoom img.pic {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.55rem 0 1.1rem;
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(26, 24, 20, 0.18);
+  background: #1a1814;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  pointer-events: none;
+}
+.content a.pic-zoom:hover img.pic,
+.content a.pic-zoom:focus img.pic {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 0 var(--ribbon);
+}
+.content a.pic-zoom:focus {
+  outline: 2px solid var(--ribbon);
+  outline-offset: 3px;
 }

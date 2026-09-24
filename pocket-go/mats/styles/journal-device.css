@@ -1,0 +1,686 @@
+@import url("/styles/fonts.css");
+
+/* journal-device — e-reader / weird book box BONE
+   Room chrome (mast, flip) lives OUTSIDE the sheet.
+   Only .sheet is the writing paper.
+   Color packs: journal-night, journal-io, journal-ab, journal-basic
+   set the :root knobs below (and --*-rgb for glow rgba). */
+
+:root {
+  /* defaults = night blush; packs override */
+  --chassis: #2a2430;
+  --chassis-hi: #3a3244;
+  --chassis-lo: #1a1620;
+  --bezel: #4a3e52;
+  --bezel-hi: #3a3248;
+  --bezel-lo: #221c2c;
+  --glow: #e8a0b8;
+  --glow-rgb: 232, 160, 184;
+  --lilac: #b89ac8;
+  --haze-rgb: 120, 80, 160;
+  --sheet: #fff8ef;
+  --sheet-edge: #e4d2c0;
+  --ink: #3a2e34;
+  --mute: #8a7488;
+  --line: #ead8cc;
+  --blush: #e8a0a8;
+  --rose: #c46a78;
+  --rule-rgb: 180, 120, 130;
+  --spine-hi: #f0d0d8;
+  --spine-lo: #d8b0c0;
+  --link-on-sheet: #7a4a88;
+  --crumb: rgba(200, 180, 210, 0.55);
+  --flip-ink: #f0e4f0;
+  --desk: #121018;
+  --desk-hi: #1c1624;
+  --desk-lo: #08060c;
+  --frame: #0c0a10;
+  --sheet-frame: #1a1420;
+  --bg: var(--desk);
+  --paper: var(--sheet);
+  --accent: var(--glow);
+  --visited: var(--lilac);
+  --active: #ffb0c8;
+  --scroll-thumb: var(--glow);
+  --scroll-track: var(--chassis-lo);
+  --door-min: 13.5rem;
+}
+
+.go-shell {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(var(--glow-rgb), 0.12), transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(var(--haze-rgb), 0.18), transparent 45%),
+    linear-gradient(165deg, var(--desk-hi) 0%, var(--desk) 55%, var(--desk-lo) 100%);
+  color: var(--ink);
+  font-family: var(--font-glass), var(--font-mono), "Share Tech Mono", "IBM Plex Mono", monospace;
+  font-size: 10px;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+#browserWindow {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0.85rem 1rem 1.1rem;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* —— the book box / e-reader —— */
+.device {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(62rem, 100%);
+  margin: 0 auto;
+  padding: 0.85rem 0.9rem 1rem;
+  background:
+    linear-gradient(145deg, var(--chassis-hi) 0%, var(--chassis) 42%, var(--chassis-lo) 100%);
+  border: 2px solid var(--frame);
+  border-radius: 1.35rem 1.35rem 1.6rem 1.6rem;
+  box-shadow:
+    0 0 0 1px rgba(var(--glow-rgb), 0.18),
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.device::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3.2rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: var(--frame);
+  box-shadow: 0 0 0 1px rgba(var(--glow-rgb), 0.25);
+}
+
+.device::after {
+  content: "";
+  position: absolute;
+  bottom: 0.45rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.12), transparent 45%),
+    var(--chassis-lo);
+  border: 2px solid var(--frame);
+  box-shadow: inset 0 0 0 2px rgba(var(--glow-rgb), 0.2);
+  pointer-events: none;
+}
+
+/* room title — NOT on the paper */
+.mast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.85rem;
+  margin: 0.55rem 0.35rem 0.65rem;
+  padding: 0.15rem 0.35rem 0.35rem;
+  color: var(--glow);
+  background: none;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.mast > :first-child,
+.device > .mast {
+  font-family: var(--font-hand), Caveat, cursive;
+}
+
+.mast h1,
+.device .mast h1 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 8rem;
+  font-family: var(--font-press-start), Caveat, cursive;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--glow);
+  text-shadow: 0 0 18px rgba(var(--glow-rgb), 0.35);
+}
+
+.mast a {
+  text-decoration: none;
+}
+
+.go-shell .crumb {
+  order: 3;
+  flex: 1 0 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--crumb);
+}
+
+/* —— page turners on the bezel —— */
+.flipper {
+  display: flex;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+a.flip,
+span.flip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 5.5rem;
+  padding: 0.35rem 0.55rem;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  color: var(--flip-ink) !important;
+  background: linear-gradient(180deg, var(--bezel-hi) 0%, var(--bezel-lo) 100%);
+  border: 1px solid rgba(var(--glow-rgb), 0.35);
+  border-radius: 0.45rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 2px 0 var(--frame);
+}
+
+a.flip:hover {
+  color: #fff !important;
+  border-color: var(--glow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 12px rgba(var(--glow-rgb), 0.35);
+}
+
+.flip.next { flex-direction: row-reverse; }
+
+.flip .way { font-size: 0; line-height: 0; }
+.flip.prev .way::after {
+  content: "◀";
+  font-size: 0.75rem;
+  color: var(--glow);
+}
+.flip.next .way::after {
+  content: "▶";
+  font-size: 0.75rem;
+  color: var(--glow);
+}
+
+.flip .name {
+  max-width: 7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--flip-ink) 75%, transparent);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.flip.none {
+  opacity: 0.35;
+  border-style: dashed;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* —— the paper only —— */
+.sheet {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 18rem;
+  margin: 0 0.15rem 1.65rem;
+  padding: 1.25rem 1.4rem 1.6rem 2.2rem;
+  overflow: auto;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 1.45rem,
+      var(--blush) 1.45rem 1.52rem,
+      transparent 1.52rem
+    ),
+    repeating-linear-gradient(
+      transparent 0 1.5rem,
+      rgba(var(--rule-rgb), 0.08) 1.5rem 1.56rem
+    ),
+    var(--sheet);
+  border: 1px solid var(--sheet-edge);
+  border-radius: 0.25rem 0.55rem 0.35rem 0.25rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 0 0 3px var(--sheet-frame),
+    0 0 0 4px rgba(var(--glow-rgb), 0.25);
+  color: var(--ink);
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.45rem;
+  width: 0.45rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--spine-hi), var(--spine-lo));
+  pointer-events: none;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3,
+.go-shell h4 {
+  margin: 0.9rem 0 0.3rem;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  /* digital device bone — glass/mono ladder, not book serif */
+  font-family: var(--font-glass), var(--font-mono), "Share Tech Mono", "IBM Plex Mono", monospace;
+}
+
+.go-shell h1 {
+  font-family: var(--font-press-start), var(--font-arcade), "VT323", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rose);
+  margin: 0.2rem 0 0.55rem;
+}
+
+.go-shell h2 {
+  font-size: 1.35em;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.go-shell h3 {
+  font-size: 1.15em;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.go-shell h4 {
+  font-size: 0.95em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.go-shell p {
+  margin: 0 0 0.7rem;
+  color: var(--ink);
+  font-style: normal;
+  white-space: pre-wrap;
+}
+
+.go-shell a:link { color: var(--lilac); }
+.go-shell a:visited,
+.go-shell a.been { color: var(--rose); }
+
+.sheet a:link {
+  color: var(--link-on-sheet);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.go-shell hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 0.9rem 0;
+}
+
+
+/* dressed scroll — shell, sheet, browser pane */
+.go-shell,
+.sheet,
+#browserWindow {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+.go-shell::-webkit-scrollbar,
+.sheet::-webkit-scrollbar,
+#browserWindow::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.go-shell::-webkit-scrollbar-track,
+.sheet::-webkit-scrollbar-track,
+#browserWindow::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-left: 1px solid rgba(var(--glow-rgb), 0.15);
+}
+.go-shell::-webkit-scrollbar-thumb,
+.sheet::-webkit-scrollbar-thumb,
+#browserWindow::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--scroll-thumb), color-mix(in srgb, var(--scroll-thumb) 55%, #000));
+  border: 1px solid rgba(var(--glow-rgb), 0.35);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(var(--glow-rgb), 0.25);
+}
+.go-shell::-webkit-scrollbar-thumb:hover,
+.sheet::-webkit-scrollbar-thumb:hover,
+#browserWindow::-webkit-scrollbar-thumb:hover {
+  background: var(--active);
+  box-shadow: 0 0 12px rgba(var(--glow-rgb), 0.45);
+}
+.go-shell::-webkit-scrollbar-corner,
+.sheet::-webkit-scrollbar-corner,
+#browserWindow::-webkit-scrollbar-corner {
+  background: var(--scroll-track);
+}
+
+
+/* planted {{face:}} / {{card:}} on the journal sheet —
+   full paper width, not the 22rem index-card postage stamp */
+.sheet .face,
+.sheet .faces .face,
+.go-shell .sheet .face {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  display: block;
+}
+.sheet .lorecard,
+.sheet .faces .lorecard,
+.sheet .face .lorecard,
+.go-shell .sheet .lorecard,
+.go-shell .sheet .face .lorecard {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0;
+  margin: 0.65rem 0 1rem;
+  box-sizing: border-box;
+}
+.sheet .faces {
+  width: 100%;
+  align-items: stretch;
+}
+
+
+/* {{doors}} / {{worlds}} — chapter cards on the e-reader sheet.
+   Color packs paint these via :root knobs (cream tabs / phosphor tiles). */
+.go-shell .worlds,
+.sheet .worlds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.75rem;
+  margin: 0.75rem 0 1.15rem;
+  width: 100%;
+}
+
+.go-shell .worlds.is-sectioned {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.05rem;
+}
+
+.go-shell .door-section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.go-shell .door-section-head,
+.go-shell h2.door-section-head {
+  margin: 0 0 0.45rem;
+  padding: 0 0 0.2rem;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border-bottom: 1px dotted var(--line);
+}
+
+.go-shell .door-section-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.75rem;
+}
+
+.go-shell a.world,
+.go-shell .worlds a.world,
+.sheet a.world,
+.sheet a.world:link,
+.sheet a.world:visited,
+.sheet a.world.been {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1 1 var(--door-min);
+  max-width: 17rem;
+  box-sizing: border-box;
+  min-height: 6rem;
+  padding: 0.7rem 0.8rem 0.6rem 1.1rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--sheet) 70%, #fff) 0%, transparent 42%),
+    linear-gradient(165deg, var(--sheet) 0%, color-mix(in srgb, var(--sheet) 84%, var(--line)) 100%);
+  color: var(--ink) !important;
+  border: 1px solid var(--sheet-edge);
+  border-radius: 0.35rem 0.55rem 0.4rem 0.3rem;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 42%, transparent),
+    0 0 0 1px var(--sheet-frame),
+    0 6px 14px rgba(0, 0, 0, 0.14);
+  text-decoration: none !important;
+  font-family: var(--font-glass), var(--font-mono), monospace;
+  overflow: hidden;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+}
+
+.go-shell a.world.has-deck {
+  min-height: 6.4rem;
+}
+
+/* margin-rule tab — same DNA as the sheet's blush line */
+.go-shell a.world::before,
+.go-shell .worlds a.world::before {
+  content: "";
+  position: absolute;
+  left: 0.42rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 0.14rem;
+  border-radius: 999px;
+  background: var(--blush);
+  opacity: 0.8;
+  box-shadow: 0 0 8px rgba(var(--glow-rgb), 0.22);
+}
+
+/* dog-ear fold */
+.go-shell a.world::after,
+.go-shell .worlds a.world::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.85rem;
+  height: 0.85rem;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 48%,
+      var(--line) 50%,
+      color-mix(in srgb, var(--sheet) 65%, var(--chassis-lo)) 100%
+    );
+  pointer-events: none;
+}
+
+.go-shell a.world strong,
+.sheet a.world strong {
+  display: block;
+  font-family: var(--font-glass), var(--font-mono), monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.go-shell a.world .door-deck {
+  display: block;
+  margin-top: 0.28rem;
+  font-family: var(--font-hand), Caveat, cursive;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--mute);
+  letter-spacing: 0.01em;
+}
+
+.go-shell a.world .note-details {
+  display: block;
+  margin-top: auto;
+  padding-top: 0.45rem;
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  opacity: 0.85;
+}
+
+.go-shell a.world .note-details::after {
+  content: " notes";
+}
+
+.go-shell a.world:hover,
+.go-shell .worlds a.world:hover,
+.sheet a.world:hover {
+  color: var(--ink) !important;
+  border-color: var(--rose);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 50%, transparent),
+    0 0 0 1px rgba(var(--glow-rgb), 0.35),
+    0 0 18px rgba(var(--glow-rgb), 0.28),
+    0 8px 16px rgba(0, 0, 0, 0.18);
+}
+
+.go-shell a.world:hover strong {
+  color: var(--rose);
+}
+
+.go-shell a.world:visited strong,
+.go-shell a.world.been strong {
+  color: var(--rose);
+}
+
+.go-shell a.world.on {
+  border-color: var(--glow);
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--glow-rgb), 0.35),
+    0 0 16px rgba(var(--glow-rgb), 0.22);
+}
+
+.go-shell a.world.door-pinned {
+  border-top-width: 3px;
+  border-top-color: var(--glow);
+}
+
+.go-shell a.world.door-pinned strong {
+  color: var(--rose);
+}
+
+/* Thin {{doors:chips}} — bezel pills / paper tags, not tall cards */
+.go-shell .worlds.is-chips {
+  display: flex !important;
+  grid-template-columns: none !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.4rem;
+  margin: 0.45rem 0 0.75rem;
+}
+
+.go-shell .worlds.is-chips .door-section-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.4rem;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip,
+.go-shell a.world.door-chip,
+.sheet a.world.door-chip {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  max-width: none;
+  flex: 0 0 auto;
+  padding: 0.22rem 0.6rem 0.2rem 0.75rem !important;
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 35%, transparent),
+    0 1px 0 var(--sheet-frame);
+}
+
+.go-shell .worlds.is-chips a.world.door-chip.has-deck,
+.go-shell a.world.door-chip.has-deck {
+  min-height: 0 !important;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip::before,
+.go-shell a.world.door-chip::before {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  height: 0.55rem;
+  width: 0.14rem;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip::after,
+.go-shell a.world.door-chip::after {
+  content: none;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip strong,
+.go-shell a.world.door-chip strong {
+  display: inline;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip:hover,
+.go-shell a.world.door-chip:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 36rem) {
+  :root { --door-min: 11rem; }
+  .go-shell a.world,
+  .go-shell .worlds a.world {
+    min-height: 5.2rem;
+    max-width: none;
+  }
+}

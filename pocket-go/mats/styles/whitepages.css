@@ -16,7 +16,7 @@
   --felt: #3a342c;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -413,16 +413,16 @@ span.note-details {
   text-decoration: none;
 }
 
-.wwwExplorer_innerShell a:link {
+.go-shell a:link {
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been {
+.go-shell a:visited,
+.go-shell a.been {
   color: var(--visited);
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   position: static;
   padding: 0 0 0.55rem;
   font-family: "Libre Franklin", sans-serif;
@@ -431,8 +431,8 @@ span.note-details {
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   max-width: 40rem;
   margin: 1.6rem auto 0;
   padding-top: 0.45rem;
@@ -442,8 +442,8 @@ span.note-details {
   color: #8a8278;
 }
 
-.wwwExplorer_innerShell .headers summary,
-.wwwExplorer_innerShell .uses summary {
+.go-shell .headers summary,
+.go-shell .uses summary {
   cursor: pointer;
   width: max-content;
   text-transform: uppercase;

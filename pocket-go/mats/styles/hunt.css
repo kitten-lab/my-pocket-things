@@ -1,0 +1,791 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
+
+/* hunt — dark felt office, aged folder
+   kmoire wine, not craft manila, not a codes bureau
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #8a3038;
+}
+
+.go-shell {
+  --desk: #1a0c0c;
+  --desk-hi: #2a1014;
+  --manila: #dcc8a0;
+  --manila-lo: #c4a878;
+  --tab: #8a3038;
+  --tab-ink: #f4ead4;
+  --legal: #efe6d4;
+  --rule: #d4c4b0;
+  --margin: transparent;
+  --ink: #1c1010;
+  --mute: #8a6a60;
+  --clip: #c4a15a;
+  --brass: #c4a15a;
+  --brass-lo: #8a7038;
+  --lamp: rgba(196, 92, 72, 0.22);
+  --cite: #8a3030;
+  --paper: var(--legal);
+  --rail: 13em;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.4;
+  background:
+    radial-gradient(ellipse 38% 30% at 82% 0%, var(--lamp), transparent 58%),
+    linear-gradient(180deg, var(--desk-hi) 0, var(--desk) 100%);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 8px 10px 8px 12px;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .crumb,
+.go-shell .uses {
+  display: none !important;
+}
+
+.go-shell .root-up .crumb,
+.go-shell .root-up .crumbback {
+  display: inline !important;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell a {
+  color: var(--cite);
+  text-decoration: none;
+}
+
+.go-shell a:hover {
+  color: #5a1818;
+}
+
+.go-shell .desk {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.go-shell .desk > p,
+.go-shell .folder > p,
+.go-shell .folder-open > p,
+.go-shell .clips > p:empty {
+  display: none;
+}
+
+/* brass swing-arm over the pad, not the red tab */
+.go-shell .lamp {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  z-index: 5;
+  width: 56px;
+  height: 64px;
+  pointer-events: none;
+}
+
+.go-shell .lamp p {
+  display: none;
+}
+
+.go-shell .lamp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 28px;
+  width: 4px;
+  height: 34px;
+  background: linear-gradient(180deg, #e6c36a, var(--brass-lo));
+  border-radius: 2px;
+  box-shadow: 1px 0 0 #fff6d855;
+  transform: rotate(22deg);
+  transform-origin: top center;
+}
+
+.go-shell .lamp::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: 2px;
+  width: 32px;
+  height: 14px;
+  background:
+    radial-gradient(ellipse at 50% 0, #fff6d0 0%, #e6c36a 38%, #8a5a10 100%);
+  border-radius: 4px 4px 12px 12px;
+  box-shadow:
+    0 8px 16px 6px rgba(196, 92, 72, 0.22),
+    inset 0 1px 0 #fff6d8;
+}
+
+.go-shell .folder {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-right: 4px;
+  background:
+    linear-gradient(90deg, rgba(40, 10, 12, 0.12), transparent 18px),
+    linear-gradient(180deg, #e8d4aa 0, var(--manila) 14%, var(--manila-lo) 100%);
+  border: 1px solid #6a3038;
+  box-shadow:
+    5px 7px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 #fff6d8,
+    inset 0 -10px 0 rgba(90, 50, 20, 0.06);
+}
+
+.go-shell .folder-tab {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  align-self: flex-start;
+  margin: -11px 0 0 22px;
+  padding: 6px 14px 5px;
+  background: linear-gradient(180deg, #9a3c42 0, var(--tab) 100%);
+  color: var(--tab-ink);
+  border: 1px solid #5c1c22;
+  border-bottom: 0;
+  border-radius: 3px 10px 0 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  box-shadow: inset 0 1px 0 #f4c4b8;
+}
+
+.go-shell .tab-mark,
+.go-shell .tab-mark p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.go-shell .tab-sub,
+.go-shell .tab-sub p {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f4ead4;
+  opacity: 0.75;
+}
+
+.go-shell .folder-tab p,
+.go-shell .hits p,
+.go-shell .rod p {
+  display: contents;
+}
+
+.go-shell .folder-tab .tag-search {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+}
+
+.go-shell .folder-tab .tag-search input {
+  width: 16em;
+  max-width: 42vw;
+  padding: 3px 7px;
+  border: 1px solid #8a3030;
+  background: #f4ead4;
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.go-shell .folder-tab .tag-search button {
+  padding: 3px 8px;
+  border: 1px solid #5a1818;
+  background: #2a1010;
+  color: var(--tab-ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.go-shell .folder-open {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.go-shell .clips {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px 8px 14px 10px;
+  background: #5c1c22;
+  color: #f0d8cc;
+  border-right: 1px solid #2a0c10;
+  scrollbar-width: thin;
+}
+
+.go-shell .rod {
+  position: relative;
+  height: 5px;
+  min-height: 5px;
+  margin: 4px 6px 14px 0;
+  background: linear-gradient(180deg, #f0d78a 0%, var(--brass) 45%, var(--brass-lo) 100%);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 #fff6d8,
+    0 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.go-shell .rod::before,
+.go-shell .rod::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 30% 30%, #e6c36a, var(--brass-lo));
+  border-radius: 50%;
+  box-shadow: 0 1px 0 #00000044;
+}
+
+.go-shell .rod::before {
+  left: -3px;
+}
+
+.go-shell .rod::after {
+  right: -3px;
+}
+
+.go-shell .clips-mark,
+.go-shell .clips-mark p {
+  margin: 0 0 6px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e8c4b0;
+}
+
+.go-shell .root-up {
+  margin: 0 0 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #c4a090;
+}
+
+.go-shell .root-up a,
+.go-shell .root-up a:link,
+.go-shell .root-up a:visited {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-left: 0;
+  box-shadow: none;
+  color: var(--cite);
+  font-family: inherit;
+  font-size: inherit;
+  transform: none;
+}
+
+.go-shell .clips .dir.tree,
+.go-shell .clips .dir.dirtree,
+.go-shell .clips .dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .clips .dir.tree ul.dir,
+.go-shell .clips .dir.dirtree ul.dir {
+  padding: 1px 0 1px 10px;
+  margin: 0 0 2px;
+  border-left: 1px dotted #c4a15a66;
+}
+
+.go-shell .clips .dir.tree > li,
+.go-shell .clips .dir.dirtree > li,
+.go-shell .clips .dir > li {
+  margin: 0 0 2px;
+  position: relative;
+}
+
+.go-shell .clips .dir.dirtree li.is-dir > a .name::after {
+  content: "";
+}
+
+.go-shell .clips a {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 2px 4px 2px 6px;
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--clip);
+  color: #f4c4b0;
+  text-decoration: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  box-shadow: none;
+}
+
+.go-shell .clips details {
+  margin: 0;
+}
+
+.go-shell .clips summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+.go-shell .clips summary::-webkit-details-marker,
+.go-shell .clips summary::marker {
+  display: none;
+  content: "";
+}
+
+.go-shell .clips details > summary > a {
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.18);
+  border-left-color: var(--tab);
+  color: #f4ead4;
+}
+
+.go-shell .clips details > summary::before {
+  display: none;
+}
+
+.go-shell .clips a.on,
+.go-shell .clips a:hover,
+.go-shell .clips details > summary > a.on,
+.go-shell .clips details > summary > a:hover {
+  background: rgba(244, 196, 176, 0.12);
+  border-left-color: #f4ead4;
+  color: #fff6e8;
+}
+
+.go-shell .clips li.on:not(:has(li.on)) > details > summary > a,
+.go-shell .clips li.on:not(:has(li.on)) > a {
+  background: rgba(244, 196, 176, 0.14);
+  box-shadow: none;
+}
+
+.go-shell .clips li:not(.is-dir) > a {
+  padding: 2px 4px 2px 6px;
+  background: transparent;
+  border: 0;
+  border-left: 3px solid #c45c48;
+  border-radius: 0;
+  font-size: 11px;
+  transform: none;
+  box-shadow: none;
+  color: #f4ead4;
+}
+
+.go-shell .clips li:not(.is-dir):nth-child(2n) > a {
+  transform: none;
+  background: transparent;
+}
+
+.go-shell .clips li:not(.is-dir) > a:hover,
+.go-shell .clips li:not(.is-dir) > a.on {
+  transform: none;
+  background: rgba(244, 196, 176, 0.12);
+}
+
+.go-shell .legal {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px 22px;
+  background: var(--legal);
+  color: var(--ink);
+}
+
+.go-shell .legal::after {
+  display: none;
+}
+
+.go-shell .legal .card,
+.go-shell .legal .md,
+.go-shell .legal article,
+.go-shell .legal > p {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+}
+
+.go-shell .legal h1 {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.go-shell .legal h2,
+.go-shell .legal h3 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.go-shell .legal p {
+  margin: 0 0 0.7em;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.go-shell .legal a {
+  color: var(--cite);
+  border-bottom: 1px dotted var(--cite);
+}
+
+.go-shell .legal .md-gap {
+  height: 0.4em;
+}
+
+.go-shell .huntlook {
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.go-shell .huntlook-mark,
+.go-shell .huntlook-mark p {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .huntlook ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.go-shell .huntlook li {
+  margin: 0;
+}
+
+.go-shell .huntlook .hunt-slip,
+.go-shell .legal .hunt-slip,
+.go-shell .hunt-faces .hunt-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 8px 10px 10px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.16) 1.2em 1.28em
+    ),
+    #fffef6;
+  border: 1px solid #d4c4a0;
+  border-left: 0;
+  border-radius: 1px 0 2px 0;
+  box-shadow:
+    1px 2px 0 rgba(40, 16, 12, 0.12),
+    2px 4px 10px rgba(40, 10, 10, 0.12);
+  transform: rotate(-1.1deg);
+  color: #243056;
+}
+
+.go-shell .huntlook .hunt-slip-n2,
+.go-shell .legal .hunt-slip-n2,
+.go-shell .hunt-faces .hunt-slip-n2 {
+  transform: rotate(0.9deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.14) 1.2em 1.28em
+    ),
+    #fff9e8;
+}
+
+.go-shell .huntlook .hunt-slip-n3,
+.go-shell .legal .hunt-slip-n3,
+.go-shell .hunt-faces .hunt-slip-n3 {
+  transform: rotate(-0.35deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.14) 1.2em 1.28em
+    ),
+    #fffdf0;
+}
+
+.go-shell .huntlook .hunt-slip-title,
+.go-shell .legal .hunt-slip-title,
+.go-shell .hunt-faces .hunt-slip-title {
+  display: block;
+  color: #1c2848;
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.15;
+  border: 0;
+}
+
+.go-shell .huntlook .hunt-slip-title:hover,
+.go-shell .legal .hunt-slip-title:hover,
+.go-shell .hunt-faces .hunt-slip-title:hover {
+  color: var(--cite);
+}
+
+.go-shell .huntlook .hunt-slip-body,
+.go-shell .legal .hunt-slip-body,
+.go-shell .hunt-faces .hunt-slip-body {
+  margin: 0;
+  color: #2a3858;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.go-shell .huntlook .hunt-slip-meta,
+.go-shell .legal .hunt-slip-meta,
+.go-shell .hunt-faces .hunt-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 2px;
+}
+
+.go-shell .huntlook .hunt-when,
+.go-shell .huntlook .hunt-mind,
+.go-shell .huntlook .hit-from,
+.go-shell .huntlook .hit-when,
+.go-shell .huntlook .hit-mind,
+.go-shell .legal .hunt-when,
+.go-shell .legal .hunt-mind,
+.go-shell .legal .hit-from,
+.go-shell .hunt-faces .hunt-when,
+.go-shell .hunt-faces .hunt-mind,
+.go-shell .hunt-faces .hit-from {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--mute);
+}
+
+.go-shell .huntlook .hunt-mind,
+.go-shell .legal .hunt-mind,
+.go-shell .hunt-faces .hunt-mind {
+  font-style: italic;
+}
+
+.go-shell .huntlook.taglook-empty {
+  color: var(--mute);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  padding-left: 0;
+}
+
+.go-shell .legal .faces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5em, 1fr));
+  gap: 12px 14px;
+  margin: 12px 0 0;
+  align-items: start;
+}
+
+.go-shell .legal .faces .face,
+.go-shell .legal article.face {
+  margin: 0;
+  padding: 9px 11px 11px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.16) 1.2em 1.28em
+    ),
+    #fffef6;
+  border: 1px solid #d4c4a0;
+  border-left: 0;
+  box-shadow:
+    1px 2px 0 rgba(40, 16, 12, 0.12),
+    2px 4px 10px rgba(40, 10, 10, 0.12);
+  color: #243056;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.35;
+  transform: rotate(-1.15deg);
+}
+
+.go-shell .legal .faces .face:nth-child(3n) {
+  transform: rotate(1deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.14) 1.2em 1.28em
+    ),
+    #fff8e4;
+}
+
+.go-shell .legal .faces .face:nth-child(3n+2) {
+  transform: rotate(0.4deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(90, 130, 190, 0.14) 1.2em 1.28em
+    ),
+    #fffdf0;
+}
+
+.go-shell .legal .faces .face h1,
+.go-shell .legal .faces .face h2,
+.go-shell .legal > article.face h1,
+.go-shell .legal > article.face h2 {
+  margin: 0 0 2px;
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: #1c2848;
+}
+
+.go-shell .legal .faces .face p,
+.go-shell .legal > article.face p {
+  margin: 0 0 0.2em;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #2a3858;
+}
+
+.go-shell .legal .face-deck {
+  margin: 0;
+}
+
+.go-shell .legal .face-deck-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 6px;
+}
+
+.go-shell .lip {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 5px 12px 5px 12px;
+  background: #120808;
+  color: #c4a15a;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  border-top: 1px solid #5c1c22;
+}
+
+.go-shell .lip::before {
+  display: none;
+}
+
+.go-shell .lip p {
+  margin: 0;
+}
+
+
+.go-shell .legal .faces:has(> .hunt-faces) {
+  display: block;
+}
+
+.go-shell .legal .hunt-faces {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.go-shell .legal .hunt-slip-open {
+  margin: 0;
+}
+
+.go-shell .legal .hunt-slip-open .hunt-slip-title {
+  display: block;
+  margin: 0 0 2px;
+}
+
+/* Reference page face on blotter -- yellow index card */
+.go-shell .legal article.face.face-ref,
+.go-shell .legal > article.face.face-ref {
+  background:
+    linear-gradient(
+      180deg,
+      #fff7b8 0%,
+      #f2e888 100%
+    );
+  border: 1px solid #d4b250;
+  border-top: 3px solid #c45c48;
+  border-left: 1px solid #d4b250;
+  box-shadow:
+    1px 2px 0 rgba(80, 50, 10, 0.14),
+    2px 5px 14px rgba(40, 20, 8, 0.18);
+  color: #3a2c14;
+  transform: rotate(-0.6deg);
+}
+
+.go-shell .legal article.face.face-ref h1,
+.go-shell .legal article.face.face-ref h2,
+.go-shell .legal > article.face.face-ref h1,
+.go-shell .legal > article.face.face-ref h2 {
+  color: #2a2010;
+  font-family: "Caveat", "Segoe Script", cursive;
+}
+
+.go-shell .legal article.face.face-ref p,
+.go-shell .legal > article.face.face-ref p {
+  color: #382818;
+}

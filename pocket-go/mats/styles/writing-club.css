@@ -16,7 +16,7 @@
   --wood: #b08960;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   --rail: 176px;
   background:
     radial-gradient(ellipse at 18% 0%, rgba(255, 248, 230, 0.28), transparent 42%),
@@ -271,9 +271,9 @@ span.accent {
   box-shadow: 2px 2px 0 rgba(40, 24, 12, 0.14);
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .tagshelf {
   color: #5a4030;
@@ -379,7 +379,7 @@ span.accent {
 }
 
 .content pre,
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   font-family: "Patrick Hand", cursive;
   font-size: 1.1rem;
   background: rgba(246, 241, 222, 0.9);

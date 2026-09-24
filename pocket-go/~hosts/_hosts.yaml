@@ -1,38 +1,112 @@
-# optional. folders under ~hosts still become go.{name} with no line here.
+﻿# optional. folders under ~hosts still become go.{name} with no line here.
 #
 # alias a folder whose disk name is not the go.* name:
 # dir:
 #   folder: THE-DIR
 #   title: THE DIR
 #
+# connect an exterior markdown folder as roam.{slug}:
+# drop:
+#   kind: roam
+#   source: C:\Users\you\Desktop\roam-drop
+#   title: roam drop
+#
+# kind: go + source: is still a go door (a code bay whose files live elsewhere).
+#
+# bar: extra jump-bar words for this room (comma or space).
+# The folder name already works (type `codes`, `tags`, `detective`).
+# start, go, roam, and recent are built-in lobbies.
+#
 # title a room that already exists as ~hosts/terminal:
 # terminal:
 #   title: terminal
 
-danyi:
-  title: DANYI.COM
+# pin favorites to the top of {{doors}} (lower number = higher):
+# kmoire:
+#   pin: 1
 
-cc:
-  title: CC · Carl Core
+code.people:
+  title: People codes
+  bar: people
 
-glass:
-  title: glass · compost shards
+code.glass:
+  bar: codes.glass
 
-buddy:
-  title: buddy — companion desk
+code.event:
+  title: Event codes
+  bar: events
 
-agentK:
-  title: AGENT K — basement archive
+code.tags:
+  title: Tags
+  bar: tags
 
-works:
-  title: Works — books / songs / shows sat with
+librarian:
+  title: Librarian blotter
+  bar: librarian stacks
 
-trays:
-  title: trays — living lore punches
+ritual.mirrorbox:
+  show: false
+  bar: codes.glass
 
-bay:
-  title: bay — intake
+castaways:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\castaways\~hosts
+  title: The Castaways
+  pin: 1
+
+journal.now:
+
+book-of:
+  show: false
+
+vox:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\vv
+  title: "VOX: VERITY'S VOICE BAY"
+
+abl:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\abl
+  title: "ABL: aubel's atrium"
+  bar: aubel atrium
+
+sdk:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\sdk
+  title: "SDK: Strange Happenings / Sam+Kat"
+
+beau:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\beau
+  title: "BEAU: Betsoft day-job desk"
+
+carl:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\mr-carl
+  title: "CARL: mr. carl's house"
+  bar: mr.carl mr-carl
+
+grok:
+  kind: roam
+  source: C:\Users\theda\.grok\memory-v2\workspaces\alice-box-3117e696\topics
+  title: "GROK: this harness"
+  bar: grok
+
+bios-help:
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\~help
+  title: bios-help
 
 inbox:
-  title: inbox (→ trays / bay)
+  title: Morning Inbox
+  bar: inbox morning
+  pin: 2
 
+leawn.bench:
+  kind: roam
+  source: C:\ALICE_BOX\le-awn-industries\em-translation-bench\notes
+  title: LE AWN EM TRANSLATION BENCH NOTES
+
+news.gazette:
+  title: Lobby Gazette
+  bar: news.gazette gazette lobby

@@ -1,23 +1,31 @@
 ---
 crate: crate.8E251ECD8B982D5C
-title: MyPI Start
-environment: mypi-start
+title: PocketGO!
+environment: webring-start
 ---
 
-{{div:mypi-hero}}
+{{div:.mypi-hero}}
 
-{{.mypi-kicker}}imported.to
+{{.mypi-kicker}}a love letter for the one who called
 
-{{.mypi-wordmark}}MyPI
+{{.mypi-wordmark}}{{title}}
 
-{{.mypi-lede}}your pocket start — doors out, coats welcome. swap the environment to reskin.
+{{.mypi-lede}}a love letter
 
 {{/div}}
 
-{{div:mypi-doors}}
-
-{{.mypi-doors-label}}hosts
+{{div:.mypi-doors}}
+---
+{{.mypi-doors-label}}go hosts
 
 {{doors}}
 
+---
+{{.mypi-doors-label}}roam hosts
+
+{{doors:roam}}
 {{/div}}
+>
+---
+> > thank you for visiting.
+---

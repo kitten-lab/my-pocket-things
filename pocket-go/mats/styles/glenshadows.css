@@ -1,0 +1,461 @@
+/* glenshadows — 1996 WBS.net chat-hub energy */
+:root {
+  --leather: #121212;
+  --pebble: #1a1a1a;
+  --ink: #ffffff;
+  --mute: #c8c8c8;
+  --gold: #ffcc00;
+  --gold-hot: #ffe566;
+  --blood: #9b0000;
+  --blood-deep: #6e0000;
+  --blood-hot: #c41010;
+  --link-red: #ff3333;
+  --online: #ff5522;
+  --rail-w: clamp(14rem, 18vw, 22rem);
+}
+
+.go-shell {
+  background-color: var(--leather);
+  background-image:
+    url("/i/glenshadows/pebble.png"),
+    radial-gradient(ellipse at 30% 20%, rgba(60,60,60,0.35), transparent 55%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.55), transparent 50%),
+    repeating-radial-gradient(circle at 12px 8px, #222 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(0,0,0,0.18) 3px 4px);
+  background-size: 64px 64px, auto, auto, 14px 14px, auto;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .headers,
+.go-shell .uses {
+  display: none;
+}
+
+.go-shell .wbs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, min(22%, 22rem));
+  min-height: calc(100vh - 5.5rem);
+  width: 100%;
+}
+
+.go-shell .stage {
+  padding: 0.75rem 1rem 1.25rem 1.1rem;
+  min-width: 0;
+}
+
+.go-shell .welcome {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.35rem 0.85rem;
+  margin: 0 0 0.85rem;
+}
+
+.go-shell .welcome-line {
+  width: 100%;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.go-shell .logo {
+  margin: 0;
+  font-family: "Comic Sans MS", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #fff;
+  text-shadow:
+    3px 3px 0 #000,
+    0 0 2px #000;
+  letter-spacing: -0.02em;
+}
+
+.go-shell .tagline {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  max-width: 9rem;
+}
+
+.go-shell .newuser {
+  margin-left: auto;
+  align-self: center;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid #666;
+  background: linear-gradient(180deg, #3a3a3a, #1a1a1a);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.go-shell .hubs {
+  margin: 0 0 1rem;
+}
+
+.go-shell .hubs-head {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* hub list = dir listing as two-col gold links with red W bullets */
+.go-shell .hubs ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 1.5rem;
+  max-width: min(48rem, 100%);
+}
+
+.go-shell .hubs ul.dir li {
+  margin: 0;
+}
+
+.go-shell .hubs ul.dir a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--gold) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.go-shell .hubs ul.dir a:hover {
+  color: var(--gold-hot) !important;
+}
+
+.go-shell .hubs ul.dir a::before {
+  content: "w";
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #ff6666, var(--blood-hot) 45%, var(--blood-deep) 100%);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.05rem;
+  text-align: center;
+  box-shadow: 1px 1px 0 #400, inset 0 1px 0 rgba(255,255,255,0.35);
+  text-transform: lowercase;
+}
+
+.go-shell .hubs ul.dir a .name {
+  color: inherit;
+}
+
+.go-shell .hubs ul.dir a.on {
+  color: var(--gold-hot) !important;
+  outline: 1px dotted var(--gold);
+}
+
+.go-shell .content {
+  background: transparent;
+  border: 0;
+  padding: 0.25rem 0 0.75rem;
+  color: #eee;
+  max-width: min(72rem, 100%);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.go-shell .content h1,
+.go-shell .content h2,
+.go-shell .content h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.go-shell .content p {
+  color: #ddd;
+}
+
+.go-shell .content a:link { color: var(--gold); }
+.go-shell .content a:visited,
+.go-shell .content a.been { color: #cc9900; }
+
+.go-shell .content hr {
+  border: 0;
+  border-top: 1px solid #444;
+}
+
+.go-shell .foot {
+  margin-top: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.go-shell .foot-links {
+  color: var(--link-red);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.go-shell .copy {
+  margin-top: 0.35rem;
+  color: #bbb;
+  font-size: 0.68rem;
+}
+
+/* RIGHT red rail — WBS sidebar */
+.go-shell .rail {
+  background: linear-gradient(180deg, var(--blood) 0%, var(--blood-deep) 100%);
+  border-left: 2px solid #400;
+  padding: 0.65rem 0.55rem 1rem;
+  color: #fff;
+  box-shadow: inset 2px 0 0 rgba(255,255,255,0.08);
+}
+
+.go-shell .rail-mic {
+  width: 4.2rem;
+  height: 4.2rem;
+  margin: 0.2rem auto 0.75rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 45%, #333 0 18%, transparent 19%),
+    conic-gradient(from 200deg, #ffcc00, #fff, #ffcc00, #aa8800, #ffcc00),
+    radial-gradient(circle at 50% 50%, #222, #000);
+  background-size: auto, 70% 70%, auto;
+  background-position: center, center, center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 0 2px #500, 2px 2px 0 #200;
+  position: relative;
+}
+
+.go-shell .rail-mic::after {
+  content: "GS";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.go-shell .rail-nav ul.dir,
+.go-shell .rail-nav ul.files,
+.go-shell .rail-nav .worlds {
+  list-style: none;
+  margin: 0 0 0.55rem;
+  padding: 0;
+}
+
+.go-shell .rail-nav a,
+.go-shell .rail-nav a.world {
+  display: block;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-decoration: none;
+  padding: 0.28rem 0.2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  text-shadow: 1px 1px 0 #400;
+}
+
+.go-shell .rail-nav a:hover {
+  background: rgba(0,0,0,0.2);
+  color: var(--gold) !important;
+}
+
+.go-shell .rail-nav a.on {
+  color: var(--gold) !important;
+  background: rgba(0,0,0,0.28);
+}
+
+.go-shell .rail-nav a::before {
+  content: "★ ";
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+.go-shell .root-up {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.go-shell .root-up a.crumbback {
+  color: #fff !important;
+}
+
+.go-shell .online {
+  margin-top: 1.1rem;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--online);
+  text-shadow: 1px 1px 0 #300;
+  line-height: 1.15;
+}
+
+@media (max-width: 680px) {
+  .go-shell .wbs {
+    grid-template-columns: 1fr;
+  }
+  .go-shell .rail {
+    border-left: 0;
+    border-top: 3px solid #400;
+    order: 2;
+  }
+  .go-shell .hubs ul.dir {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* markdown wraps dress-div text in <p> — keep chrome tight */
+.go-shell .welcome-line p,
+.go-shell .logo p,
+.go-shell .tagline p,
+.go-shell .newuser p,
+.go-shell .hubs-head p,
+.go-shell .foot-links p,
+.go-shell .copy p,
+.go-shell .online p,
+.go-shell .root-up p {
+  margin: 0;
+}
+
+.go-shell .logo p {
+  font-family: "Comic Sans MS", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #fff;
+  text-shadow: 3px 3px 0 #000, 0 0 2px #000;
+  letter-spacing: -0.02em;
+}
+
+.go-shell .welcome-line p {
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.go-shell .tagline p {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.go-shell .hubs-head p {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.go-shell .online p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--online);
+  text-shadow: 1px 1px 0 #300;
+}
+
+/* paper hub list on lobby (wiki links) */
+.go-shell .content ul,
+.go-shell .content ul.bullets {
+  list-style: none;
+  margin: 0.4rem 0 0.9rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 1.5rem;
+  max-width: min(48rem, 100%);
+}
+.go-shell .content ul li a,
+.go-shell .content ul.bullets li a {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--gold) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #000;
+}
+.go-shell .content ul li a::before,
+.go-shell .content ul.bullets li a::before {
+  content: "w";
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff6666, var(--blood-hot) 45%, var(--blood-deep) 100%);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.05rem;
+  text-align: center;
+  box-shadow: 1px 1px 0 #400, inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.go-shell .hubs .worlds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 1.5rem;
+  max-width: min(48rem, 100%);
+}
+.go-shell .hubs a.world {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--gold) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #000;
+  padding: 0;
+}
+.go-shell .hubs a.world::before {
+  content: "w";
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff6666, var(--blood-hot) 45%, var(--blood-deep) 100%);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.05rem;
+  text-align: center;
+  box-shadow: 1px 1px 0 #400, inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.go-shell .hubs a.world .door-deck,
+.go-shell .hubs a.world .note-details {
+  display: none;
+}
+.go-shell .hubs a.world strong {
+  font-weight: 700;
+  color: inherit;
+}

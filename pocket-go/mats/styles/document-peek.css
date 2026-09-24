@@ -1,0 +1,7 @@
+/* coat: document-peek — minted by BIOS */
+
+.go-shell {
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: small;
+}

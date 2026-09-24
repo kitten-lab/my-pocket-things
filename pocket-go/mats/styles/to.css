@@ -1,0 +1,546 @@
+/* BE.IMPORTED.TO — mid-90s GeoCities / hideous startup lobby.
+   Netscape gray, grooved Win95 buttons, Yahoo red mast, half-baked ads.
+   Nested lots (industry / university / chesters) keep their own coats. */
+
+:root {
+  --bg: #c0c0c0;
+  --paper: #c0c0c0;
+  --ink: #000000;
+  --mute: #404040;
+  --line: #808080;
+  --accent: #0000ee;
+  --visited: #551a8b;
+  --active: #ff0000;
+}
+
+@keyframes be-blink {
+  50% {
+    visibility: hidden;
+  }
+}
+
+@keyframes be-marquee {
+  0% {
+    transform: translateX(40%);
+  }
+  100% {
+    transform: translateX(-60%);
+  }
+}
+
+.go-shell {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: center;
+  background-color: #c0c0c0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 8px,
+    rgba(255, 255, 255, 0.18) 8px,
+    rgba(255, 255, 255, 0.18) 9px
+  );
+}
+
+.go-shell > #browserWindow {
+  padding: 0 0 2.4rem;
+  box-sizing: border-box;
+}
+
+.go-shell a:link {
+  color: #0000ee;
+}
+
+.go-shell a:visited {
+  color: #551a8b;
+}
+
+.go-shell a:active {
+  color: #ff0000;
+}
+
+.go-shell .crumb {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  color: #000080;
+  text-align: left;
+  padding: 0.35rem 0.6rem;
+  background: #e0e0e0;
+  border-bottom: 2px groove #808080;
+}
+
+/* Yahoo-ish stretched mast */
+.go-shell .site-logo {
+  margin: 0;
+  padding: 0.45rem 0.4rem 0.5rem;
+  background: #ff0000;
+  color: #ffff00;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.65rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 3px solid #000080;
+  text-shadow: 2px 2px 0 #800000;
+}
+
+.go-shell .site-logo a.home,
+.go-shell .site-logo a.home:link,
+.go-shell .site-logo a.home:visited,
+.go-shell .site-logo a.home:hover {
+  color: #ffff00;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 #800000;
+}
+
+.go-shell .be-face .site-logo {
+  letter-spacing: 0.48em;
+  font-size: 1.85rem;
+}
+
+.go-shell .site-title {
+  margin: 0.35rem 0 0.85rem;
+  padding: 0.15rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.28em;
+  color: #000080;
+  background: #ffffcc;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #808080;
+}
+
+.go-shell .be-face .site-title::before {
+  content: "NEW!";
+  display: inline-block;
+  margin-right: 0.55em;
+  padding: 0 0.28em;
+  background: #ff0000;
+  color: #ffff00;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  animation: be-blink 1.1s step-end infinite;
+}
+
+.go-shell .be-face .site-title {
+  animation: be-marquee 16s linear infinite;
+}
+
+.go-shell .row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.1em;
+  max-width: 52rem;
+  margin: 0.6rem auto 0.4rem;
+  padding: 0 0.6rem;
+  text-align: left;
+}
+
+.go-shell .column {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+/* Bought slot: Chester's Toys (Echo Wolf) from go.mausoleum. */
+.go-shell .banner-slot {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 3px inset #808080;
+  background: #000;
+  color: #ffff00;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.go-shell .banner-slot a.pic-zoom {
+  display: block;
+  pointer-events: none;
+}
+
+.go-shell .banner-slot img.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.go-shell .banner-slot a.wiki {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  overflow: hidden;
+  text-indent: -9999px;
+  color: transparent;
+}
+
+.go-shell .banner-slot::after {
+  content: "ADVERTISTMENT · $9.95/MO · YOUR AD HERE";
+  display: block;
+  padding: 0.15em 0.3em;
+  background: #ffff00;
+  color: #000;
+  font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.go-shell ul.be-buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .column:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Win95 grooved directory chrome — now real doors. */
+.go-shell .button,
+.go-shell li.button,
+.go-shell a.button {
+  display: block;
+  box-sizing: border-box;
+  width: 210px;
+  margin: 8px auto;
+  padding: 0;
+  background: #000080;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  border: 4px outset #c0c0c0;
+  list-style: none;
+}
+
+.go-shell .button p,
+.go-shell .button .md-gap {
+  margin: 0;
+  height: auto;
+}
+
+.go-shell .button a.wiki,
+.go-shell a.button {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.go-shell .button a.wiki:hover,
+.go-shell a.button:hover {
+  color: #ffff00 !important;
+}
+
+.go-shell a.button:active,
+.go-shell div.button:active,
+.go-shell .button:has(a:active) {
+  border-style: inset;
+}
+
+/* Actual neighborhood doors — same grooved language, these go somewhere. */
+.go-shell .worlds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  width: auto;
+  margin: 1.1rem 0.5rem 0.4rem;
+  padding: 0.85rem 0.4rem 0.2rem;
+  border-top: 8px solid;
+  border-image: linear-gradient(
+      90deg,
+      #ff0000,
+      #ff9900,
+      #ffff00,
+      #009900,
+      #0000ff,
+      #9900ff
+    )
+    1;
+  background: #d0d0d0;
+}
+
+.go-shell .worlds::before {
+  content: "★ NEIGHBORHOODS ★  a lot is not a homepage until you click it";
+  flex: 1 1 100%;
+  margin: 0 0 0.65rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: #000080;
+  text-align: center;
+}
+
+.go-shell a.world,
+.go-shell .worlds a.world,
+.go-shell a.world:link,
+.go-shell a.world:visited,
+.go-shell a.world.been {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 210px;
+  max-width: 210px;
+  min-height: 4.4rem;
+  margin: 8px;
+  padding: 0.45rem 0.5rem 0.4rem;
+  box-sizing: border-box;
+  background: #000080;
+  color: #ffffff !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none !important;
+  border: 4px outset #c0c0c0;
+  box-shadow: none;
+}
+
+.go-shell a.world::before,
+.go-shell .worlds a.world::before,
+.go-shell a.world::after,
+.go-shell .worlds a.world::after {
+  content: none !important;
+  display: none !important;
+}
+
+.go-shell a.world strong {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.go-shell a.world .door-deck {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 10px;
+  font-weight: normal;
+  letter-spacing: 0;
+  color: #ccccff;
+  text-transform: lowercase;
+}
+
+.go-shell a.world .note-details {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 10px;
+  font-weight: normal;
+  color: #ffff00;
+}
+
+.go-shell a.world .note-details::after {
+  content: " lots";
+}
+
+.go-shell a.world:hover,
+.go-shell .worlds a.world:hover {
+  background: #0000aa;
+  color: #ffff00 !important;
+}
+
+.go-shell a.world:hover strong {
+  color: #ffff00;
+}
+
+.go-shell a.world:active {
+  border-style: inset;
+}
+
+.go-shell a.world.on {
+  border-style: inset;
+  background: #000060;
+}
+
+.go-shell .worlds.is-chips,
+.go-shell .worlds.is-chips .door-section-doors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip,
+.go-shell a.world.door-chip {
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  margin: 4px;
+  padding: 0.2rem 0.55rem;
+  font-size: 11px;
+}
+
+.go-shell #browserWindow::after {
+  content: "© 1996 BE.IMPORTED.TO, Inc.  ·  Best viewed with Netscape Navigator 3.0 at 800×600  ·  You are visitor 0001482";
+  display: block;
+  margin: 1.4rem 0.6rem 0;
+  padding: 0.45rem 0.4rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11px;
+  color: #000080;
+  background: #e8e8e8;
+  border: 2px inset #808080;
+}
+
+.go-shell .door-section-head,
+.go-shell h2.door-section-head {
+  flex: 1 1 100%;
+  margin: 0.4rem 0 0.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #800000;
+  border-bottom: 2px solid #800000;
+}
+
+.go-shell .be-paper {
+  margin: 0.15rem 0 0.2rem;
+}
+
+.go-shell .be-lobby {
+  max-width: 38em;
+  margin: 0.55rem auto 0.35rem;
+  padding: 0.55rem 0.9rem;
+  background: #ffffcc;
+  border: 2px inset #808080;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000080;
+}
+
+.go-shell .be-lots {
+  margin: 0;
+}
+.go-shell .be-page {
+  max-width: 40em;
+  margin: 1rem auto 0.4rem;
+  padding: 0.85rem 1.1rem 1rem;
+  text-align: left;
+  background: #f8f8f8;
+  border: 3px inset #808080;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+.go-shell .be-page .be-kicker,
+.go-shell .be-kicker {
+  margin: 0 0 0.45rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #800000;
+}
+
+.go-shell .be-page h1 {
+  margin: 0 0 0.55rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.45rem;
+  color: #000080;
+}
+
+.go-shell .be-page h2 {
+  margin: 1rem 0 0.35rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  color: #000080;
+  border-bottom: 1px solid #000080;
+}
+
+.go-shell .be-page p,
+.go-shell .be-page li {
+  text-align: left;
+}
+
+.go-shell .be-page ol,
+.go-shell .be-page ul {
+  margin: 0.3rem 0 0.7rem 1.3rem;
+}
+
+.go-shell .be-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.4rem 0 0.8rem;
+  font-size: 13px;
+}
+
+.go-shell .be-page th,
+.go-shell .be-page td {
+  border: 1px solid #808080;
+  padding: 0.25rem 0.4rem;
+  text-align: left;
+}
+
+.go-shell .be-page th {
+  background: #000080;
+  color: #ffff00;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+.go-shell .be-new {
+  display: inline-block;
+  margin-right: 0.35em;
+  padding: 0 0.25em;
+  background: #ff0000;
+  color: #ffff00;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  animation: be-blink 1.1s step-end infinite;
+}
+
+.go-shell .be-back {
+  margin-top: 1.1rem;
+  padding-top: 0.45rem;
+  border-top: 2px groove #808080;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.go-shell .be-back a.home,
+.go-shell .be-page a.home {
+  font-weight: bold;
+}
+
+@media (max-width: 40rem) {
+  .go-shell .row {
+    flex-direction: column;
+  }
+
+  .go-shell .be-face .site-logo {
+    letter-spacing: 0.16em;
+    font-size: 1.2rem;
+  }
+
+  .go-shell .be-face .site-title {
+    animation: none;
+    white-space: normal;
+  }
+}

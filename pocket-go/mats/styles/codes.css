@@ -1,0 +1,1022 @@
+/* coat: codes — ABC directory of chip addresses
+   slate bureau · brass-wire tree of hanging stamps
+   groups OT / NT / ONT, then trunk T, branch B, leaf L
+   html rem is postage — type and gutters in em/px
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #3a5a6e;
+  --accent: #3a5a6e;
+  --slate: #3d4a56;
+  --slate-hi: #536270;
+  --slate-lo: #2a333c;
+  --slate-deep: #1c242c;
+  --brass: #c4a056;
+  --brass-hi: #d4b46a;
+  --brass-lo: #8a7038;
+  --card: #f3eee4;
+  --card-hi: #f8f4ec;
+  --card-lo: #e8e0d2;
+  --ink: #1e242c;
+  --mute: #5a6670;
+  --line: #c8c0b4;
+  --cite: #b85a28;
+  --paper: var(--card);
+  --visited: #4a5a78;
+  --rail: clamp(12rem, 18vw, 18.5rem);
+}
+
+.go-shell {
+  --font-type: var(--font-mono), "IBM Plex Mono", "Courier New", Courier, monospace;
+  --font-plain: var(--font-sans-cond), "IBM Plex Sans Condensed", sans-serif;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 55% 30% at 88% 0%, rgba(196, 160, 86, 0.14), transparent 62%),
+    linear-gradient(180deg, #4a5864 0%, var(--slate) 42%, var(--slate-lo) 100%);
+  color: var(--ink);
+  font-family: var(--font-plain);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .crumb {
+  display: none !important;
+}
+.go-shell .uses {
+  display: none !important;
+}
+.go-shell .card .uses {
+  display: block !important;
+}
+.go-shell .root-up .crumb,
+.go-shell .root-up .crumbback {
+  display: inline !important;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
+  font-family: var(--font-type);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.go-shell a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.go-shell a:hover {
+  color: var(--cite);
+}
+
+.go-shell .bureau {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.go-shell .spread {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  gap: 0;
+}
+
+.go-shell .rail {
+  position: sticky;
+  top: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.6em 0.55em 1.1em 0.6em;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 26%),
+    radial-gradient(ellipse 90% 36% at 8% 0%, rgba(196, 160, 86, 0.1), transparent 58%),
+    linear-gradient(180deg, var(--slate-hi) 0%, var(--slate) 48%, var(--slate-lo) 100%);
+  border-right: 3px solid var(--slate-deep);
+  box-shadow: inset -8px 0 14px rgba(0, 0, 0, 0.18);
+  font-family: var(--font-type);
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.go-shell .bureau-mark {
+  margin: 0 0 0.45em;
+  padding: 0.38em 0.4em 0.32em;
+  background: linear-gradient(180deg, var(--brass-hi) 0%, var(--brass) 100%);
+  border: 1px solid var(--brass-lo);
+  box-shadow:
+    0 0 0 1px rgba(255, 236, 190, 0.28) inset,
+    1px 2px 0 rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+.go-shell .bureau-mark,
+.go-shell .bureau-mark p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-type);
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--slate-deep);
+}
+.go-shell .bureau-mark-sub,
+.go-shell .bureau-mark-sub p {
+  margin: 0.1em 0 0;
+  font-family: var(--font-plain);
+  font-size: 0.52em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--slate-lo);
+}
+
+.go-shell .stack-mark,
+.go-shell .stack-mark p {
+  margin: 0 0 0.35em;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.52em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--brass-hi) 70%, #d8e0e8);
+}
+
+.go-shell .root-up,
+.go-shell .root-up p {
+  margin: 0 0 0.3em;
+  font-size: 0.7em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.go-shell .root-up a {
+  color: #d8e0e8;
+}
+.go-shell .root-up a:hover {
+  color: var(--brass-hi);
+}
+
+.go-shell .here-line {
+  margin: 0.15em 0 0.45em;
+}
+.go-shell span.here {
+  display: inline-block;
+  font-size: 0.58em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-deep);
+  border: 1px solid var(--brass-lo);
+  padding: 0.08em 0.32em;
+  background: var(--brass);
+}
+
+.go-shell .rail ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+}
+.go-shell .rail ul.dir li {
+  margin: 0;
+  padding: 0;
+}
+.go-shell .rail ul.dir a,
+.go-shell .rail ul.dir a:link,
+.go-shell .rail ul.dir a:visited,
+.go-shell .rail ul.dir a.been {
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  color: #e6ebe8;
+  text-decoration: none;
+  padding: 0.18em 0.32em 0.16em;
+  font-family: var(--font-type);
+  font-size: 0.74em;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.go-shell .rail ul.dir a:hover {
+  color: var(--slate-deep);
+  background: var(--brass-hi);
+}
+.go-shell .rail ul.dir a.on {
+  background: var(--card);
+  color: var(--ink);
+}
+.go-shell .rail ul.dir .name {
+  font-family: inherit;
+}
+
+/* brass-wire tree: hanging stamps, not stacked drawers */
+.go-shell .rail ul.dir.tree {
+  position: relative;
+  margin: 0.1em 0 0 0.2em;
+  padding: 0.05em 0 0.2em 0.55em;
+  gap: 0.04em;
+  border-left: 2px solid color-mix(in srgb, var(--brass) 58%, var(--slate-deep));
+}
+.go-shell .rail ul.dir.tree > li {
+  position: relative;
+}
+.go-shell .rail ul.dir.tree > li::before {
+  content: "";
+  position: absolute;
+  left: -0.55em;
+  top: 0.78em;
+  width: 0.48em;
+  height: 2px;
+  background: color-mix(in srgb, var(--brass) 70%, transparent);
+}
+.go-shell .rail ul.dir.tree ul.dir {
+  position: relative;
+  margin: 0.02em 0 0.2em 0.42em;
+  padding: 0 0 0.08em 0.58em;
+  border-left: 1px solid color-mix(in srgb, var(--brass) 36%, transparent);
+  gap: 0;
+}
+.go-shell .rail ul.dir.tree:has(> li.on) {
+  border-left-color: color-mix(in srgb, var(--brass-hi) 78%, var(--slate-deep));
+}
+.go-shell .rail ul.dir.tree ul.dir:has(> li.on) {
+  border-left-color: color-mix(in srgb, var(--brass-hi) 62%, transparent);
+}
+.go-shell .rail ul.dir.tree ul.dir > li {
+  position: relative;
+}
+.go-shell .rail ul.dir.tree ul.dir > li::before {
+  content: "";
+  position: absolute;
+  left: -0.58em;
+  top: 0.72em;
+  width: 0.52em;
+  height: 1px;
+  background: color-mix(in srgb, var(--brass) 40%, transparent);
+}
+.go-shell .rail ul.dir.tree details {
+  margin: 0;
+}
+.go-shell .rail ul.dir.tree summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.12em;
+}
+.go-shell .rail ul.dir.tree summary::-webkit-details-marker,
+.go-shell .rail ul.dir.tree summary::marker {
+  display: none;
+  content: "";
+}
+.go-shell .rail ul.dir.tree summary::before {
+  content: "";
+  flex: 0 0 0.42em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.26em 0 0.26em 0.4em;
+  border-color: transparent transparent transparent var(--brass-hi);
+  transform-origin: 35% 50%;
+  transition: transform 0.12s ease;
+}
+.go-shell .rail ul.dir.tree details[open] > summary::before {
+  transform: rotate(90deg);
+}
+.go-shell .rail ul.dir.tree summary a,
+.go-shell .rail ul.dir.tree summary a:link,
+.go-shell .rail ul.dir.tree summary a:visited {
+  flex: 1;
+  min-width: 0;
+}
+.go-shell .rail ul.dir.tree > li > details > summary a,
+.go-shell .rail ul.dir.tree > li > a {
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass-hi);
+}
+.go-shell .rail ul.dir.tree a.is-dir {
+  font-weight: 700;
+  color: #f0e6cc;
+}
+.go-shell .rail ul.dir.tree li:not(.is-dir) > a {
+  color: #c8d0d4;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.go-shell .rail ul.dir.tree li:not(.is-dir) > a .name::before {
+  content: "";
+  display: inline-block;
+  width: 0.32em;
+  height: 0.32em;
+  margin-right: 0.32em;
+  background: var(--cite);
+  transform: rotate(45deg);
+  vertical-align: 0.08em;
+}
+.go-shell .rail ul.dir.tree a:hover,
+.go-shell .rail ul.dir.tree summary a:hover {
+  color: var(--slate-deep);
+  background: var(--brass-hi);
+}
+.go-shell .rail ul.dir.tree li.on::before,
+.go-shell .rail ul.dir.tree ul.dir > li.on::before {
+  background: color-mix(in srgb, var(--brass-hi) 88%, transparent);
+}
+.go-shell .rail ul.dir.tree li.on > details > summary a,
+.go-shell .rail ul.dir.tree li.on > a {
+  color: #f7efdc;
+  background: color-mix(in srgb, var(--brass) 15%, transparent);
+  box-shadow: none;
+}
+.go-shell .rail ul.dir.tree li.on:not(:has(li.on)) > details > summary a,
+.go-shell .rail ul.dir.tree li.on:not(:has(li.on)) > a {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.22);
+}
+.go-shell .rail ul.dir.tree li.on > details > summary a:hover,
+.go-shell .rail ul.dir.tree li.on > a:hover {
+  color: var(--slate-deep);
+  background: var(--brass-hi);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .go-shell .rail ul.dir.tree summary::before {
+    transition: none;
+  }
+}
+
+.go-shell .content {
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.9em 1.15em 1.4em;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(196, 160, 86, 0.12), transparent 46%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 47px,
+      rgba(28, 36, 44, 0.05) 47px 48px
+    ),
+    #e8e4dc;
+}
+
+.go-shell .rail:hover,
+.go-shell .content:hover {
+  scrollbar-color: color-mix(in srgb, var(--brass) 50%, transparent) transparent;
+}
+.go-shell .rail::-webkit-scrollbar,
+.go-shell .content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell .rail::-webkit-scrollbar-thumb,
+.go-shell .content::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+}
+.go-shell .rail:hover::-webkit-scrollbar-thumb,
+.go-shell .content:hover::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--brass) 50%, transparent);
+}
+.go-shell .rail::-webkit-scrollbar-button,
+.go-shell .content::-webkit-scrollbar-button {
+  display: none;
+}
+
+.go-shell .card {
+  position: relative;
+  margin: 0 0 0.9em;
+  padding: 1em 1.15em 1.1em 1.25em;
+  background:
+    linear-gradient(180deg, var(--card-hi) 0%, var(--card) 60%, var(--card-lo) 100%);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.45) inset,
+    3px 5px 0 rgba(28, 36, 44, 0.12),
+    0 10px 18px rgba(28, 36, 44, 0.1);
+}
+.go-shell .card h1 {
+  display: inline-block;
+  margin: 0 0 0.65em;
+  padding: 0.12em 0.45em 0.1em;
+  font-size: 0.92em;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--slate-deep);
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  border: 1px solid var(--brass-lo);
+  box-shadow:
+    0 0 0 1px rgba(255, 236, 190, 0.28) inset,
+    1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+.go-shell .card p {
+  margin: 0 0 0.7em;
+  color: var(--ink);
+}
+.go-shell .card .compost-msg {
+  margin: 0.15em 0 0.85em;
+  white-space: pre-wrap;
+  color: var(--ink);
+  max-height: 28em;
+  overflow: auto;
+}
+.go-shell .card em,
+.go-shell .card i {
+  color: var(--mute);
+}
+
+.go-shell .chipcode,
+.go-shell a.chipcode,
+.go-shell a.chipcode:link,
+.go-shell a.chipcode:visited,
+.go-shell a.chipcode.been {
+  display: inline;
+  white-space: nowrap;
+  font-family: var(--font-type);
+  font-size: 0.92em;
+  letter-spacing: 0.02em;
+  color: var(--slate-deep);
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  border: 1px solid var(--brass-lo);
+  padding: 0.02em 0.4em 0.06em;
+  text-decoration: none;
+  font-weight: 600;
+}
+.go-shell a.chipcode:hover,
+.go-shell a.chipcode.been:hover {
+  color: #8a3a18;
+  text-decoration: none;
+  background: var(--brass-hi);
+}
+
+.go-shell a.cite,
+.go-shell a.cite:link,
+.go-shell a.cite:visited,
+.go-shell a.cite.been {
+  font-family: var(--font-type);
+  color: var(--cite);
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, var(--cite) 55%, transparent);
+}
+.go-shell a.cite:hover {
+  color: #8a3a18;
+  border-bottom-style: solid;
+}
+
+.go-shell a.tag,
+.go-shell a.tag:link,
+.go-shell a.tag:visited,
+.go-shell a.tag.been {
+  display: inline-block;
+  font-family: var(--font-type);
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--slate-deep);
+  background: color-mix(in srgb, var(--brass) 22%, var(--card));
+  border: 1px solid var(--brass-lo);
+  padding: 0.04em 0.4em 0.08em;
+  text-decoration: none;
+}
+.go-shell a.tag.been,
+.go-shell a.tag:visited {
+  background: color-mix(in srgb, var(--brass) 10%, var(--card-lo));
+  color: var(--slate-lo);
+}
+.go-shell a.tag:hover,
+.go-shell a.tag.been:hover,
+.go-shell a.tag:visited:hover {
+  background: var(--brass-hi);
+  color: var(--slate-deep);
+  text-decoration: none;
+}
+.go-shell .card p:has(> a.tag) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28em;
+  align-items: center;
+  margin: 0.55em 0 0.1em;
+}
+
+.go-shell .look-wrap {
+  margin: 0.2em 0 0;
+  padding: 0.7em 0.85em 0.85em;
+  background: rgba(255, 252, 246, 0.72);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.go-shell .look-head,
+.go-shell .look-head p {
+  margin: 0 0 0.45em;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .codelook {
+  margin: 0;
+}
+.go-shell .codelook-head {
+  margin: 0 0 0.4em;
+  font-family: var(--font-type);
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+  color: var(--cite);
+}
+.go-shell .codelook ul.dir,
+.go-shell .codelook ul.hits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28em;
+}
+.go-shell .codelook li {
+  margin: 0;
+}
+.go-shell .codelook a {
+  font-family: var(--font-plain);
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px dotted var(--line);
+}
+.go-shell .codelook a:hover {
+  color: var(--cite);
+  border-bottom-color: var(--cite);
+}
+.go-shell .codelook .hit-path {
+  display: block;
+  margin-top: 0.08em;
+  font-family: var(--font-type);
+  font-size: 0.68em;
+  color: var(--mute);
+}
+
+.go-shell .codelook.is-loading {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--font-type);
+  font-size: 0.82em;
+  color: var(--mute);
+}
+.go-shell .codelook-spin {
+  width: 0.65em;
+  height: 0.65em;
+  border: 1.5px solid var(--line, #c8c0b4);
+  border-top-color: var(--cite, #8a5a32);
+  border-radius: 50%;
+  animation: codelook-spin 0.7s linear infinite;
+}
+.go-shell .codelook-wait {
+  letter-spacing: 0.02em;
+}
+
+
+.go-shell .card .uses {
+  margin: 0.65em 0 0;
+  padding: 0.45em 0 0;
+  border-top: 1px solid var(--line);
+}
+.go-shell .card .uses > summary {
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  cursor: pointer;
+  width: max-content;
+}
+.go-shell .card .uses h2 {
+  margin: 0.45em 0 0.3em;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .card .uses ul.dir,
+.go-shell .card .uses ul.hits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28em;
+}
+.go-shell .card .uses li {
+  margin: 0;
+  padding: 0;
+}
+.go-shell .card .uses a {
+  font-family: var(--font-plain);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--line);
+}
+.go-shell .card .uses a:hover {
+  color: var(--cite);
+  border-bottom-color: var(--cite);
+}
+.go-shell .card .uses .hit-path {
+  display: block;
+  margin-top: 0.08em;
+  font-family: var(--font-type);
+  font-size: 0.68em;
+  color: var(--mute);
+}
+.go-shell .compostlook {
+  display: flex;
+  flex-direction: column;
+  margin: 0.15em 0 0;
+}
+.go-shell .compostlook-head {
+  order: 0;
+  margin: 0 0 0.35em;
+  font-family: var(--font-plain);
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .compost-when {
+  order: 1;
+  margin: 0 0 0.15em;
+  font-family: var(--font-type);
+  font-size: 0.82em;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+}
+.go-shell .compost-intensity {
+  order: 3;
+}
+.go-shell .compost-title {
+  order: 2;
+  margin: 0 0 0.4em;
+  font-family: var(--font-plain);
+  font-size: 1.45em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.go-shell .compost-tags {
+  order: 6;
+}
+.go-shell .compost-tags.yard {
+  order: 5;
+}
+.go-shell .compost-shot {
+  order: 4;
+}
+.go-shell .compost-shift {
+  order: 6;
+}
+.go-shell .compost-note {
+  order: 7;
+}
+.go-shell .compost-hand {
+  order: 8;
+}
+.go-shell .compost-kids {
+  order: 9;
+}
+.go-shell .compost-msg {
+  padding: 10px;
+  font-family: mono;
+  margin: 0.65em 0;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.go-shell .compost-msg::before {
+ content: "ra txt";
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+} 
+
+.go-shell .compost-intensity,
+.go-shell .compost-kids .kid-intensity {
+  margin: 0 0 0.2em;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .compost-kids .kid-intensity {
+  display: inline-block;
+  margin: 0 0 0 0.45em;
+}
+.go-shell .compost-shot,
+.go-shell .compost-kids .kid-shot {
+  margin: 0 0 0.45em;
+  color: var(--ink);
+  white-space: pre-wrap;
+}
+.go-shell .compost-kids .kid-shot {
+  display: block;
+  margin-top: 0.2em;
+  font-size: 0.95em;
+}
+.go-shell .compost-shift {
+  margin: 0 0 0.45em;
+  font-size: 0.92em;
+  font-style: italic;
+  color: var(--mute);
+  white-space: pre-wrap;
+}
+.go-shell .compost-hand,
+.go-shell .compost-kids .kid-hand {
+  margin: 0 0 0.45em;
+  font-size: 0.88em;
+  color: var(--mute);
+  white-space: pre-wrap;
+}
+.go-shell .compost-kids .kid-hand {
+  display: block;
+  margin-top: 0.2em;
+}
+.go-shell .compost-tags {
+  margin: 0 0 0.85em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28em;
+  align-items: center;
+  padding: 0.42em 0.5em 0.4em;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--slate) 10%, var(--card-lo)) 0%, var(--card-lo) 100%);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+.go-shell .compost-tags::before {
+  content: "tray";
+  flex: 0 0 auto;
+  margin-right: 0.35em;
+  font-family: var(--font-plain);
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .compost-tags.yard a.tag {
+  background: transparent;
+  border-style: dotted;
+  font-weight: 500;
+  color: var(--mute);
+}
+.go-shell .compost-tags.yard a.tag:hover {
+  background: var(--brass-hi);
+  color: var(--slate-deep);
+  border-style: solid;
+}
+.go-shell .compost-kids {
+  list-style: none;
+  margin: 0.35em 0 0;
+  padding: 0.7em 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 0.5em;
+  border-top: 1px solid var(--line);
+}
+.go-shell .compost-kids::before {
+  content: "trunks";
+  grid-column: 1 / -1;
+  margin: 0 0 0.15em;
+  font-family: var(--font-plain);
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .compost-kids li {
+  margin: 0;
+  padding: 0.5em 0.6em 0.55em;
+  background: var(--card-hi);
+  border: 1px solid var(--line);
+  box-shadow: 1px 2px 0 rgba(28, 36, 44, 0.08);
+}
+.go-shell .compost-kids .kid-lab,
+.go-shell .compost-kids a.kid-lab,
+.go-shell .compost-kids a.kid-lab:link,
+.go-shell .compost-kids a.kid-lab:visited {
+  display: block;
+  font-family: var(--font-type);
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--slate-deep);
+  text-decoration: none;
+  border: 0;
+}
+.go-shell .compost-kids a.kid-lab:hover {
+  color: var(--cite);
+}
+.go-shell .compost-kids .kid-shot,
+.go-shell .compost-kids .kid-note,
+.go-shell .compost-kids .kid-hand {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-top: 0.28em;
+  font-size: 0.82em;
+  line-height: 1.4;
+  color: var(--mute);
+  white-space: normal;
+}
+.go-shell .compost-kids .kid-hand {
+  -webkit-line-clamp: 2;
+  font-style: italic;
+}
+.go-shell .taglook-empty,
+.go-shell .codelook.taglook-empty,
+.go-shell .compostlook.taglook-empty {
+  margin: 0;
+  font-family: var(--font-type);
+  font-size: 0.82em;
+  color: var(--mute);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.go-shell .dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  border-top: 3px solid var(--slate-deep);
+  background:
+    linear-gradient(180deg, var(--slate-hi) 0%, var(--slate) 50%, var(--slate-lo) 100%);
+  box-shadow:
+    0 -6px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(196, 160, 86, 0.22);
+}
+.go-shell .dock-inner {
+  display: grid;
+  grid-template-columns: auto 1fr minmax(12rem, 28rem);
+  gap: 0.55em 1em;
+  align-items: center;
+  padding: 0.5em 0.85em 0.55em;
+}
+.go-shell .plate,
+.go-shell .plate p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-type);
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--brass-hi);
+  text-shadow: 0 1px 0 var(--slate-deep);
+}
+.go-shell .hand,
+.go-shell .hand p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c8d0d8;
+}
+.go-shell .scanner {
+  justify-self: end;
+  width: 100%;
+  max-width: 28rem;
+}
+.go-shell .scanner > p {
+  margin: 0;
+}
+
+.go-shell .tag-search {
+  display: flex;
+  gap: 0.35em;
+  align-items: stretch;
+}
+.go-shell .tag-search input {
+  flex: 1;
+  min-width: 0;
+  background: var(--card-hi);
+  border: 1px solid var(--slate-deep);
+  border-bottom-color: var(--brass);
+  color: var(--ink);
+  padding: 0.38em 0.55em;
+  font-family: var(--font-type);
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+}
+.go-shell .tag-search input::placeholder {
+  color: var(--mute);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 0.72em;
+}
+.go-shell .tag-search input:focus {
+  outline: none;
+  border-color: var(--brass);
+  box-shadow: 0 0 0 2px rgba(196, 160, 86, 0.28);
+}
+.go-shell .tag-search button {
+  background: var(--brass);
+  color: var(--slate-deep);
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.4em 0.75em;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+}
+.go-shell .tag-search button:hover {
+  background: var(--brass-hi);
+}
+
+@media (max-width: 720px) {
+  .go-shell .spread {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .go-shell .rail {
+    height: auto;
+    max-height: 9.5rem;
+    border-right: 0;
+    border-bottom: 3px solid var(--slate-deep);
+  }
+  .go-shell .dock-inner {
+    grid-template-columns: 1fr;
+  }
+  .go-shell .scanner {
+    justify-self: stretch;
+    max-width: none;
+  }
+}

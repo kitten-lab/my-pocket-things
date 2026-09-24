@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Syne:wght@600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 /* Island — surround / isolate / shore.
    Water holds the room. The page is the dry patch you reopen.
@@ -23,7 +24,7 @@
   --stamp: #e8c878;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 50% 108%, rgba(200, 228, 224, 0.14), transparent 42%),
     radial-gradient(ellipse at 8% 18%, rgba(232, 200, 120, 0.1), transparent 36%),
@@ -104,23 +105,30 @@
 .plate {
   position: relative;
   margin: 0;
-  font-family: Syne, "Arial Narrow", sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.35rem, 4.2vw, 1.95rem);
+  font-family: Anton, sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.55rem, 4.2vw, 2.22rem);
+  color: var(--horizon);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--plate);
-  text-shadow: 0 0 22px rgba(14, 122, 114, 0.35);
+  text-shadow: 1px 1px 2px rgba(4, 27, 36, 0.35);
+}
+
+.plate::after {
+  content: "APP.EL CON-SIDER.ED";
+  font-size: xx-small;
+  color: var(--foam);
 }
 
 .hand {
   position: relative;
   margin: 0;
-  font-family: Literata, Georgia, serif;
-  font-style: italic;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.88rem;
   color: #b8d4d0;
   opacity: 0.9;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(232, 200, 120, 0)
 }
 
 .mast .crumb {
@@ -255,16 +263,16 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .doors,
-.wwwExplorer_innerShell .door-grid {
+.go-shell .doors,
+.go-shell .door-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   gap: 0.55rem;
   margin: 0.6rem 0 1rem;
 }
 
-.wwwExplorer_innerShell .doors a,
-.wwwExplorer_innerShell .door {
+.go-shell .doors a,
+.go-shell .door {
   background: linear-gradient(180deg, #e8f4f0 0%, #d4e8e4 100%);
   border: 1px solid var(--line);
   border-left: 4px solid var(--accent);
@@ -275,8 +283,8 @@
   letter-spacing: 0.03em;
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   display: none;
 }
 
@@ -353,8 +361,8 @@
       0 0 0 13px rgba(19, 72, 88, 0.18),
       0 12px 24px rgba(0, 0, 0, 0.35);
   }
-  .wwwExplorer_innerShell .doors,
-  .wwwExplorer_innerShell .door-grid {
+  .go-shell .doors,
+  .go-shell .door-grid {
     grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
   }
 }

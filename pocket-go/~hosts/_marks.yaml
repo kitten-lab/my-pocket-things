@@ -1,0 +1,33 @@
+# Mark registry. YAML mark: on a page paints a floating stamp
+# when the word is here (or a builtin cabinet name).
+# Unknown words stay quiet. ink: teal, rose, brass, dim, ok, violet
+#
+# Cabinets ship even with no file. This file adds or overrides.
+
+librarian:
+  label: LIBRARIAN
+  ink: teal
+  also: lib, library
+
+detective:
+  label: DETECTIVE
+  ink: rose
+  also: hunt, agent, det
+
+charlie:
+  label: CHARLIE
+  ink: brass
+  also: cha
+
+tps:
+  label: TPS
+  ink: dim
+
+cards:
+  label: CARDS
+  ink: violet
+  also: lore
+
+# draft:
+#   label: DRAFT
+#   ink: brass

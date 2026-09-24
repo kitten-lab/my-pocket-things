@@ -4,6 +4,19 @@
 **/__pycache__/
 *.py[cod]
 *.log
+*.log.err
 desk-server.log
 Thumbs.db
 .DS_Store
+
+# Grok/Cursor copies. Git is the backup.
+*.bak
+*.bak-*
+*.broken-*
+*truncated-wreck*
+prod/www_sys/_*.py
+prod/www_sys/_*.js
+prod/www_sys/_*.txt
+prod/www_sys/_*.html
+prod/www_sys/_parse_tmp/
+prod/*debris*.zip

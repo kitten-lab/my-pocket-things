@@ -14,7 +14,7 @@
   --desk: #202e22;
 }
 
-.wwwExplorer_innerShell {
+.go-shell  {
   background:
     radial-gradient(ellipse at 50% 0%, rgba(90, 72, 48, 0.45), transparent 52%),
     repeating-linear-gradient(
@@ -32,7 +32,8 @@
   scrollbar-color: var(--line) var(--desk);
 }
 
-#browserWindow {
+
+.go-paper {
   box-sizing: border-box;
   max-width: 50rem;
   width: calc(100% - 2.4rem);
@@ -54,9 +55,10 @@
   box-shadow:
     0 0 0 1px #c8b898,
     8px 10px 0 rgba(0, 0, 0, 0.28);
+  border: solid 16px var(--visited);
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", "Courier New", monospace;
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -64,9 +66,9 @@
   padding: 0 0 0.85rem;
 }
 
-.wwwExplorer_innerShell h1,
-.wwwExplorer_innerShell h2,
-.wwwExplorer_innerShell h3 {
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
   font-family: Literata, Georgia, serif;
   font-weight: 200;
   letter-spacing: 0.02em;
@@ -75,20 +77,20 @@
   padding: 0;
 }
 
-.wwwExplorer_innerShell h1 {
+.go-shell h1 {
   font-size: 1.8rem;
   line-height: 1.2;
   font-style: italic;
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell h2 {
+.go-shell h2 {
   font-size: 1.4rem;
   line-height: 1.2;
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell .consideration {
+.go-shell .consideration {
   font-family: "IBM Plex Mono", "Courier New", monospace;
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -103,7 +105,7 @@
   color: rgba(139, 0, 0, 0.589);
 }
 
-.wwwExplorer_innerShell p {
+.go-shell p {
   margin: 0 0 0.35rem;
   line-height: 1.8;
   color: var(--mute);
@@ -112,23 +114,23 @@
   margin-bottom: 1rem;
 }
 
-.wwwExplorer_innerShell p:last-child {
+.go-shell p:last-child {
   margin-bottom: 0;
 }
 
-.wwwExplorer_innerShell p strong {
+.go-shell p strong {
   font-weight: 600;
   font-size: 1.08em;
   font-style: normal;
 }
 
-.wwwExplorer_innerShell p em {
+.go-shell p em {
   font-style: normal;
   font-size: 1.08em;
 }
 
 
-.wwwExplorer_innerShell blockquote {
+.go-shell blockquote {
   margin: 0.35rem 0 0.7rem 0.35rem;
   padding: 0.5rem 1rem;
   font-family: "IBM Plex Mono", "Courier New", monospace;
@@ -136,27 +138,27 @@
   letter-spacing: 0.06em;
 }
 
-.wwwExplorer_innerShell .chips {
+.go-shell .chips {
   max-width: none;
   margin: 0 0 1rem;
 }
 
-.wwwExplorer_innerShell .chip {
+.go-shell .chip {
   background: #efe4cc;
   border-color: #d4c4a4;
   font-family: "IBM Plex Mono", "Courier New", monospace;
 }
 
-.wwwExplorer_innerShell .chip-label {
+.go-shell .chip-label {
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .chip-value {
+.go-shell .chip-value {
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   margin-top: 2rem;
   padding-top: 0.5rem;
   border-top: 1px dotted #c4b090;
@@ -165,8 +167,22 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   height: 0.5px;
   border: none;
   background: var(--line);
+}
+
+.go-shell .mast, .mast h1 {
+  text-align:center;
+  color: var(--paper);
+  font-size: 3rem;
+}
+
+a.world {
+  border: none;
+  background: linear-gradient(-45deg, var(--paper), var(--line));
+  width: 250px;
+  display: inline-block;
+  margin: 10px;
 }

@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap");
+
+/* eden — iris TTY. becoming-simulator, not poetry chapbook. */
+:root {
+  --void: #0a0612;
+  --panel: #120818;
+  --ink: #d8c8ff;
+  --bright: #f0e6ff;
+  --mute: #7a68a0;
+  --iris: #9a6cff;
+  --hot: #e848ff;
+  --blood: #ff3a6e;
+  --line: #3a2458;
+  --scan: linear-gradient(rgba(0, 0, 0, 0.45) 2px, transparent 1px);
+  --scan-size: 100% 3px;
+  --glass: "Share Tech Mono", "VT323", Consolas, monospace;
+  --arcade: "VT323", "Share Tech Mono", monospace;
+}
+
+.go-shell {
+  background-color: var(--void);
+  background-image: var(--scan);
+  background-size: var(--scan-size);
+  box-shadow: inset 0 0 40vh rgba(0, 0, 0, 0.7);
+  color: var(--ink);
+  font-family: var(--glass);
+  font-size: 19px;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.go-shell > .mast,
+#browserWindow > .mast,
+p.mast {
+  display: none !important;
+}
+
+#browserWindow {
+  flex: 1;
+  min-height: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  max-width: none;
+}
+
+.orchard {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: calc(100vh - 7.5rem);
+  max-height: calc(100vh - 7.5rem);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.spine {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 0.1rem;
+  font-family: var(--arcade);
+  font-size: 1.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--void);
+  background: var(--iris);
+  background-image: var(--scan);
+  background-size: var(--scan-size);
+  border-right: 2px solid var(--hot);
+  text-shadow: none;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spine p { margin: 0; }
+
+.grove {
+  display: grid;
+  /* wider file rail — room for long names */
+  grid-template-columns: minmax(13.5rem, 18vw) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.roots {
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0.75rem 0.55rem 1rem 0.65rem;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.roots .root-up,
+.roots .root-up p {
+  margin: 0 0 0.75rem;
+  font-family: var(--arcade);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hot);
+}
+
+.roots .root-up a,
+.roots .root-up a:link {
+  color: var(--hot) !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 72, 255, 0.45);
+}
+
+.roots ul.dir,
+.roots ul.files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roots ul.dir a,
+.roots ul.files a,
+.roots ul.dir a:link,
+.roots ul.files a:link {
+  display: block;
+  padding: 0.4rem 0.35rem;
+  color: var(--ink) !important;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  border-bottom: 1px solid rgba(58, 36, 88, 0.8);
+}
+
+.roots ul.dir a .name,
+.roots ul.files a .name {
+  font-family: var(--glass);
+  font-size: 0.92rem;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  /* allow long names without blowing layout */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+.roots ul.dir a:hover,
+.roots ul.files a:hover {
+  color: var(--bright) !important;
+  background: rgba(154, 108, 255, 0.12);
+  border-left-color: var(--iris);
+}
+
+.roots ul.dir a.on,
+.roots ul.files a.on,
+.roots ul.dir a.on:link,
+.roots ul.files a.on:visited {
+  color: var(--void) !important;
+  background: var(--iris);
+  border-left-color: var(--blood);
+  text-shadow: none;
+}
+
+.roots ul.dir a.on .name,
+.roots ul.files a.on .name {
+  color: var(--void) !important;
+}
+
+.roots ul.dir a:not([href*=".md"])::before {
+  content: "> ";
+  color: var(--mute);
+}
+
+.roots ul.dir a.on:not([href*=".md"])::before {
+  color: var(--void);
+}
+
+.content {
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 1rem 1.25rem 1.75rem;
+  box-sizing: border-box;
+  /* use the width — not a skinny poetry column */
+  max-width: none;
+}
+
+.content > * {
+  max-width: min(52rem, 96%);
+}
+
+.content h1 {
+  margin: 0 0 0.35rem;
+  font-family: var(--arcade);
+  font-weight: 400;
+  font-size: 2.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bright);
+  text-shadow: 0 0 14px rgba(154, 108, 255, 0.45);
+  border: 0;
+  padding: 0;
+}
+
+.content h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 12rem;
+  height: 2px;
+  margin: 0.55rem 0 1rem;
+  background: linear-gradient(90deg, var(--blood), var(--iris), transparent);
+}
+
+.content h2 {
+  margin: 1.35rem 0 0.5rem;
+  font-family: var(--arcade);
+  font-size: 1.35rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hot);
+  border: 0;
+}
+
+.content p {
+  margin: 0 0 1.05rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.content a.wiki,
+.content a:link {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 72, 255, 0.4);
+}
+
+.content a:visited { color: var(--mute); }
+
+.content blockquote {
+  margin: 1rem 0 1.2rem;
+  padding: 0.35rem 0 0.35rem 0.85rem;
+  border-left: 3px solid var(--blood);
+  color: var(--mute);
+  font-style: normal;
+}
+
+.content strong { color: var(--bright); }
+.content em { color: #ffb0d0; font-style: normal; }
+
+button.eden-climb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.8rem;
+  font-family: var(--arcade);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bright);
+  background: transparent;
+  border: 1px solid var(--iris);
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(154, 108, 255, 0.2);
+}
+
+button.eden-climb::before {
+  content: "<>";
+  color: var(--blood);
+  font-size: 0.95rem;
+}
+
+button.eden-climb:hover,
+button.eden-climb:focus {
+  background: rgba(154, 108, 255, 0.18);
+  outline: none;
+}
+
+button.eden-climb.on {
+  background: var(--iris);
+  color: var(--void);
+  border-color: var(--blood);
+}
+
+button.eden-climb.on::before {
+  content: "<<";
+  color: var(--void);
+}
+
+.content.is-ascent {
+  animation: eden-rise 0.28s ease;
+}
+
+@keyframes eden-rise {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* only stack on truly small panes — not a half-narrowed desktop */
+@media (max-width: 560px) {
+  .orchard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .spine {
+    writing-mode: horizontal-tb;
+    transform: none;
+    height: auto;
+    padding: 0.4rem 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: flex-start;
+  }
+  .grove {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .roots {
+    height: auto;
+    max-height: 9rem;
+  }
+}

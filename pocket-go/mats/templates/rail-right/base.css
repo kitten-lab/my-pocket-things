@@ -1,0 +1,168 @@
+@import url("/styles/fonts.css");
+
+:root {
+  --bg: #f4f1ea;
+  --paper: #fffcf7;
+  --ink: #1a1a1a;
+  --mute: #5c5c5c;
+  --line: #d5d0c6;
+  --accent: #3d5a4a;
+  --side: #efebe3;
+  --visited: #5a4a6e;
+  --chip-bg: #efebe3;
+  --chip-ink: #1a1a1a;
+  --chip-line: #d5d0c6;
+  --chip-accent: #3d5a4a;
+  --tree-line: #c8c2b6;
+  --link: #3d5a4a;
+  --font: var(--font-sans, system-ui, sans-serif);
+  --font-head: var(--font-display, system-ui, sans-serif);
+  --font-mono: var(--font-mono, ui-monospace, monospace);
+  --font-size: 15px;
+  --font-size-sm: 0.82em;
+  --font-size-lg: 1.35em;
+  --font-size-xl: 1.7em;
+  --line-height: 1.45;
+  --weight-body: 400;
+  --weight-head: 650;
+  --weight-strong: 650;
+  --tracking-head: 0.02em;
+  --pad: 0.75em;
+  --gap: 0.5em;
+  --side-w: 12em;
+  --max: 46em;
+  --tree-indent: 0.95em;
+  --radius-chip: 0.25em;
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--weight-body);
+  line-height: var(--line-height);
+}
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+.go-shell .pg-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.go-shell .pg-head,
+.go-shell .pg-foot {
+  flex: 0 0 auto;
+  padding: 0.45em var(--pad);
+  border-bottom: 1px solid var(--line);
+  background: var(--side);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+}
+.go-shell .pg-foot {
+  border-bottom: 0;
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+  font-weight: var(--weight-body);
+  letter-spacing: 0;
+}
+.go-shell .pg-head a,
+.go-shell .pg-home,
+.go-shell .pg-head a:link {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: var(--weight-head);
+}
+.go-shell .pg-navbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.75em;
+  padding: 0.35em var(--pad);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+}
+.go-shell .pg-navbar a { color: var(--link); text-decoration: none; }
+.go-shell .pg-navbar a:hover { text-decoration: underline; }
+.go-shell .pg-navbar a.on { font-weight: var(--weight-strong); color: var(--ink); }
+.go-shell .pg-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--paper);
+  box-sizing: border-box;
+}
+.go-shell .pg-blank {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--paper);
+  box-sizing: border-box;
+}
+.go-shell .pg-mid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.go-shell .pg-side {
+  flex: 0 0 var(--side-w);
+  width: var(--side-w);
+  min-width: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--side);
+  border-right: 1px solid var(--line);
+  box-sizing: border-box;
+}
+.go-shell .pg-rail-right .pg-side {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+.go-shell .pg-rail .pg-side .pg-navbar {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border-bottom: 0;
+  padding: 0;
+  gap: 0.35em;
+}
+.go-shell .pg-rail .pg-body { flex: 1 1 auto; }
+.go-shell .pg-stack > .pg-navbar { flex-direction: row; }
+
+/* rail-right — light touch (same weight as blank) */
+.go-shell .pg-blank.pg-frame { background: var(--paper); }
+.go-shell .pg-blank p {
+  max-width: var(--max);
+  font-family: var(--font);
+  line-height: var(--line-height);
+}
+.go-shell a:link { color: var(--link); }
+.go-shell a:visited, .go-shell a.been { color: var(--visited); }
+
+/* rail-right — light pack this pass; full pack stays on rail-left */

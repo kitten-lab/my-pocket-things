@@ -1,29 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Special+Elite&display=swap");
 
-/* trays — traveler card-home coat (lore punches that stay) */
+/* trays — card-home coat; mouths share cabinet booth + cream slip */
 :root {
-  --bg: #b8c4b0;
-  --paper: #f4f0e4;
-  --ink: #1e2a22;
-  --mute: #5a6a5c;
-  --line: #9aab98;
-  --accent: #2d6a4f;
-  --visited: #5a3a58;
-  --active: #8a3a28;
-  --rule: rgba(45, 106, 79, 0.22);
-  --strip: #2d6a4f;
-  --card-strip: #c45c4a;
+  --booth: #2a3f3d;
+  --booth-hi: #3a5450;
+  --bg: var(--booth);
+  --paper: #f6e2c8;
+  --ink: #24160e;
+  --mute: #8a9a8c;
+  --card-mute: #6a4a38;
+  --line: #6a7a6c;
+  --accent: #2f6b4a;
+  --visited: #a87898;
+  --active: #c45c4a;
+  --rule: rgba(47, 107, 74, 0.35);
+  --strip: #2f6b4a;
+  --card-strip: #2f6b4a;
   --margin: var(--card-strip);
-  --stamp: #3a4a78;
-  --blotter: #b8c4b0;
-  --rail: #dfe8d8;
+  --stamp: #b4202a;
+  --blotter: var(--booth);
+  --rail: #f6e2c8;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
-    radial-gradient(ellipse at 18% -4%, rgba(255, 250, 235, 0.35), transparent 46%),
-    radial-gradient(ellipse at 92% 8%, rgba(45, 106, 79, 0.12), transparent 40%),
-    linear-gradient(180deg, #c8d2c0 0%, var(--blotter) 44%, #9eae98 100%);
+    radial-gradient(ellipse at 18% -4%, rgba(246, 226, 200, 0.12), transparent 46%),
+    radial-gradient(ellipse at 92% 8%, rgba(47, 107, 74, 0.22), transparent 40%),
+    linear-gradient(180deg, var(--booth-hi) 0%, var(--booth) 48%, #1e302e 100%);
   color: var(--ink);
   font-family: Literata, Georgia, serif;
   font-size: 16px;
@@ -35,7 +38,7 @@
   margin: 0;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -43,392 +46,335 @@
   padding: 0.35rem 0.4rem 0.2rem;
 }
 
-.wwwExplorer_innerShell .mast {
+.go-shell .mast {
   font-family: "Special Elite", "Courier New", monospace;
   font-size: 1.55rem;
   letter-spacing: 0.12em;
-  color: #243028;
+  color: #e8f0e8;
   margin: 0.35rem 0.2rem 0.85rem;
   padding: 0;
 }
 
-.wwwExplorer_innerShell h1,
-.wwwExplorer_innerShell h2,
-.wwwExplorer_innerShell h3 {
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
   font-family: "Special Elite", "Courier New", monospace;
   font-weight: 400;
   letter-spacing: 0.02em;
+  color: #e8f0e8;
+}
+
+.go-shell .content {
+  color: #e8f0e8;
+}
+
+.go-shell .content .lorecard,
+.go-shell .faces .lorecard {
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
-
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
-  display: none;
+/* cream cards keep dark ink even when the booth paints light headings */
+html[data-pocket^="go.trays"] .go-shell .lorecard h1,
+html[data-pocket^="go.trays"] .go-shell .lorecard h2,
+html[data-pocket^="go.trays"] .go-shell .lorecard h3,
+html[data-pocket^="go.trays"] .go-shell .lorecard p,
+html[data-pocket^="go.trays"] .go-shell .lorecard .line,
+html[data-pocket^="go.trays"] .go-shell .faces .lorecard h1,
+html[data-pocket^="go.trays"] .go-shell .faces .lorecard h2,
+html[data-pocket^="go.trays"] .go-shell .faces .lorecard h3 {
+  color: var(--ink);
+  text-shadow: none;
 }
 
-.wwwExplorer_innerShell .doors a,
-.wwwExplorer_innerShell .door {
-  background: var(--rail);
-  border: 1px solid var(--line);
-  box-shadow: 1px 2px 0 rgba(30, 42, 34, 0.08);
-}
-
-
-/* mouth landings — faces on the trays blotter */
-/* each mouth tints the shared traveler coat */
-html[data-pocket^="go.trays/agent"] {
-  --accent: #a83c38;
-  --strip: #a83c38;
-  --card-strip: #a83c38;
-  --active: #a83c38;
-  --rule: rgba(168, 60, 56, 0.22);
-  --blotter: #c4b0a8;
-}
-html[data-pocket^="go.trays/agent"] .wwwExplorer_innerShell {
-  background:
-    radial-gradient(ellipse at 18% -4%, rgba(255, 245, 240, 0.38), transparent 46%),
-    radial-gradient(ellipse at 92% 8%, rgba(168, 60, 56, 0.14), transparent 40%),
-    linear-gradient(180deg, #d2c0b8 0%, var(--blotter) 44%, #ae968e 100%);
-}
-html[data-pocket^="go.trays/agent"] .wwwExplorer_innerShell .mast {
-  color: #3a2422;
-}
-
-html[data-pocket^="go.trays/charlie"] {
-  --accent: #6a3a58;
-  --strip: #6a3a58;
-  --card-strip: #6a3a58;
-  --active: #6a3a58;
-  --visited: #4a2840;
-  --rule: rgba(106, 58, 88, 0.22);
-  --blotter: #b8b0c0;
-}
-html[data-pocket^="go.trays/charlie"] .wwwExplorer_innerShell {
-  background:
-    radial-gradient(ellipse at 18% -4%, rgba(250, 245, 255, 0.38), transparent 46%),
-    radial-gradient(ellipse at 92% 8%, rgba(106, 58, 88, 0.14), transparent 40%),
-    linear-gradient(180deg, #c8c0d2 0%, var(--blotter) 44%, #9e96ae 100%);
-}
-html[data-pocket^="go.trays/charlie"] .wwwExplorer_innerShell .mast {
-  color: #2e2434;
-}
-
-html[data-pocket^="go.trays/librarian"] {
-  --accent: #2d6a4f;
-  --strip: #2d6a4f;
-  --card-strip: #2d6a4f;
-  --active: #8a3a28;
-  --rule: rgba(45, 106, 79, 0.22);
-}
-/* librarian keeps the default trays green blotter */
-
-html[data-pocket^="go.trays/tps"] {
-  --accent: #8a5a20;
-  --strip: #8a5a20;
-  --card-strip: #8a5a20;
-  --active: #8a5a20;
-  --rule: rgba(138, 90, 32, 0.22);
-  --blotter: #c4b8a0;
-}
-html[data-pocket^="go.trays/tps"] .wwwExplorer_innerShell {
-  background:
-    radial-gradient(ellipse at 18% -4%, rgba(255, 250, 235, 0.4), transparent 46%),
-    radial-gradient(ellipse at 92% 8%, rgba(138, 90, 32, 0.14), transparent 40%),
-    linear-gradient(180deg, #d2c8b0 0%, var(--blotter) 44%, #ae9e82 100%);
-}
-html[data-pocket^="go.trays/tps"] .wwwExplorer_innerShell .mast {
-  color: #3a3220;
-}
-
-/* printed card faces live on mouth landings — keep chrome with trays coat */
-/* the card itself — 3×5-ish index card */
-.lorecard {
-  position: relative;
-  box-sizing: border-box;
-  width: min(22.5rem, 100%);
-  min-height: 13.8rem;
-  margin: 1.4rem auto 2rem;
-  padding: 1.05rem 1.15rem 1.85rem 1.2rem;
-  background: var(--paper);
-  box-shadow:
-    1px 1px 0 #d4cbb4,
-    3px 4px 8px rgba(40, 30, 10, 0.16),
-    0 0 0 1px #c4b898;
-  border-radius: 1px 2px 3px 1px;
-}
-
-.lorecard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 0.38rem;
-  background: var(--card-strip, var(--margin));
-}
-
-.lorecard::after {
-  content: "";
-  position: absolute;
-  bottom: 0.48rem;
-  left: 50%;
-  width: 0.72rem;
-  height: 0.72rem;
-  margin-left: -0.36rem;
-  border-radius: 50%;
-  background: var(--blotter);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.22);
-}
-
-.lorecard > :first-child {
-  margin-top: 0.15rem;
-}
-
-.lorecard p {
-  margin: 0;
-  padding: 0 0 0.12rem;
-  white-space: normal;
-  line-height: 1.4;
-}
-
-.lorecard p:empty {
-  display: none;
-}
-
-.lorecard .kicker {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+html[data-pocket^="go.trays"] .go-shell .lorecard .kicker,
+html[data-pocket^="go.trays"] .go-shell .faces .lorecard .kicker {
   color: var(--card-strip, var(--margin));
 }
 
-.lorecard .made,
-.lorecard .house {
-  position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--mute);
+html[data-pocket^="go.trays"] .go-shell .lorecard .made,
+html[data-pocket^="go.trays"] .go-shell .lorecard .house,
+html[data-pocket^="go.trays"] .go-shell .lorecard .from,
+html[data-pocket^="go.trays"] .go-shell .lorecard .cite,
+html[data-pocket^="go.trays"] .go-shell .lorecard .foot,
+html[data-pocket^="go.trays"] .go-shell .lorecard .id,
+html[data-pocket^="go.trays"] .go-shell .lorecard .lore-edge {
+  color: #6a4a38;
 }
 
-.lorecard h1 {
-  margin: 0.15rem 0 0.35rem;
-  padding: 0;
-  font-size: 1.28rem;
-  line-height: 1.52rem;
+
+html[data-pocket^="go.trays"] .go-shell .face-deck-label {
+  color: #c8e0d0;
+  border-bottom-color: color-mix(in srgb, var(--card-strip, #7dba8e) 45%, transparent);
 }
 
-.lorecard .line {
+html[data-pocket^="go.trays"] .go-shell .content > p {
+  color: #c8d8cc;
+}
+
+html[data-pocket^="go.trays/agent"] .go-shell .content > p {
+  color: #e0c0b8;
+}
+
+html[data-pocket^="go.trays/charlie"] .go-shell .content > p {
+  color: #d4b868;
+}
+
+html[data-pocket^="go.trays/charlie"] .go-shell .face-deck-label {
+  color: #ffc14a;
+}
+
+html[data-pocket^="go.trays/tps"] .go-shell .content > p {
+  color: #d0d2c4;
+}
+
+html[data-pocket^="go.trays/tps"] .go-shell .face-deck-label {
+  color: #d8dac8;
+}
+
+.go-shell a:link { color: #7dba8e; }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
+
+.go-shell .headers,
+.go-shell .uses {
+  display: none;
+}
+
+.go-shell .doors a,
+.go-shell .door {
+  background: var(--rail);
+  border: 1px solid color-mix(in srgb, var(--booth) 35%, #8a4a38);
+  color: var(--ink);
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.28);
+}
+
+
+/* mouth landings — same booth as the matching cabinet */
+html[data-pocket^="go.trays/librarian"] {
+  --booth: #2a3f3d;
+  --booth-hi: #3a5450;
+  --paper: #f6e2c8;
+  --accent: #2f6b4a;
+  --strip: #2f6b4a;
+  --card-strip: #2f6b4a;
+  --active: #c45c4a;
+  --rule: rgba(47, 107, 74, 0.35);
+  --rail: #f6e2c8;
+  --blotter: #2a3f3d;
+}
+
+html[data-pocket^="go.trays/agent"] {
+  --booth: #140808;
+  --booth-hi: #1e0c0c;
+  --paper: #f3e6c4;
+  --ink: #1a0c0c;
+  --mute: #c08078;
+  --accent: #c4202a;
+  --strip: #c4202a;
+  --card-strip: #c4202a;
+  --active: #ff3a32;
+  --visited: #e07068;
+  --rule: rgba(196, 32, 42, 0.35);
+  --rail: #f3e6c4;
+  --blotter: #140808;
+  --stamp: #e01820;
+}
+html[data-pocket^="go.trays/agent"] .go-shell {
+  background:
+    repeating-linear-gradient(0deg, rgba(80, 0, 0, 0.18) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 70% -10%, rgba(220, 20, 30, 0.28), transparent 48%),
+    linear-gradient(180deg, #2a1010 0%, var(--booth) 48%, #0c0404 100%);
+}
+html[data-pocket^="go.trays/agent"] .go-shell .mast,
+html[data-pocket^="go.trays/agent"] .go-shell h1,
+html[data-pocket^="go.trays/agent"] .go-shell h2,
+html[data-pocket^="go.trays/agent"] .go-shell h3,
+html[data-pocket^="go.trays/agent"] .go-shell .content {
+  color: #f8ece8;
+}
+html[data-pocket^="go.trays/agent"] .go-shell a:link { color: #ff6a5c; }
+
+html[data-pocket^="go.trays/charlie"] {
+  --booth: #1a1204;
+  --booth-hi: #241808;
+  --paper: #f6e2c8;
+  --ink: #24160e;
+  --mute: #c0a050;
+  --accent: #ffc14a;
+  --strip: #ffc14a;
+  --card-strip: #ffc14a;
+  --active: #ffc14a;
+  --visited: #d4a840;
+  --rule: rgba(255, 193, 74, 0.28);
+  --rail: #241808;
+  --blotter: #1a1204;
+  --stamp: #ffc14a;
+}
+html[data-pocket^="go.trays/charlie"] .go-shell {
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 180, 40, 0.05) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 180, 40, 0.16), transparent 55%),
+    linear-gradient(180deg, #241808 0%, var(--booth) 48%, #0e0a02 100%);
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+html[data-pocket^="go.trays/charlie"] .go-shell .mast,
+html[data-pocket^="go.trays/charlie"] .go-shell h1,
+html[data-pocket^="go.trays/charlie"] .go-shell h2,
+html[data-pocket^="go.trays/charlie"] .go-shell h3,
+html[data-pocket^="go.trays/charlie"] .go-shell .content {
+  color: #ffe7a0;
+  text-shadow: 0 0 8px rgba(255, 180, 40, 0.22);
+}
+html[data-pocket^="go.trays/charlie"] .go-shell a:link { color: #ffc14a; }
+html[data-pocket^="go.trays/charlie"] .go-shell .doors a,
+html[data-pocket^="go.trays/charlie"] .go-shell .door {
+  background: #140e04;
+  border: 1px solid #8a5a18;
+  color: #ffc14a;
+  box-shadow: inset 0 0 12px rgba(255, 180, 40, 0.08);
+}
+
+html[data-pocket^="go.trays/tps"] {
+  --booth: #2a2c28;
+  --booth-hi: #3a3c34;
+  --paper: #eef0e4;
+  --ink: #1a1c16;
+  --mute: #9a9c90;
+  --accent: #5a5c50;
+  --strip: #3a3c34;
+  --card-strip: #3a3c34;
+  --active: #3a3c34;
+  --visited: #7a7c70;
+  --rule: rgba(58, 60, 52, 0.35);
+  --rail: #eef0e4;
+  --blotter: #2a2c28;
+}
+html[data-pocket^="go.trays/tps"] .go-shell {
+  background:
+    radial-gradient(ellipse at 18% -4%, rgba(238, 240, 228, 0.1), transparent 46%),
+    linear-gradient(180deg, var(--booth-hi) 0%, var(--booth) 48%, #1c1e18 100%);
+}
+html[data-pocket^="go.trays/tps"] .go-shell .mast,
+html[data-pocket^="go.trays/tps"] .go-shell h1,
+html[data-pocket^="go.trays/tps"] .go-shell h2,
+html[data-pocket^="go.trays/tps"] .go-shell h3,
+html[data-pocket^="go.trays/tps"] .go-shell .content {
+  color: #eef0e4;
+}
+html[data-pocket^="go.trays/tps"] .go-shell a:link { color: #c8cab8; }
+
+.go-shell p:has(.lore-search),
+.go-shell p:has(.lorelook) {
+  display: contents;
+}
+
+.go-shell .lore-search {
+  display: flex;
+  gap: 0.4rem;
+  align-items: stretch;
+  margin: 0.4rem 0 0.85rem;
+  max-width: 28rem;
+}
+
+.go-shell .lore-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid #c4b090;
+  background: var(--paper);
+  color: var(--ink);
   font-family: Literata, Georgia, serif;
-  font-style: italic;
-  font-size: 1.02rem;
-  min-height: 3.05rem;
+  font-size: 0.95rem;
 }
 
-.lorecard .from {
+.go-shell .lore-search input::placeholder {
+  color: var(--card-mute);
+}
+
+.go-shell .lore-search input:focus {
+  outline: 1px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.go-shell .lore-search button {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #8a3030;
+  background: var(--stamp);
+  color: #f6e2c8;
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.go-shell .lore-search button:hover {
+  background: #9a1c24;
+}
+
+.go-shell .lorelook {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.85rem 0.85rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid #c4b090;
+  box-shadow: 2px 3px 0 rgba(20, 10, 0, 0.18);
+}
+
+.go-shell .lorelook-mark {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.78rem;
-  font-style: normal;
-  color: var(--mute);
-  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--card-mute);
+  margin: 0 0 0.45rem;
 }
 
-.lorecard .from a {
-  font-style: normal;
-}
-
-.lorecard .edges {
-  margin-top: 0.2rem;
-}
-
-.lorecard .lore-edges {
+.go-shell .lorelook ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.lorecard .lore-edge {
-  margin: 0;
-  padding: 0.08rem 0;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
-  color: var(--mute);
+.go-shell .lorelook li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.55rem;
+  align-items: baseline;
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(106, 74, 56, 0.18);
 }
 
-.lorecard .lore-edge a {
-  color: var(--accent);
+.go-shell .lorelook li:first-child {
+  border-top: 0;
+}
+
+.go-shell .lorelook-title {
+  font-family: "Special Elite", "Courier New", monospace;
+  color: var(--ink);
   text-decoration: none;
 }
 
-.lorecard .lore-edge a:hover {
-  text-decoration: underline;
+.go-shell .lorelook-title:hover {
+  color: var(--active);
 }
 
-.lorecard .lore-edge code {
-  display: block;
-  font-size: 0.58rem;
-  color: var(--mute);
-}
-
-.lorecard .lore-edge.is-born a::after {
-  content: " born";
-  margin-left: 0.35em;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mute);
-}
-
-.lorecard .cite,
-.lorecard .foot,
-.lorecard .id {
+.go-shell .lorelook-meta {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-  color: var(--mute);
+  font-size: 0.72rem;
+  color: var(--card-mute);
 }
 
-.lorecard .id {
-  position: absolute;
-  right: 0.7rem;
-  bottom: 0.42rem;
-  font-size: 0.58rem;
-  letter-spacing: 0.04em;
+.go-shell .lorelook-line {
+  flex: 1 1 100%;
+  font-size: 0.9rem;
+  color: #4a3224;
 }
 
-.lorecard.has-back {
-  padding-bottom: 1.15rem;
-}
-
-.lorecard.has-back .id {
-  position: static;
-  display: none;
-}
-
-.lorecard .card-back {
-  margin: 0.7rem 0 0;
-  padding: 0.55rem 0 0;
-  border-top: 1px solid var(--line);
-}
-
-.lorecard .card-meta-row {
-  display: grid;
-  grid-template-columns: 6.6rem 1fr;
-  gap: 0.2rem 0.55rem;
-  margin: 0;
-  padding: 0.12rem 0;
-  align-items: start;
-}
-
-.lorecard .card-back dt {
-  margin: 0;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mute);
-}
-
-.lorecard .card-back dd {
-  margin: 0;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.68rem;
+.go-shell .lorelook.taglook-empty {
+  font-family: Literata, Georgia, serif;
   color: var(--ink);
-  word-break: break-word;
 }
 
-.lorecard .card-back code {
-  display: block;
-  font-size: 0.58rem;
-  color: var(--mute);
-}
-
-.lorecard .card-meta-crate {
-  display: block;
-  margin: 0 0 0.28rem;
-}
-
-.lorecard .card-meta-crate:last-child {
-  margin-bottom: 0;
-}
-
-/* printed card faces — {{faces}} / {{cards}} */
-.faces {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  align-items: stretch;
-  margin: 0.5rem 0 1.6rem;
-  padding: 0.2rem 0.1rem;
-}
-
-.face-deck {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.35rem 1.2rem;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.face-deck-label {
-  flex: 1 0 100%;
-  margin: 0 0 0.15rem;
-  padding: 0 0 0.35rem;
-  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--card-strip, #8a5a32);
-  border-bottom: 1px solid color-mix(in srgb, var(--card-strip, #8a5a32) 35%, transparent);
-}
-
-.faces .face {
-  min-width: 0;
-  max-width: none;
-}
-
-.face[data-card="1"] {
-  /* a real filed card, not a loose note wearing the skin */
-}
-
-.face[data-href] {
-  cursor: pointer;
-}
-
-.face[data-href]:hover .lorecard,
-.face[data-href]:focus .lorecard {
-  outline: none;
-  box-shadow:
-    0 10px 18px rgba(40, 28, 16, 0.18),
-    0 2px 0 rgba(255, 255, 245, 0.35) inset,
-    0 0 0 1px #b8a888;
-}
-
-.face[data-href]:focus {
-  outline: none;
-}
-
-.face[data-href]:focus-visible {
-  outline: 2px solid var(--card-strip, #8a5a32);
-  outline-offset: 4px;
-}
-
-.faces .lorecard {
-  margin: 0;
-  width: 22.5rem;
-  max-width: calc(100vw - 2.4rem);
-}
-
+/* lorecard face dress travels in /styles/lorecard.css
+   (linked before trays.css on tray pages). Room/stage only here:
+   booth, mouth accents, --card-strip hue, cream-card ink shields. */

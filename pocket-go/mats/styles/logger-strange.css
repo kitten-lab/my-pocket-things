@@ -1,0 +1,82 @@
+/* coat: logger-strange — Walker logbook: strange happenings
+   same blotter bones as logger.css; mahogany + oxblood casefile */
+@import url("/styles/logger.css");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap");
+
+.go-shell {
+  --oak: #6a3228;
+  --oak-deep: #3a1612;
+  --oak-hi: #c49078;
+  --oak-top: #7a3a30;
+  --oak-lo: #4a201c;
+  --head-hi: #8a4034;
+  --head-lo: #4e221c;
+  --brass: #f3e0c4;
+  --brass-dim: #d4a090;
+  --path-ink: #e8c4b0;
+  --felt: #6b3a42;
+  --felt-mid: #5a3038;
+  --felt-deep: #3a2026;
+  --felt-edge: #2a1418;
+  --felt-rib: rgba(40, 12, 16, 0.12);
+  --lamp: rgba(196, 48, 42, 0.32);
+  --slip: #f3e6c4;
+  --slip-edge: #c4a090;
+  --slip-hi: #f7ead0;
+  --slip-lo: #e8d4b0;
+  --punch: #e4c8a8;
+  --punch-rule: #b88870;
+  --carbon: #1a0c0c;
+  --ribbon-red: #c4202a;
+  --ribbon-blue: #6b1a48;
+  --ribbon-green: #5a3038;
+  --mute: #8a4038;
+  --label-on-felt: #f0d4c8;
+  --tab: #efe0c4;
+  --tab-edge: #b88870;
+  --field: #f7ead4;
+  --post-edge: #6e1016;
+  --paper: var(--slip);
+  --ink: var(--carbon);
+  --strip: #6b3a42;
+  --font-type: "Special Elite", "Courier Prime", "Courier New", Courier, monospace;
+  --font-plain: "IBM Plex Mono", "Courier Prime", "Courier New", Courier, monospace;
+}
+
+.go-shell .desk-mark {
+  font-size: 1.18em;
+  letter-spacing: 0.1em;
+}
+
+.go-shell .platen {
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.48em,
+      rgba(196, 32, 42, 0.08) 1.48em 1.55em
+    ),
+    var(--slip);
+}
+
+.go-shell .faces .face,
+.go-shell article.face {
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.5em,
+      rgba(196, 32, 42, 0.1) 1.5em 1.56em
+    ),
+    linear-gradient(180deg, var(--slip-hi) 0%, var(--slip) 55%, var(--slip-lo) 100%);
+}
+
+.go-shell form.pg-injector .pg-injector-field {
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.45em,
+      rgba(196, 32, 42, 0.1) 1.45em 1.52em
+    ),
+    var(--field);
+  border-bottom-color: rgba(196, 32, 42, 0.28);
+}
+
+.go-shell .chips-detective .chip-value {
+  color: var(--ribbon-red);
+}

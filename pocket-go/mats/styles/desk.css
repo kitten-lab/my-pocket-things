@@ -15,7 +15,7 @@
   --rule: #c9ddd4;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   --rail: 230px;
   background:
     linear-gradient(180deg, #d8d2c4 0%, var(--bg) 40%, #b8b09e 100%);
@@ -197,9 +197,9 @@ span.accent {
   background: #eef2f6;
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .side a:link,
 .side a.crumbback {
@@ -365,7 +365,7 @@ span.accent {
   border-top: 1px solid var(--line);
 }
 
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   max-width: 62ch;
   font-size: 0.82rem;
   font-family: "IBM Plex Sans", sans-serif;
@@ -374,19 +374,19 @@ span.accent {
   padding: 0.5rem 0.7rem;
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   border: 0;
   height: 1px;
   background: var(--line);
   margin: 0.9rem 0;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar {
+.go-shell::-webkit-scrollbar {
   width: 12px;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
+.go-shell::-webkit-scrollbar-thumb {
   background: var(--navy);
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-track {
+.go-shell::-webkit-scrollbar-track {
   background: #b8b09e;
 }

@@ -1,0 +1,383 @@
+/* PocketGo type catalog — import once; coats use var(--font-*) */
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Serif:wght@400;600&family=Special+Elite&family=Rubik+Glitch&family=Black+Ops+One&family=EB+Garamond:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Cormorant+Infant:wght@400;600&family=Caveat:wght@400;600;700&family=Literata:wght@400;600;700&family=Syne:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&family=Newsreader:wght@400;600&family=Fraunces:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Italianno&family=Patrick+Hand&family=Oswald:wght@400;500;600;700&family=Anton&family=Barlow+Condensed:wght@400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Courier+Prime:wght@400;700&family=Redacted&family=Kalam:wght@400;700&family=Indie+Flower&family=Shadows+Into+Light&family=Gloria+Hallelujah&family=Homemade+Apple&family=Rock+Salt&family=Covered+By+Your+Grace&family=Reenie+Beanie&family=Nothing+You+Could+Do&family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Pacifico&family=Press+Start+2P&family=Silkscreen&family=Pixelify+Sans:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=UnifrakturMaguntia&family=UnifrakturCook:wght@700&family=MedievalSharp&family=Zilla+Slab:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&family=Bitter:wght@400;500;600;700&family=Libre+Caslon+Text:wght@400;700&family=Creepster&family=Eater&family=Nosifer&family=Butcherman&family=Faster+One&family=Monoton&family=Bungee+Shade&family=Bungee+Inline&family=Righteous&family=Audiowide&family=Wallpoet&family=Fredericka+the+Great&family=Lacquer&family=Warnes&display=swap");
+
+@font-face {
+  font-family: "Px437 Apricot 200L";
+  src: url("/styles/fonts/Px437_Apricot_200L.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Px437 AST PremiumExec";
+  src: url("/styles/fonts/Px437_AST_PremiumExec.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* favorites / terminal */
+  --font-arcade: "VT323", "Share Tech Mono", monospace;
+  --font-glass: "Share Tech Mono", "VT323", Consolas, monospace;
+  --font-px437: "Px437 Apricot 200L", "VT323", monospace;
+  --font-px437-exec: "Px437 AST PremiumExec", "VT323", monospace;
+  --font-mono: "IBM Plex Mono", "Share Tech Mono", monospace;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans-cond: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-body: "Literata", Georgia, serif;
+  --font-display: "Syne", "IBM Plex Sans", sans-serif;
+  --font-hand: "Caveat", "Patrick Hand", cursive;
+  --font-script: "Italianno", "Caveat", cursive;
+  --font-elite: "Special Elite", "Courier New", monospace;
+  --font-glitch: "Rubik Glitch", "Black Ops One", sans-serif;
+  --font-ops: "Black Ops One", Impact, sans-serif;
+  --font-garamond: "EB Garamond", "Times New Roman", serif;
+  --font-cormorant: "Cormorant Garamond", "EB Garamond", serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-baskerville: "Libre Baskerville", Georgia, serif;
+  --font-franklin: "Libre Franklin", system-ui, sans-serif;
+  --font-source-serif: "Source Serif 4", Georgia, serif;
+  --font-news: "Newsreader", Georgia, serif;
+  --font-fraunces: "Fraunces", Georgia, serif;
+  --font-cinzel: "Cinzel", "Times New Roman", serif;
+  --font-patrick: "Patrick Hand", "Caveat", cursive;
+  --font-oswald: "Oswald", Impact, sans-serif;
+  --font-anton: "Anton", Impact, sans-serif;
+  --font-barlow: "Barlow Condensed", "Oswald", sans-serif;
+  --font-roboto-cond: "Roboto Condensed", sans-serif;
+  --font-courier-prime: "Courier Prime", Courier, monospace;
+  --font-redacted: "Redacted", monospace;
+  --font-infant: "Cormorant Infant", "Cormorant Garamond", serif;
+  /* handwriting / script pack */
+  --font-kalam: "Kalam", "Caveat", cursive;
+  --font-indie: "Indie Flower", "Patrick Hand", cursive;
+  --font-shadows: "Shadows Into Light", "Caveat", cursive;
+  --font-gloria: "Gloria Hallelujah", "Indie Flower", cursive;
+  --font-apple: "Homemade Apple", "Caveat", cursive;
+  --font-rocksalt: "Rock Salt", "Homemade Apple", cursive;
+  --font-grace: "Covered By Your Grace", "Caveat", cursive;
+  --font-reenie: "Reenie Beanie", "Caveat", cursive;
+  --font-nothing: "Nothing You Could Do", "Caveat", cursive;
+  --font-dancing: "Dancing Script", "Italianno", cursive;
+  --font-vibes: "Great Vibes", "Italianno", cursive;
+  --font-pacifico: "Pacifico", "Dancing Script", cursive;
+  --font-note: var(--font-kalam);
+  --font-diary: var(--font-shadows);
+  --font-marker: var(--font-rocksalt);
+  /* pixel / DOS / chrome */
+  --font-press-start: "Press Start 2P", "VT323", monospace;
+  --font-silkscreen: "Silkscreen", "VT323", monospace;
+  --font-pixelify: "Pixelify Sans", "VT323", sans-serif;
+  --font-orbitron: "Orbitron", "Share Tech Mono", sans-serif;
+  --font-chakra: "Chakra Petch", "Share Tech Mono", sans-serif;
+  --font-dos: var(--font-px437);
+  --font-terminal: var(--font-arcade);
+  /* blackletter */
+  --font-fraktur: "UnifrakturMaguntia", "Times New Roman", serif;
+  --font-fraktur-cook: "UnifrakturCook", "UnifrakturMaguntia", serif;
+  --font-medieval: "MedievalSharp", "Cinzel", serif;
+  --font-blackletter: var(--font-fraktur);
+  /* notebook / slab */
+  --font-zilla: "Zilla Slab", Georgia, serif;
+  --font-roboto-slab: "Roboto Slab", Georgia, serif;
+  --font-bitter: "Bitter", Georgia, serif;
+  --font-caslon: "Libre Caslon Text", "Times New Roman", serif;
+  --font-notebook: var(--font-zilla);
+  --font-slab: var(--font-roboto-slab);
+  /* distressed / chaotic */
+  --font-creepster: "Creepster", Impact, fantasy;
+  --font-eater: "Eater", Impact, fantasy;
+  --font-nosifer: "Nosifer", Impact, fantasy;
+  --font-butcher: "Butcherman", Impact, fantasy;
+  --font-faster: "Faster One", Impact, sans-serif;
+  --font-monoton: "Monoton", Impact, sans-serif;
+  --font-bungee-shade: "Bungee Shade", Impact, sans-serif;
+  --font-bungee: "Bungee Inline", Impact, sans-serif;
+  --font-righteous: "Righteous", Impact, sans-serif;
+  --font-audiowide: "Audiowide", "Orbitron", sans-serif;
+  --font-wallpoet: "Wallpoet", Impact, sans-serif;
+  --font-fredericka: "Fredericka the Great", "Special Elite", serif;
+  --font-lacquer: "Lacquer", Impact, fantasy;
+  --font-warnes: "Warnes", Impact, fantasy;
+  --font-chaos: var(--font-glitch);
+  --font-distress: var(--font-creepster);
+  /* aliases used by terminal coats */
+  --glass: var(--font-glass);
+  --arcade: var(--font-arcade);
+}
+
+/* specimen / dress helpers: {{.ff-arcade}} … */
+.go-shell .ff-arcade,
+.readme-letter-view .ff-arcade,
+.ff-arcade { font-family: var(--font-arcade); }
+.go-shell .ff-glass,
+.readme-letter-view .ff-glass,
+.ff-glass { font-family: var(--font-glass); }
+.go-shell .ff-px437,
+.readme-letter-view .ff-px437,
+.ff-px437 { font-family: var(--font-px437); }
+.go-shell .ff-px437-exec,
+.readme-letter-view .ff-px437-exec,
+.ff-px437-exec { font-family: var(--font-px437-exec); }
+.go-shell .ff-mono,
+.readme-letter-view .ff-mono,
+.ff-mono { font-family: var(--font-mono); }
+.go-shell .ff-sans,
+.readme-letter-view .ff-sans,
+.ff-sans { font-family: var(--font-sans); }
+.go-shell .ff-sans-cond,
+.readme-letter-view .ff-sans-cond,
+.ff-sans-cond { font-family: var(--font-sans-cond); }
+.go-shell .ff-serif,
+.readme-letter-view .ff-serif,
+.ff-serif { font-family: var(--font-serif); }
+.go-shell .ff-body,
+.readme-letter-view .ff-body,
+.ff-body { font-family: var(--font-body); }
+.go-shell .ff-display,
+.readme-letter-view .ff-display,
+.ff-display { font-family: var(--font-display); }
+.go-shell .ff-hand,
+.readme-letter-view .ff-hand,
+.ff-hand { font-family: var(--font-hand); }
+.go-shell .ff-script,
+.readme-letter-view .ff-script,
+.ff-script { font-family: var(--font-script); }
+.go-shell .ff-elite,
+.readme-letter-view .ff-elite,
+.ff-elite { font-family: var(--font-elite); }
+.go-shell .ff-glitch,
+.readme-letter-view .ff-glitch,
+.ff-glitch { font-family: var(--font-glitch); }
+.go-shell .ff-ops,
+.readme-letter-view .ff-ops,
+.ff-ops { font-family: var(--font-ops); }
+.go-shell .ff-garamond,
+.readme-letter-view .ff-garamond,
+.ff-garamond { font-family: var(--font-garamond); }
+.go-shell .ff-cormorant,
+.readme-letter-view .ff-cormorant,
+.ff-cormorant { font-family: var(--font-cormorant); }
+.go-shell .ff-playfair,
+.readme-letter-view .ff-playfair,
+.ff-playfair { font-family: var(--font-playfair); }
+.go-shell .ff-baskerville,
+.readme-letter-view .ff-baskerville,
+.ff-baskerville { font-family: var(--font-baskerville); }
+.go-shell .ff-franklin,
+.readme-letter-view .ff-franklin,
+.ff-franklin { font-family: var(--font-franklin); }
+.go-shell .ff-source-serif,
+.readme-letter-view .ff-source-serif,
+.ff-source-serif { font-family: var(--font-source-serif); }
+.go-shell .ff-news,
+.readme-letter-view .ff-news,
+.ff-news { font-family: var(--font-news); }
+.go-shell .ff-fraunces,
+.readme-letter-view .ff-fraunces,
+.ff-fraunces { font-family: var(--font-fraunces); }
+.go-shell .ff-cinzel,
+.readme-letter-view .ff-cinzel,
+.ff-cinzel { font-family: var(--font-cinzel); }
+.go-shell .ff-patrick,
+.readme-letter-view .ff-patrick,
+.ff-patrick { font-family: var(--font-patrick); }
+.go-shell .ff-oswald,
+.readme-letter-view .ff-oswald,
+.ff-oswald { font-family: var(--font-oswald); }
+.go-shell .ff-anton,
+.readme-letter-view .ff-anton,
+.ff-anton { font-family: var(--font-anton); }
+.go-shell .ff-barlow,
+.readme-letter-view .ff-barlow,
+.ff-barlow { font-family: var(--font-barlow); }
+.go-shell .ff-roboto-cond,
+.readme-letter-view .ff-roboto-cond,
+.ff-roboto-cond { font-family: var(--font-roboto-cond); }
+.go-shell .ff-courier-prime,
+.readme-letter-view .ff-courier-prime,
+.ff-courier-prime { font-family: var(--font-courier-prime); }
+.go-shell .ff-redacted,
+.readme-letter-view .ff-redacted,
+.ff-redacted { font-family: var(--font-redacted); }
+.go-shell .ff-infant,
+.readme-letter-view .ff-infant,
+.ff-infant { font-family: var(--font-infant); }
+
+.go-shell .ff-kalam,
+.readme-letter-view .ff-kalam,
+.ff-kalam { font-family: var(--font-kalam); }
+.go-shell .ff-indie,
+.readme-letter-view .ff-indie,
+.ff-indie { font-family: var(--font-indie); }
+.go-shell .ff-shadows,
+.readme-letter-view .ff-shadows,
+.ff-shadows { font-family: var(--font-shadows); }
+.go-shell .ff-gloria,
+.readme-letter-view .ff-gloria,
+.ff-gloria { font-family: var(--font-gloria); }
+.go-shell .ff-apple,
+.readme-letter-view .ff-apple,
+.ff-apple { font-family: var(--font-apple); }
+.go-shell .ff-rocksalt,
+.readme-letter-view .ff-rocksalt,
+.ff-rocksalt { font-family: var(--font-rocksalt); }
+.go-shell .ff-grace,
+.readme-letter-view .ff-grace,
+.ff-grace { font-family: var(--font-grace); }
+.go-shell .ff-reenie,
+.readme-letter-view .ff-reenie,
+.ff-reenie { font-family: var(--font-reenie); }
+.go-shell .ff-nothing,
+.readme-letter-view .ff-nothing,
+.ff-nothing { font-family: var(--font-nothing); }
+.go-shell .ff-dancing,
+.readme-letter-view .ff-dancing,
+.ff-dancing { font-family: var(--font-dancing); }
+.go-shell .ff-vibes,
+.readme-letter-view .ff-vibes,
+.ff-vibes { font-family: var(--font-vibes); }
+.go-shell .ff-pacifico,
+.readme-letter-view .ff-pacifico,
+.ff-pacifico { font-family: var(--font-pacifico); }
+.go-shell .ff-note,
+.readme-letter-view .ff-note,
+.ff-note { font-family: var(--font-note); }
+.go-shell .ff-diary,
+.readme-letter-view .ff-diary,
+.ff-diary { font-family: var(--font-diary); }
+.go-shell .ff-marker,
+.readme-letter-view .ff-marker,
+.ff-marker { font-family: var(--font-marker); }
+
+.go-shell .ff-press-start,
+.readme-letter-view .ff-press-start,
+.ff-press-start { font-family: var(--font-press-start); }
+.go-shell .ff-silkscreen,
+.readme-letter-view .ff-silkscreen,
+.ff-silkscreen { font-family: var(--font-silkscreen); }
+.go-shell .ff-pixelify,
+.readme-letter-view .ff-pixelify,
+.ff-pixelify { font-family: var(--font-pixelify); }
+.go-shell .ff-orbitron,
+.readme-letter-view .ff-orbitron,
+.ff-orbitron { font-family: var(--font-orbitron); }
+.go-shell .ff-chakra,
+.readme-letter-view .ff-chakra,
+.ff-chakra { font-family: var(--font-chakra); }
+.go-shell .ff-dos,
+.readme-letter-view .ff-dos,
+.ff-dos { font-family: var(--font-dos); }
+.go-shell .ff-terminal,
+.readme-letter-view .ff-terminal,
+.ff-terminal { font-family: var(--font-terminal); }
+.go-shell .ff-fraktur,
+.readme-letter-view .ff-fraktur,
+.ff-fraktur { font-family: var(--font-fraktur); }
+.go-shell .ff-fraktur-cook,
+.readme-letter-view .ff-fraktur-cook,
+.ff-fraktur-cook { font-family: var(--font-fraktur-cook); }
+.go-shell .ff-medieval,
+.readme-letter-view .ff-medieval,
+.ff-medieval { font-family: var(--font-medieval); }
+.go-shell .ff-blackletter,
+.readme-letter-view .ff-blackletter,
+.ff-blackletter { font-family: var(--font-blackletter); }
+.go-shell .ff-zilla,
+.readme-letter-view .ff-zilla,
+.ff-zilla { font-family: var(--font-zilla); }
+.go-shell .ff-roboto-slab,
+.readme-letter-view .ff-roboto-slab,
+.ff-roboto-slab { font-family: var(--font-roboto-slab); }
+.go-shell .ff-bitter,
+.readme-letter-view .ff-bitter,
+.ff-bitter { font-family: var(--font-bitter); }
+.go-shell .ff-caslon,
+.readme-letter-view .ff-caslon,
+.ff-caslon { font-family: var(--font-caslon); }
+.go-shell .ff-notebook,
+.readme-letter-view .ff-notebook,
+.ff-notebook { font-family: var(--font-notebook); }
+.go-shell .ff-slab,
+.readme-letter-view .ff-slab,
+.ff-slab { font-family: var(--font-slab); }
+.go-shell .ff-creepster,
+.readme-letter-view .ff-creepster,
+.ff-creepster { font-family: var(--font-creepster); }
+.go-shell .ff-eater,
+.readme-letter-view .ff-eater,
+.ff-eater { font-family: var(--font-eater); }
+.go-shell .ff-nosifer,
+.readme-letter-view .ff-nosifer,
+.ff-nosifer { font-family: var(--font-nosifer); }
+.go-shell .ff-butcher,
+.readme-letter-view .ff-butcher,
+.ff-butcher { font-family: var(--font-butcher); }
+.go-shell .ff-faster,
+.readme-letter-view .ff-faster,
+.ff-faster { font-family: var(--font-faster); }
+.go-shell .ff-monoton,
+.readme-letter-view .ff-monoton,
+.ff-monoton { font-family: var(--font-monoton); }
+.go-shell .ff-bungee-shade,
+.readme-letter-view .ff-bungee-shade,
+.ff-bungee-shade { font-family: var(--font-bungee-shade); }
+.go-shell .ff-bungee,
+.readme-letter-view .ff-bungee,
+.ff-bungee { font-family: var(--font-bungee); }
+.go-shell .ff-righteous,
+.readme-letter-view .ff-righteous,
+.ff-righteous { font-family: var(--font-righteous); }
+.go-shell .ff-audiowide,
+.readme-letter-view .ff-audiowide,
+.ff-audiowide { font-family: var(--font-audiowide); }
+.go-shell .ff-wallpoet,
+.readme-letter-view .ff-wallpoet,
+.ff-wallpoet { font-family: var(--font-wallpoet); }
+.go-shell .ff-fredericka,
+.readme-letter-view .ff-fredericka,
+.ff-fredericka { font-family: var(--font-fredericka); }
+.go-shell .ff-lacquer,
+.readme-letter-view .ff-lacquer,
+.ff-lacquer { font-family: var(--font-lacquer); }
+.go-shell .ff-warnes,
+.readme-letter-view .ff-warnes,
+.ff-warnes { font-family: var(--font-warnes); }
+.go-shell .ff-chaos,
+.readme-letter-view .ff-chaos,
+.ff-chaos { font-family: var(--font-chaos); }
+.go-shell .ff-distress,
+.readme-letter-view .ff-distress,
+.ff-distress { font-family: var(--font-distress); }
+
+.go-shell .type-pack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin: 1rem 0 2rem;
+}
+.go-shell .type-card {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line, #2a3550);
+  background: color-mix(in srgb, var(--paper, #0a1020) 88%, transparent);
+}
+.go-shell .type-card .type-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--mute, #8b9bb4);
+  margin: 0 0 0.35rem;
+}
+.go-shell .type-card .type-sample {
+  font-size: 1.45rem;
+  line-height: 1.35;
+  margin: 0;
+}
+.go-shell .type-card .type-sample-sm {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0.35rem 0 0;
+  opacity: 0.9;
+}

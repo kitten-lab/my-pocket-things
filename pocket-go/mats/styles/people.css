@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Special+Elite&display=swap");
+
+/* people — karaoke stamp desk for go.code.people
+   roster on the slip, stamp in the header, tape lip
+   not a codes bureau, not detective folder, not event wicket
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #5c3d7a;
+}
+
+.go-shell {
+  --desk: #24182c;
+  --desk-hi: #342440;
+  --stamp: #7b4aa8;
+  --stamp-ink: #f4ead4;
+  --card: #f3ead6;
+  --card-rule: #d4c4a8;
+  --ink: #1e1524;
+  --mute: #6e5c78;
+  --cite: #7b4aa8;
+  --paper: var(--card);
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  background:
+    radial-gradient(circle 7em at 1.6em 1.4em, rgba(123, 74, 168, 0.28), transparent 62%),
+    linear-gradient(180deg, var(--desk-hi) 0, var(--desk) 100%);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 8px 10px 8px 12px;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .crumb,
+.go-shell .uses {
+  display: none !important;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell a {
+  color: var(--cite);
+  text-decoration: none;
+}
+
+.go-shell a:hover {
+  color: #9a6cc4;
+}
+
+.go-shell .stamp-desk {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.go-shell .stamp-desk > p,
+.go-shell .stamp-head > p:empty,
+.go-shell .stamp > p {
+  display: none;
+}
+
+.go-shell .stamp-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  flex: 0 0 auto;
+  margin: 0 0 8px;
+  padding: 6px 10px 6px 4px;
+}
+
+.go-shell .stamp {
+  position: relative;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  pointer-events: none;
+}
+
+.go-shell .stamp::before,
+.go-shell .stamp::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.go-shell .stamp::before {
+  inset: 0;
+  border: 3px solid var(--stamp);
+  box-shadow:
+    inset 0 0 0 3px #f4ead4,
+    0 2px 0 #00000044;
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent 0 5px,
+    rgba(123, 74, 168, 0.35) 5px 6px
+  );
+}
+
+.go-shell .stamp::after {
+  inset: 11px;
+  border: 2px dashed #f4ead4;
+  background: var(--stamp);
+}
+
+.go-shell .stamp-mark,
+.go-shell .stamp-mark p {
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stamp-ink);
+}
+
+.go-shell .stamp-sub,
+.go-shell .stamp-sub p {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4b0d4;
+}
+
+.go-shell .stamp-head .tag-search,
+.go-shell .stamp-head .people-search {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.go-shell .stamp-head .tag-search input,
+.go-shell .stamp-head .people-search input {
+  width: 16em;
+  max-width: 42vw;
+  padding: 3px 7px;
+  border: 1px solid #5c3d7a;
+  background: #f4ead4;
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.go-shell .stamp-head .tag-search button,
+.go-shell .stamp-head .people-search button {
+  padding: 3px 8px;
+  border: 1px solid #3a2048;
+  background: #1e1524;
+  color: var(--stamp-ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.go-shell .slip {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 16px 22px;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--card-rule);
+  box-shadow: 0.25em 0.25em 0 #00000033;
+}
+
+.go-shell .slip .card,
+.go-shell .slip .md,
+.go-shell .slip article:not(.people-card),
+.go-shell .slip > p {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+}
+
+.go-shell .slip h1 {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.go-shell .slip a {
+  border-bottom: 1px dotted var(--cite);
+}
+
+.go-shell .peoplelook {
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.go-shell .peoplelook-mark,
+.go-shell .peoplelook-mark p {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .people-roster,
+.go-shell .peoplelook ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.go-shell .people-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 9em;
+  max-width: 14em;
+  margin: 0;
+  padding: 8px 10px 10px;
+  background: #fffef6;
+  border: 1px solid #d4c4a0;
+  box-shadow: 1px 2px 0 rgba(30, 21, 36, 0.12);
+  color: var(--ink);
+}
+
+.go-shell .people-card-title {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 14px;
+  color: #2a1834;
+  border: 0;
+}
+
+.go-shell .people-code,
+.go-shell .people-aka,
+.go-shell .people-type {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--mute);
+}
+
+.go-shell .peoplelook.taglook-empty {
+  color: var(--mute);
+  font-size: 12px;
+}
+
+.go-shell .people-cites {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.go-shell .lip {
+  flex: 0 0 auto;
+  margin: 8px 0 0;
+  padding: 5px 12px;
+  background: #160f1c;
+  color: #c4a0dc;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  border-top: 1px dashed #7b4aa8;
+}
+
+.go-shell .lip p {
+  margin: 0;
+}
+
+a.peoplecode {
+  color: var(--cite);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--cite);
+}

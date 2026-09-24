@@ -1,0 +1,588 @@
+/* go.cast — casting director's office
+   cork board · cream sides · name slates
+   html rem is postage — type and gutters in em/px
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --cast-walnut: #2c1c12;
+  --cast-wood: #4a3424;
+  --cast-cork: #c4a06a;
+  --cast-cork-deep: #b08950;
+  --cast-brass: #c4a35a;
+  --cast-paper: #f4ead4;
+  --cast-paper-2: #efe2c6;
+  --ink: #1c1610;
+  --mute: #6b5a48;
+  --line: #3a2a1c;
+  --accent: #8a3a28;
+  --visited: #5a3048;
+  --strip: #6b3a2a;
+  --sides: #c45c48;
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--cast-walnut);
+  color: var(--ink);
+  font-family: var(--font-courier-prime), "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb,
+.go-shell .tagshelf,
+.go-shell .stockroom {
+  display: none !important;
+}
+
+.go-shell .cast-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25em 1em;
+  margin: 0;
+  padding: 0.42em 0.9em 0.4em;
+  background:
+    linear-gradient(180deg, #5a4030 0%, var(--cast-wood) 55%, #3a281c 100%);
+  border-bottom: 4px solid var(--cast-brass);
+  box-shadow: inset 0 1px 0 rgba(255, 220, 160, 0.18);
+}
+
+/* ——— door plaque ——— */
+.go-shell .cast-banner {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.28em 0.9em;
+  background: #1a100a;
+  color: var(--cast-brass);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.go-shell .cast-banner p {
+  margin: 0;
+}
+
+.go-shell .cast-word,
+.go-shell p.cast-word {
+  margin: 0;
+  color: #f4ead4;
+  font-family: var(--font-oswald), var(--font-sans-cond), sans-serif;
+  font-size: 1.65em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.go-shell .cast-ident {
+  color: var(--cast-brass);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .cast-ident p {
+  margin: 0;
+}
+
+.go-shell .cast-rail {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.28em 0.9em;
+  background: #24180f;
+  color: #c4b49a;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.go-shell .cast-rail p {
+  display: none;
+}
+
+.go-shell .cast-rail nav.crumb,
+.go-shell .cast-rail .crumb {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15em 0.35em;
+  margin: 0;
+  padding: 0 !important;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+}
+
+.go-shell .cast-rail nav.crumb::before {
+  content: "board";
+  margin-right: 0.35em;
+  padding-right: 0.65em;
+  border-right: 1px solid rgba(196, 163, 90, 0.35);
+  color: #8a7a66;
+  letter-spacing: 0.12em;
+}
+
+.go-shell .cast-rail a,
+.go-shell .cast-rail a:link,
+.go-shell .cast-rail nav.crumb a {
+  color: var(--cast-brass) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(196, 163, 90, 0.45);
+}
+
+.go-shell .cast-rail a:hover {
+  color: #f4ead4 !important;
+}
+
+/* ——— cork desk ——— */
+.go-shell .cast-desk {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.1em 1.15em 1.6em;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(255, 220, 150, 0.16), transparent 46%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(80, 50, 20, 0.07) 0 1px,
+      transparent 1px 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(80, 50, 20, 0.05) 0 1px,
+      transparent 1px 11px
+    ),
+    linear-gradient(180deg, #d4b27a 0%, var(--cast-cork) 40%, var(--cast-cork-deep) 100%);
+}
+
+/* ——— sides packet ——— */
+.go-shell .cast-sheet {
+  position: relative;
+  max-width: 46em;
+  min-height: 22em;
+  margin: 0 auto 0 0;
+  padding: 1.35em 1.4em 1.5em 2.4em;
+  background: var(--cast-paper);
+  border: 1px solid var(--cast-walnut);
+  box-shadow:
+    3px 3px 0 var(--cast-paper-2),
+    6px 6px 0 rgba(44, 28, 18, 0.55);
+}
+
+.go-shell .cast-sheet::before {
+  content: "";
+  position: absolute;
+  left: 1.65em;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--sides);
+  opacity: 0.55;
+}
+
+.go-shell .cast-sheet::after {
+  content: "SIDES";
+  position: absolute;
+  top: 0.7em;
+  right: 0.75em;
+  padding: 0.1em 0.4em;
+  border: 1.5px solid var(--sides);
+  color: var(--sides);
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.62em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  transform: rotate(9deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.go-shell .cast-sheet p.md-gap,
+.go-shell .cast-sheet .md-gap {
+  height: 0.45em;
+}
+
+/* lobby: cork shows; memo + slates sit on the board */
+.go-shell .cast-sheet:has(.cast-memo) {
+  max-width: 58em;
+  min-height: 0;
+  padding: 0.2em 0.15em 0.4em;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.go-shell .cast-sheet:has(.cast-memo)::before,
+.go-shell .cast-sheet:has(.cast-memo)::after {
+  display: none;
+}
+
+.go-shell .cast-memo {
+  max-width: 32em;
+  margin: 0 0 1.15em;
+  padding: 0.85em 1em 1em;
+  background: var(--cast-paper);
+  border: 1px solid var(--cast-walnut);
+  box-shadow: 3px 4px 0 rgba(44, 28, 18, 0.28);
+  transform: rotate(-0.7deg);
+}
+
+.go-shell .cast-memo-meta {
+  margin: 0 0 0.45em;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .cast-memo-meta p {
+  margin: 0;
+}
+
+.go-shell .cast-memo h1 {
+  margin: 0 0 0.35em;
+  border: 0;
+  font-size: 1.45em;
+  letter-spacing: 0.08em;
+}
+
+.go-shell .cast-memo p {
+  margin: 0 0 0.55em;
+  font-size: 0.92em;
+  line-height: 1.45;
+}
+
+.go-shell .cast-memo p:last-child {
+  margin-bottom: 0;
+}
+
+/* ——— talent name / scene heads ——— */
+.go-shell .cast-sheet h1 {
+  margin: 0 1.8em 0.35em 0;
+  color: var(--cast-walnut);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 2.05em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-transform: none;
+  border-bottom: 2px solid var(--cast-walnut);
+  padding-bottom: 0.2em;
+}
+
+.go-shell .cast-sheet h2 {
+  margin: 1.15em 0 0.35em;
+  color: var(--sides);
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 0;
+}
+
+.go-shell .cast-sheet h3 {
+  margin: 1em 0 0.35em;
+  color: var(--cast-walnut);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.88em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px dashed var(--mute);
+  padding-top: 0.55em;
+}
+
+.go-shell .cast-sheet p {
+  margin: 0 0 0.75em;
+  max-width: 42em;
+  font-family: var(--font-courier-prime), "Courier New", monospace;
+  font-size: 0.98em;
+  line-height: 1.55;
+}
+
+.go-shell .cast-sheet strong {
+  font-weight: 700;
+  color: var(--cast-walnut);
+}
+
+.go-shell .cast-sheet em {
+  font-style: italic;
+}
+
+/* breakdown chips — call-sheet boxes, not yellow pages */
+.go-shell .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.45em;
+  margin: 0.15em 0 0.95em;
+  padding: 0.35em 0 0.55em;
+  border-top: 0;
+  border-bottom: 1px solid rgba(44, 28, 18, 0.2);
+  background: transparent;
+}
+
+.go-shell .chip {
+  border: 1px solid var(--cast-walnut);
+  background: #fff8ea;
+  box-shadow: 1px 1px 0 rgba(44, 28, 18, 0.2);
+  padding: 0.12em 0.45em 0.14em;
+}
+
+.go-shell .chip-label {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  color: var(--sides);
+}
+
+.go-shell .chip-value,
+.go-shell .chip-values,
+.go-shell .chip-sep {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 0.82em;
+  color: var(--ink);
+}
+
+/* tags as highlighter on the sides */
+.go-shell a.tag,
+.go-shell a.tag:link {
+  font-family: var(--font-courier-prime), monospace;
+  font-size: 0.95em;
+  color: var(--ink) !important;
+  text-decoration: none;
+  background: #f3e08a;
+  padding: 0 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-bottom: 0;
+}
+
+.go-shell a.tag:hover {
+  background: #ffe56a;
+}
+
+.go-shell a.tag.been {
+  background: #e8c9a0;
+  color: var(--ink) !important;
+}
+
+.go-shell .cast-sheet a.wiki,
+.go-shell .cast-sheet a.wiki:link {
+  color: var(--accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.go-shell .cast-sheet a.wiki:hover {
+  color: var(--cast-walnut) !important;
+  border-bottom-width: 2px;
+}
+
+.go-shell .cast-sheet a.outlink,
+.go-shell .cast-sheet a.outlink:link {
+  color: var(--mute) !important;
+  font-size: 0.92em;
+}
+
+.go-shell .cast-sheet a:visited,
+.go-shell .cast-sheet a.been {
+  color: var(--visited);
+}
+
+/* rel strings — red-pencil note */
+.go-shell .cast-sheet h2 + ul.bullets,
+.go-shell .cast-sheet h2 + ul {
+  margin: 0.2em 0 1em;
+  padding: 0.45em 0.7em 0.5em 0.85em;
+  background: rgba(196, 163, 90, 0.16);
+  border-left: 3px solid var(--cast-brass);
+  list-style: none;
+}
+
+.go-shell .cast-sheet h2 + ul.bullets > li,
+.go-shell .cast-sheet h2 + ul > li {
+  margin: 0.15em 0;
+  padding: 0;
+  font-family: var(--font-kalam), var(--font-hand), cursive;
+  font-size: 1.12em;
+  color: #8a3a28;
+  line-height: 1.35;
+}
+
+.go-shell .cast-sheet h2 + ul.bullets > li::before {
+  content: none !important;
+}
+
+.go-shell .cast-sheet ul.bullets {
+  margin: 0.4em 0 0.9em;
+}
+
+.go-shell .cast-sheet hr {
+  border: 0;
+  border-top: 1px dashed var(--mute);
+  margin: 1em 0;
+  background: none;
+  height: 0;
+}
+
+.go-shell .cast-sheet pre,
+.go-shell .cast-sheet pre.code {
+  padding: 0.55em 0.7em;
+  background: #2c1c12;
+  color: var(--cast-paper);
+  font-size: 0.82em;
+  white-space: pre-wrap;
+}
+
+/* ——— roster slates on the cork ——— */
+.go-shell .cast-sheet ul.dir,
+.go-shell .cast-sheet ul.files {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.4em, 1fr));
+  gap: 0.85em 0.75em;
+  margin: 0.2em 0 0;
+  padding: 0.2em 0.15em 0.6em;
+  border: 0;
+}
+
+.go-shell .cast-sheet ul.dir li,
+.go-shell .cast-sheet ul.files li {
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .cast-sheet ul.dir a,
+.go-shell .cast-sheet ul.files a,
+.go-shell .cast-sheet ul.dir a:link,
+.go-shell .cast-sheet ul.files a:link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
+  margin: 0;
+  padding: 0 0 0.45em;
+  background: #faf4e6;
+  border: 1px solid var(--cast-walnut);
+  border-radius: 0;
+  box-shadow:
+    0 1px 0 #fff inset,
+    3px 4px 0 rgba(44, 28, 18, 0.28);
+  color: var(--cast-walnut) !important;
+  text-decoration: none;
+  transform: rotate(-0.4deg);
+}
+
+.go-shell .cast-sheet ul.dir li:nth-child(2n) a {
+  transform: rotate(0.7deg);
+}
+
+.go-shell .cast-sheet ul.dir li:nth-child(3n) a {
+  transform: rotate(-1.1deg);
+}
+
+.go-shell .cast-sheet ul.dir a::before,
+.go-shell .cast-sheet ul.files a::before {
+  content: "ON FILE";
+  display: block !important;
+  margin: 0 0 0.3em;
+  padding: 0.18em 0 0.2em;
+  width: 100%;
+  background: var(--cast-walnut);
+  color: var(--cast-paper);
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.52em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.go-shell .cast-sheet ul.dir a .name,
+.go-shell .cast-sheet ul.files a .name {
+  display: block;
+  padding: 0.15em 0.45em 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--cast-walnut);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.go-shell .cast-sheet ul.dir a .name::before {
+  content: none;
+}
+
+.go-shell .cast-sheet ul.dir a:hover,
+.go-shell .cast-sheet ul.files a:hover {
+  background: #fffaf0;
+  transform: translate(-1px, -2px) rotate(0deg);
+  box-shadow: 4px 6px 0 rgba(44, 28, 18, 0.35);
+}
+
+.go-shell a.world .door-face,
+.go-shell a.world img.door-cover {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .go-shell .cast-word,
+  .go-shell p.cast-word {
+    font-size: 1.4em;
+  }
+
+  .go-shell .cast-sheet {
+    padding: 1.1em 0.85em 1.2em 1.7em;
+  }
+
+  .go-shell .cast-sheet h1 {
+    font-size: 1.55em;
+  }
+
+  .go-shell .cast-sheet ul.dir,
+  .go-shell .cast-sheet ul.files {
+    grid-template-columns: repeat(auto-fill, minmax(7.8em, 1fr));
+  }
+}

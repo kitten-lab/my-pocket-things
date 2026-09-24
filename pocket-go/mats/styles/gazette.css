@@ -1,0 +1,566 @@
+/* go.news.gazette -- Lobby Gazette newsletter home
+   empty news-shell twin of skyline (sk-* layout), teal ribbon voice
+   Kitty Hawk Marketing Wing / floor correspondent
+   html rem is postage -- type and gutters in em/px
+   fill-stage / inner-scroll -- never 100vh */
+
+:root {
+  --sk-navy: #0f2a2c;
+  --sk-navy-mid: #1a4548;
+  --sk-blue: #2a7a7a;
+  --sk-sky: #7eb8b4;
+  --sk-gold: #3a9a8e;
+  --sk-paper: #f2f6f6;
+  --sk-card: #fafcfc;
+  --ink: #1a2330;
+  --mute: #5c6b78;
+  --line: #c5d2d2;
+  --ok: #2a7a7a;
+  --accent: #2a7a7a;
+  --visited: #4a5f78;
+  --strip: #1a4548;
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--sk-navy);
+  color: var(--ink);
+  font-family: var(--font-franklin), "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb,
+.go-shell .tagshelf,
+.go-shell .stockroom {
+  display: none !important;
+}
+
+.go-shell .sk-foot .crumb,
+.go-shell .sk-foot .crumbback {
+  display: inline !important;
+}
+
+/* ——— teal ribbon banner ——— */
+.go-shell .sk-banner {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  margin: 0;
+  padding: 0.28em 0.9em;
+  background: #071617;
+  color: #c5e0de;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-banner p {
+  margin: 0;
+}
+
+.go-shell .sk-banner::before {
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  flex: 0 0 auto;
+  background: var(--sk-gold);
+  box-shadow: 1px 1px 0 #0a1a1a;
+}
+
+/* ——— wordmark ——— */
+.go-shell .sk-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.35em 1.1em;
+  margin: 0;
+  padding: 0.5em 0.9em 0.48em;
+  background: var(--sk-navy-mid);
+  border-bottom: 3px solid var(--sk-gold);
+}
+
+.go-shell .sk-head::before {
+  content: "LG";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15em;
+  height: 2.15em;
+  margin-right: 0.15em;
+  border: 2px solid var(--sk-gold);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px var(--sk-navy-mid), inset 0 0 0 3.5px var(--sk-gold);
+  color: var(--sk-gold);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.go-shell .mast,
+.go-shell p.mast,
+.go-shell .sk-head .mast {
+  margin: 0;
+  margin-right: auto;
+  color: #f4fbfa;
+  font-family: var(--font-oswald), var(--font-sans-cond), sans-serif;
+  font-size: 1.85em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-ident {
+  color: var(--sk-sky);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-ident p {
+  margin: 0;
+}
+
+.go-shell .sk-ident::after {
+  content: "TEAL RIBBON";
+  display: inline-block;
+  margin-left: 0.8em;
+  padding: 0.08em 0.4em;
+  border: 1px solid var(--ok);
+  color: #8fddd4;
+  letter-spacing: 0.1em;
+}
+
+/* ——— bureau nav ——— */
+.go-shell .sk-nav {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.35em 0.65em;
+  background: #143638;
+  border-bottom: 1px solid #2a5558;
+}
+
+.go-shell .sk-nav .worlds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  margin: 0;
+}
+
+.go-shell .sk-nav a.world .door-face,
+.go-shell .sk-nav a.world img.door-cover,
+.go-shell .sk-nav a.world .door-scrim,
+.go-shell .sk-nav a.world .note-details {
+  display: none !important;
+}
+
+.go-shell .sk-nav a.world {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 8.5em;
+  margin: 0;
+  padding: 0.4em 0.7em 0.45em;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  color: #d5efec !important;
+  text-decoration: none !important;
+}
+
+.go-shell .sk-nav a.world .door-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
+  flex: 0 0 auto;
+}
+
+.go-shell .sk-nav a.world strong {
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-nav a.world .door-deck {
+  color: #8ab0ac;
+  font-size: 0.68em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.go-shell .sk-nav a.world:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #fff !important;
+}
+
+.go-shell .sk-nav a.world.on {
+  background: var(--sk-paper) !important;
+  border-color: var(--sk-gold) !important;
+  color: var(--sk-navy) !important;
+}
+
+.go-shell .sk-nav a.world.on .door-deck {
+  color: var(--mute);
+}
+
+.go-shell .sk-nav p {
+  display: none;
+}
+
+/* ——— briefing paper ——— */
+.go-shell .sk-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  background:
+    linear-gradient(180deg, #e4eef0 0 2.4em, transparent 2.4em),
+    var(--sk-paper);
+  padding: 1.1em 1.25em 1.6em;
+}
+
+.go-shell .sk-paper {
+  max-width: 46em;
+  margin: 0 auto 0 0;
+  padding: 1.1em 1.25em 1.3em;
+  background: var(--sk-card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--sk-gold);
+  box-shadow: 0 1px 0 rgba(15, 42, 44, 0.06);
+}
+
+.go-shell .sk-paper:has(.sk-grid) {
+  max-width: 64em;
+}
+
+.go-shell .sk-kicker {
+  margin: 0 0 0.45em;
+  color: var(--sk-blue);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-kicker p {
+  margin: 0;
+}
+
+.go-shell .sk-paper p.md-gap,
+.go-shell .sk-paper .md-gap,
+.go-shell .sk-aside p.md-gap {
+  display: none !important;
+}
+
+.go-shell .sk-issue {
+  margin: 0 0 0.85em;
+  padding: 0.35em 0 0.4em;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-issue p {
+  margin: 0;
+}
+
+.go-shell .sk-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16.8em;
+  gap: 1.2em 1.6em;
+  align-items: start;
+}
+
+.go-shell .sk-col p:last-child,
+.go-shell .sk-aside p:last-child {
+  margin-bottom: 0;
+}
+
+.go-shell .sk-aside {
+  padding: 0.7em 0.8em 0.85em;
+  background: #e8f0f0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sk-gold);
+}
+
+.go-shell .sk-aside-kicker {
+  margin: 0.7em 0 0.2em;
+  color: var(--sk-navy);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-aside-kicker:first-child {
+  margin-top: 0;
+}
+
+.go-shell .sk-aside-kicker p {
+  margin: 0;
+}
+
+.go-shell .sk-aside h3 {
+  margin: 0 0 0.3em;
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: 1.02em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.go-shell .sk-aside p,
+.go-shell .sk-aside li {
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.86em;
+  line-height: 1.4;
+}
+
+.go-shell .sk-paper h1,
+.go-shell .sk-main h1 {
+  margin: 0 0 0.35em;
+  color: var(--sk-navy);
+  font-family: var(--font-source-serif), var(--font-news), Georgia, serif;
+  font-size: 1.65em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: none;
+}
+
+.go-shell .sk-paper h2,
+.go-shell .sk-main h2 {
+  margin: 1em 0 0.3em;
+  color: var(--sk-navy-mid);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-paper h3,
+.go-shell .sk-main h3 {
+  margin: 0.85em 0 0.25em;
+  font-size: 1.05em;
+  font-weight: 650;
+  color: var(--sk-navy);
+}
+
+.go-shell .sk-paper p,
+.go-shell .sk-main p {
+  margin: 0 0 0.75em;
+  max-width: 42em;
+  font-family: var(--font-news), var(--font-source-serif), Georgia, serif;
+  font-size: 1.02em;
+  line-height: 1.5;
+}
+
+.go-shell .sk-paper h1 + p,
+.go-shell .sk-main h1 + p,
+.go-shell .sk-lede {
+  color: var(--mute);
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.go-shell .sk-lede p {
+  margin: 0 0 0.75em;
+}
+
+.go-shell .sk-paper a,
+.go-shell .sk-paper a:link,
+.go-shell .sk-main a:link {
+  color: var(--sk-blue) !important;
+}
+
+.go-shell .sk-paper a:hover,
+.go-shell .sk-main a:hover {
+  color: var(--sk-navy) !important;
+}
+
+.go-shell .sk-paper a.been,
+.go-shell .sk-paper a:visited,
+.go-shell .sk-main a.been {
+  color: var(--visited) !important;
+}
+
+.go-shell .sk-paper ul.dir,
+.go-shell .sk-main ul.dir {
+  list-style: none;
+  margin: 0.4em 0 0.9em;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.go-shell .sk-paper ul.dir a,
+.go-shell .sk-main ul.dir a {
+  display: block;
+  padding: 0.45em 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.92em;
+}
+
+.go-shell .sk-paper ul.dir .door-face,
+.go-shell .sk-main ul.dir .door-face {
+  display: none !important;
+}
+
+.go-shell .sk-paper ul.bullets {
+  margin: 0.5em 0 1em;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.go-shell .sk-paper ul.bullets > li {
+  margin: 0;
+  padding: 0.5em 0 0.5em 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.95em;
+}
+
+.go-shell .sk-paper ul.bullets > li::before {
+  content: none !important;
+}
+
+.go-shell .sk-paper strong {
+  color: var(--sk-navy);
+  font-weight: 650;
+}
+
+.go-shell .sk-paper hr,
+.go-shell .sk-main hr {
+  border: 0;
+  height: 1px;
+  margin: 1em 0;
+  background: var(--line);
+}
+
+.go-shell .sk-paper pre,
+.go-shell .sk-paper pre.code {
+  padding: 0.6em 0.7em;
+  background: #e8f0f0;
+  border-left: 3px solid var(--sk-blue);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.82em;
+  white-space: pre-wrap;
+}
+
+/* ——— footer ——— */
+.go-shell .sk-foot {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.35em 0.9em;
+  background: #071617;
+  color: #8ab0ac;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-foot p {
+  margin: 0;
+}
+
+.go-shell .sk-foot a,
+.go-shell .sk-foot a:link,
+.go-shell .sk-foot a.crumbback {
+  color: var(--sk-sky) !important;
+  text-decoration: none;
+}
+
+.go-shell .sk-foot a:hover {
+  color: #fff !important;
+}
+
+.go-shell .sk-banner-end {
+  border-top: 1px solid #2a5558;
+  justify-content: center;
+  letter-spacing: 0.14em;
+}
+
+.go-shell .sk-banner-end::before {
+  display: none;
+}
+
+.go-shell a:link {
+  color: var(--sk-blue);
+}
+
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--visited);
+}
+
+@media (max-width: 720px) {
+  .go-shell .mast,
+  .go-shell p.mast {
+    font-size: 1.4em;
+  }
+
+  .go-shell .sk-nav a.world {
+    min-width: 0;
+    flex: 1 1 40%;
+  }
+
+  .go-shell .sk-paper {
+    padding: 0.85em 0.8em 1em;
+  }
+
+  .go-shell .sk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .go-shell .sk-head::before {
+    display: none;
+  }
+}

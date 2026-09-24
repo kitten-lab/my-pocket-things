@@ -1,0 +1,75 @@
+@import url("/styles/journal-device.css");
+
+/* journal-basic — plain paper device, quiet desk, no phosphor drama */
+:root {
+  --chassis: #3a3834;
+  --chassis-hi: #4a4842;
+  --chassis-lo: #2a2824;
+  --bezel: #5a564e;
+  --bezel-hi: #6a665e;
+  --bezel-lo: #3a3832;
+  --glow: #f0e6d0;
+  --glow-rgb: 240, 230, 208;
+  --lilac: #d8c8a8;
+  --haze-rgb: 80, 70, 50;
+  --sheet: #f7f2e6;
+  --sheet-edge: #d8d0c0;
+  --ink: #2a2824;
+  --mute: #7a7468;
+  --line: #e4dcc8;
+  --blush: #c45c4a;
+  --rose: #6a4028;
+  --rule-rgb: 120, 100, 70;
+  --spine-hi: #e8d8c8;
+  --spine-lo: #c8b8a0;
+  --link-on-sheet: #4a5848;
+  --crumb: rgba(220, 210, 190, 0.75);
+  --flip-ink: #f0ebe0;
+  --desk: #1a1814;
+  --desk-hi: #242018;
+  --desk-lo: #0e0c0a;
+  --frame: #0c0a08;
+  --sheet-frame: #1a1814;
+  --bg: var(--desk);
+  --paper: var(--sheet);
+  --accent: var(--glow);
+  --visited: var(--lilac);
+  --active: #ffe8c0;
+  --scroll-thumb: var(--glow);
+  --scroll-track: var(--chassis-lo);
+}
+
+/* {{home}} lives in the gray mast — cream ink, not sheet-brown */
+.mast a,
+.mast a:link,
+.mast a:visited,
+.mast h1 a,
+.mast h1 a:link,
+.mast h1 a:visited,
+.device .mast a,
+.device .mast a:link,
+.device .mast a:visited {
+  color: var(--glow) !important;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+.mast a:hover,
+.mast h1 a:hover {
+  color: var(--active) !important;
+}
+
+/* paper tabs on the quiet desk — lift, not phosphor */
+.go-shell a.world,
+.go-shell .worlds a.world {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    1px 2px 0 var(--sheet-edge),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.go-shell a.world:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    1px 3px 0 var(--rose),
+    0 8px 14px rgba(0, 0, 0, 0.1);
+}
+

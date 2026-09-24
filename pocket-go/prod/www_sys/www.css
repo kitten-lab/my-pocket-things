@@ -10,13 +10,15 @@ body {
   margin: 0;
   height: 100%;
   overflow: hidden;
+  /* postage-stamp deck chrome (rem). Page glass sets its own px on .go-shell. */
   font-size: 11px;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background: gray;
+  /* same matte as URL / jump / work-tab rails — continuous frame, not floating strips */
+  background: #6e6e6e;
   color: white;
   font-family: "JetBrains Mono", "Courier New", Consolas, monospace;
 }
@@ -26,6 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 50;
+  background: #6e6e6e;
 }
 
 .wwwExplorer_windowTitleBar {
@@ -33,6 +36,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   height: 2.35rem;
+  margin: 0.25rem 0.45rem 0;
   padding: 5px;
   background-image: linear-gradient(to top, #0000cd, #1a3aff);
   border: 1px solid #0000cd;
@@ -55,16 +59,70 @@ body {
   letter-spacing: 0.04em;
   cursor: pointer;
   user-select: none;
-  background: #5b5b5b;
-  padding: 0.2rem 0.5rem;
+  background: #4a4a4a;
+  padding: 0.22rem 0.55rem;
   color: #fff;
-  border: 0;
+  border: 1px solid #00000066;
+  border-radius: 3px;
   font: inherit;
+  font-size: 0.85em;
   font-weight: 700;
   line-height: inherit;
+  box-shadow:
+    inset 1px 1px 0 #ffffff33,
+    inset -1px -1px 0 #00000044;
   -webkit-appearance: none;
   appearance: none;
   -webkit-app-region: no-drag;
+}
+.wwwExplorer_mark:hover,
+.wwwExplorer_mark:focus-visible {
+  background: #5a5a5a;
+  outline: none;
+}
+.wwwExplorer_mark:active {
+  box-shadow:
+    inset 1px 1px 0 #00000055,
+    inset -1px -1px 0 #ffffff22;
+}
+
+/* Fallback when Deck Host is not dressing the mark (IDE / plain browser). */
+#go-rail-menu {
+  position: fixed;
+  z-index: 400;
+  min-width: 11.5rem;
+  padding: 3px;
+  background: gray;
+  color: #111;
+  font: 11px "JetBrains Mono", "Courier New", Consolas, monospace;
+  border: 1px solid rgba(0, 0, 0, 0.634);
+  box-shadow:
+    inset -2px -2px 0 #00000033,
+    inset 2px 2px 0 #ffffff66,
+    1px 1px 0 #ffffff66,
+    -1px -1px 0 #00000066;
+}
+#go-rail-menu[hidden] {
+  display: none !important;
+}
+#go-rail-menu button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 5px 14px;
+  border: 0;
+  background: transparent;
+  color: #111;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+#go-rail-menu button:hover,
+#go-rail-menu button:focus {
+  background: #0000cd;
+  color: #fff;
+  outline: none;
 }
 
 .wwwExplorer_title {
@@ -143,9 +201,10 @@ body {
 .wwwExplorer_linkBar {
   display: flex;
   align-items: stretch;
-  gap: 0;
-  padding: 0.35rem 0.45rem 0.45rem;
-  background: gray;
+  gap: 0.28rem;
+  padding: 0.32rem 0.45rem;
+  background: #6e6e6e;
+  border-bottom: 1px solid #00000044;
   -webkit-app-region: no-drag;
 }
 
@@ -157,49 +216,84 @@ body {
 .linkSlug {
   flex: 1;
   min-width: 0;
-  padding: 0.35rem 0.55rem;
-  margin: 0 0.4rem;
-  background-color: white;
-  color: black;
-  font-size: 1rem;
+  align-self: center;
+  padding: 0.32rem 0.55rem;
+  margin: 0;
+  background: #d4d0c8;
+  color: #111;
+  font-size: 0.92rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  border: 1px solid #00000066;
+  border-radius: 3px;
   outline: none;
   overflow: hidden;
   white-space: nowrap;
   cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
   box-shadow:
-    1px 1px 0 #ffffff66,
-    -1px -1px 0 #00000066;
+    inset 1px 1px 0 #00000022,
+    inset -1px -1px 0 #ffffff88;
+}
+
+.linkSlug:focus,
+.linkSlug[contenteditable="true"]:focus {
+  background: #ebe6dc;
+  border-color: #0000cd;
+  box-shadow:
+    inset 1px 1px 0 #00000018,
+    0 0 0 1px #0000cd55;
 }
 
 .wwwExplorer_linkBar button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 4.5rem;
-  padding: 0.35rem 0.55rem;
-  border: 1px solid rgba(0, 0, 0, 0.634);
-  background: gray;
-  color: #111;
+  align-self: center;
+  min-width: 3.6rem;
+  min-height: 1.85rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid #00000066;
+  border-radius: 3px;
+  background: #8a8a8a;
+  color: #1a1a1a;
   font: inherit;
-  font-size: 1rem;
-  box-shadow:
-    inset -2px -2px 0 #00000033,
-    inset 2px 2px 0 #ffffff66,
-    1px 1px 0 #ffffff66,
-    -1px -1px 0 #00000066;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  box-shadow:
+    inset 1px 1px 0 #ffffff55,
+    inset -1px -1px 0 #00000033;
+}
+
+.wwwExplorer_linkBar button:hover,
+.wwwExplorer_linkBar button:focus-visible {
+  background: #9c9c9c;
+  outline: none;
+  color: #000;
+}
+
+.wwwExplorer_linkBar button:active {
+  background: #7a7a7a;
+  box-shadow:
+    inset 1px 1px 0 #00000044,
+    inset -1px -1px 0 #ffffff33;
 }
 
 .wwwExplorer_linkBar button[data-webbar="back"],
 .wwwExplorer_linkBar button[data-webbar="forward"],
 .wwwExplorer_linkBar button[data-webbar="refresh"],
-.wwwExplorer_linkBar button[data-webbar="home"] {
-  min-width: 2.1rem;
-  width: 2.1rem;
-  padding: 0.2rem;
+.wwwExplorer_linkBar button[data-webbar="home"],
+.wwwExplorer_linkBar button[data-webbar="pin"] {
+  min-width: 1.85rem;
+  width: 1.85rem;
+  padding: 0.22rem;
 }
 
 .wwwExplorer_linkBar button svg {
@@ -224,10 +318,31 @@ body {
   stroke: none;
 }
 
-.wwwExplorer_linkBar button:active {
+/* GO — same family as chrome, slight blue punch like title / active jump */
+.wwwExplorer_linkBar button[data-webbar="go"],
+.wwwExplorer_linkBar button#GO {
+  min-width: 3.4rem;
+  background: #0000cd;
+  color: #fff;
+  border-color: #000088;
   box-shadow:
-    inset 2px 2px 0 #00000033,
-    inset -2px -2px 0 #ffffff66;
+    inset 1px 1px 0 #ffffff44,
+    inset -1px -1px 0 #00000055;
+}
+.wwwExplorer_linkBar button[data-webbar="go"]:hover,
+.wwwExplorer_linkBar button[data-webbar="go"]:focus-visible,
+.wwwExplorer_linkBar button#GO:hover,
+.wwwExplorer_linkBar button#GO:focus-visible {
+  background: #1a3aff;
+  color: #fff;
+  outline: none;
+}
+.wwwExplorer_linkBar button[data-webbar="go"]:active,
+.wwwExplorer_linkBar button#GO:active {
+  background: #0000a8;
+  box-shadow:
+    inset 1px 1px 0 #00000055,
+    inset -1px -1px 0 #ffffff33;
 }
 
 .wwwExplorer_stage {
@@ -236,17 +351,20 @@ body {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  background: #6e6e6e;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   flex: 1 1 auto;
   min-height: 0;
   min-width: 0;
   margin: 0.25rem 0.45rem 0;
   padding: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--bg, #ffffff);
-  overflow: auto;
+  overflow: hidden;
   font-size: 16px;
   line-height: 1.4;
   color: var(--ink, #000000);
@@ -255,80 +373,378 @@ body {
   border-color: #00000066 #ffffff44 #ffffff44 #00000066;
 }
 
+.go-shell > #browserWindow {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: auto;
+  overflow: auto;
+}
+
 .wwwExplorer_status {
   flex: 0 0 auto;
-  margin: 0.25rem 0.45rem 0.45rem;
-  padding: 0.15rem 0.45rem;
-  background: gray;
+  margin: 0 0.45rem 0.45rem;
+  padding: 0.22rem 0.5rem;
+  background: #6e6e6e;
   color: #111;
-  font-size: 1rem;
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
   min-height: 1.35rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  border: 1px solid #00000055;
+  border-radius: 2px;
   box-shadow:
-    inset 2px 2px 0 #00000033,
-    inset -1px -1px 0 #ffffff66;
+    inset 1px 1px 0 #ffffff44,
+    inset -1px -1px 0 #00000033;
 }
 
-.wwwExplorer_innerShell {
-  scrollbar-width: auto;
-  scrollbar-color: gray silver;
+/* Overlay-thin scrollbars. .go-shell itself is overflow:hidden — the pane
+   that actually scrolls is #browserWindow (and inner rails/content).
+   Epiphany hid native bars; Deck Host Chromium showed classic thick gray
+   unless these hit the real scroller. Invisible until the pane is hovered. */
+.go-shell,
+.go-shell *,
+.go-shell > #browserWindow {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+.go-shell:hover,
+.go-shell *:hover,
+.go-shell > #browserWindow:hover {
+  scrollbar-color: color-mix(in srgb, currentColor 42%, transparent) transparent;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-track {
-  background: var(--paper, silver);
+.go-shell::-webkit-scrollbar,
+.go-shell *::-webkit-scrollbar,
+.go-shell > #browserWindow::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell::-webkit-scrollbar-track,
+.go-shell *::-webkit-scrollbar-track,
+.go-shell > #browserWindow::-webkit-scrollbar-track,
+.go-shell::-webkit-scrollbar-corner,
+.go-shell *::-webkit-scrollbar-corner,
+.go-shell > #browserWindow::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.go-shell::-webkit-scrollbar-thumb,
+.go-shell *::-webkit-scrollbar-thumb,
+.go-shell > #browserWindow::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.go-shell:hover::-webkit-scrollbar-thumb,
+.go-shell *:hover::-webkit-scrollbar-thumb,
+.go-shell > #browserWindow:hover::-webkit-scrollbar-thumb,
+.go-shell::-webkit-scrollbar-thumb:hover,
+.go-shell *::-webkit-scrollbar-thumb:hover,
+.go-shell > #browserWindow::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, currentColor 42%, transparent);
+}
+.go-shell::-webkit-scrollbar-button,
+.go-shell *::-webkit-scrollbar-button,
+.go-shell > #browserWindow::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* pinned host — star beside the go.* slug in the URL bar */
+html[data-pinned="1"] #wwwBar::before {
+  content: "★";
+  display: inline-block;
+  margin-right: 0.28em;
+  color: #ffd200;
+  font-size: 1.35em;
+  line-height: 1;
+  vertical-align: -0.08em;
+  letter-spacing: 0;
+  /* black outline so it reads on white chrome */
+  -webkit-text-stroke: 1.15px #000;
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 0 #000,
+    1px 0 0 #000,
+    -1px 0 0 #000,
+    0 1px 0 #000,
+    0 -1px 0 #000;
+}
+
+
+/* in-pocket jump bookmarks — flat gray under link bar (www chrome) */
+.wwwJumpBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.22rem;
+  padding: 0.28rem 0.45rem;
+  background: #6e6e6e;
+  border-top: 1px solid #00000055;
+  -webkit-app-region: no-drag;
+  min-height: 1.55rem;
+}
+.wwwJumpBar[hidden] {
+  display: none !important;
+}
+.wwwJumpBar .jumpChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  max-width: 12rem;
+  min-width: 0;
+  padding: 0.22rem 0.35rem 0.22rem 0.48rem;
+  border: 1px solid #00000066;
+  border-radius: 3px;
+  background: #8a8a8a;
+  color: #1a1a1a;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
   box-shadow:
-    inset 1px 1px 0 #00000066,
-    inset -1px -1px 0 #ffffff44;
+    inset 1px 1px 0 #ffffff55,
+    inset -1px -1px 0 #00000033;
+  user-select: none;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
-  background: gray;
-  border: 1px solid rgba(0, 0, 0, 0.634);
+.wwwJumpBar .jumpChip-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wwwJumpBar .jumpChip:hover,
+.wwwJumpBar .jumpChip:focus-visible {
+  background: #9c9c9c;
+  color: #000;
+  outline: none;
+}
+.wwwJumpBar .jumpChip:active {
+  background: #7a7a7a;
   box-shadow:
-    inset -2px -2px 0 #00000033,
-    inset 2px 2px 0 #ffffff66,
-    1px 1px 0 #ffffff66,
-    -1px -1px 0 #00000066;
+    inset 1px 1px 0 #00000044,
+    inset -1px -1px 0 #ffffff33;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb:active {
+.wwwJumpBar .jumpChip.is-here {
+  color: #fff;
+  background: #0000cd;
+  border-color: #000088;
   box-shadow:
-    inset 2px 2px 0 #00000033,
-    inset -2px -2px 0 #ffffff66;
+    inset 1px 1px 0 #ffffff44,
+    inset -1px -1px 0 #00000055;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-button {
-  display: block;
-  width: 16px;
-  height: 16px;
-  background-color: gray;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid rgba(0, 0, 0, 0.634);
+.wwwJumpBar .jumpChip.is-here .jumpX {
+  color: #fff;
+}
+.wwwJumpBar .jumpChip.is-dragging {
+  opacity: 0.55;
+}
+.wwwJumpBar .jumpChip.is-drag-over {
+  outline: 1px dotted #000;
+  outline-offset: -2px;
+}
+.wwwJumpBar .jumpChip .jumpX {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: #333;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0 0.1rem 0 0.15rem;
+  margin-left: 0.05rem;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+}
+.wwwJumpBar .jumpChip .jumpX:hover {
+  color: #000;
+  font-weight: 900;
+}
+
+.wwwJumpBar .jumpSep {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: 1px;
+  min-height: 1.1rem;
+  margin: 0.1rem 0.4rem;
+  background: #00000055;
+  box-shadow: 1px 0 0 #ffffff33;
+}
+.wwwJumpBar .jumpChip.is-permanent .jumpX {
+  display: none !important;
+}
+
+
+/* working tabs — session papers, not jump bookmarks. one desk. */
+.wwwWorkTabs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.12rem;
+  padding: 0.28rem 0.4rem 0;
+  background: #6e6e6e;
+  border-top: 1px solid #00000055;
+  min-height: 1.85rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-app-region: no-drag;
+}
+.wwwWorkTabs[hidden] {
+  display: none !important;
+}
+.wwwWorkTabs .workTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-width: 14rem;
+  margin: 0;
+  padding: 0.28rem 0.45rem 0.32rem;
+  border: 1px solid #00000066;
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  background: #8a8a8a;
+  color: #1a1a1a;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+  white-space: nowrap;
   box-shadow:
-    inset -2px -2px 0 #00000033,
-    inset 2px 2px 0 #ffffff66;
+    inset 1px 1px 0 #ffffff55,
+    inset -1px 0 0 #00000033;
+  user-select: none;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='8,4 12,11 4,11' fill='%23111'/%3E%3C/svg%3E");
+.wwwWorkTabs .workTab-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-button:vertical:increment {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='4,5 12,5 8,12' fill='%23111'/%3E%3C/svg%3E");
+.wwwWorkTabs .workTab:hover,
+.wwwWorkTabs .workTab:focus-visible {
+  background: #9c9c9c;
+  outline: none;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-button:horizontal:decrement {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='4,8 11,4 11,12' fill='%23111'/%3E%3C/svg%3E");
-}
-.wwwExplorer_innerShell::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpolygon points='5,4 12,8 5,12' fill='%23111'/%3E%3C/svg%3E");
-}
-.wwwExplorer_innerShell::-webkit-scrollbar-button:active {
+.wwwWorkTabs .workTab.is-active {
+  background: #d4d0c8;
+  color: #000;
+  padding-bottom: 0.42rem;
+  margin-bottom: -1px;
+  z-index: 1;
   box-shadow:
-    inset 2px 2px 0 #00000033,
-    inset -2px -2px 0 #ffffff66;
+    inset 1px 1px 0 #ffffffaa,
+    inset -1px 0 0 #00000022;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-corner {
-  background: gray;
+.wwwWorkTabs .workTab-x {
+  flex: 0 0 auto;
+  padding: 0 0.05rem;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.wwwWorkTabs .workTab.is-active .workTab-x {
+  color: #222;
+}
+.wwwWorkTabs .workTab-x:hover {
+  color: #000;
+  font-weight: 900;
+}
+.wwwWorkTabs .workNew {
+  flex: 0 0 auto;
+  min-width: 1.55rem;
+  margin: 0 0 0 0.15rem;
+  padding: 0.12rem 0.4rem 0.2rem;
+  border: 1px solid #00000055;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  background: #7a7a7a;
+  color: #111;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 0 #ffffff44;
+}
+.wwwWorkTabs .workNew:hover,
+.wwwWorkTabs .workNew:focus-visible {
+  background: #909090;
+  outline: none;
+}
+
+.wwwExplorer_linkBar button[data-webbar="pin"][aria-pressed="true"] {
+  color: #fff;
+  background: #0000cd;
+  box-shadow:
+    inset 2px 2px 0 #00000066,
+    inset -2px -2px 0 #ffffff44;
+}
+
+
+/* soft-nav — keep chrome; dim only the page body while fetching */
+.go-shell.is-soft-loading {
+  opacity: 0.55;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+a.pic-zoom,
+a.jacket-zoom,
+img.slides-pic {
+  cursor: zoom-in;
+}
+
+.pocket-pic-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  background: rgba(8, 10, 14, 0.9);
+  cursor: zoom-out;
+  -webkit-app-region: no-drag;
+}
+.pocket-pic-zoom[hidden] {
+  display: none !important;
+}
+.pocket-pic-zoom-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 8px 40px #00000099;
+  cursor: zoom-out;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+.pocket-pic-zoom-x {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.7rem;
+  border: 0;
+  background: transparent;
+  color: #f2f2f2;
+  font: 22px/1 "JetBrains Mono", "Courier New", Consolas, monospace;
+  cursor: pointer;
+  opacity: 0.85;
+  -webkit-app-region: no-drag;
+}
+.pocket-pic-zoom-x:hover {
+  opacity: 1;
 }

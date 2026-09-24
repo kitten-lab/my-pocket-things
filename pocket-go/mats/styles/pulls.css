@@ -16,7 +16,7 @@
   --chip: #2a2418;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   display: block;
   overflow: auto;
   background:
@@ -29,7 +29,7 @@
   line-height: 1.5;
 }
 
-.wwwExplorer_innerShell p {
+.go-shell p {
   white-space: normal;
 }
 
@@ -43,7 +43,7 @@
     0 12px 40px #00000088;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   position: static;
   padding: 0 0 0.7rem;
   margin: 0 0 0.8rem;
@@ -55,18 +55,18 @@
   border-bottom: 1px dashed var(--line);
 }
 
-.wwwExplorer_innerShell .crumb::before {
+.go-shell .crumb::before {
   content: "PULL  ·  ";
   color: var(--accent);
   font-weight: 500;
 }
 
-.wwwExplorer_innerShell .crumb a {
+.go-shell .crumb a {
   color: var(--accent);
   text-decoration: none;
 }
 
-.wwwExplorer_innerShell h1 {
+.go-shell h1 {
   margin: 0 0 0.7rem;
   font-size: 1.7rem;
   font-weight: 600;
@@ -74,7 +74,7 @@
   color: var(--chip);
 }
 
-.wwwExplorer_innerShell h1::after {
+.go-shell h1::after {
   content: "review slip";
   display: block;
   margin-top: 0.25rem;
@@ -86,7 +86,7 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell h2 {
+.go-shell h2 {
   margin: 1.6rem 0 0.45rem;
   padding: 0.28rem 0.55rem;
   font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
@@ -98,22 +98,22 @@
   border-left: 3px solid var(--glass);
 }
 
-.wwwExplorer_innerShell h3 {
+.go-shell h3 {
   margin: 1.2rem 0 0.4rem;
   font-size: 1.05rem;
   color: var(--chip);
 }
 
-.wwwExplorer_innerShell a:link {
+.go-shell a:link {
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been {
+.go-shell a:visited,
+.go-shell a.been {
   color: var(--visited);
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   height: 0;
   margin: 1.4rem 0;
   border: 0;
@@ -121,7 +121,7 @@
   background: none;
 }
 
-.wwwExplorer_innerShell code {
+.go-shell code {
   font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
   font-size: 0.84em;
   color: #5a3a10;
@@ -129,7 +129,7 @@
   padding: 0.05em 0.28em;
 }
 
-.wwwExplorer_innerShell blockquote.window {
+.go-shell blockquote.window {
   margin: 0.45rem 0 0.7rem;
   padding: 0.75rem 0.9rem 0.8rem 1rem;
   background: #fffdf7;
@@ -138,18 +138,18 @@
   box-shadow: inset 0 1px 0 #ffffffaa;
 }
 
-.wwwExplorer_innerShell blockquote.window p {
+.go-shell blockquote.window p {
   margin: 0 0 0.55rem;
   font-size: 1.02rem;
   line-height: 1.45;
   color: #2a2218;
 }
 
-.wwwExplorer_innerShell blockquote.window p:last-child {
+.go-shell blockquote.window p:last-child {
   margin-bottom: 0;
 }
 
-.wwwExplorer_innerShell .turn {
+.go-shell .turn {
   margin: 0 0 0.35rem;
   font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
   font-size: 11px;
@@ -157,25 +157,25 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .furniture {
+.go-shell .furniture {
   margin: 0.55rem 0 0;
   font-size: 0.95rem;
   color: #4a4034;
 }
 
-.wwwExplorer_innerShell ul.dir {
+.go-shell ul.dir {
   list-style: none;
   padding: 0;
   margin: 0.4rem 0 0;
 }
 
-.wwwExplorer_innerShell ul.dir.files li,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) li {
+.go-shell ul.dir.files li,
+.go-shell .content ul.dir:not(.hits) li {
   margin: 0 0 0.35rem;
 }
 
-.wwwExplorer_innerShell ul.dir.files a,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a {
+.go-shell ul.dir.files a,
+.go-shell .content ul.dir:not(.hits) a {
   display: inline-block;
   font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
   font-size: 13px;
@@ -185,7 +185,7 @@
   text-decoration: none;
 }
 
-.wwwExplorer_innerShell .headers {
+.go-shell .headers {
   margin-top: 2rem;
   padding-top: 0.6rem;
   border-top: 1px dashed var(--line);
@@ -194,7 +194,7 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .tag {
+.go-shell .tag {
   font-family: "IBM Plex Mono", Consolas, "Courier New", monospace;
   font-style: normal;
   font-size: 11px;

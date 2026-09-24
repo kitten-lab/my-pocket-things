@@ -1,0 +1,100 @@
+@import url("/styles/fonts.css");
+
+:root {
+  /* dawn — soft peach sky, warm paper */
+  --bg: #f3e9df;
+  --paper: #fff8f0;
+  --ink: #2a2420;
+  --mute: #7a6a60;
+  --line: #e0d0c4;
+  --accent: #c45c6a;
+  --side: #f7efe6;
+  --visited: #7a5a6e;
+  --chip-bg: #f7efe6;
+  --chip-ink: #2a2420;
+  --chip-line: #e0d0c4;
+  --chip-accent: #c45c6a;
+  --tree-line: #d8c8bc;
+  --link: #b84858;
+
+  --font: var(--font-sans, system-ui, sans-serif);
+  --font-head: var(--font-display, Georgia, "Times New Roman", serif);
+  --font-mono: var(--font-mono, ui-monospace, monospace);
+  --font-size: 15px;
+  --font-size-sm: 0.82em;
+  --font-size-lg: 1.35em;
+  --font-size-xl: 1.75em;
+  --line-height: 1.5;
+  --weight-body: 400;
+  --weight-head: 650;
+  --weight-strong: 650;
+  --tracking-head: 0.03em;
+
+  --pad: 0.85em;
+  --gap: 0.55em;
+  --side-w: 12em;
+  --max: 42em;
+  --tree-indent: 0.95em;
+  --radius-chip: 999px;
+}
+
+.go-shell {
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--weight-body);
+  line-height: var(--line-height);
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.go-shell .pg-stack.pg-frame {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 #ffffffaa inset;
+}
+
+.go-shell .pg-head {
+  font-family: var(--font-head);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+  color: var(--accent);
+  padding: var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+
+.go-shell .pg-navbar,
+.go-shell nav.pg-navbar {
+  background: var(--side);
+  border-bottom: 1px solid var(--line);
+  padding: 0.35em var(--pad);
+}
+
+.go-shell .pg-body {
+  padding: var(--pad);
+  max-width: var(--max);
+}
+
+.go-shell h1, .go-shell h2, .go-shell h3 {
+  font-family: var(--font-head);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+  color: var(--ink);
+}
+
+.go-shell a:link { color: var(--link); }
+.go-shell a:visited, .go-shell a.been { color: var(--visited); }
+
+.go-shell .chip,
+.go-shell .chips .chip {
+  background: var(--chip-bg);
+  color: var(--chip-ink);
+  border: 1px solid var(--chip-line);
+  border-radius: var(--radius-chip);
+}
+
+.go-shell p { max-width: var(--max); }
+.go-shell hr {
+  border: 0;
+  border-top: 1px dashed var(--line);
+  margin: 1.1em 0;
+}

@@ -1,0 +1,40 @@
+@import url("/styles/journal-device.css");
+
+/* journal-night — blush e-reader (same mood as classic night) */
+:root {
+  --chassis: #2a2430;
+  --chassis-hi: #3a3244;
+  --chassis-lo: #1a1620;
+  --bezel: #4a3e52;
+  --bezel-hi: #3a3248;
+  --bezel-lo: #221c2c;
+  --glow: #e8a0b8;
+  --glow-rgb: 232, 160, 184;
+  --lilac: #b89ac8;
+  --haze-rgb: 120, 80, 160;
+  --sheet: #fff8ef;
+  --sheet-edge: #e4d2c0;
+  --ink: #3a2e34;
+  --mute: #8a7488;
+  --line: #ead8cc;
+  --blush: #e8a0a8;
+  --rose: #c46a78;
+  --rule-rgb: 180, 120, 130;
+  --spine-hi: #f0d0d8;
+  --spine-lo: #d8b0c0;
+  --link-on-sheet: #7a4a88;
+  --crumb: rgba(200, 180, 210, 0.55);
+  --flip-ink: #f0e4f0;
+  --desk: #121018;
+  --desk-hi: #1c1624;
+  --desk-lo: #08060c;
+  --frame: #0c0a10;
+  --sheet-frame: #1a1420;
+  --bg: var(--desk);
+  --paper: var(--sheet);
+  --accent: var(--glow);
+  --visited: var(--lilac);
+  --active: #ffb0c8;
+  --scroll-thumb: var(--glow);
+  --scroll-track: var(--chassis-lo);
+}

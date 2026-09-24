@@ -16,7 +16,7 @@
   --ad-red: #c4160c;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   --rail: 236px;
   background:
     repeating-linear-gradient(
@@ -224,7 +224,7 @@ span.accent {
   gap: 0;
 }
 
-.wwwExplorer_innerShell a.world {
+.go-shell a.world {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
@@ -244,23 +244,23 @@ span.accent {
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell a.world strong,
-.wwwExplorer_innerShell a.world .note-details {
+.go-shell a.world strong,
+.go-shell a.world .note-details {
   background: var(--yp-deep);
   padding: 0 0.12rem;
 }
 
-.wwwExplorer_innerShell .tabs a.world strong,
-.wwwExplorer_innerShell .tabs a.world .note-details {
+.go-shell .tabs a.world strong,
+.go-shell .tabs a.world .note-details {
   background: var(--yp-deep);
 }
 
-.wwwExplorer_innerShell .content a.world strong,
-.wwwExplorer_innerShell .content a.world .note-details {
+.go-shell .content a.world strong,
+.go-shell .content a.world .note-details {
   background: var(--yp);
 }
 
-.wwwExplorer_innerShell a.world strong {
+.go-shell a.world strong {
   font-family: "Oswald", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
@@ -283,23 +283,23 @@ span.note-details::after {
   content: " listings";
 }
 
-.wwwExplorer_innerShell a.world:hover {
+.go-shell a.world:hover {
   color: var(--ad-red) !important;
   background-color: var(--yp-wash);
 }
 
-.wwwExplorer_innerShell a.world:hover strong,
-.wwwExplorer_innerShell a.world:hover .note-details {
+.go-shell a.world:hover strong,
+.go-shell a.world:hover .note-details {
   background: var(--yp-wash);
 }
 
-.wwwExplorer_innerShell a.world:visited,
-.wwwExplorer_innerShell a.world.been {
+.go-shell a.world:visited,
+.go-shell a.world.been {
   color: var(--visited) !important;
 }
 
-.wwwExplorer_innerShell ul.dir.files,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) {
+.go-shell ul.dir.files,
+.go-shell .content ul.dir:not(.hits) {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -309,15 +309,15 @@ span.note-details::after {
   margin: 0.15rem 0 0.9rem;
 }
 
-.wwwExplorer_innerShell ul.dir.files li,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) li {
+.go-shell ul.dir.files li,
+.go-shell .content ul.dir:not(.hits) li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.wwwExplorer_innerShell ul.dir.files a,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a {
+.go-shell ul.dir.files a,
+.go-shell .content ul.dir:not(.hits) a {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
@@ -337,8 +337,8 @@ span.note-details::after {
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell ul.dir.files a .name,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a .name {
+.go-shell ul.dir.files a .name,
+.go-shell .content ul.dir:not(.hits) a .name {
   font-family: "Oswald", sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
@@ -348,12 +348,12 @@ span.note-details::after {
   padding: 0 0.12rem;
 }
 
-.wwwExplorer_innerShell .side ul.dir.files a .name {
+.go-shell .side ul.dir.files a .name {
   background: var(--yp-deep);
 }
 
-.wwwExplorer_innerShell ul.dir.files a::after,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a::after {
+.go-shell ul.dir.files a::after,
+.go-shell .content ul.dir:not(.hits) a::after {
   content: "listing";
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.72rem;
@@ -366,27 +366,27 @@ span.note-details::after {
   padding: 0 0.12rem;
 }
 
-.wwwExplorer_innerShell .side ul.dir.files a::after {
+.go-shell .side ul.dir.files a::after {
   background: var(--yp-deep);
 }
 
-.wwwExplorer_innerShell ul.dir.files a:hover,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a:hover {
+.go-shell ul.dir.files a:hover,
+.go-shell .content ul.dir:not(.hits) a:hover {
   color: var(--ad-red) !important;
   background-color: var(--yp-wash);
 }
 
-.wwwExplorer_innerShell ul.dir.files a:hover .name,
-.wwwExplorer_innerShell ul.dir.files a:hover::after,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a:hover .name,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a:hover::after {
+.go-shell ul.dir.files a:hover .name,
+.go-shell ul.dir.files a:hover::after,
+.go-shell .content ul.dir:not(.hits) a:hover .name,
+.go-shell .content ul.dir:not(.hits) a:hover::after {
   background: var(--yp-wash);
 }
 
-.wwwExplorer_innerShell ul.dir.files a:visited,
-.wwwExplorer_innerShell ul.dir.files a.been,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a:visited,
-.wwwExplorer_innerShell .content ul.dir:not(.hits) a.been {
+.go-shell ul.dir.files a:visited,
+.go-shell ul.dir.files a.been,
+.go-shell .content ul.dir:not(.hits) a:visited,
+.go-shell .content ul.dir:not(.hits) a.been {
   color: var(--visited) !important;
 }
 
@@ -414,9 +414,9 @@ span.note-details::after {
   background: var(--yp-wash);
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .side a:link,
 .side a.crumbback {
@@ -501,11 +501,11 @@ span.note-details::after {
 }
 
 
-.wwwExplorer_innerShell .content h1 a,
-.wwwExplorer_innerShell .content h1 a:link,
-.wwwExplorer_innerShell .content h1 a:visited,
-.wwwExplorer_innerShell .content h1 a.been,
-.wwwExplorer_innerShell .content h1 a.crumbback {
+.go-shell .content h1 a,
+.go-shell .content h1 a:link,
+.go-shell .content h1 a:visited,
+.go-shell .content h1 a.been,
+.go-shell .content h1 a.crumbback {
   color: var(--yp);
   font-family: inherit;
   font-size: inherit;
@@ -519,11 +519,11 @@ span.note-details::after {
 }
 
 
-.wwwExplorer_innerShell .content h3 a,
-.wwwExplorer_innerShell .content h3 a:link,
-.wwwExplorer_innerShell .content h3 a:visited,
-.wwwExplorer_innerShell .content h3 a.been,
-.wwwExplorer_innerShell .content h3 a.crumbback {
+.go-shell .content h3 a,
+.go-shell .content h3 a:link,
+.go-shell .content h3 a:visited,
+.go-shell .content h3 a.been,
+.go-shell .content h3 a.crumbback {
   color: var(--ink);
   font-family: inherit;
   font-size: inherit;
@@ -535,15 +535,15 @@ span.note-details::after {
   background: transparent;
 }
 
-.wwwExplorer_innerShell .content h1 a:hover,
-.wwwExplorer_innerShell .content h1 a.crumbback:hover {
+.go-shell .content h1 a:hover,
+.go-shell .content h1 a.crumbback:hover {
   background: var(--ink);
   color: var(--yp);
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell .content .shellcrumb,
-.wwwExplorer_innerShell .content h1 .shellcrumb {
+.go-shell .content .shellcrumb,
+.go-shell .content h1 .shellcrumb {
   display: inline;
   position: static;
   padding: 0;
@@ -671,7 +671,7 @@ span.note-details::after {
   border-top: 3px double #111;
 }
 
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   max-width: 68ch;
   font-size: 0.82rem;
   font-family: "Roboto Condensed", monospace;
@@ -680,7 +680,7 @@ span.note-details::after {
   padding: 0.5rem 0.7rem;
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   border: 0;
   height: 0;
   border-top: 1px solid #111;
@@ -688,12 +688,12 @@ span.note-details::after {
   margin: 0.8rem 0;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar {
+.go-shell::-webkit-scrollbar {
   width: 12px;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
+.go-shell::-webkit-scrollbar-thumb {
   background: #111;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-track {
+.go-shell::-webkit-scrollbar-track {
   background: var(--yp-deep);
 }

@@ -17,14 +17,14 @@
   --brass: #c8b070;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 18% 0%, var(--glow), transparent 42%),
     radial-gradient(ellipse at 88% 12%, rgba(120, 60, 160, 0.18), transparent 38%),
     linear-gradient(180deg, #241830 0%, var(--void) 55%, #100818 100%);
   color: var(--ink);
   font-family: Fraunces, Georgia, "Times New Roman", serif;
-  font-size: 17px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -82,8 +82,11 @@ p.nameplate::after {
   grid-area: blotter;
   min-height: 0;
   overflow: auto;
-  margin: 1.1rem 1.6rem 0.6rem;
-  padding: 1.6rem 2rem 2.2rem;
+  margin: 0.85rem 1.2rem 0.5rem;
+  padding: 1.25rem 1.5rem 1.8rem;
+  max-width: min(52rem, 100%);
+  width: auto;
+  box-sizing: border-box;
   background:
     radial-gradient(ellipse at 12% 0%, rgba(200, 160, 230, 0.18), transparent 42%),
     var(--paper);
@@ -108,7 +111,7 @@ p.nameplate::after {
 }
 
 .blotter h1 {
-  font-size: 1.85rem;
+  font-size: 1.45rem;
   font-style: italic;
 }
 
@@ -214,9 +217,9 @@ p.nameplate::after {
   text-decoration: none;
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .tagshelf,
 .headers,
@@ -246,7 +249,7 @@ p.nameplate::after {
 }
 
 .blotter pre,
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
   background: #efe4f6;
@@ -268,4 +271,24 @@ hr {
 .blotter::-webkit-scrollbar-thumb {
   background: var(--accent);
   border: 1px solid #eadff0;
+}
+
+/* —— quiet overnight: stage width —— */
+.blotter {
+  margin-left: auto;
+  margin-right: auto;
+}
+.drawer {
+  max-width: min(52rem, calc(100% - 2.4rem));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+@media (max-width: 720px) {
+  .blotter, .drawer {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    max-width: none;
+  }
+  .nameplate { letter-spacing: 0.18em; }
 }

@@ -1,0 +1,35 @@
+:root {
+  --bg: #faebd7;
+  --paper: #faebd7;
+  --ink: #222222;
+  --mute: #555555;
+  --line: #c4b8a4;
+  --accent: #6b2d2d;
+  --visited: #6b2d2d;
+  --active: #6b2d2d;
+}
+
+.go-shell {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: normal;
+  background-color: antiquewhite;
+  color: #222;
+}
+
+.go-shell .subtitle {
+  color: var(--mute);
+  font-style: italic;
+}
+
+.go-shell article,
+.go-shell .article {
+  max-width: 40em;
+  margin: 1em auto;
+  text-align: left;
+}
+
+.go-shell footer {
+  margin-top: 2em;
+  font-size: small;
+  color: var(--mute);
+}

@@ -1,8 +1,8 @@
 @import "terminal-root.css";
 
-/* THE HOUSE THE IO BUILT — from Terminal IO vault TerminalOverride */
+/* IO — archive madman green + vault phosphor. SDK-808. */
 
-:root {
+.go-shell {
   --iox-bright: #38b433;
   --iox-ultrabright: #00ff00;
   --iox-midlight: #237220;
@@ -11,227 +11,153 @@
   --iox-background: #142710;
   --iox-dark: #225a16;
   --iox-tint: #294b21;
-  --iox-glass: "Glass TTY VT220", "VT323", "Consolas", monospace;
-  --iox-arcade: "Arcade Interlaced", "VT323", monospace;
-  --iox-scan: linear-gradient(rgba(0, 0, 0, 0.4) 2px, transparent 1px);
-  --iox-scan-size: 100% 3px;
 
-  --ink: var(--iox-bright);
-  --line: var(--iox-dark);
-  --paper: var(--iox-background);
-  --accent: var(--iox-bright);
+  --tm-bg: var(--iox-background);
+  --tm-tree-bg: #0f1c0c;
+  --tm-fg: #7dff6a;
+  --tm-fg-dim: #3cb83a;
+  --tm-accent: var(--iox-bright);
+  --tm-hot: var(--iox-ultrabright);
+  --tm-line: var(--iox-dark);
+  --tm-scan: linear-gradient(rgba(0, 0, 0, 0.4) 2px, transparent 1px);
+  --tm-scan-size: 100% 3px;
+
+  --ink: var(--tm-fg);
+  --mute: var(--tm-fg-dim);
+  --line: var(--tm-line);
+  --paper: var(--tm-bg);
+  --accent: var(--tm-accent);
   --visited: var(--iox-midlight);
-  --active: var(--iox-ultrabright);
+  --active: var(--tm-hot);
   --seek: var(--iox-standard);
-  --burn: #c31f1f;
   --view: var(--iox-ultrabright);
-  --tone: var(--iox-highlighter);
-  --mute: var(--iox-midlight);
-}
 
-.wwwExplorer_innerShell {
-  --rail: 200px;
-  font-family: var(--iox-glass);
-  font-style: normal;
-  font-size: 20px;
-  color: var(--iox-bright);
+  --pocket-scroll-track: #0f1c0c;
+  --pocket-scroll-thumb: #2a6a28;
+  --pocket-scroll-thumb-hover: #38b433;
+
+  color: var(--tm-fg);
   background-color: var(--iox-background);
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  box-shadow: inset 0 0 40vh rgba(0, 0, 0, 0.65);
 }
 
-.wwwExplorer_innerShell,
-.wwwExplorer_innerShell p,
-.wwwExplorer_innerShell li,
-.wwwExplorer_innerShell td,
-.wwwExplorer_innerShell th {
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--iox-arcade);
-  font-style: normal;
-  font-weight: 300 !important;
-  color: var(--iox-ultrabright);
-  text-shadow: 0 0 12px rgba(0, 255, 0, 0.3);
-}
-
-h1 { font-size: 2em; }
-
-.mast {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2.2rem;
-  font-family: var(--iox-arcade);
-  font-style: normal;
-  font-size: 1.15rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem 0.22rem 0.75rem;
-  background-color: var(--iox-bright);
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  border-bottom: 0;
-  color: var(--iox-background);
-  text-shadow: none;
+.go-shell .chip {
+  background: #0a1408;
+  border-right-color: var(--iox-bright);
+  box-shadow:
+    inset -6px 0 18px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(56, 180, 51, 0.12);
 }
 
 p.mast::after {
-  content: "IO";
-  position: static;
-  left: auto;
-  top: auto;
-  height: auto;
+  content: "for the collection and protection of your thoughts";
+}
+
+.go-shell .side {
+  background-color: #0f1c0c;
+  border-right-color: var(--iox-dark);
+}
+
+/* console rooms: archive nav rows, not station cards */
+.go-shell .side a.world {
+  display: block !important;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 0;
   margin: 0;
-  padding: 0.28em 0.55em 0.18em;
-  font-family: var(--iox-arcade);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  padding: 5px 8px 5px 6px !important;
+  border: none !important;
+  background: transparent !important;
+  color: var(--tm-fg) !important;
+  letter-spacing: 0.06em;
+  font-family: var(--tm-font);
+  font-size: 18px;
+  box-shadow: none;
+}
+
+.go-shell .side a.world::before {
+  content: ">| ";
+  opacity: 0.45;
+  font-size: 0.85em;
+}
+
+.go-shell .side a.world .door-deck,
+.go-shell .side a.world .note-details {
+  display: none !important;
+}
+
+.go-shell .side a.world .door-copy,
+.go-shell .side a.world .name,
+.go-shell .side a.world strong {
+  display: inline !important;
+  font-family: var(--tm-font);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.go-shell .side a.world:hover,
+.go-shell .side a.world.door-io:hover {
+  color: var(--tm-hot) !important;
+  border: none !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  box-shadow: none;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.go-shell .side a.world:hover::after {
+  content: " >|";
+  opacity: 0.7;
+}
+
+.go-shell .content {
   background-color: var(--iox-background);
-  color: var(--iox-ultrabright);
-  opacity: 1;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.35);
 }
 
-.side {
-  font-family: var(--iox-glass);
-  font-style: normal;
-  text-transform: uppercase;
-  background-color: var(--iox-standard);
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  border-right: 3px solid var(--iox-bright);
-  color: var(--iox-bright);
-  box-shadow: inset -6px 0 18px rgba(0, 0, 0, 0.45);
-}
-
-.content {
-  font-family: var(--iox-glass);
-  font-style: normal;
-  color: var(--iox-bright);
-  background-color: var(--iox-background);
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  position: relative;
-}
-
-.content::before {
+.go-shell .content::before {
   content: "CHESTER'S IMPORTS";
   position: absolute;
-  top: 22%;
-  left: 8%;
-  font-family: var(--iox-arcade);
-  font-size: clamp(1rem, 3vw, 2.2rem);
+  top: 18%;
+  left: 6%;
+  font-family: var(--tm-font-ui);
+  font-size: clamp(18px, 3.5vw, 42px);
   color: var(--iox-bright);
-  opacity: 0.06;
+  opacity: 0.055;
   transform: rotate(-8deg);
   pointer-events: none;
   z-index: 0;
   white-space: nowrap;
 }
 
-.content > * {
-  position: relative;
-  z-index: 1;
+.go-shell .content h1 {
+  color: var(--iox-ultrabright);
+  text-shadow: 0 0 14px rgba(0, 255, 0, 0.35);
 }
 
-.content p {
-  width: auto;
-  max-width: 42rem;
-  font-family: var(--iox-glass);
-  font-size: 1.05em;
-  font-weight: 400;
+.go-shell .content p {
   color: #8fef7a;
 }
 
-.content pre,
-.wwwExplorer_innerShell pre.code {
-  font-family: var(--iox-glass);
-  font-size: 0.95em !important;
-  font-style: normal;
+.go-shell .content pre,
+.go-shell pre.code {
   color: var(--iox-ultrabright);
   background: rgba(10, 22, 8, 0.55);
-  border: 1px dotted var(--iox-dark);
-  padding: 0.8em 1em;
-  max-width: 46rem;
+  border-color: var(--iox-dark);
 }
 
-.center {
-  text-align: center;
-  max-width: none !important;
-  width: 100% !important;
-  font-family: var(--iox-arcade);
-  font-size: 0.85em;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--iox-ultrabright);
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.28);
+.go-shell ::selection {
+  background: rgba(23, 48, 77, 0.95);
+  color: #fff;
 }
 
-.foot {
-  font-family: var(--iox-arcade);
-  font-style: normal;
-  font-size: 0.7em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--iox-background);
-  border-top: 0;
-  background-color: var(--iox-bright);
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-}
-
-.tag {
-  font-family: var(--iox-arcade);
-  font-style: normal;
-  font-size: 0.75em;
-  letter-spacing: 0.05em;
-  border-radius: 0;
-  border: 1px solid var(--iox-highlighter);
-  background-color: var(--iox-highlighter);
-  color: var(--iox-bright);
-}
-
-.tag:hover,
-.tag a:hover,
-.tag a.been:hover {
-  background-color: var(--iox-bright);
-  color: var(--iox-standard) !important;
-}
-
-a.world {
-  border: 1px solid var(--iox-dark) !important;
-  padding: 8px 10px !important;
-  background-color: #0a1608 !important;
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  color: #9ef08a !important;
-  text-shadow: none;
-}
-
-a.world:hover,
-a.world.door-io:hover {
-  border-color: var(--iox-ultrabright) !important;
-  color: var(--iox-ultrabright) !important;
-  background-color: #0a1608 !important;
-  box-shadow: 0 0 16px rgba(0, 255, 0, 0.2);
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
-}
-
-span.accent {
-  color: var(--iox-ultrabright);
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
-}
-
-.content figure.jacket {
+.go-shell .content figure.jacket {
+  position: relative;
+  display: block;
   float: none;
+  clear: both;
   width: calc(100% + 120px);
   max-width: none;
-  height: 16rem;
-  margin: -20px -60px 1.4rem;
+  height: 14em;
+  margin: -14px -60px 1.5em;
   overflow: hidden;
   isolation: isolate;
   background: #0a1608;
@@ -240,18 +166,18 @@ span.accent {
   filter: none;
 }
 
-.content figure.jacket::before {
+.go-shell .content figure.jacket::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background-image: var(--iox-scan);
-  background-size: var(--iox-scan-size);
-  box-shadow: inset 0 -2.5rem 3rem var(--iox-background);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  box-shadow: inset 0 -2.5em 3em var(--iox-background);
 }
 
-.content figure.jacket::after {
+.go-shell .content figure.jacket::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -261,7 +187,7 @@ span.accent {
   mix-blend-mode: color;
 }
 
-.content figure.jacket img.jacket-art {
+.go-shell .content figure.jacket img.jacket-art {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -270,11 +196,251 @@ span.accent {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: center 35%;
   filter: grayscale(1) contrast(1.08);
 }
 
-.content figure.jacket.has-cover .name,
-.content figure.jacket .name {
+.go-shell .content figure.jacket.has-cover .name,
+.go-shell .content figure.jacket .name {
   display: none;
+}
+
+/*
+ * terminal.io selector + printout coat
+ * Append after terminal-root.css and the existing terminal-io.css rules.
+ * The direct-child rail selectors intentionally do not match renderer chips.
+ */
+
+/* Station selector: retain terminal-root's chip grid area and geometry. */
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip {
+  box-sizing: border-box;
+  gap: 0.35rem;
+  padding-block: 0.65rem;
+  overflow: hidden auto;
+  scrollbar-width: thin;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip > p {
+  margin: 0;
+  padding: 0;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip a {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75em;
+  padding: 0.3em 0.2em;
+  border: 1px solid transparent;
+  color: rgba(142, 255, 167, 0.72);
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.45em rgba(84, 255, 124, 0.34);
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip a:hover,
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip a:focus-visible {
+  border-color: rgba(109, 255, 142, 0.52);
+  color: #c5ffd2;
+  background: rgba(73, 255, 114, 0.09);
+  outline: none;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow > .chip a[href="/?h=terminal.io"] {
+  border-color: rgba(109, 255, 142, 0.68);
+  color: #d4ffdd;
+  background: rgba(73, 255, 114, 0.14);
+  box-shadow: inset 2px 0 0 #6dff8e, 0 0 0.65rem rgba(73, 255, 114, 0.12);
+}
+
+/* Renderer metadata: plain terminal lines (not the station rail).
+ * terminal-root.css owns the global .chip rail; neutralize geometry here.
+ */
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chips {
+  position: static;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0.15rem 0 0.45rem;
+  padding: 0;
+  overflow: visible;
+  color: #a9ffbd;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chips > .chip {
+  grid-area: auto;
+  position: static;
+  inset: auto;
+  box-sizing: border-box;
+  display: block;
+  flex: none;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 0.2rem;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  color: #baffc9;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  white-space: normal;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-label {
+  display: inline;
+  flex: none;
+  color: rgba(142, 255, 167, 0.72);
+  font-size: inherit;
+  font-weight: 600;
+  line-height: inherit;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: none;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-label::after {
+  content: ": ";
+  margin-left: 0;
+  color: rgba(109, 255, 142, 0.45);
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-values {
+  display: inline;
+  flex: none;
+  min-width: 0;
+  gap: 0;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-value {
+  display: inline;
+  min-width: 0;
+  color: #c5ffd2;
+  font-size: inherit;
+  line-height: inherit;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-value + .chip-value::before {
+  content: ", ";
+  margin-right: 0;
+  color: rgba(109, 255, 142, 0.42);
+  text-decoration: none;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-sep {
+  color: rgba(109, 255, 142, 0.42);
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-label:hover,
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-value:hover,
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-label:focus-visible,
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chip-value:focus-visible {
+  color: #effff2;
+  text-shadow: none;
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+/* Kill terminal-root >| prefix on content meta links only (rail keeps it). */
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chips .chip a::before,
+html[data-pocket^="go.terminal.io"] #browserWindow .content .chips .chip a.wiki::before {
+  content: none;
+  display: none;
+  margin: 0;
+  opacity: 0;
+}
+
+/* Content tags read as shell hash flags, without styling ordinary links. */
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag {
+  box-sizing: border-box;
+  display: inline;
+  max-width: 100%;
+  margin: 0 0.45rem 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: rgba(181, 255, 198, 0.88);
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.92em;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  text-transform: lowercase;
+  vertical-align: baseline;
+}
+
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag::before {
+  content: "#";
+  margin-right: 0.05em;
+  color: rgba(109, 255, 142, 0.55);
+  font-weight: 400;
+}
+
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag:hover,
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag:focus-visible {
+  border: 0 !important;
+  color: var(--tm-hot, #00ff00) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  text-shadow: 0 0 0.45em rgba(56, 180, 51, 0.55);
+  outline: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 255, 0, 0.45);
+  text-underline-offset: 0.14em;
+}
+
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag:hover::before,
+html[data-pocket^="go.terminal.io"] #browserWindow .content a.tag:focus-visible::before {
+  color: var(--tm-hot, #00ff00) !important;
+}
+
+
+
+
+
+@media (max-width: 640px) {
+  html[data-pocket^="go.terminal.io"] #browserWindow > .chip {
+    gap: 0.2rem;
+    padding-block: 0.4rem;
+  }
+
+  html[data-pocket^="go.terminal.io"] #browserWindow > .chip a {
+    min-width: 2.45em;
+    padding-inline: 0.1em;
+    font-size: 0.61rem;
+    letter-spacing: 0.08em;
+  }
+
+  html[data-pocket^="go.terminal.io"] #browserWindow .content .chips > .chip {
+    display: block;
+    width: auto;
+  }
 }

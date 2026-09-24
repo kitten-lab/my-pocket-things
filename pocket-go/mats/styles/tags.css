@@ -1,0 +1,1499 @@
+/* go.tags — Charlie's Tag Emporium
+   sunlit stationer · oak pegboard · manila hang-tags
+   holds a lot of words without turning into a dashboard
+   html rem is postage — type and gutters in em/px
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #2a6a52;
+  --accent: #2a6a52;
+  --stamp: #c45c3a;
+  --shop: #f4ecdc;
+  --shop-2: #efe4d0;
+  --plaster: #f7f1e4;
+  --oak: #9a7348;
+  --oak-hi: #b08a5c;
+  --oak-lo: #7a5a34;
+  --oak-deep: #5a3e24;
+  --peg: #c4a070;
+  --peg-hole: rgba(90, 62, 36, 0.22);
+  --linen: #eadcc4;
+  --manila: #f3e6c8;
+  --manila-hi: #f8eed8;
+  --manila-lo: #e4d2a8;
+  --ink: #2c2418;
+  --mute: #6e6254;
+  --line: #c8b498;
+  --string: #c45c3a;
+  --pad: #2a6a52;
+  --pad-hot: #3a8a6a;
+  --brass: #b89548;
+  --window: rgba(255, 244, 214, 0.55);
+  --rail: clamp(11rem, 16vw, 17.5rem);
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 50% 28% at 88% 0%, var(--window), transparent 70%),
+    radial-gradient(ellipse 40% 22% at 12% 100%, rgba(42, 106, 82, 0.07), transparent 60%),
+    linear-gradient(180deg, #fbf6ec 0%, var(--shop) 42%, #eadfc8 100%);
+  color: var(--ink);
+  font-family: var(--font-sans), "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 0;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+.go-shell .headers,
+.go-shell .uses { display: none; }
+
+.go-shell .yard {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.go-shell .spread {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* —— pegboard of hung words —— */
+.go-shell .rail {
+  position: sticky;
+  top: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.55rem 0.5rem 0.9rem;
+  background:
+    radial-gradient(circle, rgba(60, 36, 16, 0.22) 0 0.5px, transparent 0.65px) 0 0 / 7px 7px,
+    linear-gradient(90deg, rgba(90, 62, 36, 0.18), transparent 12%),
+    linear-gradient(180deg, var(--oak-hi) 0%, var(--peg) 40%, var(--oak) 100%);
+  border-right: 3px solid var(--oak-deep);
+  box-shadow:
+    inset -8px 0 14px rgba(90, 50, 20, 0.18),
+    inset 0 1px 0 rgba(255, 236, 200, 0.28);
+  font-family: var(--font-sans-cond), "IBM Plex Sans Condensed", sans-serif;
+  font-size: 0.78rem;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.go-shell .shop-mark {
+  margin: 0 0 0.4rem;
+  padding: 0.32rem 0.35rem 0.28rem;
+  background:
+    linear-gradient(180deg, #fff8ea 0%, var(--manila) 100%);
+  border: 1px solid var(--oak-deep);
+  box-shadow:
+    0 0 0 1px rgba(255, 248, 230, 0.35) inset,
+    1px 2px 0 rgba(60, 36, 16, 0.22);
+  text-align: center;
+}
+.go-shell .shop-mark p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.go-shell .shop-mark,
+.go-shell .shop-mark p {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--oak-deep);
+  text-shadow: none;
+}
+.go-shell .shop-mark-sub,
+.go-shell .shop-mark-sub p {
+  margin: 0.08rem 0 0;
+  font-family: var(--font-sans), "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pad);
+}
+
+.go-shell .stack-mark,
+.go-shell .stack-mark p {
+  margin: 0 0 0.28rem;
+  padding: 0;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.58rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f8eed8;
+  text-shadow: 0 1px 0 rgba(60, 36, 16, 0.35);
+  border: 0;
+}
+
+.go-shell .root-up,
+.go-shell .root-up p {
+  margin: 0 0 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.go-shell .root-up a {
+  color: #efe4d0;
+  text-decoration: none;
+}
+.go-shell .root-up a:hover { color: #fff8ea; }
+
+.go-shell .here-line { margin: 0.15rem 0 0.45rem; }
+.go-shell span.here {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f8eed8;
+  border: 1px solid var(--oak-deep);
+  padding: 0.08rem 0.3rem;
+  background: var(--oak-deep);
+}
+
+.go-shell .rail ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.22rem;
+  align-items: stretch;
+}
+.go-shell .rail ul.dir li {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  max-width: none;
+  flex: none;
+}
+.go-shell .rail ul.dir a,
+.go-shell .rail ul.dir a:link,
+.go-shell .rail ul.dir a:visited,
+.go-shell .rail ul.dir a.been {
+  position: static;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  height: auto;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.42rem 0.26rem 0.7rem;
+  font-family: var(--font-sans-cond), "IBM Plex Sans Condensed", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.22;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  background:
+    radial-gradient(circle at 0.38rem 50%, transparent 0 0.16rem, var(--manila-lo) 0.17rem 0.22rem, transparent 0.23rem),
+    linear-gradient(180deg, var(--manila-hi), var(--manila));
+  border: 1px solid #d4c09a;
+  border-left: 3px solid var(--string);
+  box-shadow: 1px 1px 0 rgba(90, 50, 20, 0.12);
+  transform: none;
+}
+.go-shell .rail ul.dir a .name {
+  display: inline;
+  font-size: inherit;
+  font-family: inherit;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.go-shell .rail ul.dir a .tag-n {
+  flex: 0 0 auto;
+  margin-left: 0.35rem;
+  font-family: var(--font-sans), "IBM Plex Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  text-transform: none;
+  color: var(--mute);
+  line-height: 1;
+}
+.go-shell .rail ul.dir a:hover {
+  color: var(--oak-deep);
+  border-left-color: var(--pad);
+  background:
+    radial-gradient(circle at 0.38rem 50%, transparent 0 0.16rem, var(--manila-lo) 0.17rem 0.22rem, transparent 0.23rem),
+    linear-gradient(180deg, #fff8e8, var(--manila-hi));
+  transform: none;
+  box-shadow: 1px 1px 0 rgba(90, 50, 20, 0.16);
+}
+.go-shell .rail ul.dir a.on {
+  color: #14382c;
+  background:
+    radial-gradient(circle at 0.38rem 50%, transparent 0 0.16rem, #8a6a40 0.17rem 0.22rem, transparent 0.23rem),
+    linear-gradient(180deg, #e8f4ec, #d4eadc);
+  border-left-color: var(--pad);
+  font-weight: 600;
+}
+.go-shell .rail ul.dir a.on .name { color: inherit; }
+.go-shell .rail ul.dir a.on .tag-n { color: var(--pad); }
+
+.go-shell .rail ul.dir a {
+  display: flex !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  box-sizing: border-box;
+}
+.go-shell .rail ul.dir a .name {
+  position: static !important;
+  inset: auto !important;
+}
+
+/* —— counter stage —— */
+.go-shell .content {
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.85rem 1.15rem 1.4rem;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  background:
+    radial-gradient(ellipse at 92% 0%, rgba(255, 248, 220, 0.7), transparent 42%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 47px,
+      rgba(154, 115, 72, 0.04) 47px,
+      rgba(154, 115, 72, 0.04) 48px
+    ),
+    var(--plaster);
+}
+.go-shell .content:hover,
+.go-shell .rail:hover {
+  scrollbar-color: color-mix(in srgb, var(--pad) 45%, transparent) transparent;
+}
+.go-shell .rail::-webkit-scrollbar,
+.go-shell .content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell .rail::-webkit-scrollbar-track,
+.go-shell .content::-webkit-scrollbar-track,
+.go-shell .rail::-webkit-scrollbar-corner,
+.go-shell .content::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.go-shell .rail::-webkit-scrollbar-thumb,
+.go-shell .content::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.go-shell .rail:hover::-webkit-scrollbar-thumb,
+.go-shell .content:hover::-webkit-scrollbar-thumb,
+.go-shell .rail::-webkit-scrollbar-thumb:hover,
+.go-shell .content::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--pad) 45%, transparent);
+}
+.go-shell .rail::-webkit-scrollbar-button,
+.go-shell .content::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.go-shell .kraft {
+  position: relative;
+  max-width: none;
+  margin: 0 0 0.85rem;
+  padding: 1.05rem 1.15rem 1.05rem 1.45rem;
+  background:
+    radial-gradient(circle at 1.05rem 0.85rem, transparent 0 0.28rem, var(--manila-lo) 0.3rem 0.38rem, transparent 0.4rem),
+    linear-gradient(180deg, var(--manila-hi) 0%, var(--manila) 55%, var(--manila-lo) 100%);
+  color: var(--ink);
+  border: 1px solid #d2bc94;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.45) inset,
+    3px 5px 0 rgba(154, 115, 72, 0.18),
+    0 10px 22px rgba(90, 50, 20, 0.1);
+  font-size: 0.95rem;
+}
+.go-shell .kraft::before {
+  content: "";
+  position: absolute;
+  top: 0.58rem;
+  left: 0.72rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--plaster);
+  box-shadow: inset 0 0 0 1px #c8b498, 0 1px 0 rgba(255,255,255,0.5);
+  pointer-events: none;
+}
+.go-shell .kraft::after {
+  content: "WORD";
+  position: absolute;
+  top: 0.55rem;
+  right: 0.85rem;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 0.58rem;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  color: rgba(196, 92, 58, 0.45);
+  pointer-events: none;
+}
+
+.go-shell .content > p { margin: 0; }
+.go-shell .kraft h1,
+.go-shell .content h1 {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0.45rem;
+}
+.go-shell .kraft h2,
+.go-shell .content h2 {
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pad);
+  margin: 0.75rem 0 0.3rem;
+}
+.go-shell .kraft h3,
+.go-shell .content h3 {
+  font-size: 0.9rem;
+  margin: 0.45rem 0 0.25rem;
+  color: var(--ink);
+}
+.go-shell .kraft p,
+.go-shell .content p {
+  color: var(--ink);
+  max-width: min(62ch, 100%);
+  font-size: 0.92rem;
+}
+.go-shell .kraft a,
+.go-shell .kraft a:link,
+.go-shell .content a,
+.go-shell .content a:link {
+  color: var(--pad);
+  text-decoration: underline;
+  text-decoration-color: rgba(42, 106, 82, 0.35);
+}
+.go-shell .kraft a:visited,
+.go-shell .content a:visited { color: #4a5a48; }
+.go-shell .kraft a:hover,
+.go-shell .content a:hover {
+  color: var(--string);
+  text-decoration-color: var(--string);
+}
+
+.go-shell .content > h1:first-child {
+  display: inline-block;
+  padding: 0.1rem 0.15rem 0.1rem 0;
+  border-bottom: 2px solid color-mix(in srgb, var(--string) 45%, transparent);
+}
+
+/* —— look-through as catalog cards —— */
+.go-shell .look-wrap {
+  margin-top: 0.35rem;
+  max-width: none;
+  padding: 0.6rem 0.75rem 0.8rem;
+  background: #f8f2e6;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--pad);
+  box-shadow: 0 2px 0 rgba(154, 115, 72, 0.12);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.8rem;
+}
+.go-shell .manifest-head,
+.go-shell .manifest-head p {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pad);
+}
+.go-shell .look-wrap > p:has(.taglook),
+.go-shell .content > p:has(.taglook) {
+  display: contents;
+}
+
+.go-shell .taglook {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: none;
+  color: var(--ink);
+}
+.go-shell .taglook-empty {
+  color: var(--mute);
+  font-size: 0.8rem;
+  padding: 0.25rem 0;
+}
+.go-shell .taglook .tagbay { display: block; }
+.go-shell .taglook .tagbay-mast {
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px dashed var(--line);
+}
+.go-shell .taglook .tagbay-sys,
+.go-shell .taglook .tagbay-sys p {
+  margin: 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .taglook .tagbay-mast h1 { display: none; }
+.go-shell .taglook .tagbay-cursor { display: none; }
+
+.go-shell .taglook .tagbay-chest {
+  margin: 0.55rem 0 0;
+  padding: 0.45rem 0.5rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--manila-hi);
+}
+.go-shell .taglook .tagbay-chest.is-focus {
+  border-color: color-mix(in srgb, var(--pad) 50%, var(--line));
+  box-shadow: 0 0 0 1px rgba(42, 106, 82, 0.12);
+}
+.go-shell .taglook .tagbay-chest-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.55rem;
+  margin: 0 0 0.35rem;
+}
+.go-shell .taglook .tagbay-chest-head h2 {
+  margin: 0;
+  color: var(--pad);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-n {
+  color: var(--mute);
+  font-size: 0.68rem;
+}
+.go-shell .taglook .tagbay-chest > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.go-shell .taglook .tagbay-hit {
+  margin: 0;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.45);
+  border-left: 2px solid var(--string);
+}
+.go-shell .taglook .tagbay-hit.is-here {
+  border-color: color-mix(in srgb, var(--pad) 40%, var(--line));
+  border-left-color: var(--pad);
+}
+.go-shell .taglook .tagbay-hit-main { margin: 0 0 0.25rem; }
+.go-shell .taglook .tagbay-note {
+  color: var(--pad) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  font-size: 0.82rem;
+}
+.go-shell .taglook .tagbay-note:hover {
+  color: var(--string) !important;
+  text-decoration: underline !important;
+}
+
+.go-shell .taglook .tagbay-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.7rem;
+  margin-top: 0.1rem;
+  font-size: 0.68rem;
+  color: var(--mute);
+}
+.go-shell .taglook .tagbay-crate-id {
+  color: var(--oak-deep) !important;
+  text-decoration: none !important;
+  padding: 0.08rem 0.28rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  font-family: var(--font-mono), monospace;
+}
+.go-shell .taglook .tagbay-crate-id:hover {
+  color: var(--pad) !important;
+  border-color: var(--pad);
+}
+.go-shell .taglook .hit-path {
+  color: var(--mute);
+  word-break: break-all;
+}
+
+.go-shell .taglook .charlie-bin-rel,
+.go-shell .taglook .charlie-bin-rel a,
+.go-shell .taglook .cork-rel {
+  color: var(--pad) !important;
+  text-decoration: none !important;
+  font-size: 0.78rem;
+}
+.go-shell .taglook .charlie-bin-rel a:hover,
+.go-shell .taglook .cork-rel:hover {
+  color: var(--string) !important;
+  text-decoration: underline !important;
+}
+.go-shell .taglook .charlie-bin-words {
+  list-style: none;
+  margin: 0.2rem 0 0.3rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem 0.55rem;
+}
+.go-shell .taglook .charlie-bin-word a {
+  color: var(--oak-deep) !important;
+  text-decoration: none !important;
+}
+.go-shell .taglook .charlie-bin-word a:hover {
+  color: var(--string) !important;
+  text-decoration: underline !important;
+}
+.go-shell .taglook .charlie-bin-cite {
+  margin: 0.2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.28rem 0.65rem;
+}
+.go-shell .taglook .charlie-bin-cite-meta {
+  color: var(--mute);
+  font-size: 0.68rem;
+}
+
+.go-shell .top-stamp {
+  margin: 0 0 0.85rem;
+  max-width: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.go-shell .top-stamp .meta {
+  margin: 0;
+  padding: 0.55rem 0.65rem 0.6rem;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--brass);
+  background:
+    radial-gradient(circle at 0.85rem 0.85rem, rgba(42, 106, 82, 0.2) 0 0.12rem, transparent 0.16rem),
+    linear-gradient(180deg, #fffaf0 0%, var(--manila) 100%);
+  box-shadow: 0 2px 0 rgba(154, 115, 72, 0.1);
+  position: relative;
+}
+.go-shell .top-stamp .meta::before {
+  content: "META \00B7 PRICE SLIP";
+  display: block;
+  margin: 0 0 0.4rem;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: var(--pad);
+}
+.go-shell .top-stamp .meta:not(:has(.chips)) {
+  display: none;
+}
+.go-shell .top-stamp .chip {
+  background: #fff8ea;
+  border: 1px solid var(--line);
+  box-shadow: 1px 1px 0 rgba(154, 115, 72, 0.12);
+}
+.go-shell .top-stamp .chip-label {
+  color: var(--pad);
+  border-bottom-color: rgba(42, 106, 82, 0.25);
+  text-decoration: none !important;
+}
+.go-shell .top-stamp .chip-value {
+  color: var(--ink) !important;
+  text-decoration: none !important;
+}
+.go-shell .top-stamp .chip-label:hover,
+.go-shell .top-stamp .chip-value:hover {
+  color: var(--string) !important;
+  text-decoration: underline !important;
+}
+.go-shell .top-stamp .yard-shelf-wrap {
+  margin: 0;
+  max-width: none;
+}
+.go-shell .top-stamp .shelf-head,
+.go-shell .top-stamp .shelf-head p {
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.go-shell .kraft .meta,
+.go-shell .meta {
+  margin: 0.65rem 0 0.15rem;
+  padding: 0.45rem 0.5rem 0.5rem;
+  border: 1px dashed rgba(44, 36, 24, 0.22);
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      transparent 0,
+      transparent 7px,
+      rgba(42, 106, 82, 0.04) 7px,
+      rgba(42, 106, 82, 0.04) 8px
+    ),
+    rgba(255, 248, 230, 0.5);
+}
+.go-shell .kraft .meta:empty,
+.go-shell .meta:empty,
+.go-shell .kraft .meta:not(:has(.chips)),
+.go-shell .meta:not(:has(.chips)) {
+  display: none;
+}
+.go-shell .kraft .chips,
+.go-shell .meta .chips,
+.go-shell .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.4rem;
+  align-items: stretch;
+}
+.go-shell .kraft .chip,
+.go-shell .meta .chip,
+.go-shell .chip {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 5.5rem;
+  max-width: 14rem;
+  padding: 0.22rem 0.4rem 0.28rem;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.55), transparent 55%),
+    var(--manila);
+  border: 1px solid #d2bc94;
+  border-left: 3px solid var(--string);
+  box-shadow: 1px 1px 0 rgba(90, 50, 20, 0.1);
+  font-family: var(--font-sans), "IBM Plex Sans", sans-serif;
+  line-height: 1.25;
+}
+.go-shell .kraft .chip-label,
+.go-shell .meta .chip-label,
+.go-shell .chip-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(44, 36, 24, 0.12);
+  padding-bottom: 0.06rem;
+  margin-bottom: 0.1rem;
+}
+.go-shell .kraft .chip-value,
+.go-shell .meta .chip-value,
+.go-shell .chip-value {
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.go-shell .kraft .chip-label:hover,
+.go-shell .kraft .chip-value:hover,
+.go-shell .meta .chip-label:hover,
+.go-shell .meta .chip-value:hover {
+  color: var(--string) !important;
+  text-decoration: underline !important;
+}
+
+.go-shell .yard-shelf-wrap {
+  margin: 0 0 0.85rem;
+  max-width: none;
+  padding: 0.45rem 0.55rem 0.65rem;
+  background:
+    radial-gradient(circle, rgba(120, 90, 50, 0.18) 0 0.4px, transparent 0.55px) 0 0 / 6px 6px,
+    var(--linen);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--string);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.go-shell .shelf-head,
+.go-shell .shelf-head p {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--oak-deep);
+}
+.go-shell .yard-shelf-wrap:has(.card-shelf.is-empty) .shelf-head,
+.go-shell .yard-shelf-wrap:has(.card-shelf:empty) .shelf-head {
+  opacity: 0.55;
+}
+.go-shell .card-shelf.yard-shelf,
+.go-shell .yard-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: stretch;
+}
+.go-shell .card-shelf.is-empty {
+  min-height: 0;
+}
+.go-shell .card-shelf.is-empty::after {
+  content: "no lore hung on this crate yet";
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  padding: 0.15rem 0.1rem 0.25rem;
+}
+.go-shell .card-shelf-item,
+.go-shell .yard-shelf .face {
+  flex: 0 1 22.5rem;
+  max-width: min(22.5rem, 100%);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.go-shell .card-shelf-item .lorecard,
+.go-shell .yard-shelf .lorecard,
+.go-shell .kraft .card-shelf-item .lorecard {
+  margin: 0.35rem 0 0.55rem;
+}
+.go-shell .card-shelf-item .lorecard .card-back,
+.go-shell .yard-shelf .lorecard .card-back,
+.go-shell .kraft .lorecard .card-back {
+  display: none;
+}
+
+.go-shell .taglook .tagbay-chest-head {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.2rem 0.55rem;
+  padding-bottom: 0.28rem;
+  border-bottom: 1px solid rgba(42, 106, 82, 0.18);
+  margin-bottom: 0.45rem;
+}
+.go-shell .taglook .tagbay-chest-head h2 {
+  color: var(--pad);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+.go-shell .taglook .tagbay-n {
+  color: var(--mute);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as from"] {
+  border-color: color-mix(in srgb, var(--pad) 35%, var(--line));
+  background:
+    linear-gradient(90deg, rgba(42, 106, 82, 0.07), transparent 42%),
+    var(--manila-hi);
+}
+.go-shell .taglook .tagbay-chest[data-bay="as from"] .tagbay-chest-head::after {
+  content: "verb threads · claim + linked crates";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as pin"] .tagbay-chest-head::after {
+  content: "pages that pin this word";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as hash"] .tagbay-chest-head::after {
+  content: "pages that print #this word";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as code"] .tagbay-chest-head::after {
+  content: "go.codes · the full ZIP";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as connector"] .tagbay-chest-head::after {
+  content: "threads where this word is the connector";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+.go-shell .taglook .tagbay-chest[data-bay="as to"] .tagbay-chest-head::after {
+  content: "threads where this word is the destination";
+  flex: 1 1 100%;
+  order: 3;
+  margin: 0.05rem 0 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-family: var(--font-sans-cond), sans-serif;
+}
+
+.go-shell .chip.chip-group {
+  align-items: stretch;
+}
+.go-shell .chip .chip-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.45rem;
+  align-items: center;
+}
+.go-shell .chip.chip-group .chip-value + .chip-value::before {
+  content: none;
+}
+.go-shell .top-stamp .chip .chip-values {
+  gap: 0.25rem 0.5rem;
+}
+.go-shell .top-stamp .chip.chip-group .chip-value {
+  padding: 0.05rem 0.2rem;
+  border: 1px solid rgba(42, 106, 82, 0.22);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.go-shell details.stamp-lid {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--brass);
+  background: linear-gradient(180deg, #fffaf0 0%, var(--manila) 100%);
+  box-shadow: 0 2px 0 rgba(154, 115, 72, 0.1);
+}
+.go-shell details.stamp-lid.is-lore {
+  border-left: 3px solid var(--string);
+  background:
+    radial-gradient(circle, rgba(120, 90, 50, 0.18) 0 0.4px, transparent 0.55px) 0 0 / 6px 6px,
+    var(--linen);
+}
+.go-shell details.stamp-lid > summary.stamp-lid-head {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pad);
+  user-select: none;
+}
+.go-shell details.stamp-lid.is-lore > summary.stamp-lid-head {
+  color: var(--oak-deep);
+}
+.go-shell details.stamp-lid > summary.stamp-lid-head::-webkit-details-marker {
+  display: none;
+}
+.go-shell details.stamp-lid > summary.stamp-lid-head::after {
+  content: "close";
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  opacity: 0.85;
+}
+.go-shell details.stamp-lid.is-lore > summary.stamp-lid-head::after {
+  color: var(--mute);
+}
+.go-shell details.stamp-lid:not([open]) > summary.stamp-lid-head::after {
+  content: "open";
+  color: var(--string);
+}
+.go-shell details.stamp-lid > summary.stamp-lid-head:hover {
+  color: var(--string);
+}
+.go-shell details.stamp-lid .meta,
+.go-shell details.stamp-lid .yard-shelf-wrap {
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0 0.55rem 0.55rem;
+}
+.go-shell details.stamp-lid .meta::before {
+  display: none;
+}
+.go-shell details.stamp-lid .shelf-head,
+.go-shell details.stamp-lid .shelf-head p {
+  display: none;
+}
+
+.go-shell .taglook .tagbay-chest.is-thread-rail > ul {
+  gap: 0.55rem;
+}
+.go-shell .taglook .thread-rail-item {
+  border-left: 3px solid var(--string);
+  background:
+    linear-gradient(90deg, rgba(42, 106, 82, 0.06), transparent 55%),
+    rgba(255, 255, 255, 0.5);
+  padding: 0.45rem 0.5rem 0.5rem;
+}
+.go-shell .taglook .thread-claim {
+  margin: 0.15rem 0 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.go-shell .taglook .thread-claim .thread-verb a,
+.go-shell .taglook .thread-claim .cork-rel {
+  color: var(--pad) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  letter-spacing: 0.02em;
+}
+.go-shell .taglook .thread-claim .thread-sep {
+  color: var(--mute);
+  opacity: 0.8;
+}
+.go-shell .taglook .thread-claim .thread-objects a {
+  color: var(--oak-deep) !important;
+  text-decoration: none !important;
+  padding: 0.05rem 0.28rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.78rem;
+}
+.go-shell .taglook .thread-claim .thread-objects a:hover,
+.go-shell .taglook .thread-claim .thread-verb a:hover {
+  color: var(--string) !important;
+  border-color: var(--string);
+  text-decoration: underline !important;
+}
+.go-shell .taglook .thread-rail-item .charlie-bin-rel {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 0.1rem;
+}
+.go-shell .taglook .thread-rail-item .charlie-bin-cite {
+  align-items: center;
+}
+.go-shell .taglook .thread-rail-item .charlie-bin-cite .tagbay-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.55rem;
+  margin: 0;
+}
+
+/* —— shop counter / register —— */
+.go-shell .dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  border-top: 3px solid var(--oak-deep);
+  background:
+    linear-gradient(180deg, var(--oak-hi) 0%, var(--oak) 45%, var(--oak-lo) 100%);
+  box-shadow:
+    0 -6px 18px rgba(90, 50, 20, 0.16),
+    inset 0 1px 0 rgba(255, 236, 200, 0.28);
+}
+.go-shell .dock-inner {
+  display: grid;
+  grid-template-columns: auto 1fr minmax(12rem, 28rem);
+  gap: 0.55rem 1rem;
+  align-items: center;
+  padding: 0.5rem 0.85rem 0.55rem;
+}
+.go-shell .plate,
+.go-shell .plate p {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f8eed8;
+  text-shadow: 0 1px 0 rgba(60, 36, 16, 0.4);
+}
+.go-shell .hand,
+.go-shell .hand p {
+  margin: 0;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #efe4d0;
+}
+.go-shell .scanner {
+  justify-self: end;
+  width: 100%;
+  max-width: 28rem;
+}
+.go-shell .scanner > p { margin: 0; }
+
+.go-shell .tag-search {
+  display: flex;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+.go-shell .tag-search input {
+  flex: 1;
+  min-width: 0;
+  background: #fffaf0;
+  border: 1px solid var(--oak-deep);
+  border-bottom-color: var(--pad);
+  color: var(--ink);
+  padding: 0.38rem 0.55rem;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+.go-shell .tag-search input::placeholder {
+  color: var(--mute);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  font-size: 0.75rem;
+}
+.go-shell .tag-search input:focus {
+  outline: none;
+  border-color: var(--pad);
+  box-shadow: 0 0 0 2px rgba(42, 106, 82, 0.2);
+}
+.go-shell .tag-search button {
+  background: var(--pad);
+  color: #f8eed8;
+  border: 0;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 1px 0 rgba(20, 50, 40, 0.35);
+}
+.go-shell .tag-search button:hover {
+  background: var(--pad-hot);
+}
+.go-shell .tag-search button.is-stamp {
+  animation: shop-stamp 0.35s ease-out;
+}
+@keyframes shop-stamp {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+.go-shell .crate-pull {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 40%;
+  z-index: 8;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: var(--oak);
+  color: #f8eed8;
+  border: 1px solid var(--oak-deep);
+  border-left: 0;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  padding: 0.65rem 0.28rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(90, 50, 20, 0.25);
+}
+.go-shell .crate-pull:hover {
+  color: #fff8ea;
+  background: var(--oak-hi);
+}
+.go-shell .yard-scrim {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  :root { --rail: clamp(10rem, 28vw, 14rem); }
+  .go-shell .dock-inner {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .go-shell .scanner { justify-self: stretch; max-width: none; }
+  .go-shell .hand { order: 3; }
+}
+
+@media (max-width: 720px) {
+  .go-shell .spread {
+    grid-template-columns: 1fr;
+  }
+  .go-shell .rail {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: min(16rem, 78vw);
+    max-height: none;
+    z-index: 9;
+    transform: translateX(-105%);
+    transition: transform 0.22s ease;
+    box-shadow: 6px 0 24px rgba(90, 50, 20, 0.3);
+  }
+  .go-shell .yard.is-drawer-open .rail {
+    transform: translateX(0);
+  }
+  .go-shell .crate-pull { display: block; }
+  .go-shell .yard.is-drawer-open .crate-pull {
+    left: min(16rem, 78vw);
+  }
+  .go-shell .yard-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 36, 24, 0.35);
+    z-index: 8;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+  .go-shell .yard.is-drawer-open .yard-scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .go-shell .content {
+    padding: 0.7rem 0.75rem 1.1rem;
+  }
+  .go-shell .kraft {
+    padding: 0.7rem 0.75rem 0.85rem 1.1rem;
+  }
+  .go-shell .plate,
+  .go-shell .plate p { font-size: 1.1rem; }
+}
+
+@media (max-width: 520px) {
+  .go-shell {
+    font-size: 12px;
+  }
+  .go-shell .dock-inner {
+    padding: 0.45rem 0.55rem 0.55rem;
+  }
+}
+
+#browserWindow {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+.go-shell > #browserWindow > .md-gap {
+  display: none;
+}
+
+.go-shell .taglook .tagbay-cites {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.45rem 0.55rem 0.65rem;
+}
+.go-shell .taglook .tagbay-codes {
+  margin: 0 0.55rem 0.7rem;
+  padding: 0.4rem 0.5rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--brass) 42%, var(--line));
+  border-left: 3px solid var(--brass);
+  background:
+    linear-gradient(90deg, rgba(184, 149, 72, 0.12), transparent 42%),
+    rgba(255, 252, 246, 0.55);
+}
+.go-shell .taglook .tagbay-codes .tagbay-chest {
+  margin: 0;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.go-shell .taglook .tagbay-codes .tagbay-chest-head h2 {
+  color: var(--oak-deep);
+}
+.go-shell .taglook .tagbay-codes .tagbay-chest > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem 0.38rem;
+}
+.go-shell .taglook .tagbay-codes .tagbay-hit-compact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
+  margin: 0;
+  padding: 0.1rem 0.42rem 0.12rem;
+  border: 1px solid var(--oak-lo);
+  border-bottom: 1px solid var(--oak-lo);
+  border-left: 1px solid var(--oak-lo);
+  background: linear-gradient(180deg, #e8d49a 0%, var(--brass) 100%);
+  box-shadow: 0 1px 0 rgba(90, 62, 36, 0.18);
+}
+.go-shell .taglook .tagbay-codes .tagbay-hit-compact.is-here {
+  border-color: var(--oak-deep);
+  box-shadow: 0 0 0 1px rgba(90, 62, 36, 0.18);
+}
+.go-shell .taglook .tagbay-codes .tagbay-note {
+  font-family: var(--font-mono), "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  color: var(--oak-deep) !important;
+  text-decoration: none !important;
+}
+.go-shell .taglook .tagbay-codes .tagbay-note:hover,
+.go-shell .taglook .tagbay-codes .tagbay-hit-compact:hover .tagbay-note {
+  color: var(--oak-deep) !important;
+  text-decoration: none !important;
+}
+.go-shell .taglook .tagbay-codes .tagbay-hit-compact:hover {
+  background: linear-gradient(180deg, #f0e0a8 0%, var(--brass) 100%);
+  border-color: var(--oak-deep);
+}
+.go-shell .taglook .tagbay-codes .tagbay-where {
+  display: none;
+}
+.go-shell .taglook .tagbay-cites .tagbay-chest {
+  margin: 0;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.go-shell .taglook .tagbay-cites .tagbay-chest:only-child {
+  grid-column: 1 / -1;
+}
+.go-shell .taglook .tagbay-crate-id,
+.go-shell .taglook .hit-path,
+.go-shell .taglook .tagbay-meta,
+.go-shell .taglook .charlie-bin-rel,
+.go-shell .taglook .charlie-bin-words {
+  display: none !important;
+}
+.go-shell .taglook .tagbay-hit-compact {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45em;
+  margin: 0;
+  padding: 0.18rem 0.1rem;
+  border: 0;
+  border-bottom: 1px dotted var(--line);
+  border-left: 0;
+  background: transparent;
+}
+.go-shell .taglook .tagbay-hit-compact .tagbay-note {
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+.go-shell .taglook .tagbay-where {
+  font-size: 0.7rem;
+  color: var(--mute);
+  letter-spacing: 0.02em;
+}
+
+.go-shell .look-wrap .manifest-head,
+.go-shell .taglook .tagbay-sys,
+.go-shell .taglook .tagbay-mast,
+.go-shell .taglook .tagbay-chest-head::after,
+.go-shell .taglook .tagbay-threads::before,
+.go-shell details.stamp-lid.is-thread .tagbay-chest-head {
+  display: none !important;
+  content: none !important;
+}
+
+.go-shell .taglook .tagbay-threads {
+  margin: 0.45rem 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.go-shell .taglook .tagbay-threads > details.stamp-lid {
+  margin: 0 0 0.45rem;
+}
+.go-shell .taglook .tagbay-threads .tagbay-chest {
+  margin: 0;
+  padding: 0.35rem 0.65rem 0.55rem;
+  border: 0;
+  background: transparent;
+}
+
+.go-shell .taglook .thread-sentence {
+  border: 0;
+  border-bottom: 1px dotted var(--line);
+  border-left: 0;
+  background: transparent;
+  padding: 0.4rem 0.05rem 0.4rem;
+}
+.go-shell .taglook .thread-sentence .thread-claim {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink);
+  display: block;
+}
+.go-shell .taglook .thread-sentence.is-in .thread-objects a {
+  color: var(--ink) !important;
+  font-weight: 500;
+}
+.go-shell .taglook .thread-sentence.is-in .thread-verb a {
+  color: var(--pad) !important;
+  font-style: italic;
+  font-weight: 400;
+}
+.go-shell .taglook .thread-sentence.is-out .thread-verb a {
+  color: var(--oak-deep) !important;
+  font-weight: 600;
+}
+.go-shell .taglook .thread-sentence.is-out .thread-objects a {
+  color: var(--pad) !important;
+  font-weight: 500;
+}
+.go-shell .taglook .thread-sentence.is-rel .thread-pair a {
+  color: var(--ink) !important;
+  font-weight: 500;
+}
+.go-shell .taglook .thread-sentence.is-rel .thread-pair {
+  display: block;
+  margin: 0 0 0.12rem;
+}
+.go-shell .taglook .thread-sentence.is-rel .thread-pair-sep {
+  color: var(--mute);
+  font-style: italic;
+  font-weight: 400;
+  padding: 0 0.15em;
+}
+.go-shell .taglook .thread-sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.55rem;
+  margin: 0.28rem 0 0;
+  padding: 0.15rem 0 0;
+  font-size: 0.72rem;
+  color: var(--mute);
+}
+.go-shell .taglook .thread-sources-lab {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .taglook .thread-sources .thread-pages {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.5rem;
+}
+.go-shell .taglook .thread-sentence .thread-objects a,
+.go-shell .taglook .thread-sentence .thread-verb a {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.go-shell .taglook .thread-page {
+  color: var(--mute) !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  font-size: inherit;
+  border-bottom: 1px dotted var(--line) !important;
+}
+.go-shell .taglook .thread-page:hover {
+  color: var(--string) !important;
+  text-decoration: none !important;
+  border-bottom-color: var(--string) !important;
+}
+
+@media (max-width: 720px) {
+  .go-shell .taglook .tagbay-cites {
+    grid-template-columns: 1fr;
+  }
+}

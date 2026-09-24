@@ -1,83 +1,784 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap");
+/* coat: bay — night freight intake
+   hazard-stripe door · corrugated pallet wall · packing slip in a wood crate
+   not a cousin of codes (no brass-wire tree, no bureau card, no wordmark-in-rail)
+   html rem is postage — type and gutters in em/px
+   fill-stage / inner-scroll — never 100vh */
 
-/* bay — rough intake coat (moves or dies) */
 :root {
-  --bg: #161410;
-  --paper: #221c16;
-  --ink: #efe4d2;
-  --mute: #9a8470;
-  --line: #4a3c2c;
-  --accent: #e07040;
-  --visited: #c4a078;
-  --active: #ffb060;
-  --rule: rgba(224, 112, 64, 0.3);
   --strip: #c45828;
-  --card-strip: #c45828;
-  --stamp: #f0a868;
-  --chip: #2a2218;
-  --hero: #1e1812;
+  --accent: #e07040;
+  --concrete: #1a1814;
+  --asphalt: #12110e;
+  --gaffer: #2a241c;
+  --tape: #c45828;
+  --sodium: #e07040;
+  --sodium-hi: #ffb060;
+  --stencil: #f0a868;
+  --hazard: #d4922a;
+  --plywood: #8b6840;
+  --plank: #3a2e22;
+  --bench: #f3ead8;
+  --bench-hi: #f7f1e4;
+  --bench-lo: #e8dcc4;
+  --ink: #1c1612;
+  --mute: #6a5a48;
+  --line: #c4b49a;
+  --cite: #c45828;
+  --paper: var(--bench);
+  --visited: #a87850;
+  --rail: clamp(11.5rem, 16vw, 16.5rem);
 }
 
-.wwwExplorer_innerShell {
-  background:
-    radial-gradient(ellipse at 6% 0%, rgba(224, 112, 64, 0.16), transparent 42%),
-    radial-gradient(ellipse at 98% 12%, rgba(120, 80, 40, 0.14), transparent 38%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 3px,
-      rgba(0, 0, 0, 0.08) 3px 4px
-    ),
-    linear-gradient(180deg, #1c1610 0%, var(--bg) 50%, #0e0c08 100%);
+.go-shell {
+  --font-type: var(--font-mono), "IBM Plex Mono", "Courier New", Courier, monospace;
+  --font-plain: var(--font-sans-cond), "IBM Plex Sans Condensed", sans-serif;
+  --font-read: var(--font-body), Literata, Georgia, serif;
+  --font-mark: var(--font-display), Syne, sans-serif;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--asphalt);
   color: var(--ink);
-  font-family: Literata, Georgia, serif;
-  font-size: 15px;
-  line-height: 1.45;
+  font-family: var(--font-read);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell > #browserWindow,
 #browserWindow {
-  max-width: none;
-  padding: 0.65rem 0.85rem 1.6rem;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb {
+  display: none !important;
+}
+.go-shell .root-up .crumb,
+.go-shell .root-up .crumbback {
+  display: inline !important;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
+  font-family: var(--font-read);
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.go-shell a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.go-shell a:hover {
+  color: var(--sodium-hi);
+}
+
+.go-shell .dock {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.go-shell .lintel {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7em;
+  padding: 0.28em 0.55em 0.3em;
+  overflow: hidden;
+  border-bottom: 3px solid #0a0908;
+  background: #14110c;
+}
+.go-shell .lintel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    #16130f 0 9px,
+    var(--hazard) 9px 18px
+  );
+  pointer-events: none;
+}
+.go-shell .lintel-mark,
+.go-shell .lintel-mark p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0.18em 0.55em 0.16em;
+  border: 0;
+  background: #14110c;
+  font-family: var(--font-mark);
+  font-size: 0.95em;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: var(--stencil);
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+.go-shell .lintel-note,
+.go-shell .lintel-note p {
+  position: relative;
+  z-index: 1;
+  margin: 0.08em 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-type);
+  font-size: 0.48em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hazard);
+}
+
+.go-shell .spread {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  gap: 0;
+}
+
+.go-shell .rail {
+  position: sticky;
+  top: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.55em 0.45em 1em 0.5em;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #2c261e 0 11px,
+      #241f18 11px 12px,
+      #332c22 12px 22px
+    );
+  border-right: 5px solid #0d0b08;
+  box-shadow: inset -12px 0 18px rgba(0, 0, 0, 0.35);
+  font-family: var(--font-type);
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.go-shell .stack-mark,
+.go-shell .stack-mark p {
+  margin: 0 0 0.28em;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.5em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c4a878;
+}
+
+.go-shell .root-up,
+.go-shell .root-up p {
+  margin: 0 0 0.28em;
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.go-shell .root-up a {
+  color: #d8c8a8;
+}
+.go-shell .root-up a:hover {
+  color: var(--sodium-hi);
+}
+
+.go-shell .here-line {
+  margin: 0.1em 0 0.45em;
+}
+.go-shell span.here {
+  display: inline-block;
+  font-size: 0.55em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #14110c;
+  border: 0;
+  padding: 0.1em 0.38em 0.08em;
+  background: var(--hazard);
+  box-shadow: 2px 2px 0 #0a0908;
+}
+
+.go-shell .rail ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
+}
+.go-shell .rail ul.dir li {
+  margin: 0;
+  padding: 0;
+}
+.go-shell .rail ul.dir a,
+.go-shell .rail ul.dir a:link,
+.go-shell .rail ul.dir a:visited,
+.go-shell .rail ul.dir a.been {
+  display: block;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  color: #ece2d0;
+  text-decoration: none;
+  padding: 0.22em 0.34em 0.2em 0.42em;
+  font-family: var(--font-type);
+  font-size: 0.7em;
+  letter-spacing: 0.02em;
+  background: rgba(12, 10, 8, 0.45);
+  border: 0;
+  border-left: 3px solid #5a4830;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+.go-shell .rail ul.dir a:hover {
+  color: #14110c;
+  background: var(--sodium-hi);
+  border-left-color: #14110c;
+}
+.go-shell .rail ul.dir a.on {
+  background: #3a2a18;
+  color: var(--sodium-hi);
+  border-left-color: var(--sodium);
+}
+.go-shell .rail ul.dir .name {
+  font-family: inherit;
+}
+
+.go-shell .rail ul.dir.tree {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  gap: 0.14em;
+  border-left: 0;
+}
+.go-shell .rail ul.dir.tree > li {
+  position: relative;
+}
+.go-shell .rail ul.dir.tree > li::before {
+  content: none;
+}
+.go-shell .rail ul.dir.tree ul.dir {
+  position: relative;
+  margin: 0.12em 0 0.08em 0.35em;
+  padding: 0;
+  border-left: 0;
+  gap: 0.08em;
+}
+.go-shell .rail ul.dir.tree ul.dir > li::before {
+  content: none;
+}
+.go-shell .rail ul.dir.tree details {
   margin: 0;
 }
-
-.wwwExplorer_innerShell .crumb {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
-  color: var(--mute);
-  padding: 0.3rem 0.25rem 0.15rem;
+.go-shell .rail ul.dir.tree summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: stretch;
+  gap: 0.15em;
 }
-
-.wwwExplorer_innerShell .mast {
-  font-family: Syne, "IBM Plex Mono", sans-serif;
+.go-shell .rail ul.dir.tree summary::-webkit-details-marker,
+.go-shell .rail ul.dir.tree summary::marker {
+  display: none;
+  content: "";
+}
+.go-shell .rail ul.dir.tree summary::before {
+  content: "";
+  flex: 0 0 0.7em;
+  align-self: center;
+  width: 0.55em;
+  height: 0.55em;
+  border: 0;
+  background: var(--hazard);
+  box-shadow: 1px 1px 0 #0a0908;
+  transform: none;
+  transition: background 0.12s ease;
+}
+.go-shell .rail ul.dir.tree details[open] > summary::before {
+  background: var(--sodium-hi);
+  transform: none;
+}
+.go-shell .rail ul.dir.tree summary a,
+.go-shell .rail ul.dir.tree summary a:link,
+.go-shell .rail ul.dir.tree summary a:visited {
+  flex: 1;
+  min-width: 0;
+}
+.go-shell .rail ul.dir.tree > li > details > summary a,
+.go-shell .rail ul.dir.tree > li > a {
+  font-size: 0.72em;
   font-weight: 700;
-  font-size: 1.7rem;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  color: var(--stamp);
-  margin: 0.4rem 0.15rem 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stencil);
+  background: rgba(10, 8, 6, 0.62);
+  border-left: 5px solid var(--hazard);
+}
+.go-shell .rail ul.dir.tree a.is-dir {
+  font-weight: 700;
+  color: #f2e4c8;
+}
+.go-shell .rail ul.dir.tree li:not(.is-dir) > a {
+  color: #d8cbb4;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  background: rgba(18, 14, 10, 0.38);
+  border-left-color: #6a5030;
+}
+.go-shell .rail ul.dir.tree li.on > details > summary a,
+.go-shell .rail ul.dir.tree li.on > a {
+  color: var(--sodium-hi);
+  background: rgba(40, 28, 16, 0.7);
+  box-shadow: none;
+}
+.go-shell .rail ul.dir.tree li.on:not(:has(li.on)) > details > summary a,
+.go-shell .rail ul.dir.tree li.on:not(:has(li.on)) > a {
+  background: #2a1c10;
+  color: var(--sodium-hi);
+  border-left-color: var(--sodium);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sodium) 35%, transparent);
+}
+.go-shell .rail ul.dir.tree li.on > details > summary a:hover,
+.go-shell .rail ul.dir.tree li.on > a:hover,
+.go-shell .rail ul.dir.tree a:hover,
+.go-shell .rail ul.dir.tree summary a:hover {
+  color: #14110c;
+  background: var(--sodium-hi);
+  border-left-color: #14110c;
 }
 
-.wwwExplorer_innerShell h1,
-.wwwExplorer_innerShell h2,
-.wwwExplorer_innerShell h3 {
-  font-family: Syne, sans-serif;
-  font-weight: 600;
-  color: var(--ink);
+@media (prefers-reduced-motion: reduce) {
+  .go-shell .rail ul.dir.tree summary::before {
+    transition: none;
+  }
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell .well {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.2em 1.6em 1.5em 1.45em;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  background:
+    radial-gradient(ellipse 70% 28% at 50% 0%, rgba(255, 176, 96, 0.22), transparent 58%),
+    repeating-linear-gradient(
+      180deg,
+      #3f3226 0 17px,
+      #352a20 17px 18px,
+      #46382a 18px 34px
+    );
+}
+.go-shell .well::before {
+  content: "";
+  display: block;
+  width: 2.8em;
+  height: 0.48em;
+  margin: 0.15em auto 0.85em;
+  background: #14110c;
+  border-radius: 0 0 0.45em 0.45em;
+  box-shadow:
+    0 0.15em 0 #0a0908,
+    0 0.7em 1.4em 0.45em rgba(255, 176, 96, 0.32);
+}
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .rail:hover,
+.go-shell .well:hover {
+  scrollbar-color: color-mix(in srgb, var(--sodium) 45%, transparent) transparent;
+}
+.go-shell .rail::-webkit-scrollbar,
+.go-shell .well::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell .rail::-webkit-scrollbar-thumb,
+.go-shell .well::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 8px;
+}
+.go-shell .rail:hover::-webkit-scrollbar-thumb,
+.go-shell .well:hover::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sodium) 50%, transparent);
+}
+.go-shell .rail::-webkit-scrollbar-button,
+.go-shell .well::-webkit-scrollbar-button {
   display: none;
 }
 
-.wwwExplorer_innerShell .doors a,
-.wwwExplorer_innerShell .door {
-  background: var(--chip);
-  border: 1px dashed var(--line);
+.go-shell .lamp {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+.go-shell .crate-card {
+  position: relative;
+  margin: 0;
+  padding: 1.25em 1.85em 1.5em 1.9em;
+  background:
+    linear-gradient(180deg, var(--bench-hi) 0%, var(--bench) 62%, var(--bench-lo) 100%);
+  border: 10px solid var(--plywood);
+  outline: 1px solid #3a2818;
+  box-shadow:
+    0 0 0 1px rgba(255, 244, 220, 0.4) inset,
+    5px 9px 0 rgba(0, 0, 0, 0.32),
+    0 16px 26px rgba(0, 0, 0, 0.22);
+}
+.go-shell .crate-card::before,
+.go-shell .crate-card::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  border: 2px solid #2a2016;
+  background: transparent;
+}
+.go-shell .crate-card::before {
+  top: -3px;
+  left: -3px;
+  border-right: 0;
+  border-bottom: 0;
+}
+.go-shell .crate-card::after {
+  bottom: -3px;
+  right: -3px;
+  border-left: 0;
+  border-top: 0;
+}
+.go-shell .crate-card h1 {
+  margin: 0 0 0.4em;
+  font-size: 1.5em;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.go-shell .crate-card h2 {
+  margin: 1.1em 0 0.35em;
+  font-size: 1.08em;
+}
+.go-shell .crate-card h3 {
+  margin: 0.9em 0 0.3em;
+  font-size: 0.98em;
+}
+.go-shell .crate-card p {
+  margin: 0 0 0.75em;
   color: var(--ink);
+  line-height: 1.58;
+}
+.go-shell .crate-card li {
+  margin: 0 0 0.35em;
+}
+.go-shell .crate-card em,
+.go-shell .crate-card i {
+  color: var(--mute);
+}
+.go-shell .crate-card pre,
+.go-shell .crate-card code {
+  font-family: var(--font-type);
+  font-size: 0.86em;
+}
+.go-shell .crate-card pre {
+  overflow: auto;
+  padding: 0.7em 0.8em;
+  background: #efe4cc;
+  border: 1px solid var(--line);
+  margin: 0 0 0.85em;
+}
+
+.go-shell a.tag,
+.go-shell a.tag:link,
+.go-shell a.tag:visited,
+.go-shell a.tag.been {
+  display: inline-block;
+  font-family: var(--font-type);
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--sodium) 22%, var(--bench));
+  border: 1px solid #8a5020;
+  padding: 0.04em 0.38em 0.08em;
+  text-decoration: none;
+}
+.go-shell a.tag:hover {
+  background: var(--sodium-hi);
+  color: var(--asphalt);
+}
+
+.go-shell a.chipcode,
+.go-shell a.chipcode:link,
+.go-shell a.chipcode:visited,
+.go-shell a.chipcode.been {
+  font-family: var(--font-type);
+  font-size: 0.88em;
+  color: var(--ink);
+  background: var(--sodium);
+  border: 1px solid #8a5020;
+  padding: 0.02em 0.35em 0.06em;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.go-shell .bb-hero,
+.go-shell .gem-hero {
+  margin: 0 0 0.9em;
+  padding: 0.75em 0.85em 0.7em;
+  background: color-mix(in srgb, var(--gaffer) 88%, #000);
+  border: 1px dashed color-mix(in srgb, var(--stencil) 50%, transparent);
+  color: #f0e6d4;
+}
+.go-shell .bb-kicker,
+.go-shell .gem-kicker,
+.go-shell p.bb-kicker,
+.go-shell p.gem-kicker {
+  margin: 0 0 0.2em;
+  font-family: var(--font-type);
+  font-size: 0.62em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stencil);
+}
+.go-shell .bb-wordmark,
+.go-shell .gem-wordmark,
+.go-shell p.bb-wordmark,
+.go-shell p.gem-wordmark {
+  margin: 0 0 0.25em;
+  font-family: var(--font-mark);
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--sodium-hi);
+}
+.go-shell .bb-lede,
+.go-shell .gem-lede,
+.go-shell p.bb-lede,
+.go-shell p.gem-lede {
+  margin: 0;
+  font-size: 0.88em;
+  color: #d4c8b4;
+  line-height: 1.4;
+}
+.go-shell .bb-crew-label,
+.go-shell .bb-shelf-label,
+.go-shell .gem-rail-label,
+.go-shell .gem-shelf-label,
+.go-shell p.bb-crew-label,
+.go-shell p.bb-shelf-label {
+  margin: 0.7em 0 0.3em;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.go-shell .bb-back,
+.go-shell .gem-foot {
+  margin: 0.8em 0 0;
+  font-family: var(--font-type);
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.go-shell .ned-hero {
+  margin: 0 0 0.85em;
+  padding: 0.85em 0.9em 0.8em;
+  background:
+    linear-gradient(135deg, #fff8ef 0%, #e8fbf7 58%, #ffe8dc 100%);
+  border: 2px solid #2a8f82;
+  box-shadow: 3px 4px 0 rgba(42, 143, 130, 0.28);
+}
+.go-shell .ned-kicker,
+.go-shell p.ned-kicker {
+  margin: 0 0 0.2em;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2a8f82;
+}
+.go-shell .ned-wordmark,
+.go-shell p.ned-wordmark {
+  margin: 0 0 0.2em;
+  font-family: var(--font-mark);
+  font-size: 1.55em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #2a8f82;
+  line-height: 1;
+}
+.go-shell .ned-lede,
+.go-shell p.ned-lede {
+  margin: 0;
+  font-size: 0.88em;
+  color: #5a6b74;
+  line-height: 1.4;
+}
+.go-shell .ned-pockets {
+  margin: 0 0 0.9em;
+  padding: 0.65em 0.75em 0.55em;
+  background: rgba(232, 251, 247, 0.7);
+  border: 1px dashed #2a8f82;
+}
+.go-shell .ned-label,
+.go-shell p.ned-label {
+  margin: 0 0 0.4em;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2a8f82;
+}
+.go-shell .ned-chip,
+.go-shell span.ned-chip,
+.go-shell p.ned-chip {
+  display: inline-block;
+  margin: 0.12em 0.28em 0.12em 0;
+  padding: 0.18em 0.55em 0.16em;
+  font-family: var(--font-type);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff8ef;
+  background: #3db8a8;
+  border: 0;
+  box-shadow: 2px 2px 0 #2a8f82;
+}
+.go-shell .ned-back,
+.go-shell p.ned-back,
+.go-shell .ned-back a {
+  margin: 0.85em 0 0;
+  font-family: var(--font-type);
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2a8f82;
+}
+.go-shell .crate-card .ned-back a:hover {
+  color: var(--sodium);
+}
+
+.go-shell .doors,
+.go-shell .door-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin: 0 0 0.8em;
+}
+.go-shell .doors a,
+.go-shell .door {
+  display: block;
+  background: var(--gaffer);
+  border: 1px dashed #5a4a38;
+  color: #f0e6d4 !important;
+  padding: 0.45em 0.6em;
+  font-family: var(--font-type);
+  font-size: 0.82em;
+}
+.go-shell .doors a:hover,
+.go-shell .door:hover {
+  border-color: var(--sodium);
+  color: var(--sodium-hi) !important;
+}
+
+.go-shell .lip {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  border-top: 8px solid transparent;
+  border-image: repeating-linear-gradient(
+      -45deg,
+      #16130f 0 8px,
+      var(--hazard) 8px 16px
+    )
+    8;
+  background: #1a1610;
+  box-shadow: 0 -10px 18px rgba(0, 0, 0, 0.3);
+}
+.go-shell .lip-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8em;
+  padding: 0.4em 0.9em 0.45em;
+}
+.go-shell .plate,
+.go-shell .plate p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-mark);
+  font-size: 1.05em;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--stencil);
+}
+.go-shell .hand,
+.go-shell .hand p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.6em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4b090;
+}
+
+@media (max-width: 720px) {
+  .go-shell .spread {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .go-shell .rail {
+    height: auto;
+    max-height: 9.5rem;
+    border-right: 0;
+    border-bottom: 5px solid #0d0b08;
+  }
+  .go-shell .lamp {
+    max-width: none;
+  }
 }

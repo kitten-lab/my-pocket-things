@@ -1,0 +1,675 @@
+@import url("/styles/fonts.css");
+
+/* Chester's Toy Shop — Jester bones, Chester colors.
+   Hazard-stripe awning, walnut shelves, CRT price tags.
+   Not the mausoleum. The window is open. */
+
+:root {
+  --bg: #1a0e08;
+  --paper: #3b2412;
+  --ink: #f7edd4;
+  --mute: #c4a882;
+  --line: #8a5a28;
+  --accent: #ffcc00;
+  --visited: #ff8a3a;
+  --active: #39ff88;
+  --wood: #4a2810;
+  --wood2: #6b3e1c;
+  --hazard: #ff9a1a;
+  --gold: #ffcc00;
+  --cream: #f7edd4;
+  --crt: #39ff88;
+  --curtain: #7a1020;
+  --font-display: var(--font-bungee), "Righteous", Impact, sans-serif;
+  --font-sign: var(--font-bungee-shade), "Bungee Inline", Impact, sans-serif;
+  --font-ticket: var(--font-righteous), "Oswald", sans-serif;
+  --font-body: var(--font-kalam), "Patrick Hand", cursive;
+  --font-price: var(--font-press-start), "VT323", monospace;
+}
+
+@keyframes shop-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes shop-sway {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+
+.go-shell {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255, 154, 26, 0.18), transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      var(--wood) 0 18px,
+      var(--wood2) 18px 19px,
+      #3a1c0c 19px 36px,
+      #2e1508 36px 37px
+    );
+  min-height: 100%;
+}
+
+.go-shell p {
+  white-space: normal;
+}
+
+.go-shell > #browserWindow {
+  padding: 0 0 2rem;
+}
+
+.go-shell a:link {
+  color: var(--gold);
+}
+
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--visited);
+}
+
+.go-shell a:active {
+  color: var(--crt);
+}
+
+.go-shell .crumb {
+  font-family: var(--font-ticket);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2a1208;
+  background: var(--gold);
+  border-bottom: 4px solid #111;
+  padding: 0.35rem 0.8rem;
+}
+
+/* Awning */
+.go-shell .valance {
+  margin: 0;
+  padding: 0.35rem 0.6rem 0;
+  background: repeating-linear-gradient(
+    90deg,
+    #111 0 16px,
+    var(--hazard) 16px 32px
+  );
+  color: var(--gold);
+  font-family: var(--font-ticket);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #000;
+}
+
+.go-shell .valance::after {
+  content: "";
+  display: block;
+  height: 16px;
+  margin: 0.25rem -0.6rem 0;
+  background: radial-gradient(circle at 50% 0, #111 70%, transparent 71%);
+  background-size: 22px 16px;
+}
+
+.go-shell .signboard {
+  text-align: center;
+  padding: 0.4rem 0.8rem 0.2rem;
+  transform-origin: 50% 0;
+  animation: shop-sway 5.5s ease-in-out infinite;
+}
+
+.go-shell .signboard a.pic-zoom {
+  display: inline-block;
+  max-width: min(520px, 92%);
+  border: 6px solid #1a0a00;
+  box-shadow:
+    0 8px 0 #000,
+    0 18px 24px rgba(0, 0, 0, 0.45);
+}
+
+.go-shell .signboard img.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.go-shell .tagline {
+  display: block;
+  margin: 0.45rem 0 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--cream);
+  text-shadow: 0 2px 0 #000;
+}
+
+/* Ticket nav */
+.go-shell .nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.8rem 0.9rem;
+}
+
+.go-shell .ticket {
+  display: inline-block;
+  margin: 0;
+}
+
+.go-shell .ticket p {
+  margin: 0;
+}
+
+.go-shell .ticket a,
+.go-shell .nav a.home {
+  display: inline-block;
+  font-family: var(--font-ticket);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a0a00 !important;
+  background: var(--gold);
+  border: 2px dashed #1a0a00;
+  padding: 0.35rem 0.75rem;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.go-shell .ticket a:hover,
+.go-shell .nav a.home:hover {
+  background: var(--crt);
+  color: #041208 !important;
+}
+
+.go-shell .stockroom {
+  display: none;
+}
+
+.go-shell .buy-row p {
+  margin: 0;
+}
+
+.go-shell .floor {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0.6rem 0.9rem 1.2rem;
+}
+
+.go-shell .shop-foot {
+  margin: 0.4rem 0.8rem 0;
+  padding: 0.7rem 0.6rem 1.1rem;
+  text-align: center;
+  font-family: var(--font-ticket);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-top: 4px dashed var(--hazard);
+}
+
+.go-shell .aisles {
+  max-width: 52rem;
+  margin: 0 auto 1rem;
+  padding: 0 0.9rem;
+}
+
+.go-shell .aisles a.world {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--curtain);
+  color: var(--gold) !important;
+  border: 4px solid var(--gold);
+  box-shadow: 6px 6px 0 #000;
+  padding: 0.7rem 0.8rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+}
+
+.go-shell .aisles a.world strong {
+  display: block;
+  font-size: 1.35rem;
+}
+
+.go-shell .aisles .door-deck,
+.go-shell .aisles .note-details {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--cream);
+}
+
+.go-shell .aisles .note-details::after {
+  content: " toys on the floor";
+}
+
+/* Lobby tent */
+.go-shell .tent-hello {
+  background: #2a1408;
+  border: 6px solid var(--gold);
+  box-shadow: 8px 8px 0 #000;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.go-shell .tent-hello h1 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 #000;
+}
+
+.go-shell .now-window {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  background: #111;
+  border: 4px dashed var(--hazard);
+}
+
+.go-shell .now-window img.pic {
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--gold);
+}
+
+.go-shell .now-kicker {
+  font-family: var(--font-price);
+  font-size: 0.55rem;
+  color: var(--crt);
+  letter-spacing: 0.08em;
+  animation: shop-blink 1.2s steps(2, end) infinite;
+}
+
+.go-shell .now-copy h2 {
+  margin: 0.2rem 0 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--gold);
+}
+
+/* Shop floor cards */
+.go-shell .window-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 1.1rem;
+  background: #140a04;
+  border: 6px solid var(--gold);
+  box-shadow: 8px 8px 0 #000;
+  overflow: hidden;
+}
+
+.go-shell .window-hero img.pic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.go-shell .window-copy {
+  padding: 0.85rem 0.9rem 1rem 0;
+}
+
+.go-shell .window-copy h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 #000;
+}
+
+.go-shell .price-tag {
+  display: inline-block;
+  margin: 0.35rem 0.4rem 0.45rem 0;
+  padding: 0.28rem 0.45rem;
+  font-family: var(--font-price);
+  font-size: 0.48rem;
+  line-height: 1.5;
+  color: #041208;
+  background: var(--crt);
+  box-shadow: 3px 3px 0 #000;
+}
+
+.go-shell .price-tag.is-stock {
+  background: var(--gold);
+}
+
+.go-shell .shelf-label {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-ticket);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hazard);
+  text-shadow: 0 2px 0 #000;
+}
+
+.go-shell .shelf ul.dir,
+.go-shell .also-shelf ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.7rem;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #2a160c 0 12px,
+      #1a0c06 12px 13px
+    );
+  border: 5px solid #1a0a00;
+  box-shadow: inset 0 8px 0 rgba(0, 0, 0, 0.35);
+}
+
+.go-shell .shelf ul.dir li,
+.go-shell .also-shelf ul.dir li {
+  margin: 0;
+}
+
+.go-shell .shelf ul.dir a,
+.go-shell .also-shelf ul.dir a {
+  display: flex;
+  flex-direction: column;
+  min-height: 8.5rem;
+  text-decoration: none;
+  color: var(--cream) !important;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #7a1020 0 10px,
+      #f7edd4 12px 20px,
+      #1a0a00 20px 30px,
+      #ff9a1a 30px 40px
+    );
+  background-color: #3a1408;
+  background-blend-mode: multiply;
+  border: 3px solid var(--gold);
+  box-shadow: 4px 4px 0 #000;
+  padding: 0.45rem;
+}
+
+.go-shell .shelf ul.dir a.has-cover,
+.go-shell .also-shelf ul.dir a.has-cover {
+  background: #111;
+}
+
+.go-shell .shelf ul.dir a img.jacket-art,
+.go-shell .also-shelf ul.dir a img.jacket-art {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--hazard);
+}
+
+.go-shell .shelf ul.dir a .name,
+.go-shell .also-shelf ul.dir a .name {
+  margin-top: auto;
+  padding: 0.35rem 0.2rem 0.15rem;
+  font-family: var(--font-ticket);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.72);
+  color: var(--gold);
+}
+
+.go-shell .shelf ul.dir a.on,
+.go-shell .also-shelf ul.dir a.on {
+  outline: 3px solid var(--crt);
+  outline-offset: 2px;
+}
+
+.go-shell .toy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin: 0.4rem 0 1.1rem;
+}
+
+.go-shell .toy {
+  background: #241208;
+  border: 4px solid var(--gold);
+  box-shadow: 5px 5px 0 #000;
+  padding: 0.7rem 0.75rem 0.8rem;
+}
+
+.go-shell .toy h2 {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.go-shell .toy .pitch {
+  margin: 0;
+  color: var(--cream);
+}
+
+.go-shell .toy .price-tag {
+  margin-top: 0.5rem;
+}
+
+/* Echo Wolf product */
+.go-shell .product-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.go-shell .product-hero img.pic {
+  width: 100%;
+  height: auto;
+  border: 6px solid var(--gold);
+  box-shadow: 8px 8px 0 #000;
+}
+
+.go-shell .pitch-card {
+  background: #140a04;
+  border: 6px solid var(--hazard);
+  box-shadow: 8px 8px 0 #000;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.go-shell .product-kicker {
+  font-family: var(--font-price);
+  font-size: 0.52rem;
+  color: var(--crt);
+  letter-spacing: 0.08em;
+}
+
+.go-shell .pitch-card h1 {
+  margin: 0.15rem 0 0.2rem;
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  line-height: 0.95;
+  color: var(--gold);
+  text-shadow: 4px 4px 0 #000;
+}
+
+.go-shell .lede {
+  font-family: var(--font-ticket);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: #ff5a3a;
+  text-transform: uppercase;
+}
+
+.go-shell .buy-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+
+.go-shell .buy-row a.wiki {
+  display: inline-block;
+  font-family: var(--font-ticket);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a0a00 !important;
+  background: var(--gold);
+  padding: 0.45rem 0.8rem;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.go-shell .buy-row a.wiki:hover {
+  background: var(--crt);
+}
+
+.go-shell .traits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+}
+
+.go-shell .trait {
+  background: var(--curtain);
+  border: 3px solid var(--gold);
+  padding: 0.55rem 0.6rem;
+  text-align: center;
+}
+
+.go-shell .trait strong {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+.go-shell .seen-on {
+  margin: 0 0 1rem;
+  padding: 0.6rem 0.7rem;
+  background: #0b0b0b;
+  border: 3px dashed var(--hazard);
+  text-align: center;
+  font-family: var(--font-ticket);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .seen-on img.pic {
+  display: block;
+  width: min(100%, 420px);
+  margin: 0.45rem auto 0;
+  border: 3px solid var(--gold);
+}
+
+.go-shell .source-note {
+  font-size: 0.95rem;
+  color: var(--mute);
+}
+
+.go-shell .code-hatch {
+  display: none;
+}
+
+.go-shell .code-hatch:target {
+  display: block;
+  margin: 0 0 1.2rem;
+  padding: 0.8rem 0.85rem 1rem;
+  background: #0a0a0a;
+  border: 5px solid var(--crt);
+  box-shadow: 0 0 0 4px #000, 8px 8px 0 var(--gold);
+}
+
+.go-shell .code-lid {
+  font-family: var(--font-price);
+  font-size: 0.52rem;
+  color: var(--crt);
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+}
+
+.go-shell .code-hatch:target .fold-it {
+  display: inline-block;
+  margin: 0 0 0.6rem;
+}
+
+.go-shell .fold-it,
+.go-shell .fold-it a {
+  font-family: var(--font-ticket);
+  font-size: 0.75rem;
+  color: var(--gold) !important;
+}
+
+.go-shell pre.code {
+  margin: 0;
+  padding: 0.7rem;
+  overflow: auto;
+  max-height: 28rem;
+  background: #041208;
+  color: var(--crt);
+  font-family: var(--font-px437), "VT323", monospace;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  border: 2px solid var(--crt);
+}
+
+.go-shell .code-note {
+  margin: 0.55rem 0 0;
+  color: var(--cream);
+}
+
+.go-shell .also-shelf {
+  margin-top: 1.2rem;
+}
+
+.go-shell .flipper {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0.8rem 0 0.4rem;
+  font-family: var(--font-ticket);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.go-shell .slip {
+  background: #241208;
+  border: 5px solid var(--gold);
+  box-shadow: 6px 6px 0 #000;
+  padding: 1rem 1.05rem 1.1rem;
+}
+
+.go-shell .slip h1 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  text-shadow: 3px 3px 0 #000;
+}
+
+@media (max-width: 720px) {
+  .go-shell .now-window,
+  .go-shell .window-hero,
+  .go-shell .product-hero,
+  .go-shell .traits {
+    grid-template-columns: 1fr;
+  }
+
+  .go-shell .window-copy,
+  .go-shell .signboard {
+    animation: none;
+  }
+}

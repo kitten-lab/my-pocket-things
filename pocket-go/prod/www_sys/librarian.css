@@ -1,5 +1,5 @@
 /* Librarian blotter — Papers Please slips on the desk. Not visitor chrome. */
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Black+Ops+One&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Share+Tech+Mono&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Black+Ops+One&family=Caveat:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Share+Tech+Mono&family=Special+Elite&display=swap");
 
 .librarian {
   --booth: #2a3f3d;
@@ -15,8 +15,8 @@
   position: relative;
   flex: 0 0 18.5rem;
   width: 18.5rem;
-  min-width: 15rem;
-  max-width: 23rem;
+  min-width: 12rem;
+  max-width: none;
   min-height: 0;
   margin: 0 0.45rem 0 0;
   padding: 0;
@@ -39,6 +39,7 @@
 
 body.librarian-open #librarian,
 body.readme-open #readme,
+body.detective-open #detective,
 body.agent-open #agent,
 body.charlie-open #charlie,
 body.tps-open #tps,
@@ -57,13 +58,14 @@ body.cards-open #cards {
   --stamp: #55ffff;
   --ok: #0000aa;
   --mute: #aaaaaa;
-  flex-basis: 22rem;
-  width: 22rem;
-  max-width: 28rem;
+  flex-basis: 34rem;
+  width: 34rem;
+  min-width: 16rem;
+  max-width: none;
   font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
   color: #ffffff;
   background: #0000aa;
-  box-shadow: inset 0 0 0 2px #ffffff;
+  box-shadow: none;
 }
 
 .librarian.is-readme .librarian-head {
@@ -72,11 +74,7 @@ body.cards-open #cards {
   letter-spacing: 0.12em;
 }
 
-.librarian.is-readme .librarian-head strong::after {
-  content: " · bios";
-  color: #ffff55;
-  font-size: 10px;
-}
+.librarian.is-readme .librarian-head strong::after { content: none; }
 
 .librarian.is-readme .librarian-count,
 .librarian.is-readme .librarian-path {
@@ -85,7 +83,7 @@ body.cards-open #cards {
 
 .librarian.is-readme .librarian-head .tagbay-copy {
   flex: 0 0 auto;
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .librarian-pop {
@@ -106,30 +104,69 @@ body.cards-open #cards {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: #0000aa;
+  position: relative;
+  /* BIOS bezel around an IDE workbench */
+  background:
+    linear-gradient(180deg, #0000cc 0%, #000088 100%);
   border: 1px solid #ffffff;
   box-shadow: none;
+  box-sizing: border-box;
   color: #ffffff;
-  margin: 0.15rem 0.45rem 0.45rem;
-  padding: 0.45rem 0.5rem 0.4rem;
+  margin: 0.15rem 0.45rem 0.15rem;
+  padding: 0.3rem 0.4rem 0.15rem;
+  gap: 0.25rem;
 }
 
+/* IDE editor surfaces — easier than Twine-plain / flat BIOS blue */
 .librarian.is-readme .librarian-letter,
 .librarian.is-readme .librarian-leaf {
+  /* machine body; sizes follow pane */
   flex: 1 1 auto;
   min-height: 0;
   height: auto;
   resize: none;
-  color: #ffffff;
-  background: #0000aa;
-  border: 0;
-  border-bottom: 0;
+  color: #e8ecf4;
+  background: #0b1020;
+  border: 1px solid #1e2a44;
+  border-radius: 2px;
+  box-shadow:
+    inset 3px 0 0 #55ffff66,
+    inset 0 0 0 1px #00000088;
+  padding: 0.55rem 0.65rem 0.65rem 0.75rem;
   font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  tab-size: 2;
   caret-color: #ffff55;
+  outline: none;
+}
+
+.librarian.is-readme .librarian-letter:focus,
+.librarian.is-readme .librarian-leaf:focus {
+  border-color: #55ffff;
+  box-shadow:
+    inset 3px 0 0 #ffff55,
+    0 0 0 1px #55ffff66;
 }
 
 .librarian.is-readme .librarian-leaf::placeholder {
-  color: #aaaaaa;
+  color: #6a7690;
+}
+
+/* YAML headers pane — distinct from markdown body */
+.librarian.is-readme textarea.readme-headers {
+  color: #d8e8ff;
+  background: #0e1424;
+  box-shadow:
+    inset 3px 0 0 #c080ff99,
+    inset 0 0 0 1px #00000088;
+}
+
+.librarian.is-readme textarea.readme-headers:focus {
+  border-color: #c080ff;
+  box-shadow:
+    inset 3px 0 0 #e0a0ff,
+    0 0 0 1px #c080ff66;
 }
 
 .librarian.is-readme .librarian-store {
@@ -197,18 +234,35 @@ body.cards-open #cards {
 }
 
 .librarian.is-readme #readmePage label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #ffff55;
-  margin: 0.15rem 0 0.1rem;
+  margin: 0.2rem 0 0.15rem;
+  padding: 0.18rem 0.4rem;
+  background: #000066;
+  border: 1px solid #ffffff44;
+  border-bottom: 0;
+}
+.librarian.is-readme #readmePage label:first-of-type::before {
+  content: "●";
+  color: #c080ff;
+  font-size: 8px;
+}
+.librarian.is-readme #readmePage label:last-of-type::before {
+  content: "●";
+  color: #ffff55;
+  font-size: 8px;
 }
 
 .librarian.is-readme .readme-headers {
   flex: 0 0 auto;
   min-height: 6.5rem;
   max-height: 9rem;
-  border-bottom: 1px solid #ffffff55;
+  border-bottom: 0;
 }
 
 .librarian.is-readme .tagbay-crate-id {
@@ -229,7 +283,7 @@ body.cards-open #cards {
 
 .librarian.is-readme,
 html[data-sidecar="readme"],
-html[data-sidecar="readme"] .wwwExplorer_innerShell {
+html[data-sidecar="readme"] .go-shell {
   scrollbar-width: thin;
   scrollbar-color: var(--booth-hi) var(--slip);
 }
@@ -268,31 +322,121 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
   background: #0000aa;
 }
 
-/* Agent — agentK cabinet, but blood: dirt shell, stamp heat, manila scan. */
+/* —— README BIOS IDE dress hooks (Carl highlight can land here) —— */
+.librarian.is-readme .readme-pane,
+.librarian.is-readme .readme-ide {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 0.2rem;
+}
+.librarian.is-readme .readme-pane-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.18rem 0.45rem;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffff55;
+  background: #000066;
+  border: 1px solid #ffffff44;
+  border-bottom: 0;
+}
+.librarian.is-readme .readme-pane.is-yaml .readme-pane-bar {
+  color: #e0c8ff;
+}
+.librarian.is-readme .readme-pane.is-md .readme-pane-bar {
+  color: #ffff55;
+}
+.librarian.is-readme .readme-pane.is-yaml .librarian-leaf,
+.librarian.is-readme .readme-pane.is-yaml .readme-headers {
+  box-shadow:
+    inset 3px 0 0 #c080ff99,
+    inset 0 0 0 1px #00000088;
+}
+.librarian.is-readme .readme-pane.is-md .librarian-leaf,
+.librarian.is-readme .readme-pane.is-md .librarian-letter {
+  box-shadow:
+    inset 3px 0 0 #55ffff66,
+    inset 0 0 0 1px #00000088;
+}
+
+/* Selection */
+.librarian.is-readme .librarian-letter::selection,
+.librarian.is-readme .readme-headers::selection,
+.librarian.is-readme .librarian-leaf::selection {
+  background: rgba(85, 255, 255, 0.28);
+  color: #ffffff;
+}
+
+/* Token hooks — Carl can wrap/span these when highlight lands */
+.librarian.is-readme .tok-key { color: #c080ff; }
+.librarian.is-readme .tok-str { color: #7dffa0; }
+.librarian.is-readme .tok-num { color: #ffcc66; }
+.librarian.is-readme .tok-bool { color: #ff8866; }
+.librarian.is-readme .tok-comment { color: #6a7690; font-style: italic; }
+.librarian.is-readme .tok-head { color: #ffff55; font-weight: 600; }
+.librarian.is-readme .tok-em { color: #a8d4ff; font-style: italic; }
+.librarian.is-readme .tok-strong { color: #ffffff; font-weight: 700; }
+.librarian.is-readme .tok-tag,
+.librarian.is-readme .tok-hash { color: #55ffff; }
+.librarian.is-readme .tok-link { color: #7eb8ff; text-decoration: underline; text-underline-offset: 2px; }
+.librarian.is-readme .tok-code {
+  color: #ffd0a0;
+  background: #161c2e;
+  padding: 0 0.2em;
+  border-radius: 2px;
+}
+.librarian.is-readme .hl-line {
+  display: block;
+  background: rgba(85, 255, 255, 0.06);
+}
+.librarian.is-readme .readme-gutter {
+  color: #4a5670;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Agent — hunt booth. Dark blood wood, stained manila cards.
+   Same catalog bones as Librarian, warped: scan, skew, stamp heat. */
 .librarian.is-agent {
-  --booth: #140808;
-  --booth-hi: #1e0c0c;
-  --slip: #f3e6c4;
-  --slip-pink: #ecc8bc;
+  --booth: #16090b;
+  --booth-hi: #2a1010;
+  --slip: #120808;
+  --slip-pink: #201014;
   --rule: #c4202a;
-  --ink: #1a0c0c;
+  --ink: #f4e4d4;
   --stamp: #e01820;
   --ok: #c4202a;
-  --mute: #8a4038;
+  --mute: #a07068;
+  --fill-edge: rgba(196, 32, 42, 0.35);
+  --fill-inset: #ff3a3214;
   font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  position: relative;
+  isolation: isolate;
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(80, 0, 0, 0.22) 0 1px,
-      transparent 1px 3px
+      rgba(80, 0, 0, 0.16) 0 1px,
+      transparent 1px 4px
     ),
-    radial-gradient(ellipse at 70% -10%, rgba(220, 20, 30, 0.32), transparent 48%),
-    linear-gradient(180deg, #2a1010 0 2.1rem, #140808 2.1rem);
+    radial-gradient(ellipse at 78% -8%, rgba(220, 20, 30, 0.28), transparent 46%),
+    linear-gradient(180deg, var(--booth-hi) 0 2.35rem, var(--booth) 2.35rem);
+  text-shadow: none;
+  box-shadow:
+    inset 2px 2px 0 #ff3a3214,
+    inset -1px -1px 0 #00000088;
 }
 
 .librarian.is-agent .librarian-head {
   font-family: "Black Ops One", "Share Tech Mono", sans-serif;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: #ff3a32;
   text-shadow:
     2px 0 0 rgba(255, 0, 40, 0.55),
@@ -300,17 +444,29 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
     0 0 12px rgba(255, 40, 40, 0.45);
 }
 
+.librarian.is-agent .librarian-head strong {
+  display: inline-block;
+  transform-origin: left center;
+}
+
 .librarian.is-agent .librarian-head strong::after {
   content: " · hunt";
+  display: inline-block;
   font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.62em;
+  letter-spacing: 0.16em;
   color: #c9a227;
-  text-shadow: none;
+  text-shadow: 1px 0 0 rgba(255, 40, 40, 0.35);
 }
 
 .librarian.is-agent .librarian-count,
-.librarian.is-agent .librarian-path {
+.librarian.is-agent .librarian-path,
+.librarian.is-agent .librarian-hint,
+.librarian.is-agent .librarian-status,
+.librarian.is-agent .librarian-kicker {
+  color: var(--mute);
+  text-shadow: none;
   font-family: "Share Tech Mono", "Courier New", monospace;
-  color: #e07068;
 }
 
 .librarian.is-agent .librarian-pop {
@@ -319,79 +475,740 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
   border-color: #c4202a;
 }
 
-/* Charlie — amber phosphor term. Yellow of the four. */
-.librarian.is-charlie {
-  --booth: #1a1204;
-  --booth-hi: #241808;
-  --slip: #140e04;
-  --slip-pink: #1e1608;
-  --rule: #ffc14a;
-  --ink: #ffe7a0;
-  --stamp: #ffc14a;
-  --ok: #3a2a0c;
-  --mute: #8a6a28;
-  font-family: "Share Tech Mono", "Courier New", monospace;
-  color: #ffe7a0;
+.librarian.is-agent .librarian-head-tools .tagbay-copy,
+.librarian.is-agent .librarian-head-tools .librarian-pop {
+  border: 1px solid rgba(196, 32, 42, 0.5);
+  background: #1a0808;
+  color: #e07068;
+}
+
+.librarian.is-agent .librarian-head-tools .tagbay-copy:hover,
+.librarian.is-agent .librarian-head-tools .librarian-pop:hover {
+  border-color: #ff3a32;
+  color: #f4e4d4;
+  background: #2a0c0c;
+}
+
+
+/* Librarian — catalog booth. Dark green wood, cream paper cards.
+   Old blotter DNA without the manila wash; not a terminal. */
+.librarian.is-librarian {
+  --booth: #2a3a32;
+  --booth-hi: #3c4e44;
+  --slip: #1e2c28;
+  --slip-pink: #263832;
+  --rule: #c4a574;
+  --ink: #efe6d0;
+  --stamp: #3d6b48;
+  --ok: #2f6b4a;
+  --mute: #8a9a82;
+  --fill-edge: rgba(196, 165, 116, 0.28);
+  --fill-inset: #ffffff10;
+  font-family: "IBM Plex Sans", "IBM Plex Mono", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  position: relative;
+  isolation: isolate;
   background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 180, 40, 0.05) 0 1px,
-      transparent 1px 3px
-    ),
-    radial-gradient(ellipse at 50% 0%, rgba(255, 180, 40, 0.16), transparent 55%),
-    linear-gradient(180deg, #241808 0 2.1rem, #1a1204 2.1rem);
-  text-shadow: 0 0 8px rgba(255, 180, 40, 0.22);
-}
-
-.librarian.is-charlie .librarian-head {
-  font-family: "Share Tech Mono", "Courier New", monospace;
-  color: #ffc14a;
-  text-shadow: 0 0 10px rgba(255, 180, 40, 0.5);
-}
-
-.librarian.is-charlie .librarian-head strong::after {
-  content: " · term";
-  color: #8a6a28;
+    linear-gradient(180deg, var(--booth-hi) 0 2.35rem, var(--booth) 2.35rem);
   text-shadow: none;
+  box-shadow:
+    inset 2px 2px 0 #ffffff18,
+    inset -1px -1px 0 #00000066;
+}
+
+.librarian.is-librarian .librarian-head {
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0e6c8;
+  text-shadow: none;
+}
+
+.librarian.is-librarian .librarian-head strong::after {
+  content: none;
+}
+
+.librarian.is-librarian .librarian-count,
+.librarian.is-librarian .librarian-path,
+.librarian.is-librarian .librarian-hint,
+.librarian.is-librarian .librarian-status,
+.librarian.is-librarian .librarian-kicker {
+  color: var(--mute);
+  text-shadow: none;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+}
+
+.librarian.is-librarian .librarian-kicker {
+  color: var(--rule);
+  border-bottom-color: rgba(196, 165, 116, 0.35);
+}
+
+.librarian.is-librarian .librarian-pop {
+  color: var(--rule);
+  border-color: rgba(196, 165, 116, 0.45);
+}
+
+.librarian.is-librarian .librarian-composer {
+  background: transparent;
+  border-bottom: 1px solid rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .librarian-leaf,
+.librarian.is-librarian .tagbay-input.librarian-leaf {
+  background: #f7f1dc;
+  color: #243028;
+  border: 1px solid #c4b898;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+}
+
+.librarian.is-librarian .librarian-leaf::placeholder {
+  color: #6a6a54;
+  opacity: 0.85;
+}
+
+.librarian.is-librarian .librarian-stack,
+.librarian.is-librarian.is-catalog .librarian-stack {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(196, 165, 116, 0.28);
+  box-shadow: inset 0 1px 0 #ffffff10;
+  color: var(--ink);
+}
+
+.librarian.is-librarian.is-catalog .librarian-composer,
+.librarian.is-librarian .librarian-composer {
+  border-color: rgba(196, 165, 116, 0.28);
+  background: transparent;
+  box-shadow: none;
+}
+
+.librarian.is-librarian.is-catalog .librarian-modal-card,
+.librarian.is-librarian .librarian-modal-card {
+  background: #f7f1dc;
+  border: 1px solid #c4b898;
+  box-shadow:
+    1px 2px 0 #d4cbb4,
+    4px 8px 18px rgba(20, 24, 18, 0.45);
+  color: #243028;
+  width: min(34rem, 100%);
+}
+
+.librarian.is-librarian.is-catalog .librarian-modal-actions button,
+.librarian.is-librarian .librarian-modal-actions button {
+  border: 1px solid #b7ae9c;
+  background: #efe6c8;
+  color: #243028;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.librarian.is-librarian .librarian-empty {
+  color: var(--mute);
+  background: transparent;
+  border-color: rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .librarian-store,
+.librarian.is-librarian .catalog-actions .librarian-store {
+  background: #243832;
+  color: #f0e6c8;
+  border: 1px solid rgba(196, 165, 116, 0.45);
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.librarian.is-librarian .librarian-store:hover {
+  background: #31463e;
+  box-shadow: none;
+  border-color: var(--rule);
+  color: #fff8e4;
+}
+
+.librarian.is-librarian .catalog-head {
+  color: var(--rule);
+  border-bottom-color: rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .catalog-lore,
+.librarian.is-librarian .catalog-lore strong,
+.librarian.is-librarian .lore-pick,
+.librarian.is-librarian .lore-pick em {
+  color: #243028;
+}
+
+.librarian.is-librarian .catalog-type,
+.librarian.is-librarian .lore-pick .catalog-type,
+.librarian.is-librarian .lore-pick .catalog-line {
+  color: #5a6a54;
+}
+
+.librarian.is-librarian .catalog-lore-row {
+  border-color: rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .tagbay-crate-id {
+  color: var(--rule);
+}
+
+.librarian.is-librarian,
+.librarian.is-librarian * {
+  scrollbar-color: #c4a574 #243832;
+}
+
+.librarian.is-librarian *::-webkit-scrollbar-track {
+  background: #243832;
+}
+
+.librarian.is-librarian *::-webkit-scrollbar-thumb {
+  background: #3c4e44;
+  border: 1px solid rgba(196, 165, 116, 0.45);
+}
+
+
+/* Catalog chrome — readable, brass select, cards as paper objects */
+.librarian.is-librarian {
+  font-size: 14px;
+  line-height: 1.45;
+  text-shadow: none;
+}
+
+.librarian.is-librarian .librarian-head {
+  font-size: 1.05rem;
+  color: #f0e6c8;
+  text-shadow: none;
+}
+
+.librarian.is-librarian .librarian-count,
+.librarian.is-librarian .librarian-path,
+.librarian.is-librarian .librarian-hint,
+.librarian.is-librarian .librarian-status,
+.librarian.is-librarian .tagbay-crate,
+.librarian.is-librarian .tagbay-crate-id {
+  font-size: 0.78rem;
+  text-shadow: none;
+}
+
+.librarian.is-librarian .tagbay-crate:empty {
+  display: none;
+}
+
+.librarian.is-librarian .librarian-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.55rem 0.35rem;
+  border-bottom: 1px solid rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .librarian-kicker {
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+.librarian.is-librarian .catalog-onto {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.35rem;
+  padding: 0;
+}
+
+.librarian.is-librarian .catalog-onto-btn {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(196, 165, 116, 0.4);
+  background: transparent;
+  color: #d4c4a0;
+  padding: 0.18rem 0.5rem;
+  cursor: pointer;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.librarian.is-librarian .catalog-onto-btn.is-on {
+  background: #efe6c8;
+  border-color: var(--rule);
+  color: #243028;
+}
+
+.librarian.is-librarian .catalog-bag {
+  border: 1px solid transparent;
+  box-shadow: none;
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 0.45rem 0.3rem;
+}
+
+.librarian.is-librarian .catalog-bag.is-shell {
+  background: rgba(0, 0, 0, 0.16);
+  border-color: rgba(196, 165, 116, 0.28);
+}
+
+.librarian.is-librarian .catalog-bag.is-on {
+  border-color: var(--rule);
+  background: rgba(196, 165, 116, 0.08);
+}
+
+.librarian.is-librarian .catalog-hit,
+.librarian.is-librarian .librarian-store,
+.librarian.is-librarian .catalog-actions button {
+  font-family: inherit;
+  font-size: 0.85rem !important;
+  text-shadow: none;
+}
+
+.librarian.is-librarian .catalog-row .catalog-edit,
+.librarian.is-librarian .catalog-row .catalog-drop {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.62rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 0;
+  background: transparent;
+  color: var(--mute);
+  padding: 0 0.12rem;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.librarian.is-librarian .catalog-row .catalog-drop {
+  color: #c4a090;
+}
+
+.librarian.is-librarian .catalog-row .catalog-edit:hover,
+.librarian.is-librarian .catalog-row .catalog-drop:hover {
+  color: #f0e6c8;
+}
+
+.librarian.is-librarian .catalog-head {
+  color: var(--rule);
+}
+
+/* Lore cards as objects — cream paper on green booth */
+.librarian.is-librarian .catalog-mini-shelf {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  padding: 0.35rem 0 0.4rem;
+}
+
+.catalog-mini-wrap {
+  position: relative;
+  display: block;
+  margin: 0;
+}
+.catalog-mini-tools {
+  position: absolute;
+  right: 0.35rem;
+  bottom: 0.35rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.28rem;
+  margin: 0;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.catalog-mini-tools .catalog-edit,
+.catalog-mini-tools .catalog-drop {
+  pointer-events: auto;
+}
+.catalog-mini-tools .catalog-edit,
+.catalog-mini-tools .catalog-drop {
+  font: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  padding: 0.12rem 0.4rem;
+  border: 1px solid var(--rule, #c4a574);
+  background: transparent;
+  color: var(--ink, #243028);
+  cursor: pointer;
+}
+.librarian.is-librarian .catalog-mini-tools .catalog-edit,
+.librarian.is-librarian .catalog-mini-tools .catalog-drop {
+  border: 1px solid #c4b898;
+  color: #243028;
+  background: rgba(247, 241, 220, 0.94);
+  font-size: 0.68rem !important;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  padding: 0.1rem 0.32rem;
+  line-height: 1.2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.librarian.is-librarian .catalog-mini-tools .catalog-drop:hover,
+.librarian.is-librarian .catalog-mini-tools .catalog-edit:hover {
+  color: #f7f1dc;
+  background: #3d6b48;
+  border-color: #3d6b48;
+}
+
+.librarian.is-librarian .catalog-mini-tools {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+.librarian.is-librarian .catalog-mini-wrap:hover .catalog-mini-tools,
+.librarian.is-librarian .catalog-mini-wrap:focus-within .catalog-mini-tools {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.librarian.is-librarian .librarian-crate-copy {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+
+.librarian.is-librarian a.catalog-mini-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-height: 7.2rem;
+  margin: 0;
+  padding: 0.95rem 0.75rem 1.55rem 0.8rem;
+  border-radius: 1px 2px 3px 1px;
+  background: var(--lc-paper, #f7f1dc);
+  color: var(--lc-ink, #2a2418);
+  border: 0;
+  box-shadow:
+    1px 1px 0 #d4cbb4,
+    3px 4px 8px rgba(40, 30, 10, 0.22),
+    0 0 0 1px #c4b898;
+  text-shadow: none;
+  font-size: 1rem;
+  overflow: hidden;
+}
+.librarian.is-librarian a.catalog-mini-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.38rem;
+  background: var(--card-strip, var(--lc-margin, #c45c4a));
+}
+.librarian.is-librarian a.catalog-mini-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0.42rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: -0.35rem;
+  border-radius: 50%;
+  background: var(--lc-blotter, #c4baa4);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+.librarian.is-librarian a.catalog-mini-card .kicker,
+.librarian.is-librarian a.catalog-mini-card .house {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--card-strip, var(--lc-margin, #c45c4a));
+}
+.librarian.is-librarian a.catalog-mini-card .house {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.55rem;
+  color: var(--lc-mute, #6a6154);
+}
+.librarian.is-librarian a.catalog-mini-card h1 {
+  margin: 0.45rem 0 0.25rem;
+  font-family: Literata, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--lc-ink, #2a2418);
+  text-shadow: none;
+  text-transform: none;
+}
+.librarian.is-librarian a.catalog-mini-card .line {
+  margin: 0;
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--lc-mute, #6a6154);
+  min-height: 0;
+}
+.librarian.is-librarian a.catalog-mini-card:is(.house-detective, .house-agent)::before {
+  background: var(--card-strip, #c4202a);
+}
+.librarian.is-librarian a.catalog-mini-card.house-charlie::before {
+  background: var(--card-strip, #c9892d);
+}
+.librarian.is-librarian a.catalog-mini-card.house-librarian::before {
+  background: var(--card-strip, #3d6b48);
+}
+.librarian.is-librarian a.catalog-mini-card.house-tps::before {
+  background: var(--card-strip, #c42820);
+}
+
+.librarian.is-librarian .catalog-onto-btn {
+  border-color: rgba(196, 165, 116, 0.4);
+}
+.librarian.is-librarian .catalog-bag.is-on {
+  border-color: var(--rule);
+}
+
+
+/* Librarian mast — stamp title, tools tucked */
+.librarian.is-librarian .librarian-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.55rem 0.4rem;
+  min-height: 2.2rem;
+}
+
+.librarian.is-librarian .librarian-mast {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.librarian.is-librarian .librarian-mast strong {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0e6c8;
+}
+
+.librarian.is-librarian .librarian-mast-kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: var(--mute);
+}
+
+.librarian.is-librarian .librarian-head-tools {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.librarian.is-librarian .librarian-head-tools .tagbay-copy,
+.librarian.is-librarian .librarian-head-tools .librarian-pop {
+  font-size: 0.78rem !important;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid rgba(196, 165, 116, 0.4);
+  background: #243832;
+  color: #d4c4a0;
+  min-width: 1.6rem;
+}
+
+.librarian.is-librarian .librarian-head-tools .tagbay-copy:hover,
+.librarian.is-librarian .librarian-head-tools .librarian-pop:hover {
+  border-color: var(--rule);
+  color: #f0e6c8;
+  background: #31463e;
+}
+
+.librarian.is-librarian .librarian-count[hidden],
+.librarian.is-librarian .librarian-path[hidden] {
+  display: none !important;
+}
+
+.librarian.is-librarian.is-catalog .librarian-head strong::after {
+  content: " · catalog";
+  font-family: "Special Elite", "Courier New", monospace;
+  color: var(--rule);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.librarian.is-librarian .librarian-kicker-row:has(.catalog-onto[hidden]) {
+  display: none;
+}
+
+.librarian.is-librarian .tagbay-crate {
+  padding: 0.15rem 0.55rem 0.35rem;
+  font-size: 0.75rem;
+}
+.librarian.is-librarian .librarian-modal-card strong {
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.08em;
+  color: #243028;
+}
+
+.librarian.is-librarian .librarian-onto {
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #5a6a54;
+}
+
+.librarian.is-librarian .librarian-path {
+  color: var(--mute);
+}
+/* catalog active crate row */
+
+/* Charlie — loom, not a third catalog. Gold-framed instrument on honey wood. */
+.librarian.is-charlie {
+  --booth: #24180c;
+  --booth-hi: #342410;
+  --slip: #161008;
+  --slip-pink: #1e160c;
+  --rule: #c9892d;
+  --ink: #f4e6c8;
+  --stamp: #c9892d;
+  --ok: #8a5a18;
+  --mute: #a08050;
+  --fill-edge: rgba(201, 137, 45, 0.35);
+  --fill-inset: #ffc14a14;
+  font-family: "IBM Plex Sans", "IBM Plex Mono", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(232, 180, 74, 0.16), transparent 42%),
+    radial-gradient(ellipse at 88% 12%, rgba(201, 137, 45, 0.08), transparent 36%),
+    var(--booth);
+  text-shadow: none;
+  box-shadow:
+    inset 2px 2px 0 #ffc14a14,
+    inset -1px -1px 0 #00000066;
+}
+
+.librarian.is-charlie .librarian-path,
+.librarian.is-charlie .tagbay-crate {
+  display: none !important;
 }
 
 .librarian.is-charlie .librarian-count,
-.librarian.is-charlie .librarian-path {
-  color: #8a6a28;
+.librarian.is-charlie .librarian-hint,
+.librarian.is-charlie .librarian-status {
+  color: var(--mute);
   text-shadow: none;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
 }
 
-.librarian.is-charlie .librarian-pop {
-  color: #ffc14a;
-  border-color: #8a5a18;
+.librarian.is-charlie .charlie-loom {
+  margin: 0.55rem 0.55rem 0.4rem;
+  padding: 0.55rem 0.6rem 0.55rem;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 13px,
+      rgba(201, 137, 45, 0.07) 13px 14px
+    ),
+    linear-gradient(180deg, #2e1e0e 0%, #22160a 100%);
+  border: 2px solid #c9892d;
+  border-radius: 0;
+  box-shadow:
+    inset 0 0 0 1px #00000055,
+    0 0 0 1px #161008;
 }
 
-.librarian.is-charlie .librarian-kicker {
-  color: #ffc14a;
-  border-bottom: 1px solid #8a5a18;
-  font-family: "Share Tech Mono", "Courier New", monospace;
+.charlie-loom-mast {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0 0 0.55rem;
+  padding: 0 0 0.32rem;
+  border-bottom: 1px solid rgba(201, 137, 45, 0.4);
 }
 
-.librarian.is-charlie .librarian-composer {
-  background: #120e04;
-  border: 1px solid #8a5a18;
-  box-shadow: inset 0 0 18px rgba(255, 180, 40, 0.1);
-  padding: 0.4rem 0.5rem 0.35rem;
-  margin: 0 0.45rem 0.35rem;
+.charlie-mark {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #e8b44a;
+  line-height: 1;
+}
+
+.charlie-mark[data-rail-switch] {
+  cursor: pointer;
+}
+
+.charlie-mark[data-rail-switch]:hover {
+  color: #f4e6c8;
+}
+
+.charlie-loom-label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.librarian.is-charlie .charlie-loom .librarian-count {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: #d4b070;
+}
+
+.charlie-loom-tools {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.librarian.is-charlie .charlie-loom-tools .tagbay-copy,
+.librarian.is-charlie .charlie-loom-tools .librarian-pop {
+  border: 0;
+  background: transparent;
+  color: #d4b070;
+  min-width: 1.35rem;
+  min-height: 1.35rem;
+  padding: 0.08rem 0.2rem;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.librarian.is-charlie .charlie-loom-tools .tagbay-copy:hover,
+.librarian.is-charlie .charlie-loom-tools .librarian-pop:hover {
+  color: #f4e6c8;
+  background: transparent;
+  border: 0;
 }
 
 .librarian.is-charlie .librarian-leaf,
 .librarian.is-charlie .tagbay-input.librarian-leaf {
-  color: #ffc14a;
-  background: #0c0a04;
-  border: 0;
-  border-bottom: 1px solid #8a5a18;
-  caret-color: #ffc14a;
-  font-family: "Share Tech Mono", "Courier New", monospace;
+  color: #2a2010;
+  background: #f7f0dc;
+  border: 1px solid #c4b090;
+  caret-color: #c9892d;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
 }
 
 .librarian.is-charlie .librarian-leaf::placeholder {
-  color: #6a5018;
+  color: #8a6a38;
+  opacity: 0.85;
 }
 
 .charlie-tri {
@@ -399,7 +1216,7 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
   grid-template-columns: minmax(0, 1fr) 1.1rem minmax(0, 1fr) 1.1rem minmax(0, 1fr);
   align-items: end;
   column-gap: 0.2rem;
-  margin: 0 0 0.35rem;
+  margin: 0;
 }
 
 .charlie-slot {
@@ -410,12 +1227,12 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8a6a28;
+  color: var(--mute, #a08050);
 }
 
 .charlie-sep {
-  color: #8a6a28;
-  font-size: 12px;
+  color: #c9892d;
+  font-size: 13px;
   letter-spacing: 0;
   user-select: none;
   text-shadow: none;
@@ -432,13 +1249,66 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
   min-height: 1.85rem;
   margin: 0;
   padding: 0.2rem 0.28rem;
-  border: 1px solid #8a5a18;
-  border-bottom-color: #ffc14a;
-  background: #0c0a04;
+  border: 1px solid #c4b090;
+  border-bottom: 2px solid #c9892d;
+  background: #f7f0dc;
   text-transform: none;
   letter-spacing: 0.04em;
   font-size: 12px;
-  color: #ffc14a;
+  color: #2a2010;
+}
+
+.charlie-shuttle {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.55rem 0 0;
+  padding: 0.45rem 0 0;
+  border-top: 1px dashed rgba(201, 137, 45, 0.4);
+}
+
+.librarian.is-charlie .charlie-tie {
+  appearance: none;
+  min-width: 6.8rem;
+  min-height: 2rem;
+  padding: 0.38rem 0.9rem 0.32rem;
+  border: 0;
+  border-radius: 0;
+  background: #c9892d;
+  color: #1c1208;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #161008;
+}
+
+.librarian.is-charlie .charlie-tie:hover {
+  background: #e8b44a;
+  color: #161008;
+}
+
+.librarian.is-charlie .charlie-stitch {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(201, 137, 45, 0.55);
+  border-radius: 0;
+  padding: 0.12rem 0 0.08rem;
+  color: #d4b070;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-charlie .charlie-stitch:hover {
+  color: #f4e6c8;
+  border-bottom-color: #e8b44a;
 }
 
 .cork-board.cork-threads {
@@ -447,28 +1317,22 @@ html[data-sidecar="readme"] *::-webkit-scrollbar-corner {
 }
 
 .librarian.is-charlie .librarian-stack {
-  margin: 0 0.45rem 0.55rem;
-  padding: 0.35rem 0.45rem 0.55rem;
+  margin: 0.15rem 0.55rem 0.55rem;
+  padding: 0.55rem 0.55rem 0.65rem;
   background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 180, 40, 0.06) 0 1px,
-      transparent 1px 3px
-    ),
-    #100c04;
-  border: 1px solid #8a5a18;
-  box-shadow:
-    inset 0 0 28px rgba(255, 180, 40, 0.1),
-    0 0 12px rgba(255, 180, 40, 0.08);
+    radial-gradient(circle at 12% 8%, rgba(201, 137, 45, 0.08), transparent 42%),
+    #1a1008;
+  border: 1px solid #3a2814;
+  box-shadow: none;
   scrollbar-width: thin;
-  scrollbar-color: #ffc14a #100c04;
+  scrollbar-color: #c9892d #1c1208;
 }
 
 .librarian.is-charlie,
 html[data-sidecar="charlie"],
-html[data-sidecar="charlie"] .wwwExplorer_innerShell {
+html[data-sidecar="charlie"] .go-shell {
   scrollbar-width: thin;
-  scrollbar-color: #ffc14a #100c04;
+  scrollbar-color: #c9892d #1c1208;
 }
 
 .librarian.is-charlie *::-webkit-scrollbar,
@@ -479,18 +1343,18 @@ html[data-sidecar="charlie"] *::-webkit-scrollbar {
 
 .librarian.is-charlie *::-webkit-scrollbar-track,
 html[data-sidecar="charlie"] *::-webkit-scrollbar-track {
-  background: #100c04;
+  background: #1c1208;
 }
 
 .librarian.is-charlie *::-webkit-scrollbar-thumb,
 html[data-sidecar="charlie"] *::-webkit-scrollbar-thumb {
-  background: #8a5a18;
-  border: 1px solid #ffc14a;
+  background: #342410;
+  border: 1px solid rgba(201, 137, 45, 0.45);
 }
 
 .librarian.is-charlie *::-webkit-scrollbar-thumb:hover,
 html[data-sidecar="charlie"] *::-webkit-scrollbar-thumb:hover {
-  background: #ffc14a;
+  background: #c9892d;
 }
 
 .librarian.is-charlie *::-webkit-scrollbar-button,
@@ -502,15 +1366,15 @@ html[data-sidecar="charlie"] *::-webkit-scrollbar-button {
 
 .librarian.is-charlie *::-webkit-scrollbar-corner,
 html[data-sidecar="charlie"] *::-webkit-scrollbar-corner {
-  background: #1a1204;
+  background: #24180c;
 }
 
 .librarian.is-charlie .librarian-empty {
   margin: 0;
-  padding: 0.4rem 0.1rem;
+  padding: 0.15rem 0;
   background: transparent;
   border: 0;
-  color: #8a6a28;
+  color: var(--mute);
   font-size: 11px;
   text-shadow: none;
 }
@@ -519,56 +1383,67 @@ html[data-sidecar="charlie"] *::-webkit-scrollbar-corner {
   width: auto;
   height: auto;
   min-width: 0;
-  min-height: 0;
-  border-radius: 0;
-  border: 1px solid #ffc14a;
+  min-height: 1.9rem;
+  border-radius: 1px;
+  border: 1px solid rgba(201, 137, 45, 0.5);
   padding: 0.2rem 0.5rem 0.16rem;
   box-shadow: none;
-  background: #1a1204;
-  color: #ffc14a;
-  font-family: "Share Tech Mono", "Courier New", monospace;
+  background: #1c1208;
+  color: #e8b44a;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.librarian.is-charlie .librarian-store:hover {
+  background: #2a1c0c;
+  border-color: #e8b44a;
+  color: #f4e6c8;
 }
 
 .librarian.is-charlie .catalog-head {
-  font-family: "Share Tech Mono", "Courier New", monospace;
-  font-weight: 400;
-  color: #8a6a28;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--mute);
   letter-spacing: 0.16em;
+  border-bottom: 1px dotted var(--fill-edge);
 }
 
 .librarian.is-charlie .catalog-lore-row {
-  border-bottom: 1px dotted rgba(255, 193, 74, 0.28);
+  border-bottom: 1px dotted rgba(201, 137, 45, 0.22);
 }
 
 .librarian.is-charlie .catalog-lore {
   border-bottom: 0;
-  color: #ffe7a0 !important;
+  color: var(--ink) !important;
 }
 
 .librarian.is-charlie .catalog-lore strong {
   font-size: 12px;
-  font-weight: 400;
-  color: #ffc14a;
-  text-shadow: 0 0 8px rgba(255, 180, 40, 0.4);
+  font-weight: 600;
+  color: var(--ink);
+  text-shadow: none;
 }
 
 .librarian.is-charlie .catalog-type {
   font-family: inherit;
-  color: #8a6a28;
+  color: var(--mute);
 }
 
 .librarian.is-charlie .lore-pick {
-  border-bottom-color: rgba(255, 193, 74, 0.28);
+  border-bottom-color: rgba(201, 137, 45, 0.28);
 }
 
 .librarian.is-charlie .lore-pick em,
 .librarian.is-charlie .lore-pick .catalog-type {
-  color: #8a6a28;
+  color: #8a6a38;
 }
 
 .librarian.is-charlie .lore-pick .catalog-line {
-  font-family: inherit;
-  color: #c9a04a;
+  font-family: Literata, Georgia, serif;
+  color: #8a6a38;
 }
 
 .librarian-onto {
@@ -580,31 +1455,35 @@ html[data-sidecar="charlie"] *::-webkit-scrollbar-corner {
 
 .librarian.is-charlie .librarian-actions {
   flex-wrap: wrap;
+  gap: 0.22rem;
 }
 
 .librarian.is-charlie .librarian-status {
-  color: #8a6a28;
+  color: var(--mute);
 }
 
 .librarian.is-charlie .tagbay-crate-id {
-  color: #ffc14a;
+  color: #e8b44a;
 }
 
 .librarian.is-charlie .librarian-modal {
-  background: rgba(16, 12, 4, 0.72);
+  background: rgba(20, 14, 8, 0.55);
 }
 
 .librarian.is-charlie .librarian-modal-card {
-  background: #120e04;
-  border: 1px solid #ffc14a;
-  box-shadow: 0 0 18px rgba(255, 180, 40, 0.2);
-  color: #ffe7a0;
+  background: #f7f0dc;
+  border: 1px solid #c4b090;
+  box-shadow:
+    1px 2px 0 #d4c4a4,
+    4px 8px 18px rgba(20, 14, 8, 0.45);
+  color: #2a2010;
+  width: min(34rem, 100%);
 }
 
 .librarian.is-charlie .librarian-modal-card strong,
 .librarian.is-charlie .librarian-modal-card label {
-  font-family: "Share Tech Mono", "Courier New", monospace;
-  color: #ffc14a;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  color: #c9892d;
 }
 
 /* Librarian catalog — organization card, not ISSUE SLIP stamps. */
@@ -639,67 +1518,156 @@ html[data-sidecar="charlie"] *::-webkit-scrollbar-corner {
 }
 
 .librarian.is-agent.is-catalog .librarian-head strong::after {
-  content: " · index";
+  content: " · hunt";
 }
 
-.librarian.is-agent.is-catalog .librarian-composer {
-  background: var(--slip);
-  border: 1px solid #6a1818;
-  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
+.librarian.is-agent .librarian-kicker {
+  color: var(--rule);
+  border-bottom-color: rgba(196, 32, 42, 0.4);
 }
 
+.librarian.is-agent.is-catalog .librarian-composer,
+.librarian.is-agent .librarian-composer {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(196, 32, 42, 0.35);
+  box-shadow: none;
+}
+
+.librarian.is-agent .librarian-leaf,
+.librarian.is-agent .tagbay-input.librarian-leaf {
+  background: #f3e6c4;
+  color: #1a0c0c;
+  border: 1px solid #c4a090;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.librarian.is-agent .librarian-leaf::placeholder {
+  color: #8a4038;
+  opacity: 0.85;
+}
+
+.librarian.is-agent .hunt-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28em;
+  margin: 0 0 0.55em;
+  padding: 0 0 0.55em;
+  border-bottom: 1px dashed rgba(196, 32, 42, 0.35);
+}
+
+.librarian.is-agent .hunt-pad .tagbay-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f3e6c4;
+  color: #1a0c0c;
+  border: 1px solid #c4a090;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.librarian.is-agent .hunt-pad textarea.hunt-body {
+  min-height: 4.8em;
+  resize: vertical;
+  line-height: 1.35;
+}
+
+.librarian.is-agent .hunt-pad [data-add-hunt] {
+  align-self: flex-start;
+}
+
+.librarian.is-agent .hunt-slip .catalog-value {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+}
+
+.librarian.is-agent .hunt-when,
+.librarian.is-agent .hunt-mind {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--mute, #6a4a38);
+}
+
+.librarian.is-agent .librarian-stack,
 .librarian.is-agent.is-catalog .librarian-stack {
   background:
     repeating-linear-gradient(
       90deg,
-      transparent 0 28px,
-      rgba(180, 20, 30, 0.08) 28px 29px
+      transparent 0 27px,
+      rgba(196, 32, 42, 0.07) 27px 28px
     ),
-    linear-gradient(180deg, #f4dcd4 0%, #ecc8bc 55%, #d8a898 100%);
-  border: 1px solid #6a1818;
-  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
-  color: #1a0c0c;
+    rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(196, 32, 42, 0.35);
+  box-shadow: inset 0 1px 0 #ff3a3214;
+  color: var(--ink);
 }
 
+.librarian.is-agent.is-catalog .librarian-modal-card,
+.librarian.is-agent .librarian-modal-card {
+  background: #f3e6c4;
+  border: 1px solid #8a3038;
+  box-shadow:
+    3px 5px 0 rgba(80, 0, 0, 0.45),
+    6px 10px 18px rgba(20, 0, 0, 0.45);
+  color: #1a0c0c;
+  width: min(34rem, 100%);
+}
+
+.librarian.is-agent.is-catalog .librarian-modal-actions button,
+.librarian.is-agent .librarian-modal-actions button {
+  border: 1px solid #8a3038;
+  background: #1a0808;
+  color: #ffd0c8;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.librarian.is-agent .librarian-modal-actions .librarian-store {
+  background: #c4202a;
+  color: #f4e4d4;
+  border-color: #6a1010;
+}
+
+.librarian.is-agent .librarian-empty {
+  color: var(--mute);
+  background: transparent;
+  border-color: rgba(196, 32, 42, 0.28);
+}
+
+.librarian.is-agent .librarian-store,
 .librarian.is-agent .catalog-actions .librarian-store {
-  box-shadow: none;
-  border-radius: 0;
   background: #1a0808;
   color: #ff3a32;
   border: 1px solid #c4202a;
+  box-shadow: none;
+  border-radius: 0;
   font-family: "Share Tech Mono", "Courier New", monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: left;
 }
 
-.librarian.is-agent .catalog-label,
-.librarian.is-agent .catalog-type,
-.librarian.is-agent .catalog-hit,
-.librarian.is-agent .catalog-edit,
-.librarian.is-agent .catalog-pop,
-.librarian.is-agent .catalog-drop {
-  font-family: "Share Tech Mono", "Courier New", monospace;
+.librarian.is-agent .catalog-actions .librarian-store:nth-child(2) {
+  letter-spacing: 0.14em;
 }
 
-.librarian.is-agent .catalog-type {
-  color: #c4202a;
+.librarian.is-agent .catalog-actions .librarian-store:nth-child(3) {
+  letter-spacing: 0.1em;
 }
 
-.librarian.is-agent .catalog-hit,
-.librarian.is-agent .catalog-label {
-  color: #6a1410;
+.librarian.is-agent .librarian-store:hover {
+  background: #2a0c0c;
+  border-color: #ff3a32;
+  color: #fff0e4;
+  box-shadow: none;
 }
 
-.librarian.is-agent .catalog-drop {
-  color: #e01820;
-}
-
-.librarian.is-agent .librarian-modal-card {
-  border: 1px solid #6a1818;
-  box-shadow: 4px 5px 0 rgba(80, 0, 0, 0.55);
-}
-
-.librarian.is-agent .librarian-modal-card strong {
-  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
-  color: #c4202a;
+.librarian.is-agent .catalog-head {
+  color: var(--rule);
+  border-bottom-color: rgba(196, 32, 42, 0.35);
 }
 
 .tagbay-label {
@@ -1030,7 +1998,7 @@ a.cork-rel:hover {
 }
 
 .librarian.is-charlie .cork-hashes .catalog-head {
-  color: #8a6a28;
+  color: var(--mute);
 }
 
 .cork-block {
@@ -1152,6 +2120,26 @@ html[data-sidecar="readme"] .wwwExplorer_windowTitleBar {
   background-image: linear-gradient(to top, #000088, #0000cc);
   border-color: #ffffff;
 }
+
+/* BIOS sidecar — align chrome + letter boxes on the same inset */
+html[data-sidecar="readme"] .wwwExplorer_stage {
+  padding: 0 0 0.35rem;
+}
+html[data-sidecar="readme"] .go-shell {
+  margin: 0;
+  background: #0000aa;
+  border: 0;
+  box-sizing: border-box;
+}
+html[data-sidecar="readme"] .wwwExplorer_windowTitleBar {
+  margin: 0.25rem 0.45rem 0;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 2.35rem;
+  padding: 0.45rem 0.55rem;
+}
+
 html[data-sidecar="readme"] .wwwExplorer_mark {
   background: #ffffff;
   color: #0000aa;
@@ -1185,12 +2173,13 @@ html[data-sidecar="librarian"] .wwwExplorer_mark {
   color: #f4ead4;
 }
 html[data-sidecar="charlie"] .wwwExplorer_mark {
-  background: #1a1204;
-  color: #ffc14a;
+  background: #8a5a18;
+  color: #f4e6c8;
 }
+html[data-sidecar="detective"] .wwwExplorer_mark,
 html[data-sidecar="agent"] .wwwExplorer_mark {
-  background: #c4202a;
-  color: #f4dcd4;
+  background: #5c1c22;
+  color: #f4ead4;
 }
 
 html[data-sidecar="librarian"] body {
@@ -1202,63 +2191,460 @@ html[data-sidecar="librarian"] .wwwExplorer_windowTitleBar {
 }
 
 html[data-sidecar="charlie"] body {
-  background: #1a1204;
+  background: #24180c;
 }
 html[data-sidecar="charlie"] .wwwExplorer_windowTitleBar {
-  background-image: linear-gradient(to top, #100c04, #241808);
-  border-color: #8a5a18;
+  background-image: linear-gradient(to top, #161008, #342410);
+  border-color: #2a1c0c;
 }
 
+html[data-sidecar="detective"] body,
 html[data-sidecar="agent"] body {
-  background: #140808;
+  background: #1a0c0c;
 }
+html[data-sidecar="detective"] .wwwExplorer_windowTitleBar,
 html[data-sidecar="agent"] .wwwExplorer_windowTitleBar {
-  background-image: linear-gradient(to top, #0e0404, #2a1010);
-  border-color: #6a1818;
+  background-image: linear-gradient(to top, #120808, #2a1014);
+  border-color: #5c1c22;
 }
 
 html[data-sidecar="tps"] body {
-  background: #2a2c28;
+  background: #1c1e18;
 }
 html[data-sidecar="tps"] .wwwExplorer_windowTitleBar {
-  background-image: linear-gradient(to top, #1c1e1a, #3a3c34);
-  border-color: #8a8c78;
+  background-image: linear-gradient(to top, #141610, #2e3028);
+  border-color: #c42820;
 }
 html[data-sidecar="tps"] .wwwExplorer_mark {
-  background: #eef0e4;
-  color: #c42820;
+  background: #c42820;
+  color: #eef0e4;
 }
 
-/* TPS — carbon copy time card. Not booth green, not phosphor. */
+/* TPS — cover sheet on a cubicle worldline. Office Space memo, spacetime punch clock.
+   Not a third catalog. */
 .librarian.is-tps {
-  --booth: #2a2c28;
-  --booth-hi: #3a3c34;
+  --booth: #1c1e18;
+  --booth-hi: #2e3028;
   --slip: #eef0e4;
   --slip-pink: #e4e6da;
-  --rule: #8a8c78;
+  --rule: #c42820;
   --ink: #1c1e18;
   --stamp: #c42820;
   --ok: #3a3c34;
   --mute: #6a6c60;
+  --fill-edge: #8a8c78;
+  --fill-inset: rgba(196, 40, 32, 0.12);
   font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #c8cab8;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.09) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 22%, rgba(180, 210, 255, 0.07) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 42% 68%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 80%, rgba(196, 40, 32, 0.12) 0 1.2px, transparent 1.8px),
+    linear-gradient(180deg, #2a2e26 0%, #161814 100%);
+  text-shadow: none;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.04),
+    inset -1px -1px 0 #00000088;
+}
+
+.librarian.is-tps .librarian-path,
+.librarian.is-tps .tagbay-crate {
+  display: none !important;
+}
+
+.librarian.is-tps .tps-sheet {
+  position: relative;
+  overflow: hidden;
+  margin: 0.55rem 0.55rem 0.4rem;
+  padding: 0.5rem 3.6rem 1.05rem 1.15rem;
+  max-width: 34rem;
+  background:
+    radial-gradient(circle at 0.38rem 50%, #1c1e18 0 0.16rem, transparent 0.18rem) 0 0.12rem / 0.9rem 0.82rem repeat-y,
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 17px,
+      rgba(196, 40, 32, 0.07) 17px 18px
+    ),
+    #eef0e4;
+  border: 1px solid #8a8c78;
+  border-left: 3px solid #c42820;
+  color: #1c1e18;
+  box-shadow:
+    2px 3px 0 #00000055,
+    0 0 0 1px #00000022;
+}
+
+.librarian.is-tps .tps-sheet::before {
+  content: "TPS-214";
+  position: absolute;
+  left: 1.15rem;
+  bottom: 0.28rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8a8c78;
+  pointer-events: none;
+}
+
+.librarian.is-tps .tps-sheet::after {
+  content: "TPS";
+  position: absolute;
+  right: 0.35rem;
+  top: 0.4rem;
+  width: 3.15rem;
+  height: 3.15rem;
+  box-sizing: border-box;
+  border: 2px solid #c42820;
+  border-radius: 50%;
+  color: #c42820;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 3rem;
+  text-align: center;
+  transform: rotate(-18deg);
+  opacity: 0.88;
+  pointer-events: none;
+  text-shadow: 0.5px 0.5px 0 #c4282044;
+}
+
+.tps-sheet-mast {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin: 0 0 0.35rem;
+  padding: 0 0 0.22rem;
+  border-bottom: 2px solid #c42820;
+}
+
+.tps-mark {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #c42820;
+  line-height: 1;
+}
+
+.tps-mark[data-rail-switch] {
+  cursor: pointer;
+}
+
+.tps-mark[data-rail-switch]:hover {
+  color: #8a1810;
+}
+
+.tps-sheet-label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5a5c50;
+}
+
+.librarian.is-tps .tps-sheet .librarian-count {
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: #6a6c60;
+}
+
+.tps-sheet-tools {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.librarian.is-tps .tps-sheet-tools .tagbay-copy,
+.librarian.is-tps .tps-sheet-tools .librarian-pop {
+  border: 0;
+  background: transparent;
+  color: #6a6c60;
+  min-width: 1.35rem;
+  min-height: 1.35rem;
+  padding: 0.08rem 0.2rem;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.librarian.is-tps .tps-sheet-tools .tagbay-copy:hover,
+.librarian.is-tps .tps-sheet-tools .librarian-pop:hover {
+  color: #c42820;
+  background: transparent;
+  border: 0;
+}
+
+.tps-memo {
+  margin: 0 0 0.45rem;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: #5a5c50;
+  max-width: 36em;
+}
+
+.tps-coords {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 12rem);
+  gap: 0.45rem 1rem;
+  margin: 0 0 0.5rem;
+  max-width: 24rem;
+}
+
+.tps-coord {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.tps-coord span {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8c78;
+}
+
+.tps-coord strong {
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: #1c1e18;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tps-punch {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0.4rem 0 0.15rem;
+  border-top: 1px dashed #8a8c78;
+}
+
+.librarian.is-tps .tps-clock {
+  appearance: none;
+  min-width: 6.8rem;
+  min-height: 2rem;
+  padding: 0.38rem 0.9rem 0.32rem;
+  border: 0;
+  border-radius: 0;
+  background: #c42820;
+  color: #eef0e4;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #1c1e18;
+}
+
+.librarian.is-tps .tps-clock:hover {
+  background: #e03830;
+  color: #fff;
+}
+
+.librarian.is-tps .tps-file {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #8a8c78;
+  border-radius: 0;
+  padding: 0.12rem 0 0.08rem;
+  color: #5a5c50;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-tps .tps-file:hover {
+  color: #c42820;
+  border-bottom-color: #c42820;
+}
+
+.librarian.is-tps .era-toggle {
+  appearance: none;
+  display: block;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px dashed #c42820;
+  color: #c42820;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-tps .era-toggle:hover {
+  color: #1c1e18;
+  border-bottom-color: #1c1e18;
+}
+
+.librarian.is-tps .era-pad {
+  margin: 0.45rem 0 0.2rem;
+  padding: 0.4rem 0 0.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  border-top: 1px dashed #8a8c78;
+}
+
+.librarian.is-tps .era-pad[hidden] {
+  display: none;
+}
+
+.librarian.is-tps .era-pad .tagbay-input,
+.librarian.is-tps .era-pad textarea.era-body {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f6f7ee;
+  border: 1px solid #8a8c78;
+  border-radius: 0;
+  color: #1c1e18;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
+.librarian.is-tps .era-pad-tools {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.librarian.is-tps .era-pad [data-add-era] {
+  appearance: none;
+  background: #c42820;
+  color: #eef0e4;
+  border: 0;
+  padding: 0.28rem 0.7rem;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-tps .era-cancel {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #6a6c60;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-tps .era-slips {
+  margin: 0 0.55rem 0.7rem;
+}
+
+.librarian.is-tps .era-slip {
+  position: relative;
+  margin: 0 0 0.45rem;
+  padding: 0.42rem 0.55rem 0.42rem 0.85rem;
   background:
     repeating-linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.04) 0 1px,
-      transparent 1px 18px
-    ),
-    linear-gradient(180deg, #4a4c44 0 2.1rem, #2a2c28 2.1rem);
+      #eef0e4 0 17px,
+      #f4d6d4 17px 18px
+    );
+  border: 1px solid #8a8c78;
+  border-left: 3px solid #c42820;
+  color: #1c1e18;
+  transform: rotate(-0.6deg);
+  box-shadow: 1px 2px 0 #00000022;
 }
 
-.librarian.is-tps .librarian-head {
+.librarian.is-tps .era-slip.era-slip-n2 { transform: rotate(0.5deg); }
+.librarian.is-tps .era-slip.era-slip-n3 { transform: rotate(-0.2deg); }
+
+.librarian.is-tps .era-slip-title {
+  display: block;
   font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
-  letter-spacing: 0.16em;
-  color: #eef0e4;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c42820;
+  text-decoration: none;
 }
 
-.librarian.is-tps .librarian-head strong::after {
-  content: " · time";
-  color: #c42820;
+.librarian.is-tps .era-slip-title:hover { color: #1c1e18; }
+
+.librarian.is-tps .era-slip-body {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.librarian.is-tps .era-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.librarian.is-tps .era-sit {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a6c60;
+}
+
+.librarian.is-tps .era-slip-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.librarian.is-tps .librarian-stack {
+  margin: 0.15rem 0.55rem 0.55rem;
+  padding: 0.35rem 0.15rem 0.65rem;
+  background: transparent;
+  border: 0;
+  color: #c8cab8;
+  box-shadow: none;
+  scrollbar-width: thin;
+  scrollbar-color: #c42820 #1c1e18;
+}
+
+.librarian.is-tps .catalog-block {
+  margin: 0 0 0.65rem;
+  padding: 0.45rem 0.5rem 0.4rem;
+  background: #e4e6da;
+  border: 1px dashed #8a8c78;
+  color: #1c1e18;
+}
+
+.librarian.is-tps .librarian-empty {
+  margin: 0;
+  padding: 0.2rem 0.15rem;
+  background: transparent;
+  border: 0;
+  color: #8a8c78;
+  font-size: 11px;
 }
 
 .librarian.is-tps .librarian-store {
@@ -1267,46 +2653,11 @@ html[data-sidecar="tps"] .wwwExplorer_mark {
   border-color: #8a8c78;
 }
 
-.librarian.is-tps .librarian-path {
-  color: #c8cab8;
-}
-
-.librarian.is-tps .librarian-composer,
-.librarian.is-tps .librarian-stack {
-  margin: 0 0.45rem 0.45rem;
-  padding: 0.4rem 0.5rem 0.45rem;
-  background: var(--slip);
-  border: 1px solid #8a8c78;
-  box-shadow:
-    1px 1px 0 #00000055,
-    2px 2px 0 #00000022;
-  color: var(--ink);
-}
-
-.librarian.is-tps .librarian-composer {
-  padding: 0.45rem 0.5rem 0.4rem 0.7rem;
-}
-
-.librarian.is-tps .librarian-stack {
-  margin-top: 0;
-}
-
-.librarian.is-tps .librarian-kicker {
-  color: #c42820;
-}
-
 .librarian.is-tps .catalog-head {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
   color: #c42820;
   letter-spacing: 0.14em;
   border-bottom-color: #8a8c7866;
-}
-
-.librarian.is-tps .librarian-empty {
-  margin: 0;
-  padding: 0.2rem 0;
-  background: transparent;
-  border: 0;
-  color: #4a4c40;
 }
 
 .librarian.is-tps .tps-when {
@@ -1382,7 +2733,7 @@ html[data-sidecar="tps"] .wwwExplorer_mark {
   margin: 0;
   padding: 0.06rem 0.28rem;
   border: 1px solid #8a8c7888;
-  background: #e4e6da;
+  background: #eef0e4;
   color: #1c1e18;
 }
 
@@ -1392,9 +2743,60 @@ html[data-sidecar="tps"] .wwwExplorer_mark {
   text-decoration: none;
 }
 
+.librarian.is-tps .librarian-modal {
+  background: rgba(20, 22, 16, 0.55);
+}
+
+.librarian.is-tps .librarian-modal-card {
+  background: #eef0e4;
+  border: 1px solid #8a8c78;
+  color: #1c1e18;
+  box-shadow:
+    1px 2px 0 #c8cab8,
+    4px 8px 18px rgba(20, 22, 16, 0.45);
+}
+
+.librarian.is-tps .librarian-modal-card strong,
+.librarian.is-tps .librarian-modal-card label {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  color: #c42820;
+}
+
+.librarian.is-tps .librarian-status {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  z-index: 8;
+  min-height: 0;
+  margin: 0;
+  padding: 0.28rem 0.5rem;
+  pointer-events: none;
+  background: #1c1e18f2;
+  border: 1px solid #c42820;
+  color: #eef0e4;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 -6px 16px rgba(20, 22, 16, 0.35);
+}
+
+.librarian.is-tps .librarian-status:empty {
+  display: none;
+}
+
+.librarian.is-tps .librarian-status.is-err {
+  color: #f0c8a0;
+  border-color: #c4a090;
+}
+
+.librarian.is-tps:has(.librarian-status:not(:empty)) .librarian-stack {
+  padding-bottom: 2.6rem;
+}
+
 html[data-sidecar] .librarian,
 html[data-sidecar] body.readme-open #readme,
 html[data-sidecar] body.librarian-open #librarian,
+html[data-sidecar] body.detective-open #detective,
 html[data-sidecar] body.agent-open #agent,
 html[data-sidecar] body.charlie-open #charlie,
 html[data-sidecar] body.tps-open #tps,
@@ -1463,6 +2865,59 @@ html:not([data-sidecar]):not([data-sheet]) .charlie-slot {
 html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-tri .librarian-leaf,
 html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-tri .tagbay-input.librarian-leaf {
   font-size: 10px;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .charlie-mark {
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-tie {
+  min-width: 5.4rem;
+  min-height: 1.7rem;
+  font-size: 0.78rem;
+  padding: 0.28rem 0.65rem 0.24rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-stitch {
+  font-size: 0.68rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-charlie .charlie-loom {
+  margin: 0.4rem 0.4rem 0.3rem;
+  padding: 0.4rem 0.45rem 0.4rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .tps-mark {
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .tps-memo {
+  font-size: 0.58rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .tps-clock {
+  min-width: 5.4rem;
+  min-height: 1.7rem;
+  font-size: 0.78rem;
+  padding: 0.28rem 0.65rem 0.24rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .tps-file {
+  font-size: 0.68rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .tps-sheet {
+  margin: 0.4rem 0.4rem 0.3rem;
+  padding: 0.4rem 3.1rem 0.55rem 1rem;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .tps-sheet::after {
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 0.68rem;
+  line-height: 2.45rem;
 }
 
 html:not([data-sidecar]):not([data-sheet]) .tagbay-label {
@@ -1553,6 +3008,27 @@ html:not([data-sidecar]):not([data-sheet]) .catalog-hit {
   white-space: nowrap;
 }
 
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-row,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-row {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-tools,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-tools {
+  order: 3;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-value,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-value {
+  order: 4;
+  flex: 1 1 100%;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-break: break-word;
+}
+
 html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .catalog-row.tps-stamp .catalog-label {
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -1566,26 +3042,26 @@ html:not([data-sidecar]):not([data-sheet]) .librarian.is-tps .catalog-row.tps-st
 html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian {
   flex: 0 0 21rem;
   width: 21rem;
-  max-width: 24rem;
+  max-width: none;
 }
 
 html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme {
-  flex-basis: 24.5rem;
-  width: 24.5rem;
-  max-width: 27rem;
+  flex-basis: 36rem;
+  width: 36rem;
+  max-width: none;
 }
 
 @media (min-width: 980px) {
   html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian {
     flex: 0 0 21rem;
     width: 21rem;
-    max-width: 24rem;
+    max-width: none;
   }
 
   html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian.is-readme {
-    flex-basis: 24.5rem;
-    width: 24.5rem;
-    max-width: 27rem;
+    flex-basis: 34rem;
+    width: 34rem;
+    max-width: none;
   }
 }
 
@@ -1699,6 +3175,12 @@ html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme 
   margin: 0.25rem 0 0;
   font-size: 10px;
   color: var(--mute);
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.librarian-status.is-fade {
+  opacity: 0;
 }
 
 .librarian-status.is-err {
@@ -2117,15 +3599,427 @@ a.lbr-cite:hover {
   cursor: default;
 }
 
+.lore-attach-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+  align-items: flex-end;
+  margin: 0 0 0.45rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted #00000028;
+}
+
+.lore-attach-field {
+  flex: 1 1 6.5rem;
+  margin: 0 !important;
+  min-width: 5.5rem;
+}
+
+.lore-attach-field.lore-attach-q {
+  flex: 2 1 100%;
+}
+
+.lore-attach-filters select,
+.lore-attach-filters input {
+  width: 100%;
+  margin-top: 0.12rem;
+  font-size: 11px;
+}
+
+.lore-attach-count {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lore-attach-list {
+  max-height: min(52vh, 22rem);
+  overflow: auto;
+  padding-right: 0.15rem;
+}
+
+.lore-attach-list.is-deck {
+  max-height: min(58vh, 26rem);
+}
+
+.lore-attach-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.55rem 0.45rem;
+  align-items: start;
+}
+
+/* Attach picker uses the same traveler lorecards as the deck shelf */
+.librarian.is-cards .lore-attach-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.55rem 0.45rem;
+  align-items: start;
+}
+
+.librarian.is-cards .lore-attach-shelf .lorecard {
+  min-height: 8.5rem;
+  font-size: 0.78rem;
+  padding: 0.62rem 0.65rem 1.15rem 0.7rem;
+}
+
+.librarian.is-cards .lore-attach-face .card-shelf-item {
+  pointer-events: none;
+}
+
+
+.lore-attach-face {
+  position: relative;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+  color: inherit !important;
+}
+
+.lore-attach-face > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lore-attach-face-body {
+  display: block;
+  border-radius: 2px;
+  outline: 1px solid transparent;
+  outline-offset: 2px;
+  transition: outline-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.lore-attach-face.is-on .lore-attach-face-body {
+  outline-color: var(--accent, #3a4a78);
+  box-shadow: 0 0 0 1px rgba(58, 74, 120, 0.35);
+}
+
+.lore-attach-face.was-on:not(.is-on) .lore-attach-face-body {
+  opacity: 0.55;
+}
+
+.lore-attach-fallback {
+  padding: 0.55rem 0.45rem;
+  background: #2a2824;
+  color: #e8e2d4;
+  border: 1px solid #5a5548;
+  font-size: 11px;
+}
+
+
+
+/* Deck scrollbars — light blotter */
+.librarian.is-cards,
+html[data-sidecar="cards"],
+.librarian.is-cards .librarian-modal-card,
+.librarian.is-cards .lore-attach-list,
+.librarian.is-cards .librarian-stack {
+  scrollbar-width: thin;
+  scrollbar-color: #a89c82 #efe6d0;
+}
+
+.librarian.is-cards *::-webkit-scrollbar,
+html[data-sidecar="cards"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.librarian.is-cards *::-webkit-scrollbar-track,
+html[data-sidecar="cards"] *::-webkit-scrollbar-track {
+  background: #efe6d0;
+}
+
+.librarian.is-cards *::-webkit-scrollbar-thumb,
+html[data-sidecar="cards"] *::-webkit-scrollbar-thumb {
+  background: #c4baa4;
+  border: 1px solid #a89c82;
+  border-radius: 1px;
+}
+
+.librarian.is-cards *::-webkit-scrollbar-thumb:hover,
+html[data-sidecar="cards"] *::-webkit-scrollbar-thumb:hover {
+  background: #a89c82;
+}
+
+.librarian.is-cards *::-webkit-scrollbar-button,
+html[data-sidecar="cards"] *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.librarian.is-cards *::-webkit-scrollbar-corner,
+html[data-sidecar="cards"] *::-webkit-scrollbar-corner {
+  background: #efe6d0;
+}
+
+.librarian.is-cards .lore-search-pad {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.65rem;
+}
+
+.librarian.is-cards .lore-search-pad input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #c4baa4;
+  background: #f7f1dc;
+  color: #2a2418;
+  font-family: Literata, Georgia, serif;
+  font-size: 13px;
+}
+
+.librarian.is-cards .lore-search-pad input::placeholder {
+  color: #8a7a62;
+}
+
+.librarian.is-cards .lore-search-pad button {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #8a3030;
+  background: #b4202a;
+  color: #f7f1dc;
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-cards article.lore-chip.deck-hit {
+  display: block;
+  margin: 0 0 0.55rem;
+  padding: 0.55rem 0.65rem 0.6rem;
+  background: #f7f1dc;
+  color: #2a2418;
+  border: 1px solid #c4b898;
+  box-shadow: 1px 2px 0 rgba(40, 30, 10, 0.12);
+}
+
+.librarian.is-cards .lore-chip-title {
+  display: block;
+  font-family: "Special Elite", "Courier New", monospace;
+  color: #2a2418;
+  text-decoration: none;
+}
+
+.librarian.is-cards .lore-chip-class,
+.librarian.is-cards .lore-chip-house {
+  display: inline-block;
+  margin-right: 0.45rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #6a4a38;
+}
+
+.librarian.is-cards .lore-chip-line {
+  margin: 0.25rem 0 0;
+  font-size: 12px;
+  color: #4a3224;
+}
+
+.librarian.is-cards .lore-chip-pop {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a3030;
+}
+
+.lore-attach-thumb {
+  display: flex;
+  gap: 0;
+  min-height: 6.5rem;
+  background: var(--paper, #f7f1dc);
+  color: var(--ink, #2a2418);
+  border: 1px solid #c4b898;
+  box-shadow:
+    1px 1px 0 #d4cbb4,
+    2px 3px 6px rgba(40, 30, 10, 0.12);
+  overflow: hidden;
+  border-radius: 1px 2px 3px 1px;
+}
+
+.lore-attach-thumb-rail {
+  flex: 0 0 0.28rem;
+  background: var(--card-strip, var(--margin, #c45c4a));
+}
+
+.lore-attach-thumb-body {
+  flex: 1 1 auto;
+  padding: 0.4rem 0.45rem 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.lore-attach-thumb-house {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute, #6a6154);
+}
+
+.lore-attach-thumb strong {
+  display: block;
+  font-family: Literata, Georgia, serif;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--ink, #2a2418);
+  font-weight: 600;
+}
+
+.lore-attach-thumb em {
+  display: block;
+  margin: 0;
+  font-style: normal;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stamp, #8a5a32);
+}
+
+.lore-attach-thumb-maker,
+.lore-attach-thumb-line {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  color: var(--mute, #6a6154);
+  line-height: 1.3;
+}
+
+.lore-attach-thumb-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Deck attach dialog — same light blotter cabinet as the shelf */
+.librarian.is-cards .librarian-modal {
+  background: rgba(58, 50, 38, 0.28);
+}
+
+.librarian.is-cards .librarian-modal-card {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 248, 230, 0.35), transparent 55%),
+    linear-gradient(180deg, #efe6d0 0%, var(--paper, #f7f1dc) 55%, #e4d9c0 100%);
+  color: var(--ink, #2a2418);
+  border: 1px solid #a89c82;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 248, 230, 0.35),
+    2px 3px 0 rgba(58, 50, 38, 0.18);
+}
+
+.librarian.is-cards .librarian-modal-card > strong {
+  color: #3a3226;
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.14em;
+}
+
+.librarian.is-cards .librarian-modal-card .librarian-onto,
+.librarian.is-cards .librarian-modal-card .lore-attach-count,
+.librarian.is-cards .librarian-modal-card .librarian-empty,
+.librarian.is-cards .librarian-modal-card .lore-attach-loading {
+  color: var(--mute, #6a6154);
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+.librarian.is-cards .lore-attach-filters {
+  border-bottom-color: rgba(58, 50, 38, 0.2);
+}
+
+.librarian.is-cards .lore-attach-field {
+  color: var(--mute, #6a6154) !important;
+  font-family: "IBM Plex Mono", "Courier New", monospace !important;
+}
+
+.librarian.is-cards .lore-attach-filters select,
+.librarian.is-cards .lore-attach-filters input {
+  background: var(--paper, #f7f1dc);
+  color: var(--ink, #2a2418);
+  border: 1px solid #b7ae9c;
+  border-radius: 1px;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  padding: 0.28rem 0.35rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.librarian.is-cards .lore-attach-filters select:focus,
+.librarian.is-cards .lore-attach-filters input:focus {
+  outline: 1px solid #8a5a32;
+  border-color: #8a5a32;
+}
+
+.librarian.is-cards .librarian-modal-actions button {
+  background: var(--paper, #f7f1dc);
+  color: var(--ink, #2a2418);
+  border: 1px solid #a89c82;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.librarian.is-cards .librarian-modal-actions button:hover {
+  background: #efe6d0;
+}
+
+.librarian.is-cards .lore-attach-face.is-on .lore-attach-face-body {
+  outline-color: var(--margin, #c45c4a);
+  box-shadow: 0 0 0 1px rgba(196, 92, 74, 0.35);
+}
+
+.librarian.is-cards .lore-attach-loading {
+  margin: 1.2rem 0.2rem;
+  padding: 0.85rem 0.6rem;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px dashed #b7ae9c;
+  background: rgba(255, 248, 230, 0.45);
+}
+
+.librarian.is-cards .lore-attach-loading::after {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: 0.45rem;
+  border: 1.5px solid #b7ae9c;
+  border-top-color: #8a5a32;
+  border-radius: 50%;
+  vertical-align: -1px;
+  animation: lore-attach-spin 0.7s linear infinite;
+}
+
+@keyframes lore-attach-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .librarian-modal {
   position: absolute;
   inset: 0;
   z-index: 20;
   background: rgba(20, 16, 12, 0.45);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 2.2rem 0.4rem 0.5rem;
+  padding: 0.5rem 0.4rem;
 }
 
 .librarian-modal[hidden] {
@@ -2226,6 +4120,10 @@ a.lbr-cite:hover {
   background: var(--slip);
 }
 
+.catalog-onto.is-here-shell [data-catalog-onto="page"] {
+  display: none;
+}
+
 .catalog-bag {
   margin: 0 0 0.7rem;
   padding: 0.35rem 0.45rem 0.2rem;
@@ -2248,22 +4146,19 @@ a.lbr-cite:hover {
 }
 
 
-/* CARDS — thin read-only lore shelf. Traveler dress, scaled for desk/sidecar. */
+/* CARDS — thin read-only lore shelf. Traveler dress, scaled for desk/sidecar.
+   Card BODY look lives on .lorecard house lookbooks (lorecard.css); do NOT set --lc-* here.
+   Strip hue is per-card (inline --card-strip), not this chrome. */
 .librarian.is-cards {
-  --paper: #f7f1dc;
-  --ink: #2a2418;
   --mute: #6a6154;
   --line: #b7ae9c;
   --accent: #3a4a78;
   --margin: #c45c4a;
-  --card-strip: var(--margin);
+  /* do NOT set --card-strip / --lc-paper here — house class on each .lorecard must win */
   --blotter: #c4baa4;
   --booth: #3a3226;
   --rule: #b7ae9c;
   --stamp: #8a5a32;
-  flex-basis: 24rem;
-  width: 24rem;
-  max-width: 32rem;
   font-family: Literata, Georgia, "Times New Roman", serif;
   color: var(--ink);
   background:
@@ -2337,14 +4232,21 @@ a.lbr-cite:hover {
   min-height: 9.5rem;
   margin: 0;
   padding: 0.72rem 0.75rem 1.35rem 0.8rem;
-  background: var(--paper);
-  color: var(--ink);
+  /* size/layout only — body paper/ink from lorecard.css house lookbook */
   box-shadow:
     1px 1px 0 #d4cbb4,
     2px 3px 6px rgba(40, 30, 10, 0.14),
     0 0 0 1px #c4b898;
   border-radius: 1px 2px 3px 1px;
   font-size: 0.82rem;
+}
+
+
+.librarian.is-cards .lorecard.house-charlie {
+  box-shadow:
+    1px 1px 0 #2a1e08,
+    2px 3px 6px rgba(0, 0, 0, 0.4),
+    0 0 0 1px #3a2a0c;
 }
 
 .librarian.is-cards .lorecard::before {
@@ -2354,7 +4256,7 @@ a.lbr-cite:hover {
   left: 0;
   right: 0;
   height: 0.28rem;
-  background: var(--card-strip, var(--margin));
+  background: var(--card-strip, var(--lc-margin, #c45c4a));
 }
 
 .librarian.is-cards .lorecard::after {
@@ -2427,7 +4329,7 @@ a.lbr-cite:hover {
   right: 0.5rem;
   bottom: 0.3rem;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.5rem;
+  font-size: 0.68rem;
   letter-spacing: 0.04em;
   color: var(--mute);
 }
@@ -2441,30 +4343,51 @@ a.lbr-cite:hover {
 }
 
 .librarian.is-cards .lorecard .card-back {
-  margin: 0.45rem 0 0;
-  padding: 0.4rem 0 0;
+  margin: 0.55rem 0 0;
+  padding: 0.55rem 0 0.15rem;
   border-top: 1px solid var(--line);
 }
 
 .librarian.is-cards .lorecard .card-meta-row {
   display: grid;
-  grid-template-columns: 4.8rem 1fr;
-  gap: 0.12rem 0.35rem;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.28rem 0.55rem;
   margin: 0;
-  padding: 0.06rem 0;
+  padding: 0.18rem 0;
+  align-items: baseline;
 }
 
 .librarian.is-cards .lorecard .card-back dt,
 .librarian.is-cards .lorecard .card-back dd {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.52rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
   color: var(--mute);
 }
 
 .librarian.is-cards .lorecard .card-back dd {
   color: var(--ink);
   word-break: break-word;
+}
+
+.librarian.is-cards .lorecard .card-back a.card-meta-crate-link,
+.librarian.is-cards .lorecard .card-back a.card-meta-crate-id {
+  color: var(--card-strip, var(--margin, #8a5a32));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.librarian.is-cards .lorecard .card-back a.card-meta-crate-id code {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.librarian.is-cards .card-shelf-item.is-open .lorecard {
+  min-height: 0;
+  font-size: 0.92rem;
+  padding: 0.85rem 0.9rem 1.2rem 0.95rem;
 }
 
 
@@ -2522,10 +4445,6 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
 }
 
 @media (max-width: 1024px) {
-  .librarian.is-cards {
-    flex-basis: 22rem;
-    width: 22rem;
-  }
   .librarian.is-cards .card-shelf {
     grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
   }
@@ -2536,3 +4455,3858 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
     grid-template-columns: 1fr;
   }
 }
+
+/* README BIOS CodeMirror — color only; do NOT fight CM gutter layout */
+.librarian.is-readme .readme-pane .CodeMirror,
+.librarian.is-readme .CodeMirror {
+  width: 100%;
+  border: 1px solid #1e2a44;
+  border-left: 3px solid #55ffff99;
+  border-radius: 0 0 2px 2px;
+  background: #0b1020 !important;
+  color: #e8ecf4;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  box-shadow: none;
+}
+.librarian.is-readme .readme-pane.is-yaml .CodeMirror {
+  background: #0e1424 !important;
+  border-left-color: #c080ff99;
+}
+.librarian.is-readme .CodeMirror-scroll {
+  min-height: 8rem;
+}
+.librarian.is-readme .CodeMirror-gutters {
+  background: #070b16 !important;
+  border-right: 1px solid #1c2740;
+}
+.librarian.is-readme .readme-pane.is-yaml .CodeMirror-gutters {
+  background: #0a0e1a !important;
+  border-right-color: #3a2a55;
+}
+.librarian.is-readme .CodeMirror-linenumber {
+  color: #4a5670;
+  font-variant-numeric: tabular-nums;
+  padding: 0 0.4rem 0 0.2rem;
+}
+.librarian.is-readme .CodeMirror-cursor {
+  border-left: 2px solid #ffff55 !important;
+}
+.librarian.is-readme .CodeMirror-selected,
+.librarian.is-readme .CodeMirror-focused .CodeMirror-selected {
+  background: rgba(85, 255, 255, 0.22) !important;
+}
+.librarian.is-readme .CodeMirror-focused {
+  border-color: #55ffff;
+  outline: none;
+}
+.librarian.is-readme .readme-pane.is-yaml .CodeMirror-focused {
+  border-color: #c080ff;
+}
+.librarian.is-readme .cm-s-material-darker.CodeMirror {
+  background: #0b1020 !important;
+}
+.librarian.is-readme .readme-pane.is-yaml .cm-s-material-darker.CodeMirror {
+  background: #0e1424 !important;
+}
+.librarian.is-readme .cm-s-material-darker .CodeMirror-gutters {
+  background: #070b16 !important;
+  border-right: 1px solid #1c2740;
+}
+.librarian.is-readme textarea.librarian-letter[style*="display: none"],
+.librarian.is-readme textarea.readme-headers[style*="display: none"],
+.librarian.is-readme textarea.librarian-leaf[style*="display: none"] {
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.librarian.is-readme .readme-pane-bar + .CodeMirror,
+.librarian.is-readme .readme-pane-bar + textarea {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* README BIOS — markdown / token glance (Cursor-ish) */
+.librarian.is-readme .cm-s-material-darker .cm-header {
+  font-weight: 700;
+}
+.librarian.is-readme .cm-s-material-darker .cm-header-1 { color: #e06c75; font-size: 1.15em; }
+.librarian.is-readme .cm-s-material-darker .cm-header-2 { color: #e5c07b; font-size: 1.08em; }
+.librarian.is-readme .cm-s-material-darker .cm-header-3 { color: #98c379; }
+.librarian.is-readme .cm-s-material-darker .cm-header-4 { color: #56b6c2; }
+.librarian.is-readme .cm-s-material-darker .cm-header-5 { color: #c678dd; }
+.librarian.is-readme .cm-s-material-darker .cm-header-6 { color: #7f8aa3; }
+.librarian.is-readme .cm-s-material-darker .cm-formatting-header {
+  opacity: 0.55;
+  font-weight: 600;
+}
+.librarian.is-readme .cm-s-material-darker .cm-strong { color: #d19a66; font-weight: 700; }
+.librarian.is-readme .cm-s-material-darker .cm-em { color: #c678dd; font-style: italic; }
+.librarian.is-readme .cm-s-material-darker .cm-link { color: #61afef; text-decoration: underline; text-underline-offset: 2px; }
+.librarian.is-readme .cm-s-material-darker .cm-url { color: #56b6c2; }
+.librarian.is-readme .cm-s-material-darker .cm-quote { color: #7f8aa3; font-style: italic; }
+.librarian.is-readme .cm-s-material-darker .cm-hr,
+.librarian.is-readme .cm-s-material-darker .cm-formatting-hr {
+  color: #ffff55;
+  font-weight: 400;
+}
+.librarian.is-readme .cm-s-material-darker .cm-formatting-list,
+.librarian.is-readme .cm-s-material-darker .cm-formatting-quote,
+.librarian.is-readme .cm-s-material-darker .cm-formatting-strong,
+.librarian.is-readme .cm-s-material-darker .cm-formatting-em,
+.librarian.is-readme .cm-s-material-darker .cm-formatting-link {
+  color: #5c6a84;
+}
+/* fenced / inline code (markdown mode uses comment for code) */
+.librarian.is-readme .cm-s-material-darker .cm-comment {
+  color: #e5c07b;
+  background: rgba(229, 192, 123, 0.12);
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+}
+/* PocketGo {{tokens}} */
+.librarian.is-readme .cm-s-material-darker .cm-pg-token {
+  color: #ff55ff;
+  background: rgba(255, 85, 255, 0.14);
+  border-radius: 2px;
+  font-weight: 600;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+}
+/* [[wiki]] doors */
+.librarian.is-readme .cm-s-material-darker .cm-pg-wiki {
+  color: #55ffff;
+  background: rgba(85, 255, 255, 0.10);
+  border-radius: 2px;
+  font-weight: 600;
+}
+/* #hashtags */
+.librarian.is-readme .cm-s-material-darker .cm-pg-hash {
+  color: #98c379;
+  font-weight: 600;
+}
+
+/* dress / div / span tokens — lane next to insert magenta */
+.librarian.is-readme .cm-s-material-darker .cm-pg-token-dress {
+  color: #ffb86c;
+  background: rgba(255, 184, 108, 0.14);
+  border-radius: 2px;
+  font-weight: 600;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+}
+
+/* BIOS panes: markdown grows with sidecar; headers stay shorter */
+.librarian.is-readme #readmePage {
+  gap: 0.45rem;
+}
+.librarian.is-readme #readmeRoom {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.librarian.is-readme .readme-pane.is-yaml {
+  flex: 0 1 30%;
+  min-height: 5.5rem;
+  max-height: 38%;
+}
+.librarian.is-readme .readme-pane.is-md {
+  flex: 1 1 auto;
+  min-height: 10rem;
+}
+.librarian.is-readme #readmeRoom .readme-pane.is-md {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+.librarian.is-readme .readme-pane .CodeMirror {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.librarian.is-readme .readme-clay-tabs:not([hidden]) {
+  margin: 0 0 0.25rem;
+}
+.librarian.is-readme .readme-clay-tabs .readme-tab {
+  text-transform: lowercase;
+}
+
+/* BIOS chrome — one identity row, grouped actions */
+.librarian.is-readme .librarian-head.bios-id {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  box-sizing: border-box;
+  margin: 0.25rem 0.45rem 0;
+  padding: 0.35rem 0.45rem;
+  border: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background: #000088;
+}
+.librarian.is-readme .librarian-head.bios-id strong {
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  color: #ffff55;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.librarian.is-readme .librarian-head.bios-id .librarian-path {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  color: #ffff55;
+  letter-spacing: 0.08em;
+}
+.librarian.is-readme .librarian-head.bios-id .tagbay-crate {
+  flex: 0 1 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+  max-width: 55%;
+  min-width: 0;
+  padding: 0;
+  font-size: 9px;
+  opacity: 0.85;
+}
+.librarian.is-readme .librarian-head.bios-id .tagbay-crate .tagbay-copy {
+  margin-left: 0;
+}
+.librarian.is-readme .librarian-head.bios-id .tagbay-copy[data-refresh] {
+  flex: 0 0 auto;
+  margin-left: 0;
+}
+.librarian.is-readme .librarian-head.bios-id .tagbay-crate-id {
+  max-width: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.librarian.is-readme .librarian-head.bios-id .tagbay-copy[data-refresh],
+.librarian.is-readme .librarian-head.bios-id .librarian-pop {
+  flex: 0 0 auto;
+  margin-left: 0;
+}
+.librarian.is-readme .librarian-kicker {
+  display: none !important;
+}
+.librarian.is-readme .bios-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  flex: 0 0 auto;
+  padding: 0.25rem 0 0;
+  border-top: 1px solid #1e2a44;
+  margin: 0.2rem 0 0;
+}
+.librarian.is-readme .bios-act-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.librarian.is-readme .bios-act-group + .bios-act-group {
+  padding-left: 0.65rem;
+  border-left: 1px solid #2a3550;
+}
+.librarian.is-readme .bios-act-primary .librarian-store {
+  background: #12203a;
+  border-color: #55ffff;
+  color: #55ffff;
+}
+
+
+.librarian.is-readme .bios-act-lore .librarian-store {
+  border-color: #c080ff66;
+  color: #e0b0ff;
+}
+.librarian.is-readme .readme-tabs {
+  margin: 0.15rem 0 0.35rem;
+}
+
+/* BIOS three doors: room letter · shell · paper */
+.librarian.is-readme .bios-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.05rem 0 0.25rem;
+  padding: 0.1rem 0 0.25rem;
+  border-bottom: 1px solid #1e2a44;
+  flex: 0 0 auto;
+}
+.librarian.is-readme .bios-doors .readme-tab {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #8a96b0;
+}
+.librarian.is-readme .bios-doors .readme-tab.is-on {
+  color: #0b1020;
+  background: #55ffff;
+  border-color: #55ffff;
+  font-weight: 700;
+}
+.librarian.is-readme .bios-doors .readme-tab[data-readme-door="shell"].is-on {
+  background: #c080ff;
+  border-color: #c080ff;
+  color: #0b1020;
+}
+.librarian.is-readme .bios-doors .readme-tab[data-readme-door="paper"].is-on,
+.librarian.is-readme .bios-doors .readme-tab[data-readme-door="note"].is-on {
+  background: #ffff55;
+  border-color: #ffff55;
+  color: #0b1020;
+}
+.librarian.is-readme .bios-doors .readme-tab[data-readme-door="room"].is-on {
+  background: #55ffff;
+  border-color: #55ffff;
+}
+
+/* BIOS coat / css door */
+.librarian.is-readme .bios-doors .readme-tab[data-readme-door="coat"].is-on {
+  background: #98c379;
+  border-color: #98c379;
+  color: #0b1020;
+}
+.librarian.is-readme .readme-pane.is-css .readme-pane-bar {
+  color: #98c379;
+}
+.librarian.is-readme .readme-pane.is-css .CodeMirror {
+  border-left-color: #98c37999;
+}
+.librarian.is-readme #readmeCoatPane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.librarian.is-readme #readmeCoatPane[hidden] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  flex: 0 0 0 !important;
+  pointer-events: none !important;
+}
+.librarian.is-readme #readmeCoatPane[hidden] .CodeMirror,
+.librarian.is-readme #readmeCoatPane[hidden] .readme-pane {
+  display: none !important;
+}
+.librarian.is-readme #readmeCoatPane .readme-pane.is-css {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.librarian.is-readme #readmeRoom[hidden],
+.librarian.is-readme #readmePage[hidden] {
+  display: none !important;
+}
+.librarian.is-readme #readmeRoom[hidden] .CodeMirror,
+.librarian.is-readme #readmePage[hidden] .CodeMirror {
+  display: none !important;
+}
+
+/* coat leak hard stop */
+.librarian.is-readme #readmeCoatPane:not([hidden]) {
+  z-index: 2;
+}
+.librarian.is-readme .readme-pane.is-css .CodeMirror {
+  position: relative !important;
+  max-height: 100%;
+}
+
+/* room letter view (rendered) */
+.librarian.is-readme .readme-pane-bar {
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.librarian.is-readme .readme-pane-bar .readme-letter-edit {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #55ffff;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-pane-bar .readme-letter-edit:hover {
+  border-color: #55ffff;
+}
+.librarian.is-readme .readme-letter-view {
+  flex: 1 1 auto;
+  align-self: stretch;
+  min-height: 0;
+  height: auto;
+  overflow: auto;
+  padding: 0.55rem 0.7rem 0.7rem;
+  background: #0000aa;
+  color: #ffffff;
+  /* sharp BIOS data printout — glass mono, compact */
+  font-family: var(--font-glass, "Share Tech Mono"), "IBM Plex Mono", "Consolas", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.38;
+  letter-spacing: 0.03em;
+  border: 1px solid #ffffff55;
+  border-top: none;
+  box-shadow: none;
+  scrollbar-width: thin;
+  scrollbar-color: #55ffff #000088;
+}
+.librarian.is-readme .readme-letter-view[hidden] {
+  display: none !important;
+}
+.librarian.is-readme .readme-pane.is-letter.is-printout {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+.librarian.is-readme .readme-pane.is-letter.is-editing {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+.librarian.is-readme .readme-pane.is-letter.is-editing .CodeMirror {
+  flex: 1 1 auto;
+  min-height: 22rem;
+  height: auto !important;
+}
+
+.librarian.is-readme .readme-pane.is-letter.is-printout textarea.librarian-leaf,
+.librarian.is-readme .readme-pane.is-letter.is-printout .CodeMirror {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+.librarian.is-readme .readme-pane.is-letter.is-editing .readme-letter-view {
+  display: none !important;
+}
+.librarian.is-readme .readme-pane-bar .readme-letter-edit[data-letter-edit],
+.librarian.is-readme .readme-pane-bar .readme-letter-edit[data-letter-cancel] {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.librarian.is-readme .readme-letter-view h1,
+.librarian.is-readme .readme-letter-view h2,
+.librarian.is-readme .readme-letter-view h3,
+.librarian.is-readme .readme-letter-view h4,
+.librarian.is-readme .readme-letter-view h5,
+.librarian.is-readme .readme-letter-view h6 {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.25;
+  text-shadow: none;
+  margin: 0.65rem 0 0.2rem;
+}
+.librarian.is-readme .readme-letter-view h1 {
+  font-size: 1.2em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 0.85rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid #ffffff44;
+  padding-bottom: 0.2rem;
+}
+.librarian.is-readme .readme-letter-view h2 {
+  font-size: 1.05em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffff55;
+  margin-top: 0.75rem;
+}
+.librarian.is-readme .readme-letter-view h3 {
+  font-size: 1em;
+  letter-spacing: 0.06em;
+  color: #55ffff;
+  margin-top: 0.65rem;
+}
+.librarian.is-readme .readme-letter-view h4 {
+  font-size: 0.95em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cccccc;
+  margin-top: 0.55rem;
+}
+.librarian.is-readme .readme-letter-view h5 {
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+  color: #bbbbbb;
+  margin-top: 0.5rem;
+}
+.librarian.is-readme .readme-letter-view h6 {
+  font-size: 0.85em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-top: 0.45rem;
+}
+.librarian.is-readme .readme-letter-view h1:first-child,
+.librarian.is-readme .readme-letter-view h2:first-child,
+.librarian.is-readme .readme-letter-view h3:first-child {
+  margin-top: 0.15rem;
+}
+.librarian.is-readme .readme-letter-view p {
+  margin: 0 0 0.45rem;
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+.librarian.is-readme .readme-letter-view p.md-gap,
+.librarian.is-readme .readme-letter-view .md-gap {
+  display: block;
+  height: 0.55em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+.librarian.is-readme .readme-letter-view ul,
+.librarian.is-readme .readme-letter-view ol {
+  margin: 0 0 0.45rem 1rem;
+  padding: 0;
+  color: #eeeeee;
+}
+.librarian.is-readme .readme-letter-view li {
+  margin: 0.08rem 0;
+}
+.librarian.is-readme .readme-letter-view code {
+  font-family: inherit;
+  font-size: 0.95em;
+  font-weight: 400;
+  color: #ffff55;
+  background: #000088;
+  padding: 0.02rem 0.2rem;
+  border: 1px solid #ffffff33;
+}
+.librarian.is-readme .readme-letter-view pre {
+  background: #000088;
+  border: 1px solid #ffffff44;
+  padding: 0.4rem 0.5rem;
+  overflow: auto;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap;
+  color: #eeeeee;
+}
+.librarian.is-readme .readme-letter-view a {
+  color: #ffff55;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.librarian.is-readme .readme-letter-view strong {
+  font-weight: 400;
+  color: #ffff55;
+}
+.librarian.is-readme .readme-letter-view em {
+  font-style: normal;
+  color: #55ffff;
+}
+.librarian.is-readme .readme-letter-view hr {
+  border: none;
+  border-top: 1px solid #ffffff44;
+  margin: 0.55rem 0;
+}
+.librarian.is-readme .readme-letter-view table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.35rem 0 0.55rem;
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+}
+.librarian.is-readme .readme-letter-view th,
+.librarian.is-readme .readme-letter-view td {
+  border: 1px solid #ffffff33;
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+  vertical-align: top;
+}
+.librarian.is-readme .readme-letter-view th {
+  color: #ffff55;
+  background: #000088;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.librarian.is-readme .readme-letter-view td {
+  color: #eeeeee;
+}
+.librarian.is-readme .readme-letter-view blockquote {
+  margin: 0.35rem 0 0.5rem;
+  padding: 0.25rem 0.55rem;
+  border-left: 2px solid #55ffff;
+  color: #cccccc;
+  background: #00008855;
+}
+.librarian.is-readme .readme-letter-view::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.librarian.is-readme .readme-letter-view::-webkit-scrollbar-track {
+  background: #000088;
+}
+.librarian.is-readme .readme-letter-view::-webkit-scrollbar-thumb {
+  background: #55ffff;
+  border: 1px solid #ffff55;
+}
+.librarian.is-readme .readme-letter-view .readme-letter-empty,
+.librarian.is-readme .readme-letter-view .readme-letter-fallback {
+  opacity: 0.75;
+  white-space: pre-wrap;
+}
+.librarian.is-readme .readme-pane-bar .readme-letter-label {
+  flex: 1 1 auto;
+}
+.librarian.is-readme .readme-pane.is-letter {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+
+.librarian.is-readme .readme-letter-door-edit {
+  margin-left: 0.35rem;
+  border-color: #55ffff !important;
+  color: #55ffff !important;
+  background: #001a2a !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.librarian.is-readme .readme-letter-door-edit:hover {
+  background: #003040 !important;
+  color: #ffff55 !important;
+  border-color: #ffff55 !important;
+}
+.librarian.is-readme .readme-pane-bar .readme-letter-edit:not([hidden]) {
+  display: inline-block;
+}
+
+
+.librarian.is-readme .readme-pane.is-letter.is-editing .readme-letter-view,
+.librarian.is-readme .readme-pane.is-letter.is-editing #readmeRoomView {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  flex: 0 0 0 !important;
+}
+.librarian.is-readme .readme-pane.is-letter.is-editing textarea.librarian-leaf {
+  display: none !important;
+}
+.librarian.is-readme .readme-pane.is-letter.is-printout textarea.librarian-leaf,
+.librarian.is-readme .readme-pane.is-letter.is-printout .CodeMirror {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+.librarian.is-readme .bios-act-primary .readme-letter-edit-btn {
+  border-color: #55ffff;
+  color: #55ffff;
+}
+.librarian.is-readme .bios-act-primary .readme-letter-edit-btn:hover {
+  border-color: #ffff55;
+  color: #ffff55;
+}
+.librarian.is-readme .bios-act-primary .readme-letter-edit-btn[hidden] {
+  display: none !important;
+}
+
+
+
+.librarian.is-readme .readme-coat-split {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #1e2a44;
+  border-top: none;
+}
+.librarian.is-readme .readme-coat-split.is-palette-off .readme-coat-palette {
+  display: none !important;
+}
+.librarian.is-readme .readme-coat-split.is-palette-off .readme-coat-editor {
+  flex: 1 1 auto;
+  max-width: none;
+}
+.librarian.is-readme .readme-coat-palette {
+  flex: 0 0 17.5rem;
+  width: 17.5rem;
+  max-width: 42%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  padding: 0.45rem 0.5rem;
+  background: #070b16;
+  border-right: 1px solid #1e2a44;
+  overflow: auto;
+  min-height: 0;
+}
+.librarian.is-readme .readme-coat-editor {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.librarian.is-readme .readme-coat-editor .CodeMirror {
+  flex: 1 1 auto;
+  height: 100% !important;
+  min-height: 0;
+}
+.librarian.is-readme .readme-coat-editor textarea.librarian-leaf {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+}
+.librarian.is-readme .readme-coat-split-toggle {
+  margin-left: auto;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #55ffff;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-coat-split-toggle:hover,
+.librarian.is-readme .readme-coat-split-toggle[aria-pressed="true"] {
+  border-color: #55ffff;
+}
+.librarian.is-readme .readme-coat-palette[hidden] {
+  display: none !important;
+}
+.librarian.is-readme .readme-coat-palette-label {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #55ffff;
+  width: 100%;
+}
+.librarian.is-readme .readme-coat-palette-rows {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  width: 100%;
+}
+.librarian.is-readme .readme-coat-swatch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.25rem 0.35rem 0.25rem 0.25rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #c8d0e0;
+  font-size: 10px;
+  cursor: default;
+}
+.librarian.is-readme .readme-coat-swatch input[type="color"] {
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 1px solid #ffffff55;
+  background: transparent;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-coat-swatch-name {
+  font-family: "IBM Plex Mono", monospace;
+  color: #ffff55;
+}
+.librarian.is-readme .readme-coat-swatch-hex {
+  font-family: "IBM Plex Mono", monospace;
+  color: #8b9bb4;
+  flex: 1 1 100%;
+  word-break: break-all;
+  font-size: 9px;
+}
+.librarian.is-readme .readme-coat-palette-empty {
+  font-size: 11px;
+  color: #8b9bb4;
+  width: 100%;
+  line-height: 1.4;
+}
+.librarian.is-readme .readme-coat-palette-empty code {
+  color: #55ffff;
+}
+.librarian.is-readme .readme-coat-palette-add {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #55ffff;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-coat-palette-add:hover {
+  border-color: #55ffff;
+}
+.librarian.is-readme #readmeCoatPane .readme-pane.is-css {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+.librarian.is-readme #readmeCoatPane .readme-pane.is-css > .readme-coat-split {
+  flex: 1 1 auto;
+}
+
+.librarian.is-readme .readme-coat-swatch input[type="range"] {
+  width: 4.2rem;
+  vertical-align: middle;
+  accent-color: #55ffff;
+}
+.librarian.is-readme .readme-coat-swatch-alpha {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  color: #8b9bb4;
+  min-width: 2.2rem;
+}
+
+.librarian.is-readme #readmeHelpPane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+.librarian.is-readme #readmeHelpPane[hidden] {
+  display: none !important;
+}
+.librarian.is-readme #readmeHelpPane .readme-pane.is-help {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.librarian.is-readme #readmeHelpBar {
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.librarian.is-readme .readme-help-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+.librarian.is-readme .readme-help-page {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  color: #8b9bb4;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-help-page.is-on,
+.librarian.is-readme .readme-help-page:hover {
+  border-color: #55ffff;
+  color: #55ffff;
+}
+
+.librarian.is-readme {
+  position: relative;
+}
+
+.librarian.is-readme #readmeHostsPane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  gap: 0.45rem;
+}
+.librarian.is-readme #readmeHostsPane[hidden] {
+  display: none !important;
+}
+.librarian.is-readme .readme-hosts-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0.35rem;
+}
+.librarian.is-readme .readme-hosts-select {
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  background: #0a1020;
+  color: #c8d4e8;
+  border: 1px solid #2a3550;
+  padding: 0.2rem 0.45rem;
+  min-width: 12rem;
+  max-width: 100%;
+}
+.librarian.is-readme .readme-hosts-select:focus {
+  outline: none;
+  border-color: #55ffff;
+  color: #55ffff;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-shell {
+  flex: 0 0 auto;
+  max-height: 22%;
+  min-height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-shell[hidden],
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-roam[hidden] {
+  display: none !important;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-roam {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.35rem 0.5rem 0.7rem;
+}
+.librarian.is-readme #readmeHostsPane .readme-hosts-scheme {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #55ffff;
+  margin: 0 0 0.3rem;
+}
+.librarian.is-readme #readmeHostsPane .is-hosts-roam label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a9bb8;
+  margin-top: 0.35rem;
+}
+.librarian.is-readme #readmeHostsPane .readme-hosts-disconnect {
+  margin-top: 0.65rem;
+  align-self: flex-start;
+}
+.librarian.is-readme #readmeHostsPane .readme-hosts-roam-hint {
+  font-size: 10px;
+  color: #6e7a90;
+  margin: 0.4rem 0 0;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-shell .CodeMirror {
+  min-height: 4.2rem;
+  max-height: 8.5rem;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-shell .CodeMirror-scroll {
+  min-height: 4.2rem;
+  max-height: 8.5rem;
+}
+.librarian.is-readme #readmeHostsPane .readme-pane.is-hosts-letter {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.librarian.is-readme #readmeHostsHeaders {
+  min-height: 3.5rem;
+  background: #000055;
+  color: #aaccff;
+  border: 1px solid #334466;
+}
+
+.librarian.is-readme .readme-hosts-meta-btn {
+  font: inherit;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  background: #0a1020;
+  color: #9eb0cc;
+  border: 1px solid #2a3550;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-hosts-meta-btn[aria-pressed="true"] {
+  color: #55ffff;
+  border-color: #55ffff;
+}
+.librarian.is-readme .readme-hosts-select.is-host-off,
+.librarian.is-readme .readme-hosts-select option.is-host-off {
+  color: #667788;
+  opacity: 0.75;
+}
+
+.librarian.is-readme .readme-hosts-fab {
+  margin-right: 0.25rem;
+}
+
+.librarian.is-readme .bios-act-help {
+  margin-left: auto;
+  margin-right: 0.35rem;
+  padding-right: 0.15rem;
+}
+
+
+/* BIOS Crates finder — compact data-sheet chrome */
+.librarian.is-readme #readmeCratesPane {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  gap: 0.4rem;
+}
+.librarian.is-readme #readmeCratesPane[hidden] {
+  display: none !important;
+}
+.librarian.is-readme .readme-crates-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0.35rem;
+  border-bottom: 1px solid #2a3550;
+}
+.librarian.is-readme .readme-crates-mode {
+  flex: 0 0 auto;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #0a1020;
+  color: #ffff55;
+  border: 1px solid #2a3550;
+  padding: 0.2rem 0.3rem;
+  min-width: 5.4rem;
+  height: 1.7rem;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-crates-mode:focus {
+  outline: none;
+  border-color: #55ffff;
+  color: #ffff55;
+}
+.librarian.is-readme .readme-crates-q {
+  flex: 1 1 12rem;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  background: #0a1020;
+  color: #ffff55;
+  border: 1px solid #2a3550;
+  padding: 0.25rem 0.5rem;
+  min-width: 8rem;
+}
+.librarian.is-readme .readme-crates-q::placeholder {
+  color: #667788;
+}
+.librarian.is-readme .readme-crates-q:focus {
+  outline: none;
+  border-color: #55ffff;
+  color: #ffff55;
+}
+.librarian.is-readme .readme-crates-results {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.2rem 0.35rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.librarian.is-readme .readme-crates-empty {
+  margin: 0.6rem 0.2rem;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #8b9bb4;
+}
+.librarian.is-readme .readme-crates-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.55rem;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid #2a3550;
+  background: #070c18;
+}
+.librarian.is-readme .readme-crates-row:hover {
+  border-color: #55ffff;
+}
+.librarian.is-readme .readme-crates-meta {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.librarian.is-readme .readme-crates-title {
+  font-size: 12px;
+  color: #e8f0ff;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.librarian.is-readme .readme-crates-pocket {
+  margin-top: 0.12rem;
+  font-size: 10px;
+  color: #8b9bb4;
+  word-break: break-all;
+}
+.librarian.is-readme .readme-crates-id {
+  margin-top: 0.18rem;
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 11px;
+  color: #ffff55;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+}
+.librarian.is-readme .readme-crates-acts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 0 0 auto;
+}
+.librarian.is-readme .readme-crates-btn {
+  font: inherit;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  background: #0a1020;
+  color: #ffff55;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+.librarian.is-readme .readme-crates-btn:hover {
+  border-color: #55ffff;
+  color: #55ffff;
+}
+.librarian.is-readme .readme-crates-fab {
+  margin-right: 0.25rem;
+}
+.librarian.is-readme .readme-crates-fab {
+  position: static;
+  right: auto;
+  bottom: auto;
+  z-index: auto;
+  font-size: inherit;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: inherit;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffff55;
+  cursor: pointer;
+  box-shadow: none;
+}
+.librarian.is-readme .readme-crates-fab.is-on,
+.librarian.is-readme .readme-crates-fab[aria-pressed="true"] {
+  border-color: #55ffff;
+  color: #55ffff;
+}
+
+
+
+
+.librarian.is-readme .readme-help-fab,
+.librarian.is-readme .readme-hosts-fab {
+  position: static;
+  right: auto;
+  bottom: auto;
+  z-index: auto;
+  font-size: inherit;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: inherit;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffff55;
+  cursor: pointer;
+  box-shadow: none;
+}
+.librarian.is-readme .readme-help-fab:hover,
+.librarian.is-readme .readme-help-fab.is-on,
+.librarian.is-readme .readme-hosts-fab:hover,
+.librarian.is-readme .readme-hosts-fab.is-on {
+  border-color: #ffff55;
+  background: #122038;
+  color: #ffff55;
+}
+.librarian.is-readme .readme-help-fab.is-on,
+.librarian.is-readme .readme-hosts-fab.is-on {
+  color: #ffff55;
+  border-color: #55ffff;
+}
+
+.librarian.is-readme .readme-pane.is-letter .CodeMirror,
+.librarian.is-readme .readme-pane.is-letter textarea.librarian-leaf {
+  font-family: var(--font-glass, "Share Tech Mono"), "IBM Plex Mono", "Consolas", monospace !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  background: #0000aa !important;
+  color: #ffffff !important;
+}
+.librarian.is-readme .readme-pane.is-letter .CodeMirror {
+  border-color: #ffffff55 !important;
+}
+.librarian.is-readme .readme-pane.is-letter .CodeMirror pre,
+.librarian.is-readme .readme-pane.is-letter .CodeMirror .CodeMirror-line {
+  font-weight: 400 !important;
+}
+
+
+
+
+
+/* col-resize-grips — drag left edge of docked cabinet/BIOS to resize */
+.librarian .colResize {
+  position: absolute;
+  left: -3px;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  z-index: 40;
+  cursor: col-resize;
+  background: transparent;
+  -webkit-app-region: no-drag;
+}
+.librarian .colResize:hover,
+.librarian .colResize.is-dragging {
+  background: color-mix(in srgb, #0000cd 35%, transparent);
+}
+html.col-resizing,
+html.col-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+
+/* dock order when BIOS + cabinet both open on desk: page | cabinet | BIOS */
+.wwwExplorer_stage > .go-shell { order: 0; }
+.wwwExplorer_stage > .librarian:not(.is-readme) { order: 1; }
+.wwwExplorer_stage > .librarian.is-readme { order: 2; }
+
+
+/* Librarian catalog boxes — brass stroke, not Papers-Please brown */
+.librarian.is-librarian .catalog-bag.is-shell {
+  border-color: rgba(196, 165, 116, 0.28) !important;
+}
+.librarian.is-librarian .catalog-onto-btn {
+  border-color: rgba(196, 165, 116, 0.4) !important;
+  color: #d4c4a0;
+}
+.librarian.is-librarian .catalog-onto-btn.is-on {
+  border-color: var(--rule) !important;
+  color: #243028;
+  background: #efe6c8;
+}
+
+
+
+/* Attach lore — clickable chips. Default uses house tokens so Agent is not IO-green. */
+.lore-attach-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.lore-pick.lore-chip {
+  display: flex !important;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: 0.4rem 0.45rem 0.4rem 0.55rem;
+  border: 1px solid var(--line, #c4b898);
+  border-left: 3px solid var(--chip-strip, var(--stamp, #3d6b48));
+  background: var(--paper, #f7f1dc);
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+}
+.lore-pick.lore-chip input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+.lore-pick-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+.lore-chip-top {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
+}
+.lore-pick.lore-chip strong {
+  display: inline;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink, #243028);
+}
+.lore-pick-meta {
+  display: inline;
+  margin: 0;
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute, #5a6a54);
+  line-height: 1.3;
+}
+.lore-chip-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--mute, #5a6a54);
+  opacity: 0.9;
+}
+.lore-pick.lore-chip.is-checked {
+  border-color: var(--rule, #c4a574);
+  border-left-color: var(--chip-strip, var(--stamp, #3d6b48));
+  background: color-mix(in srgb, var(--paper, #f7f1dc) 88%, var(--rule, #c4a574));
+  box-shadow: inset 0 0 0 1px rgba(196, 165, 116, 0.35);
+}
+.lore-pick.lore-chip.is-checked strong {
+  color: var(--ink, #243028);
+}
+.lore-pick.lore-chip.was-on:not(.is-checked) {
+  opacity: 0.55;
+}
+.lore-pick.lore-chip:hover {
+  border-color: var(--rule, #c4a574);
+  background: #fff8e8;
+}
+
+.librarian.is-librarian .lore-attach-filters {
+  border-bottom: 1px solid #c4b898;
+}
+.librarian.is-librarian .lore-attach-field {
+  color: #3d6b48 !important;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.librarian.is-librarian .lore-attach-filters input,
+.librarian.is-librarian .lore-attach-filters select,
+.librarian.is-librarian .lore-attach-field select.librarian-leaf {
+  width: 100%;
+  margin-top: 0.12rem;
+  box-sizing: border-box;
+  background: #fffdf6 !important;
+  color: #243028 !important;
+  border: 1px solid #c4b898 !important;
+  border-radius: 1px;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.85rem !important;
+  padding: 0.28rem 0.35rem;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #3d6b48 50%),
+    linear-gradient(135deg, #3d6b48 50%, transparent 50%) !important;
+  background-position: calc(100% - 14px) calc(50% - 2px), calc(100% - 9px) calc(50% - 2px) !important;
+  background-size: 5px 5px, 5px 5px !important;
+  background-repeat: no-repeat !important;
+  padding-right: 1.4rem;
+}
+.librarian.is-librarian .lore-attach-filters input:focus,
+.librarian.is-librarian .lore-attach-filters select:focus {
+  outline: none;
+  border-color: #3d6b48 !important;
+  color: #243028 !important;
+}
+.librarian.is-librarian .lore-attach-filters select option {
+  background: #f7f1dc;
+  color: #243028;
+}
+.librarian.is-librarian .lore-attach-count {
+  color: #5a6a54;
+}
+
+.librarian.is-librarian .librarian-modal-card .lore-pick input[type="checkbox"] {
+  width: 0.95rem !important;
+  min-width: 0.95rem;
+  max-width: 0.95rem;
+  height: 0.95rem;
+  display: inline-block;
+}
+
+
+/* Attach chips + mini cards — catalog type, not CRT shout */
+.librarian.is-librarian .lore-pick.lore-chip strong {
+  font-family: Literata, Georgia, serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  color: #243028;
+}
+.librarian.is-librarian .lore-pick-meta {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-weight: 400 !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a54;
+}
+.librarian.is-librarian .lore-chip-line {
+  font-family: Literata, Georgia, serif !important;
+  font-weight: 400 !important;
+  font-size: 0.82rem !important;
+  font-style: italic;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #5a6a54;
+  opacity: 0.95;
+}
+.librarian.is-librarian a.catalog-mini-card h1 {
+  font-family: Literata, Georgia, serif !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em;
+  color: var(--lc-ink, #2a2418);
+}
+.librarian.is-librarian a.catalog-mini-card .line {
+  font-family: Literata, Georgia, serif !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  text-transform: none !important;
+  letter-spacing: 0;
+  color: var(--lc-mute, #6a6154);
+}
+.librarian.is-librarian a.catalog-mini-card .kicker,
+.librarian.is-librarian a.catalog-mini-card .house {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-weight: 500 !important;
+}
+
+
+/* Modal controls — paper fields on the cream card */
+.librarian.is-librarian .librarian-modal-card select,
+.librarian.is-librarian .librarian-modal-card input,
+.librarian.is-librarian .librarian-modal-card textarea {
+  background: #fffdf6 !important;
+  color: #243028 !important;
+  border: 1px solid #c4b898 !important;
+  border-radius: 1px;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.9rem !important;
+  box-shadow: none;
+}
+.librarian.is-librarian .librarian-modal-card select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #3d6b48 50%),
+    linear-gradient(135deg, #3d6b48 50%, transparent 50%) !important;
+  background-position: calc(100% - 14px) calc(50% - 2px), calc(100% - 9px) calc(50% - 2px) !important;
+  background-size: 5px 5px, 5px 5px !important;
+  background-repeat: no-repeat !important;
+  padding-right: 1.4rem;
+}
+.librarian.is-librarian .librarian-modal-card select option {
+  background: #f7f1dc;
+  color: #243028;
+}
+.librarian.is-librarian .librarian-modal-card label {
+  color: #3d6b48;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+}
+
+
+/* Suggest list — house tokens so it is not locked to IO green */
+.librarian-modal-card.has-suggest-host,
+.librarian.is-librarian .librarian-modal-card {
+  overflow: visible;
+}
+.librarian-suggest {
+  position: absolute;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 10.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.2rem;
+  box-sizing: border-box;
+  background: var(--paper, #f7f1dc);
+  border: 1px solid var(--line, #c4b898);
+  box-shadow: 0 8px 20px rgba(20, 24, 18, 0.35);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule, #c4a574) var(--paper, #f7f1dc);
+  pointer-events: auto;
+}
+.librarian-suggest[hidden] {
+  display: none !important;
+}
+.librarian-suggest-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0;
+  padding: 0.32rem 0.45rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--paper, #f7f1dc);
+  color: var(--ink, #243028);
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  cursor: pointer;
+}
+.librarian-suggest-item + .librarian-suggest-item {
+  border-top: 1px solid var(--line, #c4b898);
+}
+.librarian-suggest-item:hover,
+.librarian-suggest-item.is-on {
+  background: color-mix(in srgb, var(--paper, #f7f1dc) 82%, var(--rule, #c4a574));
+  color: var(--ink, #243028);
+}
+
+/* suggest overflow visible on modal */
+.librarian.is-librarian .librarian-modal {
+  overflow: visible;
+}
+.librarian.is-librarian .librarian-modal-card {
+  overflow: visible;
+  position: relative;
+}
+
+/* Catalog print refinements — toast floats, bag titles as heads, cream attach slips */
+.librarian.is-librarian .librarian-composer {
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.32rem;
+}
+
+.librarian.is-librarian .librarian-status {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  z-index: 8;
+  min-height: 0;
+  margin: 0;
+  padding: 0.28rem 0.5rem;
+  pointer-events: none;
+  background: #1a2824f2;
+  border: 1px solid rgba(196, 165, 116, 0.5);
+  color: #efe6d0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 -6px 16px rgba(12, 18, 16, 0.35);
+}
+
+.librarian.is-librarian .librarian-status:empty {
+  display: none;
+}
+
+.librarian.is-librarian .librarian-status.is-err {
+  color: #f0c8b0;
+  border-color: #c4a090;
+}
+
+.librarian.is-librarian:has(.librarian-status:not(:empty)) .librarian-stack {
+  padding-bottom: 2.6rem;
+}
+
+.librarian.is-librarian .catalog-bag > .catalog-head,
+.librarian.is-librarian .catalog-bag-title {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.05em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0e6c8;
+  border-bottom: 1px solid rgba(196, 165, 116, 0.45);
+  padding-bottom: 0.28rem;
+  margin: 0 0 0.55rem;
+}
+
+.librarian.is-librarian .catalog-bag-title .tagbay-crate-id {
+  margin-left: auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--mute);
+}
+
+.librarian.is-librarian .catalog-block > .catalog-head,
+.librarian.is-librarian .catalog-meta-head {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border-bottom: 1px dotted rgba(196, 165, 116, 0.28);
+  padding-bottom: 0.1rem;
+  margin: 0 0 0.2rem;
+}
+
+.librarian.is-librarian .catalog-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 0.7rem;
+  row-gap: 0.32rem;
+  padding: 0.55rem 0.08rem 0.62rem;
+  border-bottom: 1px dotted rgba(196, 165, 116, 0.22);
+  align-items: start;
+}
+
+.librarian.is-librarian .catalog-row > .catalog-type {
+  display: none;
+}
+
+.librarian.is-librarian .catalog-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f0e6c8;
+}
+
+.librarian.is-librarian .catalog-value {
+  grid-column: 1;
+  padding-top: 0.06rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #c8c0a8;
+}
+
+.librarian.is-librarian .catalog-value .catalog-hit {
+  font-size: 0.86rem !important;
+  color: #d8d0b8;
+}
+
+.librarian.is-librarian .catalog-mini-tools .catalog-edit,
+.librarian.is-librarian .catalog-mini-tools .catalog-drop {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.06rem 0.22rem;
+  border: 0;
+  background: transparent;
+  color: var(--lc-mute, #6a6154);
+}
+
+.librarian.is-librarian .librarian-modal-card {
+  --paper: #f7f1dc;
+  --ink: #243028;
+  --mute: #5a6a54;
+  --line: #c4b898;
+}
+
+.librarian.is-librarian .lore-pick.lore-chip {
+  background: #f7f1dc !important;
+  color: #243028 !important;
+  border-color: #c4b898;
+}
+
+.librarian.is-librarian .lore-pick.lore-chip strong,
+.librarian.is-librarian .lore-pick.lore-chip em,
+.librarian.is-librarian .lore-pick.lore-chip .lore-pick-meta,
+.librarian.is-librarian .lore-pick.lore-chip .lore-chip-line {
+  color: #243028;
+}
+
+.librarian.is-librarian .lore-pick.lore-chip .lore-pick-meta,
+.librarian.is-librarian .lore-pick.lore-chip .lore-chip-line {
+  color: #5a6a54;
+}
+
+.librarian.is-librarian .lore-pick.lore-chip.is-checked {
+  background: #efe6c8 !important;
+}
+
+.librarian.is-librarian .lore-pick.lore-chip:hover {
+  background: #fff8e8 !important;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-bag-title {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #f0e6c8;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-meta-head {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+
+/* Agent catalog chrome — Librarian bones, blood dress, slight warp */
+.librarian.is-agent {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.librarian.is-agent .librarian-head {
+  font-size: 1.05rem;
+}
+
+.librarian.is-agent .librarian-count,
+.librarian.is-agent .librarian-path,
+.librarian.is-agent .librarian-hint,
+.librarian.is-agent .librarian-status,
+.librarian.is-agent .tagbay-crate,
+.librarian.is-agent .tagbay-crate-id {
+  font-size: 0.78rem;
+  color: #e07068;
+}
+
+.librarian.is-agent .tagbay-crate:empty {
+  display: none;
+}
+
+.librarian.is-agent .librarian-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.55rem 0.35rem;
+  border-bottom: 1px solid rgba(196, 32, 42, 0.35);
+}
+
+.librarian.is-agent .librarian-kicker-row:has(.catalog-onto[hidden]) {
+  display: none;
+}
+
+.librarian.is-agent .librarian-kicker {
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+.librarian.is-agent .catalog-onto {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.35rem;
+  padding: 0;
+}
+
+.librarian.is-agent .catalog-onto-btn {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.72rem !important;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(196, 32, 42, 0.5);
+  background: transparent;
+  color: #e07068;
+  padding: 0.18rem 0.5rem;
+  cursor: pointer;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.librarian.is-agent .catalog-onto-btn.is-on {
+  background: #c4202a;
+  border-color: #ff3a32;
+  color: #f4e4d4;
+}
+
+.librarian.is-agent .catalog-bag {
+  border: 1px solid transparent;
+  box-shadow: none;
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 0.45rem 0.3rem;
+}
+
+.librarian.is-agent .catalog-bag.is-shell {
+  background: rgba(80, 0, 8, 0.28);
+  border-color: rgba(196, 32, 42, 0.35);
+}
+
+.librarian.is-agent .catalog-bag.is-on {
+  border-color: var(--rule);
+  background: rgba(196, 32, 42, 0.08);
+}
+
+.librarian.is-agent .catalog-hit,
+.librarian.is-agent .catalog-actions button {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.85rem !important;
+  text-shadow: none;
+}
+
+.librarian.is-agent .catalog-row .catalog-edit,
+.librarian.is-agent .catalog-row .catalog-drop {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.62rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 0;
+  background: transparent;
+  color: var(--mute);
+  padding: 0 0.12rem;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.librarian.is-agent .catalog-row .catalog-drop {
+  color: #e01820;
+}
+
+.librarian.is-agent .catalog-row .catalog-edit:hover,
+.librarian.is-agent .catalog-row .catalog-drop:hover {
+  color: #ffd0c8;
+}
+
+.librarian.is-agent .catalog-mini-shelf {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  padding: 0.35rem 0 0.4rem;
+}
+
+.librarian.is-agent a.catalog-mini-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-height: 7.2rem;
+  margin: 0;
+  padding: 0.95rem 0.75rem 1.55rem 0.8rem;
+  border-radius: 1px 2px 3px 1px;
+  background: var(--lc-paper, #f3e6c4);
+  color: var(--lc-ink, #1a0c0c);
+  border: 0;
+  box-shadow:
+    1px 1px 0 #8a1818,
+    3px 4px 8px rgba(40, 0, 0, 0.28),
+    0 0 0 1px #c4a090;
+  text-shadow: none;
+  overflow: hidden;
+}
+
+.librarian.is-agent a.catalog-mini-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.38rem;
+  background: var(--card-strip, var(--lc-margin, #c4202a));
+}
+
+.librarian.is-agent a.catalog-mini-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0.42rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: -0.35rem;
+  border-radius: 50%;
+  background: var(--lc-blotter, #c4a090);
+  box-shadow: inset 0 1px 2px rgba(80, 0, 0, 0.35);
+}
+
+.librarian.is-agent a.catalog-mini-card {
+  font-size: 1rem;
+}
+
+.librarian.is-agent a.catalog-mini-card .kicker,
+.librarian.is-agent a.catalog-mini-card .house {
+  display: block;
+  font-family: "Share Tech Mono", "IBM Plex Mono", monospace;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase !important;
+  color: var(--card-strip, var(--lc-margin, #c4202a));
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+  text-shadow: none;
+}
+
+.librarian.is-agent a.catalog-mini-card .house {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.55rem;
+  color: var(--lc-mute, #8a4038);
+}
+
+.librarian.is-agent a.catalog-mini-card h1 {
+  margin: 0.45rem 0 0.25rem;
+  padding: 0;
+  font-family: Literata, Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--lc-ink, #1a0c0c) !important;
+  text-shadow: none;
+  text-transform: none !important;
+  border: 0;
+}
+
+.librarian.is-agent a.catalog-mini-card .line {
+  margin: 0;
+  padding: 0;
+  font-family: Literata, Georgia, serif !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.35;
+  color: var(--lc-mute, #8a4038);
+  min-height: 0;
+  text-transform: none !important;
+  letter-spacing: 0;
+}
+
+.librarian.is-agent a.catalog-mini-card:is(.house-detective, .house-agent)::before {
+  background: var(--card-strip, #c4202a);
+}
+.librarian.is-agent a.catalog-mini-card.house-charlie::before {
+  background: var(--card-strip, #c9892d);
+}
+.librarian.is-agent a.catalog-mini-card.house-librarian::before {
+  background: var(--card-strip, #3d6b48);
+}
+.librarian.is-agent a.catalog-mini-card.house-tps::before {
+  background: var(--card-strip, #c42820);
+}
+
+.librarian.is-agent .catalog-mini-tools .catalog-edit,
+.librarian.is-agent .catalog-mini-tools .catalog-drop {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.06rem 0.22rem;
+  border: 0;
+  background: transparent;
+  color: var(--lc-mute, #8a4038);
+}
+
+.librarian.is-agent .catalog-mini-tools {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.librarian.is-agent .catalog-mini-wrap:hover .catalog-mini-tools,
+.librarian.is-agent .catalog-mini-wrap:focus-within .catalog-mini-tools {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.librarian.is-agent .librarian-modal-card strong {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  letter-spacing: 0.08em;
+  color: #c4202a;
+}
+
+.librarian.is-agent .librarian-onto {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-style: italic;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #8a4038;
+}
+
+.librarian.is-agent,
+.librarian.is-agent * {
+  scrollbar-color: #c4202a #1a0808;
+}
+
+.librarian.is-agent *::-webkit-scrollbar-track {
+  background: #1a0808;
+}
+
+.librarian.is-agent *::-webkit-scrollbar-thumb {
+  background: #2a1010;
+  border: 1px solid rgba(196, 32, 42, 0.45);
+}
+
+.librarian.is-agent .librarian-composer {
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.32rem;
+}
+
+.librarian.is-agent .librarian-status {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  z-index: 8;
+  min-height: 0;
+  margin: 0;
+  padding: 0.28rem 0.5rem;
+  pointer-events: none;
+  background: #1a0808f2;
+  border: 1px solid rgba(196, 32, 42, 0.55);
+  color: #ffd0c8;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 -6px 16px rgba(40, 0, 0, 0.35);
+}
+
+.librarian.is-agent .librarian-status:empty {
+  display: none;
+}
+
+.librarian.is-agent .librarian-status.is-err {
+  color: #ff8a80;
+  border-color: #ff3a32;
+}
+
+.librarian.is-agent:has(.librarian-status:not(:empty)) .librarian-stack {
+  padding-bottom: 2.6rem;
+}
+
+.librarian.is-agent .catalog-bag > .catalog-head,
+.librarian.is-agent .catalog-bag-title {
+  font-family: "Black Ops One", "Share Tech Mono", sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff3a32;
+  border-bottom: 1px solid rgba(196, 32, 42, 0.45);
+  padding-bottom: 0.28rem;
+  margin: 0 0 0.55rem;
+  text-shadow: 1px 0 0 rgba(255, 0, 40, 0.4);
+}
+
+.librarian.is-agent .catalog-bag-title .tagbay-crate-id {
+  margin-left: auto;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--mute);
+  text-shadow: none;
+}
+
+.librarian.is-agent .catalog-block > .catalog-head,
+.librarian.is-agent .catalog-meta-head {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border-bottom: 1px dotted rgba(196, 32, 42, 0.28);
+  padding-bottom: 0.1rem;
+  margin: 0 0 0.2rem;
+  transform: none;
+  text-shadow: none;
+}
+
+.librarian.is-agent .catalog-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 0.7rem;
+  row-gap: 0.32rem;
+  padding: 0.55rem 0.08rem 0.62rem;
+  border-bottom: 1px dotted rgba(196, 32, 42, 0.22);
+  align-items: start;
+}
+
+.librarian.is-agent .catalog-row > .catalog-type {
+  display: none;
+}
+
+.librarian.is-agent .catalog-label {
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #f4d0c8;
+}
+
+.librarian.is-agent .catalog-value {
+  grid-column: 1;
+  padding-top: 0.06rem;
+  font-family: "Share Tech Mono", "Courier New", monospace;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #c4a090;
+}
+
+.librarian.is-agent .catalog-value .catalog-hit {
+  font-size: 0.86rem !important;
+  color: #e0b8b0;
+}
+
+.librarian.is-agent .librarian-modal-card {
+  --paper: #f3e6c4;
+  --ink: #1a0c0c;
+  --mute: #8a4038;
+  --line: #c4a090;
+  overflow: visible;
+  position: relative;
+}
+
+.librarian.is-agent .librarian-modal {
+  overflow: visible;
+}
+
+.librarian.is-agent .lore-pick.lore-chip {
+  background: #f3e6c4 !important;
+  color: #1a0c0c !important;
+  border-color: #c4a090;
+}
+
+.librarian.is-agent .lore-pick.lore-chip:nth-child(odd) {
+  transform: rotate(-0.4deg);
+}
+
+.librarian.is-agent .lore-pick.lore-chip:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+.librarian.is-agent .lore-pick.lore-chip strong {
+  font-family: "Share Tech Mono", "Courier New", monospace !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  color: #1a0c0c;
+}
+
+.librarian.is-agent .lore-pick.lore-chip .lore-pick-meta,
+.librarian.is-agent .lore-pick.lore-chip .lore-chip-line {
+  color: #8a4038;
+}
+
+.librarian.is-agent .lore-pick.lore-chip.is-checked {
+  background: #ecc8bc !important;
+  border-color: #c4202a;
+}
+
+.librarian.is-agent .lore-pick.lore-chip:hover {
+  background: #fff0dc !important;
+  transform: rotate(-0.8deg);
+}
+
+.librarian.is-agent .lore-attach-filters {
+  border-bottom: 1px solid #c4a090;
+}
+
+.librarian.is-agent .lore-attach-field,
+.librarian.is-agent .librarian-modal-card label {
+  color: #c4202a !important;
+  font-family: "Share Tech Mono", "Courier New", monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.librarian.is-agent .lore-attach-filters input,
+.librarian.is-agent .lore-attach-filters select,
+.librarian.is-agent .librarian-modal-card select,
+.librarian.is-agent .librarian-modal-card input,
+.librarian.is-agent .librarian-modal-card textarea {
+  background: #fff6e8 !important;
+  color: #1a0c0c !important;
+  border: 1px solid #c4a090 !important;
+  font-family: "Share Tech Mono", monospace !important;
+}
+
+.librarian.is-agent .lore-attach-count {
+  color: #8a4038;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-bag-title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #ff3a32;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-meta-head {
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+
+/* Catalog booth geometry — Librarian and Agent share the same bones.
+   House rules may paint; they must not change these metrics.
+   Charlie is a loom, not this furniture. */
+.librarian.is-librarian,
+.librarian.is-agent {
+  font-size: 14px;
+  line-height: 1.45;
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .librarian-head,
+.librarian.is-agent .librarian-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.55rem 0.4rem;
+  min-height: 2.2rem;
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .librarian-mast,
+.librarian.is-agent .librarian-mast {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.librarian.is-librarian .librarian-mast strong,
+.librarian.is-agent .librarian-mast strong {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.librarian.is-librarian .librarian-head-tools,
+.librarian.is-agent .librarian-head-tools {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.librarian.is-librarian .librarian-head-tools .tagbay-copy,
+.librarian.is-librarian .librarian-head-tools .librarian-pop,
+.librarian.is-agent .librarian-head-tools .tagbay-copy,
+.librarian.is-agent .librarian-head-tools .librarian-pop {
+  font-size: 0.78rem !important;
+  padding: 0.1rem 0.35rem;
+  min-width: 1.6rem;
+  min-height: 1.45rem;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .librarian-path,
+.librarian.is-agent .librarian-path {
+  padding: 0 0.55rem 0.2rem;
+}
+
+.librarian.is-librarian .tagbay-crate,
+.librarian.is-agent .tagbay-crate {
+  padding: 0.15rem 0.55rem 0.35rem;
+}
+
+.librarian.is-librarian .librarian-composer,
+.librarian.is-librarian.is-catalog .librarian-composer,
+.librarian.is-agent .librarian-composer,
+.librarian.is-agent.is-catalog .librarian-composer {
+  margin: 0.15rem 0.45rem 0.2rem;
+  padding: 0.4rem 0.5rem 0.32rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--fill-edge);
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .librarian-kicker-row,
+.librarian.is-agent .librarian-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0 0.35rem;
+  margin: 0;
+}
+
+.librarian.is-librarian .librarian-kicker,
+.librarian.is-agent .librarian-kicker {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.librarian.is-librarian .catalog-actions,
+.librarian.is-agent .catalog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.librarian.is-librarian .catalog-actions .librarian-store,
+.librarian.is-agent .catalog-actions .librarian-store {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 1.9rem;
+  padding: 0.38rem 0.45rem 0.32rem;
+  border-width: 1px;
+  border-radius: 1px;
+  box-shadow: none;
+  transform: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  line-height: 1.15;
+}
+
+.librarian.is-librarian .librarian-stack,
+.librarian.is-librarian.is-catalog .librarian-stack,
+.librarian.is-agent .librarian-stack,
+.librarian.is-agent.is-catalog .librarian-stack {
+  margin: 0 0.45rem 0.55rem;
+  padding: 0.4rem 0.5rem 0.55rem;
+  border: 1px solid var(--fill-edge);
+  box-shadow: inset 0 1px 0 var(--fill-inset);
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .librarian-empty,
+.librarian.is-agent .librarian-empty {
+  margin: 0;
+  padding: 0.15rem 0;
+  border: 0;
+  background: transparent;
+}
+
+.librarian.is-librarian .catalog-bag,
+.librarian.is-agent .catalog-bag {
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 0.45rem 0.3rem;
+  border-width: 1px;
+  border-style: solid;
+  transform: none;
+  box-sizing: border-box;
+}
+
+.librarian.is-librarian .catalog-bag > .catalog-head,
+.librarian.is-librarian .catalog-bag-title,
+.librarian.is-agent .catalog-bag > .catalog-head,
+.librarian.is-agent .catalog-bag-title {
+  font-size: 1.05em;
+  font-weight: 400;
+  padding-bottom: 0.28rem;
+  margin: 0 0 0.55rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  transform: none;
+}
+
+.librarian.is-librarian .catalog-block > .catalog-head,
+.librarian.is-librarian .catalog-meta-head,
+.librarian.is-agent .catalog-block > .catalog-head,
+.librarian.is-agent .catalog-meta-head {
+  font-size: 0.68rem;
+  padding-bottom: 0.1rem;
+  margin: 0 0 0.2rem;
+  transform: none;
+}
+
+.librarian.is-librarian .catalog-row,
+.librarian.is-agent .catalog-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 0.7rem;
+  row-gap: 0.32rem;
+  padding: 0.55rem 0.08rem 0.62rem;
+}
+
+.librarian.is-librarian .librarian-status,
+.librarian.is-agent .librarian-status {
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  padding: 0.28rem 0.5rem;
+  transform: none;
+}
+
+.librarian.is-librarian .catalog-mini-shelf,
+.librarian.is-agent .catalog-mini-shelf {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  padding: 0.35rem 0 0.4rem;
+}
+
+.librarian.is-librarian a.catalog-mini-card,
+.librarian.is-agent a.catalog-mini-card {
+  min-height: 7.2rem;
+  margin: 0;
+  padding: 0.95rem 0.75rem 1.55rem 0.8rem;
+  transform: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.librarian.is-librarian a.catalog-mini-card h1,
+.librarian.is-agent a.catalog-mini-card h1 {
+  margin: 0.45rem 0 0.25rem;
+  padding: 0;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  border: 0;
+  text-shadow: none;
+}
+
+.librarian.is-librarian a.catalog-mini-card .kicker,
+.librarian.is-librarian a.catalog-mini-card .house,
+.librarian.is-agent a.catalog-mini-card .kicker,
+.librarian.is-agent a.catalog-mini-card .house {
+  display: block;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase !important;
+  line-height: 1.3;
+}
+
+.librarian.is-librarian a.catalog-mini-card .line,
+.librarian.is-agent a.catalog-mini-card .line {
+  margin: 0;
+  font-size: 0.92rem !important;
+  line-height: 1.35;
+  min-height: 0;
+  text-transform: none !important;
+}
+
+.librarian.is-librarian .catalog-onto-btn,
+.librarian.is-agent .catalog-onto-btn {
+  padding: 0.18rem 0.5rem;
+  transform: none;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-bag-title,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-bag-title {
+  font-size: 12px;
+}
+
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-librarian .catalog-meta-head,
+html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-meta-head {
+  font-size: 8px;
+}
+
+/* Charlie weave — quiet cork, cream cards, floating toast */
+.librarian.is-charlie .cork-board {
+  min-height: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.librarian.is-charlie .cork-pin,
+.librarian.is-charlie .cork-lore {
+  border-bottom: 1px dotted rgba(201, 137, 45, 0.22);
+  color: var(--ink);
+}
+
+.librarian.is-charlie .cork-pin.is-open {
+  background: rgba(201, 137, 45, 0.08);
+  box-shadow: inset 2px 0 0 #c9892d;
+}
+
+.librarian.is-charlie .cork-name {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.9rem;
+  color: #f4e6c8;
+  text-shadow: none;
+}
+
+.librarian.is-charlie .cork-hash {
+  color: var(--mute);
+}
+
+.librarian.is-charlie .cork-unpin {
+  color: var(--mute);
+}
+
+.librarian.is-charlie .cork-unpin:hover {
+  color: #e8b44a;
+}
+
+.librarian.is-charlie .cork-thread .charlie-sep {
+  color: var(--mute);
+}
+
+.librarian.is-charlie a.cork-rel {
+  color: #d4b070;
+}
+
+.librarian.is-charlie a.cork-rel:hover {
+  color: #f4e6c8;
+}
+
+.librarian.is-charlie .cork-also {
+  color: var(--mute);
+}
+
+.librarian.is-charlie .cork-lore:hover,
+.librarian.is-charlie .cork-pin.cork-hash-pin:hover {
+  background: rgba(201, 137, 45, 0.08);
+}
+
+.librarian.is-charlie .cork-lore strong {
+  color: #f4e6c8;
+  text-shadow: none;
+}
+
+.librarian.is-charlie .cork-lore em {
+  color: var(--mute);
+}
+
+.librarian.is-charlie .cork-line {
+  color: #d4b070;
+}
+
+.librarian.is-charlie .tagbay-chain a:not(.cork-rel) {
+  color: #e8b44a;
+}
+
+.librarian.is-charlie .librarian-status {
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.4rem;
+  z-index: 8;
+  min-height: 0;
+  margin: 0;
+  padding: 0.28rem 0.5rem;
+  pointer-events: none;
+  background: #1c1208f2;
+  border: 1px solid rgba(201, 137, 45, 0.5);
+  color: #f4e6c8;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 -6px 16px rgba(20, 14, 8, 0.35);
+}
+
+.librarian.is-charlie .librarian-status:empty {
+  display: none;
+}
+
+.librarian.is-charlie .librarian-status.is-err {
+  color: #f0c8a0;
+  border-color: #c4a090;
+}
+
+.librarian.is-charlie:has(.librarian-status:not(:empty)) .librarian-stack {
+  padding-bottom: 2.6rem;
+}
+
+.librarian.is-charlie a.catalog-mini-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-height: 7.2rem;
+  margin: 0;
+  padding: 0.95rem 0.75rem 1.55rem 0.8rem;
+  border-radius: 1px 2px 3px 1px;
+  background: var(--lc-paper, #f7f0dc);
+  color: var(--lc-ink, #2a2010);
+  border: 0;
+  box-shadow:
+    1px 1px 0 #d4c4a4,
+    3px 4px 8px rgba(40, 24, 8, 0.22),
+    0 0 0 1px #c4b090;
+  text-shadow: none;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.librarian.is-charlie a.catalog-mini-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.38rem;
+  background: var(--card-strip, var(--lc-margin, #c9892d));
+}
+
+.librarian.is-charlie a.catalog-mini-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0.42rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: -0.35rem;
+  border-radius: 50%;
+  background: var(--lc-blotter, #c4b090);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
+.librarian.is-charlie a.catalog-mini-card .kicker,
+.librarian.is-charlie a.catalog-mini-card .house {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase !important;
+  color: var(--card-strip, var(--lc-margin, #c9892d));
+  line-height: 1.3;
+}
+
+.librarian.is-charlie a.catalog-mini-card .house {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.55rem;
+  color: var(--lc-mute, #8a6a38);
+}
+
+.librarian.is-charlie a.catalog-mini-card h1 {
+  margin: 0.45rem 0 0.25rem;
+  padding: 0;
+  font-family: Literata, Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--lc-ink, #2a2010) !important;
+  text-shadow: none;
+  text-transform: none !important;
+  border: 0;
+}
+
+.librarian.is-charlie a.catalog-mini-card .line {
+  margin: 0;
+  font-family: Literata, Georgia, serif !important;
+  font-style: italic;
+  font-size: 0.92rem !important;
+  line-height: 1.35;
+  color: var(--lc-mute, #8a6a38);
+  min-height: 0;
+  text-transform: none !important;
+}
+
+.librarian.is-charlie a.catalog-mini-card:is(.house-detective, .house-agent)::before {
+  background: var(--card-strip, #c4202a);
+}
+.librarian.is-charlie a.catalog-mini-card.house-charlie::before {
+  background: var(--card-strip, #c9892d);
+}
+.librarian.is-charlie a.catalog-mini-card.house-librarian::before {
+  background: var(--card-strip, #3d6b48);
+}
+.librarian.is-charlie a.catalog-mini-card.house-tps::before {
+  background: var(--card-strip, #c42820);
+}
+
+.librarian.is-charlie .catalog-mini-shelf {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  padding: 0.35rem 0 0.4rem;
+}
+
+.librarian.is-charlie .catalog-mini-tools {
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+
+.librarian.is-charlie .catalog-mini-wrap:hover .catalog-mini-tools,
+.librarian.is-charlie .catalog-mini-wrap:focus-within .catalog-mini-tools {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.librarian.is-charlie .catalog-mini-tools .catalog-edit,
+.librarian.is-charlie .catalog-mini-tools .catalog-drop {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.06rem 0.22rem;
+  border: 0;
+  background: transparent;
+  color: var(--lc-mute, #8a6a38);
+}
+
+.librarian.is-charlie .librarian-modal-card {
+  --paper: #f7f0dc;
+  --ink: #2a2010;
+  --mute: #8a6a38;
+  --line: #c4b090;
+}
+
+.librarian.is-charlie .lore-pick.lore-chip {
+  background: #f7f0dc !important;
+  color: #2a2010 !important;
+  border-color: #c4b090;
+}
+
+.librarian.is-charlie .lore-pick.lore-chip strong {
+  font-family: Literata, Georgia, serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #2a2010;
+  text-transform: none !important;
+}
+
+.librarian.is-charlie .lore-pick.lore-chip .lore-pick-meta,
+.librarian.is-charlie .lore-pick.lore-chip .lore-chip-line {
+  color: #8a6a38;
+}
+
+.librarian.is-charlie .lore-pick.lore-chip.is-checked {
+  background: #efe4c4 !important;
+}
+
+.librarian.is-charlie .lore-pick.lore-chip:hover {
+  background: #fff8e4 !important;
+}
+
+.librarian.is-charlie .librarian-modal-card select,
+.librarian.is-charlie .librarian-modal-card input,
+.librarian.is-charlie .librarian-modal-card textarea {
+  background: #fffdf4 !important;
+  color: #2a2010 !important;
+  border: 1px solid #c4b090 !important;
+  font-family: "IBM Plex Mono", monospace !important;
+}
+
+/* —— Quire librarian seal sticker —— */
+.librarian.is-librarian .librarian-seal {
+  flex: 0 0 auto;
+  width: 2.55rem;
+  height: 2.55rem;
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: 50%;
+  border: 1px solid rgba(196, 165, 116, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 2px 5px rgba(0, 0, 0, 0.35);
+  background: #152018;
+  transform: rotate(-6deg) scale(1.06);
+}
+.librarian.is-librarian .librarian-mast {
+  align-items: center;
+  gap: 0.55rem;
+}
+
+/* —— Skyline approved stamp: BIOS top chrome —— */
+.librarian.is-readme .skyline-stamp {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  bottom: auto;
+  z-index: 6;
+  flex: none;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 0 0 1px rgba(255, 255, 255, 0.28));
+  transform: rotate(-9deg);
+  opacity: 0.92;
+}
+/* leave room in the BIOS id bar so refresh/pop aren't under the stamp */
+.librarian.is-readme .librarian-head.bios-id {
+  padding-right: 4.25rem;
+}
+
+/* —— Detective cabinet ——
+   Dark felt office (kmoire wine), compact catalog. Not CRT scan, not craft manila. */
+.librarian.is-agent {
+  --desk: #1a0c0c;
+  --desk-hi: #2a1014;
+  --manila: #e6d2a8;
+  --manila-lo: #c4a878;
+  --legal: #efe6d4;
+  --tab: #8a3038;
+  --tab-ink: #f4ead4;
+  --clip: #c4a15a;
+  --booth: #1a0c0c;
+  --booth-hi: #2a1014;
+  --slip: #1a0c0c;
+  --slip-pink: #241014;
+  --rule: #c45c48;
+  --ink: #efe6d4;
+  --stamp: #c45c48;
+  --ok: #8a3038;
+  --mute: #a08078;
+  --fill-edge: rgba(196, 92, 72, 0.28);
+  --fill-inset: rgba(244, 196, 160, 0.06);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--tab-ink);
+  text-shadow: none;
+  background:
+    radial-gradient(ellipse at 78% 0, rgba(196, 92, 72, 0.16), transparent 42%),
+    linear-gradient(180deg, var(--desk-hi) 0 2.1em, var(--desk) 2.1em);
+  box-shadow:
+    inset 1px 1px 0 rgba(244, 196, 160, 0.06),
+    inset -1px -1px 0 #00000088;
+}
+
+.librarian.is-agent .librarian-head,
+.librarian.is-agent .librarian-head strong {
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tab-ink);
+  text-shadow: none;
+  transform: none;
+}
+
+.librarian.is-agent .librarian-head strong::after,
+.librarian.is-agent.is-catalog .librarian-head strong::after {
+  content: none;
+}
+
+.librarian.is-agent .librarian-count,
+.librarian.is-agent .librarian-path,
+.librarian.is-agent .librarian-hint,
+.librarian.is-agent .librarian-status,
+.librarian.is-agent .librarian-kicker {
+  color: var(--clip);
+  text-shadow: none;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.librarian.is-agent .librarian-kicker {
+  color: var(--tab);
+  border-bottom: 1px solid rgba(196, 161, 90, 0.35);
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+}
+
+.librarian.is-agent .librarian-pop,
+.librarian.is-agent .librarian-head-tools .tagbay-copy,
+.librarian.is-agent .librarian-head-tools .librarian-pop {
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--tab-ink);
+  border: 1px solid rgba(196, 161, 90, 0.45);
+  background: #2a1c16;
+}
+
+.librarian.is-agent .librarian-head-tools .tagbay-copy:hover,
+.librarian.is-agent .librarian-head-tools .librarian-pop:hover {
+  border-color: var(--clip);
+  color: #fff6d8;
+  background: #3a2820;
+}
+
+.librarian.is-agent.is-catalog .librarian-composer,
+.librarian.is-agent .librarian-composer {
+  background: transparent;
+  border: 0;
+  border-bottom: 0;
+  box-shadow: none;
+  padding: 8px 10px 10px;
+}
+
+.librarian.is-agent .hunt-toggle {
+  display: inline-block;
+  margin: 0 0 6px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted rgba(196, 161, 90, 0.55);
+  color: var(--clip);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-agent .hunt-toggle:hover {
+  color: var(--tab-ink);
+  border-color: var(--tab-ink);
+}
+
+.librarian.is-agent .hunt-pad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 8px 8px 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--legal);
+  color: #1c1010;
+  border: 1px solid #6a3038;
+  box-shadow: none;
+}
+
+.librarian.is-agent .hunt-pad[hidden] {
+  display: none;
+}
+
+.librarian.is-agent .hunt-pad::before,
+.librarian.is-agent .hunt-pad::after {
+  content: none;
+}
+
+.librarian.is-agent .hunt-pad .tagbay-input,
+.librarian.is-agent .hunt-pad textarea.hunt-body,
+.librarian.is-agent .librarian-leaf,
+.librarian.is-agent .tagbay-input.librarian-leaf {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #1c1010;
+  border: 0;
+  border-bottom: 1px solid #c4b090;
+  border-radius: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  padding: 3px 2px 4px;
+}
+
+.librarian.is-agent .hunt-pad textarea.hunt-body {
+  min-height: 2.4em;
+  resize: vertical;
+  line-height: 1.35;
+  border-bottom: 0;
+}
+
+.librarian.is-agent .hunt-pad .tagbay-input::placeholder,
+.librarian.is-agent .hunt-pad textarea.hunt-body::placeholder,
+.librarian.is-agent .librarian-leaf::placeholder {
+  color: #8a6a50;
+  opacity: 0.8;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.librarian.is-agent .hunt-pad-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.librarian.is-agent .hunt-pad [data-add-hunt],
+.librarian.is-agent .hunt-pad .librarian-store {
+  align-self: flex-start;
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: visible;
+  padding: 3px 8px 2px;
+  margin-top: 0;
+  background: #5c1c22;
+  color: var(--tab-ink);
+  border: 1px solid #8a3030;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.librarian.is-agent .hunt-cancel {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #8a6a50;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-agent .hunt-pad [data-add-hunt]:hover,
+.librarian.is-agent .hunt-pad .librarian-store:hover {
+  background: #8a3038;
+  color: #fff6d8;
+  border-color: #6a2018;
+}
+
+.librarian.is-agent.is-catalog .catalog-actions,
+.librarian.is-agent .catalog-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+.librarian.is-agent.is-catalog .catalog-actions .librarian-store,
+.librarian.is-agent .catalog-actions .librarian-store {
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  background: transparent !important;
+  color: var(--clip) !important;
+  border: 0 !important;
+  border-bottom: 1px dotted rgba(196, 161, 90, 0.5) !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px !important;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  text-align: left;
+}
+
+.librarian.is-agent .catalog-actions .librarian-store:hover {
+  background: transparent !important;
+  color: var(--tab-ink) !important;
+  border-color: var(--tab-ink) !important;
+}
+
+.librarian.is-agent .catalog-onto {
+  gap: 4px;
+}
+
+.librarian.is-agent .catalog-onto-btn {
+  background: #2a1c16;
+  color: var(--clip);
+  border: 1px solid rgba(196, 161, 90, 0.4);
+  border-radius: 3px 3px 0 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.librarian.is-agent .catalog-onto-btn.is-on {
+  background: var(--tab);
+  color: var(--tab-ink);
+  border-color: #8a3030;
+}
+
+.librarian.is-agent .librarian-stack,
+.librarian.is-agent.is-catalog .librarian-stack {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(196, 161, 90, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 232, 180, 0.06);
+  color: var(--tab-ink);
+}
+
+.librarian.is-agent .librarian-empty {
+  color: var(--clip);
+  background: transparent;
+  border: 1px dashed rgba(196, 161, 90, 0.35);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+}
+
+.librarian.is-agent .hunt-slips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.librarian.is-agent .hunt-slips > .catalog-head {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clip);
+  border-bottom: 1px solid rgba(196, 161, 90, 0.28);
+  margin: 0 0 6px;
+}
+
+.librarian.is-agent .hunt-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0 4px 2px 0;
+  padding: 5px 7px 6px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.15em,
+      rgba(90, 130, 190, 0.16) 1.15em 1.22em
+    ),
+    #fffef6;
+  color: #243056;
+  border: 1px solid #d4c4a0;
+  border-left: 0;
+  border-radius: 1px 0 2px 0;
+  box-shadow:
+    1px 2px 0 rgba(0, 0, 0, 0.16),
+    2px 3px 8px rgba(0, 0, 0, 0.18);
+  transform: rotate(-1deg);
+}
+
+.librarian.is-agent .hunt-slip.hunt-slip-n2 {
+  transform: rotate(0.85deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.15em,
+      rgba(90, 130, 190, 0.14) 1.15em 1.22em
+    ),
+    #fff8e4;
+}
+
+.librarian.is-agent .hunt-slip.hunt-slip-n3 {
+  transform: rotate(-0.3deg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.15em,
+      rgba(90, 130, 190, 0.14) 1.15em 1.22em
+    ),
+    #fffdf0;
+}
+
+.librarian.is-agent .hunt-slip-title {
+  font-family: "Caveat", "Segoe Script", cursive;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1c2848;
+  text-decoration: none;
+}
+
+.librarian.is-agent .hunt-slip-title:visited {
+  color: #5a3828;
+}
+
+.librarian.is-agent .hunt-slip-title:hover {
+  color: #8a3030;
+}
+
+.librarian.is-agent .hunt-slip-body {
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #2a3858;
+}
+
+.librarian.is-agent .hunt-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 2px;
+}
+
+.librarian.is-agent .hunt-slip-tools {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.librarian.is-agent .hunt-slip .catalog-edit,
+.librarian.is-agent .hunt-slip .catalog-drop {
+  border-color: rgba(196, 161, 90, 0.45);
+  color: var(--clip);
+  background: #2a1c16;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.librarian.is-agent .hunt-when,
+.librarian.is-agent .hunt-mind {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  color: #8a6a50;
+}
+
+.librarian.is-agent .hunt-mind {
+  font-style: italic;
+}
+
+.librarian.is-agent .catalog-bag {
+  background: rgba(20, 12, 8, 0.22);
+  border: 1px solid rgba(196, 161, 90, 0.22);
+  box-shadow: none;
+}
+
+.librarian.is-agent .catalog-bag.is-on {
+  border-color: rgba(196, 161, 90, 0.45);
+}
+
+.librarian.is-agent .catalog-bag > .catalog-head,
+.librarian.is-agent .catalog-bag-title,
+.librarian.is-agent .catalog-block > .catalog-head,
+.librarian.is-agent .catalog-meta-head,
+.librarian.is-agent .catalog-head {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clip);
+  border-bottom-color: rgba(196, 161, 90, 0.28);
+  text-shadow: none;
+  transform: none;
+}
+
+.librarian.is-agent .catalog-row {
+  border-bottom: 1px dotted rgba(196, 161, 90, 0.22);
+}
+
+.librarian.is-agent .catalog-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tab-ink);
+}
+
+.librarian.is-agent .catalog-value,
+.librarian.is-agent .catalog-value .catalog-hit {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  color: #c4b090;
+}
+
+.librarian.is-agent .catalog-row .catalog-edit,
+.librarian.is-agent .catalog-row .catalog-drop,
+.librarian.is-agent .catalog-mini-tools .catalog-edit,
+.librarian.is-agent .catalog-mini-tools .catalog-drop {
+  border-color: rgba(196, 161, 90, 0.45);
+  color: var(--clip);
+  background: #2a1c16;
+}
+
+.librarian.is-agent.is-catalog .librarian-modal-card,
+.librarian.is-agent .librarian-modal-card {
+  background: var(--legal);
+  border: 1px solid #b89a62;
+  box-shadow:
+    2px 3px 0 rgba(0, 0, 0, 0.28),
+    6px 10px 18px rgba(20, 10, 0, 0.4);
+  color: #1c1410;
+}
+
+.librarian.is-agent .librarian-modal-actions button {
+  border: 1px solid #b89a62;
+  background: var(--manila);
+  color: #1c1410;
+  font-family: "Special Elite", "Courier New", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.librarian.is-agent .librarian-modal-actions .librarian-store {
+  background: var(--tab);
+  color: var(--tab-ink);
+  border-color: #8a3030;
+}
+
+.librarian.is-agent .lore-pick.lore-chip {
+  background: var(--legal) !important;
+  color: #1c1410 !important;
+  border-color: #b89a62;
+}
+
+.librarian.is-readme .readme-coat-type {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+  padding: 0.35rem 0.4rem;
+  border: 1px solid #1e2a44;
+  background: #0a1020;
+}
+.librarian.is-readme .readme-coat-type .readme-coat-swatch-name {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: #8aa0b8;
+}
+.librarian.is-readme .readme-coat-type-input,
+.librarian.is-readme .readme-coat-font-select {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 11px;
+  font-family: ui-monospace, Consolas, monospace;
+  color: #e8ecf4;
+  background: #070b16;
+  border: 1px solid #2a3550;
+  padding: 0.2rem 0.35rem;
+}
+.librarian.is-readme .readme-coat-font-select {
+  color: #55ffff;
+}
+.librarian.is-readme .readme-coat-palette-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+/* BIOS plus bar — collapse file actions when crowded */
+.librarian.is-readme .bios-act-file {
+  position: relative;
+}
+.librarian.is-readme .bios-plus-toggle {
+  border-color: #55ffff66;
+  color: #55ffff;
+  min-width: 1.6rem;
+  font-weight: 700;
+}
+.librarian.is-readme .bios-act-file.is-plus-collapsed .bios-plus-tray {
+  display: none;
+}
+.librarian.is-readme .bios-act-file.is-plus-collapsed:hover .bios-plus-tray,
+.librarian.is-readme .bios-act-file.is-plus-collapsed:focus-within .bios-plus-tray {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.25rem);
+  z-index: 40;
+  padding: 0.35rem 0.4rem;
+  background: #070b16;
+  border: 1px solid #2a3550;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  min-width: 11rem;
+}
+.librarian.is-readme .bios-act-file.is-plus-open .bios-plus-tray {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+.librarian.is-readme .bios-plus-tray {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* BAY-003-BUG06 — keep Hosts/Crates/Help on-screen at narrow widths */
+.librarian.is-readme .bios-actions {
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: thin;
+}
+.librarian.is-readme .bios-act-help {
+  margin-left: auto;
+  flex-shrink: 0;
+  position: sticky;
+  right: 0;
+  z-index: 8;
+  background: transparent;
+  box-shadow: none;
+  padding-left: 0.35rem;
+}
+.librarian.is-readme .bios-act-help .librarian-store {
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .librarian.is-readme .bios-act-help {
+    order: -1;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0.15rem;
+    justify-content: flex-end;
+    border-left: none;
+    padding-left: 0;
+    box-shadow: none;
+    background: transparent;
+    position: static;
+  }
+  .librarian.is-readme .bios-act-help + .bios-act-group,
+  .librarian.is-readme .bios-act-group + .bios-act-help {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+/* BIOS source-pane pipe table grid (Obsidian-style) */
+.librarian.is-readme .bios-md-table-wrap {
+  display: block;
+  margin: 0.35rem 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #2a3550;
+  background: #0a1020;
+  border-radius: 2px;
+}
+
+.librarian.is-readme .bios-md-table-wrap,
+.librarian.is-readme .bios-md-table-wrap * {
+  pointer-events: auto !important;
+}
+.librarian.is-readme table.bios-md-table th,
+.librarian.is-readme table.bios-md-table td {
+  cursor: text;
+  -webkit-user-modify: read-write;
+  user-select: text;
+}
+.librarian.is-readme .CodeMirror-widget .bios-md-table-wrap {
+  pointer-events: auto !important;
+}
+
+.librarian.is-readme .bios-md-table-wrap.is-editing {
+  border-color: #55ffff;
+  box-shadow: 0 0 0 1px #55ffff44;
+}
+.librarian.is-readme table.bios-md-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85em;
+  color: #e8e8e8;
+}
+.librarian.is-readme table.bios-md-table th,
+.librarian.is-readme table.bios-md-table td {
+  border: 1px solid #2a3550;
+  padding: 0.22em 0.45em;
+  min-width: 3.5em;
+  vertical-align: top;
+  outline: none;
+}
+.librarian.is-readme table.bios-md-table th {
+  background: #12203a;
+  color: #ffff55;
+  font-weight: 650;
+}
+.librarian.is-readme table.bios-md-table td:focus,
+.librarian.is-readme table.bios-md-table th:focus {
+  background: #1a2a4a;
+  box-shadow: inset 0 0 0 1px #55ffff;
+}
+.librarian.is-readme .bios-md-table-chrome {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.28rem 0.35rem;
+  border-top: 1px solid #2a3550;
+  background: #070b16;
+}
+.librarian.is-readme .bios-md-table-btn {
+  font: inherit;
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid #3a4560;
+  background: transparent;
+  color: #a0b0d0;
+  cursor: pointer;
+}
+.librarian.is-readme .bios-md-table-btn:hover {
+  border-color: #55ffff;
+  color: #55ffff;
+}
+
+/* —— BIOS selects: CRT chrome, not system / paper cream ——
+   Overrides global select.librarian-leaf paper styling inside is-readme. */
+.librarian.is-readme select,
+.librarian.is-readme .readme-hosts-select,
+.librarian.is-readme .readme-crates-mode,
+.librarian.is-readme .readme-coat-font-select,
+.librarian.is-readme .librarian-modal-card select,
+.librarian.is-readme select.librarian-leaf,
+.librarian.is-readme select.tagbay-input,
+.librarian.is-readme select.librarian-leaf.tagbay-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color-scheme: dark;
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", "Share Tech Mono", ui-monospace, monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.04em;
+  color: #c8d4e8 !important;
+  background-color: #0a1020 !important;
+  background-image: linear-gradient(45deg, transparent 50%, #55ffff 50%),
+    linear-gradient(135deg, #55ffff 50%, transparent 50%) !important;
+  background-position: calc(100% - 12px) calc(50% - 2px), calc(100% - 7px) calc(50% - 2px) !important;
+  background-size: 5px 5px, 5px 5px !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid #2a3550 !important;
+  border-radius: 0 !important;
+  padding: 0.22rem 1.45rem 0.22rem 0.4rem !important;
+  box-shadow: none !important;
+  outline: none;
+  cursor: pointer;
+}
+.librarian.is-readme select:hover,
+.librarian.is-readme .readme-hosts-select:hover,
+.librarian.is-readme .readme-crates-mode:hover,
+.librarian.is-readme .readme-coat-font-select:hover,
+.librarian.is-readme .librarian-modal-card select:hover {
+  border-color: #3a5070 !important;
+  color: #e8ecf4 !important;
+}
+.librarian.is-readme select:focus,
+.librarian.is-readme .readme-hosts-select:focus,
+.librarian.is-readme .readme-crates-mode:focus,
+.librarian.is-readme .readme-coat-font-select:focus,
+.librarian.is-readme .librarian-modal-card select:focus,
+.librarian.is-readme select.librarian-leaf:focus {
+  outline: none !important;
+  border-color: #55ffff !important;
+  color: #55ffff !important;
+  box-shadow: 0 0 0 1px #55ffff44 !important;
+}
+.librarian.is-readme select:disabled {
+  opacity: 0.55;
+  cursor: default;
+  color: #667788 !important;
+}
+.librarian.is-readme select option,
+.librarian.is-readme .readme-hosts-select option,
+.librarian.is-readme .readme-crates-mode option,
+.librarian.is-readme .readme-coat-font-select option,
+.librarian.is-readme .librarian-modal-card select option,
+.librarian.is-readme select.librarian-leaf option {
+  background: #0a1020;
+  color: #c8d4e8;
+}
+.librarian.is-readme select option:checked,
+.librarian.is-readme select option:hover {
+  background: #12203a;
+  color: #55ffff;
+}
+/* crates mode keeps yellow accent label, still dark panel */
+.librarian.is-readme .readme-crates-mode {
+  color: #ffff55 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.librarian.is-readme .readme-crates-mode:focus {
+  color: #ffff55 !important;
+}
+
+/* BIOS custom dropdown — replaces native select popup (untouchable in Epiphany/GTK) */
+.librarian.is-readme select.bios-dd-native,
+.librarian-modal-card select.bios-dd-native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.librarian.is-readme .bios-dd,
+.librarian-modal-card .bios-dd {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.librarian.is-readme .bios-dd-btn,
+.librarian-modal-card .bios-dd-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 5.4rem;
+  text-align: left;
+  font-family: "IBM Plex Mono", "Share Tech Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #c8d4e8;
+  background: #0a1020;
+  border: 1px solid #2a3550;
+  border-radius: 0;
+  padding: 0.22rem 1.45rem 0.22rem 0.4rem;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #55ffff 50%),
+    linear-gradient(135deg, #55ffff 50%, transparent 50%);
+  background-position: calc(100% - 12px) calc(50% - 2px), calc(100% - 7px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.librarian.is-readme .bios-dd-btn:hover,
+.librarian-modal-card .bios-dd-btn:hover {
+  border-color: #3a5070;
+  color: #e8ecf4;
+}
+.librarian.is-readme .bios-dd.is-open .bios-dd-btn,
+.librarian.is-readme .bios-dd-btn:focus,
+.librarian-modal-card .bios-dd.is-open .bios-dd-btn,
+.librarian-modal-card .bios-dd-btn:focus {
+  outline: none;
+  border-color: #55ffff;
+  color: #55ffff;
+  box-shadow: 0 0 0 1px #55ffff44;
+}
+.librarian.is-readme .readme-crates-mode.bios-dd .bios-dd-btn,
+.librarian.is-readme .bios-dd.readme-crates-mode .bios-dd-btn {
+  color: #ffff55;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.librarian.is-readme .bios-dd-list,
+.librarian-modal-card .bios-dd-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 2px);
+  z-index: 80;
+  margin: 0;
+  padding: 0.15rem 0;
+  list-style: none;
+  max-height: 14rem;
+  overflow-y: auto;
+  background: #0a1020;
+  border: 1px solid #55ffff;
+  box-shadow: 0 6px 18px #000000aa;
+}
+.librarian.is-readme .bios-dd-opt,
+.librarian-modal-card .bios-dd-opt {
+  margin: 0;
+  padding: 0.28rem 0.5rem;
+  font-family: "IBM Plex Mono", "Share Tech Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: #c8d4e8;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.librarian.is-readme .bios-dd-opt:hover,
+.librarian.is-readme .bios-dd-opt.is-selected,
+.librarian-modal-card .bios-dd-opt:hover,
+.librarian-modal-card .bios-dd-opt.is-selected {
+  background: #12203a;
+  color: #55ffff;
+}
+.librarian.is-readme .bios-dd-opt.is-disabled {
+  opacity: 0.45;
+  cursor: default;
+  color: #667788;
+}
+.librarian.is-readme .bios-dd.is-host-off .bios-dd-btn,
+.librarian.is-readme .bios-dd-opt.is-host-off {
+  color: #667788;
+  opacity: 0.85;
+}
+.librarian.is-readme .readme-hosts-bar .bios-dd {
+  flex: 1 1 auto;
+  min-width: 12rem;
+  max-width: 100%;
+}
+.librarian.is-readme .librarian-modal-card .bios-dd {
+  display: block;
+  width: 100%;
+  margin-top: 0.12rem;
+}
+
+/* Librarian cabinet blotter slips — catalog cards, not detective wine clips */
+.librarian.is-librarian .hunt-toggle {
+  display: inline-block;
+  margin: 0 0 6px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px dotted var(--stamp);
+  color: var(--stamp);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.librarian.is-librarian .hunt-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.librarian.is-librarian .hunt-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 6px 7px 7px;
+  background: var(--slip);
+  border: 1px solid var(--rule);
+}
+
+.librarian.is-librarian .hunt-pad[hidden] {
+  display: none;
+}
+
+.librarian.is-librarian .hunt-pad .tagbay-input,
+.librarian.is-librarian .hunt-pad textarea.hunt-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  border: 1px solid var(--rule);
+  background: #fffef6;
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.librarian.is-librarian .hunt-pad textarea.hunt-body {
+  min-height: 3.2em;
+  resize: vertical;
+}
+
+.librarian.is-librarian .hunt-pad-tools {
+  display: flex;
+  gap: 6px;
+}
+
+.librarian.is-librarian .hunt-slips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.librarian.is-librarian .hunt-slips > .catalog-head {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 6px;
+}
+
+.librarian.is-librarian .hunt-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0;
+  padding: 5px 7px 6px 10px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.15em,
+      rgba(42, 90, 72, 0.12) 1.15em 1.22em
+    ),
+    #fffef6;
+  color: #243028;
+  border: 1px solid #c4b090;
+  border-left: 5px solid var(--stamp);
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.librarian.is-librarian .hunt-slip.hunt-slip-n2 {
+  border-left-color: var(--ok);
+}
+
+.librarian.is-librarian .hunt-slip.hunt-slip-n3 {
+  border-left-color: #c4a15a;
+}
+
+.librarian.is-librarian .hunt-slip-title {
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1c241c;
+  text-decoration: none;
+}
+
+.librarian.is-librarian .hunt-slip-title:hover {
+  color: var(--stamp);
+}
+
+.librarian.is-librarian .hunt-slip-body {
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 11px;
+  line-height: 1.3;
+  color: #2a382c;
+}
+
+.librarian.is-librarian .hunt-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-top: 2px;
+}
+
+.librarian.is-librarian .hunt-slip-tools {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.librarian.is-librarian .hunt-slip .catalog-edit,
+.librarian.is-librarian .hunt-slip .catalog-drop {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+}
+
+

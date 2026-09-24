@@ -1,0 +1,566 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
+
+/* stacks — go.librarian carrel
+   call-number plate + date-due stamp + left spine wall + folio well
+   not detective folder, not codes bureau, not people stamp desk
+   fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #2a5a48;
+}
+
+.go-shell {
+  --stacks: #14241c;
+  --stacks-hi: #1e3328;
+  --call: #efe4cc;
+  --call-ink: #243028;
+  --due: #8a2030;
+  --folio: #f6eedc;
+  --spine: #1c3026;
+  --spine-ink: #e8dcc4;
+  --ink: #1c241c;
+  --mute: #6a7a68;
+  --cite: #2a5a48;
+  --rule: #d4c8ac;
+  --paper: var(--folio);
+  --rail: 11.5em;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.4;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 18px,
+      rgba(255, 255, 255, 0.03) 18px 19px
+    ),
+    linear-gradient(180deg, var(--stacks-hi) 0, var(--stacks) 100%);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 8px 10px 8px 12px;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .crumb,
+.go-shell .uses {
+  display: none !important;
+}
+
+.go-shell .root-up .crumb,
+.go-shell .root-up .crumbback {
+  display: inline !important;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell a {
+  color: var(--cite);
+  text-decoration: none;
+}
+
+.go-shell a:hover {
+  color: var(--due);
+}
+
+.go-shell .carrel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.go-shell .carrel > p,
+.go-shell .call-plate > p:empty,
+.go-shell .spine-rail > p:empty,
+.go-shell .folio > p:empty {
+  display: none;
+}
+
+/* unique graphic: date-due stamp, not a lamp, not a folder tab */
+.go-shell .due-stamp {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  border: 2px solid var(--due);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px rgba(138, 32, 48, 0.18);
+  transform: rotate(-12deg);
+}
+
+.go-shell .due-stamp p {
+  display: none;
+}
+
+.go-shell .due-stamp::before {
+  content: "DUE";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--due);
+}
+
+.go-shell .call-plate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  flex: 0 0 auto;
+  margin: 0 0 8px;
+  padding: 8px 72px 8px 12px;
+  background:
+    linear-gradient(90deg, #c45c48 0 8px, transparent 8px),
+    linear-gradient(180deg, #fffaf0 0, var(--call) 100%);
+  color: var(--call-ink);
+  border: 1px solid #c4b898;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.18);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.go-shell .call-mark,
+.go-shell .call-mark p {
+  margin: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .call-sub,
+.go-shell .call-sub p {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .call-plate .tag-search {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 0 auto;
+}
+
+.go-shell .call-plate .tag-search input {
+  width: 14em;
+  max-width: 38vw;
+  padding: 3px 7px;
+  border: 1px solid #8a7860;
+  background: #fffef6;
+  color: var(--ink);
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.go-shell .call-plate .tag-search button {
+  padding: 3px 8px;
+  border: 1px solid #2a5a48;
+  background: #1c3026;
+  color: #e8dcc4;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.go-shell .carrel-open {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #0c1812;
+}
+
+.go-shell .spine-rail {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px 8px 14px 10px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #24382c 0 11px,
+      #1c3026 11px 12px
+    );
+  color: var(--spine-ink);
+  border-right: 6px solid #8a2030;
+  scrollbar-width: thin;
+}
+
+.go-shell .spine-mark,
+.go-shell .spine-mark p {
+  margin: 0 0 6px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c4d4c4;
+}
+
+.go-shell .root-up {
+  margin: 0 0 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #a8b8a8;
+}
+
+.go-shell .root-up a,
+.go-shell .root-up a:link,
+.go-shell .root-up a:visited {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: #d4e8d4;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.go-shell .spine-rail .dir.tree,
+.go-shell .spine-rail .dir.dirtree,
+.go-shell .spine-rail .dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .spine-rail .dir.tree ul.dir,
+.go-shell .spine-rail .dir.dirtree ul.dir {
+  padding: 1px 0 1px 10px;
+  margin: 0 0 2px;
+  border-left: 1px dotted #c4d4c466;
+}
+
+.go-shell .spine-rail .dir.tree > li,
+.go-shell .spine-rail .dir.dirtree > li,
+.go-shell .spine-rail .dir > li {
+  margin: 0 0 2px;
+  position: relative;
+}
+
+.go-shell .spine-rail a {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 3px 4px 3px 8px;
+  background: #2a4034;
+  border: 0;
+  border-left: 4px solid #c4a15a;
+  color: var(--spine-ink);
+  text-decoration: none;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  box-shadow: none;
+}
+
+.go-shell .spine-rail li:nth-child(3n) > a,
+.go-shell .spine-rail li:nth-child(3n) > details > summary > a {
+  border-left-color: #5a8a6a;
+}
+
+.go-shell .spine-rail li:nth-child(3n+2) > a,
+.go-shell .spine-rail li:nth-child(3n+2) > details > summary > a {
+  border-left-color: #8a2030;
+}
+
+.go-shell .spine-rail details {
+  margin: 0;
+}
+
+.go-shell .spine-rail summary {
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+.go-shell .spine-rail summary::-webkit-details-marker,
+.go-shell .spine-rail summary::marker {
+  display: none;
+  content: "";
+}
+
+.go-shell .spine-rail details > summary > a {
+  background: #24382c;
+  color: #f4ead4;
+}
+
+.go-shell .spine-rail details > summary::before {
+  display: none;
+}
+
+.go-shell .spine-rail a.on,
+.go-shell .spine-rail a:hover,
+.go-shell .spine-rail details > summary > a.on,
+.go-shell .spine-rail details > summary > a:hover {
+  background: #3a5448;
+  color: #fff6e8;
+}
+
+.go-shell .spine-rail li.on:not(:has(li.on)) > details > summary > a,
+.go-shell .spine-rail li.on:not(:has(li.on)) > a {
+  background: #3a5448;
+}
+
+.go-shell .folio {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px 22px;
+  background:
+    linear-gradient(90deg, rgba(138, 32, 48, 0.08) 0 2.4em, transparent 2.4em),
+    var(--folio);
+  color: var(--ink);
+}
+
+.go-shell .folio .card,
+.go-shell .folio .md,
+.go-shell .folio article,
+.go-shell .folio > p {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+}
+
+.go-shell .folio h1 {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.go-shell .folio h2,
+.go-shell .folio h3 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.go-shell .folio p {
+  margin: 0 0 0.7em;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.go-shell .folio a {
+  color: var(--cite);
+  border-bottom: 1px dotted var(--cite);
+}
+
+.go-shell .folio .md-gap {
+  height: 0.4em;
+}
+
+.go-shell .huntlook {
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.go-shell .huntlook-mark,
+.go-shell .huntlook-mark p {
+  margin: 0 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .huntlook ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.go-shell .huntlook li {
+  margin: 0;
+}
+
+.go-shell .huntlook .hunt-slip,
+.go-shell .folio .hunt-slip,
+.go-shell .hunt-faces .hunt-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 8px 10px 10px 12px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.2em,
+      rgba(42, 90, 72, 0.12) 1.2em 1.28em
+    ),
+    #fffef8;
+  border: 1px solid #c4b898;
+  border-left: 5px solid var(--due);
+  box-shadow: 1px 2px 0 rgba(20, 36, 28, 0.12);
+  color: #243028;
+  font-family: "Special Elite", "Courier New", monospace;
+}
+
+.go-shell .folio .hunt-slip-n2 {
+  border-left-color: #2a5a48;
+}
+
+.go-shell .folio .hunt-slip-n3 {
+  border-left-color: #c4a15a;
+}
+
+.go-shell .folio .hunt-slip-title,
+.go-shell .huntlook .hunt-slip-title {
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c241c;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.go-shell .folio .hunt-slip-title:hover {
+  color: var(--due);
+}
+
+.go-shell .folio .hunt-slip-body,
+.go-shell .huntlook .hunt-slip-body {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #2a382c;
+}
+
+.go-shell .folio .hunt-slip-meta,
+.go-shell .huntlook .hunt-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .folio .faces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5em, 1fr));
+  gap: 12px 14px;
+  margin: 12px 0 0;
+  align-items: start;
+}
+
+.go-shell .folio .faces:has(> .hunt-faces) {
+  display: block;
+}
+
+.go-shell .folio .hunt-faces {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.go-shell .folio .hunt-slip-open {
+  margin: 0;
+}
+
+.go-shell .folio .hunt-slip-open .hunt-slip-title {
+  display: block;
+  margin: 0 0 2px;
+}
+
+.go-shell .folio article.face.face-ref,
+.go-shell .folio > article.face.face-ref {
+  margin: 0 0 12px;
+  padding: 9px 11px 11px 14px;
+  background: #fffaf0;
+  border: 1px solid #c4b898;
+  border-left: 8px solid #2a5a48;
+  box-shadow: 1px 2px 0 rgba(20, 36, 28, 0.1);
+  color: #243028;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+}
+
+.go-shell .folio article.face.face-ref h1,
+.go-shell .folio article.face.face-ref h2,
+.go-shell .folio > article.face.face-ref h1,
+.go-shell .folio > article.face.face-ref h2 {
+  margin: 0 0 2px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1c241c;
+}
+
+.go-shell .folio article.face.face-ref p,
+.go-shell .folio > article.face.face-ref p {
+  margin: 0 0 0.2em;
+  color: #3a483c;
+}
+
+.go-shell .pocket-lip {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 5px 12px;
+  background: #0c1812;
+  color: #c4d4c4;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  border-top: 1px solid #2a5a48;
+}
+
+.go-shell .pocket-lip p {
+  margin: 0;
+}

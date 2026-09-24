@@ -12,6 +12,7 @@ PROD = Path(__file__).resolve().parent
 SYS = PROD / "www_sys"
 DECK = PROD.parents[2] / "the-deck-host" / "shell" / "deck_host.py"
 PORT = os.environ.get("GO_PORT", os.environ.get("LIBRARY_PORT", "43210"))
+os.environ.setdefault("GO_HOST", "0.0.0.0")
 URL = f"http://127.0.0.1:{PORT}/"
 HEALTH = f"http://127.0.0.1:{PORT}/api/health"
 

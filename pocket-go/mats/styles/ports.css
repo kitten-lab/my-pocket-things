@@ -13,7 +13,7 @@
   --led: #e8b923;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -337,16 +337,16 @@ span.note-details {
   text-decoration: none;
 }
 
-.wwwExplorer_innerShell a:link {
+.go-shell a:link {
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been {
+.go-shell a:visited,
+.go-shell a.been {
   color: var(--visited);
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   position: static;
   padding: 0 0 0.5rem;
   font-size: 10px !important;
@@ -382,8 +382,8 @@ span.note-details {
   color: #c45c48;
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   margin-top: 1.8rem;
   padding-top: 0.5rem;
   border-top: 1px solid #161616;
@@ -391,8 +391,8 @@ span.note-details {
   color: #5a5a5a;
 }
 
-.wwwExplorer_innerShell .headers summary,
-.wwwExplorer_innerShell .uses summary {
+.go-shell .headers summary,
+.go-shell .uses summary {
   cursor: pointer;
   color: #5a5a5a;
   width: max-content;
@@ -431,37 +431,37 @@ span.note-details {
   text-transform: none;
 }
 
-.wwwExplorer_innerShell,
+.go-shell,
 .content {
   scrollbar-width: thin;
   scrollbar-color: #3a3a3a #000;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar,
+.go-shell::-webkit-scrollbar,
 .content::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-track,
+.go-shell::-webkit-scrollbar-track,
 .content::-webkit-scrollbar-track {
   background: #000;
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb,
+.go-shell::-webkit-scrollbar-thumb,
 .content::-webkit-scrollbar-thumb {
   background: #2a2a2a;
   border: 0;
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb:hover,
+.go-shell::-webkit-scrollbar-thumb:hover,
 .content::-webkit-scrollbar-thumb:hover {
   background: var(--led);
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-button,
+.go-shell::-webkit-scrollbar-button,
 .content::-webkit-scrollbar-button {
   display: none;
   width: 0;
@@ -471,7 +471,7 @@ span.note-details {
   box-shadow: none;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-corner,
+.go-shell::-webkit-scrollbar-corner,
 .content::-webkit-scrollbar-corner {
   background: #000;
 }

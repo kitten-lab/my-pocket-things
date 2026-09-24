@@ -1,0 +1,700 @@
+@import url("/styles/fonts.css");
+
+/* mausoleum — ONLY this room
+   Not dark-Garamond poet. Ledger wake. Stone + iron + candle.
+   PLAY: --rail --title-size --glass --candle --rose */
+
+:root {
+  --bg: #040302;
+  --stone: #12100d;
+  --stone2: #1a1612;
+  --mortar: #2a241c;
+  --line: #4a3f32;
+  --text: #f5ecd8;
+  --mute: #a09080;
+  --dust: #6a5e50;
+  --candle: #ffc857;
+  --candle-glow: rgba(255, 200, 87, 0.4);
+  --rose: #e01b24;
+  --rose-glow: rgba(176, 58, 74, 0.5);
+  --gold: #e0b86a;
+  --iron: #1a1510;
+  /* beat dress.css blue/purple — warm candle doors, not Halloween */
+  --accent: #e0b86a;
+  --visited: #c47858;
+  --active: #ffc857;
+  --scroll-thumb: rgba(160, 144, 128, 0.28);
+  --scroll-track: transparent;
+  --rail: 14.5rem;
+  --title-size: 38px;
+  --glass: 12px;
+  --font-display: var(--font-fredericka), "Fredericka the Great", "Special Elite", serif;
+  --font-body: var(--font-elite), "Special Elite", "Courier New", monospace;
+  --font-black: var(--font-fraktur), "UnifrakturMaguntia", "Times New Roman", serif;
+  --font-mono: var(--font-elite), "Special Elite", "Courier New", monospace;
+}
+
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* stone courses + candle + rose dust */
+  background:
+    radial-gradient(ellipse 85% 50% at 50% -8%, var(--candle-glow), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 95% 95%, var(--rose-glow), transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      rgba(0, 0, 0, 0.18) 11px 12px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--stone2) 0 18px,
+      var(--mortar) 18px 19px,
+      #16120e 19px 37px,
+      var(--mortar) 37px 38px
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--glass);
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+
+/* quiet rails — almost invisible, whisper on hover .. */
+.go-shell,
+.go-shell * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+.go-shell::-webkit-scrollbar,
+.go-shell *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.go-shell::-webkit-scrollbar-track,
+.go-shell *::-webkit-scrollbar-track {
+  background: transparent;
+}
+.go-shell::-webkit-scrollbar-thumb,
+.go-shell *::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
+.go-shell:hover::-webkit-scrollbar-thumb,
+.go-shell *:hover::-webkit-scrollbar-thumb,
+.go-shell::-webkit-scrollbar-thumb:hover,
+.go-shell *::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb);
+}
+.go-shell::-webkit-scrollbar-corner,
+.go-shell *::-webkit-scrollbar-corner {
+  background: transparent;
+}
+.go-shell::-webkit-scrollbar-button,
+.go-shell *::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  /* beat www.css .go-shell > #browserWindow { overflow:auto } */
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  box-sizing: border-box;
+  overflow: hidden !important; /* only .content / .sidebar scroll */
+}
+
+.go-shell .page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* vault lintel */
+.go-shell .header {
+  position: relative;
+  padding: 1.1rem 1rem 0.85rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 80% 90% at 50% 120%, rgba(0,0,0,0.55), transparent 55%),
+    linear-gradient(180deg, #2e261e 0%, #1c1712 55%, #100d0a 100%);
+  border-bottom: 4px double var(--line);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 200, 87, 0.2),
+    inset 0 -12px 28px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(176, 58, 74, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.65);
+}
+
+.go-shell .header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.55rem;
+  transform: translateX(-50%);
+  width: min(22rem, 70%);
+  height: 10px;
+  border: 1px solid rgba(224, 184, 106, 0.35);
+  border-bottom: 0;
+  border-radius: 120px 120px 0 0;
+  box-shadow: 0 0 18px var(--candle-glow);
+  pointer-events: none;
+}
+
+.go-shell .header::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(224, 184, 106, 0.14);
+  pointer-events: none;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+}
+
+/* huge plaque logo */
+.go-shell .title a,
+.go-shell .title a:link,
+.go-shell .title a:visited {
+  position: relative;
+  z-index: 1;
+  margin: 0.23rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 94%;
+  padding: 0.35rem 1.2rem;
+  font-family: var(--font-display) !important;
+  font-size: var(--title-size) !important;
+  line-height: 1 !important;
+  font-weight: 300;
+  text-indent: 0; /* letter-spacing indent was shoving the word off-center */
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--candle) !important;
+  text-decoration: none !important;
+  border: 2px solid var(--mortar) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 200, 87, 0.16) 0%, rgba(0, 0, 0, 0.45) 100%);
+  text-shadow:
+    0 3px 0 #000,
+    0 0 20px var(--candle-glow),
+    0 0 48px var(--rose-glow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -8px 20px rgba(0, 0, 0, 0.45),
+    0 10px 28px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(255, 200, 87, 0.12);
+}
+
+.go-shell .title a::after,
+.go-shell .title a::before {
+  color: var(--dust) !important;
+  content: " oixio ";
+  font-size: 12px;
+}
+
+.go-shell .title a:hover { color: var(--candle) !important; }
+
+.go-shell .nav,
+.go-shell .doors { position: relative; z-index: 1; margin-top: 0.55rem; }
+
+.go-shell .worlds {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.go-shell a.world,
+.go-shell .worlds a.world {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+  min-height: 3.6rem;
+  padding: 0.7rem 1.05rem !important;
+  background:
+    linear-gradient(165deg, #3a3026 0%, var(--iron) 60%, #0e0b08 100%) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-top-color: rgba(255, 200, 87, 0.35) !important;
+  border-bottom: 3px solid var(--rose) !important;
+  border-radius: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 200, 87, 0.18),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.55);
+  text-decoration: none !important;
+  text-align: center;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+.go-shell a.world strong {
+  display: block;
+  font-family: var(--font-body) !important;
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--candle) !important;
+}
+
+.go-shell a.world .door-deck {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 12px;
+  color: var(--mute);
+  letter-spacing: 0.02em;
+}
+
+.go-shell a.world .note-details { display: none !important; }
+
+.go-shell a.world:hover {
+  border-color: var(--candle) !important;
+  border-bottom-color: var(--candle) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 200, 87, 0.3),
+    0 0 26px var(--candle-glow),
+    0 10px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.go-shell .body {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: 0;
+  height: auto; /* fill grid 1fr cell; height:100% was double-counting */
+  max-height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.go-shell .sidebar {
+  min-height: 0;
+  overflow: auto;
+  padding: 1.15rem 1rem 1.5rem;
+  background:
+    linear-gradient(90deg, #080705, var(--stone));
+  border-right: 2px solid var(--mortar);
+  box-shadow: inset -12px 0 30px rgba(0, 0, 0, 0.45);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--mute);
+}
+
+.go-shell .sidebar h1,
+.go-shell .sidebar h2,
+.go-shell .sidebar h3 {
+  font-family: var(--font-black);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--rose);
+  margin: 0 0 0.75rem;
+  text-shadow: 0 0 12px var(--rose-glow);
+}
+
+.go-shell .sidebar a {
+  display: block;
+  padding: 0.28rem 0.15rem;
+  color: #c8b8a0;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(74, 63, 50, 0.7);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.go-shell .sidebar a .name {
+  color: inherit;
+}
+.go-shell .sidebar a:hover,
+.go-shell .sidebar a:focus-visible {
+  color: var(--candle);
+  background: rgba(255, 200, 87, 0.06);
+}
+.go-shell .sidebar ul { list-style: none; margin: 0; padding: 0; }
+.go-shell .sidebar li { margin: 0; }
+.go-shell .sidebar li::marker { content: ""; }
+.go-shell .sidebar p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  margin: 0.35rem 0;
+}
+
+/* chamber — typed on stone paper, not poet book */
+.go-shell .content {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.75rem 2rem 2.5rem;
+  background:
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(255, 200, 87, 0.1), transparent 55%),
+    linear-gradient(180deg, #1a1510 0%, #100d0a 50%, #0a0806 100%);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--glass);
+  line-height: 1.55;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.go-shell .content::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--candle), var(--rose), transparent);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.go-shell .go-paper,
+.go-shell .paper {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: inherit;
+}
+
+.go-shell .content h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  margin: 0 0 0.65rem;
+  color: var(--candle);
+  border-bottom: 1px solid var(--line);
+  text-shadow: 0 0 22px var(--candle-glow);
+}
+.go-shell .content h2 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 0.3rem;
+  margin: 1.2rem 0 0.5rem;
+}
+.go-shell .content h3 {
+  font-family: var(--font-black);
+  font-size: 22px;
+  color: var(--rose);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 1rem 0 0.4rem;
+}
+.go-shell .content a:link,
+.go-shell .content a:visited,
+.go-shell .content a.been,
+.go-shell .content a.wiki,
+.go-shell .content a.outlink {
+  color: var(--accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(224, 184, 106, 0.4);
+}
+.go-shell .content a:visited,
+.go-shell .content a.been {
+  color: var(--visited) !important;
+  border-bottom-color: rgba(196, 120, 88, 0.45);
+}
+.go-shell .content a:hover,
+.go-shell .content a:visited:hover,
+.go-shell .content a.been:hover {
+  color: var(--active) !important;
+  border-bottom-color: var(--rose);
+}
+.go-shell .content blockquote {
+  margin: 1rem 0;
+  padding: 0.65rem 1rem;
+  border-left: 3px solid var(--rose);
+  background: rgba(176, 58, 74, 0.12);
+  color: var(--mute);
+}
+
+.go-shell .footer {
+  border-top: 4px double var(--line);
+  padding: 0.7rem 1.4rem;
+  background: #080705;
+  color: var(--dust);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 200, 87, 0.1);
+}
+.go-shell .footer p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
+.go-shell .headers,
+.go-shell .uses { display: none; }
+.go-shell .status { margin-top: 0 !important; }
+
+/* Narrow / mobile: tombs rail becomes a pull-drawer (not a forever-open stack).
+   Closed by default — TOMBS tab opens it; scrim / STOW closes. Wide desk keeps the rail. */
+.go-shell .tombs-pull {
+  display: none;
+  position: absolute; /* inside .body / chrome stage — not the phone viewport */
+  left: 0;
+  top: 42%;
+  z-index: 8;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: var(--stone2);
+  color: var(--candle);
+  border: 1px solid var(--mortar);
+  border-left: 0;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.28rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.45);
+}
+.go-shell .tombs-pull:hover {
+  color: var(--rose);
+  background: var(--stone);
+}
+.go-shell .tombs-scrim {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  :root { --title-size: 28px; }
+  .go-shell .body {
+    grid-template-columns: 1fr;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden; /* clip closed drawer; keep rail inside chrome stage */
+  }
+  /* Absolute to .body = under the doors, flush with the gold panel — not the phone edge. */
+  .go-shell .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: min(var(--rail), 78%);
+    max-height: none;
+    z-index: 10;
+    border-right: 2px solid var(--mortar);
+    border-bottom: 0;
+    transform: translateX(-105%);
+    transition: transform 0.22s ease;
+    box-shadow: 6px 0 24px rgba(0, 0, 0, 0.55);
+    color: #c8b8a0;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 0.85rem;
+    padding-bottom: 1.25rem;
+  }
+  .go-shell .page.is-tombs-open .sidebar,
+  .go-shell .body.is-tombs-open .sidebar {
+    transform: translateX(0);
+  }
+  .go-shell .tombs-pull {
+    display: block;
+    position: absolute;
+    z-index: 11;
+  }
+  .go-shell .page.is-tombs-open .tombs-pull,
+  .go-shell .body.is-tombs-open .tombs-pull {
+    left: min(var(--rail), 78%);
+  }
+  .go-shell .tombs-scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+  }
+  .go-shell .page.is-tombs-open .tombs-scrim,
+  .go-shell .body.is-tombs-open .tombs-scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .go-shell .sidebar a {
+    color: #d4c4a8;
+  }
+  /* doors stay in the header above .body — they no longer cover the rail */
+  .go-shell .header {
+    z-index: 2;
+  }
+}
+
+
+/* Thin door-chips in host nav ({{doors:chips}}) — not tall tomb cards. */
+.go-shell .nav .worlds.is-chips,
+.go-shell .worlds.is-chips {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.45rem;
+  margin-top: 0.55rem;
+}
+.go-shell .nav .worlds.is-chips a.world.door-chip,
+.go-shell .worlds.is-chips a.world.door-chip,
+.go-shell a.world.door-chip {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.28rem;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: auto !important;
+  padding: 0.22rem 0.7rem !important;
+  background:
+    linear-gradient(165deg, #3a3026 0%, var(--iron) 60%, #0e0b08 100%) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  border-top-color: rgba(255, 200, 87, 0.35) !important;
+  border-bottom: 2px solid var(--rose) !important;
+  border-radius: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 200, 87, 0.18),
+    0 3px 8px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: none !important;
+  transform: none;
+}
+.go-shell .worlds.is-chips a.world.door-chip strong,
+.go-shell a.world.door-chip strong {
+  display: inline;
+  font-family: var(--font-display) !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--candle) !important;
+}
+.go-shell .worlds.is-chips a.world.door-chip .door-deck,
+.go-shell .worlds.is-chips a.world.door-chip .note-details {
+  display: none !important;
+}
+.go-shell .worlds.is-chips a.world.door-chip:hover,
+.go-shell a.world.door-chip:hover {
+  border-color: var(--candle) !important;
+  border-bottom-color: var(--candle) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 200, 87, 0.3),
+    0 0 16px var(--candle-glow),
+    0 4px 10px rgba(0, 0, 0, 0.55);
+  transform: translateY(-1px);
+}
+
+
+.go-shell a.tag,
+.go-shell .tag {
+  font-family: inherit;
+  font-style: normal !important;
+  font-size: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  padding: 0;
+}
+.go-shell a.tag:visited,
+.go-shell a.tag.been {
+  color: inherit;
+}
+.go-shell a.tag:hover,
+.go-shell .tag:hover,
+.go-shell a.tag:visited:hover {
+  color: var(--active) !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em;
+}
+
+.go-shell .mau-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin: 0 0 0.9rem;
+  padding: 0 0 0.55rem;
+  border-bottom: 1px solid var(--line);
+}
+.go-shell .mau-sub p {
+  margin: 0;
+}
+.go-shell .mau-sub-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--candle);
+}
+.go-shell .mau-sub-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.go-shell .mau-sub-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+.go-shell .mau-sub-nav a {
+  color: var(--gold) !important;
+  text-decoration: none;
+}
+.go-shell .mau-sub-nav a:hover {
+  color: var(--candle) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}

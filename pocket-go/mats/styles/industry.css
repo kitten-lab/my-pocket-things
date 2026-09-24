@@ -1,0 +1,75 @@
+:root {
+  --bg: #0000ff;
+  --paper: #0000ff;
+  --ink: #ffffff;
+  --mute: #dddddd;
+  --line: #ffffff;
+  --accent: #ff0000;
+  --visited: #ffffff;
+  --active: #ffffff;
+}
+
+.go-shell {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: normal;
+  background-color: blue;
+  color: white;
+}
+
+.go-shell a {
+  color: white;
+}
+
+.go-shell a:hover {
+  color: red;
+}
+
+.go-shell .main-container {
+  width: min(555px, 100%);
+  margin: 1em auto 3em;
+  padding: 40px;
+  border: #ffffff 5px groove;
+  color: white;
+  font-family: fantasy;
+  font-size: xx-large;
+  box-shadow: -10px 10px 0 red;
+  box-sizing: border-box;
+}
+
+.go-shell .main-title {
+  border-bottom: #ffffff solid 4px;
+  margin-bottom: 0.4em;
+}
+
+.go-shell .nav-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.go-shell .nav-bar li {
+  float: left;
+  list-style-type: none;
+  margin-right: 30px;
+  padding: 0.35em 0.6em;
+}
+
+.go-shell .content-container {
+  margin-top: 15px;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.go-shell .imported-brand {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-small;
+}

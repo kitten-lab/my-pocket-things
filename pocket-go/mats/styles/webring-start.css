@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Press+Start+2P&family=VT323&display=swap");
+
+/* webring-start — GeoCities / WebRing lobby
+   swap on start.md: environment: webring-start
+   colors on :root for BIOS picker */
+
+:root {
+  --bg: #1a0033;
+  --paper: #fff8dc;
+  --ink: #1a0033;
+  --mute: #6b4a8a;
+  --line: #ff00aa;
+  --accent: #00ffff;
+  --visited: #e01b24;
+  --active: #ffff00;
+  --rule: #61358338;
+  --strip: #ff00aa;
+  --card-strip: #00ff66;
+  --stamp: #ffff00;
+  --chip: #2a1050;
+  --hero: #ff66cc;
+  --link: #0000ee;
+  --ring: #00ff66;
+}
+
+.go-shell {
+  background:
+    radial-gradient(circle at 12% 18%, #fff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 40%, #fff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 40% 70%, #ff0 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 12%, #0ff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 55% 55%, rgba(255, 0, 170, 0.22), transparent 42%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      rgba(255, 255, 255, 0.03) 3px 4px
+    ),
+    linear-gradient(180deg, #120028 0%, var(--bg) 45%, #2d0055 100%);
+  color: var(--paper);
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 0.55rem 0.75rem 1.2rem;
+  margin: 0;
+}
+
+.go-shell .crumb {
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
+}
+
+.mypi-hero {
+  position: relative;
+  margin: 0 0 0.85rem;
+  padding: 0.9rem 1rem 1rem;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #330066 0 8px,
+      #220044 8px 16px
+    );
+  color: #fff;
+  border: 4px ridge #ff00aa;
+  box-shadow:
+    0 0 0 2px #00ffff,
+    6px 6px 0 #000;
+  overflow: hidden;
+  text-align: center;
+}
+
+.mypi-hero::before {
+  content: "★ constructed for the hymn of home ★";
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  right: 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.08em;
+  color: var(--stamp);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.mypi-hero::after {
+  content: "THERE IS NO PLACE LIKE HOME";
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0;
+  right: 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.8rem;
+  color: var(--ring);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.mypi-kicker {
+  position: relative;
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0.85rem 0 0.2rem;
+}
+
+.mypi-wordmark {
+  position: relative;
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 3em;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.45rem;
+  color: #fff;
+  text-shadow:
+    3px 3px 0 #ff00aa,
+    -1px 0 #00ffff;
+}
+.mypi-wordmark::after {
+  content: "♥";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3rem;
+  color: var(--ring);
+  opacity: 0.9;
+  pointer-events: none;
+}
+.mypi-lede {
+  position: relative;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  font-size: 0.5rem;
+  letter-spacing: 1.4rem;
+  margin: 0 auto 1.1rem;
+  color: #ffe6ff;
+}
+
+.mypi-doors {
+  margin: 0.35rem 0 0;
+}
+
+.go-shell .recentlook a:link { color: var(--accent); }
+.go-shell .recentlook a:visited,
+.go-shell .recentlook a.been { color: var(--visited); }
+.go-shell .recentlook .hit-path {
+  color: #ccb3e6;
+}
+
+.mypi-doors-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ring);
+  margin: 0 0 0.55rem;
+}
+
+.mypi-doors-label::before {
+  content: "✦ ";
+}
+.mypi-doors-label::after {
+  content: " ✦ pockets full of narratives";
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.go-shell .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.55rem;
+}
+
+.go-shell a.world {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0.42rem;
+  align-items: start;
+  min-height: 3.8rem;
+  padding: 0.45rem 0.5rem 0.4rem;
+  background: var(--paper);
+  color: var(--link);
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  text-decoration: none;
+  font-family: var(--font-glass);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+}
+
+.go-shell a.world:has(> img.door-face) {
+  grid-template-columns: 1.85rem minmax(0, 1fr);
+}
+
+.go-shell a.world .door-face {
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 2px solid #000;
+  image-rendering: auto;
+  box-shadow: 1px 1px 0 #000;
+}
+.go-shell .mypi-doors a.world .door-face.is-letter,
+.go-shell a.world .door-face.is-letter {
+  display: none;
+}
+.go-shell a.world .door-copy {
+  min-width: 0;
+}
+
+.go-shell a.world:hover {
+  background: #ffff99;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #ff00aa;
+  border-color: #ff00aa;
+  color: #cc0000;
+}
+
+.go-shell a.world:visited {
+  color: var(--visited);
+}
+
+.go-shell a.world strong {
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.15;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+.go-shell a.world .note-details {
+  font-family: "VT323", monospace;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  margin-top: 0.25rem;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.go-shell h1,
+.go-shell h2 {
+  font-family: "Press Start 2P", monospace;
+}
+
+body.is-start .wwwExplorer_mark {
+  letter-spacing: 0.02em;
+}
+
+.go-shell a.world.has-deck {
+  min-height: 5rem;
+}
+
+.go-shell a.world .door-deck {
+  display: block;
+  font-family: var(--font-arcade);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: var(--ink);
+  margin-top: 0.2rem;
+  text-decoration: none;
+}
+
+.go-shell a.world:hover .door-deck {
+  color: #330044;
+}
+
+.go-shell .worlds.is-sectioned {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.go-shell .door-section {
+  margin: 0;
+  padding: 0.35rem 0.4rem 0.5rem;
+  border: 2px dashed var(--ring);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.go-shell .door-section-head {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.48rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 0.45rem;
+}
+
+.go-shell .door-section-doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.5rem;
+}
+
+.go-shell a.world.door-pinned {
+  background:
+    linear-gradient(90deg, var(--stamp) 0 0.32rem, transparent 0.32rem),
+    linear-gradient(180deg, #ffffcc 0%, #ffe066 100%);
+  border-color: #000;
+  box-shadow: 4px 4px 0 #ff00aa;
+  color: #990000;
+  padding-left: 0.7rem;
+  padding-right: 2.85rem;
+}
+
+.go-shell a.world.door-pinned::before {
+  content: "HOT!";
+  position: absolute;
+  top: -0.35rem;
+  right: 0.4rem;
+  z-index: 1;
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--stamp);
+  padding: 0.15rem 0.35rem 0.1rem;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.go-shell a.world.door-pinned strong {
+  color: #990000;
+}
+
+.go-shell a.world.door-pinned:hover {
+  background:
+    linear-gradient(90deg, var(--stamp) 0 0.32rem, transparent 0.32rem),
+    #fff;
+  box-shadow: 5px 5px 0 #00ffff;
+}
+
+
+/* Thin door-chips when {{doors:chips}} is used (lobby start stays fat {{doors}}). */
+.go-shell .worlds.is-chips {
+  display: flex !important;
+  grid-template-columns: none !important;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.45rem;
+}
+.go-shell .worlds.is-chips a.world.door-chip,
+.go-shell a.world.door-chip {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0.18rem 0.5rem !important;
+  background: var(--paper);
+  color: var(--link);
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+}
+.go-shell a.world.door-chip .door-face {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-width: 1px;
+  box-shadow: none;
+}
+.go-shell .mypi-doors a.world.door-chip .door-face.is-letter,
+.go-shell a.world.door-chip .door-face.is-letter {
+  display: none;
+}
+.go-shell .worlds.is-chips a.world.door-chip.has-deck {
+  min-height: 0 !important;
+}
+.go-shell .worlds.is-chips a.world.door-chip strong {
+  display: inline;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  text-decoration: underline;
+}
+.go-shell .worlds.is-chips a.world.door-chip:hover {
+  background: #ffff99;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #ff00aa;
+  border-color: #ff00aa;
+  color: #cc0000;
+}

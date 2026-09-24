@@ -24,7 +24,7 @@
   --nail: #8a7860;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 18% 12%, rgba(232, 168, 72, 0.14), transparent 38%),
     radial-gradient(ellipse at 88% 80%, rgba(80, 40, 20, 0.35), transparent 45%),
@@ -285,16 +285,16 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .doors,
-.wwwExplorer_innerShell .door-grid {
+.go-shell .doors,
+.go-shell .door-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9.2rem, 1fr));
   gap: 0.5rem;
   margin: 0.55rem 0 0.95rem;
 }
 
-.wwwExplorer_innerShell .doors a,
-.wwwExplorer_innerShell .door {
+.go-shell .doors a,
+.go-shell .door {
   background: linear-gradient(180deg, #4a3424 0%, #322418 100%);
   border: 1px solid #1a120c;
   border-top: 2px solid var(--rope);
@@ -304,8 +304,8 @@
   letter-spacing: 0.04em;
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   display: none;
 }
 
@@ -384,8 +384,8 @@
     transform: rotate(0.35deg);
     outline-offset: 3px;
   }
-  .wwwExplorer_innerShell .doors,
-  .wwwExplorer_innerShell .door-grid {
+  .go-shell .doors,
+  .go-shell .door-grid {
     grid-template-columns: repeat(auto-fill, minmax(8.2rem, 1fr));
   }
 }

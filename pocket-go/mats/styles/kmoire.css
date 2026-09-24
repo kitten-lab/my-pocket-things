@@ -16,7 +16,7 @@
   --brass: #c4a15a;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   --rail: 220px;
   background:
     repeating-linear-gradient(
@@ -159,9 +159,9 @@ p.mast::after {
   border-top: 1px solid var(--brass);
 }
 
-.wwwExplorer_innerShell a:link { color: #8a3020; }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: #8a3020; }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .tagshelf {
   color: #c9a090;
@@ -223,19 +223,19 @@ p.mast::after {
   scrollbar-color: var(--brass) var(--felt);
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   scrollbar-width: thin;
   scrollbar-color: var(--oxblood) #2a1014;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar,
+.go-shell::-webkit-scrollbar,
 .content::-webkit-scrollbar,
 .side::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-track,
+.go-shell::-webkit-scrollbar-track,
 .content::-webkit-scrollbar-track {
   background: #e8dcc4;
   border-left: 1px solid var(--line);
@@ -245,7 +245,7 @@ p.mast::after {
   background: #2a0c10;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb,
+.go-shell::-webkit-scrollbar-thumb,
 .content::-webkit-scrollbar-thumb,
 .side::-webkit-scrollbar-thumb {
   background: var(--oxblood);

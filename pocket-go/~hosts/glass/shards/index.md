@@ -1,10 +1,10 @@
 ---
-crate: crate.F710ED39E0D5BE98
+crate: crate.C1482807DC5246A1
 title: shards
 ---
 
-# shards
+# {{title}}
 
-CXR faxes from Glass Compost. One report is one paper. Title and a thin `chips:` line if it fits; otherwise cites live as `## ^OT-…` in the body. Chop those into cabinets by hand.
+Glass Compost fax landings (CXR copies).
 
-Do not pour a whole log in here unless Hands faxed it on purpose.
+{{files}}

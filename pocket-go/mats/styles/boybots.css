@@ -18,7 +18,7 @@
   --hero: #2a2218;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 8% 0%, rgba(232, 160, 74, 0.18), transparent 40%),
     radial-gradient(ellipse at 95% 10%, rgba(196, 120, 40, 0.12), transparent 36%),
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
@@ -43,7 +43,7 @@
   padding: 0.25rem 0.2rem 0.45rem;
 }
 
-.wwwExplorer_innerShell .bb-hero {
+.go-shell .bb-hero {
   position: relative;
   margin: 0 0 1.1rem;
   padding: 1.1rem 1.1rem 1rem;
@@ -58,7 +58,7 @@
   overflow: hidden;
 }
 
-.wwwExplorer_innerShell .bb-hero::after {
+.go-shell .bb-hero::after {
   content: "";
   position: absolute;
   left: 0;
@@ -68,8 +68,8 @@
   background: linear-gradient(90deg, #8a5018, #e8a04a 45%, #ffc878 80%, #8a5018);
 }
 
-.wwwExplorer_innerShell .bb-kicker,
-.wwwExplorer_innerShell p.bb-kicker {
+.go-shell .bb-kicker,
+.go-shell p.bb-kicker {
   margin: 0 0 0.35rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
@@ -79,8 +79,8 @@
   color: var(--stamp);
 }
 
-.wwwExplorer_innerShell .bb-wordmark,
-.wwwExplorer_innerShell p.bb-wordmark {
+.go-shell .bb-wordmark,
+.go-shell p.bb-wordmark {
   margin: 0 0 0.4rem;
   font-family: Syne, "Arial Narrow", sans-serif;
   font-size: clamp(1.9rem, 5.5vw, 2.55rem);
@@ -92,8 +92,8 @@
   text-shadow: 0 0 18px rgba(232, 160, 74, 0.35);
 }
 
-.wwwExplorer_innerShell .bb-lede,
-.wwwExplorer_innerShell p.bb-lede {
+.go-shell .bb-lede,
+.go-shell p.bb-lede {
   margin: 0;
   max-width: 38rem;
   font-size: 0.9rem;
@@ -101,18 +101,18 @@
   color: #d8c4a8;
 }
 
-.wwwExplorer_innerShell .bb-crew,
-.wwwExplorer_innerShell .bb-shelf {
+.go-shell .bb-crew,
+.go-shell .bb-shelf {
   margin: 0 0 1rem;
   padding: 0.7rem 0.8rem 0.85rem;
   background: rgba(36, 30, 22, 0.85);
   border: 1px solid var(--line);
 }
 
-.wwwExplorer_innerShell .bb-crew-label,
-.wwwExplorer_innerShell .bb-shelf-label,
-.wwwExplorer_innerShell p.bb-crew-label,
-.wwwExplorer_innerShell p.bb-shelf-label {
+.go-shell .bb-crew-label,
+.go-shell .bb-shelf-label,
+.go-shell p.bb-crew-label,
+.go-shell p.bb-shelf-label {
   margin: 0 0 0.5rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
@@ -121,7 +121,7 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .bb-crew p:not(.bb-crew-label) {
+.go-shell .bb-crew p:not(.bb-crew-label) {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
@@ -129,8 +129,8 @@
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell .bb-back,
-.wwwExplorer_innerShell p.bb-back {
+.go-shell .bb-back,
+.go-shell p.bb-back {
   margin: 0 0 0.85rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.72rem;
@@ -139,7 +139,7 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell h1 {
+.go-shell h1 {
   font-family: Syne, "Arial Narrow", sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
@@ -147,7 +147,7 @@
   margin: 0.35rem 0 0.6rem;
 }
 
-.wwwExplorer_innerShell h2 {
+.go-shell h2 {
   font-family: Syne, sans-serif;
   font-size: 1rem;
   color: var(--accent);
@@ -156,15 +156,15 @@
   border-bottom: 1px solid var(--rule);
 }
 
-.wwwExplorer_innerShell p { margin: 0.4rem 0 0.55rem; }
-.wwwExplorer_innerShell ul { margin: 0.35rem 0 0.7rem; padding-left: 1.15rem; }
-.wwwExplorer_innerShell li { margin: 0.25rem 0; }
+.go-shell p { margin: 0.4rem 0 0.55rem; }
+.go-shell ul { margin: 0.35rem 0 0.7rem; padding-left: 1.15rem; }
+.go-shell li { margin: 0.25rem 0; }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited { color: var(--visited); }
-.wwwExplorer_innerShell a:hover { color: var(--active); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited { color: var(--visited); }
+.go-shell a:hover { color: var(--active); }
 
-.wwwExplorer_innerShell ul.dir.files {
+.go-shell ul.dir.files {
   list-style: none;
   margin: 0.15rem 0 0;
   padding: 0;
@@ -173,7 +173,7 @@
   gap: 0.35rem;
 }
 
-.wwwExplorer_innerShell ul.dir.files a {
+.go-shell ul.dir.files a {
   display: block;
   padding: 0.45rem 0.6rem;
   background: var(--chip);
@@ -182,37 +182,37 @@
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell ul.dir.files a:hover {
+.go-shell ul.dir.files a:hover {
   border-color: var(--accent);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
-.wwwExplorer_innerShell ul.dir.files .name {
+.go-shell ul.dir.files .name {
   font-family: Syne, sans-serif;
   font-weight: 600;
   color: #fff4e4;
 }
 
-.wwwExplorer_innerShell .bb-hero.is-sub {
+.go-shell .bb-hero.is-sub {
   padding: 0.85rem 1rem 0.8rem;
   margin-bottom: 0.95rem;
 }
-.wwwExplorer_innerShell .bb-hero.is-sub .bb-wordmark,
-.wwwExplorer_innerShell .bb-hero.is-sub p.bb-wordmark {
+.go-shell .bb-hero.is-sub .bb-wordmark,
+.go-shell .bb-hero.is-sub p.bb-wordmark {
   font-size: clamp(1.4rem, 4vw, 1.85rem);
 }
-.wwwExplorer_innerShell .bb-hero.is-sub .bb-lede,
-.wwwExplorer_innerShell .bb-hero.is-sub p.bb-lede {
+.go-shell .bb-hero.is-sub .bb-lede,
+.go-shell .bb-hero.is-sub p.bb-lede {
   font-size: 0.85rem;
 }
-.wwwExplorer_innerShell .worlds,
-.wwwExplorer_innerShell .doors {
+.go-shell .worlds,
+.go-shell .doors {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin: 0.15rem 0 0.2rem;
 }
-.wwwExplorer_innerShell a.world {
+.go-shell a.world {
   display: inline-flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -224,14 +224,14 @@
   text-decoration: none;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.32);
 }
-.wwwExplorer_innerShell a.world strong {
+.go-shell a.world strong {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
 }
-.wwwExplorer_innerShell a.world:hover {
+.go-shell a.world:hover {
   border-color: var(--accent);
   color: #fff;
 }

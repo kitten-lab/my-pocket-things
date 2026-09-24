@@ -8,7 +8,7 @@
   --visited: rgb(151, 0, 50);
   --active: rgb(0, 10, 151);
 }
-.wwwExplorer_innerShell {
+.go-shell {
   font-family: "Consolas", "Courier New", monospace;
   font-style: italic;
 }

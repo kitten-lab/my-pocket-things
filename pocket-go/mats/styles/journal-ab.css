@@ -1,0 +1,67 @@
+@import url("/styles/journal-device.css");
+
+/* journal-ab — Terminal AB red / alarm glass */
+:root {
+  --chassis: #1a0e10;
+  --chassis-hi: #2e1618;
+  --chassis-lo: #100608;
+  --bezel: #3a181c;
+  --bezel-hi: #4a2024;
+  --bezel-lo: #1a0a0c;
+  --glow: #ff3344;
+  --glow-rgb: 255, 51, 68;
+  --lilac: #ff8890;
+  --haze-rgb: 140, 20, 40;
+  --sheet: #140a0c;
+  --sheet-edge: #3a181c;
+  --ink: #ffd0d4;
+  --mute: #8a4048;
+  --line: #402028;
+  --blush: #cc2233;
+  --rose: #ff5566;
+  --rule-rgb: 140, 40, 50;
+  --spine-hi: #5a1820;
+  --spine-lo: #301014;
+  --link-on-sheet: #ff7788;
+  --crumb: rgba(255, 140, 150, 0.55);
+  --flip-ink: #ffe0e4;
+  --desk: #080304;
+  --desk-hi: #180a0c;
+  --desk-lo: #020101;
+  --frame: #080204;
+  --sheet-frame: #140608;
+  --bg: var(--desk);
+  --paper: var(--sheet);
+  --accent: var(--glow);
+  --visited: var(--lilac);
+  --active: #ff99a0;
+  --scroll-thumb: var(--glow);
+  --scroll-track: var(--chassis-lo);
+}
+
+.sheet {
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--glow-rgb), 0.15),
+    0 0 0 3px var(--sheet-frame),
+    0 0 0 4px rgba(var(--glow-rgb), 0.35),
+    inset 0 0 28px rgba(var(--glow-rgb), 0.07);
+  text-shadow: 0 0 6px rgba(var(--glow-rgb), 0.2);
+}
+.go-shell h1,
+.mast h1 {
+  text-shadow: 0 0 14px rgba(var(--glow-rgb), 0.5);
+}
+
+.go-shell a.world,
+.go-shell .worlds a.world {
+  box-shadow:
+    inset 0 1px 0 rgba(var(--glow-rgb), 0.16),
+    0 0 0 1px var(--sheet-frame),
+    0 0 12px rgba(var(--glow-rgb), 0.12);
+}
+.go-shell a.world strong {
+  text-shadow: 0 0 8px rgba(var(--glow-rgb), 0.32);
+}
+.go-shell a.world:hover {
+  text-shadow: 0 0 10px rgba(var(--glow-rgb), 0.4);
+}

@@ -1,0 +1,109 @@
+/* Ned coat — unused while ned lives as a slip on the bay dock.
+   Live styles: mats/styles/bay.css .ned-* */
+:root {
+  --ned-teal: #3db8a8;
+  --ned-teal-deep: #2a8f82;
+  --ned-cream: #fff8ef;
+  --ned-peach: #ffd6c2;
+  --ned-sky: #d7f3ff;
+  --ned-ink: #2c3a42;
+  --ned-soft: #5a6b74;
+  --ned-chip: #ffe8dc;
+}
+
+body, .page, .content, main {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(61, 184, 168, 0.18), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(255, 214, 194, 0.45), transparent 38%),
+    radial-gradient(circle at 70% 80%, rgba(215, 243, 255, 0.55), transparent 45%),
+    linear-gradient(180deg, #fffaf3 0%, #eef9f6 100%) !important;
+  color: var(--ned-ink) !important;
+  font-family: "Segoe UI", "Trebuchet MS", system-ui, sans-serif !important;
+}
+
+.ned-hero {
+  margin: 1rem 0 1.4rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ffffff 0%, #e8fbf7 55%, #ffe8dc 100%);
+  border: 2px solid rgba(61, 184, 168, 0.35);
+  box-shadow: 0 10px 28px rgba(42, 143, 130, 0.12);
+}
+
+.ned-kicker {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ned-teal-deep);
+  margin-bottom: 0.35rem;
+}
+
+.ned-wordmark {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--ned-teal-deep);
+  text-shadow: 2px 2px 0 rgba(255, 214, 194, 0.9);
+}
+
+.ned-lede {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--ned-soft);
+  font-size: 1.02rem;
+  max-width: 38rem;
+}
+
+.ned-pockets, .ned-shelf {
+  margin: 1rem 0 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1.5px dashed rgba(61, 184, 168, 0.45);
+}
+
+.ned-label {
+  display: block;
+  font-weight: 700;
+  color: var(--ned-teal-deep);
+  margin-bottom: 0.65rem;
+}
+
+.ned-chip {
+  display: inline-block;
+  margin: 0.2rem 0.35rem 0.2rem 0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--ned-teal);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 0 rgba(42, 143, 130, 0.35);
+}
+
+.ned-back {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--ned-teal-deep);
+}
+
+/* markdown care-buckets page */
+h1, h2 {
+  color: var(--ned-teal-deep) !important;
+}
+
+h2 {
+  margin-top: 1.4rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid rgba(61, 184, 168, 0.25);
+}
+
+ul li {
+  margin: 0.35rem 0;
+}
+
+a {
+  color: var(--ned-teal-deep);
+}

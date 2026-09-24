@@ -1,0 +1,605 @@
+@import url("/styles/fonts.css");
+
+/* go.rituals / mirror-box — looking-glass chamber
+   files and directories live IN THE PANE. the desk is the open scrap.
+   rituals greens+rust + purple bloom + B&W candle + chrome glass
+   place bones: looking · wick-ledge · pane-stage · glass-face · glass-rooms · scrap-desk */
+
+:root {
+  --bg: #07090e;
+  --void: #04060a;
+  --well: #0c1016;
+  --panel: #121820;
+  --ledge: #16101c;
+  --line: #2a3040;
+  --line-soft: rgba(60, 70, 90, 0.5);
+  --text: #e2e6ec;
+  --mute: #8a92a4;
+  --dust: #525868;
+  --moss: #162820;
+  --moss-edge: #223830;
+  --rust: #7a3428;
+  --rust-glow: rgba(122, 52, 40, 0.3);
+  --violet: #6a3a8a;
+  --violet-mid: #7e4aa0;
+  --violet-bright: #a060d0;
+  --violet-hot: #c080e8;
+  --violet-glow: rgba(130, 70, 190, 0.5);
+  --candle-w: #f4f0e8;
+  --candle-b: #101012;
+  --flame: #fff0c8;
+  --chrome: #c4ccd8;
+  --chrome-hi: #eef2f8;
+  --paper: #0a0e14;
+  --ink: #f2f4f8;
+  --accent: #a060d0;
+  --visited: #6a7a90;
+  --active: #c898e8;
+  --scroll-thumb: rgba(160, 96, 208, 0.3);
+  --scroll-track: transparent;
+  --title-size: 1.55rem;
+  --glass: 10px;
+}
+
+@keyframes mirror-wick {
+  0%,
+  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  35% { opacity: 0.7; transform: translateX(-48%) scale(1.08); }
+  55% { opacity: 0.95; transform: translateX(-52%) scale(0.94); }
+  78% { opacity: 0.8; }
+}
+
+@keyframes mirror-ghost {
+  0%,
+  100% {
+    opacity: 0.3;
+    filter: grayscale(0.28) saturate(0.75) blur(1px);
+  }
+  50% {
+    opacity: 0.48;
+    filter: grayscale(0.08) saturate(1.05) blur(0.35px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .go-shell .taper::before,
+  .go-shell span.taper::before,
+  .go-shell .glass-face::after,
+  .go-shell .glass-ghost img {
+    animation: none !important;
+  }
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse 58% 42% at 50% -8%, var(--violet-glow), transparent 58%),
+    radial-gradient(ellipse 36% 30% at 6% 88%, var(--rust-glow), transparent 55%),
+    radial-gradient(ellipse 28% 22% at 94% 35%, rgba(200, 208, 220, 0.07), transparent 62%),
+    radial-gradient(ellipse 20% 18% at 18% 20%, rgba(36, 56, 48, 0.35), transparent 70%),
+    linear-gradient(180deg, #0e1218 0%, var(--bg) 48%, var(--void) 100%);
+  color: var(--text);
+  font-family: var(--font-mono), "IBM Plex Mono", monospace;
+  font-size: var(--glass);
+  line-height: 1.55;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.go-shell,
+.go-shell * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+.go-shell::-webkit-scrollbar,
+.go-shell *::-webkit-scrollbar { width: 7px; height: 7px; }
+.go-shell::-webkit-scrollbar-track,
+.go-shell *::-webkit-scrollbar-track { background: transparent; }
+.go-shell::-webkit-scrollbar-thumb,
+.go-shell *::-webkit-scrollbar-thumb { background: transparent; }
+.go-shell:hover::-webkit-scrollbar-thumb,
+.go-shell *:hover::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+}
+
+.go-shell a { color: var(--accent); text-decoration: none; }
+.go-shell a:visited { color: var(--visited); }
+.go-shell a:hover { color: var(--active); }
+
+.go-shell .headers,
+.go-shell .uses { display: none; }
+
+.go-shell .looking {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* --- wick ledge --- */
+.go-shell .wick-ledge {
+  position: relative;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 0.75rem 1rem;
+  padding: 0.7rem 1rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(106, 58, 138, 0.32) 0%, transparent 48%),
+    linear-gradient(180deg, #1a1222 0%, var(--ledge) 55%, #100e16 100%);
+  box-shadow:
+    inset 0 -1px 0 rgba(160, 96, 208, 0.4),
+    0 10px 28px rgba(60, 20, 100, 0.22);
+}
+
+.go-shell .wick-row,
+.go-shell p.wick-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  margin: 0;
+  padding-bottom: 0.1rem;
+}
+
+.go-shell .taper,
+.go-shell .taper-dim,
+.go-shell span.taper,
+.go-shell span.taper-dim {
+  position: relative;
+  display: inline-block;
+  width: 0.48rem;
+  height: 1.45rem;
+  border-radius: 2px 2px 1px 1px;
+  background:
+    linear-gradient(180deg, var(--candle-w) 0 38%, var(--candle-b) 38% 58%, var(--candle-w) 58% 100%);
+  box-shadow:
+    0 -5px 12px rgba(160, 96, 208, 0.55),
+    0 -1px 3px rgba(244, 240, 232, 0.45),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+  vertical-align: bottom;
+}
+
+.go-shell .taper::before,
+.go-shell .taper-dim::before,
+.go-shell span.taper::before,
+.go-shell span.taper-dim::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.42rem;
+  width: 0.32rem;
+  height: 0.5rem;
+  margin-left: 0;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 40% 40%;
+  background: radial-gradient(circle at 40% 30%, #fffaf0, var(--violet-bright) 55%, transparent 72%);
+  box-shadow: 0 0 10px var(--violet-glow);
+  animation: mirror-wick 2.6s ease-in-out infinite;
+}
+
+.go-shell .taper:nth-child(2)::before,
+.go-shell span.taper:nth-child(2)::before { animation-duration: 3.2s; animation-delay: -0.4s; }
+.go-shell .taper:nth-child(3)::before,
+.go-shell span.taper:nth-child(3)::before { animation-duration: 2.1s; animation-delay: -1.2s; }
+.go-shell .taper:nth-child(5)::before,
+.go-shell span.taper:nth-child(5)::before { animation-duration: 2.9s; animation-delay: -1.7s; }
+
+.go-shell .taper-dim,
+.go-shell span.taper-dim {
+  height: 1.1rem;
+  opacity: 0.55;
+}
+.go-shell .taper-dim::before,
+.go-shell span.taper-dim::before {
+  opacity: 0.45;
+  animation: none;
+}
+
+.go-shell .ledge-plate,
+.go-shell p.ledge-plate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.85rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.go-shell .chamber-name,
+.go-shell .chamber-name a,
+.go-shell span.chamber-name {
+  font-family: var(--font-glass), "Share Tech Mono", monospace;
+  font-size: var(--title-size);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--chrome-hi);
+  text-shadow:
+    0 0 16px rgba(160, 96, 208, 0.5),
+    1px 1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.go-shell .chamber-mark,
+.go-shell span.chamber-mark {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  color: var(--mute);
+  letter-spacing: 0.08em;
+}
+
+.go-shell .return-latch,
+.go-shell .return-latch p,
+.go-shell p.return-latch {
+  margin: 0;
+  justify-self: end;
+  align-self: center;
+  font-family: var(--font-glass), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--mute);
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--moss-edge);
+  background: linear-gradient(180deg, rgba(34, 56, 48, 0.65), var(--moss));
+  box-shadow:
+    inset 0 1px 0 rgba(200, 208, 220, 0.06),
+    0 0 12px rgba(36, 56, 48, 0.25);
+  white-space: nowrap;
+}
+
+.go-shell .return-latch a { color: var(--chrome-hi); }
+.go-shell .return-latch a:hover { color: var(--violet-hot); }
+
+/* --- pane: glass (lists) | desk (open scrap) --- */
+.go-shell .pane-stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+  overflow: hidden;
+}
+
+.go-shell .glass-face {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  margin: 0.85rem 0.55rem 0.85rem 0.95rem;
+  border: 1px solid rgba(200, 208, 220, 0.35);
+  border-radius: 2px;
+  background:
+    linear-gradient(148deg, #1a2030 0%, #2a3850 28%, #141820 48%, #3a4860 72%, #10141c 100%);
+  box-shadow:
+    inset 0 0 40px rgba(238, 242, 248, 0.08),
+    inset 0 0 80px rgba(106, 58, 138, 0.12),
+    0 0 28px rgba(130, 70, 190, 0.18),
+    8px 10px 0 rgba(0, 0, 0, 0.45),
+    0 0 0 6px #12141a,
+    0 0 0 7px rgba(200, 208, 220, 0.18);
+}
+
+.go-shell .glass-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(115deg, rgba(238, 242, 248, 0.18) 0%, transparent 22%, transparent 48%, rgba(200, 208, 220, 0.08) 62%, transparent 78%),
+    linear-gradient(0deg, rgba(4, 6, 10, 0.35) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.go-shell .glass-face::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  top: 14%;
+  width: 28%;
+  height: 50%;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(238, 242, 248, 0.14), transparent 70%);
+  transform: skewX(-8deg);
+  pointer-events: none;
+  filter: blur(0.5px);
+  animation: mirror-bloom 9s ease-in-out infinite;
+}
+
+.go-shell .glass-caption,
+.go-shell .glass-caption p,
+.go-shell p.glass-caption {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.55rem 0.8rem 0.2rem;
+  font-family: var(--font-glass), monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(238, 242, 248, 0.62);
+  text-shadow: 0 0 8px rgba(160, 96, 208, 0.35);
+}
+
+/* directories + notes of this folder — they live in the glass */
+.go-shell .glass-rooms {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.55rem 0.85rem 1.4rem;
+}
+
+.go-shell .glass-ghost {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.go-shell .glass-ghost figure.jacket,
+.go-shell .glass-ghost figure.jacket.has-cover {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  float: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.go-shell .glass-ghost .name,
+.go-shell .glass-ghost figcaption {
+  display: none;
+}
+
+.go-shell .glass-ghost a.jacket-zoom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.go-shell .glass-ghost img,
+.go-shell .glass-ghost img.pic,
+.go-shell .glass-ghost img.jacket-art,
+.go-shell .glass-ghost figure.jacket img.jacket-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 28%;
+  opacity: 0.42;
+  transform: scaleX(-1);
+  mix-blend-mode: screen;
+  animation: mirror-ghost 14s ease-in-out infinite;
+}
+
+.go-shell .glass-rooms > p {
+  margin: 0;
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 1.1rem;
+  font-size: 0;
+  min-height: 0;
+}
+.go-shell .glass-rooms > p::before {
+  content: "the pane is empty. folders and notes appear here.";
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: rgba(238, 242, 248, 0.42);
+  font-family: var(--font-glass), monospace;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.go-shell .glass-rooms ul.dir {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.go-shell .glass-rooms ul.dir ul.dir {
+  padding-left: 0.85rem;
+  margin: 0.15rem 0 0.25rem;
+  border-left: 1px solid rgba(200, 208, 220, 0.12);
+}
+
+.go-shell .glass-rooms ul.dir li {
+  margin: 0 0 0.15rem;
+}
+
+.go-shell .glass-rooms ul.dir a {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  color: var(--chrome-hi) !important;
+  font-family: var(--font-glass), monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  background: rgba(10, 14, 20, 0.22);
+  border: 1px solid transparent;
+  text-shadow:
+    0 0 10px rgba(160, 96, 208, 0.35),
+    1px 0 0 rgba(238, 242, 248, 0.08);
+}
+
+.go-shell .glass-rooms ul.dir a.is-dir,
+.go-shell .glass-rooms ul.dir li:has(ul) > a,
+.go-shell .glass-rooms ul.dir a .name:has(+ *) {
+  font-size: 0.9rem;
+}
+
+.go-shell .glass-rooms ul.dir a:hover,
+.go-shell .glass-rooms ul.dir a.on {
+  background: rgba(160, 96, 208, 0.16);
+  border-color: rgba(192, 128, 232, 0.35);
+  color: #fff !important;
+}
+
+.go-shell .glass-sheen,
+.go-shell .glass-sheen p,
+.go-shell p.glass-sheen {
+  display: none;
+}
+
+/* scrap desk — the open page, not the filing */
+.go-shell .scrap-desk {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  border-left: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 80% 35% at 50% 0%, rgba(130, 70, 190, 0.12), transparent 60%),
+    linear-gradient(180deg, #10141c 0%, var(--paper) 45%, #080a10 100%);
+  box-shadow: inset 8px 0 24px rgba(0, 0, 0, 0.28);
+}
+
+.go-shell .desk-lip,
+.go-shell .desk-lip p,
+.go-shell p.desk-lip {
+  margin: 0;
+  flex: 0 0 auto;
+  padding: 0.5rem 0.85rem 0.4rem;
+  font-family: var(--font-glass), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--chrome);
+  border-bottom: 1px solid var(--line-soft);
+  background:
+    linear-gradient(90deg, rgba(106, 58, 138, 0.2), transparent 70%),
+    var(--panel);
+}
+
+.go-shell .desk-pad {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.85rem 0.9rem 1.2rem;
+}
+
+.go-shell .go-paper,
+.go-shell .desk-pad .go-paper {
+  max-width: 34rem;
+  position: relative;
+  z-index: 1;
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  background: rgba(12, 16, 22, 0.78);
+  border: 1px solid rgba(200, 208, 220, 0.16);
+  padding: 0.85rem 1rem;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 242, 248, 0.08),
+    0 0 22px rgba(106, 58, 138, 0.14);
+}
+
+.go-shell .go-paper h1,
+.go-shell .go-paper h2 {
+  font-family: var(--font-glass), monospace;
+  letter-spacing: 0.07em;
+  color: var(--chrome-hi);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.3rem;
+  margin-top: 0;
+}
+
+.go-shell .go-paper p { color: var(--text); }
+
+.go-shell .crumb {
+  font-family: var(--font-glass), monospace;
+  font-size: 0.7rem;
+  color: var(--dust);
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.04em;
+}
+
+.go-shell .worlds a.world,
+.go-shell a.world {
+  display: block;
+  padding: 0.55rem 0.65rem;
+  margin: 0 0 0.4rem;
+  background: rgba(12, 16, 22, 0.35);
+  border: 1px solid rgba(200, 208, 220, 0.16);
+  border-left: 3px solid var(--candle-w);
+  box-shadow: inset 3px 0 0 var(--candle-b);
+  color: var(--chrome-hi);
+  font-family: var(--font-mono), monospace;
+}
+
+.go-shell a.world strong {
+  font-family: var(--font-glass), monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  color: var(--chrome-hi);
+}
+
+.go-shell a.world:hover {
+  border-color: var(--violet-bright);
+  box-shadow:
+    inset 3px 0 0 var(--candle-w),
+    0 0 12px rgba(160, 96, 208, 0.32);
+}
+
+@media (max-width: 720px) {
+  .go-shell .wick-ledge {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .go-shell .return-latch,
+  .go-shell p.return-latch {
+    justify-self: start;
+  }
+  .go-shell .pane-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(11rem, 42%) minmax(0, 1fr);
+  }
+  .go-shell .glass-face {
+    margin: 0.55rem 0.65rem 0;
+  }
+  .go-shell .scrap-desk {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  :root { --title-size: 1.3rem; }
+}
+
+@media (max-width: 520px) {
+  .go-shell .wick-row { gap: 0.3rem; }
+  .go-shell .taper,
+  .go-shell span.taper { height: 1.15rem; width: 0.4rem; }
+}

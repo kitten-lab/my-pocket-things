@@ -29,6 +29,6 @@ Pocket paths, not `?p=`:
 
 Wiki `[[links]]` still resolve, inside the host you are on. Extra skins via note frontmatter `environment: terminal-io` → `mats/styles/terminal-io.css`.
 
-Home (`/`) is [`~hosts/start.md`](./~hosts/start.md). Drop `_index.md` in any host folder the same way — optional. Every `{{token}}` is listed in [`KEYS.md`](./KEYS.md). Look: `prod/www_sys/index.css`. Don't need to touch `server.py`.
+Home (`/`) is [`~hosts/start.md`](./~hosts/start.md). Drop `_shell.md` in any host folder the same way — optional. Every `{{token}}` is listed in [`KEYS.md`](./KEYS.md). Look: `prod/www_sys/index.css`. Don't need to touch `server.py`.
 
 Type `go.{name}/` in the bar. If that folder is not in `~hosts/` yet, the pocket says the room isn't here now. Hosts are found, not predefined. Optional aliases: [`~hosts/_hosts.yaml`](./~hosts/_hosts.yaml).

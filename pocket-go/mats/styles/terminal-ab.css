@@ -1,259 +1,194 @@
 @import "terminal-root.css";
 
-/* TERMINAL AB - same house as IO, red invert. KDE-555's console. */
+/* AB — red terminal · ABX chip · KDE-555. Same house as IO, red invert. */
 
-:root {
-  --abx-bright: #e8332a;
-  --abx-ultrabright: #ff2a1a;
-  --abx-midlight: #8a1f18;
-  --abx-standard: #6e1612;
-  --abx-highlighter: #3a1410;
-  --abx-background: #1a0808;
-  --abx-dark: #5a1410;
-  --abx-tint: #4a1814;
-  --abx-glass: "Glass TTY VT220", "VT323", "Consolas", monospace;
-  --abx-arcade: "Arcade Interlaced", "VT323", monospace;
-  --abx-scan: linear-gradient(rgba(0, 0, 0, 0.5) 2px, transparent 1px);
-  --abx-scan-size: 100% 3px;
+.go-shell {
+  --abx-bright: #c43a3a;
+  --abx-ultrabright: #ff3b3b;
+  --abx-midlight: #8a2424;
+  --abx-standard: #6e1c1c;
+  --abx-highlighter: #3a1818;
+  --abx-background: #1a0c0c;
+  --abx-dark: #5a1818;
+  --abx-tint: #4a2020;
 
-  --ink: var(--abx-bright);
-  --line: var(--abx-dark);
-  --paper: var(--abx-background);
-  --accent: var(--abx-bright);
+  --tm-bg: var(--abx-background);
+  --tm-tree-bg: #140808;
+  --tm-fg: #ff8a8a;
+  --tm-fg-dim: #b84848;
+  --tm-accent: var(--abx-bright);
+  --tm-hot: var(--abx-ultrabright);
+  --tm-line: var(--abx-dark);
+  --tm-scan: linear-gradient(rgba(0, 0, 0, 0.45) 2px, transparent 1px);
+  --tm-scan-size: 100% 3px;
+
+  --ink: var(--tm-fg);
+  --mute: var(--tm-fg-dim);
+  --line: var(--tm-line);
+  --paper: var(--tm-bg);
+  --accent: var(--tm-accent);
   --visited: var(--abx-midlight);
-  --active: var(--abx-ultrabright);
+  --active: var(--tm-hot);
   --seek: var(--abx-standard);
   --burn: #ffaa22;
   --view: var(--abx-ultrabright);
-  --tone: var(--abx-highlighter);
-  --mute: var(--abx-midlight);
-}
 
-.wwwExplorer_innerShell {
-  --rail: 200px;
-  font-family: var(--abx-glass);
-  font-style: normal;
-  font-size: 20px;
-  color: var(--abx-bright);
+  --pocket-scroll-track: #140808;
+  --pocket-scroll-thumb: #6e2424;
+  --pocket-scroll-thumb-hover: #c43a3a;
+
+  color: var(--tm-fg);
   background-color: var(--abx-background);
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
+  box-shadow: inset 0 0 80px rgba(40, 0, 0, 0.55);
+}
+
+.go-shell .chip {
+  background: #0e0606;
+  border-right-color: var(--abx-bright);
   box-shadow:
-    inset 0 0 40vh rgba(0, 0, 0, 0.7),
-    inset 0 0 80px rgba(255, 40, 20, 0.08);
-}
-
-.wwwExplorer_innerShell,
-.wwwExplorer_innerShell p,
-.wwwExplorer_innerShell li,
-.wwwExplorer_innerShell td,
-.wwwExplorer_innerShell th {
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--abx-arcade);
-  font-style: normal;
-  font-weight: 300 !important;
-  color: var(--abx-ultrabright);
-  text-shadow: 0 0 14px rgba(255, 40, 20, 0.45);
-}
-
-h1 { font-size: 2em; }
-
-.mast {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2.2rem;
-  font-family: var(--abx-arcade);
-  font-style: normal;
-  font-size: 1.15rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem 0.22rem 0.75rem;
-  background-color: var(--abx-bright);
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-  border-bottom: 0;
-  color: var(--abx-background);
-  text-shadow: none;
+    inset -6px 0 18px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(196, 58, 58, 0.18);
 }
 
 p.mast::after {
-  content: "AB";
-  position: static;
-  left: auto;
-  top: auto;
-  height: auto;
+  content: "the line is listening";
+}
+
+.go-shell .side {
+  background-color: #140808;
+  border-right-color: var(--abx-dark);
+}
+
+.go-shell .side a.world {
+  display: block !important;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 0;
   margin: 0;
-  padding: 0.28em 0.55em 0.18em;
-  font-family: var(--abx-arcade);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  padding: 5px 8px 5px 6px !important;
+  border: none !important;
+  background: transparent !important;
+  color: var(--tm-fg) !important;
+  letter-spacing: 0.06em;
+  font-family: var(--tm-font);
+  font-size: 18px;
+  box-shadow: none;
+}
+
+.go-shell .side a.world::before {
+  content: ">| ";
+  opacity: 0.45;
+  font-size: 0.85em;
+}
+
+.go-shell .side a.world .door-deck,
+.go-shell .side a.world .note-details {
+  display: none !important;
+}
+
+.go-shell .side a.world .door-copy,
+.go-shell .side a.world .name,
+.go-shell .side a.world strong {
+  display: inline !important;
+  font-family: var(--tm-font);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.go-shell .side a.world:hover,
+.go-shell .side a.world.door-ab:hover {
+  color: var(--tm-hot) !important;
+  border: none !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  box-shadow: none;
+  text-shadow: 0 0 8px rgba(255, 40, 40, 0.35);
+}
+
+.go-shell .side a.world:hover::after {
+  content: " >|";
+  opacity: 0.7;
+}
+
+.go-shell .content {
   background-color: var(--abx-background);
-  color: var(--abx-ultrabright);
-  opacity: 1;
-  text-shadow: 0 0 10px rgba(255, 40, 20, 0.5);
 }
 
-.side {
-  font-family: var(--abx-glass);
-  font-style: normal;
-  text-transform: uppercase;
-  background-color: var(--abx-standard);
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-  border-right: 3px solid var(--abx-bright);
-  color: var(--abx-bright);
-  box-shadow: inset -6px 0 18px rgba(0, 0, 0, 0.5);
-}
-
-.content {
-  font-family: var(--abx-glass);
-  font-style: normal;
-  color: var(--abx-bright);
-  background-color: var(--abx-background);
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-  position: relative;
-}
-
-.content::before {
-  content: "KDE-555";
+.go-shell .content::before {
+  content: "THE LINE IS LISTENING";
   position: absolute;
-  top: 24%;
-  left: 10%;
-  font-family: var(--abx-arcade);
-  font-size: clamp(1rem, 3vw, 2.2rem);
+  top: 18%;
+  left: 6%;
+  font-family: var(--tm-font-ui);
+  font-size: clamp(14px, 2.8vw, 32px);
   color: var(--abx-bright);
-  opacity: 0.07;
+  opacity: 0.06;
   transform: rotate(-8deg);
   pointer-events: none;
   z-index: 0;
   white-space: nowrap;
 }
 
-.content > * {
-  position: relative;
-  z-index: 1;
-}
-
-.content p {
-  width: auto;
-  max-width: 42rem;
-  font-family: var(--abx-glass);
-  font-size: 1.05em;
-  font-weight: 400;
-  color: #f08070;
-}
-
-.content pre,
-.wwwExplorer_innerShell pre.code {
-  font-family: var(--abx-glass);
-  font-size: 0.95em !important;
-  font-style: normal;
+.go-shell .content h1 {
   color: var(--abx-ultrabright);
-  background: rgba(28, 6, 6, 0.65);
-  border: 1px dotted var(--abx-dark);
-  padding: 0.8em 1em;
-  max-width: 46rem;
+  text-shadow: 0 0 14px rgba(255, 40, 40, 0.35);
 }
 
-.center {
-  text-align: center;
-  max-width: none !important;
-  width: 100% !important;
-  font-family: var(--abx-arcade);
-  font-size: 0.85em;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--abx-ultrabright);
-  text-shadow: 0 0 12px rgba(255, 40, 20, 0.4);
+.go-shell .content p {
+  color: #ff9a9a;
 }
 
-.foot {
-  font-family: var(--abx-arcade);
-  font-style: normal;
-  font-size: 0.7em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--abx-background);
-  border-top: 0;
-  background-color: var(--abx-bright);
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-}
-
-.tag {
-  font-family: var(--abx-arcade);
-  font-style: normal;
-  font-size: 0.75em;
-  letter-spacing: 0.05em;
-  border-radius: 0;
-  border: 1px solid var(--abx-highlighter);
-  background-color: var(--abx-highlighter);
+.go-shell .content a {
   color: var(--abx-bright);
+  text-decoration-color: rgba(196, 58, 58, 0.45);
 }
 
-.tag:hover,
-.tag a:hover,
-.tag a.been:hover {
-  background-color: var(--abx-bright);
-  color: var(--abx-standard) !important;
-}
-
-a.world {
-  border: 1px solid var(--abx-dark) !important;
-  padding: 8px 10px !important;
-  background-color: #140404 !important;
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-  color: #f09080 !important;
-  text-shadow: none;
-}
-
-a.world:hover,
-a.world.door-ab:hover {
-  border-color: var(--abx-ultrabright) !important;
-  color: var(--abx-ultrabright) !important;
-  background-color: #140404 !important;
-  box-shadow: 0 0 16px rgba(255, 40, 20, 0.28);
-  text-shadow: 0 0 8px rgba(255, 40, 20, 0.4);
-}
-
-span.accent {
+.go-shell .content a:hover {
   color: var(--abx-ultrabright);
-  text-shadow: 0 0 10px rgba(255, 40, 20, 0.55);
+  text-decoration-color: rgba(255, 59, 59, 0.6);
 }
 
-.content figure.jacket {
+.go-shell .content pre,
+.go-shell pre.code {
+  color: var(--abx-ultrabright);
+  background: rgba(20, 8, 8, 0.65);
+  border-color: var(--abx-dark);
+}
+
+.go-shell ::selection {
+  background: rgba(90, 20, 20, 0.95);
+  color: #fff;
+}
+
+.go-shell .content figure.jacket {
+  position: relative;
+  display: block;
   float: none;
+  clear: both;
   width: calc(100% + 120px);
   max-width: none;
-  height: 16rem;
-  margin: -20px -60px 1.4rem;
+  height: 14em;
+  margin: -14px -60px 1.5em;
   overflow: hidden;
   isolation: isolate;
-  background: #140404;
+  background: #120808;
   border: 0;
   box-shadow: none;
   filter: none;
 }
 
-.content figure.jacket::before {
+.go-shell .content figure.jacket::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background-image: var(--abx-scan);
-  background-size: var(--abx-scan-size);
-  box-shadow: inset 0 -2.5rem 3rem var(--abx-background);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  box-shadow: inset 0 -2.5em 3em var(--abx-background);
 }
 
-.content figure.jacket::after {
+.go-shell .content figure.jacket::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -263,7 +198,7 @@ span.accent {
   mix-blend-mode: color;
 }
 
-.content figure.jacket img.jacket-art {
+.go-shell .content figure.jacket img.jacket-art {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -272,11 +207,11 @@ span.accent {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: center 35%;
   filter: grayscale(1) contrast(1.1);
 }
 
-.content figure.jacket.has-cover .name,
-.content figure.jacket .name {
+.go-shell .content figure.jacket.has-cover .name,
+.go-shell .content figure.jacket .name {
   display: none;
 }

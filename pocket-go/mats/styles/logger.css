@@ -1,0 +1,596 @@
+/* coat: logger — Walker night-clerk blotter. Printout strips, ribbon type. */
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
+
+.go-shell {
+  --oak: #7a5333;
+  --oak-deep: #4e321c;
+  --oak-hi: #c49a6c;
+  --oak-top: #8a5e38;
+  --oak-lo: #6a482c;
+  --head-hi: #9a6a40;
+  --head-lo: #684628;
+  --brass: #f4e6c4;
+  --brass-dim: #d7c29a;
+  --path-ink: #ead6b0;
+  --felt: #4a6b4e;
+  --felt-mid: #3d5c44;
+  --felt-deep: #2f4735;
+  --felt-edge: #24382a;
+  --felt-rib: rgba(20, 40, 24, 0.07);
+  --lamp: rgba(255, 214, 140, 0.42);
+  --slip: #f3ead4;
+  --slip-edge: #c9b48a;
+  --slip-hi: #f7f0dc;
+  --slip-lo: #ebe1c6;
+  --punch: #e4d6b4;
+  --punch-rule: #b89a6a;
+  --carbon: #1c1612;
+  --ribbon-red: #a31c24;
+  --ribbon-blue: #1a3a86;
+  --ribbon-green: #1e5a38;
+  --mute: #6a5a44;
+  --label-on-felt: #d7e6d4;
+  --tab: #efe2c4;
+  --tab-edge: #b89a62;
+  --field: #f7f1de;
+  --post-edge: #6e1016;
+  --paper: var(--slip);
+  --ink: var(--carbon);
+  --strip: var(--felt-mid);
+  --font-type: "Special Elite", "Courier Prime", "Courier New", Courier, monospace;
+  --font-plain: "Courier Prime", "Courier New", Courier, monospace;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--carbon);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -8%, var(--lamp), transparent 58%),
+    linear-gradient(90deg, var(--oak-deep) 0 10px, transparent 10px),
+    linear-gradient(90deg, transparent calc(100% - 10px), var(--oak-deep) calc(100% - 10px)),
+    linear-gradient(180deg, var(--oak-top) 0%, var(--oak) 18%, var(--oak-lo) 100%);
+  font-family: var(--font-type);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  padding: 10px 14px 12px;
+  margin: 0;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb {
+  display: none !important;
+}
+.go-shell .path .crumb,
+.go-shell .path .crumbback {
+  display: inline !important;
+}
+
+.go-shell > #browserWindow > .md-gap {
+  display: none;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
+  font-family: var(--font-type);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--carbon);
+  text-shadow: none;
+}
+
+.go-shell a {
+  color: var(--ribbon-blue);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--ribbon-blue) 35%, transparent);
+}
+.go-shell a:hover {
+  color: var(--ribbon-red);
+  border-bottom-color: var(--ribbon-red);
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell .walk {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid var(--oak-deep);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 220, 170, 0.22),
+    0 10px 18px rgba(30, 16, 6, 0.35);
+}
+
+.go-shell .blotter-head {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 1.2em;
+  row-gap: 0.28em;
+  align-items: baseline;
+  padding: 0.85em 1.15em 0.75em;
+  background:
+    linear-gradient(180deg, var(--head-hi) 0%, var(--oak) 70%, var(--head-lo) 100%);
+  border-bottom: 3px solid var(--oak-deep);
+  color: var(--brass);
+}
+
+.go-shell .desk-mark {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-type);
+  font-size: 1.55em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: var(--brass);
+  text-shadow: 0 1px 0 var(--oak-deep);
+}
+.go-shell .desk-mark p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.go-shell .desk-mark-sub,
+.go-shell .desk-mark-sub p {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+  white-space: nowrap;
+}
+
+.go-shell .path {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: baseline;
+  justify-self: end;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+  color: var(--path-ink);
+}
+.go-shell .path,
+.go-shell .path p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.go-shell .path a {
+  color: var(--path-ink);
+  border-bottom-color: color-mix(in srgb, var(--path-ink) 35%, transparent);
+}
+.go-shell .path a:hover {
+  color: var(--brass);
+}
+
+.go-shell .blotter {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.15em 1.25em 1.7em;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, var(--lamp), transparent 62%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 11px,
+      var(--felt-rib) 11px 12px
+    ),
+    radial-gradient(circle at 18% 72%, rgba(20, 30, 18, 0.18), transparent 42%),
+    linear-gradient(180deg, var(--felt) 0%, var(--felt-mid) 48%, var(--felt-deep) 100%);
+  box-shadow: inset 0 8px 18px rgba(12, 22, 14, 0.28);
+}
+
+.go-shell .in-tray,
+.go-shell .out-tray {
+  margin: 0 0 1em;
+}
+
+.go-shell .tray-label,
+.go-shell .tray-label p {
+  margin: 0 0 0.45em;
+  padding: 0 0 0 2.35em;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--label-on-felt);
+  text-shadow: 0 1px 0 rgba(20, 30, 18, 0.45);
+}
+
+.go-shell .platen {
+  position: relative;
+  color: var(--carbon);
+  border: 1px solid var(--slip-edge);
+  box-shadow:
+    0 1px 0 #fff6e4 inset,
+    1px 2px 0 rgba(40, 24, 8, 0.18),
+    3px 6px 10px rgba(20, 28, 16, 0.22);
+  padding: 1em 1.25em 1.15em 2.35em;
+  font-family: var(--font-type);
+  font-size: 0.95em;
+  line-height: 1.55;
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.48em,
+      rgba(26, 58, 134, 0.09) 1.48em 1.55em
+    ),
+    var(--slip);
+  transform: rotate(-0.18deg);
+}
+
+.go-shell .platen h1 {
+  font-size: 1.12em;
+  margin: 0 0 0.35em;
+}
+
+.go-shell .platen:has(ul.dir) {
+  display: inline-block;
+  min-width: 14em;
+  max-width: 100%;
+}
+.go-shell .in-tray ul.dir a {
+  display: inline-block;
+  margin: 0.15em 0.35em 0.15em 0;
+  padding: 0.18em 0.55em 0.12em;
+  background: var(--tab);
+  border: 1px solid var(--tab-edge);
+  border-bottom-width: 3px;
+  color: var(--carbon);
+  box-shadow: 1px 1px 0 rgba(80, 50, 16, 0.2);
+}
+
+.go-shell .out-tray .faces,
+.go-shell .faces {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.7em;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .face-deck {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.7em;
+  align-items: stretch;
+}
+
+.go-shell .face-deck-label {
+  flex: none;
+  margin: 0 0 0.15em;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--label-on-felt);
+  text-shadow: 0 1px 0 rgba(20, 30, 18, 0.45);
+}
+
+.go-shell .faces .lorecard,
+.go-shell .faces .face,
+.go-shell article.face {
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+  padding: 0.9em 1.2em 1em 2.35em;
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.5em,
+      rgba(163, 28, 36, 0.07) 1.5em 1.56em
+    ),
+    linear-gradient(180deg, var(--slip-hi) 0%, var(--slip) 55%, var(--slip-lo) 100%);
+  border: 1px solid var(--slip-edge);
+  border-left: 0;
+  box-shadow:
+    0 1px 0 rgba(255, 248, 230, 0.7) inset,
+    2px 3px 0 rgba(40, 24, 8, 0.14),
+    4px 8px 12px rgba(16, 24, 14, 0.2);
+  font-family: var(--font-type);
+  font-size: 0.92em;
+  line-height: 1.5;
+  color: var(--carbon);
+  transform-origin: 12% 40%;
+}
+
+.go-shell .platen::before,
+.go-shell .faces .face::before,
+.go-shell article.face::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  background-color: var(--punch);
+  background-image: radial-gradient(
+    circle,
+    var(--felt-deep) 0 2.2px,
+    var(--felt-mid) 2.2px 2.45px,
+    rgba(40, 24, 8, 0.28) 2.45px 2.7px,
+    transparent 2.85px
+  );
+  background-size: 28px 18px;
+  background-position: 0 8px;
+  background-repeat: repeat-y;
+  box-shadow: inset -1px 0 0 var(--punch-rule);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.go-shell .faces .face:nth-child(odd),
+.go-shell .face-deck > .face:nth-child(odd) {
+  transform: rotate(-0.38deg);
+}
+.go-shell .faces .face:nth-child(even),
+.go-shell .face-deck > .face:nth-child(even) {
+  transform: rotate(0.32deg);
+}
+.go-shell .faces .face:nth-child(3n),
+.go-shell .face-deck > .face:nth-child(3n) {
+  transform: rotate(0.18deg) translateX(4px);
+}
+.go-shell .faces .face:hover,
+.go-shell .face-deck > .face:hover {
+  transform: rotate(0) translateY(-1px);
+  z-index: 2;
+}
+
+.go-shell .face-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em 0.7em;
+  margin: 0 0 0.35em;
+  padding-bottom: 0.28em;
+  border-bottom: 1px solid rgba(80, 60, 30, 0.22);
+}
+
+.go-shell .face-head h1,
+.go-shell .face-head h2,
+.go-shell .face .title,
+.go-shell article.face h1,
+.go-shell article.face h2,
+.go-shell .faces .face h1 {
+  margin: 0 0 0.25em;
+  font-family: var(--font-type);
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--carbon);
+}
+
+.go-shell .face-body,
+.go-shell .face .md,
+.go-shell article.face .md {
+  font-family: var(--font-type);
+  font-size: 0.95em;
+  color: var(--carbon);
+}
+
+.go-shell .face strong,
+.go-shell .in-tray strong,
+.go-shell .blotter strong {
+  font-weight: 700;
+  color: var(--ribbon-red);
+}
+
+.go-shell .face em,
+.go-shell .in-tray em,
+.go-shell .blotter em {
+  font-style: italic;
+  color: var(--ribbon-blue);
+}
+
+.go-shell .chips,
+.go-shell .face .chips,
+.go-shell .platen .chips,
+.go-shell .face-head .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em 0.7em;
+  margin: 0.15em 0 0.45em;
+  padding: 0.1em 0 0.2em;
+  border: 0;
+  border-bottom: 1px dashed rgba(80, 60, 30, 0.28);
+  background: transparent;
+}
+
+.go-shell .chip,
+.go-shell .face .chip,
+.go-shell .platen .chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--font-plain);
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+}
+
+.go-shell .chip-label {
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ribbon-blue);
+}
+.go-shell .chip-label::after {
+  content: ":";
+  color: var(--mute);
+}
+
+.go-shell .chip-value,
+.go-shell .chip-values {
+  font-family: var(--font-type);
+  font-size: 0.92em;
+  font-weight: 700;
+  color: var(--ribbon-red);
+}
+
+.go-shell .chips-librarian .chip-value {
+  color: var(--ribbon-blue);
+}
+.go-shell .chips-tps .chip-value,
+.go-shell .chips-agent .chip-value {
+  color: var(--ribbon-red);
+}
+.go-shell .chips-detective .chip-value {
+  color: #6b1a48;
+}
+
+.go-shell form.pg-injector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+  margin: 0;
+  max-width: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.go-shell form.pg-injector label,
+.go-shell form.pg-injector .lab,
+.go-shell form.pg-injector .pg-injector-label {
+  font-family: var(--font-plain);
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ribbon-blue);
+  opacity: 1;
+}
+
+.go-shell form.pg-injector .pg-injector-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+
+.go-shell form.pg-injector input[type="text"],
+.go-shell form.pg-injector input[type="hidden"] + textarea,
+.go-shell form.pg-injector textarea,
+.go-shell form.pg-injector .pg-injector-field {
+  font-family: var(--font-type);
+  font-size: 1em;
+  color: var(--carbon);
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.45em,
+      rgba(26, 58, 134, 0.12) 1.45em 1.52em
+    ),
+    var(--field);
+  border: 0;
+  border-bottom: 1px solid rgba(26, 58, 134, 0.28);
+  border-radius: 0;
+  padding: 0.15em 0.2em;
+  box-shadow: none;
+  resize: vertical;
+  min-height: 6.5em;
+}
+
+.go-shell form.pg-injector input[type="text"],
+.go-shell form.pg-injector input.pg-injector-field {
+  min-height: 0;
+  width: 100%;
+  max-width: 28em;
+}
+
+.go-shell form.pg-injector button,
+.go-shell form.pg-injector input[type="submit"] {
+  align-self: start;
+  margin-top: 0.35em;
+  padding: 0.28em 0.9em 0.22em;
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  background: var(--ribbon-red);
+  border: 1px solid var(--post-edge);
+  border-bottom-width: 3px;
+  box-shadow: 1px 1px 0 var(--oak-deep);
+  cursor: pointer;
+}
+.go-shell form.pg-injector button:hover,
+.go-shell form.pg-injector input[type="submit"]:hover {
+  background: #b4222c;
+}
+
+.go-shell .empty,
+.go-shell .faces .empty {
+  font-family: var(--font-type);
+  font-size: 0.9em;
+  color: var(--label-on-felt);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0.4em 0;
+}
+
+.go-shell .crumb,
+.go-shell nav.crumb {
+  font-family: var(--font-plain);
+}
+
+.go-shell .fill-stage,
+.go-shell .inner-scroll {
+  height: auto;
+  max-height: none;
+}

@@ -18,7 +18,7 @@
   --hero: #0b3d36;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 12% -8%, rgba(244, 63, 94, 0.14), transparent 42%),
     radial-gradient(ellipse at 88% 8%, rgba(13, 148, 136, 0.18), transparent 40%),
@@ -30,7 +30,7 @@
     linear-gradient(165deg, #f3fffa 0%, var(--bg) 48%, #d9efe7 100%);
   color: var(--ink);
   font-family: "Source Serif 4", Georgia, serif;
-  font-size: 15px;
+  font-size: 2rem;
   line-height: 1.4;
 }
 
@@ -40,7 +40,7 @@
   margin: 0;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.66rem;
   letter-spacing: 0.04em;
@@ -74,7 +74,7 @@
 
 .mypi-kicker {
   position: relative;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-dos);
   font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -115,13 +115,13 @@
   margin: 0 0 0.45rem;
 }
 
-.wwwExplorer_innerShell .worlds {
+.go-shell .worlds {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
   gap: 0.45rem;
 }
 
-.wwwExplorer_innerShell a.world {
+.go-shell a.world {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -134,12 +134,12 @@
   text-decoration: none;
   font-family: "Syne", sans-serif;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 1.2rem;
   letter-spacing: -0.01em;
   transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
 }
 
-.wwwExplorer_innerShell a.world:hover {
+.go-shell a.world:hover {
   background: #fff;
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--stamp);
@@ -147,18 +147,19 @@
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell a.world:visited {
+.go-shell a.world:visited {
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell a.world strong {
+.go-shell a.world strong {
   display: block;
   overflow-wrap: anywhere;
   word-break: break-word;
+  font-size: 1.2rem !important;
   line-height: 1.15;
 }
 
-.wwwExplorer_innerShell a.world .note-details {
+.go-shell a.world .note-details {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.58rem;
   font-weight: 400;
@@ -167,8 +168,8 @@
   margin-top: 0.25rem;
 }
 
-.wwwExplorer_innerShell h1,
-.wwwExplorer_innerShell h2 {
+.go-shell h1,
+.go-shell h2 {
   font-family: "Syne", sans-serif;
 }
 
@@ -176,11 +177,11 @@ body.is-start .wwwExplorer_mark {
   letter-spacing: 0.02em;
 }
 
-.wwwExplorer_innerShell a.world.has-deck {
+.go-shell a.world.has-deck {
   min-height: 5rem;
 }
 
-.wwwExplorer_innerShell a.world .door-deck {
+.go-shell a.world .door-deck {
   display: block;
   font-family: "Source Serif 4", Georgia, serif;
   font-size: 0.72rem;
@@ -191,6 +192,79 @@ body.is-start .wwwExplorer_mark {
   margin-top: 0.2rem;
 }
 
-.wwwExplorer_innerShell a.world:hover .door-deck {
+.go-shell a.world:hover .door-deck {
   color: var(--ink);
+}
+
+
+/* sectioned {{doors}} — neighborhood heads */
+.go-shell .worlds.is-sectioned {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.go-shell .door-section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.go-shell .door-section-head {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 0.4rem;
+}
+
+.go-shell .door-section-doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: 0.45rem;
+}
+
+.go-shell a.world .note-details {
+  opacity: 0.72;
+}
+
+/* pinned hosts — favorites shelf, stamp heat */
+.go-shell a.world.door-pinned {
+  background:
+    linear-gradient(90deg, var(--stamp) 0 0.28rem, transparent 0.28rem),
+    linear-gradient(180deg, #fff7f9 0%, #ffe8ee 100%);
+  border-color: var(--stamp);
+  border-width: 2px;
+  box-shadow: 3px 3px 0 var(--stamp);
+  color: var(--ink);
+  padding-left: 0.65rem;
+}
+.go-shell a.world.door-pinned::before {
+  content: "pinned";
+  display: inline-block;
+  align-self: flex-start;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--stamp);
+  padding: 0.12rem 0.35rem 0.1rem;
+  margin-bottom: 0.28rem;
+  border: 1px solid var(--line);
+  box-shadow: 1px 1px 0 var(--line);
+}
+.go-shell a.world.door-pinned strong {
+  color: var(--hero);
+}
+.go-shell a.world.door-pinned:hover {
+  background:
+    linear-gradient(90deg, var(--stamp) 0 0.28rem, transparent 0.28rem),
+    #fff;
+  border-color: var(--stamp);
+  box-shadow: 4px 4px 0 var(--line);
+  transform: translate(-1px, -1px);
 }

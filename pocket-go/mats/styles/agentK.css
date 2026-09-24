@@ -13,7 +13,7 @@
   --glitch: #6cffc2;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   font-family: "Special Elite", "Courier New", monospace;
   font-size: 16px;
   color: var(--ink);
@@ -30,7 +30,7 @@
     #12100c;
 }
 
-.wwwExplorer_innerShell::before {
+.go-shell::before {
   content: "";
   pointer-events: none;
   position: absolute;
@@ -130,7 +130,7 @@ p.banner::after {
   padding: 0;
 }
 
-.wwwExplorer_innerShell a.world,
+.go-shell a.world,
 .tabs a,
 .tabs ul.dir a,
 .tabs a.world,
@@ -152,14 +152,14 @@ p.banner::after {
   transform: none;
 }
 
-.wwwExplorer_innerShell a.world:hover,
+.go-shell a.world:hover,
 .tabs a:hover,
 .scan a.world:hover {
   background: #f3e6c4 !important;
   color: var(--stamp) !important;
 }
 
-.wwwExplorer_innerShell .world span,
+.go-shell .world span,
 .tabs .world span {
   display: block;
   color: #5a4a32 !important;
@@ -276,9 +276,9 @@ p.banner::after {
   );
 }
 
-.wwwExplorer_innerShell a:link { color: #6a1410; }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: #4a3020; }
+.go-shell a:link { color: #6a1410; }
+.go-shell a:visited,
+.go-shell a.been { color: #4a3020; }
 
 .tagshelf,
 .headers {
@@ -319,7 +319,7 @@ p.banner::after {
 }
 
 .scan pre,
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   font-family: "Share Tech Mono", monospace;
   font-size: 0.78rem;
   background: #111;
@@ -342,7 +342,7 @@ hr {
   color: var(--bar);
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar,
+.go-shell::-webkit-scrollbar,
 .scan::-webkit-scrollbar {
   width: 10px;
 }

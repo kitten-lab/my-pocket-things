@@ -72,7 +72,7 @@ body.is-tagbay .wwwExplorer_status {
   box-shadow: inset 1px 1px 0 #00000066;
 }
 
-body.is-tagbay .wwwExplorer_innerShell {
+body.is-tagbay .go-shell {
   background:
     repeating-linear-gradient(
       180deg,
@@ -92,26 +92,26 @@ body.is-tagbay .wwwExplorer_innerShell {
   scrollbar-color: #ffc14a #100c04;
 }
 
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar,
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+body.is-tagbay .go-shell::-webkit-scrollbar,
+body.is-tagbay .go-shell::-webkit-scrollbar-button {
   width: 10px;
   height: 10px;
 }
 
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-track,
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-corner {
+body.is-tagbay .go-shell::-webkit-scrollbar-track,
+body.is-tagbay .go-shell::-webkit-scrollbar-corner {
   background: #100c04;
   box-shadow: none;
 }
 
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-thumb,
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+body.is-tagbay .go-shell::-webkit-scrollbar-thumb,
+body.is-tagbay .go-shell::-webkit-scrollbar-button {
   background: #8a5a18;
   border: 1px solid #ffc14a;
   box-shadow: none;
 }
 
-body.is-tagbay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+body.is-tagbay .go-shell::-webkit-scrollbar-button {
   background-image: none;
 }
 
@@ -120,13 +120,13 @@ body.is-tagbay #browserWindow {
   max-width: 52rem;
 }
 
-body.is-tagbay .wwwExplorer_innerShell p {
+body.is-tagbay .go-shell p {
   white-space: normal;
 }
 
-body.is-tagbay .wwwExplorer_innerShell h1,
-body.is-tagbay .wwwExplorer_innerShell h2,
-body.is-tagbay .wwwExplorer_innerShell h3 {
+body.is-tagbay .go-shell h1,
+body.is-tagbay .go-shell h2,
+body.is-tagbay .go-shell h3 {
   font-weight: 400;
   letter-spacing: 0.04em;
 }
@@ -206,9 +206,9 @@ body.is-tagbay #tagbay-layer {
   display: none !important;
 }
 
-body.is-tagbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
-body.is-libbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
-body.is-agentbay .wwwExplorer_innerShell:has(#tagbay-layer:not([hidden])),
+body.is-tagbay .go-shell:has(#tagbay-layer:not([hidden])),
+body.is-libbay .go-shell:has(#tagbay-layer:not([hidden])),
+body.is-agentbay .go-shell:has(#tagbay-layer:not([hidden])),
 body.is-tpsbay .wwwExplorer_stage:has(#tagbay-layer:not([hidden])),
 body.is-cratebay .wwwExplorer_stage:has(#tagbay-layer:not([hidden])) {
   overflow: hidden;
@@ -587,7 +587,7 @@ body.is-libbay .wwwExplorer_status {
   text-transform: uppercase;
 }
 
-body.is-libbay .wwwExplorer_innerShell,
+body.is-libbay .go-shell,
 body.is-libbay #tagbay-layer {
   background:
     repeating-linear-gradient(
@@ -610,13 +610,13 @@ body.is-libbay #browserWindow {
   max-width: 52rem;
 }
 
-body.is-libbay .wwwExplorer_innerShell p,
+body.is-libbay .go-shell p,
 body.is-libbay #tagbay-layer p {
   white-space: normal;
 }
 
-body.is-libbay .wwwExplorer_innerShell h1,
-body.is-libbay .wwwExplorer_innerShell h2,
+body.is-libbay .go-shell h1,
+body.is-libbay .go-shell h2,
 body.is-libbay .tagbay-mast h1 {
   font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
   font-weight: 700;
@@ -739,7 +739,7 @@ body.is-agentbay .wwwExplorer_status {
   text-transform: uppercase;
 }
 
-body.is-agentbay .wwwExplorer_innerShell,
+body.is-agentbay .go-shell,
 body.is-agentbay #tagbay-layer {
   background:
     repeating-linear-gradient(
@@ -762,12 +762,12 @@ body.is-agentbay #browserWindow {
   max-width: 52rem;
 }
 
-body.is-agentbay .wwwExplorer_innerShell p,
+body.is-agentbay .go-shell p,
 body.is-agentbay #tagbay-layer p {
   white-space: normal;
 }
 
-body.is-agentbay .wwwExplorer_innerShell h1,
+body.is-agentbay .go-shell h1,
 body.is-agentbay .tagbay-mast h1 {
   font-family: "Black Ops One", "Share Tech Mono", sans-serif;
   font-weight: 400;
@@ -860,7 +860,7 @@ body.is-tpsbay .wwwExplorer_stage {
   position: relative;
 }
 
-body.is-tpsbay .wwwExplorer_innerShell,
+body.is-tpsbay .go-shell,
 body.is-tpsbay #tagbay-layer {
   background: #2a2c28;
 }
@@ -1175,7 +1175,7 @@ body.is-cratebay .wwwExplorer_stage {
   position: relative;
 }
 
-body.is-cratebay .wwwExplorer_innerShell,
+body.is-cratebay .go-shell,
 body.is-cratebay #tagbay-layer {
   background: #4a3224;
 }
@@ -1191,27 +1191,27 @@ body.is-cratebay #tagbay-layer {
 }
 
 body.is-cratebay,
-body.is-cratebay .wwwExplorer_innerShell {
+body.is-cratebay .go-shell {
   scrollbar-width: thin;
   scrollbar-color: #6b3d22 #c49a62;
 }
 
 body.is-cratebay #tagbay-layer::-webkit-scrollbar,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+body.is-cratebay .go-shell::-webkit-scrollbar,
+body.is-cratebay .go-shell::-webkit-scrollbar-button {
   width: 11px;
   height: 11px;
 }
 
 body.is-cratebay #tagbay-layer::-webkit-scrollbar-track,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-track,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-corner {
+body.is-cratebay .go-shell::-webkit-scrollbar-track,
+body.is-cratebay .go-shell::-webkit-scrollbar-corner {
   background: #4a3224;
 }
 
 body.is-cratebay #tagbay-layer::-webkit-scrollbar-thumb,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-thumb,
-body.is-cratebay .wwwExplorer_innerShell::-webkit-scrollbar-button {
+body.is-cratebay .go-shell::-webkit-scrollbar-thumb,
+body.is-cratebay .go-shell::-webkit-scrollbar-button {
   background: #6b3d22;
   border: 1px solid #7a5230;
 }

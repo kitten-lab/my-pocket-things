@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Share+Tech+Mono&display=swap");
+
+/* typewriter — machine host. paper in the platen; chassis below. firm, not soft. */
+:root {
+  --metal: #2a2c30;
+  --metal-hi: #3e4248;
+  --metal-lo: #1a1c20;
+  --key: #1e2024;
+  --key-leg: #c8c2b4;
+  --ribbon: #c42828;
+  --ink: #1a1814;
+  --paper: #f2ead8;
+  --paper-edge: #e0d4bc;
+  --mute: #5c564c;
+  --line: #3a3834;
+  --accent: #c42828;
+  --platen-bar: #121418;
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.04), transparent 50%),
+    linear-gradient(180deg, #1c1e22 0%, #121418 100%);
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 17px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.go-shell > .mast,
+#browserWindow > .mast,
+p.mast {
+  display: none !important;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  overflow: hidden !important;
+  max-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--paper) var(--line);
+}
+
+.machine {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.carriage {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16vw) minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--metal-lo);
+  border-bottom: 3px solid var(--platen-bar);
+}
+
+.rail {
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.65rem 0.5rem 0.85rem;
+  background: #16181c;
+  border-right: 2px solid #0c0e10;
+  color: #c8c4bc;
+  font-family: "Share Tech Mono", "Courier Prime", monospace;
+  font-size: 0.85rem;
+}
+
+.rail .root-up,
+.rail .root-up p {
+  margin: 0 0 0.65rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ribbon);
+}
+
+.rail .root-up a,
+.rail .root-up a:link {
+  color: #e8e0d0 !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 40, 40, 0.5);
+}
+
+.rail ul.dir,
+.rail ul.files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail ul.dir a,
+.rail ul.files a,
+.rail ul.dir a:link,
+.rail ul.files a:link {
+  display: block;
+  padding: 0.4rem 0.35rem;
+  color: #d0ccc4 !important;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  border-bottom: 1px solid #2a2c30;
+}
+
+.rail ul.dir a .name,
+.rail ul.files a .name {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.88rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+.rail ul.dir a:hover,
+.rail ul.files a:hover {
+  background: #24262a;
+  border-left-color: var(--ribbon);
+  color: #fff !important;
+}
+
+.rail ul.dir a.on,
+.rail ul.files a.on,
+.rail ul.dir a.on:link,
+.rail ul.files a.on:visited {
+  background: var(--ribbon);
+  color: #fff8f0 !important;
+  border-left-color: #fff;
+}
+
+.rail ul.dir a.on .name,
+.rail ul.files a.on .name {
+  color: #fff8f0 !important;
+}
+
+/* paper in the platen */
+.content {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0.55rem 0.85rem 0.35rem;
+  padding: 1.1rem 1.4rem 2.2rem;
+  box-sizing: border-box;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 1.45rem,
+      rgba(40, 36, 28, 0.06) 1.45rem 1.48rem
+    ),
+    linear-gradient(90deg, #ebe2d0 0%, var(--paper) 8%, var(--paper) 92%, #ebe2d0 100%);
+  border: 1px solid #b8ae98;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 0 0 4px var(--platen-bar),
+    0 8px 18px rgba(0, 0, 0, 0.45);
+  color: var(--ink);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 1.02rem;
+  line-height: 1.48;
+}
+
+.content > * {
+  max-width: min(48rem, 100%);
+}
+
+.content h1 {
+  margin: 0 0 0.85rem;
+  font-family: "Special Elite", "Courier Prime", monospace;
+  font-weight: 400;
+  font-size: 1.65rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ribbon);
+  padding-bottom: 0.35rem;
+}
+
+.content h2 {
+  margin: 1.2rem 0 0.45rem;
+  font-family: "Special Elite", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--ribbon);
+}
+
+.content p {
+  margin: 0 0 0.95rem;
+}
+
+.content strong {
+  font-family: "Special Elite", monospace;
+  font-weight: 400;
+  color: #000;
+}
+
+.content em {
+  font-style: italic;
+}
+
+.content a.wiki,
+.content a:link {
+  color: var(--ribbon);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196, 40, 40, 0.45);
+}
+
+/* chassis + keys */
+.chassis {
+  background:
+    linear-gradient(180deg, var(--metal-hi) 0%, var(--metal) 35%, var(--metal-lo) 100%);
+  border-top: 2px solid #5a5e66;
+  box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.35);
+  padding: 0.55rem 0.75rem 0.7rem;
+  color: #d8d4cc;
+  font-family: "Share Tech Mono", monospace;
+}
+
+.chassis .badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a8a49c;
+}
+
+.chassis .badge strong {
+  color: #f0ece4;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 0.22rem;
+}
+
+.keys span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.55rem;
+  padding: 0.15rem 0;
+  background:
+    linear-gradient(180deg, #3a3e44 0%, var(--key) 55%, #121418 100%);
+  border: 1px solid #0c0e10;
+  border-bottom-width: 3px;
+  border-radius: 3px;
+  color: var(--key-leg);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+.keys span.wide {
+  grid-column: span 2;
+}
+
+.keys span.space {
+  grid-column: span 4;
+}
+
+.keys span.red {
+  color: #ffd0d0;
+  background: linear-gradient(180deg, #6a2020 0%, #3a1010 100%);
+}
+
+@media (max-width: 560px) {
+  .carriage {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .rail {
+    height: auto;
+    max-height: 8rem;
+  }
+  .keys {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+/* -- typewriter fit + hr */
+.machine {
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+.chassis {
+  flex-shrink: 0;
+  padding: 0.4rem 0.65rem 0.45rem;
+  box-sizing: border-box;
+}
+.chassis .badge {
+  margin: 0 0 0.3rem;
+  font-size: 0.68rem;
+}
+.keys {
+  gap: 0.18rem;
+}
+.keys span {
+  min-height: 1.25rem;
+  font-size: 0.58rem;
+  border-bottom-width: 2px;
+}
+.content hr {
+  border: 0;
+  height: 0;
+  margin: 0.95rem 0 1.05rem;
+  border-top: 1px dashed rgba(60, 52, 40, 0.45);
+  background: none;
+  max-width: min(48rem, 100%);
+}
+/* title rule stays red; body hrs are dashed ink */
+.content h1 {
+  border-bottom: 1px solid var(--ribbon);
+  padding-bottom: 0.3rem;
+}
+
+/* —— craft preview: platen still as hood (revert via bak-craft-platen-*) —— */
+.machine {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.hood {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: clamp(5.5rem, 14vh, 8.5rem);
+  padding: 0.85rem 1.1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  overflow: hidden;
+  border-bottom: 3px solid var(--platen-bar);
+  background-color: var(--metal-lo);
+  background-image:
+    linear-gradient(
+      100deg,
+      rgba(18, 20, 24, 0.82) 0%,
+      rgba(18, 20, 24, 0.45) 38%,
+      rgba(18, 20, 24, 0.2) 62%,
+      rgba(18, 20, 24, 0.55) 100%
+    ),
+    url("/i/typewriter-platen-still.png");
+  background-size: cover;
+  background-position: center 42%;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 -12px 24px rgba(0, 0, 0, 0.35);
+}
+.hood-plate,
+span.hood-plate {
+  display: block;
+  font-family: "Special Elite", "Courier Prime", monospace;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  letter-spacing: 0.08em;
+  color: #f2ead8;
+  text-shadow: 0 1px 0 #000, 0 0 18px rgba(0, 0, 0, 0.65);
+}
+.hood-deck,
+span.hood-deck {
+  display: block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c8c4bc;
+  text-shadow: 0 1px 0 #000;
+}
+

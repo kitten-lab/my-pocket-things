@@ -1,0 +1,1015 @@
+@import url("/styles/fonts.css");
+
+/* Big Box Co. — modern enterprise, slightly wrong.
+   A container for work notes. Not a retailer. */
+
+:root {
+  --bg: #eef1f4;
+  --paper: #ffffff;
+  --ink: #111827;
+  --mute: #6b7280;
+  --line: #e5e7eb;
+  --accent: #1d4ed8;
+  --visited: #4338ca;
+  --active: #0f766e;
+  --bar: #0b1220;
+  --rail: #f8fafc;
+  --ok: #0f766e;
+  --warn: #b45309;
+  --font-ui: var(--font-sans), "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: var(--font-mono), "IBM Plex Mono", monospace;
+}
+
+.go-shell {
+  font-family: var(--font-ui);
+  font-size: 1.08rem;
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.go-shell p {
+  white-space: normal;
+}
+
+.go-shell > #browserWindow {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.go-shell .bbc-app {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.go-shell .bbc-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0 1.15rem;
+  background: var(--bar);
+  color: #f8fafc;
+  box-sizing: border-box;
+}
+
+.go-shell .bbc-bar p,
+.go-shell .bbc-mark p,
+.go-shell .bbc-word p,
+.go-shell .bbc-env p {
+  margin: 0;
+}
+
+.go-shell .bbc-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.go-shell .bbc-cube {
+  display: block;
+  flex: 0 0 1.15rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  background: linear-gradient(135deg, #60a5fa 0 50%, #1d4ed8 50%);
+  box-shadow: 2px 2px 0 #38bdf8;
+  transform: rotate(8deg);
+}
+
+.go-shell .bbc-word,
+.go-shell .bbc-word p {
+  display: flex;
+  align-items: center;
+}
+
+.go-shell .bbc-mark .home,
+.go-shell .bbc-word,
+.go-shell .bbc-word .home {
+  font-family: var(--font-sans-cond), var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #f8fafc !important;
+  text-decoration: none;
+}
+
+.go-shell .bbc-env {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: #94a3b8;
+}
+
+.go-shell .bbc-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.45rem;
+  border-radius: 999px;
+  background: #132337;
+  color: #7dd3fc;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.go-shell .bbc-you {
+  display: inline-flex;
+  align-items: center;
+  color: #e2e8f0;
+  line-height: 1;
+}
+
+.go-shell .bbc-banner {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 2.05rem;
+  margin: 0;
+  padding: 0 1.15rem;
+  background: #ecfeff;
+  color: #0f766e;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #a5f3fc;
+  box-sizing: border-box;
+}
+
+.go-shell .bbc-banner p {
+  margin: 0;
+  line-height: 1;
+}
+
+.go-shell a:link {
+  color: var(--accent);
+}
+
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--visited);
+}
+
+.go-shell a:active {
+  color: var(--active);
+}
+
+.go-shell .crumb {
+  display: none;
+}
+
+.go-shell .bbc-body {
+  display: grid;
+  grid-template-columns: 15.5rem minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.go-shell .bbc-rail {
+  background: var(--rail);
+  border-right: 1px solid var(--line);
+  padding: 1rem 0.85rem 1.4rem;
+  min-height: 0;
+  overflow: auto;
+}
+
+.go-shell .bbc-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .bbc-org {
+  margin: 0 0 1.1rem;
+}
+
+.go-shell .bbc-item p,
+.go-shell .bbc-soon p {
+  margin: 0;
+}
+
+.go-shell .bbc-item a,
+.go-shell .bbc-item a.home,
+.go-shell .bbc-org a,
+.go-shell .bbc-org a.home {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  margin: 0 0 0.2rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: var(--ink) !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.go-shell .bbc-item a:hover {
+  background: #eef2ff;
+}
+
+.go-shell .bbc-soon .soon {
+  display: block;
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--warn);
+}
+
+.go-shell .bbc-go {
+  margin-top: 0.7rem;
+}
+
+.go-shell .bbc-go a,
+.go-shell .bbc-card a.wiki {
+  display: inline-block;
+  margin-top: 0.15rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.go-shell .bbc-soon {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  margin: 0 0 0.2rem;
+  color: #9ca3af;
+  font-size: 0.82rem;
+}
+
+.go-shell .bbc-soon em {
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.go-shell .bbc-up {
+  margin: 0 0 0.55rem;
+}
+
+.go-shell .bbc-up:not(:has(a)) {
+  display: none;
+}
+
+.go-shell .bbc-up p {
+  margin: 0;
+}
+
+.go-shell .bbc-up a.crumbback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute) !important;
+  text-decoration: none;
+}
+
+.go-shell .bbc-up a.crumbback::before {
+  content: "↑";
+  font-weight: 500;
+}
+
+.go-shell .bbc-up a.crumbback:hover {
+  color: var(--accent) !important;
+}
+
+.go-shell .bbc-folder ul.dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .bbc-folder ul.dir ul.dir {
+  padding-left: 0.7rem;
+  margin: 0.1rem 0 0.15rem;
+}
+
+.go-shell .bbc-folder ul.dir li {
+  margin: 0 0 0.08rem;
+}
+
+.go-shell .bbc-folder ul.dir a {
+  display: block;
+  padding: 0.28rem 0.45rem;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  color: var(--ink) !important;
+  font-size: 0.82rem;
+}
+
+.go-shell .bbc-folder ul.dir a:hover,
+.go-shell .bbc-folder ul.dir a.on {
+  background: #e0e7ff;
+}
+
+.go-shell .bbc-folder ul.dir a.on {
+  font-weight: 600;
+}
+
+.go-shell .bbc-folder > p {
+  margin: 0;
+  font-size: 0;
+}
+
+.go-shell .bbc-folder > p::before {
+  content: "No notes in this folder yet.";
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.go-shell .bbc-stage {
+  padding: 0.75rem 1rem 1.1rem;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  min-height: 0;
+  overflow: auto;
+}
+
+.go-shell .bbc-stage .go-paper {
+  font-size: inherit;
+  line-height: 1.4;
+  max-width: none;
+}
+
+.go-shell .bbc-stage h1 {
+  margin: 0 0 0.35em;
+  font-size: 1.18em;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.go-shell .bbc-stage h2 {
+  margin: 0.75em 0 0.22em;
+  font-size: 1.06em;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.go-shell .bbc-stage h3 {
+  margin: 0.65em 0 0.18em;
+  font-size: 1em;
+  font-weight: 650;
+}
+
+.go-shell .bbc-stage h4 {
+  margin: 0.55em 0 0.15em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.go-shell .bbc-stage p {
+  margin: 0 0 0.4em;
+}
+
+.go-shell .bbc-stage ul,
+.go-shell .bbc-stage ol {
+  margin: 0 0 0.45em;
+  padding-left: 1.1em;
+}
+
+.go-shell .bbc-stage li {
+  margin: 0 0 0.12em;
+}
+
+.go-shell .bbc-stage table.md-table {
+  font-size: 1em;
+  line-height: 1.35;
+  width: 100%;
+}
+
+.go-shell .bbc-stage table.md-table th,
+.go-shell .bbc-stage table.md-table td {
+  padding: 0.22em 0.45em;
+}
+
+.go-shell .bbc-stage pre,
+.go-shell .bbc-stage pre.code {
+  font-size: 0.92em;
+  line-height: 1.35;
+  padding: 0.4em 0.55em;
+  margin: 0 0 0.45em;
+}
+
+.go-shell .bbc-stage code {
+  font-size: 0.92em;
+}
+
+.go-shell .bbc-kicker {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ok);
+}
+
+.go-shell .bbc-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  margin: 0 0 0.85rem;
+  padding: 0 0 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.go-shell .bbc-sub p {
+  margin: 0;
+}
+.go-shell .bbc-sub-kicker,
+.go-shell .bbc-sub-sku {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ok);
+}
+.go-shell .bbc-sub-name {
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+}
+.go-shell .bbc-sub-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.go-shell .bbc-sub-nav a {
+  color: var(--accent) !important;
+  text-decoration: none;
+}
+.go-shell .bbc-sub-nav a:hover {
+  text-decoration: underline;
+}
+
+.go-shell .bbc-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  padding: 1.1rem 1.15rem 1.2rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.go-shell .bbc-card > h2:first-child {
+  margin-top: 0;
+}
+
+.go-shell .bbc-cta {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--accent);
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.go-shell .bbc-cta:visited {
+  color: #fff !important;
+}
+
+.go-shell .bbc-meta {
+  margin: 0.8rem 0 0;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+
+.go-shell .bbc-product hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0.85rem 0;
+}
+
+.go-shell .bbc-foot {
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 1.15rem;
+  border-top: 1px solid var(--line);
+  background: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .stockroom {
+  display: none;
+}
+
+.go-shell .bbc-stage ul.dir {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.go-shell .bbc-stage ul.dir li {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.go-shell .bbc-stage ul.dir li:last-child {
+  border-bottom: 0;
+}
+
+.go-shell .bbc-stage ul.dir a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink) !important;
+}
+
+.go-shell .bbc-stage ul.dir a:hover {
+  background: #f8fafc;
+}
+
+.go-shell .bbc-line {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.go-shell .bbc-hero-row {
+  display: grid;
+  grid-template-columns: minmax(10rem, 15.5rem) minmax(0, 1fr);
+  gap: 0.85rem 1.4rem;
+  align-items: center;
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem 1rem;
+  max-width: none;
+  border-radius: 0.55rem;
+  background:
+    radial-gradient(ellipse 42% 90% at 12% 48%, rgba(56, 189, 248, 0.1), transparent 58%),
+    #070e1a;
+}
+
+.go-shell .bbc-hero-row .bbc-hero {
+  margin: 0;
+}
+
+.go-shell .bbc-hero-row .bbc-kicker {
+  color: #c4a35a;
+}
+
+.go-shell .bbc-hero-row h1,
+.go-shell .bbc-product .bbc-hero-row h1 {
+  color: #f8fafc;
+}
+
+.go-shell .bbc-hero-row .bbc-lede {
+  color: #94a3b8;
+}
+
+.go-shell .bbc-hero-row .bbc-go {
+  margin-top: 0.65rem;
+}
+
+.go-shell .bbc-hero-row .bbc-go a {
+  margin-right: 0.4rem;
+}
+
+.go-shell .bbc-hero-row .bbc-sku {
+  background: #111827;
+  border: 1px solid rgba(196, 163, 90, 0.35);
+}
+
+.go-shell .bbc-hero-row .bbc-sku.is-desk {
+  background: #132337;
+  border-color: rgba(125, 211, 252, 0.28);
+}
+
+.go-shell .bbc-hero {
+  margin: 0 0 0.9rem;
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  border-left: 3px solid #c4a35a;
+}
+
+.go-shell .bbc-box-art {
+  order: -1;
+  justify-self: start;
+  width: 100%;
+  max-width: 15.5rem;
+  margin: 0;
+  background: transparent;
+}
+
+.go-shell .bbc-box-art a.pic-zoom {
+  display: block;
+  margin: 0;
+}
+
+.go-shell .bbc-box-art img.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.go-shell .bbc-product h1 {
+  margin: 0.08em 0 0.28em;
+  font-size: 1.28em;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.go-shell .bbc-lede {
+  font-size: 1em;
+  line-height: 1.4;
+  color: #4b5563;
+  max-width: none;
+}
+
+.go-shell .bbc-sku {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.35rem 0.35rem 0;
+  padding: 0.16rem 0.42rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #c4a35a;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.go-shell .bbc-sku.is-desk {
+  background: #132337;
+  color: #7dd3fc;
+}
+
+.go-shell .bbc-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.85rem 0 1rem;
+}
+
+.go-shell .bbc-pillar {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.7rem 0.75rem;
+}
+
+.go-shell .bbc-pillar p {
+  margin: 0;
+}
+
+.go-shell .bbc-pillar strong {
+  display: block;
+  margin: 0 0 0.2rem;
+  font-size: 0.66rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a7a28;
+}
+
+.go-shell .bbc-spine {
+  margin: 0.85rem 0 0;
+  padding: 0.55rem 0.7rem;
+  background: #111827;
+  color: #e2e8f0;
+  border-radius: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.go-shell .bbc-product .bbc-go a,
+.go-shell .bbc-product .bbc-go a.been,
+.go-shell .bbc-product .bbc-go a.rom-launch {
+  background: #9a7a28;
+  color: #fff !important;
+}
+
+.go-shell .bbc-product .bbc-go a.rom-launch.is-launching {
+  opacity: 0.7;
+}
+
+.go-shell .bbc-shot {
+  margin: 0.7rem 0 0.95rem;
+  max-width: 44rem;
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  overflow: hidden;
+  background: #111827;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+.go-shell .bbc-shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.7rem 0 0.95rem;
+  max-width: 52rem;
+}
+
+.go-shell .bbc-shots .bbc-shot {
+  margin: 0;
+  max-width: none;
+}
+
+.go-shell .bbc-badge {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr);
+  gap: 0.9rem;
+  max-width: 28rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.go-shell .bbc-badge .pic-zoom {
+  display: block;
+  margin: 0;
+  border-radius: 0.45rem;
+  overflow: hidden;
+  background: #c4b8a8;
+  aspect-ratio: 1;
+}
+
+.go-shell .bbc-badge img.pic {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.go-shell .bbc-badge h1 {
+  margin: 0.15rem 0 0.2rem;
+  font-size: 1.2rem;
+}
+
+.go-shell .bbc-badge-meta {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+}
+
+.go-shell .bbc-badge-meta p {
+  margin: 0 0 0.15rem;
+}
+
+.go-shell .bbc-shot a.pic-zoom {
+  display: block;
+}
+
+.go-shell .bbc-shot img.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.go-shell .bbc-also {
+  margin: 0.9rem 0 0;
+  font-size: 0.78rem;
+  color: var(--mute);
+}
+
+@media (max-width: 720px) {
+  .go-shell .bbc-body {
+    grid-template-columns: 1fr;
+  }
+
+  .go-shell .bbc-rail {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .go-shell .bbc-line,
+  .go-shell .bbc-pillars,
+  .go-shell .bbc-shots,
+  .go-shell .bbc-hero-row {
+    grid-template-columns: 1fr;
+  }
+
+  .go-shell .bbc-box-art {
+    max-width: 12rem;
+    justify-self: start;
+  }
+
+  .go-shell .bbc-badge {
+    grid-template-columns: 1fr;
+    max-width: 18rem;
+  }
+}
+
+/* Marketeers ownership chips + row tint */
+.go-shell span.mk-make,
+.go-shell .mk-make {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #ccfbf1;
+  color: #0f766e;
+}
+.go-shell span.mk-given,
+.go-shell .mk-given {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #e5e7eb;
+  color: #4b5563;
+}
+.go-shell span.mk-ask,
+.go-shell .mk-ask {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #fef3c7;
+  color: #b45309;
+}
+.go-shell .bbc-stage table.md-table tr:has(.mk-make) td {
+  background: #f0fdfa;
+}
+.go-shell .bbc-stage table.md-table tr:has(.mk-ask) td {
+  background: #fffbeb;
+}
+.go-shell .bbc-stage table.md-table tr:has(.mk-given) td {
+  background: #f9fafb;
+}
+
+
+/* Promo size shape board — all packs */
+.go-shell .sz-board {
+  display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.75rem 1rem; padding: 0.75rem 0 1.25rem;
+}
+.go-shell .sz-card {
+  display: flex; flex-direction: column; align-items: center; gap: 0.25rem; max-width: 100%;
+}
+.go-shell .sz-box {
+  display: flex; align-items: center; justify-content: center; box-sizing: border-box;
+  border: 1.5px solid #1d4ed8;
+  background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%);
+  color: #1e3a8a; font-size: 9px; font-weight: 700; letter-spacing: 0.02em; text-align: center; line-height: 1.15; padding: 2px;
+}
+.go-shell .sz-box.is-clone {
+  border-color: #0f766e; background: linear-gradient(180deg, #ccfbf1 0%, #f0fdfa 100%); color: #115e59;
+}
+.go-shell .sz-box.is-near {
+  border-color: #b45309; border-style: dashed; background: linear-gradient(180deg, #fef3c7 0%, #fffbeb 100%); color: #92400e;
+}
+.go-shell .sz-meta { font-size: 10px; color: #6b7280; text-align: center; max-width: 10rem; }
+.go-shell .sz-meta.sz-sub { font-size: 9px; color: #9ca3af; max-width: 10rem; }
+.go-shell .sz-chip {
+  display: inline-block; margin-top: 0.1rem; padding: 0.05rem 0.35rem; border-radius: 999px;
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.go-shell .sz-chip.clone { background: #ccfbf1; color: #0f766e; }
+.go-shell .sz-chip.near { background: #fef3c7; color: #b45309; }
+.go-shell .sz-chip.solo { background: #e5e7eb; color: #4b5563; }
+.go-shell .sz-pkg {
+  display: inline-block; margin: 0 0.15rem 0.15rem 0; padding: 0.05rem 0.3rem; border-radius: 4px;
+  font-size: 9px; background: #e0e7ff; color: #3730a3; font-weight: 600;
+}
+.go-shell .sz-145x204 { width: 106px; aspect-ratio: 145 / 204; }
+.go-shell .sz-150x150 { width: 150px; aspect-ratio: 150 / 150; }
+.go-shell .sz-150x200 { width: 112px; aspect-ratio: 150 / 200; }
+.go-shell .sz-200x170 { width: 150px; aspect-ratio: 200 / 170; }
+.go-shell .sz-200x200 { width: 150px; aspect-ratio: 200 / 200; }
+.go-shell .sz-200x260 { width: 115px; aspect-ratio: 200 / 260; }
+.go-shell .sz-216x360 { width: 90px; aspect-ratio: 216 / 360; }
+.go-shell .sz-240x135 { width: 150px; aspect-ratio: 240 / 135; }
+.go-shell .sz-250x150 { width: 150px; aspect-ratio: 250 / 150; }
+.go-shell .sz-286x188 { width: 150px; aspect-ratio: 286 / 188; }
+.go-shell .sz-292x146 { width: 150px; aspect-ratio: 292 / 146; }
+.go-shell .sz-300x200 { width: 150px; aspect-ratio: 300 / 200; }
+.go-shell .sz-300x250 { width: 150px; aspect-ratio: 300 / 250; }
+.go-shell .sz-300x300 { width: 150px; aspect-ratio: 300 / 300; }
+.go-shell .sz-300x414 { width: 108px; aspect-ratio: 300 / 414; }
+.go-shell .sz-300x500 { width: 90px; aspect-ratio: 300 / 500; }
+.go-shell .sz-300x600 { width: 75px; aspect-ratio: 300 / 600; }
+.go-shell .sz-309x311 { width: 149px; aspect-ratio: 309 / 311; }
+.go-shell .sz-312x368 { width: 127px; aspect-ratio: 312 / 368; }
+.go-shell .sz-320x150 { width: 150px; aspect-ratio: 320 / 150; }
+.go-shell .sz-336x200 { width: 150px; aspect-ratio: 336 / 200; }
+.go-shell .sz-360x240 { width: 150px; aspect-ratio: 360 / 240; }
+.go-shell .sz-360x360 { width: 150px; aspect-ratio: 360 / 360; }
+.go-shell .sz-375x180 { width: 150px; aspect-ratio: 375 / 180; }
+.go-shell .sz-375x375 { width: 150px; aspect-ratio: 375 / 375; }
+.go-shell .sz-383x700 { width: 82px; aspect-ratio: 383 / 700; }
+.go-shell .sz-390x180 { width: 150px; aspect-ratio: 390 / 180; }
+.go-shell .sz-400x304 { width: 150px; aspect-ratio: 400 / 304; }
+.go-shell .sz-400x400 { width: 150px; aspect-ratio: 400 / 400; }
+.go-shell .sz-400x600 { width: 100px; aspect-ratio: 400 / 600; }
+.go-shell .sz-420x200 { width: 150px; aspect-ratio: 420 / 200; }
+.go-shell .sz-420x600 { width: 105px; aspect-ratio: 420 / 600; }
+.go-shell .sz-427x575 { width: 111px; aspect-ratio: 427 / 575; }
+.go-shell .sz-440x330 { width: 150px; aspect-ratio: 440 / 330; }
+.go-shell .sz-450x253 { width: 150px; aspect-ratio: 450 / 253; }
+.go-shell .sz-464x264 { width: 150px; aspect-ratio: 464 / 264; }
+.go-shell .sz-486x726 { width: 100px; aspect-ratio: 486 / 726; }
+.go-shell .sz-492x756 { width: 97px; aspect-ratio: 492 / 756; }
+.go-shell .sz-500x250 { width: 150px; aspect-ratio: 500 / 250; }
+.go-shell .sz-500x500 { width: 150px; aspect-ratio: 500 / 500; }
+.go-shell .sz-512x512 { width: 150px; aspect-ratio: 512 / 512; }
+.go-shell .sz-526x314 { width: 150px; aspect-ratio: 526 / 314; }
+.go-shell .sz-532x400 { width: 150px; aspect-ratio: 532 / 400; }
+.go-shell .sz-536x314 { width: 150px; aspect-ratio: 536 / 314; }
+.go-shell .sz-600x350 { width: 150px; aspect-ratio: 600 / 350; }
+.go-shell .sz-600x400 { width: 150px; aspect-ratio: 600 / 400; }
+.go-shell .sz-600x980 { width: 91px; aspect-ratio: 600 / 980; }
+.go-shell .sz-640x320 { width: 150px; aspect-ratio: 640 / 320; }
+.go-shell .sz-645x227 { width: 150px; aspect-ratio: 645 / 227; }
+.go-shell .sz-650x325 { width: 150px; aspect-ratio: 650 / 325; }
+.go-shell .sz-676x888 { width: 114px; aspect-ratio: 676 / 888; }
+.go-shell .sz-720x1280 { width: 84px; aspect-ratio: 720 / 1280; }
+.go-shell .sz-728x90 { width: 150px; aspect-ratio: 728 / 90; }
+.go-shell .sz-753x203 { width: 150px; aspect-ratio: 753 / 203; }
+.go-shell .sz-768x320 { width: 150px; aspect-ratio: 768 / 320; }
+.go-shell .sz-800x510 { width: 150px; aspect-ratio: 800 / 510; }
+.go-shell .sz-800x540 { width: 150px; aspect-ratio: 800 / 540; }
+.go-shell .sz-800x600 { width: 150px; aspect-ratio: 800 / 600; }
+.go-shell .sz-800x900 { width: 133px; aspect-ratio: 800 / 900; }
+.go-shell .sz-840x500 { width: 150px; aspect-ratio: 840 / 500; }
+.go-shell .sz-862x350 { width: 150px; aspect-ratio: 862 / 350; }
+.go-shell .sz-877x707 { width: 150px; aspect-ratio: 877 / 707; }
+.go-shell .sz-889x500 { width: 150px; aspect-ratio: 889 / 500; }
+.go-shell .sz-900x418 { width: 150px; aspect-ratio: 900 / 418; }
+.go-shell .sz-1000x500 { width: 150px; aspect-ratio: 1000 / 500; }
+.go-shell .sz-1000x1000 { width: 150px; aspect-ratio: 1000 / 1000; }
+.go-shell .sz-1024x272 { width: 150px; aspect-ratio: 1024 / 272; }
+.go-shell .sz-1024x320 { width: 150px; aspect-ratio: 1024 / 320; }
+.go-shell .sz-1080x1080 { width: 150px; aspect-ratio: 1080 / 1080; }
+.go-shell .sz-1080x1920 { width: 84px; aspect-ratio: 1080 / 1920; }
+.go-shell .sz-1128x291 { width: 150px; aspect-ratio: 1128 / 291; }
+.go-shell .sz-1200x800 { width: 150px; aspect-ratio: 1200 / 800; }
+.go-shell .sz-1280x320 { width: 150px; aspect-ratio: 1280 / 320; }
+.go-shell .sz-1280x720 { width: 150px; aspect-ratio: 1280 / 720; }
+.go-shell .sz-1320x358 { width: 150px; aspect-ratio: 1320 / 358; }
+.go-shell .sz-1500x500 { width: 150px; aspect-ratio: 1500 / 500; }
+.go-shell .sz-1584x396 { width: 150px; aspect-ratio: 1584 / 396; }
+.go-shell .sz-1656x2009 { width: 123px; aspect-ratio: 1656 / 2009; }
+.go-shell .sz-1920x498 { width: 150px; aspect-ratio: 1920 / 498; }
+.go-shell .sz-1920x510 { width: 150px; aspect-ratio: 1920 / 510; }
+.go-shell .sz-1920x800 { width: 150px; aspect-ratio: 1920 / 800; }
+.go-shell .sz-1920x1080 { width: 150px; aspect-ratio: 1920 / 1080; }
+.go-shell .sz-2064x255 { width: 150px; aspect-ratio: 2064 / 255; }
+.go-shell .sz-2560x1440 { width: 150px; aspect-ratio: 2560 / 1440; }

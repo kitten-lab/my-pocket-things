@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap");
+
+/* see-mrcarl — clipboard house coat.
+   Manila board, brass clip, soft paper, blotter-green accents.
+   Not a clone of cc.css or buddy.css. Cozy + clear, not dark-goth. */
+
+:root {
+  --board: #c4a574;
+  --board-edge: #9a7a4a;
+  --board-shadow: #6e5530;
+  --clip: #b08a3c;
+  --clip-shine: #e8d090;
+  --clip-dark: #7a5e28;
+  --paper: #f7f1e4;
+  --paper-2: #efe6d4;
+  --paper-rule: rgba(90, 110, 80, 0.12);
+  --blotter: #3d5c48;
+  --blotter-soft: #5a7a62;
+  --blotter-wash: #e8efe6;
+  --oak: #6b5340;
+  --oak-hi: #8a6e52;
+  --ink: #2a2418;
+  --mute: #6e6558;
+  --line: #d4c8b0;
+  --link: #2f5d4a;
+  --link-hover: #1a3d30;
+  --visited: #5a4a38;
+  --mark-done: #3d5c48;
+  --mark-hold: #6b4a2e;
+  --mark-move: #4a5a6e;
+  --brass-glow: rgba(176, 138, 60, 0.35);
+  --rail: clamp(10.5rem, 15vw, 13.5rem);
+}
+
+.wwwExplorer_innerShell,
+.go-shell {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(232, 208, 144, 0.18), transparent 42%),
+    linear-gradient(165deg, #8a6e4a 0%, var(--board-edge) 38%, #5c452c 100%);
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#browserWindow {
+  max-width: 100%;
+  padding: 0.85rem 1rem 1.1rem;
+  margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mast mast"
+    "side content"
+    "foot foot";
+  gap: 0;
+}
+
+#browserWindow > :not(.mast):not(.side):not(.content):not(.foot):not(.clipboard):not(.clip-rail) {
+  grid-column: 1 / -1;
+}
+
+.wwwExplorer_innerShell .headers,
+.wwwExplorer_innerShell .uses {
+  display: none;
+}
+
+/* —— brass clip strip / mast —— */
+.mast,
+p.mast,
+.wwwExplorer_innerShell .mast,
+.wwwExplorer_innerShell .mast p {
+  grid-area: mast;
+  margin: 0 0 0.55rem;
+  padding: 0.55rem 1.1rem 0.65rem 3.4rem;
+  position: relative;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: #2a2418;
+  background:
+    linear-gradient(180deg, #d8c090 0%, var(--clip) 45%, var(--clip-dark) 100%);
+  border: 1px solid var(--clip-dark);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow:
+    0 2px 0 var(--board-shadow),
+    inset 0 1px 0 var(--clip-shine);
+  text-shadow: 0 1px 0 rgba(255, 240, 200, 0.35);
+}
+
+.mast::before,
+p.mast::before {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.55rem;
+  height: 1.85rem;
+  background:
+    linear-gradient(180deg, var(--clip-shine) 0%, var(--clip) 40%, var(--clip-dark) 100%);
+  border: 1px solid var(--clip-dark);
+  border-radius: 3px 3px 6px 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.mast::after,
+p.mast::after {
+  content: "clipboard house  ·  life schedule  ·  done-ledger";
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a3020;
+  opacity: 0.85;
+}
+
+.mast a,
+.wwwExplorer_innerShell .mast a {
+  color: #1a3d30;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(26, 61, 48, 0.45);
+}
+.mast a:hover {
+  color: #0a2018;
+  border-bottom-style: solid;
+}
+
+/* —— side rail: oak index cards —— */
+.side {
+  grid-area: side;
+  min-height: 0;
+  margin-right: 0.65rem;
+  padding: 0.7rem 0.55rem 1rem 0.65rem;
+  overflow: auto;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 18%),
+    linear-gradient(180deg, #7a6248 0%, var(--oak) 55%, #5a4432 100%);
+  color: #f0e6d4;
+  border: 1px solid #4a3828;
+  border-radius: 3px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 0 rgba(255, 230, 180, 0.12);
+  scrollbar-width: thin;
+  scrollbar-color: var(--clip) var(--oak);
+}
+
+.side a:link {
+  color: #f4e8c8;
+}
+.side a:visited,
+.side a.been {
+  color: #c8b898;
+}
+.side a:hover {
+  color: #fff8e8;
+  background: rgba(61, 92, 72, 0.35);
+}
+
+.side ul.dir,
+.side ul.files,
+.side ul.doors {
+  list-style: none;
+  margin: 0.35rem 0;
+  padding: 0;
+}
+.side ul.dir a,
+.side ul.files a,
+.side ul.doors a {
+  display: block;
+  padding: 0.28rem 0.35rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+}
+.side ul.dir a.on,
+.side ul.files a.on {
+  background: rgba(61, 92, 72, 0.45);
+  color: #fff;
+  border-bottom-color: var(--blotter-soft);
+}
+
+/* —— paper on the clipboard —— */
+.content {
+  grid-area: content;
+  min-height: 0;
+  overflow: auto;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.55rem,
+      var(--paper-rule) 1.55rem calc(1.55rem + 1px)
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  color: var(--ink);
+  border: 1px solid #b8a888;
+  border-radius: 2px 2px 4px 4px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 8px 18px rgba(40, 28, 12, 0.28),
+    0 0 0 3px var(--board);
+  padding: 1.25rem 1.55rem 1.85rem;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.55rem;
+  background: linear-gradient(180deg, rgba(61, 92, 72, 0.12), transparent);
+  pointer-events: none;
+}
+
+.content h1 {
+  margin: 0 0 0.55rem;
+  padding: 0 0 0.45rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--blotter);
+  border-bottom: 2px solid var(--blotter);
+  text-transform: none;
+}
+
+.content h2 {
+  margin: 1.35rem 0 0.45rem;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--oak);
+  text-transform: uppercase;
+  border: 0;
+}
+
+.content h3 {
+  margin: 1rem 0 0.35rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--blotter-soft);
+  text-transform: uppercase;
+}
+
+.content p {
+  margin: 0 0 0.85rem;
+}
+
+.content a.wiki,
+.content a:link {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47, 93, 74, 0.35);
+}
+.content a:visited {
+  color: var(--visited);
+}
+.content a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+  background: var(--blotter-wash);
+}
+
+.content strong {
+  color: #1a1810;
+  font-weight: 700;
+}
+.content em {
+  color: #4a4030;
+  font-style: italic;
+}
+
+.content blockquote {
+  margin: 0.9rem 0 1.1rem;
+  padding: 0.35rem 0 0.35rem 0.95rem;
+  border-left: 3px solid var(--blotter);
+  color: var(--mute);
+  font-style: italic;
+  background: linear-gradient(90deg, var(--blotter-wash), transparent 70%);
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+.content li {
+  margin: 0.2rem 0;
+}
+
+/* bujo-ish list comfort */
+.content li::marker {
+  color: var(--blotter-soft);
+}
+
+/* doors / dir on paper */
+.content ul.dir,
+.content ul.files,
+.content ul.doors {
+  list-style: none;
+  margin: 0.5rem 0 1.1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.55rem;
+}
+.content ul.dir a,
+.content ul.files a,
+.content ul.doors a {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ink) !important;
+  background: linear-gradient(180deg, #fffdf6, #ebe2ce);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 1px 2px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.content ul.dir a:hover,
+.content ul.files a:hover,
+.content ul.doors a:hover {
+  background: var(--blotter-wash);
+  border-color: var(--blotter-soft);
+  color: var(--link-hover) !important;
+}
+
+/* foot */
+.foot {
+  grid-area: foot;
+  margin-top: 0.55rem;
+  padding: 0.4rem 0.75rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8dcc0;
+  background: rgba(40, 28, 12, 0.35);
+  border-radius: 2px;
+}
+.foot a {
+  color: #f4e8c8;
+  border-bottom: 1px dotted rgba(244, 232, 200, 0.45);
+  text-decoration: none;
+}
+
+/* clipboard house helpers (optional bone classes) */
+.clipboard-kicker {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blotter-soft);
+  margin: 0 0 0.75rem;
+}
+.nag-soft {
+  font-family: "Special Elite", monospace;
+  color: var(--oak);
+}
+.ledger-shelf {
+  margin: 1rem 0;
+  padding: 0.75rem 0.9rem;
+  background: var(--blotter-wash);
+  border: 1px dashed var(--blotter-soft);
+  border-radius: 2px;
+}
+
+@media (max-width: 820px) {
+  #browserWindow {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "mast"
+      "content"
+      "side"
+      "foot";
+    padding: 0.55rem;
+  }
+  .side {
+    margin-right: 0;
+    margin-top: 0.55rem;
+    max-height: 10rem;
+  }
+  .mast::after,
+  p.mast::after {
+    letter-spacing: 0.08em;
+    font-size: 0.55rem;
+  }
+}

@@ -1,0 +1,91 @@
+/* coat: agent — minted by BIOS */
+@import url("/styles/fonts.css");
+
+:root {
+  --black: #00000082;
+  --white: #ffffff;
+  --bg: #e01b24;
+  --bg-alt: #a51d2d;
+  --glow: #f8e45c;
+}
+
+.go-shell  {
+  position: relative;
+  max-width: 800px;
+  margin: 30px auto 30px auto;
+  padding: 24px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #fff;
+  background: #1a0202;
+  border: 3px solid #ff003c;
+  border-radius: 4px;
+  text-shadow: 2px 2px 0px #ff003c, -1px -1px 0px #00ffff;
+  box-shadow: 0 0 20px rgba(255, 0, 60, 0.4), inset 0 0 15px rgba(255, 0, 60, 0.3);
+  overflow: hidden;
+}
+
+.go-shell .retro-header::after {
+  content: '_';
+  animation: blink 0.8s infinite steps(2, start);
+}
+
+.go-shell .retro-header::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    rgba(255, 0, 60, 0) 0%,
+    rgba(255, 0, 60, 0.15) 10%,
+    rgba(255, 0, 60, 0) 20%
+  );
+  background-size: 100% 500%;
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+@keyframes scanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.go-shell .content {
+  text-align: left;
+  text-transform: lowercase;
+  font-size: 10px;
+}
+
+.go-shell .button a {
+  display: inline-block;
+  position: relative;
+  color: var(--white);
+  font-family: var(--font-glass);
+  padding: 5px 10px;
+  border: 4px solid var(--bg-alt);
+  background: var(--black);
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3,
+.go-shell h4 {
+  color: var(--white);
+  text-shadow: 
+    0px 0px 2px var(--black);
+}
+
+.go-shell .contents {
+  background: var(--black);
+  padding: 10px;
+  margin: 0;
+}

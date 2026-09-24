@@ -1,0 +1,70 @@
+@import url("/styles/journal-device.css");
+
+/* journal-io — green phosphorus / Terminal IO glass */
+:root {
+  --chassis: #0e1a12;
+  --chassis-hi: #1a2e20;
+  --chassis-lo: #07100a;
+  --bezel: #1e3a28;
+  --bezel-hi: #244832;
+  --bezel-lo: #0c1a12;
+  --glow: #33ff66;
+  --glow-rgb: 51, 255, 102;
+  --lilac: #7dff9a;
+  --haze-rgb: 20, 120, 60;
+  --sheet: #0a140e;
+  --sheet-edge: #1a3a24;
+  --ink: #b8ffc8;
+  --mute: #4a8a58;
+  --line: #1e4028;
+  --blush: #22cc55;
+  --rose: #66ff88;
+  --rule-rgb: 40, 120, 70;
+  --spine-hi: #1a5a30;
+  --spine-lo: #0e3018;
+  --link-on-sheet: #66ff99;
+  --crumb: rgba(120, 220, 140, 0.55);
+  --flip-ink: #c8ffd0;
+  --desk: #030805;
+  --desk-hi: #0a1810;
+  --desk-lo: #010302;
+  --frame: #020804;
+  --sheet-frame: #06140a;
+  --bg: var(--desk);
+  --paper: var(--sheet);
+  --accent: var(--glow);
+  --visited: var(--lilac);
+  --active: #99ffbb;
+  --scroll-thumb: var(--glow);
+  --scroll-track: var(--chassis-lo);
+}
+
+/* phosphor sheet: no cream paper — glass terminal page */
+.sheet {
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--glow-rgb), 0.15),
+    0 0 0 3px var(--sheet-frame),
+    0 0 0 4px rgba(var(--glow-rgb), 0.35),
+    inset 0 0 28px rgba(var(--glow-rgb), 0.06);
+  text-shadow: 0 0 6px rgba(var(--glow-rgb), 0.25);
+}
+.go-shell h1,
+.go-shell h2,
+.go-shell h3,
+.mast h1 {
+  text-shadow: 0 0 12px rgba(var(--glow-rgb), 0.45);
+}
+
+.go-shell a.world,
+.go-shell .worlds a.world {
+  box-shadow:
+    inset 0 1px 0 rgba(var(--glow-rgb), 0.16),
+    0 0 0 1px var(--sheet-frame),
+    0 0 12px rgba(var(--glow-rgb), 0.1);
+}
+.go-shell a.world strong {
+  text-shadow: 0 0 8px rgba(var(--glow-rgb), 0.3);
+}
+.go-shell a.world:hover {
+  text-shadow: 0 0 10px rgba(var(--glow-rgb), 0.35);
+}

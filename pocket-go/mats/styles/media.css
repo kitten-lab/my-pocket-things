@@ -1,0 +1,1093 @@
+/* go.media — fluorescent media store
+   Tower Records energy (evocation, not marks)
+   yellow bag · aisle bins · jewel cases · listening copy
+   red / yellow / black · html rem is postage — type + gutters in em/px
+   fill-stage / inner-scroll — never 100vh */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --strip: #e10600;
+  --accent: #ffd200;
+  --stamp: #e10600;
+  --card-strip: #e10600;
+  --tower-red: #e10600;
+  --tower-red-deep: #9a0400;
+  --tower-yellow: #ffd200;
+  --tower-yellow-hot: #ffe566;
+  --tower-black: #0a0a0a;
+  --tower-ink: #111111;
+  --fluor: #f4f1e6;
+  --fluor-dim: #d8d2c2;
+  --bin-steel: #1c1c1c;
+  --mute: #8a8478;
+  --line: #3a3830;
+  --paper: #f7f2e4;
+  --paper-ink: #141210;
+  --rail: clamp(15em, 28vw, 19em);
+  --dock-h: 2.55em;
+  --stage-max: min(56em, 100%);
+  --floor-max: min(78em, 100%);
+  --vinyl:
+    linear-gradient(180deg, rgba(255, 210, 0, 0.07), transparent 34%),
+    repeating-linear-gradient(
+      90deg,
+      #141414 0 2.85em,
+      #0f0f0f 2.85em 2.95em
+    );
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--tower-black);
+  color: var(--fluor);
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb {
+  display: none;
+}
+
+.go-shell .store {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  flex: 1 1 auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+}
+
+/* ——— entrance / lobby mast ——— */
+.go-shell .entrance {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  padding: 0.55em 0.85em 0.6em;
+  background:
+    linear-gradient(
+      90deg,
+      var(--tower-red) 0 36%,
+      var(--tower-yellow) 38% 100%
+    );
+  color: var(--tower-black);
+  border-bottom: 3px solid #000;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.go-shell .entrance::after {
+  content: "OPEN LATE  ·  NO RETURNS ON FEELINGS  ·  BOOKS  ·  SONGS  ·  SHOWS  ·  MOVIES";
+  position: absolute;
+  right: 0.9em;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 48%;
+  font-family: Anton, Impact, "Arial Black", sans-serif;
+  font-size: clamp(0.78em, 2vw, 1.15em);
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-align: right;
+  color: #000;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.go-shell .store:has(> .aisle) .entrance {
+  padding: 0.32em 0.75em 0.35em;
+  background: var(--tower-red);
+  background-image: linear-gradient(
+    90deg,
+    var(--tower-red) 0 58%,
+    var(--tower-yellow) 58% 100%
+  );
+}
+.go-shell .store:has(> .aisle) .entrance::after {
+  content: "LISTENING STATION";
+  font-size: 0.95em;
+  opacity: 0.38;
+}
+.go-shell .store:has(> .aisle) .tower-word,
+.go-shell .store:has(> .aisle) p.tower-word {
+  font-size: 1.35em;
+}
+.go-shell .store:has(> .aisle) .tower-sub,
+.go-shell .store:has(> .aisle) p.tower-sub,
+.go-shell .store:has(> .aisle) .bag-tag,
+.go-shell .store:has(> .aisle) .bag-tag p {
+  display: none;
+}
+.go-shell .store:has(> .aisle) .neon-strip,
+.go-shell .store:has(> .aisle) .neon-strip p {
+  margin-bottom: 0;
+  font-size: 0.68em;
+}
+
+.go-shell .store > .aisle {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.go-shell .bag-tag,
+.go-shell .bag-tag p {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0.28em;
+  padding: 0.18em 0.48em;
+  background: var(--tower-yellow);
+  color: var(--tower-black);
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  font-family: Anton, Impact, "Arial Black", sans-serif;
+  font-size: 0.78em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.go-shell .neon-strip,
+.go-shell .neon-strip p {
+  position: relative;
+  margin: 0 0 0.18em;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.72);
+  z-index: 1;
+}
+
+.go-shell .tower-word,
+.go-shell p.tower-word {
+  position: relative;
+  margin: 0;
+  font-family: Anton, Impact, "Arial Black", sans-serif;
+  font-size: clamp(2em, 6.5vw, 3.1em);
+  line-height: 0.9;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.22);
+  z-index: 1;
+}
+
+.go-shell .tower-sub,
+.go-shell p.tower-sub {
+  position: relative;
+  margin: 0.18em 0 0;
+  max-width: 36em;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.82em;
+  letter-spacing: 0.04em;
+  color: rgba(0, 0, 0, 0.72);
+  z-index: 1;
+}
+
+/* ——— floor / departments ——— */
+.go-shell .floor {
+  min-height: 0;
+  height: auto;
+  max-height: 100%;
+  padding: 0.85em 1em 1em;
+  overflow: auto;
+  background: var(--vinyl);
+  background-color: #101010;
+}
+.go-shell .floor > .dept-label,
+.go-shell .floor > .aisle-doors,
+.go-shell .floor > .listen-wall {
+  max-width: var(--floor-max);
+}
+
+.go-shell .dept-label,
+.go-shell .dept-label p {
+  margin: 0 0 0.45em;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.82em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tower-yellow);
+}
+
+.go-shell .aisle-doors {
+  margin: 0 0 0.9em;
+}
+
+.go-shell .aisle-doors .worlds,
+.go-shell .floor > .worlds,
+.go-shell .worlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.go-shell a.world {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 4.35em;
+  padding: 0.7em 0.8em 0.55em;
+  text-decoration: none;
+  color: #000 !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 42%),
+    linear-gradient(135deg, var(--tower-yellow) 0%, #f0c000 55%, #d4a800 100%);
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  font-family: Anton, Impact, "Arial Black", sans-serif;
+  font-size: 1.72em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow: visible;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.go-shell a.world::before {
+  content: "DEPT";
+  position: absolute;
+  top: 0.45em;
+  left: 0.5em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.48em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.go-shell .aisle-doors a.world .door-face,
+.go-shell .floor a.world .door-face {
+  display: none;
+}
+
+.go-shell .aisle-doors a.world .door-copy,
+.go-shell .floor a.world .door-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.go-shell a.world.door-songs {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 42%),
+    linear-gradient(135deg, var(--tower-red) 0%, #c10500 60%, #8a0400 100%);
+  color: var(--tower-yellow) !important;
+}
+.go-shell a.world.door-songs::before {
+  color: rgba(255, 210, 0, 0.75);
+}
+
+.go-shell a.world.door-shows {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%),
+    linear-gradient(135deg, #1a1a1a 0%, #0e0e0e 60%, #000 100%);
+  color: var(--tower-yellow) !important;
+  border-color: var(--tower-yellow);
+  box-shadow: 4px 4px 0 var(--tower-red);
+}
+.go-shell a.world.door-shows::before {
+  color: rgba(255, 210, 0, 0.7);
+}
+
+.go-shell a.world.door-books {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), transparent 40%),
+    linear-gradient(135deg, #ffe566 0%, var(--tower-yellow) 50%, #e0b800 100%);
+}
+
+.go-shell a.world.door-movies {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #111 0 0.35em,
+      #1c1c1c 0.35em 1.15em
+    ),
+    linear-gradient(180deg, #2a2a2a, #111);
+  color: var(--tower-yellow) !important;
+  border-color: var(--tower-yellow);
+  box-shadow: 4px 4px 0 var(--tower-red);
+}
+.go-shell a.world.door-movies::before {
+  color: rgba(255, 210, 0, 0.7);
+}
+
+.go-shell a.world:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.go-shell a.world.door-shows:hover,
+.go-shell a.world.door-movies:hover {
+  box-shadow: 6px 6px 0 var(--tower-red);
+}
+
+.go-shell .aisle-doors a.world strong,
+.go-shell .floor a.world strong,
+.go-shell a.world strong {
+  display: block;
+  font-size: 1em;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.go-shell a.world .door-deck {
+  display: block;
+  margin-top: 0.35em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.48em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: inherit;
+  opacity: 0.78;
+  line-height: 1.3;
+}
+
+.go-shell a.world .note-details {
+  display: none;
+}
+
+.go-shell a.world img.door-cover,
+.go-shell a.world .door-scrim {
+  display: none;
+}
+
+/* listening wall on lobby */
+.go-shell .listen-wall {
+  margin-top: 0.2em;
+  padding: 0.7em 0.85em 0.8em;
+  background: #0a0a0a;
+  border: 3px solid var(--tower-yellow);
+  box-shadow: 4px 4px 0 var(--tower-red);
+}
+
+.go-shell .listen-wall .content:empty,
+.go-shell .listen-wall > p:empty {
+  display: none;
+}
+
+.go-shell .wall-plate,
+.go-shell .wall-plate p {
+  margin: 0 0 0.2em;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.05em;
+  letter-spacing: 0.14em;
+  color: var(--tower-yellow);
+}
+
+.go-shell .wall-hint,
+.go-shell .wall-hint p {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82em;
+  letter-spacing: 0.04em;
+  color: var(--fluor-dim);
+}
+
+.go-shell .listen-wall::after {
+  content: "STAFF HAS BEEN IN THE BINS  ·  PULL A SPINE  ·  HEADPHONES ON THE WALL  ·  NO RETURNS ON FEELINGS";
+  display: block;
+  margin-top: 0.45em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78em;
+  letter-spacing: 0.1em;
+  color: var(--tower-yellow);
+  opacity: 0.8;
+}
+
+/* ——— aisle: bin rail + stage ——— */
+.go-shell .aisle {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.go-shell .bin {
+  position: relative;
+  align-self: stretch;
+  min-height: 0;
+  max-height: none;
+  height: auto;
+  overflow: auto;
+  padding: 0.55em 0.5em 0.8em;
+  background: var(--bin-steel);
+  border-right: 3px solid #000;
+  box-shadow: inset -6px 0 12px rgba(0, 0, 0, 0.35);
+}
+
+.go-shell .bin-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35em;
+  margin: 0 0 0.45em;
+  padding: 0.28em 0.4em;
+  background: var(--tower-yellow);
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.go-shell .bin-dept {
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.05em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.go-shell .bin-mark {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.go-shell .bin-nav,
+.go-shell .bin-nav p {
+  margin: 0 0 0.5em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.03em;
+  color: var(--fluor-dim);
+}
+
+.go-shell .bin-nav a {
+  color: var(--tower-yellow) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 210, 0, 0.45);
+}
+
+.go-shell .bin-rail ul.dir,
+.go-shell .bin ul.dir {
+  list-style: none;
+  margin: 0 0 0.55em;
+  padding: 0;
+}
+
+.go-shell .bin ul.dir a,
+.go-shell .bin-rail a {
+  display: block;
+  margin: 0 0 0.28em;
+  padding: 0.42em 0.45em 0.42em 0.7em;
+  text-decoration: none;
+  color: var(--fluor) !important;
+  background: linear-gradient(
+    90deg,
+    var(--tower-red) 0 0.28em,
+    rgba(20, 20, 20, 0.92) 0.28em
+  );
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  font-family: Anton, Impact, "Arial Black", sans-serif;
+  font-size: 0.95em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.go-shell .bin ul.dir a:hover {
+  background: linear-gradient(
+    90deg,
+    var(--tower-yellow) 0 0.28em,
+    #2a2a2a 0.28em
+  );
+  color: var(--tower-yellow) !important;
+}
+
+.go-shell .bin ul.dir a.on {
+  background: linear-gradient(
+    90deg,
+    var(--tower-yellow) 0 0.28em,
+    #2a1800 0.28em
+  );
+  color: var(--tower-yellow) !important;
+}
+
+.go-shell .bin ul.dir a .name {
+  font-family: inherit;
+}
+
+.go-shell .bin .faces,
+.go-shell .bin-faces .faces {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin: 0.2em 0 0;
+  padding: 0;
+}
+
+.go-shell .bin .face-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.go-shell .bin .face-deck-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 0.15em;
+}
+
+.go-shell .bin .faces .face {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  padding: 0.5em 0.5em 0.55em;
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 var(--tower-red);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.82em;
+  line-height: 1.35;
+}
+
+.go-shell .bin .faces .face h1,
+.go-shell .bin .faces .face h2,
+.go-shell .bin .faces .face h3 {
+  margin: 0 0 0.2em;
+  padding: 0 1.4em 0.15em 0;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #000;
+  border-bottom: 2px solid var(--tower-yellow);
+}
+
+.go-shell .bin .faces .face p {
+  margin: 0;
+  font-size: 0.88em;
+  color: #2a2418;
+}
+
+.go-shell .bin .face[data-href]:hover {
+  outline: none;
+  box-shadow: 3px 3px 0 #000;
+  border-color: #000;
+}
+
+/* stage — open item under fluorescents */
+.go-shell .stage {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.75em 1.05em 1.2em;
+  background: var(--vinyl);
+  background-color: #101010;
+}
+
+.go-shell .stage-plate,
+.go-shell .stage-plate p {
+  margin: 0 0 0.55em;
+  padding: 0.2em 0.45em;
+  display: inline-block;
+  background: #000;
+  border: 2px solid var(--tower-yellow);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tower-yellow);
+}
+
+.go-shell .stage-body {
+  max-width: var(--stage-max);
+  width: 100%;
+}
+
+.go-shell .stage-body,
+.go-shell .stage .content,
+.go-shell .listen-wall .content {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 3px solid #000;
+  box-shadow: 5px 4px 0 var(--tower-red);
+  padding: 1em 1.15em 1.15em;
+  font-size: 1em;
+  line-height: 1.5;
+  max-width: var(--stage-max);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.go-shell .stage-body:not(:has(.faces)):not(:has(.jewel-row)):not(:has(.listen-invite))::before {
+  content: "LISTENING COPY  ·  NOT FOR SALE";
+  display: block;
+  margin: 0 0 0.55em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.14em;
+  color: var(--tower-red);
+}
+
+.go-shell .stockroom {
+  display: none;
+}
+
+.go-shell .stage-body:has(.listen-invite) {
+  max-width: 28em;
+}
+
+.go-shell .listen-invite .invite-mark,
+.go-shell .listen-invite p.invite-mark {
+  margin: 0 0 0.45em;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.55em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #000;
+  border-bottom: 4px solid var(--tower-yellow);
+  padding-bottom: 0.22em;
+}
+
+.go-shell .listen-invite p {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.92em;
+  letter-spacing: 0.02em;
+  color: #2a2418;
+}
+
+.go-shell .stage h1,
+.go-shell .stage-body h1,
+.go-shell .listen-wall h1 {
+  margin: 0 0 0.4em;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(1.45em, 3.2vw, 1.85em);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: #000;
+  border-bottom: 4px solid var(--tower-yellow);
+  padding-bottom: 0.22em;
+}
+
+.go-shell .stage h2,
+.go-shell .stage h3 {
+  margin: 0.85em 0 0.35em;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tower-red-deep);
+}
+
+.go-shell .stage p,
+.go-shell .stage-body p {
+  margin: 0 0 0.5em;
+  font-size: 1em;
+}
+
+.go-shell .stage a:link,
+.go-shell .stage-body a:link {
+  color: var(--tower-red-deep) !important;
+}
+.go-shell .stage a:visited,
+.go-shell .stage-body a:visited {
+  color: #6a2020 !important;
+}
+
+.go-shell .stage a.outlink,
+.go-shell .stage-body a.outlink {
+  display: inline-block;
+  margin: 0.1em 0.4em 0.45em 0;
+  padding: 0.28em 0.6em 0.26em;
+  background: var(--tower-yellow);
+  color: #000 !important;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  text-decoration: none;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.go-shell .stage a.outlink:hover,
+.go-shell .stage-body a.outlink:hover {
+  background: var(--tower-yellow-hot);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #000;
+}
+.go-shell .stage a.outlink::after,
+.go-shell .stage-body a.outlink::after {
+  content: " ↗";
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+/* aisle landing: jewel cases on the vinyl, not one cream dump */
+.go-shell .stage-body:has(.faces),
+.go-shell .stage-body:has(.jewel-row),
+.go-shell .stage-body .jewel-row,
+.go-shell .stage-body .bin-faces {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+}
+
+.go-shell .stage-body .faces,
+.go-shell .stage-body .jewel-row .faces,
+.go-shell .stage-body .bin-faces .faces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16.5em, 1fr));
+  gap: 0.85em;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  align-items: start;
+}
+
+.go-shell .stage-body .face-deck {
+  display: contents;
+}
+
+.go-shell .stage-body .face-deck-label {
+  grid-column: 1 / -1;
+  margin: 0.15em 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tower-yellow);
+}
+
+.go-shell .stage-body .face-deck > .face:not([data-card]) {
+  position: relative;
+  min-width: 0;
+  max-width: none;
+  min-height: 8em;
+  padding: 0.85em 0.9em 1em;
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 var(--tower-red);
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.go-shell .stage-body .face-deck > .face:not([data-card])::before {
+  content: "IN THE BINS";
+  display: block;
+  margin: 0 0 0.4em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68em;
+  letter-spacing: 0.14em;
+  color: var(--tower-red);
+}
+
+.go-shell .stage-body .face-deck > .face:not([data-card]) h1,
+.go-shell .stage-body .face-deck > .face:not([data-card]) h2,
+.go-shell .stage-body .face-deck > .face:not([data-card]) h3 {
+  margin: 0 0 0.35em;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.35em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.08;
+  color: #000;
+  border-bottom: 3px solid var(--tower-yellow);
+  padding-bottom: 0.18em;
+}
+
+.go-shell .stage-body .face-deck > .face:not([data-card]) p {
+  margin: 0 0 0.4em;
+  font-size: 0.95em;
+}
+
+.go-shell .stage-body .face-deck > .face:not([data-card])[data-href] {
+  cursor: pointer;
+}
+.go-shell .stage-body .face-deck > .face:not([data-card])[data-href]:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 4px 0 #000;
+}
+
+.go-shell .stage-body .faces .face[data-card] {
+  min-width: 0;
+  max-width: none;
+  min-height: 0;
+  padding: 0;
+  margin: 0.55em 0 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.go-shell .stage-body .faces .face[data-card]::before {
+  content: none;
+}
+
+/* paper dumped as sibling boxes (movies-style, no stage-body) */
+.go-shell .stage > h1,
+.go-shell .stage > h2,
+.go-shell .stage > h3,
+.go-shell .stage > p,
+.go-shell .stage > ul,
+.go-shell .stage > ol,
+.go-shell .stage > blockquote,
+.go-shell .stage > pre {
+  max-width: var(--stage-max);
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 3px solid #000;
+  margin: 0 0 0.55em;
+  padding: 0.7em 0.85em;
+  box-shadow: 4px 4px 0 var(--tower-red);
+}
+
+.go-shell .stage > .lorecard,
+.go-shell .stage > .faces,
+.go-shell .stage > .jewel-row,
+.go-shell .stage > .bin-faces {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+}
+
+/* planted lorecards keep traveler face */
+.go-shell .stage .lorecard h1,
+.go-shell .stage .lorecard h2,
+.go-shell .stage .lorecard h3,
+.go-shell .stage-body .lorecard h1,
+.go-shell .stage-body .lorecard h2,
+.go-shell .stage-body .lorecard h3 {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.28rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1.52rem;
+  color: var(--ink, #2a2418);
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin: 0.15rem 0 0.35rem;
+  background: transparent;
+  box-shadow: none;
+}
+.go-shell .stage .lorecard,
+.go-shell .stage-body .lorecard {
+  max-width: min(22.5rem, 100%);
+  background: var(--paper, #f7f1dc);
+  border: 0;
+  box-shadow:
+    1px 1px 0 #d4cbb4,
+    3px 4px 8px rgba(40, 30, 10, 0.16),
+    0 0 0 1px #c4b898;
+}
+.go-shell .stage .lorecard p,
+.go-shell .stage-body .lorecard p {
+  font-size: inherit;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0 0 0.12rem;
+  margin: 0;
+}
+
+.go-shell .stage-body .faces .face .lorecard {
+  max-width: 100%;
+  margin-top: 0.55em;
+}
+
+.go-shell .listen-wall > h1,
+.go-shell .listen-wall > p {
+  background: var(--paper);
+  color: var(--paper-ink);
+  border: 2px solid #000;
+  padding: 0.5em 0.65em;
+  box-shadow: 3px 3px 0 var(--tower-red);
+  max-width: var(--stage-max);
+}
+
+/* ——— bottom dock mast ——— */
+.go-shell .dock {
+  grid-row: 3;
+  background: var(--tower-red);
+  border-top: 3px solid #000;
+  box-shadow: 0 -3px 0 rgba(255, 210, 0, 0.35);
+}
+
+.go-shell .dock-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4em 0.85em;
+  padding: 0.4em 0.7em;
+  min-height: var(--dock-h);
+}
+
+.go-shell .dock-mark,
+.go-shell .dock-mark p {
+  margin: 0;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 1.15em;
+  letter-spacing: 0.12em;
+  color: var(--tower-yellow);
+  text-shadow: 1px 1px 0 #000;
+}
+
+.go-shell .dock-hours,
+.go-shell .dock-hours p {
+  margin: 0;
+  flex: 1 1 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 245, 200, 0.88);
+}
+
+.go-shell .dock-up,
+.go-shell .dock-up p {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+}
+
+.go-shell .dock-up a {
+  color: var(--tower-yellow) !important;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255, 210, 0, 0.5);
+}
+
+.go-shell .store.is-paned .aisle-doors .worlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: visible;
+  scroll-snap-type: none;
+  gap: 0.7em;
+  padding-bottom: 0;
+}
+.go-shell .store.is-paned a.world {
+  flex: none;
+  width: auto;
+  min-height: 4.35em;
+  scroll-snap-align: unset;
+}
+
+.go-shell .aisle-pull {
+  display: none;
+  position: fixed;
+  left: 0.4em;
+  bottom: calc(var(--dock-h) + 0.55em);
+  z-index: 20;
+  padding: 0.4em 0.55em;
+  background: var(--tower-yellow);
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  font-family: Anton, Impact, sans-serif;
+  font-size: 0.82em;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.go-shell .aisle-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 15;
+}
+
+@media (max-width: 900px) {
+  .go-shell .entrance::after {
+    max-width: 40%;
+    font-size: 0.72em;
+  }
+}
+
+@media (max-width: 720px) {
+  .go-shell .aisle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .go-shell .bin {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: var(--dock-h);
+    width: min(84vw, 18em);
+    max-height: none;
+    z-index: 18;
+    transform: translateX(-105%);
+    transition: transform 0.2s ease;
+  }
+  .go-shell .store.is-bin-open .bin {
+    transform: translateX(0);
+  }
+  .go-shell .aisle-pull {
+    display: block;
+  }
+  .go-shell .store.is-bin-open .aisle-scrim {
+    display: block;
+  }
+  .go-shell .entrance::after {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .go-shell {
+    font-size: 14px;
+  }
+  .go-shell .aisle-doors .worlds,
+  .go-shell .worlds {
+    grid-template-columns: 1fr;
+  }
+  .go-shell .tower-word,
+  .go-shell p.tower-word {
+    font-size: clamp(1.6em, 9vw, 2.2em);
+  }
+}

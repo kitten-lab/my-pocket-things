@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
 
-/* gemini â€” little night website for imported chats / syntheses */
+/* gemini — little night website for imported chats / syntheses */
 :root {
   --bg: #100e18;
   --paper: #171322;
@@ -18,7 +18,7 @@
   --hero: #1a1430;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 10% -5%, rgba(124, 58, 237, 0.28), transparent 42%),
     radial-gradient(ellipse at 92% 0%, rgba(240, 171, 252, 0.12), transparent 36%),
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
@@ -43,8 +43,8 @@
   padding: 0.25rem 0.2rem 0.45rem;
 }
 
-/* â€”â€”â€” site header â€”â€”â€” */
-.wwwExplorer_innerShell .gem-hero {
+/* ——— site header ——— */
+.go-shell .gem-hero {
   position: relative;
   margin: 0 0 1.15rem;
   padding: 1.15rem 1.15rem 1.05rem;
@@ -60,7 +60,7 @@
   overflow: hidden;
 }
 
-.wwwExplorer_innerShell .gem-hero::before {
+.go-shell .gem-hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -75,7 +75,7 @@
   opacity: 0.9;
 }
 
-.wwwExplorer_innerShell .gem-hero::after {
+.go-shell .gem-hero::after {
   content: "";
   position: absolute;
   left: 0;
@@ -86,13 +86,13 @@
   opacity: 0.85;
 }
 
-.wwwExplorer_innerShell .gem-hero > * {
+.go-shell .gem-hero > * {
   position: relative;
   z-index: 1;
 }
 
-.wwwExplorer_innerShell .gem-kicker,
-.wwwExplorer_innerShell p.gem-kicker {
+.go-shell .gem-kicker,
+.go-shell p.gem-kicker {
   margin: 0 0 0.35rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
@@ -102,8 +102,8 @@
   color: var(--stamp);
 }
 
-.wwwExplorer_innerShell .gem-wordmark,
-.wwwExplorer_innerShell p.gem-wordmark {
+.go-shell .gem-wordmark,
+.go-shell p.gem-wordmark {
   margin: 0 0 0.45rem;
   font-family: Fraunces, Georgia, serif;
   font-size: clamp(2rem, 6vw, 2.75rem);
@@ -115,8 +115,8 @@
   text-shadow: 0 0 24px rgba(167, 139, 250, 0.45);
 }
 
-.wwwExplorer_innerShell .gem-lede,
-.wwwExplorer_innerShell p.gem-lede {
+.go-shell .gem-lede,
+.go-shell p.gem-lede {
   margin: 0;
   max-width: 36rem;
   font-size: 0.92rem;
@@ -124,35 +124,35 @@
   color: #c9bddc;
 }
 
-.wwwExplorer_innerShell .gem-hero.is-sub {
+.go-shell .gem-hero.is-sub {
   padding: 0.85rem 1rem 0.8rem;
   margin-bottom: 0.95rem;
 }
 
-.wwwExplorer_innerShell .gem-hero.is-sub .gem-wordmark,
-.wwwExplorer_innerShell .gem-hero.is-sub p.gem-wordmark {
+.go-shell .gem-hero.is-sub .gem-wordmark,
+.go-shell .gem-hero.is-sub p.gem-wordmark {
   font-size: clamp(1.45rem, 4vw, 1.9rem);
   letter-spacing: 0.1em;
 }
 
-.wwwExplorer_innerShell .gem-hero.is-sub .gem-lede,
-.wwwExplorer_innerShell .gem-hero.is-sub p.gem-lede {
+.go-shell .gem-hero.is-sub .gem-lede,
+.go-shell .gem-hero.is-sub p.gem-lede {
   font-size: 0.85rem;
 }
 
 /* rails / shelves under the hero */
-.wwwExplorer_innerShell .gem-rail,
-.wwwExplorer_innerShell .gem-shelf {
+.go-shell .gem-rail,
+.go-shell .gem-shelf {
   margin: 0 0 1.1rem;
   padding: 0.7rem 0.8rem 0.85rem;
   background: rgba(26, 20, 40, 0.72);
   border: 1px solid var(--line);
 }
 
-.wwwExplorer_innerShell .gem-rail-label,
-.wwwExplorer_innerShell .gem-shelf-label,
-.wwwExplorer_innerShell p.gem-rail-label,
-.wwwExplorer_innerShell p.gem-shelf-label {
+.go-shell .gem-rail-label,
+.go-shell .gem-shelf-label,
+.go-shell p.gem-rail-label,
+.go-shell p.gem-shelf-label {
   margin: 0 0 0.55rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.68rem;
@@ -161,8 +161,8 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .mast,
-.wwwExplorer_innerShell p.mast {
+.go-shell .mast,
+.go-shell p.mast {
   font-family: Fraunces, Georgia, serif;
   font-size: 1.35rem;
   font-weight: 700;
@@ -171,7 +171,7 @@
   margin: 0.35rem 0 0.55rem;
 }
 
-.wwwExplorer_innerShell h1 {
+.go-shell h1 {
   font-family: Fraunces, Georgia, serif;
   font-size: 1.45rem;
   font-weight: 700;
@@ -180,7 +180,7 @@
   margin: 0.4rem 0 0.65rem;
 }
 
-.wwwExplorer_innerShell h2 {
+.go-shell h2 {
   font-family: Fraunces, Georgia, serif;
   font-size: 1.05rem;
   font-weight: 700;
@@ -190,7 +190,7 @@
   border-bottom: 1px solid var(--rule);
 }
 
-.wwwExplorer_innerShell h3 {
+.go-shell h3 {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
   font-weight: 500;
@@ -200,30 +200,30 @@
   margin: 0.85rem 0 0.35rem;
 }
 
-.wwwExplorer_innerShell p { margin: 0.4rem 0 0.55rem; }
-.wwwExplorer_innerShell em { color: #d4c4f0; }
-.wwwExplorer_innerShell strong { color: #fff7ff; font-weight: 600; }
-.wwwExplorer_innerShell ul { margin: 0.35rem 0 0.7rem; padding-left: 1.15rem; }
-.wwwExplorer_innerShell li { margin: 0.25rem 0; }
-.wwwExplorer_innerShell hr {
+.go-shell p { margin: 0.4rem 0 0.55rem; }
+.go-shell em { color: #d4c4f0; }
+.go-shell strong { color: #fff7ff; font-weight: 600; }
+.go-shell ul { margin: 0.35rem 0 0.7rem; padding-left: 1.15rem; }
+.go-shell li { margin: 0.25rem 0; }
+.go-shell hr {
   border: 0;
   border-top: 1px solid var(--rule);
   margin: 1rem 0;
 }
 
-.wwwExplorer_innerShell a:link { color: var(--accent); }
-.wwwExplorer_innerShell a:visited { color: var(--visited); }
-.wwwExplorer_innerShell a:hover { color: var(--active); }
+.go-shell a:link { color: var(--accent); }
+.go-shell a:visited { color: var(--visited); }
+.go-shell a:hover { color: var(--active); }
 
-.wwwExplorer_innerShell .worlds,
-.wwwExplorer_innerShell .doors {
+.go-shell .worlds,
+.go-shell .doors {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin: 0.15rem 0 0.2rem;
 }
 
-.wwwExplorer_innerShell a.world {
+.go-shell a.world {
   display: inline-flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -236,7 +236,7 @@
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.35);
 }
 
-.wwwExplorer_innerShell a.world strong {
+.go-shell a.world strong {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -244,12 +244,12 @@
   color: var(--accent);
 }
 
-.wwwExplorer_innerShell a.world:hover {
+.go-shell a.world:hover {
   border-color: var(--accent);
   color: #fff;
 }
 
-.wwwExplorer_innerShell ul.dir.files {
+.go-shell ul.dir.files {
   list-style: none;
   margin: 0.15rem 0 0;
   padding: 0;
@@ -258,11 +258,11 @@
   gap: 0.35rem;
 }
 
-.wwwExplorer_innerShell ul.dir.files li {
+.go-shell ul.dir.files li {
   margin: 0;
 }
 
-.wwwExplorer_innerShell ul.dir.files a {
+.go-shell ul.dir.files a {
   display: block;
   padding: 0.45rem 0.6rem;
   background: var(--chip);
@@ -271,20 +271,20 @@
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell ul.dir.files a:hover {
+.go-shell ul.dir.files a:hover {
   border-color: var(--accent);
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 
-.wwwExplorer_innerShell ul.dir.files .name {
+.go-shell ul.dir.files .name {
   font-family: Fraunces, Georgia, serif;
   font-weight: 600;
   color: #f5f0ff;
 }
-.wwwExplorer_innerShell .gem-back,
-.wwwExplorer_innerShell p.gem-back,
-.wwwExplorer_innerShell .gem-foot,
-.wwwExplorer_innerShell p.gem-foot {
+.go-shell .gem-back,
+.go-shell p.gem-back,
+.go-shell .gem-foot,
+.go-shell p.gem-foot {
   margin: 0 0 0.85rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.72rem;
@@ -293,8 +293,8 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell .gem-foot,
-.wwwExplorer_innerShell p.gem-foot {
+.go-shell .gem-foot,
+.go-shell p.gem-foot {
   margin: 1.1rem 0 0;
   padding-top: 0.7rem;
   border-top: 1px solid var(--rule);

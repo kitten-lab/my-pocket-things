@@ -1,0 +1,533 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@600;700&family=Outfit:wght@400;500;600&display=swap");
+
+/* portico — CSS coat for the shared start lobby bones
+   start.md uses .mypi-hero + .mypi-doors (toggle webring-start / mypi-start /
+   neocities-start / portico via environment:). lantern hangs on .mypi-hero.
+   doors are ivory plates + hue spine; names in condensed ink (not matching niches).
+   recent keeps its own clerk-spike markup (.lantern / .spike). */
+
+:root {
+  --bg: #0e141c;
+  --paper: #efe6d4;
+  --ink: #e8dfc8;
+  --mute: #8a8274;
+  --line: #2a3544;
+  --accent: #e6c36a;
+  --visited: #b08a9a;
+  --active: #fff1c2;
+  --rule: #c9a22744;
+  --strip: #c9a227;
+  --card-strip: #c9a227;
+  --stamp: #e6c36a;
+  --chip: #1c2430;
+  --hero: #151c28;
+  --link: #efe6d4;
+  --ring: #e6c36a;
+}
+
+.go-shell {
+  background:
+    radial-gradient(ellipse 50% 22% at 50% 0%, rgba(230, 195, 106, 0.1), transparent 70%),
+    radial-gradient(circle at 8% 22%, #fff6d0 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 14%, #fff 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 62% 48%, #e6c36a 0 0.8px, transparent 1.4px),
+    radial-gradient(circle at 22% 72%, #fff 0 0.7px, transparent 1.3px),
+    radial-gradient(circle at 91% 81%, #fff6d0 0 1px, transparent 1.5px),
+    linear-gradient(180deg, #121924 0%, var(--bg) 42%, #16120e 100%);
+  color: var(--ink);
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+#browserWindow {
+  max-width: none;
+  padding: 6px 12px 16px;
+  margin: 0;
+}
+
+.go-shell .crumb {
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 6px;
+}
+
+.go-shell .crumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.go-shell .portico {
+  max-width: 76em;
+  margin: 0 auto;
+}
+
+/* hanging lamp on shared start bones (.mypi-hero) and recent desk (.lantern) */
+.go-shell .lantern,
+.go-shell .mypi-hero {
+  position: relative;
+  text-align: center;
+  margin: 0 auto 4px;
+  padding: 16px 8px 0;
+  max-width: 36em;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.go-shell .lantern::before,
+.go-shell .mypi-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 10px;
+  margin-left: -0.5px;
+  background: linear-gradient(#6a5410, #e6c36a);
+}
+
+.go-shell .lantern::after,
+.go-shell .mypi-hero::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 12px;
+  height: 10px;
+  margin-left: -6px;
+  background: radial-gradient(ellipse at 50% 28%, #fff6d0 0%, #e6c36a 42%, #8a5a10 100%);
+  border-radius: 50% 50% 42% 42%;
+  box-shadow: 0 0 12px 3px rgba(230, 195, 106, 0.32);
+}
+
+.go-shell .lantern p,
+.go-shell .lantern .md-gap,
+.go-shell .mypi-hero p,
+.go-shell .mypi-hero .md-gap {
+  position: relative;
+  z-index: 1;
+}
+
+.go-shell .lantern .md-gap,
+.go-shell .mypi-hero .md-gap {
+  height: 0.08em;
+}
+
+.go-shell .kicker,
+.go-shell .mypi-kicker {
+  font-family: "Outfit", sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2px 0 0;
+}
+
+.go-shell .wordmark,
+.go-shell .mypi-wordmark {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #fff6d0;
+  margin: 0;
+  text-shadow: 0 0 12px rgba(230, 195, 106, 0.35);
+}
+
+.go-shell .lede,
+.go-shell .mypi-lede {
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #c4bba8;
+  margin: 1px auto 0;
+  max-width: 42em;
+}
+
+.go-shell .lantern.is-desk {
+  max-width: 32em;
+  padding: 18px 8px 2px;
+}
+
+.go-shell .lantern.is-desk .wordmark {
+  font-size: 22px;
+}
+
+.go-shell .colonnade,
+.go-shell .mypi-doors {
+  margin: 0;
+}
+
+.go-shell .colonnade-label,
+.go-shell .mypi-doors-label {
+  display: none;
+}
+
+.go-shell .spike-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-align: left;
+  margin: 0 0 10px 18px;
+}
+
+.go-shell .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+  gap: 5px 6px;
+}
+
+.go-shell .worlds.is-sectioned {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.go-shell .door-section {
+  margin: 0;
+}
+
+.go-shell .door-section-head {
+  font-family: "IBM Plex Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  color: #8a8274;
+  margin: 0 0 4px;
+  padding: 0 0 2px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #2a3544;
+}
+
+.go-shell .door-section-doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+  gap: 5px 6px;
+}
+
+.go-shell a.world {
+  --door-hue: #c9a227;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 6px;
+  align-items: start;
+  min-height: 0;
+  padding: 5px 8px 5px 9px;
+  background: var(--paper);
+  color: #1c1812;
+  border: 1px solid #1c1812;
+  border-left: 5px solid var(--door-hue);
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  overflow: visible;
+}
+
+.go-shell a.world:has(> img.door-face) {
+  grid-template-columns: 16px minmax(0, 1fr);
+}
+
+.go-shell a.world img.door-cover,
+.go-shell a.world .door-scrim {
+  display: none;
+}
+
+.go-shell a.world .door-face {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #1c1812;
+  border-radius: 1px;
+  background: #efe6d4;
+  box-shadow: none;
+}
+
+.go-shell .mypi-doors a.world .door-face.is-letter,
+.go-shell a.world .door-face.is-letter {
+  display: none;
+}
+
+.go-shell a.world .door-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding-bottom: 0;
+}
+
+.go-shell a.world:hover {
+  background: #fff8ea;
+  border-color: #1c1812;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  color: #1c1812;
+}
+
+.go-shell a.world:visited {
+  color: #1c1812;
+}
+
+.go-shell a.world strong {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.08;
+  font-family: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1c1812;
+  text-decoration: none;
+  padding-right: 1.4em;
+}
+
+.go-shell a.world:visited strong {
+  color: #4a3840;
+}
+
+.go-shell a.world .door-deck {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  background: none;
+  color: #6a6256;
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.go-shell a.world .note-details {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #8a8274;
+  opacity: 0.85;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.go-shell a.world.door-pinned {
+  background: #fff3c8;
+  border-left-width: 6px;
+  border-left-color: #c9a227;
+}
+
+.go-shell a.world.door-pinned::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 22px;
+  width: 7px;
+  height: 11px;
+  background: linear-gradient(#fff6d0, #c9a227);
+  border: 1px solid #6a5410;
+  border-radius: 1px 1px 2px 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.go-shell a.world.door-pinned::after {
+  content: none;
+}
+
+.go-shell .worlds.is-chips,
+.go-shell .worlds.is-chips .door-section-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip,
+.go-shell a.world.door-chip {
+  min-height: 0;
+  grid-template-columns: auto 1fr;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.go-shell .worlds.is-chips a.world.door-chip .door-deck,
+.go-shell .worlds.is-chips a.world.door-chip .note-details {
+  display: none;
+}
+
+/* recent: clerk's spike of cream slips */
+.go-shell .spike {
+  position: relative;
+  max-width: 46em;
+  margin: 0 auto;
+  padding: 0 0 12px 14px;
+}
+
+.go-shell .spike::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 28px;
+  bottom: 10px;
+  width: 3px;
+  background: linear-gradient(#e6c36a, #6a5410);
+  border-radius: 2px;
+}
+
+.go-shell .recentlook {
+  margin: 0;
+}
+
+.go-shell .recentlook ul.dir.hits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.go-shell .recentlook li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px 12px;
+  background: var(--paper);
+  color: #1c1812;
+  padding: 10px 14px 10px 18px;
+  border-radius: 2px 8px 8px 2px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.28);
+}
+
+.go-shell .recentlook li:has(.hit-when) {
+  grid-template-columns: 7.4em minmax(0, 1fr);
+}
+
+.go-shell .recentlook li::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: #0e141c;
+  box-shadow: inset 0 0 0 2px #c9a227;
+  z-index: 1;
+}
+
+.go-shell .recentlook li:first-child {
+  box-shadow:
+    3px 3px 0 rgba(0, 0, 0, 0.28),
+    inset 3px 0 0 #c9a227;
+}
+
+.go-shell .recentlook .hit-when {
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #8a7018;
+}
+
+.go-shell .recentlook a,
+.go-shell .recentlook a:link {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1c1812;
+  text-decoration: none;
+}
+
+.go-shell .recentlook a:visited,
+.go-shell .recentlook a.been {
+  color: #6a4050;
+}
+
+.go-shell .recentlook a:hover {
+  color: #6a5410;
+}
+
+.go-shell .recentlook .hit-path {
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #6a6256;
+  letter-spacing: 0.02em;
+}
+
+.go-shell .recentlook.taglook-empty {
+  color: var(--mute);
+  font-style: italic;
+  padding: 12px 18px;
+}
+
+.go-shell a:link {
+  color: var(--accent);
+}
+
+.go-shell a:visited {
+  color: var(--visited);
+}
+
+.go-shell .recentlook a:link {
+  color: #1c1812;
+}
+
+.go-shell .recentlook a:visited,
+.go-shell .recentlook a.been {
+  color: #6a4050;
+}
+
+.go-shell .recentlook a:hover {
+  color: #6a5410;
+}
+
+@media (max-width: 640px) {
+  .go-shell .wordmark,
+  .go-shell .mypi-wordmark {
+    font-size: 18px;
+  }
+  .go-shell .lantern,
+  .go-shell .mypi-hero {
+    padding: 14px 8px 0;
+  }
+  .go-shell .recentlook li:has(.hit-when) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .go-shell .recentlook .hit-when {
+    grid-row: auto;
+  }
+}

@@ -25,7 +25,7 @@
   --chip: #dfe6ee;
 }
 
-.wwwExplorer_innerShell {
+.go-shell {
   background:
     radial-gradient(ellipse at 12% -6%, rgba(168, 60, 56, 0.12), transparent 42%),
     radial-gradient(ellipse at 92% 8%, rgba(138, 150, 164, 0.14), transparent 38%),
@@ -56,7 +56,7 @@
   overflow: auto;
 }
 
-.wwwExplorer_innerShell .crumb {
+.go-shell .crumb {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.64rem;
   letter-spacing: 0.08em;
@@ -65,15 +65,15 @@
   padding: 0.1rem 0.15rem;
 }
 
-.wwwExplorer_innerShell .crumb a {
+.go-shell .crumb a {
   color: var(--pewter);
   text-decoration: none;
   border-bottom: 1px dotted rgba(138, 150, 164, 0.45);
 }
 
 /* ——— little-website mast / hero ——— */
-.wwwExplorer_innerShell .works-hero,
-.wwwExplorer_innerShell p.mast {
+.go-shell .works-hero,
+.go-shell p.mast {
   position: relative;
   margin: 0 0 0.85rem;
   padding: 0.85rem 0.95rem 0.95rem;
@@ -88,8 +88,8 @@
   overflow: hidden;
 }
 
-.wwwExplorer_innerShell .works-hero::before,
-.wwwExplorer_innerShell p.mast::before {
+.go-shell .works-hero::before,
+.go-shell p.mast::before {
   content: "";
   position: absolute;
   left: 0;
@@ -99,7 +99,7 @@
   background: linear-gradient(180deg, var(--ribbon), #6a2420 70%, #3a1816);
 }
 
-.wwwExplorer_innerShell .works-hero::after {
+.go-shell .works-hero::after {
   content: "";
   position: absolute;
   right: -8%;
@@ -110,8 +110,8 @@
   pointer-events: none;
 }
 
-.wwwExplorer_innerShell .works-kicker,
-.wwwExplorer_innerShell p.works-kicker {
+.go-shell .works-kicker,
+.go-shell p.works-kicker {
   position: relative;
   margin: 0 0 0.28rem;
   font-family: "IBM Plex Mono", monospace;
@@ -122,9 +122,9 @@
   color: var(--hours);
 }
 
-.wwwExplorer_innerShell .works-wordmark,
-.wwwExplorer_innerShell p.works-wordmark,
-.wwwExplorer_innerShell p.mast {
+.go-shell .works-wordmark,
+.go-shell p.works-wordmark,
+.go-shell p.mast {
   position: relative;
   margin: 0 0 0.28rem;
   font-family: Syne, "Arial Narrow", sans-serif;
@@ -137,12 +137,12 @@
   text-shadow: 0 0 18px rgba(168, 60, 56, 0.28);
 }
 
-.wwwExplorer_innerShell p.mast {
+.go-shell p.mast {
   font-size: clamp(1.55rem, 5vw, 2.2rem);
   padding-left: 1.15rem;
 }
 
-.wwwExplorer_innerShell p.mast::after {
+.go-shell p.mast::after {
   content: "sat with  ·  filed as slips  ·  kept";
   display: block;
   margin-top: 0.28rem;
@@ -156,8 +156,8 @@
   text-shadow: none;
 }
 
-.wwwExplorer_innerShell .works-lede,
-.wwwExplorer_innerShell p.works-lede {
+.go-shell .works-lede,
+.go-shell p.works-lede {
   position: relative;
   margin: 0;
   max-width: 34rem;
@@ -169,8 +169,8 @@
 }
 
 /* ——— drawer bay ——— */
-.wwwExplorer_innerShell .works-drawers,
-.wwwExplorer_innerShell .works-slips {
+.go-shell .works-drawers,
+.go-shell .works-slips {
   margin: 0 0 0.9rem;
   padding: 0.7rem 0.75rem 0.85rem;
   background:
@@ -180,10 +180,10 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.wwwExplorer_innerShell .works-drawers-label,
-.wwwExplorer_innerShell .works-slips-label,
-.wwwExplorer_innerShell p.works-drawers-label,
-.wwwExplorer_innerShell p.works-slips-label {
+.go-shell .works-drawers-label,
+.go-shell .works-slips-label,
+.go-shell p.works-drawers-label,
+.go-shell p.works-slips-label {
   margin: 0 0 0.5rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.62rem;
@@ -193,13 +193,13 @@
 }
 
 /* kind doors as drawer pulls */
-.wwwExplorer_innerShell .worlds {
+.go-shell .worlds {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
   gap: 0.45rem;
 }
 
-.wwwExplorer_innerShell a.world {
+.go-shell a.world {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -221,7 +221,7 @@
   transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
-.wwwExplorer_innerShell a.world::before {
+.go-shell a.world::before {
   content: "";
   position: absolute;
   left: 0;
@@ -231,28 +231,28 @@
   background: var(--ribbon);
 }
 
-.wwwExplorer_innerShell a.world.door-songs::before { background: #3a5a7a; }
-.wwwExplorer_innerShell a.world.door-books::before { background: #6a4a2a; }
-.wwwExplorer_innerShell a.world.door-shows::before { background: #4a3a5a; }
+.go-shell a.world.door-songs::before { background: #3a5a7a; }
+.go-shell a.world.door-books::before { background: #6a4a2a; }
+.go-shell a.world.door-shows::before { background: #4a3a5a; }
 
-.wwwExplorer_innerShell a.world:hover {
+.go-shell a.world:hover {
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--ribbon);
   border-color: var(--ribbon);
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell a.world:visited {
+.go-shell a.world:visited {
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell a.world strong {
+.go-shell a.world strong {
   display: block;
   line-height: 1.15;
   overflow-wrap: anywhere;
 }
 
-.wwwExplorer_innerShell a.world .door-deck {
+.go-shell a.world .door-deck {
   display: block;
   margin-top: 0.2rem;
   font-family: "Libre Baskerville", Georgia, serif;
@@ -264,7 +264,7 @@
   line-height: 1.25;
 }
 
-.wwwExplorer_innerShell a.world .note-details {
+.go-shell a.world .note-details {
   margin-top: 0.28rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.58rem;
@@ -273,13 +273,13 @@
   color: var(--mute);
 }
 
-.wwwExplorer_innerShell a.world:hover .door-deck,
-.wwwExplorer_innerShell a.world:hover .note-details {
+.go-shell a.world:hover .door-deck,
+.go-shell a.world:hover .note-details {
   color: #3a3030;
 }
 
 /* ——— catalog faces / work slips ——— */
-.wwwExplorer_innerShell .faces {
+.go-shell .faces {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
@@ -288,7 +288,7 @@
   padding: 0.15rem 0;
 }
 
-.wwwExplorer_innerShell .face-deck {
+.go-shell .face-deck {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem 0.75rem;
@@ -298,7 +298,7 @@
   border: 0;
 }
 
-.wwwExplorer_innerShell .face-deck-label {
+.go-shell .face-deck-label {
   flex: 1 0 100%;
   margin: 0 0 0.1rem;
   padding: 0 0 0.3rem;
@@ -311,7 +311,7 @@
   border-bottom: 1px solid rgba(58, 69, 84, 0.28);
 }
 
-.wwwExplorer_innerShell .faces .face {
+.go-shell .faces .face {
   position: relative;
   min-width: 11.5rem;
   max-width: 18.5rem;
@@ -333,7 +333,7 @@
   line-height: 1.45;
 }
 
-.wwwExplorer_innerShell .faces .face::before {
+.go-shell .faces .face::before {
   content: "SLIP";
   position: absolute;
   top: 0.35rem;
@@ -346,13 +346,13 @@
   opacity: 0.55;
 }
 
-.wwwExplorer_innerShell .faces .face[data-card="1"]::before {
+.go-shell .faces .face[data-card="1"]::before {
   content: "CARD";
 }
 
-.wwwExplorer_innerShell .faces .face h1,
-.wwwExplorer_innerShell .faces .face h2,
-.wwwExplorer_innerShell .faces .face h3 {
+.go-shell .faces .face h1,
+.go-shell .faces .face h2,
+.go-shell .faces .face h3 {
   margin: 0 0 0.35rem;
   padding: 0 2.2rem 0.25rem 0;
   font-family: Syne, "Arial Narrow", sans-serif;
@@ -364,29 +364,29 @@
   border-bottom: 1px solid rgba(168, 60, 56, 0.35);
 }
 
-.wwwExplorer_innerShell .faces .face p {
+.go-shell .faces .face p {
   margin: 0;
   padding: 0.1rem 0;
   font-size: 0.84rem;
   color: #1a2030;
 }
 
-.wwwExplorer_innerShell .faces .face .kicker,
-.wwwExplorer_innerShell .faces .face .made,
-.wwwExplorer_innerShell .faces .face .house {
+.go-shell .faces .face .kicker,
+.go-shell .faces .face .made,
+.go-shell .faces .face .house {
   color: #6a3030;
 }
 
-.wwwExplorer_innerShell .faces .face .line {
+.go-shell .faces .face .line {
   color: #1a2030;
 }
 
-.wwwExplorer_innerShell .faces .face .lorecard {
+.go-shell .faces .face .lorecard {
   background: transparent;
   color: var(--ink);
 }
 
-.wwwExplorer_innerShell .face[data-href]:hover {
+.go-shell .face[data-href]:hover {
   outline: none;
   box-shadow:
     3px 3px 0 var(--ribbon),
@@ -394,13 +394,13 @@
   border-color: var(--ribbon);
 }
 
-.wwwExplorer_innerShell .face[data-href]:focus-visible {
+.go-shell .face[data-href]:focus-visible {
   outline: 2px solid var(--ribbon);
   outline-offset: 3px;
 }
 
 /* traveler lorecard faces keep their own chrome when present */
-.wwwExplorer_innerShell .faces .face[data-card="1"] .lorecard {
+.go-shell .faces .face[data-card="1"] .lorecard {
   margin: 0;
   width: 100%;
   max-width: 22.5rem;
@@ -408,8 +408,8 @@
 }
 
 /* ——— content paper / song slip pages ——— */
-.wwwExplorer_innerShell .content,
-.wwwExplorer_innerShell > #browserWindow > :not(.works-hero):not(.works-drawers):not(.works-slips):not(.crumb):not(.mast):not(.foot):not(.worlds):not(.faces) {
+.go-shell .content,
+.go-shell > #browserWindow > :not(.works-hero):not(.works-drawers):not(.works-slips):not(.crumb):not(.mast):not(.foot):not(.worlds):not(.faces) {
   /* soft fallthrough — most body lives as direct children */
 }
 
@@ -427,9 +427,9 @@
   max-width: 38rem;
 }
 
-.wwwExplorer_innerShell h1,
-.wwwExplorer_innerShell h2,
-.wwwExplorer_innerShell h3 {
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
   margin: 0 0 0.45rem;
   padding: 0;
   font-family: Syne, "Arial Narrow", sans-serif;
@@ -438,12 +438,12 @@
   color: #eef2f6;
 }
 
-.wwwExplorer_innerShell h1 {
+.go-shell h1 {
   font-size: clamp(1.35rem, 4vw, 1.85rem);
 }
 
 /* work slip — open note on manila card */
-.wwwExplorer_innerShell h1:not(.face-deck-label):not(.works-wordmark) {
+.go-shell h1:not(.face-deck-label):not(.works-wordmark) {
   display: block;
   width: fit-content;
   max-width: min(38rem, 100%);
@@ -456,7 +456,7 @@
   position: relative;
 }
 
-.wwwExplorer_innerShell h1:not(.face-deck-label):not(.works-wordmark)::after {
+.go-shell h1:not(.face-deck-label):not(.works-wordmark)::after {
   content: "work slip";
   display: block;
   margin-top: 0.25rem;
@@ -468,38 +468,38 @@
   color: var(--ribbon);
 }
 
-.wwwExplorer_innerShell p {
+.go-shell p {
   margin: 0;
   padding: 0.28rem 0;
   color: #d8dee6;
   font-size: 0.95rem;
 }
 
-.wwwExplorer_innerShell a.world p {
+.go-shell a.world p {
   color: inherit;
 }
 
 /* Catalog slips sit on manila — dark ink, never the cabinet's pale body color. */
-.wwwExplorer_innerShell .faces .face,
-.wwwExplorer_innerShell .faces .face p,
-.wwwExplorer_innerShell .faces .face h1,
-.wwwExplorer_innerShell .faces .face h2,
-.wwwExplorer_innerShell .faces .face h3,
-.wwwExplorer_innerShell .faces .face .line {
+.go-shell .faces .face,
+.go-shell .faces .face p,
+.go-shell .faces .face h1,
+.go-shell .faces .face h2,
+.go-shell .faces .face h3,
+.go-shell .faces .face .line {
   color: #12161c !important;
 }
 
-.wwwExplorer_innerShell .faces .face a:link,
-.wwwExplorer_innerShell .faces .face a:visited {
+.go-shell .faces .face a:link,
+.go-shell .faces .face a:visited {
   color: #6a2828 !important;
 }
 
 /* body paragraphs after a slip title sit on a quiet blotter card
    (cabinet dark ground only — never inside .face) */
-.wwwExplorer_innerShell > #browserWindow > h1 + p,
-.wwwExplorer_innerShell > #browserWindow > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark):not(.works-drawers-label):not(.works-slips-label):not(.mast):not(.works-slips-label),
-.wwwExplorer_innerShell .content > h1 + p,
-.wwwExplorer_innerShell .content > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark) {
+.go-shell > #browserWindow > h1 + p,
+.go-shell > #browserWindow > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark):not(.works-drawers-label):not(.works-slips-label):not(.mast):not(.works-slips-label),
+.go-shell .content > h1 + p,
+.go-shell .content > h1 ~ p:not(.works-kicker):not(.works-lede):not(.works-wordmark) {
   max-width: 38rem;
   padding: 0.45rem 0.75rem;
   background: rgba(242, 230, 206, 0.08);
@@ -507,22 +507,22 @@
   color: #dce2ea;
 }
 
-.wwwExplorer_innerShell a:link {
+.go-shell a:link {
   color: #d8a0a0;
 }
 
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been {
+.go-shell a:visited,
+.go-shell a.been {
   color: #b0a0c4;
 }
 
-.wwwExplorer_innerShell ul.dir {
+.go-shell ul.dir {
   list-style: none;
   margin: 0.4rem 0 1rem;
   padding: 0;
 }
 
-.wwwExplorer_innerShell ul.dir a {
+.go-shell ul.dir a {
   display: block;
   padding: 0.35rem 0.2rem;
   text-decoration: none;
@@ -532,12 +532,12 @@
   font-style: italic;
 }
 
-.wwwExplorer_innerShell ul.dir a:hover {
+.go-shell ul.dir a:hover {
   color: #f0c8c4 !important;
   background: rgba(255, 255, 255, 0.03);
 }
 
-.wwwExplorer_innerShell .foot {
+.go-shell .foot {
   margin-top: auto;
   padding: 0.28rem 0.2rem;
   font-family: "IBM Plex Mono", monospace;
@@ -548,8 +548,8 @@
   border-top: 1px solid #3a4450;
 }
 
-.wwwExplorer_innerShell .headers,
-.wwwExplorer_innerShell .uses {
+.go-shell .headers,
+.go-shell .uses {
   margin-top: 1.4rem;
   padding-top: 0.4rem;
   border-top: 1px solid #3a4450;
@@ -558,15 +558,15 @@
   color: #6a7382;
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   border: 0;
   height: 1px;
   background: #3a4450;
   margin: 0.8rem 0;
 }
 
-.wwwExplorer_innerShell pre,
-.wwwExplorer_innerShell pre.code {
+.go-shell pre,
+.go-shell pre.code {
   max-width: 38rem;
   padding: 0.65rem 0.8rem;
   background: var(--slip);
@@ -584,28 +584,28 @@
     padding: 0.45rem 0.55rem 1rem;
   }
 
-  .wwwExplorer_innerShell .worlds {
+  .go-shell .worlds {
     grid-template-columns: repeat(auto-fill, minmax(9.2rem, 1fr));
   }
 
-  .wwwExplorer_innerShell .faces .face {
+  .go-shell .faces .face {
     max-width: 100%;
   }
 
-  .wwwExplorer_innerShell .works-hero,
-  .wwwExplorer_innerShell p.mast {
+  .go-shell .works-hero,
+  .go-shell p.mast {
     padding: 0.7rem 0.75rem 0.8rem;
   }
 }
 
 @media (max-width: 640px) {
-  .wwwExplorer_innerShell .worlds {
+  .go-shell .worlds {
     grid-template-columns: 1fr 1fr;
   }
 
-  .wwwExplorer_innerShell .works-wordmark,
-  .wwwExplorer_innerShell p.works-wordmark,
-  .wwwExplorer_innerShell p.mast {
+  .go-shell .works-wordmark,
+  .go-shell p.works-wordmark,
+  .go-shell p.mast {
     letter-spacing: 0.05em;
   }
 }

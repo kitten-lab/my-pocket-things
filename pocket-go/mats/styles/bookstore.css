@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;1,600&display=swap");
 
 :root {
-  --bg: #2a1a10;
+  --bg2: #2a1a11;
   --paper: #f3e6cc;
   --ink: #2c1810;
   --mute: #7a5c42;
@@ -16,7 +16,12 @@
   --lamp: rgba(201, 137, 45, 0.22);
 }
 
-.wwwExplorer_innerShell {
+.content h2 {
+  color: var(--oak) !important;
+}
+
+
+.go-shell {
   --rail: 220px;
   background:
     radial-gradient(ellipse at 70% 12%, var(--lamp), transparent 46%),
@@ -134,6 +139,10 @@ p.mast::after {
   color: #6b2c2c;
 }
 
+.sectiontitle {
+  color: beige;
+}
+
 .card {
   background: var(--card);
   background-image:
@@ -209,9 +218,9 @@ span.accent {
   border-style: solid;
 }
 
-.wwwExplorer_innerShell a:link { color: #7a3e14; }
-.wwwExplorer_innerShell a:visited,
-.wwwExplorer_innerShell a.been { color: var(--visited); }
+.go-shell a:link { color: #7a3e14; }
+.go-shell a:visited,
+.go-shell a.been { color: var(--visited); }
 
 .side a:link,
 .side a.crumbback {
@@ -279,14 +288,15 @@ span.accent {
 .content a:visited,
 .content a.been { color: var(--visited); }
 
+/* face-up table: cover on a stand, plaque always under */
 .content ul.dir:not(.hits):not(.spines) {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 1.1rem 1.35rem;
+  gap: 1.25rem 1.5rem;
   max-width: none;
-  padding: 0.7rem 0.45rem 1.45rem;
+  padding: 0.85rem 0.55rem 1.55rem;
   margin: 0.4rem 0 1.5rem;
   perspective: 900px;
   background:
@@ -305,9 +315,12 @@ span.accent {
 
 .content ul.dir:not(.hits):not(.spines) a {
   position: relative;
-  display: block;
-  width: 8rem;
-  height: 9.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 9.2rem;
+  height: auto;
+  min-height: 0;
   padding: 0;
   font: inherit;
   text-decoration: none;
@@ -321,10 +334,14 @@ span.accent {
   transition: transform 0.18s ease, filter 0.18s ease;
 }
 
+/* the standing book body */
 .content ul.dir:not(.hits):not(.spines) a::before {
   content: "";
-  position: absolute;
-  inset: 0 0.38rem 0 0;
+  position: relative;
+  display: block;
+  width: 8rem;
+  height: 10.2rem;
+  flex: 0 0 auto;
   border-radius: 2px 4px 4px 2px;
   border: 1px solid rgba(0, 0, 0, 0.55);
   box-shadow:
@@ -337,9 +354,9 @@ span.accent {
 .content ul.dir:not(.hits):not(.spines) a::after {
   content: "";
   position: absolute;
-  top: 4%;
-  bottom: 4%;
-  left: calc(100% - 0.38rem);
+  top: 0.35rem;
+  height: 9.5rem;
+  left: calc(50% + 4rem - 0.38rem - 0.6rem);
   width: 0.32rem;
   border-radius: 0 1px 1px 0;
   background: linear-gradient(90deg, #d4c4a0 0%, #e2d2b0 35%, #c8b890 100%);
@@ -352,19 +369,20 @@ span.accent {
 }
 
 .content ul.dir:not(.hits):not(.spines) a .name {
-  position: absolute;
-  left: 10%;
-  right: 18%;
-  top: 50%;
-  z-index: 2;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  z-index: 3;
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
   overflow: hidden;
-  padding: 0.4rem 0.42rem 0.32rem;
+  width: 8.6rem;
+  margin-top: 0.45rem;
+  padding: 0.35rem 0.4rem 0.3rem;
   font-family: "Caveat", cursive;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   font-style: normal;
   line-height: 1.12;
@@ -379,9 +397,6 @@ span.accent {
     0 1px 0 rgba(255, 248, 230, 0.25) inset,
     0 -1px 0 rgba(60, 40, 16, 0.12) inset,
     1px 2px 4px rgba(0, 0, 0, 0.35);
-  transform: translateY(-50%);
-  max-height: 58%;
-  pointer-events: none;
 }
 
 .content ul.dir:not(.hits):not(.spines) a.hue-red::before {
@@ -404,7 +419,7 @@ span.accent {
 }
 
 .content ul.dir:not(.hits):not(.spines) a:hover {
-  transform: translateY(-6px) rotateY(-6deg);
+  transform: translateY(-6px) rotateY(-4deg);
   filter: drop-shadow(4px 10px 12px rgba(0, 0, 0, 0.55));
   color: #2a1c10 !important;
 }
@@ -414,32 +429,41 @@ span.accent {
 }
 
 .content ul.dir:not(.hits):not(.spines) a.has-cover {
-  display: block;
+  display: flex;
 }
 
+/* cover sits on the book face; label stays under */
 .content ul.dir:not(.hits):not(.spines) a.has-cover img.jacket-art {
   position: absolute;
-  inset: 0 0.38rem 0 0;
-  width: 100%;
-  height: 100%;
+  top: 0.12rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7.55rem;
+  height: 9.9rem;
+  margin-left: -0.12rem;
   max-width: none;
-  object-fit: contain;
-  object-position: center center;
-  border-radius: 2px 4px 4px 2px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 2px 3px 3px 2px;
   z-index: 2;
   pointer-events: none;
   display: block;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .content ul.dir:not(.hits):not(.spines) a.has-cover .name {
-  display: none;
+  display: block;
 }
 
 .content figure.jacket {
   position: relative;
   float: right;
-  width: 8rem;
-  height: 11.4rem;
+  clear: right;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 8.5rem;
+  height: auto;
   margin: 0.2rem 0 1.1rem 1.25rem;
   background: transparent;
   border: 0;
@@ -447,59 +471,63 @@ span.accent {
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.45));
 }
 
-.content figure.jacket::before {
-  content: "";
-  position: absolute;
-  inset: 0 0.38rem 0 0;
+.content figure.jacket .jacket-zoom {
+  display: block;
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  text-decoration: none;
   border-radius: 2px 4px 4px 2px;
+  overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.55);
   box-shadow:
     inset 3px 0 0 rgba(255, 255, 255, 0.06),
-    inset -8px 0 14px rgba(0, 0, 0, 0.35);
+    inset -8px 0 14px rgba(0, 0, 0, 0.25);
   background: linear-gradient(105deg, #8a7048 0%, #5a4830 45%, #302418 100%);
-  z-index: 1;
 }
 
-.content figure.jacket::after {
-  content: "";
-  position: absolute;
-  top: 4%;
-  bottom: 4%;
-  left: calc(100% - 0.38rem);
-  width: 0.32rem;
-  border-radius: 0 1px 1px 0;
-  background: linear-gradient(90deg, #d4c4a0 0%, #e2d2b0 35%, #c8b890 100%);
-  border: 1px solid rgba(70, 50, 28, 0.28);
-  border-left: none;
-  z-index: 0;
-}
-
-.content figure.jacket.hue-red::before {
+.content figure.jacket.hue-red .jacket-zoom,
+.content figure.jacket.hue-red:not(:has(img)) {
   background: linear-gradient(105deg, #6a2830 0%, #3a1018 45%, #2a0c10 100%);
 }
 
-.content figure.jacket.hue-green::before {
-  background: linear-gradient(105deg, #2a4838 0%, #142820 45%, #0c1810 100%);
+.content figure.jacket img.jacket-art {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.18s ease;
 }
 
-.content figure.jacket.hue-purple::before,
-.content figure.jacket.hue-blue::before {
-  background: linear-gradient(105deg, #2a3858 0%, #141c30 45%, #0c101c 100%);
+.content figure.jacket .jacket-zoom:hover img.jacket-art,
+.content figure.jacket .jacket-zoom:focus img.jacket-art {
+  transform: scale(1.04);
 }
 
-.content figure.jacket.hue-amber::before,
-.content figure.jacket.hue-yellow::before,
-.content figure.jacket.hue-orange::before {
-  background: linear-gradient(105deg, #8a7048 0%, #5a4830 45%, #302418 100%);
-}
-
-.content figure.jacket .name {
-  left: 10%;
-  right: 18%;
+.content figure.jacket .name,
+.content figure.jacket figcaption.name {
+  position: static;
+  display: block;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
   z-index: 2;
+  margin-top: 0.4rem;
+  padding: 0.32rem 0.4rem 0.28rem;
   font-family: "Caveat", cursive;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
+  line-height: 1.12;
+  text-align: center;
+  color: #2a1c10 !important;
   background:
     linear-gradient(165deg, #e8d8b8 0%, #d8c49a 48%, #c8b088 100%);
   border: 1px solid rgba(70, 48, 24, 0.45);
@@ -509,22 +537,71 @@ span.accent {
     1px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-.content figure.jacket img.jacket-art {
-  position: absolute;
-  inset: 0 0.38rem 0 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: contain;
-  object-position: center center;
-  border-radius: 2px 4px 4px 2px;
-  z-index: 2;
-  pointer-events: none;
+/* cloth-only jacket (no art): keep tall book face */
+.content figure.jacket:not(.has-cover)::before {
+  content: "";
   display: block;
+  width: 100%;
+  height: 10.5rem;
+  border-radius: 2px 4px 4px 2px;
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  box-shadow:
+    inset 3px 0 0 rgba(255, 255, 255, 0.06),
+    inset -8px 0 14px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(105deg, #8a7048 0%, #5a4830 45%, #302418 100%);
+}
+.content figure.jacket.hue-red:not(.has-cover)::before {
+  background: linear-gradient(105deg, #6a2830 0%, #3a1018 45%, #2a0c10 100%);
+}
+.content figure.jacket.hue-green:not(.has-cover)::before {
+  background: linear-gradient(105deg, #2a4838 0%, #142820 45%, #0c1810 100%);
+}
+.content figure.jacket.hue-purple:not(.has-cover)::before,
+.content figure.jacket.hue-blue:not(.has-cover)::before {
+  background: linear-gradient(105deg, #2a3858 0%, #141c30 45%, #0c101c 100%);
+}
+.content figure.jacket.hue-amber:not(.has-cover)::before,
+.content figure.jacket.hue-yellow:not(.has-cover)::before,
+.content figure.jacket.hue-orange:not(.has-cover)::before {
+  background: linear-gradient(105deg, #8a7048 0%, #5a4830 45%, #302418 100%);
+}
+.content figure.jacket:not(.has-cover) .name,
+.content figure.jacket:not(.has-cover) figcaption.name {
+  position: absolute;
+  left: 10%;
+  right: 14%;
+  top: 42%;
+  margin-top: 0;
 }
 
-.content figure.jacket:has(img.jacket-art) .name {
-  display: none;
+.content figure.jacket.has-cover {
+  width: 9.8rem;
+}
+.content figure.jacket.has-cover.cover-landscape {
+  width: 14.5rem;
+}
+
+/* shelf: landscape tiles show the whole wide cover */
+.content ul.dir:not(.hits):not(.spines) a.has-cover.cover-landscape {
+  width: 12.5rem;
+}
+.content ul.dir:not(.hits):not(.spines) a.has-cover.cover-landscape::before {
+  width: 11.6rem;
+  height: 8.2rem;
+}
+.content ul.dir:not(.hits):not(.spines) a.has-cover.cover-landscape::after {
+  height: 7.6rem;
+  left: calc(50% + 5.8rem - 0.38rem - 0.55rem);
+}
+.content ul.dir:not(.hits):not(.spines) a.has-cover.cover-landscape img.jacket-art {
+  width: 11.1rem;
+  height: 7.85rem;
+  object-fit: contain;
+  object-position: center center;
+  background: #1a120c;
+}
+.content ul.dir:not(.hits):not(.spines) a.has-cover.cover-landscape .name {
+  width: 11.8rem;
 }
 
 .content ul.dir.spines {
@@ -686,7 +763,7 @@ span.accent {
   padding: 0.2rem 0 !important;
 }
 
-.wwwExplorer_innerShell pre.code {
+.go-shell pre.code {
   max-width: 80%;
   font-size: 0.85rem;
   font-family: "Courier New", Courier, monospace;
@@ -695,7 +772,7 @@ span.accent {
   padding: 0.6rem 0.75rem;
 }
 
-.wwwExplorer_innerShell hr {
+.go-shell hr {
   border: 0;
   height: 1px;
   background: #c4b49a;
@@ -788,14 +865,144 @@ span.accent {
   font-style: normal;
 }
 
-.wwwExplorer_innerShell::-webkit-scrollbar {
+.go-shell::-webkit-scrollbar {
   width: 14px;
   height: 14px;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-thumb {
+.go-shell::-webkit-scrollbar-thumb {
   background: var(--oak);
   border: 1px solid #2a1a10;
 }
-.wwwExplorer_innerShell::-webkit-scrollbar-track {
+.go-shell::-webkit-scrollbar-track {
   background: #1c1008;
+}
+
+/* —— storefront entry (old-amazon department table) —— */
+.content .storefront {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 230, 0.55), rgba(243, 230, 204, 0.2)),
+    var(--card);
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 rgba(44, 24, 16, 0.35);
+}
+.content .store-kicker {
+  display: block;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 0.15rem;
+}
+.content .store-wordmark {
+  display: block;
+  font-family: "Playfair Display", "Cormorant Garamond", serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin: 0 0 0.25rem;
+}
+.content .store-lede {
+  display: block;
+  font-family: "Caveat", cursive;
+  font-size: 1.15rem;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+}
+.content .depts {
+  margin: 0.85rem 0 1rem;
+}
+.content .depts-label {
+  display: block;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(139, 94, 60, 0.35);
+}
+/* department doors on the entry — big aisle cards, not tiny world tiles */
+.content .depts .worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 0.75rem;
+}
+.content .depts a.world {
+  display: flex;
+  flex-direction: column;
+  min-height: 5.5rem;
+  padding: 0.7rem 0.75rem 0.65rem;
+  background: linear-gradient(165deg, #fff8e8 0%, #f3e6cc 55%, #e8d6b0 100%);
+  border: 2px solid var(--line);
+  box-shadow: 3px 3px 0 var(--oak);
+  text-decoration: none;
+  color: var(--ink) !important;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.content .depts a.world:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--brass);
+  border-color: var(--brass);
+}
+.content .depts a.world strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.content .depts a.world .door-deck,
+.content .depts a.world .note-details {
+  font-family: "EB Garamond", serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--mute);
+  margin-top: 0.35rem;
+}
+.content .depts a.world .note-details {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.content .store-note {
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.92rem;
+  color: var(--mute);
+  border-left: 3px solid var(--brass);
+  background: rgba(201, 137, 45, 0.08);
+}
+.content .aisle-head {
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(139, 94, 60, 0.35);
+}
+.content .aisle-kicker {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.content .aisle-title {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.content .aisle-lede {
+  display: block;
+  font-family: "Caveat", cursive;
+  font-size: 1.05rem;
+  color: var(--mute);
 }
