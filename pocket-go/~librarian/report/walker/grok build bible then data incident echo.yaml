@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.report/walker/grok build bible then data incident echo.md
+crate: crate.33353A9CF6DA76A8
+fields:
+  - type: input
+    label: type
+    value: strange happening
+  - type: input
+    label: class
+    value: echo
+  - type: input
+    label: sub-class
+    value: tech
+  - type: input
+    label: features
+    value: echo; grok; grok-4.7; build-cli; data-center-incident; bible-translation; memory-deck; push-notification; biblical-interpretation; hebrew; 2019
+  - type: input
+    label: clock
+    value: 2026-09-21 night build / 2026-09-22 morning notice
+  - type: input
+    label: posted from
+    value: sdk collective chat
+  - type: input
+    label: owner
+    value: Walker

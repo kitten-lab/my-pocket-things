@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001
+crate: crate.A0C91D95FDAB2711
+fields:
+  - type: input
+    label: features
+    value: "foreshadowing, beliefs"
+  - type: input
+    label: cites
+    value: "^MIS-777, ^EV-001"
+  - type: input
+    label: title
+    value: "Core Setup: Oyzis Ritual"
+  - type: input
+    label: references
+    value: "crossroads, hecate, misery, offering, ritual"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, theory, therapeutic"

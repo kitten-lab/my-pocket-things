@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.code.event/EV-001.md
+crate: crate.351BC1EE6D25E327
+fields:
+  - type: input
+    label: cites
+    value: "^OT-001,^OT-001.T01, ^OT-001.T04, ^MIS-777"

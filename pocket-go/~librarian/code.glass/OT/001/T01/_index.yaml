@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001/T01
+crate: crate.004C9730A05EE062
+fields:
+  - type: input
+    label: title
+    value: The guest chat
+  - type: input
+    label: messages
+    value: "67aa5a6c-de9c-8004-b715-e91f7944b523.0, 67aa5a6c-de9c-8004-b715-e91f7944b523.1, 67aa5a6c-de9c-8004-b715-e91f7944b523.2, 67aa5a6c-de9c-8004-b715-e91f7944b523.3, 67aa5a6c-de9c-8004-b715-e91f7944b523.4, 67aa5a6c-de9c-8004-b715-e91f7944b523.5, 67aa5a6c-de9c-8004-b715-e91f7944b523.6, 67aa5a6c-de9c-8004-b715-e91f7944b523.7, 67aa5a6c-de9c-8004-b715-e91f7944b523.8, 67aa5a6c-de9c-8004-b715-e91f7944b523.9, 67aa5a6c-de9c-8004-b715-e91f7944b523.10, 67aa5a6c-de9c-8004-b715-e91f7944b523.11, 67aa5a6c-de9c-8004-b715-e91f7944b523.12, 67aa5a6c-de9c-8004-b715-e91f7944b523.13"

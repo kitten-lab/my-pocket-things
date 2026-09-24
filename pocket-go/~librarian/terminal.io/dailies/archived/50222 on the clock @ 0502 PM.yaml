@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: "go.terminal.io/dailies/archived/50222 on the clock @ 0502 PM.md"
+crate: crate.551E38C71B8BCF8B
+fields:
+  - type: input
+    label: imported from
+    value: TERMINAL.IO
+  - type: input
+    label: file type
+    value: dailies
+  - type: input
+    label: account
+    value: SDK-808
+  - type: input
+    label: cites
+    value: ^SDK-808

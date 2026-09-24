@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/NT/597
+crate: crate.8BAB6C2D493D4C81
+fields:
+  - type: input
+    label: title
+    value: Creative Director Roles
+  - type: input
+    label: references
+    value: "aidm, cabin, eidn, encode, mira, nimrod, noah, offering, redact, ritual, terminal, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

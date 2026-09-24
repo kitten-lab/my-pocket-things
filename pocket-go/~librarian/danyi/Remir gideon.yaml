@@ -1,9 +1,0 @@
-house: LIBRARIAN
-pocket: go.danyi/Remir gideon.md
-fields:
-  - type: input
-    label: vault
-    value: DANYI.COM
-  - type: input
-    label: author
-    value: Danyi

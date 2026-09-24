@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.inbox/later/hfmd rash and the concussion echo.md
+crate: crate.82F6D7C94703C897
+fields:
+  - type: input
+    label: type
+    value: life incident
+  - type: input
+    label: class
+    value: echo
+  - type: input
+    label: sub-class
+    value: knowing
+  - type: input
+    label: features
+    value: hand-foot-mouth; rash; olivia; concussion-echo; nicole; dismissed-then-confirmed; voice-memo; mother-knowing; school-week; concussion-log; ot-237; ot-027
+  - type: input
+    label: clock
+    value: 2026-09-22 ~9:30-10:00 PM (kids weekend sick; school week at dad)
+  - type: input
+    label: posted from
+    value: sdk collective chat
+  - type: input
+    label: source
+    value: inbox/later
+  - type: input
+    label: status
+    value: hold-for-later

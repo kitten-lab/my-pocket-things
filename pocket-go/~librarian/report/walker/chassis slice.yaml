@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/walker/chassis slice.md
+crate: crate.601C232A12EEA44A
+fields:
+  - type: input
+    label: type
+    value: logger
+  - type: input
+    label: class
+    value: strange happening
+  - type: input
+    label: sub-class
+    value: glitch
+  - type: time
+    label: posted on
+    value: 1789585399

@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/007
+crate: crate.89FE1D2BB2B4C8CE
+fields:
+  - type: input
+    label: title
+    value: Insight from Elion
+  - type: input
+    label: energy
+    value: product

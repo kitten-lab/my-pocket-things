@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/008
+crate: crate.02364FA8C668D588
+fields:
+  - type: input
+    label: title
+    value: Wisdom Exchange Chat
+  - type: input
+    label: references
+    value: "crossroads, hecate, inner-child, misery, offering"
+  - type: input
+    label: energy
+    value: "mythic, therapeutic"

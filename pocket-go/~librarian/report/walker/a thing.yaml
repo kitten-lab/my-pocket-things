@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.report/walker/a thing.md
+crate: crate.88F7875E2BB4C557
+fields:
+  - type: input
+    label: posted from
+    value: strange happenings logbook
+  - type: input
+    label: type
+    value: test
+  - type: input
+    label: what happened
+    value: there was an occurance

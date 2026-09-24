@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/007/T01
+crate: crate.A42FCEF2394FE549
+fields:
+  - type: input
+    label: title
+    value: Frame the question
+  - type: input
+    label: messages
+    value: "67b0df63-26e0-8004-9918-0a384ac0b8a4.0, 67b0df63-26e0-8004-9918-0a384ac0b8a4.1, 67b0df63-26e0-8004-9918-0a384ac0b8a4.2, 67b0df63-26e0-8004-9918-0a384ac0b8a4.3"

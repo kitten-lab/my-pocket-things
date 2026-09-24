@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/walker/lost wifi access only on the CommandStation9.md
+crate: crate.ECC08C6A21346EF3
+fields:
+  - type: input
+    label: type
+    value: logger
+  - type: input
+    label: class
+    value: strange happening
+  - type: input
+    label: sub-class
+    value: glitch
+  - type: time
+    label: posted on
+    value: 1789590084

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.report/walker/whole house drain cleared itself.md
+crate: crate.AEAB47025C3700EA
+fields:
+  - type: input
+    label: type
+    value: strange happening
+  - type: input
+    label: class
+    value: house
+  - type: input
+    label: sub-class
+    value: plumbing
+  - type: input
+    label: features
+    value: slow-drain; toilet-glurp; shower-basin; whole-house; cleared-suddenly; boiling-water; farmhouse; unflushed-paper
+  - type: input
+    label: clock
+    value: 2026-09-21 night (buildup ~1 week+)
+  - type: input
+    label: posted from
+    value: sdk collective chat
+  - type: input
+    label: owner
+    value: Walker

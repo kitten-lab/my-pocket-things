@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/walker/pincher bug on monitor.md
+crate: crate.6A1539774843B3BA
+fields:
+  - type: input
+    label: type
+    value: logger
+  - type: input
+    label: class
+    value: strange happening
+  - type: input
+    label: sub-class
+    value: creature-feature
+  - type: time
+    label: posted on
+    value: 1789589252

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.report/oman-omenti/yellow leaf spin at 9.md
+crate: crate.2CEBABA77733A3EF
+fields:
+  - type: input
+    label: type
+    value: omen
+  - type: input
+    label: class
+    value: nature
+  - type: input
+    label: sub-class
+    value: leaf
+  - type: input
+    label: features
+    value: yellow-leaf; spin; window; phone-ding; fall
+  - type: input
+    label: clock
+    value: 2026-09-21 09:00
+  - type: input
+    label: posted from
+    value: strange happenings chat
+  - type: input
+    label: owner
+    value: Oman Omenti

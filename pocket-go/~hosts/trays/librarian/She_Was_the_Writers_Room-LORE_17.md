@@ -1,7 +1,7 @@
 ---
 crate: crate.7A2F423233BBFEA3
 source_crate: crate.EA782556C59288CF
-edges: [crate.EA782556C59288CF, crate.1FBEB5AA9354DB10, crate.40960B06015855B6]
+edges: [crate.EA782556C59288CF, crate.1FBEB5AA9354DB10, crate.40960B06015855B6, crate.D79EF74A35C58A9D, crate.12180713EEA0350B]
 title: She Was the Writers' Room
 class: Gravity
 line: "All the possibilities were simulated in her. She was the writers' room."

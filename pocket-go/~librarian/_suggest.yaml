@@ -1,5 +1,5 @@
-time: [occurrence, unix]
+time: []
 bool: []
-input: [author, class, type, echo, reference date, place, references, topics, echoes, vault, vault_store, Vault, color, card type, theme, cite, origin, glass log, importer, motif, deck]
+input: [features, cites, related-to, son-of, type, imported from, file type, account]
 textbox: []
-class: [found, ingestion, moon]
+class: []

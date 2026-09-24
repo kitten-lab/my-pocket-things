@@ -1,7 +1,0 @@
-house: LIBRARIAN
-pocket: go.terminal/IO
-crate: crate.6088810EE27498BA
-fields:
-  - type: input
-    label: vault
-    value: TERMINAL IO

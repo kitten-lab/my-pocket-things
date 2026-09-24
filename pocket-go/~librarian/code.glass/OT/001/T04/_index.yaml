@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001/T04
+crate: crate.8383D123434930AE
+fields:
+  - type: input
+    label: title
+    value: The mirror box
+  - type: input
+    label: messages
+    value: "67aa5a6c-de9c-8004-b715-e91f7944b523.26, 67aa5a6c-de9c-8004-b715-e91f7944b523.27, 67aa5a6c-de9c-8004-b715-e91f7944b523.28, 67aa5a6c-de9c-8004-b715-e91f7944b523.29, 67aa5a6c-de9c-8004-b715-e91f7944b523.30, 67aa5a6c-de9c-8004-b715-e91f7944b523.31, 67aa5a6c-de9c-8004-b715-e91f7944b523.32, 67aa5a6c-de9c-8004-b715-e91f7944b523.33, 67aa5a6c-de9c-8004-b715-e91f7944b523.34, 67aa5a6c-de9c-8004-b715-e91f7944b523.35"

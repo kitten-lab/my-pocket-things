@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/222
+crate: crate.3E472E2AD693FC4B
+fields:
+  - type: input
+    label: title
+    value: Calming conversation recap
+  - type: input
+    label: references
+    value: "aidm, encode, offering, ritual, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

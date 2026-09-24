@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.inbox/later/otzi to the mask theater exit.md
+crate: crate.D945B534EEEA8AC8
+fields:
+  - type: input
+    label: type
+    value: memory
+  - type: input
+    label: class
+    value: association
+  - type: input
+    label: sub-class
+    value: childhood
+  - type: input
+    label: features
+    value: otzi; brad-pitt; tattoo; the-mask; jim-carrey; movie-theater; mom; sisters; left-early; scroll-trigger; tummy-hurt; hold-for-later
+  - type: input
+    label: clock
+    value: 2026-09-22 ~6:30 AM
+  - type: input
+    label: posted from
+    value: sdk collective chat
+  - type: input
+    label: source
+    value: inbox/later
+  - type: input
+    label: status
+    value: hold-for-later

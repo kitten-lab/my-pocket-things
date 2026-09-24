@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.terminal.io/dailies/it feels like i am not moving.md
+crate: crate.1A0E80D3A76B9AE7
+fields:
+  - type: input
+    label: type
+    value: daily
+  - type: input
+    label: class
+    value: lamentation
+  - type: input
+    label: sub-class
+    value: inventory
+  - type: input
+    label: features
+    value: not-moving; becoming; imported; ada; aidm; pocket; lamentations; adam-kadmon; perpetual-motion; narrative-satisfaction
+  - type: input
+    label: clock
+    value: 2026-09-21 9:14 PM
+  - type: input
+    label: posted from
+    value: strange happenings chat
+  - type: input
+    label: source
+    value: terminal.io/dailies
+  - type: input
+    label: owner
+    value: Sam
+  - type: input
+    label: status
+    value: filed

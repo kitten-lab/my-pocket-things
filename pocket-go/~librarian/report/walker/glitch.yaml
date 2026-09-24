@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.report/walker/glitch.md
+crate: crate.2F3964BCF265641F
+fields:
+  - type: input
+    label: posted from
+    value: strange happenings logbook
+  - type: input
+    label: type
+    value: glitch

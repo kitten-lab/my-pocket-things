@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/walker/a double birthday unlikelihood.md
+crate: crate.A3EDB70FA0CC279B
+fields:
+  - type: input
+    label: type
+    value: walker
+  - type: input
+    label: class
+    value: strange happening
+  - type: input
+    label: sub-class
+    value: duplicates
+  - type: time
+    label: posted on
+    value: 1789598356

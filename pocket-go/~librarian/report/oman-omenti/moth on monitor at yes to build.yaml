@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.report/oman-omenti/moth on monitor at yes to build.md
+crate: crate.0D7AB5FEAB67472B
+fields:
+  - type: input
+    label: type
+    value: omen
+  - type: input
+    label: class
+    value: animal
+  - type: input
+    label: sub-class
+    value: moth
+  - type: input
+    label: features
+    value: moth; monitor; animal; genesis; build-yes
+  - type: input
+    label: clock
+    value: 2026-09-21 7:04 PM
+  - type: input
+    label: posted from
+    value: strange happenings chat
+  - type: input
+    label: owner
+    value: Oman Omenti

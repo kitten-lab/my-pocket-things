@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.report/walker/butler is dead song with no context.md
+crate: crate.7E319B5A559591A6
+fields:
+  - type: input
+    label: type
+    value: strange happening
+  - type: input
+    label: class
+    value: media
+  - type: input
+    label: sub-class
+    value: song
+  - type: input
+    label: features
+    value: x; musician-reply; no-context; butler-is-dead; brian-p-matheny; phil-osifer; youtube; grok-4.7; kitkatkittenlab; screenshot; evidence
+  - type: input
+    label: clock
+    value: 2026-09-21 7:56 PM
+  - type: input
+    label: posted from
+    value: strange happenings chat
+  - type: input
+    label: owner
+    value: Walker
+  - type: input
+    label: evidence
+    value: screenshots/evidence/butler-is-dead-x-20260921-1956.png

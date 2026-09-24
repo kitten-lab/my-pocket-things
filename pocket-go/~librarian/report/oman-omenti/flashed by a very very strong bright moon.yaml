@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.report/oman-omenti/flashed by a very very strong bright moon.md
+crate: crate.701D056C3EBDF31F
+fields:
+  - type: input
+    label: type
+    value: omen
+  - type: input
+    label: class
+    value: sky
+  - type: input
+    label: sub-class
+    value: moon
+  - type: input
+    label: features
+    value: moon; window-centered; bright-flash; bedtime; waxing-gibbous; not-full; harvest-moon-approaching; tired; kid-stuff-day
+  - type: input
+    label: clock
+    value: 2026-09-22 ~10:15 PM
+  - type: input
+    label: posted from
+    value: sdk collective chat
+  - type: input
+    label: owner
+    value: Oman Omenti
