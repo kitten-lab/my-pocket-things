@@ -23,6 +23,19 @@ pocket-notebook/prod/**/desk-server.log
 pocket-go/**/.obsidian/
 pocket-go/**/.trash/
 pocket-go/prod/been.json
+pocket-go/prod/jumps.json
+
+# pocket-go engine debris (Grok/Cursor copies; Git is the backup)
+pocket-go/**/*.bak
+pocket-go/**/*.bak-*
+pocket-go/**/*.broken-*
+pocket-go/**/*truncated-wreck*
+pocket-go/prod/www_sys/_*.py
+pocket-go/prod/www_sys/_*.js
+pocket-go/prod/www_sys/_*.txt
+pocket-go/prod/www_sys/_*.html
+pocket-go/prod/www_sys/_parse_tmp/
+pocket-go/prod/*debris*.zip
 
 # Operator mats / papers — local only for now (Hands will un-ignore later)
 safe_box/
@@ -32,3 +45,27 @@ paper/
 FOLD-THIS.md
 **/FOLD-THIS.md
 
+pocket-go/~hosts/detective/inbox/later/hfmd rash and the concussion echo/index.md
+pocket-go/~hosts/detective/inbox/later/hfmd rash and the concussion echo/she knew he dismissed then it was named.md
+pocket-go/~hosts/detective/inbox/later/otzi to the mask theater exit/ice on the skin opens the theater door.md
+pocket-go/~hosts/detective/inbox/later/otzi to the mask theater exit/index.md
+pocket-go/.cursor/rules/host-cues.mdc
+pocket-go/.cursor/rules/pocket-go-notes.mdc
+
+# Hide the cabinets
+pocket-go/~agent/*
+pocket-go/~detective/*
+pocket-go/~charlie/*
+pocket-go/~tps/*
+pocket-go/~readme/*
+pocket-go/bot-haven/*
+
+# Hide personal host directories
+pocket-go/~hosts/detective/*
+pocket-go/~hosts/librarian/*
+pocket-go/~hosts/glass/*
+pocket-go/~hosts/inbox/*
+pocket-go/~hosts/news.gazette/*
+pocket-go/castaways/*
+pocket-go/_probe_proc.ps1
+pocket-go/_gitfind.py
