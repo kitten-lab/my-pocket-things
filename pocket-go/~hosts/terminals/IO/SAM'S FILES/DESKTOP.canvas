@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"de8e031eeffbfd75","type":"file","file":"USERS/SDK808/E-Mail/E-Mail.md","x":-1140,"y":-740,"width":1020,"height":740},
+		{"id":"08b5b9b99e9efa70","type":"file","file":"USERS/SDK808/SAM'S FILES/TO-DOs.md","x":-100,"y":-740,"width":400,"height":920},
+		{"id":"9334e9e6599e5749","type":"file","file":"USERS/SDK808/SAM'S FILES/WHO is MISERY aka OYZIS.md","x":-700,"y":40,"width":580,"height":359},
+		{"id":"bff65f7e98ed1a01","type":"file","file":"IMPORTS/IMPORTED/093.002 Chat Resets Explained.md","x":-1140,"y":40,"width":420,"height":200},
+		{"id":"4dd206ad1b2b0d87","type":"file","file":"FTP/_ASSETS/banners/chester-logo.png","x":-1140,"y":260,"width":419,"height":139},
+		{"id":"e67866825e5f85e9","type":"file","file":"FTP/_ASSETS/banners/lovers2.png","x":-100,"y":200,"width":400,"height":200}
+	],
+	"edges":[]
+}

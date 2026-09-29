@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-032.md
+crate: crate.BA842555340D0C75
+fields:
+  - type: input
+    label: page
+    value: "032"
+  - type: input
+    label: title
+    value: Illusive Friendship
+  - type: input
+    label: dated
+    value: "2020-01-09"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: hand
+    value: Virgo / clean hand
+  - type: input
+    label: contains
+    value: prose; continues
+  - type: input
+    label: topics covered
+    value: friendship, online, wires, belonging, Katie / nanny, community
+  - type: input
+    label: known for
+    value: confusion of connection; online as the place that never moved; Her as nanny-friend

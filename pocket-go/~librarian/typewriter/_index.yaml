@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.typewriter/_index.md
+crate: crate.TYPEWRITERHOST01
+fields:
+  - type: input
+    label: name
+    value: Typewriter
+  - type: input
+    label: class
+    value: room
+  - type: input
+    label: type
+    value: platen machine
+  - type: input
+    label: known for
+    value: paper in the platen; stories feed the carriage; firm mono, not soft poetry
+  - type: input
+    label: contains
+    value: I Have Packed My Bags
+  - type: input
+    label: dress
+    value: metal chassis; platen paper; keys

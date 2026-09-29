@@ -56,7 +56,8 @@ README_ROOT = ROOT / "~readme"
 HELP_ROOT = ROOT / "~help"
 CHARLIE_ROOT = ROOT / "~charlie"
 TPS_ROOT = ROOT / "~tps"
-LBR_LOCK = threading.Lock()
+DEVELOPER_ROOT = ROOT / "~developer"
+LBR_LOCK = threading.RLock()  # reentrant: catalog field add/update -> ensure_code_chain, templates_apply -> ensure_crate re-take it (lilith-hang 20260926-212601)
 SHELF_KIND = {
     "librarian": {
         "root": LIBRARIAN,
@@ -82,6 +83,12 @@ SHELF_KIND = {
         "prefix": "TPS",
         "scope": "page",
     },
+    "developer": {
+        "root": DEVELOPER_ROOT,
+        "house": "DEVELOPER",
+        "prefix": "DEV",
+        "scope": "page",
+    },
 }
 HOST = os.environ.get("GO_HOST", "0.0.0.0").strip() or "0.0.0.0"
 PORT = int(os.environ.get("GO_PORT", os.environ.get("LIBRARY_PORT", "43210")))
@@ -95,6 +102,10 @@ ROAM_NAME = "roam.md"
 RESERVED_HOST_SLUGS = frozenset({"www", "start", "recent", "go", "roam"})
 LOBBY_HOST_SLUGS = frozenset({"start", "recent", "go", "roam"})
 CODES_HOST_SLUGS = frozenset({"codes", "code.glass", "codes.glass"})
+# go.code.glass is THE codes bank; codes / codes.glass are legacy names that alias to it (citations-repair 20260926-215618).
+CODES_HOST_CANON = "code.glass"
+CODES_HOST_ORDER = ("code.glass", "codes.glass", "codes")
+CODES_LEGACY_SLUGS = frozenset({"codes", "codes.glass"})
 RECENT_COUNT = 25
 RECENT_CAP = 100
 ENV_NAME = re.compile(r"^[A-Za-z0-9_-]+$")
@@ -160,6 +171,7 @@ SLOT_NAMES = {
     "compost",
     "recent",
     "tree",
+    "trayfaces",
 }
 
 
@@ -207,7 +219,7 @@ LINK_CRATE_RE = re.compile(
 )  # POCKET_LINK_GO_HOST
 CHIP_SPLIT = re.compile(r"\s*[,;]\s*")
 META_SLOT_RE = re.compile(
-    r"\{\{(?:meta|chips)(?::(all|librarian|lib|agent|detective|det|tps))?\}\}",
+    r"\{\{(?:meta|chips)(?::(all|librarian|lib|agent|detective|det|tps|developer|dev))?\}\}",
     re.I,
 )
 RECENT_SLOT_RE = re.compile(r"\{\{recent(?::(\d{1,3}))?\}\}", re.I)
@@ -217,12 +229,12 @@ DIRTREE_MODE_RE = re.compile(
 )
 DOORS_SLOT_RE = re.compile(r"\{\{(?:doors|worlds)(?::(cards|chips))?\}\}", re.I)
 CABINET_FIELD_RE = re.compile(
-    r"\{\{(lib|agt|det|tps|librarian|agent|detective):([A-Za-z][A-Za-z0-9 _.-]*)\}\}",
+    r"\{\{(lib|agt|det|tps|librarian|agent|detective|dev|developer):([A-Za-z][A-Za-z0-9 _.-]*)\}\}",
     re.I,
 )
 # One labeled chip (label + value), same atom as {{meta}} drops.
 CHIP_FIELD_RE = re.compile(
-    r"\{\{chip:(lib|agt|det|tps|librarian|agent|detective):([A-Za-z][A-Za-z0-9 _.-]*)\}\}",
+    r"\{\{chip:(lib|agt|det|tps|librarian|agent|detective|dev|developer):([A-Za-z][A-Za-z0-9 _.-]*)\}\}",
     re.I,
 )
 MOUTH_CANON = {
@@ -236,6 +248,8 @@ MOUTH_CANON = {
     "cha": "charlie",
     "charlie": "charlie",
     "tps": "tps",
+    "dev": "developer",
+    "developer": "developer",
 }
 
 
@@ -366,6 +380,8 @@ class Host:
 
 
 _CURRENT_HOST: ContextVar[Host | None] = ContextVar("pocket_go_host", default=None)
+# CARDS_PHASE2_PERF: per-GET-request memo (discover_hosts, crate index freshness).
+_REQ_MEMO: ContextVar[dict | None] = ContextVar("pocket_go_req_memo", default=None)
 _HUNT_Q: ContextVar[str] = ContextVar("pocket_go_hunt_q", default="")
 _ERA_Q: ContextVar[str] = ContextVar("pocket_go_era_q", default="")
 _PEOPLE_Q: ContextVar[str] = ContextVar("pocket_go_people_q", default="")
@@ -391,6 +407,11 @@ INBOX_LEGACY_HOME = {
 
 def remap_legacy_inbox(name: str, rel: str) -> tuple[str, str]:
     name_n = (name or "").strip().lower()
+    if name_n in CODES_LEGACY_SLUGS and name_n not in discover_hosts():
+        # go.codes/OT/001 -> go.code.glass/OT/001 (legacy codes bank name).
+        bank = codes_host()
+        if bank is not None:
+            return bank.name, rel
     parts = [p for p in (rel or "").replace("\\", "/").strip("/").split("/") if p]
     if name_n == "inbox":
         if not parts:
@@ -407,6 +428,7 @@ def remap_legacy_inbox(name: str, rel: str) -> tuple[str, str]:
             "detective",
             "charlie",
             "tps",
+            "developer",
         ):
             parts[0] = canon
             return name, "/".join(parts)
@@ -717,6 +739,17 @@ def host_scheme_map() -> dict[str, str]:
 
 def discover_hosts() -> dict[str, Host]:
     """A folder under ~hosts is go.{name}. kind: roam + source: is roam.{name}."""
+    memo = _REQ_MEMO.get()  # CARDS_PHASE2_PERF: once per GET request
+    if memo is not None:
+        got = memo.get("hosts")
+        if got is None:
+            got = _discover_hosts()
+            memo["hosts"] = got
+        return dict(got)
+    return _discover_hosts()
+
+
+def _discover_hosts() -> dict[str, Host]:
     found: dict[str, Host] = {}
     aliases: dict[str, dict[str, str]] = {}
     if HOSTS_FILE.is_file():
@@ -794,7 +827,12 @@ def get_host(name: str) -> Host | None:
     slug = host_slug(s)
     if not slug:
         return None
-    return discover_hosts().get(slug)
+    found = discover_hosts()
+    host = found.get(slug)
+    if host is None and slug in CODES_LEGACY_SLUGS:
+        # Old go.codes / go.codes.glass links land on the codes bank (go.code.glass).
+        host = codes_host()
+    return host
 
 
 def is_codes_host(host: Host | None = None) -> bool:
@@ -820,7 +858,7 @@ def is_codes_host(host: Host | None = None) -> bool:
 
 def codes_host() -> Host | None:
     found = discover_hosts()
-    for slug in ("codes", "code.glass", "codes.glass"):
+    for slug in CODES_HOST_ORDER:
         host = found.get(slug)
         if host is not None:
             return host
@@ -1215,6 +1253,7 @@ ENV_STRIP = {
     "skyline": "#1b365d",
     "buddy": "#8a4aaa",
     "trays": "#2d6a4f",
+    "developer": "#0000aa",
     "bay": "#c45828",
     "logger": "#3d5c44",
     "logger-strange": "#6b3a42",
@@ -1228,6 +1267,7 @@ HOUSE_STRIP = {
     "charlie": "#c9892d",
     "librarian": "#2d6a4f",
     "tps": "#c42820",
+    "developer": "#0000aa",
 }
 HEX_COLOR = re.compile(r"^#[0-9A-Fa-f]{3,8}$")
 CSS_IMPORT = re.compile(r"""@import\s+(?:url\()?["']([^"']+)["']""", re.I)
@@ -1260,6 +1300,7 @@ CATALOG_API = {
     "/api/librarian": "librarian",
     "/api/detective": "detective",
     "/api/agent": "detective",
+    "/api/developer": "developer",
 }
 SHELF_API = {
     "/api/charlie": "charlie",
@@ -1885,7 +1926,7 @@ def _shelf_retarget_pocket(kind: str, yaml_path: Path, pocket: str) -> None:
 
 
 def rename_page_shelves(old_page: Path, new_page: Path) -> list[str]:
-    """BIOS page rename: move filename-matched cabinet twins (~librarian/~tps/~detective/~charlie).
+    """BIOS page rename: move filename-matched cabinet twins (~librarian/~tps/~detective/~charlie/~developer).
 
     Sidecars are vault-relative .yaml mirrors of the .md name. Also rewrite pocket:.
     Skips missing cabinets and destination collisions. Returns kinds that moved.
@@ -2296,16 +2337,61 @@ def page_note_payload(target: Path, which: str = "") -> dict | None:
     return chosen
 
 
+
+_LETTER_FONT_SLUGS: set[str] | None = None
+_LETTER_FONT_DEFAULT = "bitter"
+
+
+def _letter_font_slugs() -> set[str]:
+    """Known --font-* slugs from mats/styles/fonts.css (cached)."""
+    global _LETTER_FONT_SLUGS
+    if _LETTER_FONT_SLUGS is not None:
+        return _LETTER_FONT_SLUGS
+    slugs: set[str] = set()
+    path = STYLES / "fonts.css"
+    try:
+        css = path.read_text(encoding="utf-8")
+    except OSError:
+        css = ""
+    for m in re.finditer(r"--font-([\w-]+)\s*:", css):
+        slugs.add(m.group(1).lower())
+    if "bitter" not in slugs:
+        slugs.add("bitter")
+    _LETTER_FONT_SLUGS = slugs
+    return slugs
+
+
+def resolve_letter_font(name: str | None) -> str:
+    """Map room-letter FM font: to a fonts.css slug; blank/unknown -> bitter."""
+    raw = str(name or "").strip().lower()
+    if not raw:
+        return _LETTER_FONT_DEFAULT
+    raw = raw.replace(" ", "").replace("_", "-")
+    while raw.startswith("--"):
+        raw = raw[2:]
+    while raw.startswith("font-"):
+        raw = raw[5:]
+    raw = raw.strip("-")
+    if not raw:
+        return _LETTER_FONT_DEFAULT
+    if raw in _letter_font_slugs():
+        return raw
+    return _LETTER_FONT_DEFAULT
+
+
 def _readme_payload(folder: Path, dest: Path, body: str, target: Path) -> dict:
     pocket = pocket_key(folder)
     here_folder = nearest_index_folder(target) or folder
     here_dest = readme_dest_for_folder(here_folder)
+    meta, md_body = parse_fm(body or "")
+    letter_font = resolve_letter_font(meta.get("font") if meta else None)
     obj = {
         "house": "BIOS",
         "pocket": pocket,
         "crate": page_crate(folder),
         "body": body,
-        "body_html": md_lite(parse_fm(body or "")[1]),
+        "body_html": md_lite(md_body),
+        "letter_font": letter_font,
         "route": pocket,
         "face": "room",
         "local_letter": bool(here_dest and here_dest.is_file()),
@@ -3282,6 +3368,7 @@ LORE_LINE_MAX = 255
 TRAYS_HOST = HOSTS_ROOT / "trays"
 DETECTIVE_HOST = HOSTS_ROOT / "detective"
 LIBRARIAN_HOST = HOSTS_ROOT / "librarian"
+DEVELOPER_HOST = HOSTS_ROOT / "developer"
 
 
 @dataclass(frozen=True)
@@ -3297,6 +3384,11 @@ class BlotterBank:
     look_miss: str
     search_ph: str
     search_btn: str
+    # DEV_SHELF_FULLNOTES: shelf dress, off unless a bank opts in.
+    # ref_compact - the page a shelf hangs on prints as a slim outlink, not its full face
+    # faces_full  - shelf slips print their full rendered note body, not a snippet card
+    ref_compact: bool = False
+    faces_full: bool = False
 
 
 BLOTTER_BANKS = {
@@ -3322,6 +3414,25 @@ BLOTTER_BANKS = {
         search_ph="a note, a title",
         search_btn="look",
     ),
+    "developer": BlotterBank(
+        slug="developer",
+        kind="dev",
+        environment="developer",
+        mouth="developer",
+        q_name="grep",
+        look_mark="in the dev notes",
+        look_miss="nothing in the dev notes matches ",
+        search_ph="grep the dev notes",
+        search_btn="grep",
+        ref_compact=True,
+        faces_full=True,
+    ),
+}
+# POST/PUT/DELETE slip endpoints -> bank
+BLOTTER_API = {
+    "/api/detective/hunt": "detective",
+    "/api/librarian/blot": "librarian",
+    "/api/developer/dev": "developer",
 }
 
 
@@ -3335,6 +3446,8 @@ def blotter_root(bank: str = "detective") -> Path:
         return DETECTIVE_HOST
     if spec.slug == "librarian":
         return LIBRARIAN_HOST
+    if spec.slug == "developer":
+        return DEVELOPER_HOST
     return HOSTS_ROOT / spec.slug
 
 
@@ -3353,6 +3466,23 @@ def blotter_bank_for_path(path: Path) -> str:
     return "detective"
 
 
+def blotter_shelf_spec(folder: Path | None) -> BlotterBank | None:
+    """Bank whose root holds this folder - None off the blotters (no detective fallback)."""
+    if folder is None:
+        return None
+    try:
+        here = folder.resolve()
+    except OSError:
+        return None
+    for name, spec in BLOTTER_BANKS.items():
+        try:
+            here.relative_to(blotter_root(name).resolve())
+            return spec
+        except (OSError, ValueError):
+            continue
+    return None
+
+
 def is_blotter_note(meta: dict | None, bank: str | None = None) -> bool:
     meta = meta or {}
     kind = str(meta.get("kind") or "").strip().lower()
@@ -3361,9 +3491,9 @@ def is_blotter_note(meta: dict | None, bank: str | None = None) -> bool:
     if bank:
         spec = blotter_spec(bank)
         return kind == spec.kind or (env == spec.environment and bool(src))
-    return kind in ("hunt", "blot") or (
-        env in ("hunt", "stacks") and bool(src)
-    )
+    kinds = {b.kind for b in BLOTTER_BANKS.values()}
+    envs = {b.environment for b in BLOTTER_BANKS.values()}
+    return kind in kinds or (env in envs and bool(src))
 
 
 ERA_SITS_FILE = TPS_ROOT / "_worldline.yaml"
@@ -3381,6 +3511,7 @@ DETECTIVE_INBOX = TRAYS_HOST / "detective"
 AGENT_INBOX = DETECTIVE_INBOX  # alias: old trays/agent name
 CHARLIE_INBOX = TRAYS_HOST / "charlie"
 TPS_INBOX = TRAYS_HOST / "tps"
+DEVELOPER_INBOX = TRAYS_HOST / "developer"
 CATALOG = {
     "librarian": {
         "house": "LIBRARIAN",
@@ -3414,6 +3545,14 @@ CATALOG = {
         "serial": TPS_INBOX / "_serial.yaml",
         "suggest": TPS_ROOT / "_suggest-lore.yaml",
         "tray": "tps",
+    },
+    "developer": {
+        "house": "DEVELOPER",
+        "made": "Developer",
+        "inbox": DEVELOPER_INBOX,
+        "serial": DEVELOPER_INBOX / "_serial.yaml",
+        "suggest": DEVELOPER_ROOT / "_suggest.yaml",
+        "tray": "developer",
     },
 }
 
@@ -3911,7 +4050,7 @@ def catalog_from_qs(qs: dict) -> tuple[str, str, str, str]:
 
 def catalog_qs_is_report(qs: dict) -> bool:
     mouth, label, value, _binning = catalog_from_qs(qs)
-    if mouth not in ("librarian", "detective", "tps"):
+    if mouth not in ("librarian", "detective", "tps", "developer"):
         return False
     return bool(label or value)
 
@@ -4793,7 +4932,30 @@ def lore_slug(title: str) -> str:
     return s[:80]
 
 
+LORE_N_RE = re.compile(r"-LORE_(\d+)(?:-[0-9a-f]+)?\.md$", re.IGNORECASE)
+
+
+def lore_taken_ns(inbox: Path) -> set[int]:
+    """Serial numbers already on disk in a tray (Title-LORE_<n>.md, plus -hex dupes)."""
+    out: set[int] = set()
+    try:
+        names = [p.name for p in inbox.iterdir() if p.is_file()]
+    except OSError:
+        return out
+    for name in names:
+        m = LORE_N_RE.search(name)
+        if m:
+            try:
+                out.add(int(m.group(1)))
+            except ValueError:
+                pass
+    return out
+
+
 def lore_next_n(mouth: str) -> int:
+    """Next free LORE_<n> for a tray. Never reuses a number already on disk
+    (newcard 20260926: detective had twin LORE_41/42 from a stale serial);
+    advances past the highest file and keeps _serial.yaml in step."""
     spec = CATALOG[mouth]
     serial = spec["serial"]
     inbox = spec["inbox"]
@@ -4813,6 +4975,9 @@ def lore_next_n(mouth: str) -> int:
     if n < 1:
         n = 1
     inbox.mkdir(parents=True, exist_ok=True)
+    taken = lore_taken_ns(inbox)
+    if taken:
+        n = max(n, max(taken) + 1)
     serial.write_text("next: " + str(n + 1) + "\n", encoding="utf-8")
     return n
 
@@ -4870,17 +5035,41 @@ def lore_reverse_edge_crates(card_crate: str) -> list[str]:
         for p in kids:
             if p.name.lower() in {INDEX_NAME, INDEX_LEGACY, PAPER_NAME}:
                 continue
-            try:
-                meta = read_md_meta(p)
-            except Exception:
+            rec = _lore_edge_rec(p)
+            if rec is None:
                 continue
-            other = norm_crate(str((meta or {}).get("crate") or ""))
+            other, edges = rec
             if not other or other in seen:
                 continue
-            if want in lore_edge_crates(meta or {}):
+            if want in edges:
                 out.append(other)
                 seen.add(other)
     return out
+
+
+# CARDS_PHASE2_PERF: (own crate, edge crates) per card file, keyed on mtime+size.
+_LORE_EDGE_CACHE: dict[str, tuple[int, int, str, tuple[str, ...]]] = {}
+
+
+def _lore_edge_rec(p: Path) -> tuple[str, tuple[str, ...]] | None:
+    try:
+        st = os.stat(p)
+    except OSError:
+        st = None
+    key = str(p)
+    if st is not None:
+        hit = _LORE_EDGE_CACHE.get(key)
+        if hit is not None and hit[0] == st.st_mtime_ns and hit[1] == st.st_size:
+            return hit[2], hit[3]
+    try:
+        meta = read_md_meta(p)
+    except Exception:
+        return None
+    other = norm_crate(str((meta or {}).get("crate") or ""))
+    edges = tuple(lore_edge_crates(meta or {}))
+    if st is not None:
+        _LORE_EDGE_CACHE[key] = (st.st_mtime_ns, st.st_size, other, edges)
+    return other, edges
 
 
 def door_for_path(p: Path | None) -> dict | None:
@@ -4906,9 +5095,12 @@ def door_for_path(p: Path | None) -> dict | None:
                 }
         except OSError:
             pass
-    for name, host in discover_hosts().items():
+    here_n = os.path.normcase(str(here))
+    for name, host, root, root_n in _host_roots_resolved():
+        if root is None or not _under_root(here_n, root_n):
+            continue
         try:
-            rel = here.relative_to(host.root.resolve()).as_posix()
+            rel = here.relative_to(root).as_posix()
         except (OSError, ValueError):
             continue
         pocket = format_pocket(name, rel)
@@ -5088,12 +5280,13 @@ LORE_HOUSES = {
     "agent": "detective",
     "charlie": "charlie",
     "tps": "tps",
+    "developer": "developer",
 }
 
 
 def lore_house_label(house: str = "", mouth: str = "") -> str:
     h = mouth_canon((house or "").strip().lower())
-    if h in ("librarian", "detective", "charlie", "tps"):
+    if h in ("librarian", "detective", "charlie", "tps", "developer"):
         return h
     m = mouth_canon((mouth or "").strip().lower())
     if m in LORE_HOUSES:
@@ -5130,7 +5323,7 @@ def is_card_note(meta: dict | None) -> bool:
 def card_chrome(meta: dict | None) -> str:
     """Window sense: deck/type, then the card's title."""
     meta = meta or {}
-    klass = str(meta.get("class") or "").strip() or "lore card"
+    klass = str(meta.get("class") or "").strip() or "quest card"
     title = str(meta.get("title") or "").strip()
     if not title:
         return klass
@@ -5466,6 +5659,8 @@ def catalog_payload(mouth: str, dest: Path, pocket: str, crate: str) -> dict:
         obj["hunts"] = hunts_for_crate(crate or str(obj.get("crate") or ""), bank="detective")
     elif mouth == "librarian":
         obj["hunts"] = hunts_for_crate(crate or str(obj.get("crate") or ""), bank="librarian")
+    elif mouth == "developer":
+        obj["hunts"] = hunts_for_crate(crate or str(obj.get("crate") or ""), bank="developer")
     return obj
 
 
@@ -5924,15 +6119,23 @@ def paint_hunt_slip_meta(hit: dict) -> str:
     return "".join(parts)
 
 
+# DEV_SHELF_FULLNOTES: full=True (faces_full shelves) - body is the whole
+# rendered note and the card wears hunt-slip-full.
 def paint_hunt_slip(
-    hit: dict, n: int = 1, *, link_title: bool = True, body: str | None = None
+    hit: dict,
+    n: int = 1,
+    *,
+    link_title: bool = True,
+    body: str | None = None,
+    full: bool = False,
 ) -> str:
     """One blotter slip card — shared by hunt search, shelf faces, and open pages."""
     n = ((int(n) - 1) % 3) + 1
     href = html.escape(str(hit.get("href") or ""), True)
     title = html.escape(str(hit.get("title") or "slip"))
+    klass = f"hunt-slip hunt-slip-n{n}" + (" hunt-slip-full" if full else "")
     parts: list[str] = [
-        f'<article class="hunt-slip hunt-slip-n{n}">',
+        f'<article class="{klass}">',
     ]
     if link_title and href:
         parts.append(f'<a class="hunt-slip-title" href="{href}">{title}</a>')
@@ -5948,6 +6151,39 @@ def paint_hunt_slip(
     parts.append(paint_hunt_slip_meta(hit))
     parts.append("</article>")
     return "".join(parts)
+
+
+_FACES_FULL_DEPTH: ContextVar[int] = ContextVar("pocket_go_faces_full_depth", default=0)
+
+
+def hunt_slip_full_body(path: Path) -> str | None:
+    """DEV_SHELF_FULLNOTES: a shelf slip's whole note, rendered like its open page.
+
+    Same md_lite + fill_slots pass the open-slip view uses; the leading <h1>
+    (# {{title}}) is dropped because the card prints its own linked title.
+    None -> caller falls back to the snippet card.
+    """
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        rel = path.relative_to(active_vault()).as_posix()
+    except (OSError, ValueError):
+        return None
+    meta, body = parse_fm(text)
+    tok = _FACES_FULL_DEPTH.set(_FACES_FULL_DEPTH.get() + 1)
+    try:
+        inner = fill_slots(
+            md_lite(body), path.parent, auto=False, crumb_rel=rel, meta=meta
+        )
+    except Exception:
+        return None
+    finally:
+        _FACES_FULL_DEPTH.reset(tok)
+    inner = inner.replace("{{uses}}", "").replace("{{bags}}", "")
+    raw = (inner or "").strip()
+    m = re.match(r"(<h1\b[^>]*>)(.*?)(</h1>)", raw, re.I | re.S)
+    if m:
+        raw = raw[m.end() :].strip()
+    return raw
 
 
 def wrap_hunt_open_page(inner: str, hit: dict) -> str:
@@ -6212,7 +6448,7 @@ def hunt_drop_sidecars(dest: Path, bank: str = "detective") -> None:
     if blot_host is None:
         return
     with using_host(blot_host):
-        for kind in ("tps", "librarian", "detective", "charlie"):
+        for kind in ("tps", "librarian", "detective", "charlie", "developer"):
             y = shelf_file(kind, dest)
             if y is not None and y.is_file():
                 try:
@@ -7184,7 +7420,7 @@ def era_save(
             pad = event_host()
             if pad is not None:
                 with using_host(pad):
-                    for kind in ("tps", "librarian", "detective", "charlie"):
+                    for kind in ("tps", "librarian", "detective", "charlie", "developer"):
                         y = shelf_file(kind, dest)
                         z = shelf_file(kind, fresh)
                         if y is not None and y.is_file() and z is not None:
@@ -7300,6 +7536,7 @@ LORE_LIBRARIAN_AUTHOR = {
     "librarian": "The Librarian",
     "detective": "Detective",
     "charlie": "Charlie",
+    "developer": "Developer",
 }
 
 
@@ -7371,6 +7608,134 @@ def lore_cards_stamp_librarian_missing() -> None:
                 lore_card_stamp_librarian(p, mouth, klass, crate)
 
 
+def _lore_card_write(
+    mouth: str,
+    *,
+    klass: str,
+    title: str,
+    line: str,
+    tps: int,
+    maker: str = "",
+    source_crate: str = "",
+    from_label: str = "",
+) -> tuple[Path, str, str]:
+    """Name, write and Librarian-stamp one lore card in its tray.
+
+    Shared by page Add Lore (_catalog_lore_add) and deck New Card
+    (cards_lore_new). Caller adds the TPS created stamp. Returns
+    (path, filename, own crate).
+    """
+    spec = CATALOG[mouth]
+    slug = lore_slug(title)
+    inbox = spec["inbox"]
+    maker = (maker or "").strip() or str(spec.get("made") or "").strip()
+    with LBR_LOCK:
+        n = lore_next_n(mouth)
+        fname = f"{slug}-LORE_{n}.md"
+        path = inbox / fname
+        if path.exists():
+            fname = f"{slug}-LORE_{n}-{os.urandom(2).hex()}.md"
+            path = inbox / fname
+        own = mint_crate_id()
+        body = lore_card_md(
+            crate=own,
+            source_crate=source_crate,
+            title=title,
+            klass=klass,
+            line=line,
+            tps=tps,
+            from_label=from_label,
+            house=spec["house"],
+            maker=maker,
+        )
+        inbox.mkdir(parents=True, exist_ok=True)
+        path.write_text(body, encoding="utf-8")
+        lore_card_stamp_librarian(path, mouth, klass, own)
+        suggest_remember(mouth, "class", klass)
+    return path, fname, own
+
+
+def cards_lore_new(
+    mouth: str,
+    klass: str,
+    title: str,
+    line: str,
+    when: str,
+    maker: str = "",
+    pocket_raw: str = "",
+    onto: str = "",
+) -> tuple[int, dict | None, str]:
+    """Deck New Card: a free-standing lore card in any tray, no page needed.
+
+    Without a pocket: source_crate empty, edges [], from blank. With a pocket:
+    from is that page's room and the card is attached through cards_lore_sync
+    (same path as the deck Attach picker); the updated deck shelf comes back.
+    """
+    mouth = mouth_canon(mouth)
+    if mouth not in CATALOG:
+        return 400, None, "no such tray"
+    klass = (klass or "").strip()
+    title = (title or "").strip()
+    line = (line or "").replace("\r\n", "\n").replace("\r", "\n").strip()
+    if not title:
+        return 400, None, "empty title"
+    if not line:
+        return 400, None, "empty lore"
+    if len(line) > LORE_LINE_MAX:
+        return 413, None, "lore too long"
+    tps = parse_librarian_time(when)
+    if tps is None:
+        return 400, None, "could not read time"
+    pocket_raw = (pocket_raw or "").strip()
+    from_label = ""
+    if pocket_raw:
+        # Check the page before minting, so a bad pocket never leaves a stray card.
+        with using_pocket(pocket_raw) as host:
+            if host is None:
+                return 400, None, "no such host"
+            target = resolve_vault_page(pocket_raw)
+            if target is None:
+                return 400, None, "not a vault page"
+            from_label = lore_from_room(target)
+    spec = CATALOG[mouth]
+    tray = spec["tray"]
+    maker = (maker or "").strip() or str(spec.get("made") or "").strip()
+    path, fname, own = _lore_card_write(
+        mouth,
+        klass=klass,
+        title=title,
+        line=line,
+        tps=tps,
+        maker=maker,
+        source_crate="",
+        from_label=from_label,
+    )
+    tps_stamp_add("go.trays/" + tray + "/" + fname, "created", str(tps))
+    out: dict = {
+        "crate": own,
+        "title": title,
+        "class": klass,
+        "maker": maker,
+        "file": fname,
+        "mouth": mouth,
+        "tray": tray,
+        "house": spec["house"],
+        "href": lore_href(tray, fname),
+        "attached": False,
+        "shelf": None,
+    }
+    if pocket_raw:
+        code, shelf, err = cards_lore_sync(
+            pocket_raw, [{"mouth": mouth, "crate": own}], [], onto
+        )
+        if code == 200 and shelf is not None:
+            out["attached"] = bool(shelf.get("attached_n"))
+            out["shelf"] = shelf
+        else:
+            out["attach_error"] = err or "attach failed"
+    return 200, out, ""
+
+
 def _catalog_lore_add(
     mouth: str, pocket_raw: str, klass: str, title: str, line: str, tps: int, onto: str = "", maker: str = ""
 ) -> tuple[int, dict | None, str]:
@@ -7388,33 +7753,18 @@ def _catalog_lore_add(
     if not crate:
         return 400, None, "no crate on this page"
     from_label = lore_from_room(target)
-    slug = lore_slug(title)
-    inbox = spec["inbox"]
     tray = spec["tray"]
-    maker = (maker or "").strip() or str(spec.get("made") or "").strip()
     with LBR_LOCK:
-        n = lore_next_n(mouth)
-        fname = f"{slug}-LORE_{n}.md"
-        path = inbox / fname
-        if path.exists():
-            fname = f"{slug}-LORE_{n}-{os.urandom(2).hex()}.md"
-            path = inbox / fname
-        own = mint_crate_id()
-        body = lore_card_md(
-            crate=own,
-            source_crate=crate,
-            title=title,
+        path, fname, own = _lore_card_write(
+            mouth,
             klass=klass,
+            title=title,
             line=line,
             tps=tps,
-            from_label=from_label,
-            house=spec["house"],
             maker=maker,
+            source_crate=crate,
+            from_label=from_label,
         )
-        inbox.mkdir(parents=True, exist_ok=True)
-        path.write_text(body, encoding="utf-8")
-        lore_card_stamp_librarian(path, mouth, klass, own)
-        suggest_remember(mouth, "class", klass)
         if spec.get("blot"):
             obj = blot_read(dest, pocket, spec["house"])
             if crate:
@@ -8030,6 +8380,7 @@ def charlie_decorate(obj: dict, current_pocket: str) -> dict:
 
 
 def mint_crate_id() -> str:
+    crate_index_bump()  # CARDS_PHASE2_PERF
     return "crate." + os.urandom(8).hex().upper()
 
 
@@ -8698,7 +9049,7 @@ def catalog_chip_hits(mouth: str, value: str) -> list[dict]:
     if mouth == "tps":
         return tps_hits(kind="title", value=value) if value else tps_hits()
     mouth = mouth_canon(mouth)
-    if mouth not in ("librarian", "detective"):
+    if mouth not in ("librarian", "detective", "developer"):
         return []
     spec = SHELF_KIND.get(mouth)
     if not spec:
@@ -8935,7 +9286,7 @@ def catalog_field_hits(mouth: str, label: str, value: str) -> list[dict]:
     if mouth == "tps":
         return tps_hits(kind=label, value=value)
     mouth = mouth_canon(mouth)
-    if mouth not in ("librarian", "detective"):
+    if mouth not in ("librarian", "detective", "developer"):
         return []
     spec = SHELF_KIND.get(mouth)
     if not spec:
@@ -9016,6 +9367,16 @@ CATALOG_BAY = {
         "skin": "is-detectivebay",
         "cls": "is-hunt",
         "empty": "Detective has not indexed this field yet.",
+        "kicker": "as field",
+    },
+    "developer": {
+        "who": "dev notes",
+        "brick": "mypi:dev",
+        "mark": "mypi:dev",
+        "accent": "#0000aa",
+        "skin": "is-libbay",
+        "cls": "is-lib",
+        "empty": "Nothing in the dev notes for this field yet.",
         "kicker": "as field",
     },
     "tps": {
@@ -9507,7 +9868,7 @@ def lore_maker_shown(house: str = "", mouth: str = "") -> str:
 
 def _crate_maker_kind(house: str) -> str:
     maker = lore_maker_shown(house)
-    return (maker + " lore card") if maker else "Lore card"
+    return (maker + " quest card") if maker else "Quest Card"
 
 
 def _crate_lore_hit(
@@ -9543,7 +9904,7 @@ def _crate_lore_hit(
         f'<li class="tagbay-hit is-lore{extra_cls}">'
         '<div class="tagbay-hit-main">'
         f"{house_bit}"
-        '<span class="crate-kind">lore card</span>'
+        '<span class="crate-kind">quest card</span>'
         f"{deck_bit}"
         f"{note}"
         "</div>"
@@ -9682,7 +10043,7 @@ def _crate_report_body(crate: str) -> str:
     born = ""
 
     lore_all: list[dict] = []
-    for mouth in ("librarian", "detective", "charlie"):
+    for mouth in ("librarian", "detective", "charlie", "developer"):
         for card in lore_cards_for(mouth, crate):
             item = dict(card)
             item["mouth"] = mouth
@@ -9851,6 +10212,36 @@ def crate_report_page(qs: dict) -> bytes:
     )
 
 
+def _host_roots_resolved() -> list[tuple[str, Host, Path | None, str]]:
+    """CARDS_PHASE2_PERF: (slug, host, resolved root, normcase root) in discover order."""
+    memo = _REQ_MEMO.get()
+    if memo is not None:
+        got = memo.get("host_roots")
+        if got is not None:
+            return got
+    out: list[tuple[str, Host, Path | None, str]] = []
+    for name, host in discover_hosts().items():
+        try:
+            root = host.root.resolve()
+        except OSError:
+            out.append((name, host, None, ""))
+            continue
+        out.append((name, host, root, os.path.normcase(str(root))))
+    if memo is not None:
+        memo["host_roots"] = out
+    return out
+
+
+def _under_root(here_n: str, root_n: str) -> bool:
+    """Necessary condition for Path.relative_to on normalized absolute paths."""
+    if not root_n:
+        return False
+    if here_n == root_n:
+        return True
+    base = root_n if root_n.endswith(("\\", "/")) else root_n + os.sep
+    return here_n.startswith(base)
+
+
 def host_for_path(p: Path | None) -> Host | None:
     if p is None:
         return None
@@ -9858,9 +10249,12 @@ def host_for_path(p: Path | None) -> Host | None:
         here = p.resolve()
     except OSError:
         return None
-    for host in discover_hosts().values():
+    here_n = os.path.normcase(str(here))
+    for _name, host, root, root_n in _host_roots_resolved():
+        if root is None or not _under_root(here_n, root_n):
+            continue
         try:
-            here.relative_to(host.root.resolve())
+            here.relative_to(root)
             return host
         except (OSError, ValueError):
             continue
@@ -10058,7 +10452,7 @@ def cards_shelf_get(pocket_raw: str) -> tuple[int, dict | None, str]:
         seen: set[str] = set()
         cards: list[dict] = []
         bits: list[str] = []
-        for mouth in ("librarian", "detective", "charlie", "tps"):
+        for mouth in ("librarian", "detective", "charlie", "tps", "developer"):
             for want in crates:
                 for card in lore_cards_for(mouth, want):
                     own = str(card.get("crate") or "").strip()
@@ -10109,7 +10503,7 @@ def cards_lore_list(*, faces: bool = False) -> tuple[int, dict | None, str]:
     """
     seen: set[str] = set()
     cards: list[dict] = []
-    for mouth in ("librarian", "detective", "charlie", "tps"):
+    for mouth in ("librarian", "detective", "charlie", "tps", "developer"):
         code, obj, err = catalog_lore_list(mouth)
         if code != 200 or not obj:
             continue
@@ -10153,7 +10547,7 @@ def cards_lore_attach(
         return 400, None, "need a lore crate"
     if mouth not in CATALOG:
         # Resolve mouth from the crate if the client omitted it.
-        for cand in ("librarian", "detective", "charlie", "tps"):
+        for cand in ("librarian", "detective", "charlie", "tps", "developer"):
             if find_lore_file(cand, card_crate) is not None:
                 mouth = cand
                 break
@@ -10178,7 +10572,7 @@ def _resolve_lore_mouth(mouth: str, card_crate: str) -> str:
     card_crate = norm_crate(card_crate)
     if mouth in CATALOG and card_crate and find_lore_file(mouth, card_crate) is not None:
         return mouth
-    for cand in ("librarian", "detective", "charlie", "tps"):
+    for cand in ("librarian", "detective", "charlie", "tps", "developer"):
         if card_crate and find_lore_file(cand, card_crate) is not None:
             return cand
     if mouth in CATALOG:
@@ -10345,7 +10739,7 @@ def card_pop_page(qs: dict) -> bytes:
     p = find_file_by_crate(crate) if crate else None
     if p is None or not p.is_file():
         return sheet_page(
-            "lore card",
+            "quest card",
             miss,
             "#c45c4a",
             "is-lorecard",
@@ -10357,7 +10751,7 @@ def card_pop_page(qs: dict) -> bytes:
         text = p.read_text(encoding="utf-8", errors="replace")
     except OSError:
         return sheet_page(
-            "lore card",
+            "quest card",
             miss,
             "#c45c4a",
             "is-lorecard",
@@ -10368,7 +10762,7 @@ def card_pop_page(qs: dict) -> bytes:
     meta, src = parse_fm(text)
     if not is_card_note(meta):
         return sheet_page(
-            "lore card",
+            "quest card",
             miss,
             "#c45c4a",
             "is-lorecard",
@@ -11313,7 +11707,7 @@ def meta_chips(folder: Path, rel: str | None, mouth: str | None = None) -> str:
     mouth = mouth_canon(mouth or "librarian")
     if mouth == "tps":
         return tps_meta_chips(folder, rel)
-    if mouth not in ("librarian", "detective"):
+    if mouth not in ("librarian", "detective", "developer"):
         mouth = "librarian"
     target = slot_page(folder, rel)
     dest = shelf_file(mouth, target)
@@ -11414,15 +11808,17 @@ def meta_slot_html(folder: Path, rel: str | None, who: str | None) -> str:
         return meta_chips(folder, rel, "librarian")
     if raw in ("det", "detective", "agent", "agt"):
         return meta_chips(folder, rel, "detective")
+    if raw in ("dev", "developer"):
+        return meta_chips(folder, rel, "developer")
     if raw == "tps":
         return meta_chips(folder, rel, "tps")
     return meta_chips(folder, rel, raw)
 
 
 def meta_chips_all(folder: Path, rel: str | None) -> str:
-    """Every cabinet's chips in one quiet strip (lib, detective, tps)."""
+    """Every cabinet's chips in one quiet strip (lib, detective, developer, tps)."""
     chips: list[str] = []
-    for mouth in ("librarian", "detective", "tps"):
+    for mouth in ("librarian", "detective", "developer", "tps"):
         block = meta_chips(folder, rel, mouth)
         if not block:
             continue
@@ -12133,7 +12529,26 @@ def _bullet_toggle(pocket_raw: str, index: int) -> tuple[int, dict | None, str]:
     return 200, {"ok": True, "i": index}, ""
 
 
+
+_HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+
+
+def strip_html_comments(src: str) -> str:
+    """Remove <!-- ... --> from markdown before render. Fenced ``` blocks kept intact."""
+    if not src or "<!--" not in src:
+        return src
+    parts = re.split(r"(```[\s\S]*?```)", src)
+    out: list[str] = []
+    for i, part in enumerate(parts):
+        if i % 2 == 1:
+            out.append(part)
+        else:
+            out.append(_HTML_COMMENT_RE.sub("", part))
+    return "".join(out)
+
+
 def md_lite(src: str) -> str:
+    src = strip_html_comments(src)
     lines = src.replace("\r\n", "\n").split("\n")
     # Final enters at EOF are editor noise — they mint trailing md-gap and
     # leave empty space under shell / paper designs. Leading blanks already skip.
@@ -12803,7 +13218,7 @@ def codes_host_root() -> Path | None:
 
 def codes_host_slug() -> str:
     host = codes_host()
-    return host.name if host is not None else "codes"
+    return host.name if host is not None else CODES_HOST_CANON
 
 
 def event_host() -> Host | None:
@@ -13737,7 +14152,7 @@ def chip_codes_in_catalog(path: Path | None) -> list[str]:
             return found
     except OSError:
         return found
-    for mouth in ("librarian", "detective"):
+    for mouth in ("librarian", "detective", "developer"):
         dest = shelf_file(mouth, path)
         if dest is None or not dest.is_file():
             continue
@@ -13782,8 +14197,47 @@ def chip_codes_in_note(meta: dict, body: str, path: Path | None = None) -> list[
     return found
 
 
+def chip_cite_resolved(code: str, fill_cache: dict[str, str] | None = None) -> str:
+    """Open-trunk cite (BAG.B### / BAG.*.B### / BAG.T*.B###) -> real trunk chain on the codes bank.
+
+    Uncut (no trunk on disk holds the rest yet) stays as written. Concrete cites pass through.
+    """
+    parsed = chip_code_parse(code)
+    if parsed is None or not parsed.get("trunk_open"):
+        return code
+    if fill_cache is not None and code in fill_cache:
+        return fill_cache[code]
+    try:
+        filled = chip_code_fill_wild(code) or code
+    except OSError:
+        filled = code
+    if fill_cache is not None:
+        fill_cache[code] = filled
+    return filled
+
+
+def chip_cite_under(cite: str, needle: str, fill_cache: dict[str, str] | None = None) -> bool:
+    """True if a cite names this node or an address beneath it.
+
+    Untrunked cites (NT-597.B008) count on the concrete page they resolve to
+    (NT-597.T01.B008) and on every hall above it (NT-597.T01, NT-597). citations-repair 20260926-215618
+    """
+    if not cite or not needle:
+        return False
+    if cite == needle or cite.startswith(needle + "."):
+        return True
+    cites = {cite, chip_cite_resolved(cite, fill_cache)}
+    needles = {needle, chip_cite_resolved(needle, fill_cache)}
+    for a in cites:
+        for b in needles:
+            if a == b or a.startswith(b + "."):
+                return True
+    return False
+
+
 def notes_with_chip(prefix: str) -> list[dict]:
     """Notes that cited this chain node, or a deeper address under it."""
+    fill_cache: dict[str, str] = {}
     parsed = chip_code_parse(prefix)
     group = ""
     needle = ""
@@ -13814,7 +14268,7 @@ def notes_with_chip(prefix: str) -> list[dict]:
                 meta, body = parse_fm(text)
                 codes = chip_codes_in_note(meta, body, p)
                 if needle:
-                    ok = any(c == needle or c.startswith(needle + ".") for c in codes)
+                    ok = any(chip_cite_under(c, needle, fill_cache) for c in codes)
                 else:
                     ok = any(c.startswith(group + "-") for c in codes)
                 if not ok:
@@ -13856,7 +14310,9 @@ def pocket_cited_codes() -> set[str]:
     return found
 
 
-def code_is_held(node: str, cited: set[str] | None = None) -> bool:
+def code_is_held(
+    node: str, cited: set[str] | None = None, fill_cache: dict[str, str] | None = None
+) -> bool:
     """True if the pocket cites this ZIP, or a deeper address that still needs it."""
     if cited is None:
         cited = pocket_cited_codes()
@@ -13869,6 +14325,9 @@ def code_is_held(node: str, cited: set[str] | None = None) -> bool:
         if c == node_s or c.startswith(node_s + "."):
             return True
         if chip_codes_wild_match(node_s, c):
+            return True
+        # Untrunked cite resolved to a real trunk also holds that trunk hall.
+        if chip_cite_under(c, node_s, fill_cache):
             return True
     if len(parsed["bins"]) <= 1:
         group = parsed["group"]
@@ -13916,6 +14375,7 @@ def gc_unreferenced_codes(keep: Path | None = None) -> list[str]:
     if host is None or root is None or not root.is_dir():
         return []
     cited = pocket_cited_codes()
+    fill_cache: dict[str, str] = {}
     keep_key = ""
     if keep is not None:
         try:
@@ -13939,7 +14399,7 @@ def gc_unreferenced_codes(keep: Path | None = None) -> list[str]:
                 continue
             rel = p.relative_to(root).as_posix()
             code = note_chip_code(meta, rel, p)
-            if not code or code_is_held(code, cited):
+            if not code or code_is_held(code, cited, fill_cache):
                 continue
             if keep_key:
                 try:
@@ -13962,7 +14422,7 @@ def gc_unreferenced_codes(keep: Path | None = None) -> list[str]:
 def code_search_form() -> str:
     return (
         "<form class=\"tag-search\" method=\"get\" action=\"/\">"
-        + "<input type=\"hidden\" name=\"h\" value=\"codes\">"
+        + "<input type=\"hidden\" name=\"h\" value=\"" + html.escape(codes_host_slug(), True) + "\">"
         + "<input type=\"search\" name=\"touch\" placeholder=\"OT-008.T01.B002.L03\" "
         + "autocomplete=\"off\" spellcheck=\"false\">"
         + "<button type=\"submit\">open</button>"
@@ -15283,6 +15743,7 @@ INSERT_META_SLOT = {
     "librarian": "{{meta:librarian}}",
     "detective": "{{meta:detective}}",
     "tps": "{{meta:tps}}",
+    "developer": "{{meta:developer}}",
 }
 
 
@@ -15838,7 +16299,7 @@ def page_card_shelf(rel: str, meta: dict | None) -> str:
     bits: list[str] = []
     seen: set[str] = set()
     if crates:
-        for mouth in ("librarian", "detective", "charlie", "tps"):
+        for mouth in ("librarian", "detective", "charlie", "tps", "developer"):
             for want in crates:
                 for card in lore_cards_for(mouth, want):
                     own = str(card.get("crate") or "").strip()
@@ -15970,7 +16431,7 @@ def catalog_field_values(folder: Path, rel: str | None, mouth: str, label: str) 
             if v and v not in out:
                 out.append(v)
         return out
-    if mouth not in ("librarian", "detective"):
+    if mouth not in ("librarian", "detective", "developer"):
         return []
     want = (label or "").strip().lower()
     if not want:
@@ -16900,8 +17361,193 @@ def norm_crate(raw: str) -> str:
     return ("crate." + s) if len(s) == 16 else ""
 
 
+# CARDS_PHASE2_PERF: crate -> note index.
+# Built from the same file set walk_host_notes yields (SKIP/stash pruned),
+# re-validated from directory listings + file mtimes (os.scandir, cheap on
+# Windows) once per GET request and whenever a lookup misses after a crate was
+# minted. A hit is re-checked with one stat. Ties (same crate in two notes of
+# one root) fall back to the original full walk so first-match order holds.
+_CRATE_GEN = [0]
+_CRATE_IDX_LOCK = threading.Lock()
+_CRATE_IDX: dict = {"files": {}, "by_crate": {}, "ok": False}
+
+
+def crate_index_bump() -> None:
+    """A crate was minted or moved: next lookup re-validates the index."""
+    _CRATE_GEN[0] += 1
+
+
+def _crate_scan_root(root: str, md_out: list, chip_out: list) -> None:
+    """walk_host_notes' file set for one root: (path, mtime_ns, size)."""
+    try:
+        with os.scandir(root) as it:
+            entries = list(it)
+    except OSError:
+        return
+    subdirs: list[str] = []
+    for e in entries:
+        name = e.name
+        if name in SKIP or stash_name(name):
+            continue
+        try:
+            is_dir = e.is_dir(follow_symlinks=False)
+        except OSError:
+            is_dir = False
+        low = name.lower()
+        if low.endswith(".md") or low.endswith(".chip"):
+            try:
+                if e.is_file():
+                    st = e.stat()
+                    row = (e.path, st.st_mtime_ns, st.st_size)
+                    (md_out if low.endswith(".md") else chip_out).append(row)
+            except OSError:
+                pass
+        if is_dir:
+            subdirs.append(e.path)
+    for d in subdirs:
+        _crate_scan_root(d, md_out, chip_out)
+
+
+def _crate_index_refresh() -> dict:
+    global _CRATE_IDX
+    roots: list[str] = []
+    seen_roots: set[str] = set()
+    for host in discover_hosts().values():
+        if host.root.is_dir():
+            key = str(host.root)
+            if key not in seen_roots:
+                seen_roots.add(key)
+                roots.append(key)
+    with _CRATE_IDX_LOCK:
+        gen = _CRATE_GEN[0]
+        old = _CRATE_IDX.get("files") or {}
+        files: dict[str, tuple[int, int, str]] = {}
+        by_crate: dict[str, list[tuple[int, int, str]]] = {}
+        for ri, root in enumerate(roots):
+            md_rows: list = []
+            chip_rows: list = []
+            _crate_scan_root(root, md_rows, chip_rows)
+            for path_s, mt, size in md_rows:
+                prev = old.get(path_s)
+                if prev is not None and prev[0] == mt and prev[1] == size:
+                    crate = prev[2]
+                else:
+                    crate = norm_crate(file_crate(Path(path_s)))
+                files[path_s] = (mt, size, crate)
+                if crate:
+                    by_crate.setdefault(crate, []).append((ri, 0, path_s))
+            for path_s, _mt, _size in chip_rows:
+                # .chip crates can live in a per-host sidecar: always read live.
+                crate = norm_crate(file_crate(Path(path_s)))
+                if crate:
+                    by_crate.setdefault(crate, []).append((ri, 1, path_s))
+        new_idx = {
+            "files": files,
+            "by_crate": by_crate,
+            "roots": roots,
+            "tie_orders": {},
+            "ok": True,
+            "gen": gen,
+        }
+        _CRATE_IDX = new_idx  # swap whole dict: readers never see a half index
+        return new_idx
+
+
+def _crate_index_ready(force: bool = False) -> dict:
+    memo = _REQ_MEMO.get()
+    gen = _CRATE_GEN[0]
+    if (
+        not force
+        and memo is not None
+        and memo.get("crate_gen") == gen
+        and _CRATE_IDX.get("ok")
+    ):
+        return _CRATE_IDX
+    idx = _crate_index_refresh()
+    if memo is not None:
+        memo["crate_gen"] = gen
+    return idx
+
+
+def _crate_index_pick(idx: dict, crate: str) -> tuple[str, str]:
+    """('hit', path) | ('miss', '') | ('tie', '')."""
+    rows = (idx.get("by_crate") or {}).get(crate)
+    if not rows:
+        return "miss", ""
+    ri0 = min(r[0] for r in rows)
+    same = [r for r in rows if r[0] == ri0]
+    if len(same) == 1:
+        return "hit", same[0][2]
+    mds = [r for r in same if r[1] == 0]
+    if len(mds) == 1:
+        return "hit", mds[0][2]
+    return "tie", ""
+
+
+def _crate_tie_first(idx: dict, crate: str) -> str:
+    """Same crate twice in one root: walk_host_notes order decides (md pass, then chip)."""
+    rows = (idx.get("by_crate") or {}).get(crate) or []
+    if not rows:
+        return ""
+    ri0 = min(r[0] for r in rows)
+    same = [r for r in rows if r[0] == ri0]
+    kind0 = min(r[1] for r in same)
+    want = {r[2] for r in same if r[1] == kind0}
+    roots = idx.get("roots") or []
+    if ri0 >= len(roots):
+        return ""
+    root = Path(roots[ri0])
+    pat = "*.md" if kind0 == 0 else "*.chip"
+    orders = idx.setdefault("tie_orders", {})
+    key = (ri0, pat)
+    order = orders.get(key)
+    if order is None:
+        order = [str(p) for p in root.rglob(pat)]
+        orders[key] = order
+    for p_s in order:
+        if p_s in want:
+            return p_s
+    return ""
+
+
+def _crate_hit_still(idx: dict, path_s: str, crate: str) -> bool:
+    try:
+        st = os.stat(path_s)
+    except OSError:
+        return False
+    rec = (idx.get("files") or {}).get(path_s)
+    if rec is not None and rec[0] == st.st_mtime_ns and rec[1] == st.st_size:
+        return rec[2] == crate
+    return norm_crate(file_crate(Path(path_s))) == crate
+
+
 def find_file_by_crate(crate: str) -> Path | None:
     """Any host note whose YAML crate matches. Crate ids are unique."""
+    crate = norm_crate(crate)
+    if not crate:
+        return None
+    start = HOSTS_ROOT / START_NAME
+    if start.is_file():
+        if norm_crate(file_crate(start)) == crate:
+            return start
+    for attempt in (0, 1):
+        idx = _crate_index_ready(force=attempt == 1)
+        kind, path_s = _crate_index_pick(idx, crate)
+        if kind == "tie":
+            path_s = _crate_tie_first(idx, crate)
+            if not path_s:
+                return _find_file_by_crate_walk(crate)
+        if kind == "miss":
+            if attempt == 0 and _REQ_MEMO.get() is not None and idx.get("gen") != _CRATE_GEN[0]:
+                continue
+            return None
+        if _crate_hit_still(idx, path_s, crate):
+            return Path(path_s)
+    return _find_file_by_crate_walk(crate)
+
+
+def _find_file_by_crate_walk(crate: str) -> Path | None:
+    """Original full walk (kept for ties and as the reference)."""
     crate = norm_crate(crate)
     if not crate:
         return None
@@ -17129,10 +17775,58 @@ def face_deck_key(meta: dict | None) -> str:
     return ""
 
 
-def face_list(folder: Path) -> str:
-    """Print each note as a face. Hunt slips wear search-style blotter cards."""
+def face_created_at(path: Path) -> int:
+    """TPS stamp titled created (newest if several); else disk mtime."""
+    dest = shelf_file("tps", path)
+    if dest is not None:
+        try:
+            obj = tps_read(dest, pocket_key(path))
+        except Exception:
+            obj = None
+        best = 0
+        if isinstance(obj, dict):
+            for s in obj.get("stamps") or []:
+                if not isinstance(s, dict):
+                    continue
+                if str(s.get("title") or "").strip().lower() != "created":
+                    continue
+                try:
+                    at = int(s.get("at") or 0)
+                except (TypeError, ValueError):
+                    continue
+                if at > best:
+                    best = at
+        if best > 0:
+            return best
+    try:
+        return int(path.stat().st_mtime)
+    except OSError:
+        return 0
+
+
+def face_list(folder: Path, sort: str = "") -> str:
+    """Print each note as a face. Hunt slips wear search-style blotter cards.
+
+    sort: "" (class → title → name) | "created" (TPS created newest first, flat).
+    """
+    sort_n = (sort or "").strip().lower()
+    by_created = sort_n in ("created", "create", "tps", "tps-created")  # FACES_CREATED_SORT
+    if not by_created and tray_folder_mouth(folder):
+        wall = paint_tray_wall(folder)  # CARDS_PHASE2: square faces + class jump chips
+        if wall:
+            return wall
+    shelf = blotter_shelf_spec(folder)  # DEV_SHELF_FULLNOTES
+    full = bool(shelf and shelf.faces_full) and _FACES_FULL_DEPTH.get() == 0
+
+    def _slip(hit: dict, n: int) -> str:
+        whole = hit.get("full_html") if full else None
+        if whole is None:
+            return paint_hunt_slip(hit, n=n)
+        return paint_hunt_slip(hit, n=n, body=whole, full=True)
+
     rows: list[tuple[str, str, str, Path, dict, str]] = []
     hunt_hits: list[dict] = []
+    flat: list[tuple[int, str, str]] = []  # (-at, name, html) when by_created
     hide = {n.lower() for n in RESERVED_NOTES}
     for p in visible_kids(folder):
         if not p.is_file() or p.suffix.lower() not in {".md", ".chip"}:
@@ -17147,25 +17841,50 @@ def face_list(folder: Path) -> str:
         kind = str(meta.get("kind") or "").strip().lower()
         if is_blotter_note(meta):
             rec = hunt_record(p)
-            if rec:
+            if not rec:
+                continue
+            if full:
+                rec["full_html"] = hunt_slip_full_body(p)
+            if by_created:
+                at = int(rec.get("at") or 0) or face_created_at(p)
+                # paint later after sort so n (slip style) follows order
+                flat.append((-at, p.name.lower(), ("hunt", rec)))
+            else:
                 hunt_hits.append(rec)
             continue
         painted = paint_face(p, meta, body)
         if not painted:
+            continue
+        if by_created:
+            at = face_created_at(p)
+            flat.append((-at, p.name.lower(), ("face", painted)))
             continue
         deck = face_deck_key(meta)
         title = str(meta.get("title") or p.stem).strip() or p.stem
         if p.suffix.lower() == ".chip":
             title = str(chip_peek(p).get("name") or "").strip() or title
         rows.append((deck.lower(), title.lower(), p.name.lower(), p, meta, painted))
+    if by_created:
+        if not flat:
+            return "<p>no notes here.</p>"
+        flat.sort(key=lambda r: (r[0], r[1]))
+        bits: list[str] = []
+        hunt_i = 0
+        for _neg, _name, payload in flat:
+            kind, data = payload
+            if kind == "hunt":
+                hunt_i += 1
+                bits.append(_slip(data, (hunt_i % 3) + 1))
+            else:
+                bits.append(data)
+        faces_cls = "faces faces-full" if full and hunt_i else "faces"
+        return f'<div class="{faces_cls}">' + "".join(bits) + "</div>"
     chunks: list[str] = []
     if hunt_hits:
         hunt_hits.sort(key=lambda h: int(h.get("at") or 0), reverse=True)
-        slips = [
-            paint_hunt_slip(hit, n=(i % 3) + 1)
-            for i, hit in enumerate(hunt_hits)
-        ]
-        chunks.append('<div class="hunt-faces">' + "".join(slips) + "</div>")
+        slips = [_slip(hit, (i % 3) + 1) for i, hit in enumerate(hunt_hits)]
+        hunt_cls = "hunt-faces hunt-faces-full" if full else "hunt-faces"
+        chunks.append(f'<div class="{hunt_cls}">' + "".join(slips) + "</div>")
     if rows:
         rows.sort(key=lambda r: (r[0] == "", r[0], r[1], r[2]))
         current: str | None = None
@@ -17190,11 +17909,12 @@ def face_list(folder: Path) -> str:
             chunks.append("</section>")
     if not chunks:
         return "<p>no notes here.</p>"
-    return '<div class="faces">' + "".join(chunks) + "</div>"
+    faces_cls = "faces faces-full" if full and hunt_hits else "faces"
+    return f'<div class="{faces_cls}">' + "".join(chunks) + "</div>"
 
 
 
-TRAY_MOUTHS = ("librarian", "detective", "charlie", "tps")
+TRAY_MOUTHS = ("librarian", "detective", "charlie", "tps", "developer")
 
 
 def tray_mouth_of(path: Path | None) -> str:
@@ -17214,14 +17934,39 @@ def tray_mouth_of(path: Path | None) -> str:
     return mouth if mouth in TRAY_MOUTHS else ""
 
 
-def paint_tray_rail(folder: Path, current: Path | None) -> str:
-    """Quiet index of sibling cards â€” class + title only, not mini pages."""
-    rows: list[tuple[str, str, str, Path, dict]] = []
-    cur = None
+TRAY_TITLE = "Quest Card Trays"  # CARDS_PHASE2 display name; slug stays trays
+TRAY_ACCENT = {
+    "librarian": ("#2d6a4f", "#9ad8b0"),
+    "detective": ("#a33b3b", "#f0968c"),
+    "charlie": ("#c9892d", "#f5c66e"),
+    "tps": ("#c42820", "#f39a86"),
+    "developer": ("#3a56c8", "#a8b8ff"),
+}
+
+
+def tray_folder_mouth(folder: Path | None) -> str:
+    """The mouth when folder IS a tray (go.trays/<mouth>), else ''."""
+    if folder is None:
+        return ""
+    mouth = tray_mouth_of(folder)
+    if not mouth:
+        return ""
     try:
-        cur = current.resolve() if current is not None else None
+        if folder.resolve() != (TRAYS_HOST / mouth).resolve():
+            return ""
     except OSError:
-        cur = current
+        return ""
+    return mouth
+
+
+def tray_accent_style(mouth: str) -> str:
+    bar, text = TRAY_ACCENT.get(mouth, ("#8a6a3a", "#e8c98a"))
+    return f"--q-accent:{bar};--q-accent-text:{text}"
+
+
+def tray_rail_rows(folder: Path) -> list[tuple[str, str, str, Path, dict]]:
+    """Filed cards in a tray, sorted class -> title -> file (rail + flip order)."""
+    rows: list[tuple[str, str, str, Path, dict]] = []
     for p in visible_kids(folder):
         if not p.is_file() or p.suffix.lower() != ".md":
             continue
@@ -17235,11 +17980,210 @@ def paint_tray_rail(folder: Path, current: Path | None) -> str:
         klass = str(meta.get("class") or "").strip()
         title = str(meta.get("title") or p.stem).strip() or p.stem
         rows.append((klass.lower(), title.lower(), p.name.lower(), p, meta))
+    rows.sort(key=lambda r: (r[0] == "", r[0], r[1], r[2]))
+    return rows
+
+
+def tray_shell_line(folder: Path) -> str:
+    """The tray shell's own words (lines without slots), shown as the tagline."""
+    try:
+        text = (folder / INDEX_NAME).read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
+    _meta, body = parse_fm(text)
+    words = [ln.strip() for ln in body.splitlines() if ln.strip() and "{{" not in ln]
+    return " ".join(words)
+
+
+def _tray_card_href(p: Path) -> str:
+    door = door_for_path(p)
+    return str((door or {}).get("href") or "").strip() or kid_href(p)
+
+
+def paint_tray_boxes() -> str:
+    """go.trays front: every tray as a wood box - name, count, newest card peek."""
+    boxes: list[str] = []
+    for mouth in TRAY_MOUTHS:
+        folder = TRAYS_HOST / mouth
+        if not folder.is_dir():
+            continue
+        rows = tray_rail_rows(folder)
+        classes = sorted({r[0] for r in rows if r[0]})
+
+        def _at(row: tuple) -> int:
+            raw = str((row[4] or {}).get("tps") or "").strip()
+            try:
+                return int(float(raw))
+            except ValueError:
+                try:
+                    return int(row[3].stat().st_mtime)
+                except OSError:
+                    return 0
+
+        newest = sorted(rows, key=lambda r: (-_at(r), r[1]))[:4]
+        peeks: list[str] = []
+        for _k, _t, _n, p, meta in newest:
+            klass = str(meta.get("class") or "").strip()
+            title = str(meta.get("title") or p.stem).strip() or p.stem
+            strip = css_hex(card_strip_color(meta))
+            style = f' style="--card-strip:{strip}"' if strip else ""
+            peeks.append(
+                f'<a class="tray-peek" href="{html.escape(_tray_card_href(p), True)}"{style}>'
+                f'<span class="tray-peek-class">{html.escape(klass or "card")}</span>'
+                f'<span class="tray-peek-title">{html.escape(title)}</span>'
+                "</a>"
+            )
+        if not peeks:
+            peeks.append('<span class="tray-peek is-empty">empty tray</span>')
+        deck = tray_shell_line(folder)
+        if not deck:
+            deck = str(read_md_meta(folder / INDEX_NAME).get("deck") or "").strip()
+        href = html.escape(f"/?h=trays&p={mouth}", True)
+        n = len(rows)
+        count = f"{n} card" + ("" if n == 1 else "s")
+        kinds = f"{len(classes)} class" + ("" if len(classes) == 1 else "es")
+        boxes.append(
+            f'<article class="tray-box" data-mouth="{html.escape(mouth, True)}" style="{tray_accent_style(mouth)}">'
+            f'<a class="tray-box-plate" href="{href}">'
+            f'<span class="tray-box-name">{html.escape(mouth)}</span>'
+            f'<span class="tray-box-count">{html.escape(count)}</span>'
+            "</a>"
+            + (f'<p class="tray-box-deck">{html.escape(deck)}</p>' if deck else "")
+            + f'<div class="tray-box-well">{"".join(peeks)}</div>'
+            f'<a class="tray-box-foot" href="{href}">'
+            f'<span class="tray-box-kinds">{html.escape(kinds)}</span>'
+            '<span class="tray-box-open">open tray &rarr;</span>'
+            "</a>"
+            "</article>"
+        )
+    if not boxes:
+        return ""
+    return '<div class="tray-boxes">' + "".join(boxes) + "</div>"
+
+
+def _tray_class_id(label: str, used: set[str]) -> str:
+    base = re.sub(r"[^a-z0-9]+", "-", (label or "").lower()).strip("-") or "loose"
+    slug = "tray-class-" + base
+    n = 2
+    while slug in used:
+        slug = f"tray-class-{base}-{n}"
+        n += 1
+    used.add(slug)
+    return slug
+
+
+def paint_tray_wall(folder: Path) -> str:
+    """Tray page: the sorted wall of faces, grouped by class, with jump chips."""
+    mouth = tray_folder_mouth(folder)
+    hide = {n.lower() for n in RESERVED_NOTES}
+    rows: list[tuple[str, str, str, dict, str]] = []
+    for p in visible_kids(folder):
+        if not p.is_file() or p.suffix.lower() not in {".md", ".chip"}:
+            continue
+        if p.name.lower() in hide:
+            continue
+        try:
+            text = p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        meta, body = parse_fm(text)
+        if is_blotter_note(meta):
+            return ""  # hunt slips: let face_list lay the tray out the old way
+        painted = paint_face(p, meta, body)
+        if not painted:
+            continue
+        deck = face_deck_key(meta)
+        title = str(meta.get("title") or p.stem).strip() or p.stem
+        if p.suffix.lower() == ".chip":
+            title = str(chip_peek(p).get("name") or "").strip() or title
+        rows.append((deck.lower(), title.lower(), p.name.lower(), meta, painted))
+    rows.sort(key=lambda r: (r[0] == "", r[0], r[1], r[2]))
+    groups: list[tuple[str, list[str]]] = []
+    for _d, _t, _n, meta, painted in rows:
+        deck = face_deck_key(meta)
+        if not groups or groups[-1][0] != deck:
+            groups.append((deck, []))
+        groups[-1][1].append(painted)
+    used: set[str] = set()
+    chips: list[str] = []
+    secs: list[str] = []
+    for deck, faces in groups:
+        label = deck or "loose"
+        sid = _tray_class_id(label, used)
+        label_e = html.escape(label)
+        chips.append(
+            f'<a class="tray-jump-chip" href="#{sid}">{label_e}'
+            f'<span class="tray-jump-n">{len(faces)}</span></a>'
+        )
+        cls = "face-deck" if deck else "face-deck is-loose"
+        data = f' data-class="{html.escape(deck, True)}"' if deck else ""
+        secs.append(
+            f'<section class="{cls}" id="{sid}"{data} style="--n:{len(faces)}">'
+            f'<h2 class="face-deck-label">{label_e}<span class="face-deck-n">{len(faces)}</span></h2>'
+            + "".join(faces)
+            + "</section>"
+        )
+    n = len(rows)
+    count = f"{n} card" + ("" if n == 1 else "s")
+    kinds = f"{len(groups)} class" + ("" if len(groups) == 1 else "es")
+    mouth_e = html.escape(mouth)
+    line = tray_shell_line(folder)
+    head = (
+        f'<header class="tray-wall-head">'
+        f'<nav class="tray-wall-crumbs" aria-label="tray path">'
+        f'<a class="tray-wall-up" href="/?h=trays">{html.escape(TRAY_TITLE)}</a>'
+        f'<span class="tray-wall-sep" aria-hidden="true">/</span>'
+        f'<span class="tray-wall-name">{mouth_e}</span>'
+        f"</nav>"
+        f'<span class="tray-wall-count">{html.escape(count)} &middot; {html.escape(kinds)}</span>'
+        f'<span class="tray-view-toggle" role="group" aria-label="view">'
+        f'<label for="tray-view-grid" title="square card faces">cards</label>'
+        f'<label for="tray-view-list" title="one line per card">list</label>'
+        f"</span>"
+        + (f'<p class="tray-wall-line">{html.escape(line)}</p>' if line else "")
+        + "</header>"
+    )
+    if not rows:
+        body = '<p class="tray-wall-empty">no cards in this tray yet.</p>'
+    else:
+        body = (
+            '<nav class="tray-jump" aria-label="classes">' + "".join(chips) + "</nav>"
+            '<div class="faces tray-faces">' + "".join(secs) + "</div>"
+        )
+    return (
+        f'<div class="tray-wall" data-mouth="{mouth_e}" style="{tray_accent_style(mouth)}">'
+        '<input class="tray-view-in" type="radio" name="tray-view" id="tray-view-grid" checked>'
+        '<input class="tray-view-in" type="radio" name="tray-view" id="tray-view-list">'
+        + head
+        + body
+        + "</div>"
+    )
+
+
+def paint_tray_rail(
+    folder: Path,
+    current: Path | None,
+    rows: list[tuple[str, str, str, Path, dict]] | None = None,
+) -> str:
+    """Quiet index of sibling cards, grouped under class headings."""
+    cur = None
+    try:
+        cur = current.resolve() if current is not None else None
+    except OSError:
+        cur = current
+    if rows is None:
+        rows = tray_rail_rows(folder)
     if not rows:
         return '<p class="tray-rail-empty">.</p>'
-    rows.sort(key=lambda r: (r[0] == "", r[0], r[1], r[2]))
     bits: list[str] = ['<nav class="tray-index" aria-label="tray">']
+    group: str | None = None
     for _k, _t, _n, p, meta in rows:
+        klass_g = str(meta.get("class") or "").strip()
+        if group is None or klass_g.lower() != group:
+            group = klass_g.lower()
+            bits.append(
+                f'<span class="tray-index-group">{html.escape(klass_g or "loose")}</span>'
+            )
         here = False
         if cur is not None:
             try:
@@ -17381,30 +18325,95 @@ def wrap_tray_room(inner: str, path: Path, meta: dict | None) -> str:
     if not mouth:
         return inner
     folder = path.parent
-    rail = paint_tray_rail(folder, path)
+    rows = tray_rail_rows(folder)
+    rail = paint_tray_rail(folder, path, rows)
     hinter = paint_tray_hinterland(meta, path)
     mouth_e = html.escape(mouth)
     trays_href = html.escape("/?h=trays", True)
     mouth_href = html.escape(f"/?h=trays&p={mouth}", True)
+    # CARDS_PHASE2: flip through the tray in rail order (class -> title).
+    pos = -1
+    try:
+        here = path.resolve()
+        for i, row in enumerate(rows):
+            try:
+                if row[3].resolve() == here:
+                    pos = i
+                    break
+            except OSError:
+                continue
+    except OSError:
+        pos = -1
+    flip = ""
+    if pos >= 0 and len(rows) > 1:
+        prev_row = rows[pos - 1]
+        next_row = rows[(pos + 1) % len(rows)]
+
+        def _flip_a(row: tuple, cls: str, arrow: str) -> str:
+            title = str(row[4].get("title") or row[3].stem).strip() or row[3].stem
+            href = html.escape(_tray_card_href(row[3]), True)
+            return (
+                f'<a class="tray-flip-btn {cls}" href="{href}" title="{html.escape(title, True)}">'
+                f"{arrow}</a>"
+            )
+
+        flip = (
+            '<nav class="tray-flip" aria-label="flip through this tray">'
+            + _flip_a(prev_row, "is-prev", "&larr; prev")
+            + f'<span class="tray-flip-pos">{pos + 1} / {len(rows)}</span>'
+            + _flip_a(next_row, "is-next", "next &rarr;")
+            + "</nav>"
+        )
     return (
-        f'<div class="tray-room" data-mouth="{mouth_e}">'
+        f'<div class="tray-room" data-mouth="{mouth_e}" style="{tray_accent_style(mouth)}">'
         f'<header class="tray-mouth" data-mouth="{mouth_e}">'
         f'<nav class="tray-mouth-crumbs" aria-label="tray path">'
-        f'<a class="tray-mouth-up" href="{trays_href}">trays</a>'
+        f'<a class="tray-mouth-up" href="{trays_href}">{html.escape(TRAY_TITLE)}</a>'
         f'<span class="tray-mouth-sep" aria-hidden="true">/</span>'
         f'<a class="tray-mouth-name" href="{mouth_href}">{mouth_e}</a>'
         f"</nav>"
+        f"{flip}"
         f"</header>"
         f'<div class="tray-stage">'
         f'<div class="tray-focus">{inner}</div>'
         f"{hinter}"
         f"</div>"
         f'<aside class="tray-rail" data-mouth="{mouth_e}">{rail}</aside>'
+        "<script>(function(){var r=document.querySelector('.tray-room .tray-rail');"
+        "var h=r&&r.querySelector('.tray-index-item.is-here');if(!h)return;"
+        "var t=h.getBoundingClientRect().top-r.getBoundingClientRect().top+r.scrollTop;"
+        "r.scrollTop=Math.max(0,t-r.clientHeight/3);})();</script>"
         f"</div>"
     )
 
 
-def print_crate_face(raw_id: str) -> str:
+def paint_face_ref_compact(p: Path, crate: str = "") -> str:
+    """DEV_SHELF_FULLNOTES: the page a shelf hangs on as a slim outlink - title + where, no body."""
+    door = door_for_path(p) or {}
+    title = str(door.get("title") or "").strip() or p.stem
+    href = str(door.get("href") or "").strip() or kid_href(p)
+    where = str(door.get("pocket") or "").strip()
+    for tail in ("/" + PAPER_NAME, "/" + INDEX_NAME, ".md"):
+        if where.lower().endswith(tail.lower()):
+            where = where[: -len(tail)]
+            break
+    stem = html.escape(p.stem, True)
+    crate_attr = f' data-crate="{html.escape(crate, True)}"' if crate else ""
+    href_e = html.escape(href, True)
+    href_attr = f' data-href="{href_e}"' if href else ""
+    link = (
+        f'<a class="face-ref-link" href="{href_e}">{html.escape(title)}</a>'
+        if href
+        else f'<span class="face-ref-link">{html.escape(title)}</span>'
+    )
+    meta = f'<span class="face-ref-where">{html.escape(where)}</span>' if where else ""
+    return (
+        f'<article class="face face-ref face-ref-compact" data-face="{stem}"'
+        f"{crate_attr}{href_attr}>{link}{meta}</article>"
+    )
+
+
+def print_crate_face(raw_id: str, compact: bool = False) -> str:
     crate = norm_crate(raw_id)
     if not crate:
         return '<span class="pic-miss">[no crate]</span>'
@@ -17413,6 +18422,8 @@ def print_crate_face(raw_id: str) -> str:
         return (
             f'<span class="pic-miss">[no crate: {html.escape(crate)}]</span>'
         )
+    if compact:
+        return paint_face_ref_compact(p, crate)
     painted = paint_face(p)
     if not painted:
         return ""
@@ -17612,13 +18623,39 @@ def fill_slots(
     body = rewrite_tool_slots(body)
     body, had_inject = expand_injectors(body, here_folder, rel)
     had = had_inject
-    doors = door_cards(folder, here=rel, mode="cards")
+    # CARDS_PHASE2_PERF: listings are only built when the body wears their slot
+    # (they used to be painted on every fill, including each card face).
+    _lazy: dict = {}
+
+    def _tally():
+        if "tally" not in _lazy:
+            _lazy["tally"] = (
+                charlie_word_use_tally() if active_host() == TAGS_HOST_SLUG else None
+            )
+        return _lazy["tally"]
+
+    def _lz(key: str) -> str:
+        if key not in _lazy:
+            if key == "doors":
+                _lazy[key] = door_cards(folder, here=rel, mode="cards")
+            elif key == "notes":
+                _lazy[key] = file_list(here_folder, "files", extra="files", here=rel, tally=_tally())
+            elif key == "spines":
+                _lazy[key] = file_list(here_folder, "files", extra="spines", here=rel, tally=_tally())
+            else:
+                _lazy[key] = file_list(here_folder, "all", here=rel, tally=_tally())
+        return _lazy[key]
+
+    if any(t in body for t in ("{{doors:cards}}", "{{worlds:cards}}", "{{doors}}", "{{worlds}}")):
+        _lz("doors")
     doors_chips = None
     roam_doors = None
-    tag_tally = charlie_word_use_tally() if active_host() == TAGS_HOST_SLUG else None
-    notes = file_list(here_folder, "files", extra="files", here=rel, tally=tag_tally)
-    spines = file_list(here_folder, "files", extra="spines", here=rel, tally=tag_tally)
-    listing = file_list(here_folder, "all", here=rel, tally=tag_tally)
+    if "{{files}}" in body:
+        _lz("notes")
+    if "{{spines}}" in body:
+        _lz("spines")
+    if "{{dir}}" in body or "{{list}}" in body:
+        _lz("listing")
     if "{{doors:roam}}" in body or "{{roam}}" in body:
         roam_doors = door_cards(folder, here=rel, mode="cards", scope="roam")
         body = body.replace("{{doors:roam}}", roam_doors).replace("{{roam}}", roam_doors)
@@ -17630,22 +18667,24 @@ def fill_slots(
         )
         had = True
     if "{{doors:cards}}" in body or "{{worlds:cards}}" in body:
+        doors = _lz("doors")
         body = body.replace("{{doors:cards}}", doors).replace("{{worlds:cards}}", doors)
         had = True
     if "{{doors}}" in body or "{{worlds}}" in body:
+        doors = _lz("doors")
         body = body.replace("{{doors}}", doors).replace("{{worlds}}", doors)
         had = True
     if "{{files:date}}" in body:  # FILES_DATE_SORT
         notes_date = file_list(
-            here_folder, "files", extra="files", here=rel, tally=tag_tally, sort="date"
+            here_folder, "files", extra="files", here=rel, tally=_tally(), sort="date"
         )
         body = body.replace("{{files:date}}", notes_date)
         had = True
     if "{{files}}" in body:
-        body = body.replace("{{files}}", notes)
+        body = body.replace("{{files}}", _lz("notes"))
         had = True
     if "{{spines}}" in body:
-        body = body.replace("{{spines}}", spines)
+        body = body.replace("{{spines}}", _lz("spines"))
         had = True
     if "{{tagsearch}}" in body:
         body = body.replace("{{tagsearch}}", tag_search_form())
@@ -17667,6 +18706,12 @@ def fill_slots(
         had = True
     if "{{blotlook}}" in body:
         body = body.replace("{{blotlook}}", hunt_look_block("librarian"))
+        had = True
+    if "{{devsearch}}" in body:
+        body = body.replace("{{devsearch}}", hunt_search_form("developer"))
+        had = True
+    if "{{devlook}}" in body:
+        body = body.replace("{{devlook}}", hunt_look_block("developer"))
         had = True
     if "{{erasearch}}" in body or "{{eventsearch}}" in body:
         form = era_search_form()
@@ -17691,6 +18736,9 @@ def fill_slots(
     if "{{lorelook}}" in body or "{{cardlook}}" in body:
         look = lore_look_block()
         body = body.replace("{{lorelook}}", look).replace("{{cardlook}}", look)
+        had = True
+    if "{{trayfaces}}" in body:  # CARDS_PHASE2: go.trays front - one box per tray
+        body = body.replace("{{trayfaces}}", paint_tray_boxes())
         had = True
     if "{{codelook}}" in body:
         body = body.replace("{{codelook}}", code_look_placeholder(rel, meta))
@@ -17722,6 +18770,7 @@ def fill_slots(
         body = body.replace("{{navbar}}", nav).replace("{{nav}}", nav)
         had = True
     if "{{dir}}" in body or "{{list}}" in body:
+        listing = _lz("listing")
         body = body.replace("{{dir}}", listing).replace("{{list}}", listing)
         had = True
     if DIRTREE_MODE_RE.search(body):
@@ -17779,14 +18828,26 @@ def fill_slots(
     if "{{headers}}" in body:
         body = body.replace("{{headers}}", headers_block(meta or {}))
     need_faces = "{{faces}}" in body or "{{cards}}" in body
-    if need_faces:
+    need_faces_created = (  # FACES_CREATED_SORT
+        "{{faces:created}}" in body or "{{cards:created}}" in body
+    )
+    if need_faces or need_faces_created:
         had = True
     body = fill_fields(body, meta)
+    if need_faces_created:
+        faces_created = face_list(here_folder, sort="created")
+        body = body.replace("{{faces:created}}", faces_created).replace(
+            "{{cards:created}}", faces_created
+        )
     if need_faces:
         faces = face_list(here_folder)
         body = body.replace("{{faces}}", faces).replace("{{cards}}", faces)
     if FACE_CRATE_RE.search(body):
-        body = FACE_CRATE_RE.sub(lambda m: print_crate_face(m.group(1)), body)
+        ref_shelf = blotter_shelf_spec(here_folder)  # DEV_SHELF_FULLNOTES
+        ref_compact = bool(ref_shelf and ref_shelf.ref_compact)
+        body = FACE_CRATE_RE.sub(
+            lambda m: print_crate_face(m.group(1), compact=ref_compact), body
+        )
     if LINK_CRATE_RE.search(body):
         body = LINK_CRATE_RE.sub(
             lambda m: print_link_token(m.group(1), m.group(2), m.group(3) or ""),  # POCKET_LINK_GO_HOST
@@ -18493,7 +19554,7 @@ def page(
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(shown)}</title>
-{page_icon_link(here)}<link rel="stylesheet" href="/www.css?v=20260920203200">
+{page_icon_link(here)}<link rel="stylesheet" href="/www.css?v=20260928193000">
 <link rel="stylesheet" href="/dress.css?v=20260923200000">
 <style>:root {{ {root} }}</style>
 {extra}{hue_css}</head>
@@ -18535,7 +19596,7 @@ def page(
 </div>
 </div>
 <footer class="wwwExplorer_status"><span id="wwwStatus">Done</span></footer>
-<script src="/www.js?v=20260923200000"></script>
+<script src="/www.js?v=20260928193000"></script>
 <script src="/librarian.js?v=20260922115800"></script>
 {extra_scripts}</body></html>"""
     return html_out.encode("utf-8")
@@ -18615,7 +19676,7 @@ def sheet_page(
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{shown}</title>
-<link rel="stylesheet" href="/www.css?v=20260920203200">
+<link rel="stylesheet" href="/www.css?v=20260928193000">
 <style>:root {{ {root} }}</style>
 {extra}{hue_css}</head>
 <body class="{html.escape(body_class, True)} is-sheet">
@@ -19334,6 +20395,7 @@ SIDECAR_HOUSES = {
     "detective": ("DETECTIVE", "#140808", "mypi:hunt"),
     "tps": ("TPS", "#2a2c28", "mypi:tps"),
     "cards": ("CARDS", "#3a3226", "mypi:deck"),
+    "developer": ("DEVELOPER", "#0000aa", "mypi:dev"),
 }
 
 
@@ -19353,7 +20415,7 @@ def sidecar_page(house: str) -> bytes:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
-<link rel="stylesheet" href="/www.css?v=20260920203200">
+<link rel="stylesheet" href="/www.css?v=20260928193000">
 <link rel="stylesheet" href="/styles/fonts.css">
 <style>:root {{ --note-accent: {accent}; }}</style>
 <link rel="stylesheet" href="/librarian.css?v=20260922115800">
@@ -19372,7 +20434,436 @@ def sidecar_page(house: str) -> bytes:
     return html_out.encode("utf-8")
 
 
+# GO_SEARCH: pocket-wide go bar search (`/?find=` + `/api/search`).
+# Read-only: never writes last/been/crates/code chains. Index is keyed on
+# (mtime_ns, size) per file, reusing the crate-index scandir walk, and swapped
+# whole under a lock (readers never see half an index). Scope: go hosts under
+# ~hosts only (no roam sources, no exterior go sources), minus the code.glass
+# bank (and codes / codes.glass), show:false hosts, hidden:/show:false notes,
+# SKIP + stash (. / ~) folders. Codeword rooms are left out unless the visitor
+# holds that room's unlock cookie token.
+SEARCH_INCLUDE_UNSHOWN_HOSTS = False
+_SEARCH_IDX_LOCK = threading.Lock()
+_SEARCH_IDX: dict = {"files": {}, "rows": [], "locks": {}, "at": 0.0, "ok": False}
+_SEARCH_REFRESH_SEC = 1.5
+_SEARCH_SHELL_NAMES = frozenset({INDEX_NAME.lower(), INDEX_LEGACY.lower()})
+_SEARCH_FOLDER_NAMES = frozenset({INDEX_NAME.lower(), INDEX_LEGACY.lower(), PAPER_NAME.lower()})
+_SEARCH_TERM_RE = re.compile(r'"([^"]+)"|(\S+)')
+_SEARCH_DIRECTIVE_RE = re.compile(r"\{\{.*?\}\}", re.S)
+_SEARCH_COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
+_SEARCH_FENCE_RE = re.compile(r"^```[^\n]*$", re.M)
+_SEARCH_WIKI_RE = re.compile(r"!?\[\[([^\]|#]*)(?:#[^\]|]*)?(?:\|([^\]]*))?\]\]")
+_SEARCH_MDLINK_RE = re.compile(r"!?\[([^\]]*)\]\([^)]*\)")
+_SEARCH_TAG_RE = re.compile(r"</?[A-Za-z][^>]*>")
+_SEARCH_MARK_RE = re.compile(r"^\s{0,3}(?:#{1,6}\s+|>\s?|[-*+]\s+(?:\[[ xX]\]\s+)?|\d+[.)]\s+)", re.M)
+_SEARCH_EMPH_RE = re.compile(r"(\*\*|__|\*|`|~~)")
+_SEARCH_WS_RE = re.compile(r"\s+")
+
+
+def _search_low(text: str) -> str:
+    """Lowercase that keeps string positions aligned with the original."""
+    low = text.lower()
+    if len(low) == len(text):
+        return low
+    return "".join(c.lower() if len(c.lower()) == 1 else c for c in text)
+
+
+def _search_plain(body: str) -> str:
+    s = _SEARCH_COMMENT_RE.sub(" ", body or "")
+    s = _SEARCH_DIRECTIVE_RE.sub(" ", s)
+    s = _SEARCH_FENCE_RE.sub(" ", s)
+    s = _SEARCH_WIKI_RE.sub(lambda m: (m.group(2) or m.group(1) or ""), s)
+    s = _SEARCH_MDLINK_RE.sub(lambda m: m.group(1) or "", s)
+    s = _SEARCH_TAG_RE.sub(" ", s)
+    s = _SEARCH_MARK_RE.sub("", s)
+    s = _SEARCH_EMPH_RE.sub("", s)
+    s = html.unescape(s)
+    return _SEARCH_WS_RE.sub(" ", s).strip()
+
+
+def _search_hosts() -> list[Host]:
+    """Searchable hosts in discover order, one per root (first wins)."""
+    try:
+        hosts_root = HOSTS_ROOT.resolve()
+    except OSError:
+        return []
+    out: list[Host] = []
+    seen: set[str] = set()
+    try:
+        shown = host_show_map()
+    except Exception:
+        shown = {}
+    for host in discover_hosts().values():
+        name = str(host.name or "").strip().lower()
+        if not name or str(host.kind or "go").strip().lower() != "go":
+            continue
+        if name in CODES_HOST_SLUGS or name in CODES_LEGACY_SLUGS:
+            continue
+        if not SEARCH_INCLUDE_UNSHOWN_HOSTS and shown.get(name) is False:
+            continue
+        try:
+            root = host.root.resolve()
+            if not root.is_dir():
+                continue
+            root.relative_to(hosts_root)
+        except (OSError, ValueError):
+            continue
+        if root == hosts_root:
+            continue
+        try:
+            if is_codes_host(host):
+                continue
+        except Exception:
+            continue
+        key = str(root).lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(host)
+    return out
+
+
+def _search_read_row(host: Host, root: Path, path_s: str) -> dict | None:
+    p = Path(path_s)
+    try:
+        text = p.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return None
+    meta, body = parse_fm(text)
+    try:
+        rel_file = p.relative_to(root).as_posix()
+    except ValueError:
+        return None
+    name_low = p.name.lower()
+    folder_rel = p.parent.relative_to(root).as_posix() if p.parent != root else ""
+    if folder_rel == ".":
+        folder_rel = ""
+    is_folder_page = name_low in _SEARCH_FOLDER_NAMES
+    if is_folder_page:
+        rel = folder_rel
+        title = str(meta.get("title") or "").strip() or (p.parent.name if rel else (host.title or host.name))
+    else:
+        rel = rel_file[:-3] if rel_file.lower().endswith(".md") else rel_file
+        title = str(meta.get("title") or "").strip() or p.stem
+    address = format_pocket(host.name, rel).rstrip("/") if rel else format_pocket(host.name)
+    href = "/?h=" + quote(host.name)
+    if rel:
+        href += "&p=" + quote(rel, safe="/")
+    meta_bits = []
+    for k, v in meta.items():
+        kl = str(k).strip().lower()
+        if kl in CODEWORD_KEYS or kl == "crate":
+            continue
+        vs = str(v or "").strip()
+        if vs:
+            meta_bits.append(vs)
+    plain = _search_plain(body)
+    codeword = meta_codeword(meta) if name_low in _SEARCH_SHELL_NAMES else ""
+    return {
+        "host": host.name,
+        "host_title": host.title or host.name,
+        "rel": rel,
+        "folder": folder_rel,
+        "file_is_shell": name_low in _SEARCH_SHELL_NAMES,
+        "title": title,
+        "title_low": _search_low(title),
+        "address": address,
+        "addr_low": address.lower(),
+        "href": href,
+        "crate": norm_crate(str(meta.get("crate") or "")),
+        "meta_low": _search_low(" \u00b7 ".join(meta_bits)),
+        "body": plain,
+        "body_low": _search_low(plain),
+        "hidden": note_list_hidden(meta),
+        "codeword": codeword,
+    }
+
+
+def _search_index_refresh() -> dict:
+    global _SEARCH_IDX
+    hosts = _search_hosts()
+    with _SEARCH_IDX_LOCK:
+        old = _SEARCH_IDX.get("files") or {}
+        files: dict[str, tuple] = {}
+        rows: list[dict] = []
+        locks: dict[tuple[str, str], str] = {}
+        claimed: set[str] = set()
+        for host in hosts:
+            root = host.root.resolve()
+            md_rows: list = []
+            _crate_scan_root(str(root), md_rows, [])
+            for path_s, mt, size in md_rows:
+                key = path_s.lower()
+                if key in claimed:
+                    continue
+                claimed.add(key)
+                prev = old.get(path_s)
+                if prev is not None and prev[0] == mt and prev[1] == size and prev[2] is not None and prev[2]["host"] == host.name:
+                    row = prev[2]
+                else:
+                    row = _search_read_row(host, root, path_s)
+                files[path_s] = (mt, size, row)
+                if row is None:
+                    continue
+                rows.append(row)
+                if row["file_is_shell"] and row["codeword"]:
+                    lk = (host.name, row["folder"])
+                    # _shell.md beats a leftover _index.md, like shell_path().
+                    if lk not in locks or Path(path_s).name.lower() == INDEX_NAME.lower():
+                        locks[lk] = row["codeword"]
+        new_idx = {"files": files, "rows": rows, "locks": locks, "at": time.monotonic(), "ok": True}
+        _SEARCH_IDX = new_idx
+        return new_idx
+
+
+def _search_index_ready() -> dict:
+    idx = _SEARCH_IDX
+    if idx.get("ok") and time.monotonic() - float(idx.get("at") or 0) < _SEARCH_REFRESH_SEC:
+        return idx
+    return _search_index_refresh()
+
+
+def _search_lock_for(row: dict, locks: dict) -> tuple[str, str] | None:
+    """Nearest codeword shell walking up from the note's folder (like find_codeword_lock)."""
+    host = row["host"]
+    folder = row["folder"]
+    while True:
+        cw = locks.get((host, folder))
+        if cw:
+            return folder, cw
+        if not folder:
+            return None
+        folder = folder.rsplit("/", 1)[0] if "/" in folder else ""
+
+
+def _search_terms(q: str) -> list[str]:
+    terms: list[str] = []
+    for m in _SEARCH_TERM_RE.finditer(q or ""):
+        t = _SEARCH_WS_RE.sub(" ", (m.group(1) if m.group(1) is not None else m.group(2)) or "").strip()
+        t = t.strip('"').strip()
+        if t:
+            tl = _search_low(t)
+            if tl not in terms:
+                terms.append(tl)
+    return terms[:12]
+
+
+def _search_marks(low: str, terms: list[str], lo: int = 0, hi: int | None = None) -> list[list[int]]:
+    hi = len(low) if hi is None else hi
+    spans: list[list[int]] = []
+    for t in terms:
+        start = lo
+        while True:
+            i = low.find(t, start, hi)
+            if i < 0:
+                break
+            spans.append([i, len(t)])
+            start = i + max(1, len(t))
+            if len(spans) > 60:
+                break
+    spans.sort()
+    merged: list[list[int]] = []
+    for s, n in spans:
+        if merged and s <= merged[-1][0] + merged[-1][1]:
+            end = max(merged[-1][0] + merged[-1][1], s + n)
+            merged[-1][1] = end - merged[-1][0]
+        else:
+            merged.append([s, n])
+    return merged
+
+
+def _search_snippet(row: dict, terms: list[str], width: int = 160) -> tuple[str, list[list[int]]]:
+    body = row["body"]
+    low = row["body_low"]
+    if not body:
+        return "", []
+    first = -1
+    for t in terms:
+        i = low.find(t)
+        if i >= 0 and (first < 0 or i < first):
+            first = i
+    if first < 0:
+        start = 0
+    else:
+        start = max(0, first - width // 3)
+        if start <= 24:
+            start = 0
+        else:
+            sp = body.rfind(" ", start - 24, start)
+            start = sp + 1 if sp >= 0 else start
+    end = min(len(body), start + width)
+    if end < len(body):
+        sp = body.find(" ", end, min(len(body), end + 20))
+        end = sp if sp >= 0 else end
+    lead = "\u2026" if start > 0 else ""
+    tail = "\u2026" if end < len(body) else ""
+    marks = [[s - start + len(lead), n] for s, n in _search_marks(low, terms, start, end)]
+    return lead + body[start:end] + tail, marks
+
+
+def search_run(q: str, limit: int = 20, unlocked: set[str] | None = None) -> dict:
+    t0 = time.perf_counter()
+    terms = _search_terms(q)
+    limit = max(1, min(100, int(limit or 20)))
+    if not terms:
+        return {"q": q, "terms": [], "items": [], "total": 0, "ms": 0.0}
+    idx = _search_index_ready()
+    locks = idx.get("locks") or {}
+    unlocked = unlocked or set()
+    whole = " ".join(terms)
+    lock_memo: dict[tuple[str, str], bool] = {}
+    scored: list[tuple] = []
+    for row in idx.get("rows") or []:
+        if row["hidden"]:
+            continue
+        tl = row["title_low"]
+        al = row["addr_low"]
+        ml = row["meta_low"]
+        bl = row["body_low"]
+        worst = 0
+        hits = 0
+        ok = True
+        for t in terms:
+            if t in tl:
+                tier = 2
+            elif t in al:
+                tier = 3
+            elif t in ml:
+                tier = 4
+            elif t in bl:
+                tier = 5
+            else:
+                ok = False
+                break
+            worst = max(worst, tier)
+            hits += bl.count(t) if len(t) > 1 else 0
+        if not ok:
+            continue
+        if tl == whole:
+            worst = 0
+        elif tl.startswith(whole):
+            worst = 1
+        lk = (row["host"], row["folder"])
+        locked = lock_memo.get(lk)
+        if locked is None:
+            lock = _search_lock_for(row, locks)
+            locked = bool(lock) and cw_token(row["host"], lock[0], lock[1]) not in unlocked
+            lock_memo[lk] = locked
+        if locked:
+            continue
+        scored.append((worst, -min(hits, 999), len(tl), al, row))
+    scored.sort(key=lambda x: x[:4])
+    items: list[dict] = []
+    seen_href: set[str] = set()
+    total = 0
+    for worst, _h, _n, _a, row in scored:
+        if row["href"] in seen_href:
+            continue
+        seen_href.add(row["href"])
+        total += 1
+        if len(items) >= limit:
+            continue
+        snip, marks = _search_snippet(row, terms)
+        items.append(
+            {
+                "title": row["title"],
+                "title_marks": _search_marks(row["title_low"], terms),
+                "address": row["address"],
+                "href": row["href"],
+                "host": row["host"],
+                "host_title": row["host_title"],
+                "crate": row["crate"],
+                "snippet": snip,
+                "marks": marks,
+                "tier": worst,
+            }
+        )
+    ms = round((time.perf_counter() - t0) * 1000.0, 1)
+    return {"q": q, "terms": terms, "items": items, "total": total, "ms": ms}
+
+
+def _search_mark_html(text: str, marks: list[list[int]]) -> str:
+    out: list[str] = []
+    pos = 0
+    for s, n in marks:
+        if s < pos or s >= len(text):
+            continue
+        out.append(html.escape(text[pos:s]))
+        out.append("<mark>" + html.escape(text[s : s + n]) + "</mark>")
+        pos = s + n
+    out.append(html.escape(text[pos:]))
+    return "".join(out)
+
+
+def find_page(q: str, unlocked: set[str] | None = None) -> bytes:
+    """Server-side `/?find=` results. Rendered via page(); no desk memory."""
+    q = (q or "").strip()[:300]
+    res = search_run(q, 50, unlocked) if q else {"items": [], "total": 0, "ms": 0.0, "terms": []}
+    bits = ['<section class="gofind" aria-label="search results">']
+    items = res.get("items") or []
+    total = int(res.get("total") or 0)
+    if q:
+        shown = len(items)
+        more = f" (showing {shown})" if total > shown else ""
+        bits.append(
+            f'<p class="gofind-count">{total} note{"s" if total != 1 else ""} for '
+            f'<b>{html.escape(q)}</b>{more} \u00b7 {res.get("ms", 0)} ms</p>'
+        )
+    if items:
+        bits.append('<ol class="gofind-list">')
+        for i, it in enumerate(items):
+            title_h = _search_mark_html(it["title"], it.get("title_marks") or [])
+            snip_h = _search_mark_html(it.get("snippet") or "", it.get("marks") or [])
+            host_bits = html.escape(it.get("host_title") or it.get("host") or "")
+            if it.get("crate"):
+                host_bits += ' \u00b7 <span class="gofind-crate">' + html.escape(it["crate"]) + "</span>"
+            bits.append(
+                f'<li class="gofind-hit" data-i="{i}">'
+                f'<a class="gofind-title" href="{html.escape(it["href"], True)}">{title_h}</a>'
+                f'<div class="gofind-addr" title="{html.escape(it["address"], True)}">{html.escape(it["address"])}</div>'
+                + (f'<p class="gofind-snip">{snip_h}</p>' if snip_h else "")
+                + f'<div class="gofind-meta">{host_bits}</div></li>'
+            )
+        bits.append("</ol>")
+    elif q:
+        bits.append(
+            '<p class="gofind-empty">nothing in the go rooms matches that. '
+            'try fewer words, or a "quoted phrase".</p>'
+        )
+    bits.append(
+        '<p class="gofind-tip">words must all appear \u00b7 "quoted phrase" \u00b7 '
+        '<kbd>/</kbd> bar \u00b7 <kbd>\u2191</kbd><kbd>\u2193</kbd> pick \u00b7 <kbd>Enter</kbd> open \u00b7 '
+        '<kbd>Ctrl</kbd>+<kbd>Enter</kbd> work tab</p>'
+    )
+    bits.append("</section>")
+    label = ("?" + q) if q else "?"
+    return page(
+        label,
+        "\n".join(bits),
+        "#6e6254",
+        "search",
+        label,
+        librarian=False,
+        body_class="gofind-page",
+        chrome=("search \u00b7 " + q) if q else "search",
+    )
+
+
 class Handler(BaseHTTPRequestHandler):
+    def handle_one_request(self) -> None:
+        # CARDS_PHASE2_PERF: GET/HEAD share one memo; writes (POST etc.) stay unmemoized.
+        tok = _REQ_MEMO.set(None)
+        try:
+            super().handle_one_request()
+        finally:
+            _REQ_MEMO.reset(tok)
+
+    def parse_request(self) -> bool:
+        ok = super().parse_request()
+        if ok and str(getattr(self, "command", "") or "").upper() in ("GET", "HEAD"):
+            _REQ_MEMO.set({})
+        return ok
+
     def log_message(self, fmt: str, *args) -> None:
         print("[pocket-go]", args[0] if args else fmt)
 
@@ -19616,6 +21107,25 @@ class Handler(BaseHTTPRequestHandler):
                 code,
             )
             return
+        if u.path == "/api/search":
+            # GO_SEARCH: read-only pocket-wide search (no desk memory, no writes).
+            qs = parse_qs(u.query)
+            q = (qs.get("q") or qs.get("find") or [""])[0]
+            try:
+                lim = int((qs.get("limit") or ["20"])[0] or 20)
+            except (TypeError, ValueError):
+                lim = 20
+            try:
+                obj = search_run(q, lim, self.cw_unlocked_tokens())
+                code = 200
+            except Exception as exc:  # never take the bar down with a search bug
+                obj, code = {"error": str(exc)[:200], "items": [], "total": 0}, 500
+            self.send_bytes(
+                json.dumps(obj, ensure_ascii=False).encode("utf-8"),
+                "application/json; charset=utf-8",
+                code,
+            )
+            return
         if u.path == "/api/crates/search":
             qs = parse_qs(u.query)
             q = unquote((qs.get("q") or qs.get("query") or [""])[0])
@@ -19678,7 +21188,7 @@ class Handler(BaseHTTPRequestHandler):
                 "application/json; charset=utf-8",
             )
             return
-        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore"):
+        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore", "/api/developer/lore"):
             mouth = u.path.split("/")[2]
             code, obj, err = catalog_lore_list(mouth)
             if obj is None:
@@ -19693,7 +21203,7 @@ class Handler(BaseHTTPRequestHandler):
                 "application/json; charset=utf-8",
             )
             return
-        if u.path in ("/api/librarian/suggest", "/api/detective/suggest", "/api/agent/suggest", "/api/charlie/suggest"):
+        if u.path in ("/api/librarian/suggest", "/api/detective/suggest", "/api/agent/suggest", "/api/charlie/suggest", "/api/developer/suggest"):
             mouth = u.path.split("/")[2]
             self.send_bytes(
                 json.dumps(suggest_get(mouth)).encode("utf-8"),
@@ -19868,6 +21378,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_style(u.path)
             return
         qs = parse_qs(u.query)
+        if u.path == "/" and "find" in qs:
+            # GO_SEARCH: `/?find=` virtual results page. Skips remember_desk,
+            # sight_stage, crate minting and code chains on purpose.
+            self.send_bytes(find_page(qs["find"][0], self.cw_unlocked_tokens()), "text/html; charset=utf-8")
+            return
         if u.path == "/" and blank_home_qs(qs) and take_launch_restore():
             dest = last_load()
             if dest and dest != "/":
@@ -19944,6 +21459,9 @@ class Handler(BaseHTTPRequestHandler):
                 hunt_tok = _HUNT_Q.set(q)
             elif host.name == "librarian":
                 q = unquote((qs.get("blot") or qs.get("q") or [""])[0]).strip()
+                hunt_tok = _HUNT_Q.set(q)
+            elif host.name == "developer":
+                q = unquote((qs.get("grep") or qs.get("q") or [""])[0]).strip()
                 hunt_tok = _HUNT_Q.set(q)
             if host.name == "era" or host.name == EVENT_HOST_SLUG:
                 eq = unquote(
@@ -20099,7 +21617,7 @@ class Handler(BaseHTTPRequestHandler):
             )
             inner = wear_compost_message(inner, meta, rel)
             inner = fill_uses(inner, target.stem, target)
-            if str(meta.get("kind") or "").strip().lower() in ("hunt", "blot"):
+            if str(meta.get("kind") or "").strip().lower() in {b.kind for b in BLOTTER_BANKS.values()}:
                 rec = hunt_record(target)
                 if rec:
                     inner = wrap_hunt_open_page(inner, rec)
@@ -20521,6 +22039,26 @@ class Handler(BaseHTTPRequestHandler):
             )
             self.send_blot(code, obj, err)
             return
+        if u.path == "/api/cards/lore/new":
+            data, status = self.read_json_body({})
+            if status != 200:
+                self.send_error(status)
+                return
+            if not isinstance(data, dict):
+                self.send_error(400)
+                return
+            code, obj, err = cards_lore_new(
+                str(data.get("mouth") or data.get("tray") or data.get("house") or ""),
+                str(data.get("class") or ""),
+                str(data.get("title") or ""),
+                str(data.get("line") or ""),
+                str(data.get("time") if data.get("time") is not None else data.get("tps") or ""),
+                str(data.get("maker") or ""),
+                str(data.get("pocket") or ""),
+                str(data.get("onto") or ""),
+            )
+            self.send_blot(code, obj, err)
+            return
         if u.path == "/api/cards/lore/sync":
             data, status = self.read_json_body({})
             if status != 200:
@@ -20549,6 +22087,7 @@ class Handler(BaseHTTPRequestHandler):
             "/api/agent/lore/attach",
             "/api/charlie/lore/attach",
             "/api/tps/lore/attach",
+            "/api/developer/lore/attach",
         ):
             data, status = self.read_json_body({})
             if status != 200:
@@ -20566,7 +22105,7 @@ class Handler(BaseHTTPRequestHandler):
             )
             self.send_blot(code, obj, err)
             return
-        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore"):
+        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore", "/api/developer/lore"):
             data, status = self.read_json_body({})
             if status != 200:
                 self.send_error(status)
@@ -20609,7 +22148,7 @@ class Handler(BaseHTTPRequestHandler):
             )
             self.send_blot(code, obj, err)
             return
-        if u.path in ("/api/detective/hunt", "/api/librarian/blot"):
+        if u.path in BLOTTER_API:
             data, status = self.read_json_body({})
             if status != 200:
                 self.send_error(status)
@@ -20617,7 +22156,7 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(data, dict):
                 self.send_error(400)
                 return
-            bank = "librarian" if u.path.endswith("/blot") else "detective"
+            bank = BLOTTER_API[u.path]
             crate = str(data.get("crate") or data.get("slip") or "")
             if crate.strip():
                 code, obj, err = hunt_save(
@@ -20793,7 +22332,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_PUT(self) -> None:
         u = urlparse(self.path)
-        if u.path in ("/api/detective/hunt", "/api/librarian/blot"):
+        if u.path in BLOTTER_API:
             data, status = self.read_json_body({})
             if status != 200:
                 self.send_error(status)
@@ -20801,7 +22340,7 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(data, dict):
                 self.send_error(400)
                 return
-            bank = "librarian" if u.path.endswith("/blot") else "detective"
+            bank = BLOTTER_API[u.path]
             code, obj, err = hunt_save(
                 str(data.get("pocket") or ""),
                 str(data.get("crate") or data.get("slip") or ""),
@@ -20919,7 +22458,7 @@ class Handler(BaseHTTPRequestHandler):
                 )
             self.send_blot(code, obj, err)
             return
-        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore"):
+        if u.path in ("/api/librarian/lore", "/api/detective/lore", "/api/agent/lore", "/api/charlie/lore", "/api/tps/lore", "/api/developer/lore"):
             data, status = self.read_json_body({})
             if status != 200:
                 self.send_error(status)
@@ -20980,7 +22519,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_DELETE(self) -> None:
         u = urlparse(self.path)
-        if u.path in ("/api/detective/hunt", "/api/librarian/blot"):
+        if u.path in BLOTTER_API:
             data, status = self.read_json_body({})
             if status != 200:
                 self.send_error(status)
@@ -20988,7 +22527,7 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(data, dict):
                 self.send_error(400)
                 return
-            bank = "librarian" if u.path.endswith("/blot") else "detective"
+            bank = BLOTTER_API[u.path]
             code, obj, err = hunt_drop(
                 str(data.get("pocket") or ""),
                 str(data.get("crate") or data.get("slip") or ""),

@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-036.md
+crate: crate.18CFE76ADFD63E68
+fields:
+  - type: input
+    label: page
+    value: "036"
+  - type: input
+    label: title
+    value: I Miss Kissing
+  - type: input
+    label: dated
+    value: "2020-01-10"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: meditation card; prose
+  - type: input
+    label: deck
+    value: Animal Deck / Sea Serpent
+  - type: input
+    label: topics covered
+    value: kissing, desire, loneliness, Svadhisthana, connection
+  - type: input
+    label: known for
+    value: true loves kiss page; I miss kissing

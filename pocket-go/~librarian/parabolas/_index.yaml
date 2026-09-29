@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.parabolas/_index.md
+crate: crate.C46BA0A26789E61F
+fields:
+  - type: input
+    label: name
+    value: Parabolas
+  - type: input
+    label: class
+    value: room
+  - type: input
+    label: type
+    value: curves that eat themselves
+  - type: input
+    label: known for
+    value: not lessons; darker Only charge; true evening bends back
+  - type: input
+    label: contains
+    value: What Katydid; the Ungiven Chocolate Rose

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/great-road-mapper/docs/getting-started.md
+crate: crate.B160B0C0E0004B22
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: getting-started
+  - type: input
+    label: contains
+    value: "bool Contains(System.Object key), bool IDictionary.Contains(System.Object key)"

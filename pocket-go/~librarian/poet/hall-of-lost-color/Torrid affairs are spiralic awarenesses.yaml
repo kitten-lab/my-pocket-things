@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-lost-color/Torrid affairs are spiralic awarenesses.md
+crate: crate.9F1A7C3E5B2D8406
+fields:
+  - type: input
+    label: title
+    value: Torrid affairs are spiralic awarenesses
+  - type: input
+    label: kind
+    value: poem
+  - type: input
+    label: hall
+    value: Hall of Lost Color
+  - type: input
+    label: hues
+    value: blue
+  - type: input
+    label: motifs
+    value: boy in blue, sky as cover, blue as background, chase
+  - type: input
+    label: poet
+    value: unassigned
+  - type: input
+    label: arrival
+    value: 2026-09-15T20:30:00-04:00 via Aelion chat (unix 1789518600)
+  - type: input
+    label: status
+    value: filed

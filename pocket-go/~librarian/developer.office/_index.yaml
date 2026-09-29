@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.developer.office/
+crate: crate.F062F808C0DE8600
+fields:
+  - type: input
+    label: author
+    value: "abl, skyline, aubel"

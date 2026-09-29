@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001/T01/B000/L02.md
+crate: crate.EC5CD33A893EFB1B
+fields:
+  - type: input
+    label: title
+    value: I have the logs
+  - type: input
+    label: messages
+    value: 67aa5a6c-de9c-8004-b715-e91f7944b523.0

@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/walker/WRONG LANGUAGE CLAUDE EXTENDED MESSAGE.md
+crate: crate.A1E3AEAFD4722DA2
+fields:
+  - type: input
+    label: type
+    value: logger
+  - type: input
+    label: class
+    value: strange happening
+  - type: input
+    label: sub-class
+    value: glitch stream
+  - type: time
+    label: posted on
+    value: 1790395200

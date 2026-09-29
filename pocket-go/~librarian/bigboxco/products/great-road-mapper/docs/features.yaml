@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/great-road-mapper/docs/features.md
+crate: crate.B160B0C0E0004B25
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: reference
+  - type: input
+    label: contains
+    value: "bool Contains(System.Object key), bool IDictionary.Contains(System.Object key)"

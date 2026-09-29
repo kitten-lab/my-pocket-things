@@ -1,4 +1,5 @@
 ---
+librarian-stamp: stamped-sam
 crate: crate.88F7875E2BB4C557
 title: a thing
 ---

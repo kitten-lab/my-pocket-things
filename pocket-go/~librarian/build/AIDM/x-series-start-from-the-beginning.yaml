@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.build/AIDM/x-series-start-from-the-beginning.md
+crate: crate.B160B0C0E0004B71
+fields:
+  - type: input
+    label: class
+    value: build-plan
+  - type: input
+    label: kind
+    value: social-series
+  - type: input
+    label: status
+    value: draft
+  - type: input
+    label: product
+    value: AIDM

@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.detective.office/case2.md
+crate: crate.07C982BEBE54FF88
+fields:
+  - type: input
+    label: title
+    value: CASE 02 The Hymn at the Well
+  - type: input
+    label: class
+    value: case
+  - type: input
+    label: case-no
+    value: "2"
+  - type: input
+    label: known for
+    value: Card 02 The Magician; Wear me bottle
+  - type: input
+    label: references
+    value: The Magician; Wear Me

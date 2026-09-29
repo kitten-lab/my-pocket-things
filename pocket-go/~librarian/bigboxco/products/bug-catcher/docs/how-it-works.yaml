@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/bug-catcher/docs/how-it-works.md
+crate: crate.B160B0C0E0004B54
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: guide

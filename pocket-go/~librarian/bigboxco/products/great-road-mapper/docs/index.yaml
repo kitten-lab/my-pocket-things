@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/great-road-mapper/docs/index.md
+crate: crate.B160B0C0E0004B12
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: binder-index
+  - type: input
+    label: contains
+    value: "overview, getting-started, views, phases-and-people, features"

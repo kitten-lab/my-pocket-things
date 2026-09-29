@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/015
+crate: crate.1546FC235AB6DC7F
+fields:
+  - type: input
+    label: title
+    value: Poem Feedback Request
+  - type: input
+    label: references
+    value: "aidm, crossroads, encode, inner-child, misery, offering, ritual, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

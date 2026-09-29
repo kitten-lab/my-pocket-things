@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.glenshadows/leaves/bag-001-ot-130.md
+crate: crate.7AD8B4E89BC24C5D
+fields:
+  - type: input
+    label: title
+    value: Bag 001-OT-130
+  - type: input
+    label: class
+    value: bag-pointer
+  - type: input
+    label: layer
+    value: floor
+  - type: input
+    label: known for
+    value: glass bag pointer; celebrity-soul collapse stays off
+  - type: input
+    label: source bag
+    value: "001-OT-130"

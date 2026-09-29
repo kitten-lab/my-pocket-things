@@ -1,10 +1,11 @@
 ---
 crate: crate.REPORTROOT0002
-title: report desk
+title: SKY_AUTH Mobile Reporter
 ---
 
-# report.
+`{{title}} Carrier: PJUIN`
 
-Reporters on this desk:
-
-{{dir}}
+{{doors}}
+`a small note is stuck below the doors`
+#### SOMETHING *#YOU* KNEW IS UNDER*WEIGH*. FILL THE BAGS.
+-/the_walker

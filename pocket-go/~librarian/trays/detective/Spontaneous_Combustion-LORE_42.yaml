@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/detective/Spontaneous_Combustion-LORE_42.md
+crate: crate.FC73F6DC7A275767
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: Strange Happenings

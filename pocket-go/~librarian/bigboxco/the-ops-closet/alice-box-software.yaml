@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/alice-box-software.md
+crate: crate.B160B0C0E0004B87
+fields:
+  - type: input
+    label: class
+    value: inventory
+  - type: input
+    label: kind
+    value: internal

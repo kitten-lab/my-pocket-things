@@ -1,7 +1,7 @@
 /* coat: logger — Walker night-clerk blotter. Printout strips, ribbon type. */
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap");
 
-.go-shell {
+:root {
   --oak: #7a5333;
   --oak-deep: #4e321c;
   --oak-hi: #c49a6c;
@@ -17,7 +17,7 @@
   --felt-deep: #2f4735;
   --felt-edge: #24382a;
   --felt-rib: rgba(20, 40, 24, 0.07);
-  --lamp: rgba(255, 214, 140, 0.42);
+  --lamp: var(--brass);
   --slip: #f3ead4;
   --slip-edge: #c9b48a;
   --slip-hi: #f7f0dc;
@@ -35,8 +35,11 @@
   --field: #f7f1de;
   --post-edge: #6e1016;
   --paper: var(--slip);
-  --ink: var(--carbon);
+  --ink: var(--brass);
   --strip: var(--felt-mid);
+}
+
+.go-shell {
   --font-type: "Special Elite", "Courier Prime", "Courier New", Courier, monospace;
   --font-plain: "Courier Prime", "Courier New", Courier, monospace;
   height: 100%;
@@ -44,7 +47,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  color: var(--carbon);
+  color: var(--lamp);
   background:
     radial-gradient(ellipse 80% 50% at 50% -8%, var(--lamp), transparent 58%),
     linear-gradient(90deg, var(--oak-deep) 0 10px, transparent 10px),
@@ -85,13 +88,17 @@
   display: none;
 }
 
+.go-shell code {
+  font-size: x-small;
+}
+
 .go-shell h1,
 .go-shell h2,
 .go-shell h3 {
   font-family: var(--font-type);
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--carbon);
+  color: var(--brass);
   text-shadow: none;
 }
 
@@ -593,4 +600,201 @@
 .go-shell .inner-scroll {
   height: auto;
   max-height: none;
+}
+
+/* report navbar: logger strip — no :has() (Deck Host WebView drops those rules);
+   beat dress.css .go-shell a:link / a:visited with matching pseudos */
+.go-shell .blotter nav.pg-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.38em 0.6em;
+  margin: 0.45em 0 0.85em;
+  padding: 0.5em 0.6em;
+  background: var(--felt-deep);
+  border: 1px solid var(--felt-edge);
+  border-top-color: var(--oak-deep);
+  box-shadow: inset 0 1px 0 rgba(255, 220, 170, 0.12);
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .blotter nav.pg-navbar a,
+.go-shell .blotter nav.pg-navbar a:link,
+.go-shell .blotter nav.pg-navbar a:visited,
+.go-shell .blotter nav.pg-navbar a.been {
+  display: inline-block;
+  padding: 0.28em 0.58em 0.22em;
+  color: var(--brass) !important;
+  background: var(--felt-mid);
+  border: 1px solid var(--felt);
+  border-bottom: 2px solid var(--felt-edge);
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(20, 30, 18, 0.45);
+}
+
+.go-shell .blotter nav.pg-navbar a:hover,
+.go-shell .blotter nav.pg-navbar a:focus-visible {
+  color: var(--slip-hi) !important;
+  background: var(--felt);
+  border-color: var(--brass-dim);
+  outline: none;
+}
+
+.go-shell .blotter nav.pg-navbar a.on,
+.go-shell .blotter nav.pg-navbar a.on:link,
+.go-shell .blotter nav.pg-navbar a.on:visited {
+  color: var(--carbon) !important;
+  background: var(--brass);
+  border-color: var(--brass);
+  border-bottom-color: var(--oak-deep);
+  text-shadow: none;
+}
+
+/* report lobby doors — four room plates on the firewatch desk ({{doors}}, not navbar)
+   cabin lobby cards: large face, 2x2, slip/oak; beat dress a:link/visited */
+.go-shell .blotter .worlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85em 0.95em;
+  margin: 1.05em 0 1.35em;
+  max-width: 34em;
+  padding: 0.55em;
+  background:
+    linear-gradient(180deg, rgba(78, 50, 28, 0.22) 0%, rgba(36, 56, 42, 0.18) 100%);
+  border: 1px solid var(--oak-deep);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 170, 0.1),
+    0 2px 0 rgba(20, 14, 8, 0.25);
+}
+
+.go-shell .blotter a.world {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55em;
+  margin: 0;
+  padding: 0.72em 0.7em 0.65em;
+  min-height: 9.2em;
+  text-decoration: none !important;
+  color: var(--carbon) !important;
+  background:
+    linear-gradient(180deg, var(--slip-hi) 0%, var(--slip) 55%, var(--slip-lo) 100%);
+  border: 1px solid var(--slip-edge);
+  border-bottom-width: 3px;
+  border-bottom-color: var(--oak-deep);
+  box-shadow:
+    2px 3px 0 rgba(20, 14, 8, 0.28),
+    inset 0 1px 0 rgba(255, 255, 240, 0.55);
+  font-family: var(--font-plain);
+}
+
+.go-shell .blotter a.world:link,
+.go-shell .blotter a.world:visited,
+.go-shell .blotter a.world.been {
+  color: var(--carbon) !important;
+  text-decoration: none !important;
+}
+
+.go-shell .blotter a.world:hover,
+.go-shell .blotter a.world:focus-visible {
+  color: var(--carbon) !important;
+  transform: translate(-1px, -2px);
+  border-color: var(--brass-dim);
+  border-bottom-color: var(--oak);
+  box-shadow:
+    3px 5px 0 rgba(20, 14, 8, 0.3),
+    inset 0 1px 0 rgba(255, 255, 240, 0.7),
+    0 0 0 1px rgba(244, 230, 196, 0.35);
+  outline: none;
+}
+
+.go-shell .blotter a.world .door-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  flex: 0 0 auto;
+  align-self: center;
+  border: 2px solid var(--oak-deep);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 230, 196, 0.25),
+    0 2px 0 rgba(20, 14, 8, 0.35);
+}
+
+.go-shell .blotter a.world .door-face.is-letter {
+  font-family: "Special Elite", "Courier Prime", "Courier New", monospace;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  line-height: 1;
+}
+
+.go-shell .blotter a.world .door-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22em;
+  min-width: 0;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.go-shell .blotter a.world strong {
+  display: block;
+  font-family: "Special Elite", "Courier Prime", "Courier New", monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--oak-deep) !important;
+  text-transform: uppercase;
+}
+
+.go-shell .blotter a.world .door-deck {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--felt-deep) !important;
+  opacity: 0.92;
+}
+
+.go-shell .blotter a.world .note-details {
+  display: inline-block;
+  align-self: center;
+  margin-top: 0.15em;
+  padding: 0.12em 0.45em;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass) !important;
+  background: var(--felt-deep);
+  border: 1px solid var(--felt-edge);
+}
+
+/* room essence tints on the plate edge */
+.go-shell .blotter a.world.door-jasmine {
+  border-top: 3px solid #a85a6a;
+}
+.go-shell .blotter a.world.door-oman-omenti {
+  border-top: 3px solid #5a6a9a;
+}
+.go-shell .blotter a.world.door-the {
+  border-top: 3px solid #c45a7a;
+}
+.go-shell .blotter a.world.door-walker {
+  border-top: 3px solid #4a6a8a;
+}
+
+@media (max-width: 520px) {
+  .go-shell .blotter .worlds {
+    grid-template-columns: 1fr;
+    max-width: 18em;
+  }
 }

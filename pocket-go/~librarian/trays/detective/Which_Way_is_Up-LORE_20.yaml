@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/agent/Which_Way_is_Up-LORE_20.md
+crate: crate.E7847A646A127C2B
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: Questions

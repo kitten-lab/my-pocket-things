@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001/T01/B000
+crate: crate.84A93E0B48AB0C7B
+fields:
+  - type: input
+    label: title
+    value: introduction to the story
+  - type: input
+    label: messages
+    value: 67aa5a6c-de9c-8004-b715-e91f7944b523.0

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/agent/Only_you_can_help_yourself-LORE_40.md
+crate: crate.DDB3F236E5EBFF6E
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: Keyline

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-040.md
+crate: crate.7C853C7B75A4A345
+fields:
+  - type: input
+    label: page
+    value: "040"
+  - type: input
+    label: title
+    value: Monday Means Reality
+  - type: input
+    label: dated
+    value: "2020-01-13"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose; continues
+  - type: input
+    label: topics covered
+    value: work, reality, school, children of light, healing, de-integration
+  - type: input
+    label: known for
+    value: Monday means reality; driven away by her; wake up from the dream

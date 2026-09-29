@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/agent/She_Was_An_Accident_Waiting_to_Happen-LORE_39.md
+crate: crate.A154BA7BC1E98EB0
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: CORE

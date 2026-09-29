@@ -1,0 +1,34 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-lost-color/8 of Cups.md
+crate: crate.5B48082380990F53
+fields:
+  - type: input
+    label: title
+    value: 8 of Cups
+  - type: input
+    label: kind
+    value: poem
+  - type: input
+    label: hall
+    value: Hall of Lost Color
+  - type: input
+    label: hues
+    value: amber, blue
+  - type: input
+    label: poet
+    value: unassigned
+  - type: input
+    label: prior voice
+    value: amber / V02
+  - type: input
+    label: status
+    value: filed
+  - type: input
+    label: series
+    value: morning tarot pulls
+  - type: input
+    label: medium
+    value: Instagram
+  - type: input
+    label: motifs
+    value: leaving, cold blue moon, own cups

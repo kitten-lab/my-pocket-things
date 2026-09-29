@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.mausoleum/KITTEN-LAB
+crate: crate.6B2A50960E2E814A
+fields:
+  - type: input
+    label: hub
+    value: rosewood8
+  - type: input
+    label: repo
+    value: kitten-lab

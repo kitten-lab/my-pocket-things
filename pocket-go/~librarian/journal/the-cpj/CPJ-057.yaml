@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-057.md
+crate: crate.78297DCE124D9E80
+fields:
+  - type: input
+    label: page
+    value: "057"
+  - type: input
+    label: title
+    value: Quarks Before Atom Adam
+  - type: input
+    label: dated
+    value: "2020-01-20"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose; diagram
+  - type: input
+    label: topics covered
+    value: Yud, simulation, Eve, quarks, Atom / Adam
+  - type: input
+    label: known for
+    value: quarks and forces before Atom / Adam; Almost Free
+  - type: input
+    label: continues from
+    value: CPJ-056

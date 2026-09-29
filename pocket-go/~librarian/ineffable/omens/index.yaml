@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.ineffable/omens/index.md
+crate: crate.6036393A7A933B07
+fields:
+  - type: input
+    label: title
+    value: "Oman's Omens"
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: chip
+    value: OMAN
+  - type: input
+    label: known for
+    value: file an omen as a leaf

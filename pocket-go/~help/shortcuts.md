@@ -14,7 +14,8 @@ When you’re on the land setup (no ROM launcher trays), open sidecars with **Ct
 | **Charlie** (tags bay) | `Ctrl+Shift+C` |
 | **Detective** | `Ctrl+Shift+A` |
 | **TPS** | `Ctrl+Shift+T` |
-| **Cards** | `Ctrl+Shift+D` |
+| **Developer** | `Ctrl+Shift+D` |
+| **Cards** (Quest Cards) | `Ctrl+Shift+Q` |
 
 Same chord again in an open sidecar closes that window.
 

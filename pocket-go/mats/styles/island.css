@@ -163,12 +163,6 @@
     radial-gradient(ellipse at 12% 88%, rgba(14, 122, 114, 0.06), transparent 40%),
     linear-gradient(180deg, var(--sand) 0%, var(--chart) 100%);
   border: 1px solid rgba(154, 184, 180, 0.55);
-  border-radius: 48% 42% 46% 44% / 8% 10% 9% 11%;
-  box-shadow:
-    0 0 0 10px rgba(10, 42, 54, 0.35),
-    0 0 0 18px rgba(19, 72, 88, 0.22),
-    0 18px 36px rgba(0, 0, 0, 0.4),
-    inset 0 0 60px rgba(26, 90, 104, 0.05);
   scrollbar-width: thin;
   scrollbar-color: var(--mute) var(--sand);
 }
@@ -178,7 +172,6 @@
   position: absolute;
   inset: 0.35rem;
   border: 1px dashed rgba(14, 122, 114, 0.18);
-  border-radius: 46% 40% 44% 42% / 7% 9% 8% 10%;
   pointer-events: none;
 }
 

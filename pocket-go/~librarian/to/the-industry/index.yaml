@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-industry/index.md
+crate: crate.30EEE14B12EDF5C0
+fields:
+  - type: input
+    label: vault
+    value: _imported.to/be/the-industry
+  - type: input
+    label: author
+    value: SDK-808

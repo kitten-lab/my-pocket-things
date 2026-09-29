@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/librarian/The_Glass_Logs-LORE_18.md
+crate: crate.D79EF74A35C58A9D
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: References

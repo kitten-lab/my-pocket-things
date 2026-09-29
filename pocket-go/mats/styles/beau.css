@@ -36,7 +36,7 @@
   --tracking-head: 0.03em;
   --pad: 0.8em;
   --gap: 0.5em;
-  --side-w: 12.25em;
+  --side-w: 20em;
   --max: 46em;
   --tree-indent: 0.95em;
   --radius-chip: 0.3em;
@@ -124,7 +124,9 @@
   min-height: 0;
   overflow: auto;
   padding: var(--pad);
-  background: linear-gradient(90deg, color-mix(in srgb, var(--desk-teal) 22%, transparent) 0 3px, transparent 3px),
+  background: 
+    linear-gradient(90deg, color-mix(in srgb, var(--desk-teal) 22%, transparent) 0 3px, 
+    transparent 3px),
     var(--paper);
   border-left: 3px solid var(--desk-teal);
   box-sizing: border-box;

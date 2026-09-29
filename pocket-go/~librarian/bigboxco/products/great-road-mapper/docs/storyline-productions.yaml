@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/great-road-mapper/docs/storyline-productions.md
+crate: crate.B160B0C0E0004B27
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: guide

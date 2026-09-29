@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.mausoleum/
+crate: crate.A8B7229F86DA5A7E
+fields:
+  - type: input
+    label: name
+    value: Mausoleum
+  - type: input
+    label: class
+    value: room

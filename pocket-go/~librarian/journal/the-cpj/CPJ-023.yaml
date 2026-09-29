@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-023.md
+crate: crate.B30A04FB592B94EA
+fields:
+  - type: input
+    label: page
+    value: "023"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: topics covered
+    value: love, Divine Mother

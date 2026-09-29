@@ -1,0 +1,298 @@
+@import url("/styles/fonts.css");
+
+:root {
+  --bg: #f4f1ea;
+  --paper: #fffcf7;
+  --ink: #1a1a1a;
+  --mute: #5c5c5c;
+  --line: #d5d0c6;
+  --accent: #3d5a4a;
+  --side: #efebe3;
+  --visited: #5a4a6e;
+  --chip-bg: #efebe3;
+  --chip-ink: #1a1a1a;
+  --chip-line: #d5d0c6;
+  --chip-accent: #3d5a4a;
+  --tree-line: #c8c2b6;
+  --link: #3d5a4a;
+  --font: var(--font-sans, system-ui, sans-serif);
+  --font-head: var(--font-display, system-ui, sans-serif);
+  --font-mono: var(--font-mono, ui-monospace, monospace);
+  --font-size: 15px;
+  --font-size-sm: 0.82em;
+  --font-size-lg: 1.35em;
+  --font-size-xl: 1.7em;
+  --line-height: 1.45;
+  --weight-body: 400;
+  --weight-head: 650;
+  --weight-strong: 650;
+  --tracking-head: 0.02em;
+  --pad: 0.75em;
+  --gap: 0.5em;
+  --side-w: 12em;
+  --max: 46em;
+  --tree-indent: 0.95em;
+  --radius-chip: 0.25em;
+}
+
+.go-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--weight-body);
+  line-height: var(--line-height);
+}
+.go-shell > #browserWindow,
+#browserWindow {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex;
+  flex-direction: column;
+}
+.go-shell .pg-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.go-shell .pg-head,
+.go-shell .pg-foot {
+  flex: 0 0 auto;
+  padding: 0.45em var(--pad);
+  border-bottom: 1px solid var(--line);
+  background: var(--side);
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+}
+.go-shell .pg-foot {
+  border-bottom: 0;
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+  font-weight: var(--weight-body);
+  letter-spacing: 0;
+}
+.go-shell .pg-head a,
+.go-shell .pg-home,
+.go-shell .pg-head a:link {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: var(--weight-head);
+}
+.go-shell .pg-navbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 0.75em;
+  padding: 0.35em var(--pad);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+}
+.go-shell .pg-navbar a { color: var(--link); text-decoration: none; }
+.go-shell .pg-navbar a:hover { text-decoration: underline; }
+.go-shell .pg-navbar a.on { font-weight: var(--weight-strong); color: var(--ink); }
+.go-shell .pg-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--paper);
+  box-sizing: border-box;
+}
+.go-shell .pg-blank {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--paper);
+  box-sizing: border-box;
+}
+.go-shell .pg-mid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.go-shell .pg-side {
+  flex: 0 0 var(--side-w);
+  width: var(--side-w);
+  min-width: 0;
+  overflow: auto;
+  padding: var(--pad);
+  background: var(--side);
+  border-right: 1px solid var(--line);
+  box-sizing: border-box;
+}
+.go-shell .pg-rail-right .pg-side {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+.go-shell .pg-rail .pg-side .pg-navbar {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border-bottom: 0;
+  padding: 0;
+  gap: 0.35em;
+}
+.go-shell .pg-rail .pg-body { flex: 1 1 auto; }
+.go-shell .pg-stack > .pg-navbar { flex-direction: row; }
+
+/* rail-left — full component pack */
+.go-shell h1, .go-shell .pg-body h1 {
+  margin: 0 0 0.4em;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--font-size-xl);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+  line-height: 1.15;
+}
+.go-shell h2, .go-shell .pg-body h2 {
+  margin: 1em 0 0.35em;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: var(--font-size-lg);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+  line-height: 1.2;
+}
+.go-shell h3, .go-shell .pg-body h3 {
+  margin: 0.85em 0 0.3em;
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-size: 1.05em;
+  font-weight: var(--weight-head);
+}
+.go-shell .pg-body p, .go-shell .pg-side p {
+  margin: 0 0 0.75em;
+  max-width: var(--max);
+  font-family: var(--font);
+  font-weight: var(--weight-body);
+  line-height: var(--line-height);
+}
+.go-shell .pg-body strong { font-weight: var(--weight-strong); }
+.go-shell a:link { color: var(--link); }
+.go-shell a:visited, .go-shell a.been { color: var(--visited); }
+.go-shell .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28em 0.45em;
+  margin: 0.35em 0 0.85em;
+  padding: 0.35em 0.4em 0.45em;
+  border-top: 1px solid var(--chip-line);
+  border-bottom: 1px solid var(--chip-line);
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+}
+.go-shell .chip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2em 0.35em;
+  padding: 0.15em 0.45em;
+  border: 1px solid var(--chip-line);
+  border-radius: var(--radius-chip);
+  background: var(--chip-bg);
+  color: var(--chip-ink);
+}
+.go-shell .chip .chip-label,
+.go-shell .chip a.chip-label {
+  color: var(--chip-accent);
+  font-weight: var(--weight-strong);
+  text-decoration: none;
+}
+.go-shell .chip .chip-value,
+.go-shell .chip a.chip-value {
+  color: var(--chip-ink);
+  text-decoration: none;
+}
+.go-shell ul.dir,
+.go-shell .tree ul.dir {
+  list-style: none;
+  margin: 0.2em 0 0.6em;
+  padding: 0;
+  max-width: var(--max);
+  font-family: var(--font);
+  font-size: 0.95em;
+}
+.go-shell ul.dir > li,
+.go-shell .tree ul.dir > li { margin: 0; padding: 0; list-style: none; }
+.go-shell ul.dir > li::before,
+.go-shell .tree ul.dir > li::before { content: none !important; }
+.go-shell ul.dir a,
+.go-shell .tree ul.dir a {
+  display: block;
+  padding: 0.28em 0 0.28em 0.55em;
+  border-left: 2px solid var(--tree-line);
+  color: var(--link);
+  text-decoration: none;
+  line-height: 1.35;
+}
+.go-shell ul.dir a:hover,
+.go-shell .tree ul.dir a:hover {
+  border-left-color: var(--accent);
+  color: var(--ink);
+}
+.go-shell ul.dir a.on,
+.go-shell .tree ul.dir a.on {
+  border-left-color: var(--accent);
+  color: var(--ink);
+  font-weight: var(--weight-strong);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.go-shell .tree ul.dir ul.dir,
+.go-shell ul.dir ul.dir {
+  margin: 0 0 0.15em;
+  padding-left: var(--tree-indent);
+}
+.go-shell .tree ul.dir ul.dir a,
+.go-shell ul.dir ul.dir a {
+  border-left-color: color-mix(in srgb, var(--tree-line) 70%, transparent);
+}
+.go-shell ul.dir .name { font-family: var(--font); }
+.go-shell pre,
+.go-shell pre.code {
+  padding: 0.55em 0.65em;
+  background: var(--side);
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  white-space: pre-wrap;
+}
+.go-shell hr {
+  border: 0;
+  height: 1px;
+  margin: 1em 0;
+  background: var(--line);
+}
+.go-shell .mast,
+.go-shell p.mast {
+  font-family: var(--font-head);
+  font-weight: var(--weight-head);
+  letter-spacing: var(--tracking-head);
+}
+.go-shell .crumb {
+  font-family: var(--font);
+  font-size: var(--font-size-sm);
+  color: var(--mute);
+}
+
+/* rail-left — full pack this pass */

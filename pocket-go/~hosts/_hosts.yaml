@@ -1,4 +1,4 @@
-﻿# optional. folders under ~hosts still become go.{name} with no line here.
+# optional. folders under ~hosts still become go.{name} with no line here.
 #
 # alias a folder whose disk name is not the go.* name:
 # dir:
@@ -30,7 +30,7 @@ code.people:
   bar: people
 
 code.glass:
-  bar: codes.glass
+  bar: codes.glass codes
 
 code.event:
   title: Event codes
@@ -44,15 +44,17 @@ librarian:
   title: Librarian blotter
   bar: librarian stacks
 
+developer:
+  title: Developer dev notes
+  bar: developer dev
+
+trays:
+  title: Quest Card Trays
+  bar: cards quest deck
+
 ritual.mirrorbox:
   show: false
   bar: codes.glass
-
-castaways:
-  kind: roam
-  source: C:\ALICE_BOX\my-pocket-things\pocket-go\castaways\~hosts
-  title: The Castaways
-  pin: 1
 
 journal.now:
 
@@ -110,3 +112,108 @@ leawn.bench:
 news.gazette:
   title: Lobby Gazette
   bar: news.gazette gazette lobby
+
+glass:
+  show: false
+
+ae:
+  pin: 3
+  kind: roam
+  source: C:\ALICE_BOX\my-pocket-things\pocket-go\bot-haven\ae
+  title: "AELION'S HOUSE"
+
+# --- merged from castaways 2026-09-24 ET (title/pin/bar only; no exterior roams; no tags twin) ---
+
+danyi:
+  title: DANYI.COM
+
+cc:
+  title: CC · Carl Core
+
+buddy:
+  title: buddy — companion desk
+
+agentK:
+  title: AGENT K — basement archive
+
+bay:
+  title: bay — intake
+
+glenshadows:
+  title: Glen Shadows Tavern
+
+containment:
+  title: Containment - vessels of self
+
+terminals:
+  pin: 3
+
+build:
+  title: Build — AIDM desk
+
+eden:
+  title: Eden · iris TTY
+
+typewriter:
+  title: Typewriter · platen
+
+# codes: retired 2026-09-26 (citations-repair). go.codes / ?h=codes now alias to go.code.glass in server.py;
+# the old ~hosts/~codes bank was merged into code.glass and archived under _bak/codes-retired-20260926-2204.
+# codes:
+#   folder: ~codes
+#   pin: 6
+#   title: Codes · ABC directory
+
+ineffable:
+  title: Ineffable Box
+
+parabolas:
+  title: Parabolas - curves that eat themselves
+
+cast:
+  show: false
+  title: Cast - people and archetypes with crossings
+
+mausoleum:
+  pin: 5
+  title: Mausoleum — generations (mourn / gift)
+
+island:
+
+boards:
+  show: false
+
+rituals:
+  show: false
+  title: Rituals
+
+to:
+  title: BE.IMPORTED.TO
+
+chesters:
+  title: Chester's Imports
+
+bigboxco:
+  title: Big Box Co.
+  icon: bbc-cube.svg
+
+memoir:
+  title: Memoir - nights the body keeps
+
+house:
+  title: House - reconfiguring containment
+
+logger:
+  show: false
+  title: Walker - night printouts
+
+agent:
+  pin: 9
+
+see:
+
+dir:
+  show: false
+
+media:
+  show: false

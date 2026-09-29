@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-019.md
+crate: crate.47392B52E5FC4A66
+fields:
+  - type: input
+    label: page
+    value: "019"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: two entries
+  - type: input
+    label: topics covered
+    value: new year, truth, growth, pride

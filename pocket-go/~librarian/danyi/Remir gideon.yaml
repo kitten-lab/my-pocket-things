@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.danyi/Remir gideon.md
+crate: crate.7A4B8E33DB44DB5F
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi
+  - type: input
+    label: references
+    value: Seeing Outruns Saying; Same Watcher, Different Furniture; Until It Was Staring

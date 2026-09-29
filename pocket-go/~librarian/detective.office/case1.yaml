@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.detective.office/case1.md
+crate: crate.8C0E89C37DBE2D4B
+fields:
+  - type: input
+    label: title
+    value: CASE 01 The Foolish Girl
+  - type: input
+    label: class
+    value: case
+  - type: input
+    label: case-no
+    value: "1"
+  - type: input
+    label: known for
+    value: Card 01 The Fool; mother client; wrong things
+  - type: input
+    label: references
+    value: The Fool; Who Is the Fool

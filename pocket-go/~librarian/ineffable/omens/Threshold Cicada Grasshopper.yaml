@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.ineffable/omens/Threshold Cicada Grasshopper.md
+crate: crate.B30895CE26EFAAF3
+fields:
+  - type: input
+    label: title
+    value: Threshold Cicada Grasshopper
+  - type: input
+    label: class
+    value: omen
+  - type: input
+    label: chip
+    value: OMAN
+  - type: input
+    label: dated
+    value: "2026-09-08"
+  - type: input
+    label: when
+    value: "2026-09-08 08:31 ET"
+  - type: input
+    label: known for
+    value: dead cicada walkway; dead grasshopper inside door; threshold pair; capture not law
+  - type: input
+    label: references
+    value: The Threshold of Transformation; Cricket Mid-Heat
+  - type: input
+    label: chamber
+    value: omens

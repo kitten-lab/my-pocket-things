@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/agent/Misery_Becomes_Her-LORE_19.md
+crate: crate.5F8B2C8922C211DC
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: GODHEAD

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.bay/gemini/jumpman/threshold_transformation_symbolism.md
+crate: crate.0CCB26807BC284B4
+fields:
+  - type: input
+    label: title
+    value: The Threshold of Transformation
+  - type: input
+    label: class
+    value: sheet
+  - type: input
+    label: dated
+    value: "2026-09-08"
+  - type: input
+    label: when
+    value: "2026-09-08 08:31 ET"
+  - type: input
+    label: known for
+    value: cicada on walkway; grasshopper inside door; Gemini nutshell (synthesis kept, her words dropped)
+  - type: input
+    label: authored
+    value: OS create = Gemini nutshell export after conversation; conversation immediately prior
+  - type: input
+    label: references
+    value: Threshold Cicada Grasshopper; Cricket Mid-Heat

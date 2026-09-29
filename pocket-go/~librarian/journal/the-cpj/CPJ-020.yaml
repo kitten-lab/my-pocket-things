@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-020.md
+crate: crate.BB153EE0C995884C
+fields:
+  - type: input
+    label: page
+    value: "020"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: topics covered
+    value: logos, education, Jung, philosophy

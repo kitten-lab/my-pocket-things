@@ -1,0 +1,879 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap");
+
+/* librarian-office - go.librarian.office, the reference desk.
+   Same house as the librarian cabinet (stacks.css): stacks-green ground,
+   cream call plate with the oxblood bar, cream folio with the oxblood
+   margin band. The rail is the office's own: a card-catalog drawer
+   (oak front, brass label holders, ruled catalog cards, room card at
+   the foot), NOT the blotter's striped spine rail. Built for records: the folio prints files
+   and folders as catalog rows (accession no. | title | count), ruled, with
+   a total at the foot. Type roles are fixed: Special Elite = marks and
+   titles, IBM Plex Sans = catalog + rail, Libre Baskerville = prose,
+   Plex Mono = numbers. Shell: pg-head / pg-side (.lib-shelf, .lib-stacks)
+   / pg-body / pg-foot. Phone: rail folds into the shared rail drawer. */
+
+:root {
+  --strip: #2a5a48;
+}
+
+.go-shell {
+  --stacks: #14241c;
+  --stacks-hi: #1e3328;
+  --call: #efe4cc;
+  --call-ink: #243028;
+  --due: #8a2030;
+  --folio: #f6eedc;
+  --folio-hi: #efe4cc;
+  --spine: #24382c;
+  --spine-ink: #e8dcc4;
+  --brass: #c4a15a;
+  --ink: #1c241c;
+  --mute: #6a7a68;
+  --cite: #2a5a48;
+  --rule: #ddd2b8;
+  --rule-hi: #a89c7e;
+  --paper: var(--folio);
+  --rail: 12.5em;
+  --rail-drawer-label: "catalog";
+  --oak: #8c6442;
+  --oak-lo: #775234;
+  --oak-edge: #4a2e16;
+  --card: #fbf7ec;
+  --card-rule: #c9d6e6;
+  --card-red: #b8484a;
+  --card-ink: #26302a;
+  --rail-drawer-bg: linear-gradient(180deg, var(--oak) 0, var(--oak-lo) 100%);
+  --rail-drawer-ink: #fbf3e0;
+  --rail-drawer-line: var(--brass);
+  --rail-drawer-font: "IBM Plex Sans", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.45;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(255, 255, 255, 0.03) 18px 19px),
+    linear-gradient(180deg, var(--stacks-hi) 0, var(--stacks) 100%);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 8px 10px 8px 12px;
+}
+
+.go-shell p { white-space: normal; }
+
+.go-shell a,
+.go-shell a:link,
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--cite);
+  text-decoration: none;
+}
+
+.go-shell a:hover { color: var(--due); }
+
+/* ---------- frame ---------- */
+.go-shell .pg-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+/* call plate */
+.go-shell .pg-head {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 7px 14px 7px 20px;
+  background:
+    linear-gradient(90deg, #2a5a48 0 8px, transparent 8px),
+    linear-gradient(180deg, #fffaf0 0, var(--call) 100%);
+  color: var(--call-ink);
+  border: 1px solid #c4b898;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+.go-shell .pg-head p { margin: 0; }
+
+.go-shell .pg-head a.home,
+.go-shell .pg-head a,
+.go-shell .pg-head a:visited {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--call-ink);
+}
+
+.go-shell .pg-head::after {
+  content: "reference desk";
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .pg-mid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #0c1812;
+}
+
+/* ---------- card-catalog drawer rail (office only) ----------
+   Oak drawer front; each section hangs a brass label holder over a ruled
+   catalog card (red head rule, blue ruling). One face: IBM Plex Sans.
+   Room card (.lib-card) sits at the foot of the drawer. */
+.go-shell .pg-side {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 10px 9px 10px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 5px, rgba(50, 28, 10, 0.05) 5px 6px, transparent 6px 13px, rgba(255, 236, 200, 0.035) 13px 14px),
+    linear-gradient(180deg, var(--oak) 0, var(--oak-lo) 100%);
+  color: var(--card-ink);
+  border-right: 1px solid var(--oak-edge);
+  box-shadow: inset -2px 0 0 rgba(40, 22, 8, 0.18), inset 1px 0 0 rgba(255, 236, 200, 0.18);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brass) var(--oak-lo);
+}
+
+.go-shell .pg-side p { margin: 0; }
+.go-shell .pg-side p:empty { display: none; }
+
+.go-shell .pg-side .lib-shelf,
+.go-shell .pg-side .lib-stacks {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.go-shell .pg-side .lib-shelf:not(:has(ul)) { display: none; }
+.go-shell .pg-side .lib-shelf > p { display: none; }
+
+/* brass label holder */
+.go-shell .pg-side .lib-shelf::before,
+.go-shell .pg-side .lib-stacks::before {
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  margin: 0 auto 5px;
+  padding: 1px 9px;
+  background: #f4ecd8;
+  border: 2px solid var(--brass);
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px #6e4a26, inset 0 0 0 1px rgba(110, 74, 38, 0.25), 0 1px 0 1px rgba(255, 236, 200, 0.2);
+  color: #3a2c18;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.go-shell .pg-side .lib-shelf::before { content: "on this shelf"; }
+.go-shell .pg-side .lib-stacks::before { content: "stacks"; }
+
+/* ruled catalog card */
+.go-shell .pg-side ul.dir,
+.go-shell .pg-side nav.pg-navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 2px 0 3px;
+  background: var(--card);
+  border: 1px solid #6e4a26;
+  border-top: 2px solid var(--card-red);
+  box-shadow: 1px 2px 0 rgba(40, 22, 8, 0.28);
+}
+
+.go-shell .pg-side ul.dir > li {
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .pg-side ul.dir > li::before { content: none !important; }
+
+.go-shell .pg-side ul.dir a,
+.go-shell .pg-side nav.pg-navbar a {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 2px 7px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--card-rule);
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--card-ink);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.go-shell .pg-side ul.dir > li:last-child > a,
+.go-shell .pg-side nav.pg-navbar a:last-child { border-bottom-color: transparent; }
+
+.go-shell .pg-side nav.pg-navbar a::after {
+  content: "/";
+  color: #9a8a68;
+}
+
+.go-shell .pg-side ul.dir a:hover,
+.go-shell .pg-side nav.pg-navbar a:hover {
+  background: #f1e8d2;
+  color: var(--due);
+}
+
+.go-shell .pg-side ul.dir a.on,
+.go-shell .pg-side nav.pg-navbar a.on {
+  background: #eee2c4;
+  color: #1c241c;
+  font-weight: 600;
+}
+
+/* room card: whose office this is */
+.go-shell .pg-side .lib-card {
+  flex: 0 0 auto;
+  margin: auto 0 0;
+  padding: 4px 8px 6px;
+  background: var(--card);
+  border: 1px solid #6e4a26;
+  border-top: 2px solid var(--card-red);
+  box-shadow: 1px 2px 0 rgba(40, 22, 8, 0.28);
+  color: #3a3a30;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.go-shell .pg-side .lib-card h3 {
+  margin: 0 0 3px;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 1px solid var(--card-rule);
+  color: var(--card-ink);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .pg-side .lib-card p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.go-shell .pg-side .lib-card .lib-callno {
+  display: block;
+  margin-top: 3px;
+  color: #8a7654;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- folio ---------- */
+.go-shell .pg-body {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 22px 26px 3.4em;
+  background:
+    linear-gradient(90deg, rgba(138, 32, 48, 0.08) 0 2.2em, transparent 2.2em),
+    var(--folio);
+  color: var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: #8a7860 var(--folio);
+}
+
+.go-shell .pg-body > * { max-width: 56rem; }
+.go-shell .pg-body > *:first-child { margin-top: 0; }
+
+.go-shell .pg-body h1,
+.go-shell .pg-body h2,
+.go-shell .pg-body h3,
+.go-shell .pg-body h4,
+.go-shell .pg-body h5,
+.go-shell .pg-body h6 {
+  padding: 0;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.go-shell .pg-body h1 {
+  margin: 0 0 12px;
+  padding: 0 0 5px;
+  font-size: 18px;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--rule-hi);
+}
+
+.go-shell .pg-body h2 { margin: 16px 0 6px; font-size: 14px; }
+.go-shell .pg-body h3 {
+  margin: 14px 0 5px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.go-shell .pg-body h4,
+.go-shell .pg-body h5,
+.go-shell .pg-body h6 { margin: 12px 0 4px; font-size: 12px; color: var(--mute); }
+
+.go-shell .pg-body p,
+.go-shell .pg-body li {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.go-shell .pg-body a {
+  border-bottom: 1px dotted var(--cite);
+}
+
+.go-shell .pg-body a.tag::before { content: "#"; color: var(--mute); }
+.go-shell .pg-body a.tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--cite);
+  text-decoration: none;
+}
+
+.go-shell .pg-body pre {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  overflow: auto;
+  background: #fffaf0;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--cite);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.go-shell .pg-body code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+}
+
+.go-shell .pg-body hr {
+  height: 0;
+  margin: 14px 0;
+  border: 0;
+  border-top: 1px solid var(--rule-hi);
+}
+
+.go-shell .pg-body .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin: 10px 0;
+  padding: 4px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10.5px;
+}
+
+.go-shell .pg-body .chip {
+  display: inline-flex;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.go-shell .pg-body .chip a { border: 0; }
+.go-shell .pg-body .chip .chip-label { color: var(--mute); }
+.go-shell .pg-body .chip .chip-value { color: var(--ink); }
+
+/* ---------- catalog: files and folders as ruled rows ---------- */
+.go-shell .pg-body ul.dir,
+.go-shell .pg-body .worlds {
+  display: block;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 12px;
+  counter-reset: acc;
+}
+
+/* column head */
+.go-shell .pg-body ul.dir::before,
+.go-shell .pg-body .worlds::before {
+  display: flex;
+  padding: 0 6px 3px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  border-bottom: 1px solid var(--rule-hi);
+}
+
+.go-shell .pg-body ul.dir::before { content: "no.\2003\2002  title"; }
+.go-shell .pg-body .worlds::before { content: "no.\2003\2002  folder"; }
+
+.go-shell .pg-body ul.dir > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+  counter-increment: acc;
+}
+
+.go-shell .pg-body ul.dir > li::before { content: none !important; }
+
+.go-shell .pg-body ul.dir a,
+.go-shell .pg-body .worlds a.world {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 4px 6px;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  color: var(--ink);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.go-shell .pg-body ul.dir a::before,
+.go-shell .pg-body .worlds a.world::before {
+  content: counter(acc, decimal-leading-zero);
+  flex: 0 0 3.2ch;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  color: var(--mute);
+}
+
+.go-shell .pg-body .worlds a.world {
+  counter-increment: acc;
+  border-bottom: 1px solid var(--rule);
+}
+
+.go-shell .pg-body ul.dir a:hover,
+.go-shell .pg-body .worlds a.world:hover {
+  background: var(--folio-hi);
+  color: var(--due);
+}
+
+.go-shell .pg-body ul.dir a.on { background: var(--folio-hi); }
+
+.go-shell .pg-body ul.dir a .name { flex: 1 1 auto; min-width: 0; }
+
+.go-shell .pg-body .worlds .door-face,
+.go-shell .pg-body .worlds .door-cover,
+.go-shell .pg-body .worlds .door-scrim {
+  display: none !important;
+}
+
+.go-shell .pg-body .worlds .door-copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.go-shell .pg-body .worlds .door-copy strong {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 500;
+}
+
+.go-shell .pg-body .worlds .door-copy strong::after {
+  content: "/";
+  font-weight: 400;
+  color: var(--mute);
+}
+
+.go-shell .pg-body .worlds .door-deck {
+  flex: 0 1 auto;
+  min-width: 0;
+  color: var(--mute);
+  font-size: 11px;
+}
+
+.go-shell .pg-body .worlds a.world .note-details {
+  display: inline;
+  flex: 0 0 auto;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  color: var(--mute);
+}
+
+.go-shell .pg-body .worlds .door-section { margin: 0; padding: 0; border: 0; }
+.go-shell .pg-body .worlds .door-section-doors { display: block; }
+.go-shell .pg-body .worlds .door-section-head {
+  margin: 8px 0 0;
+  padding: 0 6px 2px;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule-hi);
+}
+
+/* total at the foot of each listing */
+.go-shell .pg-body ul.dir::after,
+.go-shell .pg-body .worlds::after {
+  display: block;
+  padding: 3px 6px 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .pg-body ul.dir::after { content: counter(acc) " catalogued"; }
+.go-shell .pg-body .worlds::after { content: counter(acc) " in the stacks"; }
+
+/* "no notes here." ahead of the folder list: a quiet catalog note */
+.go-shell .pg-body > p:has(+ .worlds) {
+  margin: 0 0 12px;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--mute);
+}
+
+/* empty foot: no strip */
+.go-shell .pg-foot:not(:has(*)) { display: none; }
+.go-shell .pg-foot {
+  flex: 0 0 auto;
+  padding: 3px 12px;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4d4c4;
+}
+
+/* ---------- phone: one framed folio (capture view); rail in the shared drawer ---------- */
+@media (max-width: 720px) {
+  .go-shell > #browserWindow,
+  #browserWindow {
+    padding: 8px 8px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .go-shell .pg-frame {
+    flex: 1 0 auto;
+    overflow: visible;
+  }
+
+  .go-shell .pg-head {
+    padding: 7px 12px 7px 18px;
+  }
+
+  .go-shell .pg-mid {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    overflow: visible;
+  }
+
+  .go-shell .pg-side {
+    flex: 0 0 auto;
+    overflow: visible;
+    padding: 10px 10px 12px;
+    border-right: 0;
+    border-bottom: 2px solid var(--oak-edge);
+    box-shadow: inset 0 -1px 0 rgba(255, 236, 200, 0.18);
+  }
+
+  .go-shell .pg-side ul.dir a,
+  .go-shell .pg-side nav.pg-navbar a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .go-shell .pg-side .lib-card { margin-top: 0; font-size: 11px; }
+  .go-shell .pg-side .lib-card .lib-callno { font-size: 10px; }
+
+  .go-shell .pg-body {
+    flex: 1 0 auto;
+    overflow: visible;
+    padding: 16px 16px 26px 2.9em;
+    background:
+      linear-gradient(90deg, rgba(138, 32, 48, 0.08) 0 1.7em, transparent 1.7em),
+      var(--folio);
+  }
+
+  .go-shell .pg-body p,
+  .go-shell .pg-body li { font-size: 13px; }
+
+  .go-shell .pg-foot { display: none; }
+}
+
+/* ---------- page content layer (folio only) ----------
+   Reusable page-level classes for entry pages in the office (journal/,
+   stacks/ ...). Scoped to the folio (.pg-body); the rail (.pg-side) and
+   the folio/catalog rules above are untouched. Type roles as above:
+   Baskerville = prose, Plex Sans = labels, Plex Mono = numbers.
+   Markup in a page .md (each token on its own line):
+
+   entry header    {{div:.lib-entry}}
+                   {{span:.lib-date}}ACC. 1926-09-27{{/span}}
+                   {{span:.lib-filed}}Filed under: Weather, Local{{/span}}
+                   # Title of the entry
+                   {{/div}}
+   date stamp      {{span:.lib-date}}ACC. 1926-09-27{{/span}}  (also inline)
+   epigraph        {{div:.lib-epigraph}}
+                   The quoted line.
+                   {{span:.lib-attr}}Who said it{{/span}}
+                   {{/div}}
+   blockquote      > The quoted line.            (plain markdown, same look)
+                   > {{span:.lib-attr}}Who said it{{/span}}
+   filed fragment  {{div:.lib-fragment}}
+                   {{span:.lib-frag-no}}551.57 WIC - no. 3{{/span}}
+                   Text of the fragment.
+                   {{span:.lib-filed}}filed: 27 Sept. 1926{{/span}}
+                   {{/div}}        (.lib-callno works in place of .lib-frag-no)
+   note            {{div:.lib-note}} ... {{/div}}       label "circulation note"
+   warning note    {{div:.lib-note.warn}} ... {{/div}}  label "handle with care"
+                   Open a note with "### Your label" to replace its label. */
+
+/* entry header: accession stamp + filing line, title beneath, one rule */
+.go-shell .pg-body .lib-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0 0 14px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--rule-hi);
+}
+
+.go-shell .pg-body .lib-entry > h1,
+.go-shell .pg-body .lib-entry > h2,
+.go-shell .pg-body .lib-entry > h3,
+.go-shell .pg-body .lib-entry > p {
+  flex: 1 0 100%;
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.go-shell .pg-body .lib-date {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid rgba(138, 32, 48, 0.7);
+  border-radius: 2px;
+  color: var(--due);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .pg-body .lib-filed {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* epigraph, and plain markdown blockquote: brass rule, italic prose */
+.go-shell .pg-body .lib-epigraph,
+.go-shell .pg-body blockquote {
+  box-sizing: border-box;
+  max-width: 40em;
+  margin: 0 0 14px;
+  padding: 1px 0 1px 12px;
+  background: none;
+  border: 0;
+  border-left: 2px solid var(--brass);
+  color: #3a463c;
+  overflow-wrap: anywhere;
+}
+
+.go-shell .pg-body .lib-epigraph p,
+.go-shell .pg-body blockquote p {
+  margin: 0 0 3px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.go-shell .pg-body .lib-epigraph p:last-child,
+.go-shell .pg-body blockquote p:last-child { margin-bottom: 0; }
+
+.go-shell .pg-body .lib-attr {
+  display: block;
+  margin: 2px 0 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.go-shell .pg-body .lib-attr::before { content: "\2014\2002"; }
+
+/* filed fragment: cream catalog card, red head rule, blue ruling on the
+   text lines (every line is --lib-line tall so the ruling stays true) */
+.go-shell .pg-body .lib-fragment {
+  --lib-line: 19px;
+  box-sizing: border-box;
+  max-width: 40em;
+  margin: 2px 0 16px;
+  padding: 0 12px 9px;
+  background:
+    linear-gradient(180deg, transparent calc(var(--lib-line) - 1px), var(--card-rule) calc(var(--lib-line) - 1px)) 0 0 / 100% var(--lib-line) repeat content-box border-box,
+    var(--card);
+  border: 1px solid #c4b898;
+  border-top: 2px solid var(--card-red);
+  box-shadow: 1px 2px 0 rgba(40, 22, 8, 0.12);
+  color: var(--card-ink);
+  overflow-wrap: anywhere;
+}
+
+.go-shell .pg-body .lib-fragment p {
+  margin: 0;
+  line-height: var(--lib-line);
+}
+
+.go-shell .pg-body .lib-fragment p + p { text-indent: 1.5em; }
+
+.go-shell .pg-body .lib-frag-no,
+.go-shell .pg-body .lib-fragment .lib-callno {
+  display: block;
+  color: #8a7654;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  line-height: var(--lib-line, 19px);
+  letter-spacing: 0.03em;
+}
+
+.go-shell .pg-body .lib-fragment .lib-filed {
+  display: block;
+  line-height: var(--lib-line);
+  text-align: right;
+}
+
+/* note: circulation note (green bar) or .warn (oxblood bar) */
+.go-shell .pg-body .lib-note {
+  box-sizing: border-box;
+  max-width: 40em;
+  margin: 2px 0 14px;
+  padding: 5px 12px 7px;
+  background: #fbf6e8;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--cite);
+  overflow-wrap: anywhere;
+}
+
+.go-shell .pg-body .lib-note::before,
+.go-shell .pg-body .lib-note > h3:first-child {
+  display: block;
+  margin: 0 0 3px;
+  padding: 0;
+  border: 0;
+  color: var(--cite);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .pg-body .lib-note::before { content: "circulation note"; }
+.go-shell .pg-body .lib-note:has(> h3:first-child)::before { content: none; }
+
+.go-shell .pg-body .lib-note p {
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+.go-shell .pg-body .lib-note p:last-child { margin-bottom: 0; }
+
+.go-shell .pg-body .lib-note.warn {
+  background: #fbf2ea;
+  border-left-color: var(--due);
+}
+
+.go-shell .pg-body .lib-note.warn::before,
+.go-shell .pg-body .lib-note.warn > h3:first-child { color: var(--due); }
+.go-shell .pg-body .lib-note.warn::before { content: "handle with care"; }
+
+@media (max-width: 720px) {
+  .go-shell .pg-body .lib-epigraph,
+  .go-shell .pg-body blockquote,
+  .go-shell .pg-body .lib-fragment,
+  .go-shell .pg-body .lib-note { max-width: none; }
+}

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.typewriter/index.md
+crate: crate.D35F9E46F80DD0BA
+fields:
+  - type: input
+    label: title
+    value: Typewriter
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: known for
+    value: rail into the machine; start at Packed Bags

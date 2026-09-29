@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-lost-color/Awake and Blue.md
+crate: crate.E31A1CB83FB8A63D
+fields:
+  - type: input
+    label: title
+    value: Awake and Blue
+  - type: input
+    label: kind
+    value: poem
+  - type: input
+    label: hall
+    value: Hall of Lost Color
+  - type: input
+    label: hues
+    value: blue, indigo
+  - type: input
+    label: poet
+    value: unassigned
+  - type: input
+    label: prior voice
+    value: indigo / V01
+  - type: input
+    label: status
+    value: filed
+  - type: input
+    label: motifs
+    value: boy in blue, soft romantic ache, sky cover

@@ -500,6 +500,9 @@ a.chipcode.been { color: purple; }
 .chips-agent .chip {
   border-color: #a33b3b66;
 }
+.chips-developer .chip {
+  border-color: #0000aa66;
+}
 
 h1, h2 {
   font-weight: bold;

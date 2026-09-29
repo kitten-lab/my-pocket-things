@@ -1,7 +1,7 @@
 ---
 crate: crate.BD411B3EC18C6ACB
-title: Charlie's Threads
-section: ABC DIRECTORIES
+title: CHARLIE CODES
+section: CODE BAY
 deck: All Tags Lead Here. Come, see what landed.
 environment: tags
 kind: bay

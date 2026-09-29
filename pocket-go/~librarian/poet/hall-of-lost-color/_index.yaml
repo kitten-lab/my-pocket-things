@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-lost-color/_index.md
+crate: crate.B4E8C2A19F7063D5
+fields:
+  - type: input
+    label: title
+    value: Hall of Lost Color
+  - type: input
+    label: kind
+    value: hall
+  - type: input
+    label: vibe
+    value: color gone background; the hue that covers and vanishes
+  - type: input
+    label: deck
+    value: The Rooms of Her Painted Words
+  - type: input
+    label: contains
+    value: poems where a named color becomes sky, cover, or chase
+  - type: input
+    label: first leaf
+    value: Torrid affairs are spiralic awarenesses

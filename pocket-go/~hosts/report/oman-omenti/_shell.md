@@ -1,9 +1,10 @@
 ---
 crate: crate.3CF37AAE1DCFB003
-title: omens
-deck: oman omenti logger — omens
+title: OMAN'S OMENS
+deck: REPORT DESK OF OMAN O'MENTI
 environment: logger-strange
 ---
+
 {{div:.walk}}
 {{div:.blotter-head}}
 {{div:.desk-mark}}OMENS{{/div}}

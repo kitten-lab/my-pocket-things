@@ -1,5 +1,5 @@
-time: []
+time: [posted on]
 bool: []
-input: [features, cites, related-to, son-of, type, imported from, file type, account]
+input: [features, cites, related-to, son-of, type, imported from, file type, account, class, sub-class, house, author, card type]
 textbox: []
 class: []

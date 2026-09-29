@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-016.md
+crate: crate.DFB114DB067A526D
+fields:
+  - type: input
+    label: page
+    value: "016"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: memorial; illustration
+  - type: input
+    label: set
+    value: 2019-12-30 pepito
+  - type: input
+    label: topics covered
+    value: Pepito, loss
+  - type: input
+    label: references
+    value: P. Yucky Pepper (Corgi Mix); The Chariot

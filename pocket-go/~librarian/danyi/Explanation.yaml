@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.danyi/Explanation.md
+crate: crate.B90F48F1955BBBF4
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi
+  - type: input
+    label: dated
+    value: "2000"
+  - type: input
+    label: class
+    value: vault frame
+  - type: input
+    label: known for
+    value: hazard label for the writings that follow; interruption's front matter
+  - type: input
+    label: references
+    value: Interruption's Technology; Pain Asked to Be Useful

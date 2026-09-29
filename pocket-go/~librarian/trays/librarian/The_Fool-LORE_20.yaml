@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.trays/librarian/The_Fool-LORE_20.md
+crate: crate.6BF3F71889566A0A
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: tarot
+  - type: input
+    label: title
+    value: The Fool
+  - type: input
+    label: known for
+    value: Card 01 on CASE 01; who is foolish
+  - type: input
+    label: references
+    value: CASE 01 The Foolish Girl; Who Is the Fool

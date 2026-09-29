@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/093
+crate: crate.258EAC40F605483E
+fields:
+  - type: input
+    label: title
+    value: Waking Anger and Sensations
+  - type: input
+    label: references
+    value: "aidm, encode, offering, ritual, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.works/songs/Cannibal.md
+crate: crate.D6E9787428AA57C5
+fields:
+  - type: input
+    label: name
+    value: Cannibal
+  - type: input
+    label: kind
+    value: song
+  - type: input
+    label: artist
+    value: Tally Hall
+  - type: input
+    label: album
+    value: Good & Evil
+  - type: input
+    label: released
+    value: "2011-06-21"
+  - type: input
+    label: references
+    value: Love That Consumes

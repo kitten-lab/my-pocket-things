@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Alphabet_Soup-LORE_6.md
+crate: crate.312058C6547E1369
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: CORE

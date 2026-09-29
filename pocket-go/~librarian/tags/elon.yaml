@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.tags/elon.md
+crate: crate.524B33B4BA718EE6
+fields:
+  - type: input
+    label: type
+    value: person
+  - type: input
+    label: class
+    value: celebrity, animus

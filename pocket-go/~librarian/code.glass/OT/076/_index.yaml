@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/076
+crate: crate.B07D61CE4A4A4C9B
+fields:
+  - type: input
+    label: title
+    value: Anger and Awakening
+  - type: input
+    label: references
+    value: "offering, ritual"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory"

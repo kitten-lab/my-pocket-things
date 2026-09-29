@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-055.md
+crate: crate.991DC0EB091E53B0
+fields:
+  - type: input
+    label: page
+    value: "055"
+  - type: input
+    label: title
+    value: Dreams Are Our Fears
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: notes
+  - type: input
+    label: topics covered
+    value: dreams, phobias, Danelle, headwaters, religion
+  - type: input
+    label: known for
+    value: dreams are our fears; Danelle fear notes; four lands headwaters
+  - type: input
+    label: continues from
+    value: CPJ-054

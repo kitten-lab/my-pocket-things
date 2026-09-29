@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-lost-color/Displaced Among Stars.md
+crate: crate.934439B698DE1C5A
+fields:
+  - type: input
+    label: title
+    value: Displaced Among Stars
+  - type: input
+    label: kind
+    value: poem
+  - type: input
+    label: hall
+    value: Hall of Lost Color
+  - type: input
+    label: hues
+    value: indigo
+  - type: input
+    label: poet
+    value: unassigned
+  - type: input
+    label: prior voice
+    value: indigo / V01
+  - type: input
+    label: status
+    value: filed
+  - type: input
+    label: motifs
+    value: separation, apple fall, fall from heaven, fall apart

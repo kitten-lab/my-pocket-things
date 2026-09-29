@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.dir/locations/Kitten Lab.md
+crate: crate.E5D2510010D40720
+fields:
+  - type: input
+    label: type
+    value: location
+  - type: input
+    label: class
+    value: "dream, imaginal"

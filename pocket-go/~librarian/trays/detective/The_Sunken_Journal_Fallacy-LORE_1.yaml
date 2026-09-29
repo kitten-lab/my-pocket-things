@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/detective/The_Sunken_Journal_Fallacy-LORE_1.md
+crate: crate.9214BCE84DEFCB56
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: echoes

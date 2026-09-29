@@ -1,0 +1,737 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Share+Tech+Mono&display=swap");
+
+/* developer — go.developer dev-notes room
+   BIOS blue, BIOS mono, cyan / yellow ink. A room you visit, not the BIOS panel:
+   grep plate + file-index rail + listing sheet of dev-note cards.
+   Sharp text: no rotate / tilt, no blur. fill-stage / inner-scroll — never 100vh */
+
+:root {
+  --strip: #0000aa;
+}
+
+.go-shell {
+  --dev-blue: #0000aa;
+  --dev-blue-hi: #1010c0;
+  --dev-deep: #000088;
+  --dev-well: #000066;
+  --dev-cyan: #55ffff;
+  --dev-yellow: #ffff55;
+  --dev-white: #ffffff;
+  --dev-grey: #aaaaaa;
+  --ink: var(--dev-white);
+  --mute: var(--dev-grey);
+  --paper: var(--dev-well);
+  --rail: 12em;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--dev-white);
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  background: var(--dev-blue);
+}
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 8px 10px 8px 12px;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .crumb,
+.go-shell .uses {
+  display: none !important;
+}
+
+.go-shell .root-up .crumb,
+.go-shell .root-up .crumbback {
+  display: inline !important;
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+.go-shell a {
+  color: var(--dev-cyan);
+  text-decoration: none;
+}
+
+.go-shell a:hover {
+  color: var(--dev-yellow);
+}
+
+.go-shell ::selection {
+  background: var(--dev-cyan);
+  color: var(--dev-blue);
+}
+
+/* the room */
+.go-shell .devroom {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+}
+
+.go-shell .devroom > p,
+.go-shell .dev-plate > p:empty,
+.go-shell .dev-rail > p:empty,
+.go-shell .dev-sheet > p:empty {
+  display: none;
+}
+
+/* grep plate: a prompt line, not a BIOS title bar */
+.go-shell .dev-plate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  flex: 0 0 auto;
+  margin: 0 0 8px;
+  padding: 7px 12px;
+  background: var(--dev-deep);
+  border-top: 2px solid var(--dev-cyan);
+  border-bottom: 1px solid var(--dev-cyan);
+}
+
+.go-shell .dev-mark,
+.go-shell .dev-mark p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dev-yellow);
+}
+
+.go-shell .dev-mark p::before {
+  content: "~/";
+  color: var(--dev-cyan);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.go-shell .dev-sub,
+.go-shell .dev-sub p {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-plate .tag-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 0 auto;
+}
+
+.go-shell .dev-plate .tag-search::before {
+  content: "$ grep";
+  font-size: 11px;
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-plate .tag-search input {
+  width: 15em;
+  max-width: 38vw;
+  padding: 3px 7px;
+  border: 1px solid var(--dev-cyan);
+  border-radius: 0;
+  background: var(--dev-well);
+  color: var(--dev-white);
+  caret-color: var(--dev-yellow);
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+.go-shell .dev-plate .tag-search input::placeholder {
+  color: #7f7fd0;
+}
+
+.go-shell .dev-plate .tag-search input:focus {
+  border-color: var(--dev-yellow);
+}
+
+.go-shell .dev-plate .tag-search button {
+  padding: 3px 10px;
+  border: 1px solid var(--dev-yellow);
+  border-radius: 0;
+  background: var(--dev-yellow);
+  color: var(--dev-blue);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.go-shell .dev-plate .tag-search button:hover {
+  background: var(--dev-cyan);
+  border-color: var(--dev-cyan);
+}
+
+/* body: file-index rail + listing sheet */
+.go-shell .dev-open {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid #000055;
+}
+
+.go-shell .dev-rail {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 8px 8px 14px 10px;
+  background: var(--dev-deep);
+  border-right: 1px solid var(--dev-cyan);
+  color: var(--dev-white);
+  scrollbar-width: thin;
+  scrollbar-color: var(--dev-cyan) var(--dev-deep);
+}
+
+.go-shell .dev-rail-mark,
+.go-shell .dev-rail-mark p {
+  margin: 0 0 6px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dev-yellow);
+}
+
+.go-shell .root-up {
+  margin: 0 0 8px;
+  font-size: 10px;
+  text-transform: lowercase;
+  color: var(--dev-grey);
+}
+
+.go-shell .root-up a,
+.go-shell .root-up a:link,
+.go-shell .root-up a:visited {
+  display: inline;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--dev-cyan);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.go-shell .dev-rail .dir.tree,
+.go-shell .dev-rail .dir.dirtree,
+.go-shell .dev-rail .dir {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .dev-rail .dir.tree ul.dir,
+.go-shell .dev-rail .dir.dirtree ul.dir {
+  padding: 1px 0 1px 10px;
+  margin: 0 0 2px;
+  border-left: 1px dotted #55ffff66;
+}
+
+.go-shell .dev-rail .dir > li {
+  margin: 0 0 1px;
+  position: relative;
+}
+
+.go-shell .dev-rail a {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 2px 4px 2px 6px;
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  color: var(--dev-white);
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  box-shadow: none;
+}
+
+.go-shell .dev-rail a .name {
+  color: inherit;
+}
+
+.go-shell .dev-rail details {
+  margin: 0;
+}
+
+.go-shell .dev-rail summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.go-shell .dev-rail summary::-webkit-details-marker,
+.go-shell .dev-rail summary::marker {
+  display: none;
+  content: "";
+}
+
+.go-shell .dev-rail details > summary > a {
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-rail details > summary::before {
+  display: none;
+}
+
+.go-shell .dev-rail a:hover,
+.go-shell .dev-rail details > summary > a:hover {
+  color: var(--dev-yellow);
+  border-left-color: var(--dev-yellow);
+}
+
+.go-shell .dev-rail a.on,
+.go-shell .dev-rail details > summary > a.on {
+  background: none;
+  color: var(--dev-yellow);
+  border-left-color: var(--dev-yellow);
+}
+
+.go-shell .dev-rail li.on:not(:has(li.on)) > a,
+.go-shell .dev-rail li.on:not(:has(li.on)) > a.on,
+.go-shell .dev-rail li.on:not(:has(li.on)) > details > summary > a,
+.go-shell .dev-rail li.on:not(:has(li.on)) > details > summary > a.on {
+  background: var(--dev-cyan);
+  color: var(--dev-blue);
+  border-left-color: var(--dev-yellow);
+}
+
+/* listing sheet */
+.go-shell .dev-sheet {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 14px 18px 22px;
+  background: var(--dev-blue);
+  color: var(--dev-white);
+  scrollbar-width: thin;
+  scrollbar-color: var(--dev-cyan) var(--dev-blue);
+}
+
+.go-shell .dev-sheet .card,
+.go-shell .dev-sheet .md,
+.go-shell .dev-sheet article,
+.go-shell .dev-sheet > p {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+}
+
+.go-shell .dev-sheet h1 {
+  margin: 0 0 10px;
+  padding: 0 0 4px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--dev-yellow);
+  border-bottom: 1px solid #55ffff66;
+}
+
+.go-shell .dev-sheet h2,
+.go-shell .dev-sheet h3 {
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-sheet p {
+  margin: 0 0 0.7em;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.go-shell .dev-sheet a {
+  color: var(--dev-cyan);
+  border-bottom: 1px dotted var(--dev-cyan);
+}
+
+.go-shell .dev-sheet code {
+  padding: 0 3px;
+  background: var(--dev-well);
+  color: var(--dev-yellow);
+  font-family: inherit;
+}
+
+.go-shell .dev-sheet .md-gap {
+  height: 0.4em;
+}
+
+/* grep results */
+.go-shell .huntlook {
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.go-shell .huntlook-mark,
+.go-shell .huntlook-mark p {
+  margin: 0 0 8px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dev-cyan);
+}
+
+.go-shell .huntlook-mark::before {
+  content: "-- ";
+}
+
+.go-shell .huntlook.taglook-empty,
+.go-shell .taglook-empty {
+  margin: 12px 0 0;
+  color: var(--dev-grey);
+}
+
+.go-shell .huntlook ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.go-shell .huntlook li {
+  margin: 0;
+}
+
+/* dev-note slips: terminal index cards */
+.go-shell .huntlook .hunt-slip,
+.go-shell .dev-sheet .hunt-slip,
+.go-shell .hunt-faces .hunt-slip {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding: 7px 10px 8px 12px;
+  background: var(--dev-well);
+  border: 1px solid #55ffff55;
+  border-left: 4px solid var(--dev-yellow);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000055;
+  color: var(--dev-white);
+  font-family: inherit;
+}
+
+.go-shell .hunt-slip-n2 {
+  border-left-color: var(--dev-cyan) !important;
+}
+
+.go-shell .hunt-slip-n3 {
+  border-left-color: var(--dev-white) !important;
+}
+
+.go-shell .dev-sheet .hunt-slip-title,
+.go-shell .huntlook .hunt-slip-title {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dev-yellow);
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+.go-shell .dev-sheet .hunt-slip-title::before,
+.go-shell .huntlook .hunt-slip-title::before {
+  content: "> ";
+  color: var(--dev-cyan);
+  font-weight: 400;
+}
+
+.go-shell .dev-sheet a.hunt-slip-title:hover,
+.go-shell .huntlook a.hunt-slip-title:hover {
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-sheet .hunt-slip-body,
+.go-shell .huntlook .hunt-slip-body {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #e8e8ff;
+}
+
+.go-shell .dev-sheet .hunt-slip-meta,
+.go-shell .huntlook .hunt-slip-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 3px;
+  padding-top: 3px;
+  border-top: 1px dashed #55ffff44;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--dev-cyan);
+}
+
+.go-shell .hunt-slip-meta .hunt-mind {
+  color: var(--dev-grey);
+}
+
+.go-shell .hunt-slip-meta .hit-from {
+  color: var(--dev-grey);
+}
+
+.go-shell .dev-sheet .faces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+  gap: 12px 14px;
+  margin: 12px 0 0;
+  align-items: start;
+}
+
+.go-shell .dev-sheet .faces:has(> .hunt-faces) {
+  display: block;
+}
+
+.go-shell .dev-sheet .hunt-faces {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.go-shell .dev-sheet .hunt-slip-open {
+  margin: 0;
+}
+
+.go-shell .dev-sheet .hunt-slip-open .hunt-slip-title {
+  display: block;
+  margin: 0 0 2px;
+}
+
+/* the page a slip hangs on (face ref at top of a shelf) */
+.go-shell .dev-sheet article.face.face-ref,
+.go-shell .dev-sheet > article.face.face-ref {
+  margin: 0 0 12px;
+  padding: 8px 11px 9px 12px;
+  background: var(--dev-deep);
+  border: 1px solid var(--dev-cyan);
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--dev-white);
+  font-family: inherit;
+  font-size: 12px;
+  /* full width of the notes sheet, square and sharp */
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  grid-column: 1 / -1;
+  transform: none;
+  rotate: none;
+}
+
+.go-shell .dev-sheet article.face.face-ref h1,
+.go-shell .dev-sheet article.face.face-ref h2 {
+  margin: 0 0 2px;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-sheet article.face.face-ref p {
+  margin: 0 0 0.2em;
+  color: #e8e8ff;
+}
+
+/* status line at the foot of the room */
+.go-shell .dev-lip {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 4px 12px;
+  background: var(--dev-cyan);
+  color: var(--dev-blue);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.go-shell .dev-lip p {
+  margin: 0;
+}
+
+/* DEV_SHELF_FULLNOTES - developer shelves only (server: ref_compact / faces_full).
+   Lead print = slim outlink bar; slips print their whole note, stacked. */
+.go-shell .dev-sheet article.face.face-ref.face-ref-compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin: 0 0 12px;
+  padding: 4px 10px 5px 10px;
+  background: var(--dev-deep);
+  border: 1px solid var(--dev-cyan);
+  border-left: 4px solid var(--dev-cyan);
+  font-size: 12px;
+  line-height: 1.3;
+  cursor: default;
+}
+
+.go-shell .dev-sheet article.face.face-ref.face-ref-compact::before {
+  content: "hangs on";
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dev-yellow);
+}
+
+.go-shell .dev-sheet .face-ref-compact .face-ref-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dev-cyan);
+  border-bottom: 0;
+}
+
+.go-shell .dev-sheet .face-ref-compact a.face-ref-link::after {
+  content: " ->";
+  font-weight: 400;
+}
+
+.go-shell .dev-sheet .face-ref-compact a.face-ref-link:hover {
+  color: var(--dev-yellow);
+}
+
+.go-shell .dev-sheet .face-ref-compact .face-ref-where {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--dev-grey);
+}
+
+.go-shell .dev-sheet .faces.faces-full {
+  display: block;
+}
+
+.go-shell .dev-sheet .hunt-faces.hunt-faces-full {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 12px 0 0;
+}
+
+.go-shell .dev-sheet .hunt-slip.hunt-slip-full {
+  gap: 0;
+  padding: 10px 16px 9px 16px;
+  box-shadow: none;
+  border: 1px solid #55ffff55;
+  border-left: 4px solid var(--dev-yellow);
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-title {
+  display: block;
+  margin: 0 0 8px;
+  padding: 0 0 5px;
+  font-size: 14px;
+  border-bottom: 1px solid #55ffff44;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body {
+  max-width: 100ch;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #e8e8ff;
+  overflow-wrap: anywhere;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body p,
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body li {
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body p {
+  margin: 0 0 0.85em;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body > :last-child {
+  margin-bottom: 0;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body h1,
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body h2,
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body h3 {
+  margin: 0.9em 0 0.4em;
+  padding: 0;
+  border: 0;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  color: var(--dev-cyan);
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body ul,
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body ol {
+  margin: 0 0 0.85em;
+  padding-left: 1.6em;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body pre {
+  margin: 0 0 0.85em;
+  padding: 6px 9px;
+  overflow: auto;
+  background: var(--dev-well);
+  border: 1px solid #55ffff33;
+  color: var(--dev-yellow);
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body blockquote {
+  margin: 0 0 0.85em;
+  padding: 0 0 0 10px;
+  border-left: 2px solid var(--dev-cyan);
+  color: var(--dev-grey);
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-body hr {
+  border: 0;
+  border-top: 1px dashed #55ffff44;
+  margin: 0.9em 0;
+}
+
+.go-shell .dev-sheet .hunt-slip-full .hunt-slip-meta {
+  margin-top: 8px;
+  padding-top: 5px;
+}

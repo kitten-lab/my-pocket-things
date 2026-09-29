@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.parabolas/the Ungiven Chocolate Rose.md
+crate: crate.2F8B5D5CF12EDD67
+fields:
+  - type: input
+    label: title
+    value: the Ungiven Chocolate Rose
+  - type: input
+    label: class
+    value: parabola
+  - type: input
+    label: dated
+    value: "2025-09-14"
+  - type: input
+    label: known for
+    value: chocolate rose never given; broke when katydid stick moved; I am the K.D.
+  - type: input
+    label: topics covered
+    value: exile, rose, Katy, self love, altar
+  - type: input
+    label: references
+    value: What Katydid; Only
+  - type: input
+    label: author
+    value: "Ori'el"

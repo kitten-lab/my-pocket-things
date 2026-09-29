@@ -3,11 +3,26 @@ pocket: go.report/walker/a thing.md
 crate: crate.88F7875E2BB4C557
 fields:
   - type: input
-    label: posted from
-    value: strange happenings logbook
-  - type: input
     label: type
-    value: test
+    value: strange happening
   - type: input
-    label: what happened
-    value: there was an occurance
+    label: class
+    value: echo
+  - type: input
+    label: sub-class
+    value: breadcrumb
+  - type: input
+    label: features
+    value: a-thing; placeholder; created-clock; week-old; no-memory-of-placing; mtime-lies; soft-rhyme-f7; follow-up-of-ae-ringing
+  - type: input
+    label: clock
+    value: When 2026-09-16 14:24 (face); noticed night of 2026-09-24 ~1:02 AM ET
+  - type: input
+    label: posted from
+    value: walker + ae night thread / sdk collective
+  - type: input
+    label: owner
+    value: Walker
+  - type: input
+    label: cites
+    value: go.detective/report/walker/a thing; go.report/walker/call audio cut ringing while ae desk.md

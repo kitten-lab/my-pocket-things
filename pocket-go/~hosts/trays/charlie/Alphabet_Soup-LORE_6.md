@@ -1,7 +1,7 @@
 ---
 crate: crate.312058C6547E1369
 source_crate: crate.B8C153EFA6C4E990
-edges: [crate.B8C153EFA6C4E990]
+edges: [crate.B8C153EFA6C4E990, crate.3E543C83587D4CD9, crate.F7F075C841B178BA]
 title: Alphabet Soup
 class: CORE
 line: "The Letters are Soups, Swirl and Sound, see what can be seen."

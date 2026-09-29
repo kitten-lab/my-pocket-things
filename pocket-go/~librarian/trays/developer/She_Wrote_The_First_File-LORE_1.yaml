@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/developer/She_Wrote_The_First_File-LORE_1.md
+crate: crate.CFC0AFD012DDEE43
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Developer
+  - type: input
+    label: card type
+    value: QUALITY ASSURANCE

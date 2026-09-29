@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/reqrep/_index.md
+crate: crate.30F91E330E153217
+fields:
+  - type: input
+    label: producer
+    value: Big Box Co.
+  - type: input
+    label: product
+    value: ReqRep
+  - type: input
+    label: SKU
+    value: CO.BBC-002-RR
+  - type: input
+    label: port
+    value: "42962"
+  - type: input
+    label: status
+    value: active
+  - type: input
+    label: kind
+    value: product
+  - type: input
+    label: developed
+    value: "2026-07-30"
+  - type: input
+    label: references
+    value: reqrep-414b
+  - type: input
+    label: contains
+    value: documentation

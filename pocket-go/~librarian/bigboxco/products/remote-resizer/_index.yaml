@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/remote-resizer/_index.md
+crate: crate.B160B0C0E0004B40
+fields:
+  - type: input
+    label: producer
+    value: Big Box Co.
+  - type: input
+    label: product
+    value: Remote Resizer
+  - type: input
+    label: SKU
+    value: CO.BBC-004-RRZ
+  - type: input
+    label: status
+    value: coming soon
+  - type: input
+    label: kind
+    value: product
+  - type: input
+    label: contains
+    value: documentation

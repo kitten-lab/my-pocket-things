@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/The_Real_Kitten-Lab-LORE_7.md
+crate: crate.D81F5A5734E6FEC4
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: thread

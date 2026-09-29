@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/detective/We_Get_What_We_Deserve-LORE_41.md
+crate: crate.2960DB25A7673D13
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Detective
+  - type: input
+    label: card type
+    value: belief

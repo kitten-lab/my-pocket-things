@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.inbox/charlie/Revelations_The_Movie-LORE_2.md
+crate: crate.AAC9FDF7541B470F
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: Theatre of the Mind

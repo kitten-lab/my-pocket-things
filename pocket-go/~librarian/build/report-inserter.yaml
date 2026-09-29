@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.build/report-inserter.md
+crate: crate.B160B0C0E0004B70
+fields:
+  - type: input
+    label: class
+    value: build-plan
+  - type: input
+    label: type
+    value: document
+  - type: input
+    label: status
+    value: planned
+  - type: input
+    label: author
+    value: Kitten

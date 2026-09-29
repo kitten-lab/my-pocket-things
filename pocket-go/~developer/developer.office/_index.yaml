@@ -1,0 +1,10 @@
+house: DEVELOPER
+pocket: go.developer.office/
+crate: crate.F062F808C0DE8600
+fields:
+  - type: input
+    label: env.type
+    value: office
+  - type: input
+    label: env.owner
+    value: ABL

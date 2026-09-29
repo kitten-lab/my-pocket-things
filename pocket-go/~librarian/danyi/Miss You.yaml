@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.danyi/Miss You.md
+crate: crate.F7F90CB35F752B72
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-050.md
+crate: crate.B79CBA2117F74D64
+fields:
+  - type: input
+    label: page
+    value: "050"
+  - type: input
+    label: title
+    value: Art Overflowed Until Form
+  - type: input
+    label: dated
+    value: "2020-01-15"
+  - type: input
+    label: class
+    value: marker
+  - type: input
+    label: contains
+    value: prose
+  - type: input
+    label: topics covered
+    value: Art, big bang, fracture, unified nature, self love
+  - type: input
+    label: known for
+    value: closes the sins-shame driver; Art as overflowing vessel
+  - type: input
+    label: continues from
+    value: CPJ-049
+  - type: input
+    label: references
+    value: Shame Was the Split; Art Overflowed Until Form; It Kills Every Container

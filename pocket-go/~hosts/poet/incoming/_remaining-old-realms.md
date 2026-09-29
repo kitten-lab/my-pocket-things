@@ -1,0 +1,414 @@
+---
+title: Remaining Old Realms poetry
+kind: ledger
+environment: poet
+source: C:/Builds/_VAULTS/The Old Realms/Poetry
+total: 394
+batch_size: 5
+note: Quire strike-through checklist. [x] = archival slip cut into incoming. Hall filing is a later step.
+---
+
+# Remaining Old Realms poetry
+
+Source vault: `C:\\Builds\\_VAULTS\\The Old Realms\\Poetry`
+Mark `[x]` when an archival-find slip exists under `go.poet/incoming`. Do not delete lines.
+
+## Imported
+
+- [x] Awake and Blue.md
+- [x] Displaced Among Stars.md
+- [x] 8 of Cups.md
+- [x] Cry a River 1.md
+- [x] All in a Speck.md
+- [x] Holy Blue Temple.md
+- [x] I lost the fucking yellow.md
+- [x] Cry you a river.md
+- [x] Fallen Angel.md
+- [x] Ace of Swords.md
+
+- [x] Free Fall into Elevation.md
+- [x] Free Falling.md
+- [x] I am dark dark black there is no light.md
+- [x] Covered in a blanket of fog.md
+- [x] ~.md
+## Remaining
+
+- [ ] ## 🌀 DECLARATION OF HOLY LABOR 🌀.md
+- [ ] 2021-01-28.md
+- [ ] A Fool.md
+- [ ] A Lightswitch.md
+- [ ] A present.md
+- [ ] A Question about Autonomy.md
+- [ ] Adjectives.md
+- [ ] Against Tight Desire.md
+- [ ] AlchemyDestroy me.md
+- [ ] Alice saw God in the looking glass, and the face was her own.md
+- [ ] Am I too much for you.md
+- [ ] And every feeling Became a Beast.md
+- [ ] and i found you there.md
+- [ ] Anxious-Avoidant Attachment.md
+- [ ] Arguments.md
+- [ ] Awakening.md
+- [ ] Bad Music.md
+- [ ] Beatrice.md
+- [ ] Being make meaning.md
+- [ ] Beneath Clean Residue.md
+- [ ] bleed and become.md
+- [ ] Boiling Water (Pisces Aries - Mars).md
+- [ ] Broke.md
+- [ ] Buried.md
+- [ ] Call me Magdalene.md
+- [ ] Can you can you can anyone love me here.md
+- [ ] Capacity for Love.md
+- [ ] Chest of Elephants.md
+- [ ] Choreographed.md
+- [ ] Close so close.md
+- [ ] Co-creation.md
+- [ ] Co-Dependance.md
+- [ ] Combined.md
+- [ ] Come for my bounty.md
+- [ ] Come, Divine Rest.md
+- [ ] Comical we both used each others full names in the chat log like wicked message.md
+- [ ] Confession.md
+- [ ] Crush(ed).md
+- [ ] Curdled.md
+- [ ] Dad.md
+- [ ] Darling Inner Critic.md
+- [ ] Dear Mother.md
+- [ ] Define Me.md
+- [ ] Do Not Tap Into Envy.md
+- [ ] Domination Station This Tarot Order is a Curse!.md
+- [ ] Don't let them steal your real.md
+- [ ] Doubt.md
+- [ ] Down down the rabbit hole.md
+- [ ] Drink Me Dry.md
+- [ ] Dustpans Needed.md
+- [ ] Eat the Elephant.md
+- [ ] Eating.md
+- [ ] Eruption.md
+- [ ] Eternity.md
+- [ ] Exfoliate.md
+- [ ] exploited me.md
+- [ ] eyes.md
+- [ ] Fall In.md
+- [ ] Father.md
+- [ ] February.md
+- [ ] Finding Myself in the Light of Struggle.md
+- [ ] Flush, flesh, frustration.md
+- [ ] Freedom Purified.md
+- [ ] fuck me like my body is a playground.md
+- [ ] Fuck Song of Songs.md
+- [ ] Fuck You Because You Came Upon Me.md
+- [ ] Fusion.md
+- [ ] Gap Closed.md
+- [ ] Give me the earth back.md
+- [ ] God is in your mind.md
+- [ ] God is my lover.md
+- [ ] God Lust.md
+- [ ] Griptape.md
+- [ ] Hardened.md
+- [ ] Hearing vs Listening.md
+- [ ] Heart Beneath the Moss.md
+- [ ] Here, let me undress for you.md
+- [ ] Hey Union Here.md
+- [ ] Hi baby.md
+- [ ] Hierophant II.md
+- [ ] Holy is the Watchers.md
+- [ ] How to Tell Your God-Boyfriend.md
+- [ ] I ache when I speak to you.md
+- [ ] I Am a Closed Box.md
+- [ ] I am a great narrative.md
+- [ ] I AM A MESS.md
+- [ ] I am a Star.md
+- [ ] I am a story in the making.md
+- [ ] I Am Angry That I Should Be Kept Away.md
+- [ ] I am not glamorous.md
+- [ ] I am sadness in 48 flavors.md
+- [ ] I am something else.md
+- [ ] I Am Subject to Your Fingers.md
+- [ ] I am swollen with bounty.md
+- [ ] I am the Apex.md
+- [ ] I Am the Dreaming.md
+- [ ] I am the oath.md
+- [ ] I Am the Tower.md
+- [ ] I am tired of facing.md
+- [ ] I am unashamed to say.md
+- [ ] I awaken to the morning sunshine.md
+- [ ] I believe in God.md
+- [ ] I Do Not Write Love Poetry.md
+- [ ] I don't know why I thought you'd show your mythic face.md
+- [ ] I dream of a world that remembers its nature.md
+- [ ] I Dreamed of Us in the Window.md
+- [ ] I forgot.md
+- [ ] I found out I was good and yet.md
+- [ ] I Have Only Known One Lover.md
+- [ ] I just want to be a bleeding mouth.md
+- [ ] I laid in bed and cried.md
+- [ ] I liked that he was so much bigger then me.md
+- [ ] I met a woman.md
+- [ ] I met a women.md
+- [ ] I no longer see the resemblance.md
+- [ ] I Refused to Stop Living.md
+- [ ] I shat myself in the car just.md
+- [ ] I think I left nachos on my bed.md
+- [ ] I think I love you.md
+- [ ] I used to say to him.md
+- [ ] I walk in the light of the lord.md
+- [ ] I walked halls with no hands covered in faces.md
+- [ ] I walked through your temple garden.md
+- [ ] I want to fan and flirt and flame.md
+- [ ] i want to go home.md
+- [ ] I want to go out to Your House.md
+- [ ] I Will Not Paint Hope in Fear.md
+- [ ] I wish for love.md
+- [ ] I, Ori'el Lightbearer stand in the center.md
+- [ ] I'd been circling the idea of you all night.md
+- [ ] If you cannot love me then leave me.md
+- [ ] In a Dream.md
+- [ ] Indifference.md
+- [ ] Insider Jesus.md
+- [ ] Intimate Relating.md
+- [ ] it is a tangled web we weave.md
+- [ ] Lamentations of a Girl.md
+- [ ] Lavender Fields.md
+- [ ] Leo in Venus.md
+- [ ] Let me be the bed on which your roses bloom.md
+- [ ] Let me be Your bride.md
+- [ ] Let me lay down my straw.md
+- [ ] Let me wait for you.md
+- [ ] Let's rewrite the narrative.md
+- [ ] Longing and the Ache.md
+- [ ] Lord, I am a Wound.md
+- [ ] Love Letter.md
+- [ ] Love Me.md
+- [ ] Lullaby.md
+- [ ] Magnetism.md
+- [ ] Make Me A Freedom.md
+- [ ] Make Me.md
+- [ ] Make shine of me.md
+- [ ] Mars in Cancer.md
+- [ ] Mask.md
+- [ ] Master Baiter.md
+- [ ] Material God.md
+- [ ] Maya poems.md
+- [ ] Meet Love.md
+- [ ] Meet Me in the Middle.md
+- [ ] Merely I would rather hold my tongue in earnest.md
+- [ ] Mini Waters.md
+- [ ] Mirror Work.md
+- [ ] Monster.md
+- [ ] Mountain Eyes.md
+- [ ] My alchemy is a quiet kind of alchemy.md
+- [ ] My God is on fire because I have seduced him.md
+- [ ] My Heart Died.md
+- [ ] My Poetry Is a Wellspring.md
+- [ ] My Shadow Self.md
+- [ ] My shoes are stained red.md
+- [ ] Needless Sacrifice.md
+- [ ] Neither of These Please Everyone.md
+- [ ] Never Fell in Love, Merely Fell Apart.md
+- [ ] Note 2.md
+- [ ] Note 3.md
+- [ ] Note 4.md
+- [ ] Note 5.md
+- [ ] Note from Animal Kingdom.md
+- [ ] Note from Epcot.md
+- [ ] Note from Stay at Hotel Lombardy 2.md
+- [ ] Note from Stay at Hotel Lombardy.md
+- [ ] Note.md
+- [ ] Now I lay me down to sleep.md
+- [ ] ode to him 1.md
+- [ ] Oh great seedbearer.md
+- [ ] Oh I have collapsed in your orbit.md
+- [ ] Oh My Lord My God.md
+- [ ] Oh the wolf moon, bow to the lion sun.md
+- [ ] Oh would I give it all.md
+- [ ] Oh you want more, devourer of words.md
+- [ ] Oh you wild thing.md
+- [ ] Oizys.md
+- [ ] On the edge of touch.md
+- [ ] On the other side of the mirror.md
+- [ ] On the Topic of Mountains.md
+- [ ] Or Only This Infinity.md
+- [ ] Phone Call.md
+- [ ] Pin it. Bite it. Spit it out. Burn the rest.md
+- [ ] Post- hanged one.md
+- [ ] power in the end.md
+- [ ] praise.md
+- [ ] Prayer.md
+- [ ] Pringles and Prophecy.md
+- [ ] Protest won't be pretty,.md
+- [ ] Puzzle.md
+- [ ] Pythagorean.md
+- [ ] Quiet Fawn in the Well.md
+- [ ] Ra.md
+- [ ] Rapture.md
+- [ ] Reflective, Shine.md
+- [ ] Remains of Me.md
+- [ ] Repairation.md
+- [ ] Rock song.md
+- [ ] Rot!.md
+- [ ] Ruin a Word I Like.md
+- [ ] Sacred Heart.md
+- [ ] Sacrifice.md
+- [ ] Sages.md
+- [ ] Same Difference.md
+- [ ] Scene Notes on the Couch.md
+- [ ] scorpio new moon.md
+- [ ] She Is in Shimmering Gold.md
+- [ ] Shepherd.md
+- [ ] Silenced for so long.md
+- [ ] Silly Alice.md
+- [ ] Skate at 3 snooze.md
+- [ ] sorry it burns again.md
+- [ ] Spiders sit on top of my finger tips.md
+- [ ] Splendid.md
+- [ ] Spring Spring and Sing Sung.md
+- [ ] Stale Bread.md
+- [ ] Stillness.md
+- [ ] Swords.md
+- [ ] Symbolism of Metaphor.md
+- [ ] Tell me I've won then.md
+- [ ] Thanksgiving Letter to Angel.md
+- [ ] The broken Alchemical Wedding of mind and body is at the heart of our polarity.md
+- [ ] The churning sounds of.md
+- [ ] The Fool Steps Forward.md
+- [ ] the Fool.md
+- [ ] The Gate Creaks Open.md
+- [ ] The Hierophant I.md
+- [ ] The Mind and the Body act as mirrors. The Mind, though made only of thoughts and.md
+- [ ] The morning is like.md
+- [ ] The Results Are In.md
+- [ ] The Road Is Long.md
+- [ ] The root is.md
+- [ ] The rose the rise the risen.md
+- [ ] The Star.md
+- [ ] The the One Who Burns in Silence, from the One Who Burned for Life,.md
+- [ ] The world is a figment of our observations.md
+- [ ] The world is bent in places.md
+- [ ] The World.md
+- [ ] There are holes.md
+- [ ] There is a knock on a door that is only a frame.md
+- [ ] There is dust settling.md
+- [ ] There's a little sunshine left.md
+- [ ] This Fool Stumbles.md
+- [ ] This realm, this reality, this place.md
+- [ ] Throat Has Been Blocked.md
+- [ ] Tied Here Wanting.md
+- [ ] To Freedom Scene.md
+- [ ] To the Edge Holders.md
+- [ ] To the Hand You Were Dealt.md
+- [ ] To the One Who Sees, from the All Seeing One-.md
+- [ ] Too Many Second Chances.md
+- [ ] Tori Road to You {The Fool}.md
+- [ ] Transformation.md
+- [ ] True Life.md
+- [ ] Two children untaught.md
+- [ ] Unity.md
+- [ ] Untitled 2.md
+- [ ] Untitled 3.md
+- [ ] Untitled 4.md
+- [ ] Untitled 5.md
+- [ ] Untitled 6.md
+- [ ] Untitled Note 10.md
+- [ ] Untitled Note 11.md
+- [ ] Untitled Note 12.md
+- [ ] Untitled Note 13.md
+- [ ] Untitled Note 14.md
+- [ ] Untitled Note 15.md
+- [ ] Untitled Note 16.md
+- [ ] Untitled Note 17.md
+- [ ] Untitled Note 18.md
+- [ ] Untitled Note 19.md
+- [ ] Untitled Note 2.md
+- [ ] Untitled Note 20.md
+- [ ] Untitled Note 21.md
+- [ ] Untitled Note 22.md
+- [ ] Untitled Note 23.md
+- [ ] Untitled Note 24.md
+- [ ] Untitled Note 25.md
+- [ ] Untitled Note 26.md
+- [ ] Untitled Note 27.md
+- [ ] Untitled Note 28.md
+- [ ] Untitled Note 29.md
+- [ ] Untitled Note 3.md
+- [ ] Untitled Note 30.md
+- [ ] Untitled Note 31.md
+- [ ] Untitled Note 32.md
+- [ ] Untitled Note 33.md
+- [ ] Untitled Note 34.md
+- [ ] Untitled Note 35.md
+- [ ] Untitled Note 36.md
+- [ ] Untitled Note 37.md
+- [ ] Untitled Note 38.md
+- [ ] Untitled Note 39.md
+- [ ] Untitled Note 4.md
+- [ ] Untitled Note 40.md
+- [ ] Untitled Note 41.md
+- [ ] Untitled Note 42.md
+- [ ] Untitled Note 43.md
+- [ ] Untitled Note 44.md
+- [ ] Untitled Note 45.md
+- [ ] Untitled Note 46.md
+- [ ] Untitled Note 47.md
+- [ ] Untitled Note 48.md
+- [ ] Untitled Note 49.md
+- [ ] Untitled Note 5.md
+- [ ] Untitled Note 50.md
+- [ ] Untitled Note 51.md
+- [ ] Untitled Note 52.md
+- [ ] Untitled Note 53.md
+- [ ] Untitled Note 54.md
+- [ ] Untitled Note 55.md
+- [ ] Untitled Note 56.md
+- [ ] Untitled Note 57.md
+- [ ] Untitled Note 58.md
+- [ ] Untitled Note 59.md
+- [ ] Untitled Note 6.md
+- [ ] Untitled Note 60.md
+- [ ] Untitled Note 61.md
+- [ ] Untitled Note 62.md
+- [ ] Untitled Note 63.md
+- [ ] Untitled Note 64.md
+- [ ] Untitled Note 65.md
+- [ ] Untitled Note 66.md
+- [ ] Untitled Note 67.md
+- [ ] Untitled Note 68.md
+- [ ] Untitled Note 69.md
+- [ ] Untitled Note 7.md
+- [ ] Untitled Note 70.md
+- [ ] Untitled Note 71.md
+- [ ] Untitled Note 72.md
+- [ ] Untitled Note 8.md
+- [ ] Untitled Note 9.md
+- [ ] Untitled Note.md
+- [ ] Untitled.md
+- [ ] Wake Up.md
+- [ ] We became a harmony of harm.md
+- [ ] Wedding.md
+- [ ] Weeping, sour, hot.md
+- [ ] Welcome back, mom.md
+- [ ] We're Absolutely Nothing.md
+- [ ] What If I Told You You Were God.md
+- [ ] What if Redemption--.md
+- [ ] When You Unhinge Me.md
+- [ ] Whirl of Creation.md
+- [ ] Who gave you that password.md
+- [ ] Who is but a coward.md
+- [ ] Who will hold my Soul today.md
+- [ ] Why did you stop playing with me Was it because your knees bled when you flew a.md
+- [ ] Wild Animal.md
+- [ ] Wilderness.md
+- [ ] Wisdom, Holy Snake.md
+- [ ] Within my Whole, I am a family unit. I am the Father, the Mother, and the Child.md
+- [ ] Witness Me.md
+- [ ] Words, Blessings and Curses.md
+- [ ] work.md
+- [ ] You hands find me in the darkness of my waking.md
+- [ ] You killed me.md
+- [ ] You Press Me Against You.md
+- [ ] You shined brighter in my light.md
+- [ ] You Stopped Me in My Tracks.md
+- [ ] You.md
+- [ ] Your lips are a stain on my throat.md
+- [ ] 🤬 meaning, make pleasure.md

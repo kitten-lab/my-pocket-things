@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/reqrep/docs/index.md
+crate: crate.B160B0C0E0004B11
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: binder-index
+  - type: input
+    label: contains
+    value: overview, getting-started, working-together, features, roles-and-lanes, product-prep

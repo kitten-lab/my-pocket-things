@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/001/T02
+crate: crate.A3F45BE1A5A621EA
+fields:
+  - type: input
+    label: title
+    value: She believes in magic
+  - type: input
+    label: messages
+    value: "67aa5a6c-de9c-8004-b715-e91f7944b523.14, 67aa5a6c-de9c-8004-b715-e91f7944b523.15, 67aa5a6c-de9c-8004-b715-e91f7944b523.16"

@@ -1,0 +1,1102 @@
+/* coat: report — Report Offices SKY_AUTH No. 7253
+   Firewatch-cabin lobby. Walls of weathered wood and memory-haze.
+   A desk floats in the center; four room plates sit on it, each infused. */
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  /* cabin walls — not logger felt */
+  --wall-hi: #1a2e22;
+  --wall: #122018;
+  --wall-lo: #0c1610;
+  --wall-deep: #060c08;
+  --grain: rgba(0, 0, 0, 0.09);
+  --haze: rgba(232, 200, 140, 0.07);
+  --lantern: #e8c078;
+  --lantern-soft: rgba(232, 192, 120, 0.22);
+  --lantern-pool: rgba(240, 200, 130, 0.14);
+  --memory: rgba(180, 160, 130, 0.08);
+
+  /* floating desk — oak slip plate */
+  --desk: #c9a878;
+  --desk-hi: #d8bc94;
+  --desk-lo: #a88858;
+  --desk-edge: #6a4828;
+  --desk-shadow: rgba(8, 4, 2, 0.55);
+  --slip: #f4ead4;
+  --slip-hi: #faf4e4;
+  --slip-lo: #ebe0c4;
+  --slip-edge: #c4ae82;
+  --oak: #7a5333;
+  --oak-deep: #4a3018;
+  --oak-hi: #9a6a40;
+  --brass: #f0e0b8;
+  --brass-dim: #d4c090;
+  --path-ink: #e8d4a8;
+  --carbon: #1c1410;
+  --mute: #7a6850;
+  --field: #f7f1de;
+  --punch: #e6d8b4;
+  --punch-rule: #b89a6a;
+
+  /* ink & accents on cabin */
+  --ink: var(--brass);
+  --paper: var(--slip);
+  --strip: var(--oak);
+  --accent: #c88848;
+  --visited: #8a6878;
+  --active: #e8a060;
+
+  /* room essences */
+  --jasmine: #d4a070;
+  --jasmine-glow: rgba(232, 180, 140, 0.45);
+  --jasmine-rose: #c87888;
+  --oman: #c48848;
+  --oman-glow: rgba(180, 100, 50, 0.4);
+  --oman-dusk: #6a4058;
+  --walker: #8a9aaa;
+  --walker-glow: rgba(140, 160, 180, 0.35);
+  --walker-ash: #4a5058;
+  --walker-lamp: #e8b858;
+  --the-pink: #e898b0;
+  --the-glow: rgba(232, 140, 170, 0.42);
+  --the-rafter: #a85878;
+}
+
+.go-shell {
+  --font-type: "Special Elite", "Courier Prime", "Courier New", Courier, monospace;
+  --font-plain: "Courier Prime", "Courier New", Courier, monospace;
+  --font-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  height: 100%;
+  min-height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  font-family: var(--font-type);
+  font-size: 15px;
+  line-height: 1.45;
+  /* dark green forest beyond the floating desk (cover + mist vignette) */
+  background-color: #0a140e;
+  background-image:
+    radial-gradient(ellipse 70% 55% at 50% 45%, transparent 20%, rgba(4, 12, 8, 0.55) 72%, rgba(2, 6, 4, 0.82) 100%),
+    linear-gradient(180deg, rgba(8, 24, 16, 0.35) 0%, transparent 28%, rgba(4, 10, 8, 0.4) 100%),
+    radial-gradient(ellipse 40% 30% at 50% 55%, rgba(232, 176, 80, 0.12), transparent 65%),
+    url("/i/report/forest-cover.jpg");
+  background-size: auto, auto, auto, cover;
+  background-position: center, center, center, center;
+  background-repeat: no-repeat;
+  background-attachment: local;
+}
+
+
+.go-shell > #browserWindow,
+#browserWindow {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0;
+  height: auto !important;
+  max-height: none;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: auto !important;
+  padding: clamp(1.5rem, 5vh, 3.5rem) clamp(0.75rem, 3vw, 2rem);
+  margin: 0;
+}
+
+.go-shell .mast,
+.go-shell .headers,
+.go-shell .uses,
+.go-shell .crumb {
+  display: none !important;
+}
+.go-shell .path .crumb,
+.go-shell .path .crumbback {
+  display: inline !important;
+}
+
+.go-shell > #browserWindow > .md-gap {
+  display: none;
+}
+
+.go-shell code {
+  font-family: var(--font-plain);
+  font-size: x-small;
+  color: var(--carbon);
+  background: rgba(244, 234, 212, 0.55);
+  padding: 0.05em 0.25em;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3 {
+  font-family: var(--font-type);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.go-shell a:link {
+  color: var(--accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--visited) !important;
+  border-bottom-color: color-mix(in srgb, var(--visited) 40%, transparent);
+}
+.go-shell a:hover {
+  color: var(--active) !important;
+  border-bottom-color: var(--active);
+}
+
+.go-shell p {
+  white-space: normal !important;
+}
+
+/* ── walk: cabin frame around the floating desk ── */
+.go-shell .walk {
+  /* firewatch notice board left in the clearing — not full-height chrome */
+  flex: 0 0 auto;
+  align-self: center;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  margin: 0 auto;
+  max-width: 46em;
+  width: min(100%, 46em);
+  border: 3px solid #1a1008;
+  border-radius: 3px;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 230, 180, 0.12), transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 13px,
+      rgba(0, 0, 0, 0.06) 13px 14px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 41px,
+      rgba(255, 220, 170, 0.04) 41px 42px
+    ),
+    linear-gradient(165deg, #5a3e28 0%, #4a3220 38%, #3a2818 72%, #2e1e12 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 200, 140, 0.18),
+    inset 0 2px 0 rgba(255, 230, 190, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    /* eerie teal seep — same color, spookier reach into the pines */
+    0 0 8px 1px rgba(120, 255, 240, 0.7),
+    0 0 18px 3px rgba(64, 230, 210, 0.5),
+    0 0 36px 8px rgba(36, 190, 180, 0.38),
+    0 0 64px 18px rgba(20, 140, 150, 0.28),
+    0 0 110px 36px rgba(10, 80, 95, 0.2),
+    0 0 160px 56px rgba(6, 50, 65, 0.12),
+    /* uneven haunt — glow leans a little off-square */
+    -18px 8px 48px 8px rgba(40, 200, 190, 0.18),
+    22px -12px 56px 10px rgba(30, 160, 180, 0.16),
+    0 22px 40px rgba(0, 0, 0, 0.55),
+    0 48px 80px rgba(0, 0, 0, 0.35),
+    0 2px 0 rgba(255, 220, 170, 0.06);
+  outline: 1px solid rgba(110, 255, 235, 0.28);
+  outline-offset: 5px;
+  position: relative;
+}
+/* brass tacks in the board corners */
+.go-shell .walk::before,
+.go-shell .walk::after {
+  content: ";
+  position: absolute;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #f0e0b0, #c9a050 45%, #6a4820 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  z-index: 3;
+  pointer-events: none;
+}
+.go-shell .walk::before {
+  top: 0.55rem;
+  left: 0.55rem;
+}
+.go-shell .walk::after {
+  top: 0.55rem;
+  right: 0.55rem;
+}
+
+/* ── head plaque: SKY_AUTH desk-mark ── */
+.go-shell .blotter-head {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 1.2em;
+  row-gap: 0.28em;
+  align-items: baseline;
+  padding: 0.9em 1.2em 0.8em;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 0%, rgba(232, 192, 120, 0.16), transparent 55%),
+    linear-gradient(180deg, var(--oak-hi) 0%, var(--oak) 65%, var(--oak-deep) 100%);
+  border-bottom: 3px solid var(--wall-deep);
+  color: var(--brass);
+  box-shadow: inset 0 1px 0 rgba(255, 230, 180, 0.18);
+}
+
+.go-shell .desk-mark {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-type);
+  font-size: 1.55em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: var(--brass);
+  text-shadow:
+    0 1px 0 var(--oak-deep),
+    0 0 18px rgba(232, 192, 120, 0.25);
+}
+.go-shell .desk-mark p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.go-shell .desk-mark-sub,
+.go-shell .desk-mark-sub p {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+  white-space: nowrap;
+}
+
+.go-shell .path {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: baseline;
+  justify-self: end;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+  color: var(--path-ink);
+}
+.go-shell .path,
+.go-shell .path p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.go-shell .path a:link,
+.go-shell .path a:visited,
+.go-shell .path a.been {
+  color: var(--path-ink) !important;
+  border-bottom-color: color-mix(in srgb, var(--path-ink) 35%, transparent);
+}
+.go-shell .path a:hover {
+  color: var(--brass) !important;
+}
+
+/* ── floating desk = .blotter: oak/slip plate suspended ── */
+.go-shell .blotter {
+  /* pinned slips on the notice board — hug content */
+  flex: 0 0 auto;
+  min-height: 0;
+  overflow: visible;
+  margin: 0.85em 1.1em 1.15em;
+  padding: 1.1em 1.2em 1.45em;
+  color: var(--carbon);
+  background:
+    radial-gradient(ellipse 60% 30% at 50% 0%, rgba(255, 240, 210, 0.4), transparent 65%),
+    linear-gradient(180deg, var(--slip-hi) 0%, var(--slip) 55%, var(--slip-lo) 100%);
+  border: 1px solid var(--slip-edge);
+  border-radius: 1px;
+  box-shadow:
+    0 1px 0 rgba(255, 250, 230, 0.5) inset,
+    0 0 0 1px rgba(20, 10, 4, 0.2),
+    0 6px 14px rgba(20, 10, 4, 0.22),
+    0 1px 0 rgba(255, 220, 170, 0.15);
+  position: relative;
+}
+
+/* soft lantern fall across the floating desk */
+.go-shell .blotter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% -5%, var(--lantern-soft), transparent 70%);
+  opacity: 0.85;
+  border-radius: inherit;
+  z-index: 0;
+}
+.go-shell .blotter > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* body text on the desk reads as carbon on oak slip */
+.go-shell .blotter > p,
+.go-shell .blotter > h1,
+.go-shell .blotter > h2,
+.go-shell .blotter > h3 {
+  color: var(--carbon);
+  text-shadow: none;
+}
+.go-shell .blotter > h1,
+.go-shell .blotter > h2,
+.go-shell .blotter > h3 {
+  color: var(--oak-deep);
+}
+
+.go-shell .blotter a:link {
+  color: #6a3a18 !important;
+  border-bottom-color: color-mix(in srgb, #6a3a18 40%, transparent);
+}
+.go-shell .blotter a:visited,
+.go-shell .blotter a.been {
+  color: #6a4858 !important;
+  border-bottom-color: color-mix(in srgb, #6a4858 40%, transparent);
+}
+.go-shell .blotter a:hover {
+  color: #a05020 !important;
+}
+
+/* trays */
+.go-shell .in-tray,
+.go-shell .out-tray {
+  margin: 0 0 1em;
+}
+
+.go-shell .tray-label,
+.go-shell .tray-label p {
+  margin: 0 0 0.45em;
+  padding: 0 0 0 2.35em;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--oak-deep);
+  text-shadow: 0 1px 0 rgba(255, 240, 210, 0.35);
+  opacity: 0.85;
+}
+
+/* platen / slip sheets on the desk */
+.go-shell .platen {
+  position: relative;
+  color: var(--carbon);
+  border: 1px solid var(--slip-edge);
+  box-shadow:
+    0 1px 0 #fff6e4 inset,
+    1px 2px 0 rgba(40, 24, 8, 0.18),
+    3px 8px 14px rgba(20, 12, 6, 0.22);
+  padding: 1em 1.25em 1.15em 2.35em;
+  font-family: var(--font-type);
+  font-size: 0.95em;
+  line-height: 1.55;
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.48em,
+      rgba(106, 58, 24, 0.07) 1.48em 1.55em
+    ),
+    var(--slip);
+  transform: rotate(-0.18deg);
+}
+
+.go-shell .platen h1 {
+  font-size: 1.12em;
+  margin: 0 0 0.35em;
+  color: var(--oak-deep);
+  text-shadow: none;
+}
+
+.go-shell .platen:has(ul.dir) {
+  display: inline-block;
+  min-width: 14em;
+  max-width: 100%;
+}
+.go-shell .in-tray ul.dir a:link,
+.go-shell .in-tray ul.dir a:visited,
+.go-shell .in-tray ul.dir a.been {
+  display: inline-block;
+  margin: 0.15em 0.35em 0.15em 0;
+  padding: 0.18em 0.55em 0.12em;
+  background: #efe2c4;
+  border: 1px solid #b89a62;
+  border-bottom-width: 3px;
+  color: var(--carbon) !important;
+  text-decoration: none !important;
+  box-shadow: 1px 1px 0 rgba(80, 50, 16, 0.2);
+}
+
+/* faces / lore cards — printout slips */
+.go-shell .out-tray .faces,
+.go-shell .faces {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.7em;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .face-deck {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.7em;
+  align-items: stretch;
+}
+
+.go-shell .face-deck-label {
+  flex: none;
+  margin: 0 0 0.15em;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--oak-deep);
+  opacity: 0.8;
+}
+
+.go-shell .faces .lorecard,
+.go-shell .faces .face,
+.go-shell article.face {
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0;
+  padding: 0.9em 1.2em 1em 2.35em;
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.5em,
+      rgba(163, 28, 36, 0.06) 1.5em 1.56em
+    ),
+    linear-gradient(180deg, var(--slip-hi) 0%, var(--slip) 55%, var(--slip-lo) 100%);
+  border: 1px solid var(--slip-edge);
+  border-left: 0;
+  box-shadow:
+    0 1px 0 rgba(255, 248, 230, 0.7) inset,
+    2px 3px 0 rgba(40, 24, 8, 0.14),
+    4px 10px 16px rgba(16, 10, 6, 0.22);
+  font-family: var(--font-type);
+  font-size: 0.92em;
+  line-height: 1.5;
+  color: var(--carbon);
+  transform-origin: 12% 40%;
+}
+
+.go-shell .platen::before,
+.go-shell .faces .face::before,
+.go-shell article.face::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  background-color: var(--punch);
+  background-image: radial-gradient(
+    circle,
+    var(--oak-deep) 0 2.2px,
+    var(--oak) 2.2px 2.45px,
+    rgba(40, 24, 8, 0.28) 2.45px 2.7px,
+    transparent 2.85px
+  );
+  background-size: 28px 18px;
+  background-position: 0 8px;
+  background-repeat: repeat-y;
+  box-shadow: inset -1px 0 0 var(--punch-rule);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.go-shell .faces .face:nth-child(odd),
+.go-shell .face-deck > .face:nth-child(odd) {
+  transform: rotate(-0.38deg);
+}
+.go-shell .faces .face:nth-child(even),
+.go-shell .face-deck > .face:nth-child(even) {
+  transform: rotate(0.32deg);
+}
+.go-shell .faces .face:nth-child(3n),
+.go-shell .face-deck > .face:nth-child(3n) {
+  transform: rotate(0.18deg) translateX(4px);
+}
+.go-shell .faces .face:hover,
+.go-shell .face-deck > .face:hover {
+  transform: rotate(0) translateY(-1px);
+  z-index: 2;
+}
+
+.go-shell .face-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em 0.7em;
+  margin: 0 0 0.35em;
+  padding-bottom: 0.28em;
+  border-bottom: 1px solid rgba(80, 60, 30, 0.22);
+}
+
+.go-shell .face-head h1,
+.go-shell .face-head h2,
+.go-shell .face .title,
+.go-shell article.face h1,
+.go-shell article.face h2,
+.go-shell .faces .face h1 {
+  margin: 0 0 0.25em;
+  font-family: var(--font-type);
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--carbon);
+  text-shadow: none;
+}
+
+.go-shell .face-body,
+.go-shell .face .md,
+.go-shell article.face .md {
+  font-family: var(--font-type);
+  font-size: 0.95em;
+  color: var(--carbon);
+}
+
+.go-shell .face strong,
+.go-shell .in-tray strong,
+.go-shell .blotter strong {
+  font-weight: 700;
+  color: #8a2828;
+}
+
+.go-shell .face em,
+.go-shell .in-tray em,
+.go-shell .blotter em {
+  font-style: italic;
+  color: #3a4a78;
+}
+
+.go-shell .chips,
+.go-shell .face .chips,
+.go-shell .platen .chips,
+.go-shell .face-head .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em 0.7em;
+  margin: 0.15em 0 0.45em;
+  padding: 0.1em 0 0.2em;
+  border: 0;
+  border-bottom: 1px dashed rgba(80, 60, 30, 0.28);
+  background: transparent;
+}
+
+.go-shell .chip,
+.go-shell .face .chip,
+.go-shell .platen .chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2em;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--font-plain);
+  font-size: 0.68em;
+  letter-spacing: 0.06em;
+}
+
+.go-shell .chip-label {
+  font-family: var(--font-plain);
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3a4a78;
+}
+.go-shell .chip-label::after {
+  content: ":";
+  color: var(--mute);
+}
+
+.go-shell .chip-value,
+.go-shell .chip-values {
+  font-family: var(--font-type);
+  font-size: 0.92em;
+  font-weight: 700;
+  color: #8a2828;
+}
+
+.go-shell .chips-librarian .chip-value {
+  color: #3a4a78;
+}
+.go-shell .chips-tps .chip-value,
+.go-shell .chips-agent .chip-value {
+  color: #8a2828;
+}
+.go-shell .chips-detective .chip-value {
+  color: #6b1a48;
+}
+
+/* injector form */
+.go-shell form.pg-injector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+  margin: 0;
+  max-width: none;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.go-shell form.pg-injector label,
+.go-shell form.pg-injector .lab,
+.go-shell form.pg-injector .pg-injector-label {
+  font-family: var(--font-plain);
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a4a78;
+  opacity: 1;
+}
+
+.go-shell form.pg-injector .pg-injector-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+
+.go-shell form.pg-injector input[type="text"],
+.go-shell form.pg-injector input[type="hidden"] + textarea,
+.go-shell form.pg-injector textarea,
+.go-shell form.pg-injector .pg-injector-field {
+  font-family: var(--font-type);
+  font-size: 1em;
+  color: var(--carbon);
+  background:
+    repeating-linear-gradient(
+      transparent 0 1.45em,
+      rgba(106, 58, 24, 0.1) 1.45em 1.52em
+    ),
+    var(--field);
+  border: 0;
+  border-bottom: 1px solid rgba(106, 58, 24, 0.28);
+  border-radius: 0;
+  padding: 0.15em 0.2em;
+  box-shadow: none;
+  resize: vertical;
+  min-height: 6.5em;
+}
+
+.go-shell form.pg-injector input[type="text"],
+.go-shell form.pg-injector input.pg-injector-field {
+  min-height: 0;
+  width: 100%;
+  max-width: 28em;
+}
+
+.go-shell form.pg-injector button,
+.go-shell form.pg-injector input[type="submit"] {
+  align-self: start;
+  margin-top: 0.35em;
+  padding: 0.28em 0.9em 0.22em;
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  background: #8a2828;
+  border: 1px solid #5a1014;
+  border-bottom-width: 3px;
+  box-shadow: 1px 1px 0 var(--oak-deep);
+  cursor: pointer;
+}
+.go-shell form.pg-injector button:hover,
+.go-shell form.pg-injector input[type="submit"]:hover {
+  background: #a03030;
+}
+
+.go-shell .empty,
+.go-shell .faces .empty {
+  font-family: var(--font-type);
+  font-size: 0.9em;
+  color: var(--oak-deep);
+  opacity: 0.75;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0.4em 0;
+}
+
+.go-shell .crumb,
+.go-shell nav.crumb {
+  font-family: var(--font-plain);
+}
+
+.go-shell .fill-stage,
+.go-shell .inner-scroll {
+  height: auto;
+  max-height: none;
+}
+
+/* navbar on desk — oak strip, beat dress purple */
+.go-shell .blotter nav.pg-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.38em 0.6em;
+  margin: 0.45em 0 0.85em;
+  padding: 0.5em 0.6em;
+  background: var(--oak-deep);
+  border: 1px solid var(--wall-deep);
+  border-top-color: var(--oak);
+  box-shadow: inset 0 1px 0 rgba(255, 220, 170, 0.12);
+  font-family: var(--font-plain);
+  font-size: 0.72em;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.go-shell .blotter nav.pg-navbar a,
+.go-shell .blotter nav.pg-navbar a:link,
+.go-shell .blotter nav.pg-navbar a:visited,
+.go-shell .blotter nav.pg-navbar a.been {
+  display: inline-block;
+  padding: 0.28em 0.58em 0.22em;
+  color: var(--brass) !important;
+  background: var(--oak);
+  border: 1px solid var(--oak-hi);
+  border-bottom: 2px solid var(--wall-deep);
+  text-decoration: none !important;
+  text-shadow: 0 1px 0 rgba(20, 10, 4, 0.45);
+}
+
+.go-shell .blotter nav.pg-navbar a:hover,
+.go-shell .blotter nav.pg-navbar a:focus-visible {
+  color: var(--slip-hi) !important;
+  background: var(--oak-hi);
+  border-color: var(--brass-dim);
+  outline: none;
+}
+
+.go-shell .blotter nav.pg-navbar a.on,
+.go-shell .blotter nav.pg-navbar a.on:link,
+.go-shell .blotter nav.pg-navbar a.on:visited {
+  color: var(--carbon) !important;
+  background: var(--brass);
+  border-color: var(--brass);
+  border-bottom-color: var(--oak-deep);
+  text-shadow: none;
+}
+
+/* ═══════════════════════════════════════════
+   LOBBY DOORS — four infused room plates
+   {{doors}} → .worlds > a.world.door-{slug}
+   LARGE 2×2 on the floating desk
+   ═══════════════════════════════════════════ */
+
+.go-shell .blotter .worlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75em 0.85em;
+  margin: 0.55em auto 0.9em;
+  max-width: 42em;
+  width: 100%;
+  padding: 0.35em 0.15em;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.go-shell .blotter a.world {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85em;
+  margin: 0;
+  padding: 0.7em 0.85em 0.7em 0.7em;
+  min-height: 0;
+  text-decoration: none !important;
+  color: var(--brass) !important;
+  /* dark plate — offsets cream slip board */
+  background:
+    linear-gradient(165deg, #3a2c22 0%, #2a1e16 48%, #1c1410 100%);
+  border: 1px solid #0e0a08;
+  border-bottom-width: 3px;
+  border-bottom-color: #0a0604;
+  border-radius: 2px;
+  box-shadow:
+    2px 4px 0 rgba(8, 4, 2, 0.45),
+    inset 0 1px 0 rgba(255, 220, 170, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  font-family: var(--font-plain);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.go-shell .blotter a.world:link,
+.go-shell .blotter a.world:visited,
+.go-shell .blotter a.world.been {
+  color: var(--brass) !important;
+  text-decoration: none !important;
+  border-bottom-style: solid;
+}
+
+.go-shell .blotter a.world:hover,
+.go-shell .blotter a.world:focus-visible {
+  color: var(--brass) !important;
+  transform: translate(-1px, -2px);
+  border-color: rgba(100, 255, 230, 0.35);
+  border-bottom-color: #0a0604;
+  box-shadow:
+    3px 6px 0 rgba(8, 4, 2, 0.5),
+    inset 0 1px 0 rgba(255, 220, 170, 0.16),
+    0 0 18px rgba(48, 210, 200, 0.22);
+  outline: none;
+}
+
+/* letter face — fills the plate */
+.go-shell .blotter a.world .door-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.75rem;
+  height: 5.75rem;
+  flex: 0 0 auto;
+  align-self: center;
+  border: 2px solid #0e0a08;
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 230, 196, 0.2),
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(0, 0, 0, 0.25);
+}
+
+.go-shell .blotter a.world .door-face.is-letter {
+  font-family: var(--font-type);
+  font-size: 2.45rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.65);
+  line-height: 1;
+}
+
+.go-shell .blotter a.world .door-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.28em;
+  min-width: 0;
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.go-shell .blotter a.world strong {
+  display: block;
+  font-family: var(--font-type);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  color: #f2e4c4 !important;
+  text-transform: uppercase;
+}
+
+.go-shell .blotter a.world .door-deck {
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: #c4b090 !important;
+  opacity: 0.95;
+}
+
+.go-shell .blotter a.world .note-details {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.15em;
+  padding: 0.16em 0.55em;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e0a08 !important;
+  background: var(--brass);
+  border: 1px solid #0e0a08;
+}
+
+/* room essence on dark plates */
+
+.go-shell .blotter a.world.door-jasmine {
+  border-top: 4px solid var(--jasmine-rose);
+  background:
+    linear-gradient(180deg, rgba(200, 120, 130, 0.35) 0%, transparent 42%),
+    linear-gradient(165deg, #3a2824 0%, #241818 55%, #160e0e 100%);
+  box-shadow:
+    2px 4px 0 rgba(8, 4, 2, 0.45),
+    inset 0 1px 0 rgba(255, 200, 180, 0.12),
+    0 0 16px var(--jasmine-glow);
+}
+.go-shell .blotter a.world.door-jasmine .door-face {
+  background:
+    radial-gradient(circle at 40% 35%, rgba(255, 230, 200, 0.35), transparent 55%),
+    linear-gradient(160deg, #8a5a48 0%, #6a4038 55%, #4a2828 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 230, 196, 0.3),
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 0 14px var(--jasmine-glow);
+}
+.go-shell .blotter a.world.door-jasmine .door-face.is-letter {
+  color: #f8e8d0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--jasmine-glow);
+}
+
+.go-shell .blotter a.world.door-oman-omenti {
+  border-top: 4px solid var(--oman);
+  background:
+    linear-gradient(180deg, rgba(180, 100, 50, 0.32) 0%, transparent 42%),
+    linear-gradient(185deg, transparent 55%, rgba(106, 64, 88, 0.28) 100%),
+    linear-gradient(165deg, #3a281c 0%, #241418 55%, #140c10 100%);
+  box-shadow:
+    2px 4px 0 rgba(8, 4, 2, 0.45),
+    inset 0 1px 0 rgba(255, 200, 140, 0.1),
+    0 0 14px var(--oman-glow);
+}
+.go-shell .blotter a.world.door-oman-omenti .door-face {
+  background:
+    radial-gradient(circle at 55% 30%, rgba(232, 160, 80, 0.3), transparent 50%),
+    linear-gradient(165deg, #7a4830 0%, #4a2838 60%, #2a1828 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 200, 140, 0.25),
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 0 14px var(--oman-glow);
+}
+.go-shell .blotter a.world.door-oman-omenti .door-face.is-letter {
+  color: #f0c890;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55), 0 0 8px var(--oman-glow);
+}
+
+.go-shell .blotter a.world.door-walker {
+  border-top: 4px solid var(--walker);
+  background:
+    linear-gradient(180deg, rgba(140, 160, 180, 0.28) 0%, transparent 42%),
+    linear-gradient(165deg, #2a3038 0%, #1a1e24 55%, #0e1014 100%);
+  box-shadow:
+    2px 4px 0 rgba(8, 4, 2, 0.45),
+    inset 0 1px 0 rgba(200, 210, 220, 0.1),
+    0 0 14px var(--walker-glow);
+}
+.go-shell .blotter a.world.door-walker .door-face {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(232, 184, 88, 0.45), transparent 42%),
+    linear-gradient(170deg, #5a6068 0%, #3a4048 50%, #1a1e24 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(200, 210, 220, 0.2),
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(232, 184, 88, 0.35);
+}
+.go-shell .blotter a.world.door-walker .door-face.is-letter {
+  color: var(--walker-lamp);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), 0 0 12px rgba(232, 184, 88, 0.5);
+}
+
+.go-shell .blotter a.world.door-the {
+  border-top: 4px solid var(--the-pink);
+  background:
+    linear-gradient(180deg, rgba(232, 152, 176, 0.32) 0%, transparent 42%),
+    linear-gradient(165deg, #3a2430 0%, #241018 55%, #140810 100%);
+  box-shadow:
+    2px 4px 0 rgba(8, 4, 2, 0.45),
+    inset 0 1px 0 rgba(255, 200, 220, 0.12),
+    0 0 16px var(--the-glow);
+}
+.go-shell .blotter a.world.door-the .door-face {
+  background:
+    radial-gradient(circle at 45% 30%, rgba(255, 200, 220, 0.4), transparent 50%),
+    linear-gradient(155deg, #a86880 0%, #784058 55%, #482838 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 210, 230, 0.3),
+    0 2px 0 rgba(0, 0, 0, 0.45),
+    0 0 16px var(--the-glow);
+}
+.go-shell .blotter a.world.door-the .door-face.is-letter {
+  color: #ffe0ec;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45), 0 0 10px var(--the-glow);
+}
+
+
+/* mobile: stack under ~720px */
+@media (max-width: 720px) {
+  .go-shell .blotter {
+    margin: 0.75em 0.65em 1em;
+    padding: 1em 0.9em 1.4em;
+  }
+  .go-shell .blotter .worlds {
+    grid-template-columns: 1fr;
+    max-width: 24em;
+    gap: 0.7em;
+  }
+  .go-shell .blotter a.world {
+    min-height: 0;
+  }
+  .go-shell .blotter a.world .door-face {
+    width: 5rem;
+    height: 5rem;
+  }
+  .go-shell .blotter a.world .door-face.is-letter {
+    font-size: 2.1rem;
+  }
+  .go-shell .desk-mark-sub,
+  .go-shell .desk-mark-sub p {
+    white-space: normal;
+  }
+  .go-shell .blotter-head {
+    grid-template-columns: 1fr;
+  }
+  .go-shell .path {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  #browserWindow {
+    padding: 1rem 0.5rem 1.5rem;
+  }
+  .go-shell .walk {
+    max-width: 100%;
+    width: 100%;
+  }
+}

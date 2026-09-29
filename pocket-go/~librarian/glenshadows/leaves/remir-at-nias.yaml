@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.glenshadows/leaves/remir-at-nias.md
+crate: crate.4F72DB2C3882442E
+fields:
+  - type: input
+    label: title
+    value: Remir at Nia's
+  - type: input
+    label: class
+    value: floor
+  - type: input
+    label: layer
+    value: floor
+  - type: input
+    label: known for
+    value: Nia took over; made Nia's; she played Remir there
+  - type: input
+    label: source bag
+    value: "001-OT-130"

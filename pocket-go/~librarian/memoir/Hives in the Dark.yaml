@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.memoir/Hives in the Dark.md
+crate: crate.8D7AD3258DFC27DC
+fields:
+  - type: input
+    label: house
+    value: uncertain apartment LA

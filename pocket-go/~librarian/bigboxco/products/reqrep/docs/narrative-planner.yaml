@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/reqrep/docs/narrative-planner.md
+crate: crate.B160B0C0E0004B1A
+fields:
+  - type: input
+    label: class
+    value: documentation
+  - type: input
+    label: kind
+    value: guide

@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.cast/index.md
+crate: crate.DEF7095E09FECCE2
+fields:
+  - type: input
+    label: title
+    value: Cast
+  - type: input
+    label: class
+    value: blotter

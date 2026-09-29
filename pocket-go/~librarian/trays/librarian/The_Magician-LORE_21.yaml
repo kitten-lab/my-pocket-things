@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.trays/librarian/The_Magician-LORE_21.md
+crate: crate.8A7AB08954363BF4
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: tarot
+  - type: input
+    label: title
+    value: The Magician
+  - type: input
+    label: known for
+    value: Card 02 on CASE 02; every tool — where from
+  - type: input
+    label: references
+    value: CASE 02 The Hymn at the Well; Wear Me

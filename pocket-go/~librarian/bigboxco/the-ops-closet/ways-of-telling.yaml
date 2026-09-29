@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/ways-of-telling.md
+crate: crate.B160B0C0E0004B85
+fields:
+  - type: input
+    label: class
+    value: inventory
+  - type: input
+    label: kind
+    value: internal

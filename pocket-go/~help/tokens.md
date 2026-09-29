@@ -41,6 +41,7 @@ Names starting `~` or `.` stay off lists. Underscore folders are ordinary. `_she
 | `{{subshell}}` | | hole in a nested `_shell.md` — sits in the next shell's `{{paper}}`; this chrome wraps the inner page |
 | `{{images}}` | `{{slides}}` | images in **this folder** as slideshow (+ thumb rail) |
 | `{{faces}}` | `{{cards}}` | body of each note in the open hall as a face grid |
+| `{{faces:created}}` | `{{cards:created}}` | faces by **TPS created** (newest first, flat; mtime if no stamp) |
 | `{{face:crate.XXXX}}` | `{{card:crate.XXXX}}` | one note anywhere under `~hosts` by crate (16 hex; `crate.` optional) |
 | `{{link:crate.XXXX}}` | `{{crate:XXXX}}` | plain title link to that crate (`/?k=`); optional `\|label` |
 | `{{cover}}` | `{{jacket}}` | this page's cover object (`cover:` / `jacket:` YAML) |
@@ -61,7 +62,7 @@ Names starting `~` or `.` stay off lists. Underscore folders are ordinary. `_she
 | `{{prev}}` | | previous sibling note link |
 | `{{next}}` | | next sibling note link |
 
-If a page has **none** of `{{files}}` / `{{spines}}` / `{{doors}}` / `{{dir}}` / `{{dirtree}}` / `{{tree}}` / `{{images}}` / `{{faces}}` / `{{recent}}`, the reader appends doors (at start) or a full `{{dir}}` (elsewhere).
+If a page has **none** of `{{files}}` / `{{spines}}` / `{{doors}}` / `{{dir}}` / `{{dirtree}}` / `{{tree}}` / `{{images}}` / `{{faces}}` / `{{faces:created}}` / `{{recent}}`, the reader appends doors (at start) or a full `{{dir}}` (elsewhere).
 
 Every slot also answers `{{tool:name}}` - `{{tool:codelook}}`, `{{tool:doors:roam}}`. Bare `{{codelook}}` still works.
 

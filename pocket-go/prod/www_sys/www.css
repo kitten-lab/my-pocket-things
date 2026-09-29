@@ -748,3 +748,248 @@ img.slides-pic {
 .pocket-pic-zoom-x:hover {
   opacity: 1;
 }
+
+/* rail drawer (shared) - www.js folds a .side / .pg-side rail that would
+   stack above the page on phone widths into one slim toggle bar, closed by
+   default ("desk . N files"). Rooms paint it with --rail-drawer-bg / -ink /
+   -line / -font / -label / -noun. Phone view = one framed page, screenshot-ready:
+   the rail, its tag shelf and the room foot stay out of the frame. */
+.rail-drawer-toggle {
+  display: none;
+}
+@media (max-width: 720px) {
+  .go-shell.rail-drawer-on .rail-drawer-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 24px;
+    margin: 0;
+    padding: 3px 12px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid var(--rail-drawer-line, rgba(0, 0, 0, 0.4));
+    border-radius: 0;
+    background: var(--rail-drawer-bg, #1c1c1c);
+    color: var(--rail-drawer-ink, #f2f2f2);
+    font-family: var(--rail-drawer-font, inherit);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: none;
+    text-shadow: none;
+    box-shadow: none;
+    opacity: 0.82;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .go-shell.rail-drawer-on .rail-drawer-toggle[aria-expanded="true"] {
+    opacity: 1;
+  }
+  .go-shell.rail-drawer-on .rail-drawer-glyph {
+    flex: 0 0 auto;
+    font-size: 11px;
+    line-height: 1;
+  }
+  .go-shell.rail-drawer-on .rail-drawer-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .go-shell.rail-drawer-on .rail-drawer-caret::before {
+    content: "\25BE";
+  }
+  .go-shell.rail-drawer-on .rail-drawer-toggle[aria-expanded="true"] .rail-drawer-caret::before {
+    content: "\25B4";
+  }
+  .go-shell.rail-drawer-on:not(.rail-drawer-open) [data-rail-drawer] {
+    display: none !important;
+  }
+  .go-shell.rail-drawer-on .foot,
+  .go-shell.rail-drawer-on:not(.rail-drawer-open) .tagshelf {
+    display: none !important;
+  }
+}
+
+/* phone capture frame (shared) - on a touch phone the in-page Pocket Go
+   chrome shrinks to the address line: no title bar, jump bar, work tabs or
+   status strip; the page glass runs edge to edge. Desktop and Deck Host
+   windows (fine pointer) keep the full chrome at any width. */
+@media (max-width: 720px) and (hover: none) and (pointer: coarse) {
+  .wwwExplorer_windowTitleBar,
+  #jumpBar,
+  #workTabs,
+  .wwwExplorer_status {
+    display: none !important;
+  }
+  .wwwExplorer_linkBar {
+    padding: 0.2rem 0.35rem;
+  }
+  .go-shell {
+    margin: 0;
+    border-width: 0;
+  }
+}
+
+/* go-search: live type-ahead under the address bar (chrome font, bar colours) */
+.goSuggest {
+  position: fixed;
+  z-index: 9000;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: #ebe6dc;
+  color: #111;
+  border: 1px solid #00000066;
+  border-top-color: #0000cd;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 2px 6px #00000040;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+.goSuggest[hidden] {
+  display: none;
+}
+.goSuggest-row {
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid #00000014;
+  cursor: pointer;
+}
+.goSuggest-row:hover {
+  background: #e0dbd0;
+}
+.goSuggest-row.is-on {
+  background: #d4d0c8;
+  box-shadow: inset 3px 0 0 #0000cd;
+}
+.goSuggest-title {
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goSuggest-addr {
+  color: #0a6b1f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goSuggest-snip {
+  color: #444;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goSuggest mark,
+.gofind mark {
+  background: #fff3a8;
+  color: inherit;
+  padding: 0;
+}
+.goSuggest-more {
+  padding: 0.3rem 0.6rem;
+  color: #0000cd;
+  cursor: pointer;
+  text-align: right;
+}
+.goSuggest-more:hover {
+  text-decoration: underline;
+}
+
+/* go-search: `/?find=` results sheet (page glass font, plain document look) */
+.gofind {
+  max-width: 46em;
+  padding: 12px 18px 24px;
+}
+.gofind-count {
+  margin: 0 0 12px;
+  color: var(--mute, #404040);
+  font-size: 0.82em;
+}
+.go-shell .gofind p {
+  white-space: normal;
+}
+.gofind-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gofind-hit {
+  margin: 0 0 14px;
+  padding: 3px 8px 4px;
+  border-left: 3px solid transparent;
+}
+.gofind-hit.is-on {
+  border-left-color: var(--accent, blue);
+  background: #00000009;
+}
+.gofind-title {
+  font-size: 1.1em;
+}
+.gofind-title:focus {
+  outline: 1px dotted currentColor;
+  outline-offset: 1px;
+}
+.gofind-addr {
+  color: #0a6b1f;
+  font-size: 0.85em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.go-shell .gofind-snip {
+  margin: 2px 0 0;
+  font-size: 0.9em;
+  color: var(--ink, #000);
+}
+.gofind-meta {
+  color: var(--mute, #404040);
+  font-size: 0.75em;
+}
+.gofind-empty {
+  color: var(--mute, #404040);
+}
+.gofind-tip {
+  margin-top: 18px;
+  color: var(--mute, #404040);
+  font-size: 0.75em;
+}
+.gofind-tip kbd {
+  font: inherit;
+  padding: 0 3px;
+  border: 1px solid var(--line, #808080);
+  border-radius: 2px;
+}
+@media (max-width: 720px) {
+  .gofind {
+    max-width: none;
+    padding: 10px 12px 20px;
+  }
+  .gofind-hit {
+    padding: 2px 4px 3px;
+  }
+  .go-shell .gofind-snip {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  .goSuggest {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    max-height: 60vh;
+  }
+  .gofind-tip {
+    display: none;
+  }
+}
+/* /go-search */

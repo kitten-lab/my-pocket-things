@@ -1,7 +1,7 @@
 ---
 crate: crate.863676F9079BEB72
-title: strange happenings
-deck: walker logger - casefile printouts
+title: STRANGE HAPPENINGS
+deck: REPORT DESK OF WALT WALKER
 environment: logger-strange
 ---
 
@@ -20,7 +20,7 @@ environment: logger-strange
 {{/div}}
 {{div:.out-tray}}
 {{div:.tray-label}}printouts{{/div}}
-{{faces}}
+{{faces:created}}
 {{/div}}
 {{/div}}
 {{/div}}

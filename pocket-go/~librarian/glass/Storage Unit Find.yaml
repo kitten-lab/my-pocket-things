@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.glass/Storage Unit Find.md
+crate: crate.E1755D366539B7AC
+fields:
+  - type: input
+    label: title
+    value: Storage Unit Find
+  - type: input
+    label: class
+    value: glass-talk
+  - type: input
+    label: environment
+    value: glass
+  - type: input
+    label: dated
+    value: "2026-03-04"

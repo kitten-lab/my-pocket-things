@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-041.md
+crate: crate.ED9EB7CAA95A36D9
+fields:
+  - type: input
+    label: page
+    value: "041"
+  - type: input
+    label: title
+    value: God Is Whole Object
+  - type: input
+    label: dated
+    value: "2020-01-13"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose; diagram
+  - type: input
+    label: topics covered
+    value: nature, God as whole, good and evil, sephirot, Star of David
+  - type: input
+    label: continues from
+    value: CPJ-040 Monday Means Reality
+  - type: input
+    label: known for
+    value: sephirot as side view of Star of David; God is whole object

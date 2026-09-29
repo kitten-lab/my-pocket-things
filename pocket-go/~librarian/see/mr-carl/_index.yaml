@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.see/mr-carl
+crate: crate.FD381A0D2AA54DD1
+fields:
+  - type: input
+    label: author
+    value: mr. carl
+  - type: input
+    label: address
+    value: 87 Memory Lane
+  - type: input
+    label: neighborhood
+    value: eastern midtown

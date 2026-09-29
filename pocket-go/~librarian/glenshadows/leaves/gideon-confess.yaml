@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.glenshadows/leaves/gideon-confess.md
+crate: crate.B43848CFEA8F4E15
+fields:
+  - type: input
+    label: title
+    value: Gideon Confess
+  - type: input
+    label: class
+    value: floor
+  - type: input
+    label: layer
+    value: floor
+  - type: input
+    label: known for
+    value: confessed feelings to Gideon; that player left; interest died
+  - type: input
+    label: source bag
+    value: "001-OT-130"

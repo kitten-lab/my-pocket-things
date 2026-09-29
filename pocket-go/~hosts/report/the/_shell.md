@@ -1,9 +1,10 @@
 ---
 crate: crate.F75A05013F943540
 title: teehee secrets
-deck: THE · teehee's secrets / gotcha-bag
+deck: REPORT DESK OF THE (ICU)
 environment: logger-strange
 ---
+
 {{div:.walk}}
 {{div:.blotter-head}}
 {{div:.desk-mark}}TEEHEE SECRETS{{/div}}

@@ -69,3 +69,2210 @@ pocket-go/~hosts/news.gazette/*
 pocket-go/castaways/*
 pocket-go/_probe_proc.ps1
 pocket-go/_gitfind.py
+pocket-go/_bak/cards-phase2-20260926-234221/mats/styles/lorecard.css
+pocket-go/_bak/cards-phase2-20260926-234221/mats/styles/trays.css
+pocket-go/_bak/cards-phase2-20260926-234221/prod/been.json
+pocket-go/_bak/cards-phase2-20260926-234221/prod/jumps.json
+pocket-go/_bak/cards-phase2-20260926-234221/prod/last.json
+pocket-go/_bak/cards-phase2-20260926-234221/prod/www_sys/librarian.css
+pocket-go/_bak/cards-phase2-20260926-234221/prod/www_sys/librarian.js
+pocket-go/_bak/cards-phase2-20260926-234221/prod/www_sys/server.py
+pocket-go/_bak/cards-phase2-20260926-234221/~detective/_suggest.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~developer/_suggest.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/_hosts.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/_shell.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/_serial.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/_shell.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Alphabet_Soup-LORE_6.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/And_We_All_Fall_Down-LORE_4.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Cabin_Girl_Bites_the_Apple-LORE_3.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Chesters_Minter-LORE_9.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Chesters_Toy_Box-LORE_8.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Deckmaster-LORE_14.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Dollmaster-LORE_13.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/East-LORE_5.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Echo_Wolf-LORE_10.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/index.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Revelations_The_Movie-LORE_2.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Tarot_Card_Puller-LORE_11.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/The_Echo_of_Consumed_Innocence-LORE_1.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/The_Real_Kitten-Lab-LORE_7.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/charlie/Venformer-LORE_12.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/_serial.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/_shell.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Abracadabra_in_the_Letters-LORE_28.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Adam-LORE_7.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Art_Overflowed_Until_Form-LORE_31.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Different_Fear_Same_Spiral-LORE_14.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Heal_and_Revenge_Same_Perch-LORE_25.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/index.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Interruptions_Technology-LORE_23.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Island_to_Thyself-LORE_18.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/It_Kills_Every_Container-LORE_32.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Jax-LORE_4.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Love_That_Consumes-LORE_15.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Misery_Becomes_Her-LORE_19.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Not_Every_Island_Word-LORE_16.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Only_you_can_help_yourself-LORE_40.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Pain_Asked_to_Be_Useful-LORE_24.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Point_Zero_Located-LORE_12.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Same_Watcher_Different_Furniture-LORE_22.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Seeing_Outruns_Saying-LORE_21.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Shame_Was_the_Split-LORE_30.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/She_Consumed_Herself-LORE_3.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/She_Does_Not_Hear_Herself-LORE_6.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/She_Was_An_Accident_Waiting_to_Happen-LORE_39.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/She_Was_Broken_Before_The_Nothing-LORE_5.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Spontaneous_Combustion-LORE_42.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Bus_That_Pays-LORE_42.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Cabin_Hangs_Off-LORE_17.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Earth_Show_Reboot_Pitch-LORE_13.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Handwriting_Was_Theirs-LORE_9.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Name_Did_Not_Survive-LORE_27.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Night_the_Calendar_Split-LORE_11.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Number_19-LORE_2.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_One_Who_Buys_the_Door-LORE_38.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Recurring_Dedication-LORE_8.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Shortest_Route-LORE_41.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Theres_Not_Even_a_Shop-LORE_36.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/They_Stopped_Before_the_Rent_Did-LORE_37.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Three_Drawers_of_Stay-LORE_29.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Until_It_Was_Staring-LORE_26.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/We_Get_What_We_Deserve-LORE_41.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Wear_Me-LORE_34.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Which_Way_is_Up-LORE_20.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Who_Is_the_Fool-LORE_33.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/detective/Written_Both_Ways-LORE_35.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/developer/_serial.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/developer/She_Wrote_The_First_File-LORE_1.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/_serial.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/_shell.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/A_Name_Without_Echoes-LORE_22.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/A_Strange_Day-LORE_1.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/All_the_Names_Blurred-LORE_19.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/Annunciation_Without_a_Church-LORE_11.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/Called_By_Her_Own_Name-LORE_8.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/Chesters_Toys-LORE_23.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/If_Earth_Got_Cancelled-LORE_15.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/index.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/She_Was_the_Writers_Room-LORE_17.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Book_Was_The_Act-LORE_2.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Fall_of_Rome-LORE_3.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Fool-LORE_20.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Girl_Who_Was_The_Moon-LORE_5.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Glass_Logs-LORE_18.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Luminous_Interval-LORE_4.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Magician-LORE_21.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Network_Cutting_the_Feed-LORE_14.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Same_Face-LORE_7.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Season_Bible-LORE_16.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Season_Might_Not-LORE_13.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Second_Lamp-LORE_6.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/librarian/The_Wanderer_on_the_Detective-LORE_12.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/tps/_serial.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/tps/_shell.md
+pocket-go/_bak/cards-phase2-20260926-234221/~hosts/trays/tps/Point_Zero-LORE_2.md
+pocket-go/_bak/cards-phase2-20260926-234221/~librarian/_suggest.yaml
+pocket-go/_bak/cards-phase2-20260926-234221/~tps/_suggest.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/_hosts.yaml.pre-merge
+pocket-go/_bak/castaways-merge-20260924-013429/cabinet-stats.json
+pocket-go/_bak/castaways-merge-20260924-013429/cleanup-stats.json
+pocket-go/_bak/castaways-merge-20260924-013429/merge-stats.json
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/code.glass/NT/597/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/code.glass/OT/001/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/code.glass/OT/007/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/code.glass/OT/008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/code.glass/OT/222/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~charlie/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/_suggest.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/code.glass/OT/001/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/a thing.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~detective/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/_hosts.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/_marks.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/recent.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/roam.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/start.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/book-of/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/book-of/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/book-of/asua/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/book-of/asua/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.event/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.event/EV-001.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.event/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/GPT/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/GPT/4/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/MAL/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/MAL/2/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/534/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/534/T01/B1316/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/597/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/597/T01/B008/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/597/T01/B010/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/601/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/601/T01/B051/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/601/T01/B052/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/601/T01/B053/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/601/T01/B054/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/603/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/603/T01/B014/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/662/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/662/T01/B328/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/708/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/708/T01/B119/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/708/T01/B125/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/708/T01/B127/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/708/T01/B137/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/716/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/716/T01/B334/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/721/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/721/T01/B618/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/729/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/729/T01/B010/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/731/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/731/T01/B095/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/743/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/743/T01/B413/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/748/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/762/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/762/T01/B422/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/766/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/766/T01/B018/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/767/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/767/T01/B112/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/776/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/788/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/788/T01/B028/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/788/T01/B084/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/793/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/793/T01/B051/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/793/T01/B105/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/860/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/NT/860/T01/B008/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/001/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/001/T01/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/001/T04/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T01/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T01/B000/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T02/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T02/B004/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T03/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/007/T03/B008/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/008/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/008/T01/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/008/T01/B002/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/008/T01/B002/L03.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/021/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/024/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/024/T01/B000/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/027/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/053/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/053/T01/B1237/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/064/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/064/T01/B032/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/222/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/223/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/237/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/369/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/369/T01/B192/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.glass/OT/369/T01/B196/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/DRX-102.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/EXE-708.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/JES-080.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/LAI-726.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/MIS-777.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/OTN-424.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/OTN-466.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/SDK-808.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/THE-000.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.people/YCI-489.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/815.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/a-e-lion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/accident.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ache.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/activated.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/adam-kadmon.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/adam.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/adama.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ae-lion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/aelion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/aidm.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/alien.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/aliens.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/andy.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/animus.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/apple.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/archetype.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/as.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ate.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/barkeep.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/bay.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/beauty.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/becoming.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/bed.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/bedroom.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/before.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/beige.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/blocked.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/borderline.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/box.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/boyfriend.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/care.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/casestreet.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/change.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/chester.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/cluster-is.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/co-creation.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/creations.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/crosses.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/crossroads.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/department.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/desert.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/dies.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/divine-authority.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/dragon-room.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/echoes.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/eddie.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/edges.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ego.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/electrocution.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/eliana.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/elion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/eliona.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/elon.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/encode.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/energy.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/eve.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/event.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ex-girlfriend.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/falling-apart.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/figure.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/fleet.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/fruit.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/glimpse.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/glitch-slips.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/god.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/good-boy.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/gotcha.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/heart.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/hecate.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/holds.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ileana.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/iliana.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/imported.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/imports.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/in.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/inner-child.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/inside.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/into.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/is.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/jace.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/jax.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/light.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/links.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/lives-as.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/living.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/looks-like.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/loops.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/magic.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/makes.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/marks-it.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/masculine-repair.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/me.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/means.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/misery.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/mishears.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/misprint.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/money.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/mythic.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/next-morning.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/not-moving.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ocean.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/of.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/offering.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ot-001.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/overflow.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/owner.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/oyzis.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/pandora.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/parasocial.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/pepito.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/perpetual-motion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/possesses.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/precognition.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/prints-as.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/product.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/property.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/references.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/related-to.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/resolves-to.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ritual.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/romantic.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/room.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/rose.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sam.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/samantha.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/severed.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/shadow.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/shame.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/shane.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/shapes.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/she.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sid.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sits-between.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sky.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sons.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sophia.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/splits.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/spoken-as.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/spoken.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/stays-with.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/stem-cluster.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/story.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/sudden.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/tag.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/tags.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/terminal.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/tesla.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/the-fall.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/the-only-size.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/the-split.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/theory.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/therapeutic.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/therapist-label.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/thrill.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/timeline.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/told-her.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/toy-story.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/tranquilized.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/tree-of-knowledge.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/true-name.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/trump.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/type.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/underfoot.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/universe.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/ven.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/was.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/wears.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/while.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/wife.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/workmate.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/write.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/code.tags/x.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/code.glass/OT/001/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/code.glass/OT/001/misery.. oyzis.. a name that haunts.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/inbox/later/hfmd rash and the concussion echo/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/inbox/later/hfmd rash and the concussion echo/she knew he dismissed then it was named.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/inbox/later/otzi to the mask theater exit/ice on the skin opens the theater door.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/inbox/later/otzi to the mask theater exit/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/flashed by a very very strong bright moon/flashed by a very very strong bright moon.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/flashed by a very very strong bright moon/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/moth on monitor at yes to build/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/moth on monitor at yes to build/signal at the yes.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/yellow leaf spin at 9/fall meaning at the ding.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/oman-omenti/yellow leaf spin at 9/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/compose him compose elon deep/compose him sandwiches again.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/compose him compose elon deep/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/fan theory boss and the mythic him/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/fan theory boss and the mythic him/more ways than the plot wants.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/sandwich name and the workplace triangle/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/the/sandwich name and the workplace triangle/sandwich name the triangle that speaks through others.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/a thing.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/butler is dead title hit.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/call audio cut ringing while ae desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/chester prophecy click on ava desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/musician with no context.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/prophetic imposition f7 means ot-007.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/grok build bible then data incident echo/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/grok build bible then data incident echo/she builds it then the wire goes dark then the push names the work.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/roku light full bright at 338/body then house answers.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/roku light full bright at 338/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/roku light full bright at 338/seeing or steering.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/roku light full bright at 338/sleeper-keyed not the SKU.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/roku light full bright at 338/wrong door same arrival.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/whole house drain cleared itself/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/report/walker/whole house drain cleared itself/stuck then suddenly clear.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/terminal.io/dailies/it feels like i am not moving/curious machine of perpetual motion.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/terminal.io/dailies/it feels like i am not moving/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective/terminal.io/dailies/it feels like i am not moving/shapes changing underfoot.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/detective.office/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-20-jack-nim-fan-theories.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-21-AIDM-doc-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-21-AIDM-face-index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-21-fan-theory-story-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-crazy-ron-elon-findings-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-crazy-ron-galactic-princess-elon-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-crazy-ron-galactic-princess-elon-windows.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-olivia-concussion-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-olivia-concussion-findings-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-22-olivia-concussion-windows.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-23-ot-007-code-glass-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-23-planet-myth-cosmology-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-23-planet-myth-cosmology-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-23-therapy-buddy-look-report.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/2026-09-23-therapy-buddy-product-doc.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/glass/shards/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/help/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/help/token-system.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/help/token-repo/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/_morning-note.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-20-awaiting-jack-nim.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-20-jack-nim-fan-theories.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-21-AIDM-doc-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-21-AIDM-face-index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-21-fan-theory-story-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-crazy-ron-elon-findings-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-crazy-ron-galactic-princess-elon-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-crazy-ron-galactic-princess-elon-windows.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-olivia-concussion-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-olivia-concussion-findings-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-22-olivia-concussion-windows.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-23-ot-007-code-glass-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-23-planet-myth-cosmology-cards.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-23-planet-myth-cosmology-pointer.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-23-therapy-buddy-look-report.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/2026-09-23-therapy-buddy-product-doc.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/faxes/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/later/hfmd rash and the concussion echo.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/later/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/inbox/later/otzi to the mask theater exit.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/journal.now/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/journal.now/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/journal.now/post.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/journal.now/Sept 19 2026 1123PM.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/inbox/later/hfmd rash and the concussion echo/accession - hfmd rash and the concussion echo.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/inbox/later/otzi to the mask theater exit/accession - hold until her voice.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/oman-omenti/flashed by a very very strong bright moon/accession - flashed by a very very strong bright moon.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/the/compose him compose elon deep/accession - compose him compose elon deep.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/the/fan theory boss and the mythic him/accession - gotcha bag entry.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/the/sandwich name and the workplace triangle/accession - sandwich name and the workplace triangle.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/a thing/accession - a thing.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/call audio cut ringing while ae desk/accession - call audio cut ringing while ae desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/chester prophecy click on ava desk/accession - chester prophecy click on ava desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/grok build bible then data incident echo/accession - build then wire then naming.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/prophetic imposition f7 means ot-007/accession - prophetic imposition f7 means ot-007.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/report/walker/whole house drain cleared itself/accession - stuck then clear.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/librarian/terminal.io/dailies/it feels like i am not moving/accession - works of becoming.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/editions/2026-09-21.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/editions/2026-09-22.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/editions/2026-09-23.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/news.gazette/editions/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/jasmine/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/jasmine/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/oman-omenti/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/oman-omenti/flashed by a very very strong bright moon.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/oman-omenti/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/oman-omenti/moth on monitor at yes to build.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/oman-omenti/yellow leaf spin at 9.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/the/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/the/compose him compose elon deep.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/the/fan theory boss and the mythic him.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/the/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/the/sandwich name and the workplace triangle.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/a double birthday unlikelihood.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/a thing.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/butler is dead song with no context.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/call audio cut ringing while ae desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/chassis slice.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/chester prophecy click on ava desk.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/glitch.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/grok build bible then data incident echo.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/lost wifi access only on the CommandStation9.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/pincher bug on monitor.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/prophetic imposition f7 means ot-007.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/roku light full bright at 338.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/report/walker/whole house drain cleared itself.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/ritual.mirrorbox/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/ritual.mirrorbox/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/ritual.mirrorbox/the-ritual.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/ritual.mirrorbox/Who is Misery.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/skyline/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/skyline/news/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/it feels like i am not moving.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/post.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/archived/50222 on the clock @ 0502 PM.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/archived/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/archived/INGEST_ARCHIVES.EXE.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/dailies/archived/POST INGESTORY.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/terminal.io/users/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/_serial.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Alphabet_Soup-LORE_6.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/And_We_All_Fall_Down-LORE_4.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Cabin_Girl_Bites_the_Apple-LORE_3.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Chesters_Minter-LORE_9.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Chesters_Toy_Box-LORE_8.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Deckmaster-LORE_14.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Dollmaster-LORE_13.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/East-LORE_5.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Echo_Wolf-LORE_10.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Revelations_The_Movie-LORE_2.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Tarot_Card_Puller-LORE_11.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/The_Echo_of_Consumed_Innocence-LORE_1.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/The_Real_Kitten-Lab-LORE_7.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/charlie/Venformer-LORE_12.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/_serial.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Abracadabra_in_the_Letters-LORE_28.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Adam-LORE_7.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Art_Overflowed_Until_Form-LORE_31.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Different_Fear_Same_Spiral-LORE_14.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Heal_and_Revenge_Same_Perch-LORE_25.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Interruptions_Technology-LORE_23.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Island_to_Thyself-LORE_18.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/It_Kills_Every_Container-LORE_32.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Jax-LORE_4.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Love_That_Consumes-LORE_15.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Misery_Becomes_Her-LORE_19.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Not_Every_Island_Word-LORE_16.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Only_you_can_help_yourself-LORE_40.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Pain_Asked_to_Be_Useful-LORE_24.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Point_Zero_Located-LORE_12.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Same_Watcher_Different_Furniture-LORE_22.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Seeing_Outruns_Saying-LORE_21.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Shame_Was_the_Split-LORE_30.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/She_Consumed_Herself-LORE_3.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/She_Does_Not_Hear_Herself-LORE_6.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/She_Was_An_Accident_Waiting_to_Happen-LORE_39.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/She_Was_Broken_Before_The_Nothing-LORE_5.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Bus_That_Pays-LORE_42.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Cabin_Hangs_Off-LORE_17.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Earth_Show_Reboot_Pitch-LORE_13.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Handwriting_Was_Theirs-LORE_9.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Name_Did_Not_Survive-LORE_27.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Night_the_Calendar_Split-LORE_11.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Number_19-LORE_2.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_One_Who_Buys_the_Door-LORE_38.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Recurring_Dedication-LORE_8.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Shortest_Route-LORE_41.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Theres_Not_Even_a_Shop-LORE_36.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/They_Stopped_Before_the_Rent_Did-LORE_37.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Three_Drawers_of_Stay-LORE_29.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Until_It_Was_Staring-LORE_26.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/We_Get_What_We_Deserve-LORE_41.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Wear_Me-LORE_34.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Which_Way_is_Up-LORE_20.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Who_Is_the_Fool-LORE_33.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/detective/Written_Both_Ways-LORE_35.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/_serial.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/A_Name_Without_Echoes-LORE_22.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/A_Strange_Day-LORE_1.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/All_the_Names_Blurred-LORE_19.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/Annunciation_Without_a_Church-LORE_11.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/Called_By_Her_Own_Name-LORE_8.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/Chesters_Toys-LORE_23.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/If_Earth_Got_Cancelled-LORE_15.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/index.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/She_Was_the_Writers_Room-LORE_17.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Book_Was_The_Act-LORE_2.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Fall_of_Rome-LORE_3.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Fool-LORE_20.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Girl_Who_Was_The_Moon-LORE_5.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Glass_Logs-LORE_18.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Luminous_Interval-LORE_4.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Magician-LORE_21.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Network_Cutting_the_Feed-LORE_14.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Same_Face-LORE_7.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Season_Bible-LORE_16.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Season_Might_Not-LORE_13.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Second_Lamp-LORE_6.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/librarian/The_Wanderer_on_the_Detective-LORE_12.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/tps/_serial.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/tps/_shell.md
+pocket-go/_bak/castaways-merge-20260924-013429/~hosts/trays/tps/Point_Zero-LORE_2.md
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/_suggest.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.event/EV-001.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/NT/534/T01/B1316/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/NT/597/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/NT/597/T01/B008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/NT/597/T01/B010/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/NT/601/T01/B051/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/001/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/001/T01/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/001/T04/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/007/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/007/T01/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.glass/OT/222/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/code.people/EXE-708.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/a double birthday unlikelihood.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/a thing.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/chassis slice.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/chester prophecy click on ava desk.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/glitch.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/lost wifi access only on the CommandStation9.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/pincher bug on monitor.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/prophetic imposition f7 means ot-007.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~librarian/terminal.io/dailies/archived/50222 on the clock @ 0502 PM.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/beau/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/book-of/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/carl/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/code.event/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/code.glass/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/code.people/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/code.tags/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/crates/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/detective/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/detective.office/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/help/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/inbox/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/journal.now/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/librarian/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/news.gazette/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/report/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/ritual.mirrorbox/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/sdk/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/sdk/kat/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/sdk/sam/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/skyline/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/terminal.io/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~readme/vox/README.md
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/_suggest.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/_worldline.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.event/EV-001.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/GPT/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/GPT/4/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/MAL/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/MAL/2/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/534/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/534/T01/B1316/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/597/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/597/T01/B008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/597/T01/B010/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/601/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/601/T01/B051/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/601/T01/B052/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/601/T01/B053/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/601/T01/B054/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/603/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/603/T01/B014/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/662/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/662/T01/B328/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/708/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/708/T01/B119/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/708/T01/B125/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/708/T01/B127/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/708/T01/B137/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/716/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/716/T01/B334/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/721/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/721/T01/B618/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/729/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/729/T01/B010/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/731/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/731/T01/B095/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/743/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/743/T01/B413/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/748/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/762/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/762/T01/B422/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/766/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/766/T01/B018/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/767/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/767/T01/B112/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/776/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/788/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/788/T01/B028/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/788/T01/B084/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/793/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/793/T01/B051/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/793/T01/B105/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/860/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/NT/860/T01/B008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/001/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/001/T01/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/001/T04/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T01/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T01/B000/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T02/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T02/B004/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T03/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/007/T03/B008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/008/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/008/T01/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/021/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/024/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/024/T01/B000/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/027/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/053/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/053/T01/B1237/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/064/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/064/T01/B032/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/222/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/223/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/237/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/369/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/369/T01/B192/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/code.glass/OT/369/T01/B196/_index.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/detective/code.glass/OT/001/misery.. oyzis.. a name that haunts.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/journal.now/Sept 19 2026 1123PM.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/a double birthday unlikelihood.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/a thing.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/chassis slice.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/chester prophecy click on ava desk.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/glitch.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/lost wifi access only on the CommandStation9.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/pincher bug on monitor.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/prophetic imposition f7 means ot-007.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/castaways-merge-20260924-013429/~tps/terminal.io/dailies/archived/50222 on the clock @ 0502 PM.yaml
+pocket-go/_bak/citations-repair-20260926-215618/_hosts.yaml
+pocket-go/_bak/citations-repair-20260926-215618/server.py
+pocket-go/_bak/citations-repair-20260926-215618/www.js
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/_shell.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/GPT/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/GPT/4/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/MAL/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/MAL/2/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/534/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/534/T01/B1316/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/597/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/597/T01/B008/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/597/T01/B010/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/601/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/601/T01/B051/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/601/T01/B052/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/601/T01/B053/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/601/T01/B054/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/603/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/603/T01/B014/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/662/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/662/T01/B328/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/708/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/708/T01/B119/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/708/T01/B125/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/708/T01/B127/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/708/T01/B137/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/716/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/716/T01/B334/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/721/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/721/T01/B618/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/729/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/729/T01/B010/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/731/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/731/T01/B095/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/743/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/743/T01/B413/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/748/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/762/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/762/T01/B422/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/766/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/766/T01/B018/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/767/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/767/T01/B112/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/776/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/788/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/788/T01/B028/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/788/T01/B084/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/793/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/793/T01/B051/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/793/T01/B105/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/860/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/NT/860/T01/B008/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/001/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/001/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/001/T04/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T01/B000/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T02/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T02/B004/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T03/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/007/T03/B008/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/008/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/008/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/008/T01/B002/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/008/T01/B002/L03.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/021/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/024/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/024/T01/B000/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/027/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/053/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/053/T01/B1237/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/064/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/064/T01/B032/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/222/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/223/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/237/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/369/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/369/T01/B192/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/code.glass/OT/369/T01/B196/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/detective/codes/OT/001/Conflicting read.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/detective/codes/OT/001/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/detective/codes/OT/001/She already knew.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/detective/codes/OT/008/T01/B002/chaos as inner child.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/detective/codes/OT/008/T01/B002/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/_serial.yaml
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/_shell.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Abracadabra_in_the_Letters-LORE_28.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Adam-LORE_7.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Art_Overflowed_Until_Form-LORE_31.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Different_Fear_Same_Spiral-LORE_14.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Heal_and_Revenge_Same_Perch-LORE_25.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Interruptions_Technology-LORE_23.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Island_to_Thyself-LORE_18.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/It_Kills_Every_Container-LORE_32.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Jax-LORE_4.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Love_That_Consumes-LORE_15.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Misery_Becomes_Her-LORE_19.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Not_Every_Island_Word-LORE_16.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Only_you_can_help_yourself-LORE_40.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Pain_Asked_to_Be_Useful-LORE_24.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Point_Zero_Located-LORE_12.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Same_Watcher_Different_Furniture-LORE_22.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Seeing_Outruns_Saying-LORE_21.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Shame_Was_the_Split-LORE_30.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/She_Consumed_Herself-LORE_3.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/She_Does_Not_Hear_Herself-LORE_6.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/She_Was_An_Accident_Waiting_to_Happen-LORE_39.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/She_Was_Broken_Before_The_Nothing-LORE_5.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Bus_That_Pays-LORE_42.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Cabin_Hangs_Off-LORE_17.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Earth_Show_Reboot_Pitch-LORE_13.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Handwriting_Was_Theirs-LORE_9.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Name_Did_Not_Survive-LORE_27.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Night_the_Calendar_Split-LORE_11.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Number_19-LORE_2.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_One_Who_Buys_the_Door-LORE_38.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Recurring_Dedication-LORE_8.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Shortest_Route-LORE_41.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Theres_Not_Even_a_Shop-LORE_36.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/They_Stopped_Before_the_Rent_Did-LORE_37.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Three_Drawers_of_Stay-LORE_29.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Until_It_Was_Staring-LORE_26.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/We_Get_What_We_Deserve-LORE_41.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Wear_Me-LORE_34.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Which_Way_is_Up-LORE_20.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Who_Is_the_Fool-LORE_33.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/trays/detective/Written_Both_Ways-LORE_35.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/_shell.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/MAL/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/MAL/2/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/534/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/767/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/788/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/793/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/NT/860/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B000/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B000/L02.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L12.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L13.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L14.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L15.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L16.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T01/B006/L17.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T02/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/001/T04/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/008/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/008/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/008/T01/B002/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/008/T01/B002/L03.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/015/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/015/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/015/T01/B1043/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/027/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/027/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/027/T01/B000/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/053/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/064/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/083/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/093/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/107/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/107/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/237/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/237/T01/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/237/T01/B032/index.md
+pocket-go/_bak/citations-repair-20260926-215618/hosts/~codes/OT/369/index.md
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bay/boybots/buddy/Across the Poles.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bay/boybots/buddy/Corn Dog Sphinx.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bay/boybots/buddy/Two Eatings.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bay/boybots/buddy/X Is the Join.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bigboxco/the-marketeers/ivana-mb-timeline.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/bigboxco/work-history/crow-md-timeline.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/buddy/marks/The Weight Changes Hands.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/buddy/reports/Across the Poles.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/buddy/reports/X Is the Join.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/buddy/thinks/State Change Not Dressing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/buddy/thinks/What the Shelves Are For.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/build/detective-to-clue-blotter.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/build/AIDM/Overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/build/AIDM/Studio.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Aelion.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Andy.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Elijah.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Elon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Katie.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Olivia.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Shane.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/cast/Sid.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/clubs/writing-club/scraps/Freedom and the Rose.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/NT/597/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/OT/007/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/OT/222/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/code.glass/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/codes/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/codes/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/codes/OT/083/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/codes/OT/093/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/codes/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/_conspiracy-make-test.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/_cross-between-five.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/_three-drawers-of-stay.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/Dance with me kitten.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/Explanation.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/Journals Interlude.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/Remir gideon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/danyi/you are my enigma.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/detective.office/_tarot-edges.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/detective.office/case1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/detective.office/case2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/detective.office/inbox/it-was-like-she-knew.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/detective.office/inbox/x-increase.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/developer.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/dir/locations/Kitten Lab.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/eden/I Ate the Apple.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/eden/Missery is in the Mistakes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glass/Storage Unit Find.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glass/Storage Unit Sam.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glass/shards/2026-09-22-crazy-ron-galactic-princess-elon-windows.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glass/shards/CXR-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/leaves/bag-001-ot-130.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/leaves/gideon-confess.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/leaves/jace-barkeep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/leaves/remir-at-nias.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/glenshadows/leaves/too-young.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/the-map.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/downstairs/art.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/downstairs/dining.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/downstairs/kitchen.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/downstairs/living.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/upstairs/elijah.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/upstairs/landing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/upstairs/nest.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/house/upstairs/olivia.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/inbox/librarian/She_Was_the_Writers_Room-LORE_17.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/inbox/librarian/The_Book_Was_The_Act-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/ineffable/omens/Cricket Mid-Heat.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/ineffable/omens/Fly Ball Disperse Butterfly.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/ineffable/omens/Threshold Cicada Grasshopper.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/island/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/island/the-map.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/island/cabin/the-cabin.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/island/oceanic/jack.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/book-1/AB1-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/book-1/AB1-002.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/book-1/AB1-003.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/book-1/AB1-004.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/developer/daily notes/2026-03-12.chip.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/librarian/journal-entry-01.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/librarian/journal-entry-02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/night/2026-09-10 - A New Journal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/night/2026-09-14.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/night/elijah hello.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-000.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-003.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-005.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-007.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-008.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-009.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-010.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-011.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-012.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-013.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-014.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-015.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-016.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-017.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-018.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-019.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-020.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-021.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-022.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-023.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-024.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-025.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-026.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-027.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-028.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-029.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-030.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-031.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-032.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-033.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-034.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-035.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-036.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-037.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-038.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-039.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-040.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-041.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-042.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-043.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-044.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-045.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-046.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-047.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-048.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-049.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-050.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-051.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-052.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-053.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-054.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-055.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-056.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/journal/the-cpj/CPJ-057.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/mausoleum/CHESTERS-TOYS/echo-wolf.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/mausoleum/KITTEN-LAB/aidm-dream-machine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/mausoleum/the-wake/curating-the-wake.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-16-old-realms-ace-of-swords.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-16-old-realms-cry-you-a-river.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-16-old-realms-fallen-angel.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-16-old-realms-holy-blue-temple.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-16-old-realms-i-lost-the-fucking-yellow.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-17-old-realms-covered-in-a-blanket-of-fog.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-17-old-realms-free-fall-into-elevation.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-17-old-realms-free-falling.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-17-old-realms-i-am-dark-dark-black-there-is-no-light.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/poet/incoming/2026-09-17-old-realms-tilde.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/tags/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/tags/accident.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/terminal/IO/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/terminal/IO/FILES/ALEPH BET A-US/JACKS DORM (DORN).yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/trays/detective/Love_That_Consumes-LORE_15.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/typewriter/A Key for the Box.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/typewriter/Chester.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/typewriter/I Have Packed My Bags.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/typewriter/So Many Chesters.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/typewriter/You Bought a Storage Unit.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~charlie/works/songs/Cannibal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/_suggest.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/agentK/Documents/CASE-ONLY-A-HEAD.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/agentK/Documents/CASE-WORK-LOGIN-FIGHT.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/code.glass/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/developer.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/journal/librarian/journal-entry-01.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/journal/librarian/journal-entry-02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/journal/night/2026-09-10 - A New Journal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/journal/the-cpj/CPJ-003.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/mausoleum/CHESTERS-TOYS/echo-wolf.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/a thing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/rituals/mirror-box/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~detective/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~developer/_suggest.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~developer/developer.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/_suggest.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/PORTS/PORT-TAVERN.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/THE-DIR/white-pages/MIS-000-MC.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/agent/lookout/nim-round-1-timber-process-for-glass-compost.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/agentK/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/agentK/Documents/internal-memo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bay/gemini/jumpman/threshold_transformation_symbolism.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/docs/how-it-works.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/docs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/docs/overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/bug-catcher/docs/planned-features.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/configurations.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/features.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/getting-started.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/phases-and-people.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/storyline-productions.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/great-road-mapper/docs/views.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/docs/how-it-works.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/docs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/docs/layouts-and-best-practices.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/docs/overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/remote-resizer/docs/planned-features.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/features.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/getting-started.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/narrative-planner.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/product-prep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/roles-and-lanes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/reqrep/docs/working-together.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/features.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/getting-started.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/how-it-works.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/overview.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/sopr-documenter/docs/resort.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/story-network/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/products/story-network/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/alice-box-software.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/cool-ideas-shelf.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/finish-line.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/ops-blotter.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/release-notes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/story-network-planner-spine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bigboxco/the-ops-closet/ways-of-telling.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bookstore/Kids Books/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bookstore/Kids Books/Elinor and the Microwave Time Machine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/bookstore/Kids Books/The Fish Astronaut.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/buddy/thinks/State Change Not Dressing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/buddy/thinks/What the Shelves Are For.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/build/report-inserter.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/build/the-librarian.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/build/AIDM/x-series-start-from-the-beginning.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/build/running/person-crate-cites.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Andy.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Elijah.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Elon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Katie.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Shane.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/cast/Sid.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.event/EV-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/NT/534/T01/B1316/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/NT/597/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/NT/597/T01/B008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/NT/597/T01/B010/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/NT/601/T01/B051/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/001/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/001/T04/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/007/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/007/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/008/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/222/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.glass/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/code.people/EXE-708.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/B000/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/B000/L02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/B006/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/B006/L12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T01/B006/L15.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/001/T02/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/008/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/083/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/093/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/codes/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/A Sacred Hand You Seek.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/all you fuckers.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/andy.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/back again.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Been There.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Biohazard Prolouge.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Breathe.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Broken Happiness.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Brush Aside.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Can't Think.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Christopher Robin.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Curious.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Dance with me kitten.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Dancing Heartache II.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Dancing Heartache.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Darkness Playtime.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Drama World.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Dream Weaver.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Dreamers Dream.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Envision This.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Explanation.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Forget Me Knots.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Forward.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Friends.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Fuse This.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Gallant is the Rose.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/go figure.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Growing Up Bliss.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Hope.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Hypocrite 2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Hypocrite.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/I Could Imaginw.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/In Love (hurt).yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/In Part I Am.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/It Hurts.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Its A Paradigm.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Journals Interlude.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/loving you.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Miss You.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/My Eyes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/My Life.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Mysterious One.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Mystery of Misery.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Penny.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Pressed against hard places.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Rage Against the Machine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/religion rants.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Remir gideon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Second Set of Eyes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/So Blind.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Stupid Girl.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Sunflower Seeds Between Us.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/sunflower seeds.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/THAG.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Twitch Twitch.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Wall Etchings.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/Wishful Thinking.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/danyi/you are my enigma.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/detective.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/detective.office/case1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/detective.office/case2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/developer.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/dir/locations/Kitten Lab.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/eden/I Ate the Apple.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glass/Storage Unit Find.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glass/Storage Unit Sam.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glass/shards/CXR-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/leaves/bag-001-ot-130.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/leaves/gideon-confess.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/leaves/jace-barkeep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/leaves/remir-at-nias.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/glenshadows/leaves/too-young.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/charlie/Revelations_The_Movie-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/charlie/The_Echo_of_Consumed_Innocence-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/A_Strange_Day-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/Annunciation_Without_a_Church-LORE_11.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/Called_By_Her_Own_Name-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/If_Earth_Got_Cancelled-LORE_15.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/Maker_Smoke_Blank_1788484863-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/Maker_Smoke_Teehee_1788484863-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/She_Was_the_Writers_Room-LORE_17.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Book_Was_The_Act-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Fall_of_Rome-LORE_3.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Girl_Who_Was_The_Moon-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Luminous_Interval-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Network_Cutting_the_Feed-LORE_14.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Same_Face-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Season_Bible-LORE_16.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Season_Might_Not-LORE_13.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Second_Lamp-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/librarian/The_Wanderer_on_the_Detective-LORE_12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/inbox/tps/couch-check-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/omens/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/omens/Cricket Mid-Heat.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/omens/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/omens/strange sounds from the sonos.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/ineffable/omens/Threshold Cicada Grasshopper.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/the-map.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/cabin/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/cabin/the-cabin.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/edge/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/oceanic/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/island/oceanic/jack.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/book-1/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/book-1/AB1-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/book-1/cover-back.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/book-1/cover-front.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/developer/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/developer/daily notes/2026-03-10.chip.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/librarian/journal-entry-01.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/librarian/journal-entry-02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/night/2026-09-10 - A New Journal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-000.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-003.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-005.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-007.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-008.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-009.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-010.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-016.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-017.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-018.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-019.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-020.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-021.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-022.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-023.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-024.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-025.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-026.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-027.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-028.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-029.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-030.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-031.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-032.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-033.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-034.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-035.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-036.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-037.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-038.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-039.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-040.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-041.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-042.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-043.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-044.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-045.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-046.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-047.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-048.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-049.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-050.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-051.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-052.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-053.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-054.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-055.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-056.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/journal/the-cpj/CPJ-057.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/links/backwardskjax.com.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/mausoleum/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/mausoleum/KITTEN-LAB/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/mausoleum/KITTEN-LAB/aidm-dream-machine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/media/books/The Machine Stops.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/media/movies/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/media/movies/Toy Story.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/media/songs/Lilith Czar - King.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/memoir/Hives in the Dark.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/offices/detective.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/parables/_MOVED.md
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/parabolas/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/parabolas/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/parabolas/the Ungiven Chocolate Rose.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/parabolas/What Katydid.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-lost-color/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-lost-color/8 of Cups.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-lost-color/Awake and Blue.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-lost-color/Displaced Among Stars.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-lost-color/Torrid affairs are spiralic awarenesses.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-ocean-songs/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/poet/hall-of-ocean-songs/Cry a River 1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/jasmine/a good fortune.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/a double birthday unlikelihood.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/a thing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/chassis slice.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/chester prophecy click on ava desk.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/glitch.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/lost wifi access only on the CommandStation9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/pincher bug on monitor.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/prophetic imposition f7 means ot-007.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/see/mr-carl/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/sophia/_chip_crates.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/sophia/leaf\[68]-aidmtestcodepckittenlab.chip.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/tags/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/tags/elon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/tags/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/terminal/IO/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/terminal/IO/FILES/ALEPH BET A-US/JACKS DORM (DORN).yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/terminal/IO/FILES/ALEPH BET A-US/JACKS JAX JCKAS.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/terminal.io/dailies/archived/50222 on the clock @ 0502 PM.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-industry/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-industry/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-industry/nn-datajacks/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-industry/nn-datajacks/about.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-industry/nn-datajacks/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-secret-lairs/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-secret-lairs/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-secret-lairs/chesters11235/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-secret-lairs/chesters11235/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-university/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-university/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-university/11/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-university/11/great-myth-archives/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/to/the-university/11/great-myth-archives/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Alphabet_Soup-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/And_We_All_Fall_Down-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Chesters_Minter-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Chesters_Toy_Box-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Deckmaster-LORE_14.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Dollmaster-LORE_13.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/East-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Echo_Wolf-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Tarot_Card_Puller-LORE_11.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/The_Real_Kitten-Lab-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/charlie/Venformer-LORE_12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Adam-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Jax-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Maker_Smoke_AgentK_1788484863-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Misery_Becomes_Her-LORE_19.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Only_you_can_help_yourself-LORE_40.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Point_Zero_Located-LORE_12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/She_Consumed_Herself-LORE_3.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/She_Does_Not_Hear_Herself-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/She_Was_An_Accident_Waiting_to_Happen-LORE_39.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/She_Was_Broken_Before_The_Nothing-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/The_Handwriting_Was_Theirs-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/The_Number_19-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/The_Recurring_Dedication-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/We_Get_What_We_Deserve-LORE_41.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/detective/Which_Way_is_Up-LORE_20.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/developer/She_Wrote_The_First_File-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/A_Name_Without_Echoes-LORE_22.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/All_the_Names_Blurred-LORE_19.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/Chesters_Toys-LORE_23.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/The_Fool-LORE_20.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/The_Glass_Logs-LORE_18.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/trays/librarian/The_Magician-LORE_21.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/typewriter/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/typewriter/I Have Packed My Bags.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/typewriter/index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/works/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/works/songs/Cannibal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~librarian/works/songs/Only.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/_suggest.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/_worldline.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/agent/lookout/nim-round-1-timber-process-for-glass-compost.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/corpus-of-the-isolate.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/cosmic-blueprint-real-sky-shift.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/isolation-chem-and-computing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/the-alchemical-island.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/the-archive-of-the-symbolic-hotel.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/bay/gemini/jumpman/threshold_transformation_symbolism.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.event/EV-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.event/EV-002.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.event/EV-003.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.event/EV-004.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/GPT/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/GPT/4/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/MAL/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/MAL/2/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/534/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/534/T01/B1316/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/597/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/597/T01/B008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/597/T01/B010/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/601/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/601/T01/B051/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/601/T01/B052/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/601/T01/B053/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/601/T01/B054/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/603/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/603/T01/B014/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/662/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/662/T01/B328/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/708/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/708/T01/B119/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/708/T01/B125/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/708/T01/B127/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/708/T01/B137/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/716/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/716/T01/B334/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/721/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/721/T01/B618/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/729/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/729/T01/B010/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/731/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/731/T01/B095/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/743/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/743/T01/B413/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/748/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/762/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/762/T01/B422/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/766/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/766/T01/B018/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/767/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/767/T01/B112/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/776/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/788/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/788/T01/B028/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/788/T01/B084/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/793/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/793/T01/B051/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/793/T01/B105/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/860/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/NT/860/T01/B008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/001/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/001/T04/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T01/B000/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T02/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T02/B004/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T03/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/007/T03/B008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/008/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/021/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/024/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/024/T01/B000/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/027/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/053/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/053/T01/B1237/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/064/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/064/T01/B032/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/222/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/223/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/237/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/369/T01/B192/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/code.glass/OT/369/T01/B196/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/MAL/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/MAL/2/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/534/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/767/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/788/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/793/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/NT/860/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B000/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B000/L02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L13.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L14.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L15.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L16.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T01/B006/L17.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T02/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/001/T04/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/008/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/008/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/015/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/015/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/015/T01/B1043/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/027/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/027/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/027/T01/B000/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/053/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/064/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/083/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/093/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/107/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/107/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/237/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/237/T01/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/237/T01/B032/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/codes/OT/369/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/A Sacred Hand You Seek.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/all you fuckers.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/andy.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/back again.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Biohazard Prolouge.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Breathe.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Broken Happiness.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Brush Aside.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Can't Think.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Christopher Robin.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Curious.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Dance with me kitten.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Dancing Heartache II.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Darkness Playtime.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Dream Weaver.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Dreamers Dream.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Envision This.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Explanation.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Forget Me Knots.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Forward.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Friends.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Fuse This.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Gallant is the Rose.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/go figure.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Growing Up Bliss.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Hope.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Hypocrite 2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Hypocrite.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/I Could Imaginw.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/In Love (hurt).yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/In Part I Am.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/It Hurts.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Its A Paradigm.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Journals Interlude.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/loving you.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Miss You.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/My Eyes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/My Life.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Mysterious One.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Mystery of Misery.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Penny.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Rage Against the Machine.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/religion rants.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Second Set of Eyes.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/So Blind.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Stupid Girl.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/sunflower seeds.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/THAG.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Twitch Twitch.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Wall Etchings.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/Wishful Thinking.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/danyi/you are my enigma.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/agent/lookout/nim-process-for-glass-compost/data jacks... again.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/code.glass/OT/001/misery.. oyzis.. a name that haunts.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/codes/OT/001/Conflicting read.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/codes/OT/001/She already knew.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/codes/OT/008/T01/B002/chaos as inner child.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/developer.office/ABL must integrate in place.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/developer.office/would another cab work.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/glass/shards/2026-09-22-crazy-ron-galactic-princess-elon-windows/Lawn sighting.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/detective/media/shows/Dougie Howser/concerns about spontangeous regrowth.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/developer/developer.office/office set up.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/developer/mausoleum/ALICE_BOX/the birth of ALICE_BOX.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/developer.office/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/developer.office/report-desk/test.run format of report insert.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/eden/I Ate the Apple.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/glass/Storage Unit Find.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/glass/Storage Unit Sam.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/glass/shards/CXR-001.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/charlie/Revelations_The_Movie-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/charlie/The_Echo_of_Consumed_Innocence-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/later/hfmd rash and the concussion echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/later/otzi to the mask theater exit.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/A_Strange_Day-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/Called_By_Her_Own_Name-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/Maker_Smoke_Blank_1788484863-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/Maker_Smoke_Teehee_1788484863-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Book_Was_The_Act-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Fall_of_Rome-LORE_3.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Girl_Who_Was_The_Moon-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Luminous_Interval-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Same_Face-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/librarian/The_Second_Lamp-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/inbox/tps/couch-check-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/ineffable/omens/Cricket Mid-Heat.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/ineffable/omens/strange sounds from the sonos.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/ineffable/omens/Threshold Cicada Grasshopper.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/librarian/journal-entry-02.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/night/2026-09-10 - A New Journal.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-007.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-008.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-009.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-016.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-017.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-018.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-019.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-020.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-021.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-022.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-023.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-024.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-027.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-030.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal/the-cpj/CPJ-057.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/journal.now/Sept 19 2026 1123PM.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/librarian/developer.office/AIDM Login Notation.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/links/backwardskjax.com.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/parables/_MOVED.md
+pocket-go/_bak/citations-repair-20260926-215618/~tps/parabolas/the Ungiven Chocolate Rose.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/parabolas/What Katydid.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/jasmine/a good fortune.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/oman-omenti/flashed by a very very strong bright moon.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/oman-omenti/moth on monitor at yes to build.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/oman-omenti/yellow leaf spin at 9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/the/compose him compose elon deep.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/the/fan theory boss and the mythic him.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/the/sandwich name and the workplace triangle.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/a double birthday unlikelihood.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/a thing.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/butler is dead song with no context.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/call audio cut ringing while ae desk.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/chassis slice.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/chester prophecy click on ava desk.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/glitch.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/grok build bible then data incident echo.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/lost wifi access only on the CommandStation9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/pincher bug on monitor.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/prophetic imposition f7 means ot-007.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/roku light full bright at 338.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/report/walker/whole house drain cleared itself.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/terminal/IO/FILES/ALEPH BET A-US/JACKS DORM (DORN).yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/terminal/IO/FILES/ALEPH BET A-US/JACKS JAX JCKAS.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/terminal.io/dailies/it feels like i am not moving.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/terminal.io/dailies/archived/50222 on the clock @ 0502 PM.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/to/_index.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Alphabet_Soup-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/And_We_All_Fall_Down-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Chesters_Minter-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Chesters_Toy_Box-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Deckmaster-LORE_14.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Dollmaster-LORE_13.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/East-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Echo_Wolf-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Tarot_Card_Puller-LORE_11.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/The_Real_Kitten-Lab-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/charlie/Venformer-LORE_12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Adam-LORE_7.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Jax-LORE_4.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Maker_Smoke_AgentK_1788484863-LORE_10.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Misery_Becomes_Her-LORE_19.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Only_you_can_help_yourself-LORE_40.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Point_Zero_Located-LORE_12.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/She_Consumed_Herself-LORE_3.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/She_Does_Not_Hear_Herself-LORE_6.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/She_Was_An_Accident_Waiting_to_Happen-LORE_39.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/She_Was_Broken_Before_The_Nothing-LORE_5.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/The_Handwriting_Was_Theirs-LORE_9.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/The_Number_19-LORE_2.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/The_Recurring_Dedication-LORE_8.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/The_Sunken_Journal_Fallacy-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/We_Get_What_We_Deserve-LORE_41.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/detective/Which_Way_is_Up-LORE_20.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/developer/She_Wrote_The_First_File-LORE_1.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/librarian/A_Name_Without_Echoes-LORE_22.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/librarian/All_the_Names_Blurred-LORE_19.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/librarian/Chesters_Toys-LORE_23.yaml
+pocket-go/_bak/citations-repair-20260926-215618/~tps/trays/librarian/The_Glass_Logs-LORE_18.yaml
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/_shell.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/MAL/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/MAL/2/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/534/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/767/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/788/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/793/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/NT/860/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B000/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B000/L02.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L12.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L13.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L14.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L15.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L16.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T01/B006/L17.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T02/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/001/T04/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/008/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/008/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/008/T01/B002/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/008/T01/B002/L03.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/015/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/015/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/015/T01/B1043/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/027/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/027/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/027/T01/B000/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/053/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/064/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/083/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/093/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/107/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/107/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/237/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/237/T01/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/237/T01/B032/index.md
+pocket-go/_bak/codes-retired-20260926-2204/hosts/~codes/OT/369/index.md
+pocket-go/_bak/codes-retired-20260926-2204/~charlie/codes/OT/001/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~charlie/codes/OT/008/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~charlie/codes/OT/083/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~charlie/codes/OT/093/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~charlie/codes/OT/369/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~detective/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/B000/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/B000/L02.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/B006/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/B006/L12.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T01/B006/L15.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/001/T02/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/008/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/008/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/083/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/093/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~librarian/codes/OT/369/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/MAL/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/MAL/2/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/534/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/767/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/788/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/793/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/NT/860/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B000/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B000/L02.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L12.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L13.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L14.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L15.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L16.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T01/B006/L17.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T02/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/001/T04/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/008/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/008/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/008/T01/B002/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/008/T01/B002/L03.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/015/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/015/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/015/T01/B1043/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/027/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/027/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/027/T01/B000/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/053/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/064/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/083/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/093/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/107/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/107/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/237/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/237/T01/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/237/T01/B032/_index.yaml
+pocket-go/_bak/codes-retired-20260926-2204/~tps/codes/OT/369/_index.yaml
+pocket-go/_bak/csseditor-lag-20260928-184404/MANIFEST.sha256.txt
+pocket-go/_bak/csseditor-lag-20260928-184404/prod/www_sys/librarian.js
+pocket-go/_bak/deck-bios-chip-20260926-104703/librarian.js
+pocket-go/_bak/deck-quest-width-20260926-105037/librarian.css
+pocket-go/_bak/deck-quest-width-20260926-105037/librarian.js
+pocket-go/_bak/deck-switch-fix-20260926-110636/librarian.js
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/developer.css
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/server.py
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/det.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/det2.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/dev.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/devgrep.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/devgrep2.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/devroot.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/devslip.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-after/lib.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-before/det.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-before/det2.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-before/dev.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-before/devgrep.html
+pocket-go/_bak/dev-shelf-fullnotes-20260926-103609/html-before/lib.html
+pocket-go/_bak/developer-cabinet-20260926-095354/_hosts.yaml
+pocket-go/_bak/developer-cabinet-20260926-095354/dress.css
+pocket-go/_bak/developer-cabinet-20260926-095354/librarian.css
+pocket-go/_bak/developer-cabinet-20260926-095354/librarian.js
+pocket-go/_bak/developer-cabinet-20260926-095354/server.py
+pocket-go/_bak/developer-cabinet-20260926-095354/www.js
+pocket-go/_bak/developer-glamour-20260927-164410/~hosts__developer.office___shell.md
+pocket-go/_bak/developer-glamour-20260927-164410/~hosts__developer.office__functionalities__indigestion.md
+pocket-go/_bak/developer-glamour-20260927-164410/~hosts__developer.office__index.md
+pocket-go/_bak/developer-glamour-20260927-164410/~hosts__developer.office__report-desk__index.md
+pocket-go/_bak/developer-glamour-20260927-164410/~hosts__developer.office__report-desk__test.run format of report insert.md
+pocket-go/_bak/developer-glamour-20260927-164410/MANIFEST.sha256.txt
+pocket-go/_bak/developer-glamour-20260927-164410/mats__styles__developer-office.css
+pocket-go/_bak/developer-glamour-20260927-164410/prod__been.json
+pocket-go/_bak/developer-glamour-20260927-164410/prod__last.json
+pocket-go/_bak/developer-inbox-20260927-192609/MANIFEST.sha256.txt
+pocket-go/_bak/developer-inbox-20260927-192609/mats/styles/developer-office.css
+pocket-go/_bak/developer-inbox-20260927-192609/prod/been.json
+pocket-go/_bak/developer-inbox-20260927-192609/prod/last.json
+pocket-go/_bak/developer-inbox-20260927-192609/~hosts/developer.office/_shell.md
+pocket-go/_bak/developer-inbox-20260927-192609/~hosts/developer.office/index.md
+pocket-go/_bak/developer-inbox-20260927-192609/~hosts/developer.office/functionalities/indigestion.md
+pocket-go/_bak/developer-inbox-20260927-192609/~hosts/developer.office/report-desk/index.md
+pocket-go/_bak/developer-inbox-20260927-192609/~hosts/developer.office/report-desk/test.run format of report insert.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~hosts/era/_shell.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~hosts/era/index.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~hosts/era/seeking self.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~hosts/era/tarot enthusiastic.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~readme/era/README.md
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~tps/era/seeking self.yaml
+pocket-go/_bak/era-to-events-20260926-193954/castaways/~tps/era/tarot enthusiastic.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/_hosts.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/code.event/_shell.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/code.event/EV-001.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/code.event/EV-002.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/code.event/index.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/era/_shell.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/era/index.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/era/seeking self.md
+pocket-go/_bak/era-to-events-20260926-193954/~hosts/era/tarot enthusiastic.md
+pocket-go/_bak/era-to-events-20260926-193954/~librarian/code.event/EV-001.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~readme/code.event/README.md
+pocket-go/_bak/era-to-events-20260926-193954/~readme/era/README.md
+pocket-go/_bak/era-to-events-20260926-193954/~tps/_worldline.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~tps/code.event/EV-001.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~tps/code.event/EV-002.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~tps/era/seeking self.yaml
+pocket-go/_bak/era-to-events-20260926-193954/~tps/era/tarot enthusiastic.yaml
+pocket-go/_bak/event-retag-20260926-200525/~tps/_worldline.yaml
+pocket-go/_bak/event-tps-dress-20260926-184536/shot-EV-001.png
+pocket-go/_bak/event-tps-dress-20260926-184536/shot-index.png
+pocket-go/_bak/event-tps-dress-20260926-184536/mats/styles/event.css
+pocket-go/_bak/event-tps-dress-20260926-184536/post-html/EV-001.html
+pocket-go/_bak/event-tps-dress-20260926-184536/post-html/EV-002.html
+pocket-go/_bak/event-tps-dress-20260926-184536/post-html/index.html
+pocket-go/_bak/event-tps-dress-20260926-184536/pre-html/EV-001.html
+pocket-go/_bak/event-tps-dress-20260926-184536/pre-html/EV-002.html
+pocket-go/_bak/event-tps-dress-20260926-184536/pre-html/index.html
+pocket-go/_bak/event-tps-dress-20260926-184536/~hosts/code.event/_shell.md
+pocket-go/_bak/gosearch-20260928-191731/MANIFEST.sha256.txt
+pocket-go/_bak/gosearch-20260928-191731/prod/www_sys/server.py
+pocket-go/_bak/gosearch-20260928-191731/prod/www_sys/www.css
+pocket-go/_bak/gosearch-20260928-191731/prod/www_sys/www.js
+pocket-go/_bak/inbox-mark-20260927-201238/MANIFEST.sha256.txt
+pocket-go/_bak/inbox-mark-20260927-201238/mats/styles/inbox.css
+pocket-go/_bak/inbox-mark-20260927-201238/prod/been.json
+pocket-go/_bak/inbox-mark-20260927-201238/prod/last.json
+pocket-go/_bak/inbox-mark-20260927-201238/~hosts/inbox/_shell.md
+pocket-go/_bak/inbox-mark-20260927-201238/~hosts/inbox/faxes/2026-09-21-AIDM-doc-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/MANIFEST.sha256.txt
+pocket-go/_bak/inbox-reading-20260927-193825/mats/styles/inbox.css
+pocket-go/_bak/inbox-reading-20260927-193825/prod/been.json
+pocket-go/_bak/inbox-reading-20260927-193825/prod/last.json
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/_shell.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/index.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/_morning-note.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/_shell.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-20-awaiting-jack-nim.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-20-jack-nim-fan-theories.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-21-AIDM-doc-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-21-AIDM-face-index.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-21-fan-theory-story-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-crazy-ron-elon-findings-pointer.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-crazy-ron-galactic-princess-elon-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-crazy-ron-galactic-princess-elon-windows.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-olivia-concussion-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-olivia-concussion-findings-pointer.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-22-olivia-concussion-windows.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-23-ot-007-code-glass-pointer.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-23-planet-myth-cosmology-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-23-planet-myth-cosmology-pointer.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-23-therapy-buddy-look-report.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-23-therapy-buddy-product-doc.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-25-ot-093-083-story-cards.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-27-may30-jun4-5-log-cluster.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-27-may30-jun5-cluster-trunk-map.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/2026-09-27-ot-015-poem-feedback-stage-map.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/faxes/README.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/later/hfmd rash and the concussion echo.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/later/index.md
+pocket-go/_bak/inbox-reading-20260927-193825/~hosts/inbox/later/otzi to the mask theater exit.md
+pocket-go/_bak/inbox-reading-20260927-193825/~readme/inbox/README.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~charlie/kmoire/_tarot-edges.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~charlie/kmoire/case1.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~charlie/kmoire/case2.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~charlie/kmoire/inbox/it-was-like-she-knew.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~charlie/kmoire/inbox/x-increase.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/_hosts.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/detective.office/_shell.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/_shell.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/case1.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/case2.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/index.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/inbox/_shell.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/inbox/he-was-someone-she-knew.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/inbox/it-was-like-she-knew.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~hosts/kmoire/inbox/x-increase.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~librarian/kmoire/case1.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~librarian/kmoire/case2.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~librarian/offices/kmoire/_index.yaml
+pocket-go/_bak/kmoire-merge-20260925-081613/~readme/detective.office/README.md
+pocket-go/_bak/kmoire-merge-20260925-081613/~readme/kmoire/README.md
+pocket-go/_bak/librarian-content-20260927-162641/been.json
+pocket-go/_bak/librarian-content-20260927-162641/last.json
+pocket-go/_bak/librarian-content-20260927-162641/librarian-office.css
+pocket-go/_bak/librarian-content-20260927-162641/MANIFEST.sha256.txt
+pocket-go/_bak/librarian-content-20260927-162641/sample-entry.md
+pocket-go/_bak/librarian-headbar-20260927-163927/librarian-office.css
+pocket-go/_bak/librarian-headbar-20260927-163927/MANIFEST.sha256.txt
+pocket-go/_bak/librarian-rail-20260927-154347/~hosts__librarian.office___shell.md
+pocket-go/_bak/librarian-rail-20260927-154347/MANIFEST.sha256.txt
+pocket-go/_bak/librarian-rail-20260927-154347/mats__styles__librarian-office.css
+pocket-go/_bak/librarian-rail-20260927-154347/prod__been.json
+pocket-go/_bak/librarian-rail-20260927-154347/prod__last.json
+pocket-go/_bak/lilith-hang-20260926-212601/server.py
+pocket-go/_bak/newcard-20260926-232349/librarian.js
+pocket-go/_bak/newcard-20260926-232349/patch_newcard.py
+pocket-go/_bak/newcard-20260926-232349/server.py
+pocket-go/_bak/newcard-20260926-232349/pretest/librarian_serial.yaml
+pocket-go/_bak/newcard-20260926-232349/pretest/librarian_suggest.yaml
+pocket-go/_bak/newcard-20260926-232349/pretest/tps_suggest.yaml
+pocket-go/_bak/offices-dress-20260927-142245/mats/styles/coat.css
+pocket-go/_bak/offices-dress-20260927-142245/mats/styles/kmoire.css
+pocket-go/_bak/offices-dress-20260927-142245/~hosts/detective.office/_shell.md
+pocket-go/_bak/offices-dress-20260927-142245/~hosts/detective.office/inbox/_shell.md
+pocket-go/_bak/offices-dress-20260927-142245/~hosts/developer.office/_shell.md
+pocket-go/_bak/offices-dress-20260927-142245/~hosts/developer.office/report-desk/test.run format of report insert.md
+pocket-go/_bak/offices-dress-20260927-142245/~hosts/librarian.office/_shell.md
+pocket-go/_bak/offices-dress-20260927-142245/~readme/developer.office/README.md
+pocket-go/_bak/offices-dress-20260927-142245/~readme/librarian.office/README.md
+pocket-go/_bak/offices-structure-20260927-144644/MANIFEST.sha256.txt
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/coat.css
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/detective-office.css
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/developer-office.css
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/kmoire.css
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/librarian-office.css
+pocket-go/_bak/offices-structure-20260927-144644/mats/styles/mythleak.css
+pocket-go/_bak/offices-structure-20260927-144644/prod/been.json
+pocket-go/_bak/offices-structure-20260927-144644/prod/jumps.json
+pocket-go/_bak/offices-structure-20260927-144644/prod/last.json
+pocket-go/_bak/offices-structure-20260927-144644/prod/www_sys/www.css
+pocket-go/_bak/offices-structure-20260927-144644/prod/www_sys/www.js
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/_hosts.yaml
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/_marks.yaml
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/detective.office/_shell.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/detective.office/inbox/_shell.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/developer.office/_shell.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/developer.office/index.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/developer.office/report-desk/index.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/librarian.office/_shell.md
+pocket-go/_bak/offices-structure-20260927-144644/~hosts/librarian.office/index.md
+pocket-go/_bak/quest-cards-20260926-102107/librarian.js
+pocket-go/_bak/quest-cards-20260926-102107/server.py
+pocket-go/_bak/quest-cards-20260926-102107/~help/shortcuts.md

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/librarian/All_the_Names_Blurred-LORE_19.md
+crate: crate.1D882349FB18E7EB
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: Affliction

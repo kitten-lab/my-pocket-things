@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.ineffable/omens/Cricket Mid-Heat.md
+crate: crate.D1C7D36AF49C0967
+fields:
+  - type: input
+    label: title
+    value: Cricket Mid-Heat
+  - type: input
+    label: class
+    value: omen
+  - type: input
+    label: chip
+    value: OMAN
+  - type: input
+    label: dated
+    value: "2026-09-09"
+  - type: input
+    label: known for
+    value: first-night name Cricket; ID grasshopper (long slender green); heat / interruption scream
+  - type: input
+    label: id
+    value: grasshopper
+  - type: input
+    label: chamber
+    value: omens

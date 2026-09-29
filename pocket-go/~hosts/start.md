@@ -13,19 +13,13 @@ environment: webring-start
 {{.mypi-lede}}a love letter
 
 {{/div}}
-
-{{div:.mypi-doors}}
 ---
+{{div:.mypi-doors}}
 {{.mypi-doors-label}}go hosts
 
 {{doors}}
-
----
-{{.mypi-doors-label}}roam hosts
-
-{{doors:roam}}
-{{/div}}
 >
 ---
 > > thank you for visiting.
 ---
+-->

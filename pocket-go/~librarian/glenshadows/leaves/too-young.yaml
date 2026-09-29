@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.glenshadows/leaves/too-young.md
+crate: crate.7C06E37B4C1D4DEA
+fields:
+  - type: input
+    label: title
+    value: Too Young
+  - type: input
+    label: class
+    value: floor
+  - type: input
+    label: layer
+    value: floor
+  - type: input
+    label: known for
+    value: she wanted to play; he said too young; then he left
+  - type: input
+    label: source bag
+    value: "001-OT-130"

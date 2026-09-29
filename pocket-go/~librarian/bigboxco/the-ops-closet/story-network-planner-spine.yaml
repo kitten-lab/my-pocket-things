@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/story-network-planner-spine.md
+crate: crate.B160B0C0E0004B84
+fields:
+  - type: input
+    label: class
+    value: ops-note
+  - type: input
+    label: kind
+    value: internal
+  - type: input
+    label: status
+    value: planning

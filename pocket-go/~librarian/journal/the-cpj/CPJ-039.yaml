@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-039.md
+crate: crate.F96F925E89F24FA2
+fields:
+  - type: input
+    label: page
+    value: "039"
+  - type: input
+    label: title
+    value: We Are One
+  - type: input
+    label: dated
+    value: "2020-01-12"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose; continues
+  - type: input
+    label: topics covered
+    value: biblical science, original sin, oneness, Adam and Eve, God
+  - type: input
+    label: continues from
+    value: CPJ-038 Divine 3 as Atom
+  - type: input
+    label: known for
+    value: we are one; God is all

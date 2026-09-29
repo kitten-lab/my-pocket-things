@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.ineffable/index.md
+crate: crate.130078810638CCB4
+fields:
+  - type: input
+    label: title
+    value: Ineffable Box
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: known for
+    value: pocket mirror of Charlie ineffable-box faces

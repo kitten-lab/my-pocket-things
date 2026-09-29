@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: "roam.sophia/leaf[68]-aidmtestcodepckittenlab.chip"
+crate: crate.9BE06AB03E09F066
+fields:
+  - type: input
+    label: type
+    value: documentation

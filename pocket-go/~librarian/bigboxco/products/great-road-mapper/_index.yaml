@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/great-road-mapper/_index.md
+crate: crate.E58354343A907069
+fields:
+  - type: input
+    label: producer
+    value: Big Box Co.
+  - type: input
+    label: product
+    value: Great Road Mapper
+  - type: input
+    label: SKU
+    value: CO.BBC-001-GRM
+  - type: input
+    label: port
+    value: 42960
+  - type: input
+    label: status
+    value: active
+  - type: input
+    label: kind
+    value: product
+  - type: input
+    label: developed
+    value: 2026-07-28
+  - type: input
+    label: references
+    value: great-road-mapper
+  - type: input
+    label: contains
+    value: documentation

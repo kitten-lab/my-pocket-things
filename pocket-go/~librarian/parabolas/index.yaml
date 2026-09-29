@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.parabolas/index.md
+crate: crate.8AB04E3DD61D95D4
+fields:
+  - type: input
+    label: title
+    value: Parabolas
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: known for
+    value: curves that eat themselves; there is no you, there is only me

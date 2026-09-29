@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/083
+crate: crate.59ED42C01309DC75
+fields:
+  - type: input
+    label: title
+    value: Billie Piper 16th Doctor
+  - type: input
+    label: references
+    value: "cabin, offering, ritual, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

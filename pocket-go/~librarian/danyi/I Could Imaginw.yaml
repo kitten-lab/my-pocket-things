@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.danyi/I Could Imaginw.md
+crate: crate.AC6BD7565E3CCF01
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

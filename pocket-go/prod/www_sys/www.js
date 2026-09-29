@@ -80,6 +80,9 @@
     }
   }
 
+  /* go-search: results page keyboard (/ or Ctrl+L) reuses the bar's own edit mode */
+  window.pocketEditBar = editBar;
+
   window.WWWBack = function WWWBack() {
     if (window.history.length > 1) {
       window.history.go(-1);
@@ -105,6 +108,33 @@
   };
 
   window.WWWReload = window.WWWRefresh;
+
+
+  function openGoOut(href) {
+    href = String(href || "").trim();
+    if (!/^https?:\/\//i.test(href)) return false;
+    var api = window.pywebview && window.pywebview.api;
+    if (api && typeof api.open_go_out === "function") {
+      try {
+        var ret = api.open_go_out(href);
+        if (ret && typeof ret.then === "function") {
+          ret
+            .then(function (r) {
+              if (r && String(r).indexOf("err") === 0) openOutside(href);
+            })
+            .catch(function () {
+              openOutside(href);
+            });
+        } else if (ret && String(ret).indexOf("err") === 0) {
+          openOutside(href);
+        }
+        return true;
+      } catch (e) {
+        /* fall through */
+      }
+    }
+    return openOutside(href);
+  }
 
   function openOutside(href) {
     href = String(href || "").trim();
@@ -181,7 +211,14 @@
     if (!raw) return;
 
     if (/^https?:\/\//i.test(raw)) {
-      openOutside(raw);
+      openGoOut(raw);
+      return;
+    }
+
+    /* go-search: `?text` always searches every go room */
+    if (raw.charAt(0) === "?") {
+      var fq = raw.slice(1).trim();
+      if (fq) window.pocketSoftGo("/?find=" + encodeURIComponent(fq));
       return;
     }
 
@@ -222,6 +259,14 @@
         }
         window.pocketSoftGo("/?h=" + encodeURIComponent(go));
         return;
+      }
+      /* go-search: words with spaces, or a bare word that is not a nickname or
+         a built-in lobby, search every go room. Paths (/ or .md) stay paths. */
+      if (raw.indexOf("/") < 0 && !/\.md$/i.test(raw)) {
+        if (/\s/.test(raw) || !/^(start|go|roam|recent)$/i.test(word)) {
+          window.pocketSoftGo("/?find=" + encodeURIComponent(raw));
+          return;
+        }
       }
       if (raw.charAt(0) !== "/") {
         path = "/" + raw;
@@ -283,6 +328,8 @@
     if (el.getAttribute("contenteditable") !== "true") {
       editBar({ selectAll: false });
     }
+    /* go-search dropdown gets first look at arrows / Enter / Esc */
+    if (window.__goSuggestKey && window.__goSuggestKey(event)) return;
     if (event.key === "Enter") {
       event.preventDefault();
       window.LetsGO();
@@ -385,7 +432,18 @@
     }
   }
 
+  function beenIsFind(href) {
+    try {
+      var u = new URL(href, window.location.href);
+      return u.pathname === "/" && u.searchParams.has("find");
+    } catch (e) {
+      return false;
+    }
+  }
+
   function beenRemember(href) {
+    /* go-search: `/?find=` result pages are not places — never recorded */
+    if (beenIsFind(href)) return beenList();
     var keys = [beenKey(href)];
     try {
       var u = new URL(href, window.location.href);
@@ -434,6 +492,10 @@
       });
       beenLoaded = true;
       beenSave(merged);
+      if (beenIsFind(window.location.href)) {
+        beenPaint(); /* read-only on search results: no POST /api/been */
+        return;
+      }
       beenRemember(window.location.href);
       beenPaint();
       beenPush(beenList());
@@ -484,7 +546,7 @@
         /^https?:\/\//i.test(href);
       if (outside) {
         e.preventDefault();
-        openOutside(href);
+        openGoOut(href);
         return;
       }
       beenRemember(a.href);
@@ -540,7 +602,11 @@
     var f = u.searchParams.get("f");
     if (f) {
       var who =
-        m === "agent" || m === "detective" ? "detective index" : "librarian catalog";
+        m === "agent" || m === "detective"
+          ? "detective index"
+          : m === "developer" || m === "dev"
+            ? "dev notes"
+            : "librarian catalog";
       var v = u.searchParams.get("v");
       return who + "  " + f + (v ? " · " + v : "");
     }
@@ -2283,7 +2349,48 @@
     return true;
   }
 
-  window.pocketOpenWorkTab = function (href) {
+  /* go-search: open a result as a work tab without capturing drafts from the
+     results page (it has no desk papers). Full strip = plain navigation. */
+  function openTabFromSearch(href, opts) {
+    href = String(href || "").trim();
+    if (!href) return;
+    try {
+      var u = new URL(href, window.location.href);
+      href = u.pathname + u.search;
+    } catch (e) {}
+    var state = load();
+    for (var i = 0; i < state.tabs.length; i++) {
+      if (state.tabs[i].href === href) {
+        state.active = state.tabs[i].id;
+        save(state);
+        markSwitch();
+        go(href);
+        return;
+      }
+    }
+    if (state.tabs.length >= MAX) {
+      go(href);
+      return;
+    }
+    var id = mintId();
+    state.tabs.push({
+      id: id,
+      href: href,
+      label: (opts && opts.label) || "page",
+      back: [],
+      fwd: [],
+    });
+    state.active = id;
+    save(state);
+    markSwitch();
+    go(href);
+  }
+
+  window.pocketOpenWorkTab = function (href, opts) {
+    if (opts && opts.fromSearch) {
+      openTabFromSearch(href, opts);
+      return;
+    }
     if (!deskOk()) {
       go(href);
       return;
@@ -2533,3 +2640,544 @@
   }
 })();
 
+
+/* rail-drawer (shared) - phone widths: a .side / .pg-side rail (or the
+   newsroom .headlines rail beside a .story) that would
+   stack ABOVE the page folds into one slim, quiet toggle bar (closed by
+   default), so the phone view is one framed page, ready to screenshot.
+   Desktop and side-by-side rails are left alone. Paint: www.css
+   "rail drawer". A room may name the bar with --rail-drawer-label and its
+   items with --rail-drawer-noun ("story stories"). */
+(function () {
+  var shell = document.querySelector(".go-shell");
+  if (!shell || !window.matchMedia) return;
+  var rail = shell.querySelector(".side, .pg-side, .headlines");
+  if (!rail) return;
+  var mq = window.matchMedia("(max-width: 720px)");
+  var btn = null;
+  var opened = false;
+
+  function pageOf() {
+    for (var el = rail.nextElementSibling; el; el = el.nextElementSibling) {
+      if (el.matches(".content, .pg-body, .story")) return el;
+    }
+    return shell.querySelector(".content, .pg-body, .story");
+  }
+
+  function count(n, one, many) {
+    return n + " " + (n === 1 ? one : many);
+  }
+
+  function labelText() {
+    var word = "";
+    try {
+      word = getComputedStyle(rail).getPropertyValue("--rail-drawer-label");
+    } catch (e) {}
+    word = String(word || "").trim().replace(/^["']|["']$/g, "") || "desk";
+    var files = rail.querySelectorAll("ul.dir a:not(.is-dir)").length;
+    var rooms = rail.querySelectorAll(
+      "ul.dir a.is-dir, .worlds a.world, nav.pg-navbar a"
+    ).length;
+    var noun = "";
+    try {
+      noun = getComputedStyle(rail).getPropertyValue("--rail-drawer-noun");
+    } catch (e) {}
+    noun = String(noun || "").trim().replace(/^["']|["']$/g, "").split(/\s+/);
+    var one = noun[0] || "file";
+    var many = noun[1] || one + "s";
+    var bits = [word];
+    if (files) bits.push(count(files, one, many));
+    if (rooms) bits.push(count(rooms, "folder", "folders"));
+    return bits.join(" \u00b7 ");
+  }
+
+  function stacked() {
+    var page = pageOf();
+    if (!page) return false;
+    var r = rail.getBoundingClientRect();
+    var p = page.getBoundingClientRect();
+    if (!r.width || !r.height || !p.width) return false;
+    return r.top < p.top && r.bottom <= p.top + 2;
+  }
+
+  function setOpen(on) {
+    shell.classList.toggle("rail-drawer-open", !!on);
+    if (btn) btn.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+
+  function ensureBtn() {
+    if (btn) return;
+    if (!rail.id) rail.id = "railDrawer";
+    rail.setAttribute("data-rail-drawer", "");
+    btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "rail-drawer-toggle";
+    btn.setAttribute("aria-controls", rail.id);
+    btn.setAttribute("aria-expanded", "false");
+    var glyph = document.createElement("span");
+    glyph.className = "rail-drawer-glyph";
+    glyph.setAttribute("aria-hidden", "true");
+    glyph.textContent = "\u2630";
+    var text = document.createElement("span");
+    text.className = "rail-drawer-text";
+    text.textContent = labelText();
+    var caret = document.createElement("span");
+    caret.className = "rail-drawer-caret";
+    caret.setAttribute("aria-hidden", "true");
+    btn.appendChild(glyph);
+    btn.appendChild(text);
+    btn.appendChild(caret);
+    btn.addEventListener("click", function () {
+      setOpen(!shell.classList.contains("rail-drawer-open"));
+    });
+    rail.parentNode.insertBefore(btn, rail);
+  }
+
+  function sync() {
+    var want = false;
+    if (mq.matches) {
+      shell.classList.remove("rail-drawer-on");
+      want = stacked();
+    }
+    if (want) {
+      ensureBtn();
+      shell.classList.add("rail-drawer-on");
+      if (!opened) {
+        opened = true;
+        setOpen(false); // closed by default: phone view is a clean capture frame
+      }
+    } else {
+      shell.classList.remove("rail-drawer-on");
+    }
+  }
+
+  sync();
+  if (mq.addEventListener) mq.addEventListener("change", sync);
+  else if (mq.addListener) mq.addListener(sync);
+  window.addEventListener("load", sync);
+})();
+
+/* go-search — live type-ahead under #wwwBar + `/?find=` results keyboard.
+   Light on purpose (Epiphany/WebKit): one fixed box, no animation. */
+(function () {
+  if (window.__goSearchBound) return;
+  window.__goSearchBound = true;
+  var bar = document.getElementById("wwwBar");
+  if (!bar) return;
+
+  var box = null;
+  var rows = [];
+  var sel = -1;
+  var gen = 0;
+  var timer = 0;
+  var lastQ = "";
+
+  function isFindPage() {
+    return !!(document.body && document.body.classList.contains("gofind-page"));
+  }
+
+  function barText() {
+    return String(bar.textContent || "").replace(/\u200b/g, "").replace(/\s+/g, " ").trim();
+  }
+
+  function nickList() {
+    var nicks = window.pocketBarNicks || {};
+    return Object.keys(nicks);
+  }
+
+  /* "" = no dropdown (address-like); otherwise the search text. */
+  function classify(raw) {
+    if (!raw) return { q: "", nicks: [] };
+    if (raw.charAt(0) === "?") return { q: raw.slice(1).trim(), nicks: [] };
+    if (/^https?:\/\//i.test(raw)) return { q: "", nicks: [] };
+    if (/^(?:go|roam)\./i.test(raw)) return { q: "", nicks: [] };
+    if (raw.charAt(0) === "/" || raw.indexOf("/") >= 0 || /\.md$/i.test(raw)) return { q: "", nicks: [] };
+    if (/\s/.test(raw)) return { q: raw, nicks: [] };
+    var word = raw.toLowerCase();
+    var nicks = window.pocketBarNicks || {};
+    if (nicks[word]) return { q: "", nicks: [word] };
+    var pre = [];
+    if (word.length >= 2) {
+      var all = nickList();
+      for (var i = 0; i < all.length && pre.length < 3; i++) {
+        if (all[i].indexOf(word) === 0) pre.push(all[i]);
+      }
+    }
+    return { q: raw, nicks: pre };
+  }
+
+  function ensureBox() {
+    if (box) return box;
+    box = document.createElement("div");
+    box.id = "goSuggest";
+    box.className = "goSuggest";
+    box.setAttribute("role", "listbox");
+    box.hidden = true;
+    /* keep focus (and the caret) in the bar while clicking a row */
+    box.addEventListener("mousedown", function (e) {
+      e.preventDefault();
+    });
+    box.addEventListener("click", function (e) {
+      var row = e.target && e.target.closest ? e.target.closest(".goSuggest-row") : null;
+      if (!row) return;
+      e.preventDefault();
+      var i = +row.getAttribute("data-i");
+      openRow(i, e.ctrlKey || e.shiftKey || e.metaKey);
+    });
+    document.body.appendChild(box);
+    return box;
+  }
+
+  function place() {
+    if (!box || box.hidden) return;
+    var r = bar.getBoundingClientRect();
+    var vw = window.innerWidth || document.documentElement.clientWidth || 1024;
+    if (vw <= 720) {
+      box.style.left = "0px";
+      box.style.width = vw + "px";
+    } else {
+      var w = Math.min(Math.max(r.width, 360), vw - 16);
+      var left = Math.max(8, Math.min(r.left, vw - w - 8));
+      box.style.left = left + "px";
+      box.style.width = w + "px";
+    }
+    box.style.top = Math.round(r.bottom + 2) + "px";
+  }
+
+  function close() {
+    gen++;
+    if (timer) {
+      clearTimeout(timer);
+      timer = 0;
+    }
+    rows = [];
+    sel = -1;
+    lastQ = "";
+    if (box) {
+      box.hidden = true;
+      box.textContent = "";
+    }
+  }
+
+  function isOpen() {
+    return !!(box && !box.hidden && rows.length);
+  }
+
+  function markText(text, marks) {
+    var frag = document.createDocumentFragment();
+    var pos = 0;
+    text = String(text || "");
+    (marks || []).forEach(function (m) {
+      var s = m[0];
+      var n = m[1];
+      if (s < pos || s >= text.length) return;
+      if (s > pos) frag.appendChild(document.createTextNode(text.slice(pos, s)));
+      var b = document.createElement("mark");
+      b.textContent = text.slice(s, s + n);
+      frag.appendChild(b);
+      pos = s + n;
+    });
+    if (pos < text.length) frag.appendChild(document.createTextNode(text.slice(pos)));
+    return frag;
+  }
+
+  function paint(list, q, total) {
+    ensureBox();
+    rows = list;
+    sel = -1;
+    box.textContent = "";
+    if (!list.length) {
+      box.hidden = true;
+      return;
+    }
+    list.forEach(function (it, i) {
+      var row = document.createElement("div");
+      row.className = "goSuggest-row";
+      row.setAttribute("role", "option");
+      row.setAttribute("data-i", String(i));
+      var t = document.createElement("div");
+      t.className = "goSuggest-title";
+      t.appendChild(markText(it.title, it.title_marks));
+      var a = document.createElement("div");
+      a.className = "goSuggest-addr";
+      a.textContent = it.address;
+      row.appendChild(t);
+      row.appendChild(a);
+      if (it.snippet) {
+        var s = document.createElement("div");
+        s.className = "goSuggest-snip";
+        var snip = String(it.snippet);
+        var marks = it.marks || [];
+        if (snip.length > 110) {
+          snip = snip.slice(0, 110) + "\u2026";
+          marks = marks.filter(function (m) {
+            return m[0] + m[1] <= 110;
+          });
+        }
+        s.appendChild(markText(snip, marks));
+        row.appendChild(s);
+      }
+      box.appendChild(row);
+    });
+    if (q) {
+      var more = document.createElement("div");
+      more.className = "goSuggest-more";
+      more.textContent =
+        (total > list.length ? "all " + total + " results" : "full results") + " \u00b7 Enter";
+      more.addEventListener("click", function (e) {
+        e.preventDefault();
+        goFind(q);
+      });
+      box.appendChild(more);
+    }
+    box.hidden = false;
+    place();
+  }
+
+  function highlight(i) {
+    if (!box) return;
+    var list = box.querySelectorAll(".goSuggest-row");
+    if (!list.length) return;
+    if (i < -1) i = list.length - 1;
+    if (i >= list.length) i = -1;
+    sel = i;
+    for (var k = 0; k < list.length; k++) {
+      var on = k === sel;
+      list[k].classList.toggle("is-on", on);
+      list[k].setAttribute("aria-selected", on ? "true" : "false");
+    }
+  }
+
+  function go(href) {
+    if (window.pocketSoftGo) window.pocketSoftGo(href);
+    else window.location.assign(href);
+  }
+
+  function goFind(q) {
+    close();
+    go("/?find=" + encodeURIComponent(q));
+  }
+
+  function openRow(i, workTab) {
+    var it = rows[i];
+    if (!it) return;
+    close();
+    if (workTab && typeof window.pocketOpenWorkTab === "function") {
+      window.pocketOpenWorkTab(it.href, { fromSearch: true, label: it.title });
+      return;
+    }
+    go(it.href);
+  }
+
+  function nickRows(nicks) {
+    var map = window.pocketBarNicks || {};
+    return nicks.map(function (w) {
+      var host = map[w];
+      var href =
+        host === "start" || host === "go"
+          ? "/?home=1"
+          : host === "recent" || host === "roam"
+          ? "/?p=" + host
+          : "/?h=" + encodeURIComponent(host);
+      var addr = host === "start" || host === "go" ? "go" : host === "recent" || host === "roam" ? host : "go." + host;
+      return { title: w, title_marks: [], address: addr, href: href, snippet: "", marks: [] };
+    });
+  }
+
+  function run() {
+    timer = 0;
+    if (bar.getAttribute("contenteditable") !== "true" || document.activeElement !== bar) {
+      close();
+      return;
+    }
+    var raw = barText();
+    var c = classify(raw);
+    var nk = nickRows(c.nicks);
+    if (!c.q || c.q.length < 2) {
+      gen++;
+      lastQ = "";
+      if (nk.length) paint(nk, "", 0);
+      else close();
+      return;
+    }
+    if (c.q === lastQ && isOpen()) return;
+    var my = ++gen;
+    var q = c.q;
+    var req = new XMLHttpRequest();
+    req.open("GET", "/api/search?limit=8&q=" + encodeURIComponent(q));
+    req.timeout = 8000;
+    req.onload = function () {
+      if (my !== gen) return; /* stale reply: a newer keystroke owns the box */
+      if (document.activeElement !== bar) return;
+      var data = null;
+      try {
+        data = JSON.parse(req.responseText);
+      } catch (e) {
+        data = null;
+      }
+      var items = (data && data.items) || [];
+      lastQ = q;
+      paint(nk.concat(items), q, (data && data.total) || 0);
+    };
+    req.onerror = function () {};
+    req.ontimeout = function () {};
+    req.send();
+  }
+
+  bar.addEventListener("input", function () {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(run, 150);
+  });
+  bar.addEventListener("blur", function () {
+    setTimeout(function () {
+      if (document.activeElement !== bar) close();
+    }, 120);
+  });
+  window.addEventListener("resize", place);
+
+  /* Called first by the #wwwBar keydown handler; true = handled here. */
+  window.__goSuggestKey = function (e) {
+    var key = e.key || "";
+    if (key === "ArrowDown" || key === "Down") {
+      if (isOpen()) {
+        e.preventDefault();
+        highlight(sel + 1);
+        return true;
+      }
+      if (isFindPage() && window.__goFindPick) {
+        e.preventDefault();
+        bar.blur();
+        window.__goFindPick(0);
+        return true;
+      }
+      return false;
+    }
+    if (key === "ArrowUp" || key === "Up") {
+      if (isOpen()) {
+        e.preventDefault();
+        highlight(sel - 1);
+        return true;
+      }
+      return false;
+    }
+    if (key === "Enter") {
+      if (isOpen() && sel >= 0) {
+        e.preventDefault();
+        openRow(sel, e.ctrlKey || e.shiftKey || e.metaKey);
+        return true;
+      }
+      close();
+      return false; /* LetsGO routes text to /?find= */
+    }
+    if (key === "Escape" || key === "Esc") {
+      if (isOpen() || timer) {
+        e.preventDefault();
+        close();
+        return true;
+      }
+      return false;
+    }
+    return false;
+  };
+
+  /* ---- results page ---- */
+  if (!isFindPage()) return;
+  var hits = Array.prototype.slice.call(document.querySelectorAll(".gofind-hit"));
+  var cur = -1;
+
+  function pick(i) {
+    if (!hits.length) return;
+    if (i < 0) i = 0;
+    if (i >= hits.length) i = hits.length - 1;
+    if (cur >= 0 && hits[cur]) hits[cur].classList.remove("is-on");
+    cur = i;
+    var li = hits[cur];
+    li.classList.add("is-on");
+    var a = li.querySelector("a.gofind-title");
+    if (a) {
+      try {
+        a.focus({ preventScroll: true });
+      } catch (e0) {
+        a.focus();
+      }
+    }
+    try {
+      li.scrollIntoView({ block: "nearest" });
+    } catch (e1) {
+      li.scrollIntoView(false);
+    }
+  }
+  window.__goFindPick = pick;
+
+  function focusBar() {
+    if (cur >= 0 && hits[cur]) hits[cur].classList.remove("is-on");
+    cur = -1;
+    if (typeof window.pocketEditBar === "function") window.pocketEditBar({ selectAll: true });
+    else bar.focus();
+  }
+
+  hits.forEach(function (li, i) {
+    li.addEventListener("mouseenter", function () {
+      if (cur >= 0 && hits[cur] && cur !== i) hits[cur].classList.remove("is-on");
+    });
+    var a = li.querySelector("a.gofind-title");
+    if (a) {
+      a.addEventListener("focus", function () {
+        if (cur !== i) {
+          if (cur >= 0 && hits[cur]) hits[cur].classList.remove("is-on");
+          cur = i;
+          li.classList.add("is-on");
+        }
+      });
+    }
+  });
+
+  document.addEventListener(
+    "keydown",
+    function (e) {
+      var key = e.key || "";
+      var t = e.target;
+      var typing =
+        t &&
+        (t.isContentEditable ||
+          /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || "") ||
+          t === bar);
+      if (typing) return;
+      if ((key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey) || ((key === "l" || key === "L") && (e.ctrlKey || e.metaKey))) {
+        e.preventDefault();
+        focusBar();
+        return;
+      }
+      if (key === "ArrowDown" || key === "Down") {
+        e.preventDefault();
+        pick(cur + 1);
+        return;
+      }
+      if (key === "ArrowUp" || key === "Up") {
+        e.preventDefault();
+        if (cur <= 0) focusBar();
+        else pick(cur - 1);
+        return;
+      }
+      if (key === "Escape" || key === "Esc") {
+        e.preventDefault();
+        focusBar();
+        return;
+      }
+      if (key === "Enter" && cur >= 0 && hits[cur]) {
+        var a = hits[cur].querySelector("a.gofind-title");
+        if (!a) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var href = a.getAttribute("href");
+        if ((e.ctrlKey || e.shiftKey || e.metaKey) && typeof window.pocketOpenWorkTab === "function") {
+          window.pocketOpenWorkTab(href, { fromSearch: true, label: a.textContent || "page" });
+        } else {
+          go(href);
+        }
+      }
+    },
+    true
+  );
+})();
+/* /go-search */

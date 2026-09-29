@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-industry/nn-datajacks/index.md
+crate: crate.5158AF9A899AAFD5
+fields:
+  - type: input
+    label: vault
+    value: _imported.to/be/the-industry/nn-datajacks
+  - type: input
+    label: author
+    value: SDK-808

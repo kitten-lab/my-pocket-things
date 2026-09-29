@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.danyi/Mystery of Misery.md
+crate: crate.E1044B834BDBC5CF
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi

@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.cast/Sid.md
+crate: crate.84CE6C9AED6F35FD
+fields:
+  - type: input
+    label: title
+    value: Sid
+  - type: input
+    label: kind
+    value: figure
+  - type: input
+    label: role
+    value: ex-girlfriend
+  - type: input
+    label: aliases
+    value: "Syd, Cid, SID, SYD"

@@ -1,7 +1,7 @@
 /**
  * Pocket Go shelves — README, Librarian, Charlie (weaver), Detective, TPS.
  * Independent drawers. README is one letter, not slips.
- * Ctrl+Shift+B bios · Ctrl+Shift+L librarian · Ctrl+Shift+C charlie · Ctrl+Shift+A detective · Ctrl+Shift+T tps · Ctrl+Shift+D cards.
+ * Ctrl+Shift+B bios · Ctrl+Shift+L librarian · Ctrl+Shift+C charlie · Ctrl+Shift+A detective · Ctrl+Shift+T tps · Ctrl+Shift+D developer · Ctrl+Shift+Q deck (Quest Cards - lives under the BIOS title chip, not a cabinet).
  * Ctrl+Shift+O opens all cabinets as windows.
  * Gem: Cabinets → mouth → Window or Dock. Dock again puts the overlay away.
  * Window / hotkey opens a sidecar that follows the desk's page.
@@ -15,6 +15,7 @@
     if (s === "agt" || s === "agent" || s === "det") return "detective";
     if (s === "lib") return "librarian";
     if (s === "cha") return "charlie";
+    if (s === "dev") return "developer";
     return s;
   }
 
@@ -100,6 +101,24 @@
       metaHint: "e.g. faction",
     },
     {
+      id: "developer",
+      api: "/api/developer",
+      openKey: "pocket-go-developer-open",
+      bodyClass: "developer-open",
+      menu: "Developer",
+      title: "DEVELOPER",
+      kicker: "DEV NOTES",
+      placeholder: "",
+      empty: "No dev notes on this bag yet.",
+      issue: "Confirm",
+      slips: ["note", "notes"],
+      hotkey: { key: "d", shift: true },
+      skin: "is-catalog is-librarian is-developer",
+      kind: "catalog",
+      pop: { w: 440, h: 760 },
+      metaHint: "e.g. status",
+    },
+    {
       id: "tps",
       api: "/api/tps",
       openKey: "pocket-go-tps-open",
@@ -125,16 +144,18 @@
       openKey: "pocket-go-cards-open",
       bodyClass: "cards-open",
       menu: "Cards",
-      title: "CARDS",
+      title: "QUEST CARDS",
       kicker: "DECK",
       placeholder: "",
-      empty: "No lore cards on this page or its shell yet.",
+      empty: "No quest cards on this page or its shell yet.",
       issue: "View",
       slips: ["card", "cards"],
-      hotkey: { key: "d", shift: true },
+      hotkey: { key: "q", shift: true },
       skin: "is-cards",
       kind: "cards",
       pop: { w: 520, h: 760 },
+      /* DECK is flipped from the BIOS title chip - not in the Cabinets menu / switcher. */
+      cabinet: false,
     },
   ];
 
@@ -231,14 +252,16 @@
     }
   }
 
+  /* Two docked sides: the BIOS side (BIOS <-> QUEST CARDS flip pair) and one cabinet.
+     Opening a rail only displaces rails on its own side: switching cabinets never
+     closes BIOS / QUEST CARDS, and flipping BIOS <-> DECK never closes the cabinet. */
+  var BIOS_SIDE = { readme: 1, cards: 1 };
+
   function dockOnly(id) {
-    /* Allow BIOS (readme) + one catalog rail together.
-       Opening BIOS must not kick Charlie; opening Charlie must not kick BIOS.
-       Catalogs still displace each other. */
-    if (id === "readme") return;
+    var side = !!BIOS_SIDE[id];
     Object.keys(shelves).forEach(function (sid) {
       if (sid === id) return;
-      if (sid === "readme") return;
+      if (!!BIOS_SIDE[sid] !== side) return;
       var other = shelves[sid];
       if (other && other.isOpen && other.isOpen() && other.applyOpen) {
         other.applyOpen(false);
@@ -597,7 +620,7 @@
       }
       var f = String(u.searchParams.get("f") || "").trim();
       var v = String(u.searchParams.get("v") || "").trim();
-      if (m !== "librarian" && m !== "detective") return null;
+      if (m !== "librarian" && m !== "detective" && m !== "developer") return null;
       if (!f && !v) return null;
       var bin = String(u.searchParams.get("bin") || "").trim().toLowerCase();
       if (bin !== "host" && bin !== "value") bin = "";
@@ -1318,6 +1341,7 @@
         } catch (e2) {}
       }
       el._cm = null;
+      el._cmFitKey = "";
       el.style.display = "";
       if (el._cmFitObs) {
         try {
@@ -1678,7 +1702,7 @@
       coatPaletteTimer = window.setTimeout(function () {
         coatPaletteTimer = 0;
         renderCoatPalette();
-      }, 280);
+      }, 700); /* csseditor-lag: was 280ms */
     }
 
     function renderCoatPalette() {
@@ -1689,6 +1713,13 @@
         return;
       }
       var all = parseRootAllVars(coatCssText());
+      /* csseditor-lag: skip the rebuild when the :root vars are unchanged */
+      var coatSig = JSON.stringify(all);
+      if (host._coatSig === coatSig && host.firstChild) {
+        host.hidden = false;
+        return;
+      }
+      host._coatSig = coatSig;
       var colors = [];
       var fonts = [];
       var measures = [];
@@ -1960,8 +1991,10 @@ function ensureCoatCm() {
       if (el._cm) {
         try {
           var w = el._cm.getWrapperElement();
+          /* csseditor-lag: only re-measure when the editor was hidden */
+          var wasHidden = !w || w.style.display === "none" || !w.getClientRects().length;
           if (w) w.style.display = "";
-          el._cm.refresh();
+          if (wasHidden) el._cm.refresh();
           bindCoatSplitToggle(); bindCoatPalette(); renderCoatPalette(); applyCoatSplitState();
         } catch (e) {}
         return;
@@ -1977,7 +2010,7 @@ function ensureCoatCm() {
           lineWrapping: true,
           tabSize: 2,
           indentWithTabs: false,
-          viewportMargin: Infinity,
+          viewportMargin: 10, /* csseditor-lag: render only near the viewport */
           extraKeys: {
             "Ctrl-S": function () {
               cmSaveAll();
@@ -2832,7 +2865,7 @@ function ensureCoatCm() {
           lineNumbers: true,
           lineWrapping: true,
           tabSize: 2,
-          viewportMargin: Infinity,
+          viewportMargin: 10, /* csseditor-lag: render only near the viewport */
           extraKeys: {
             "Ctrl-S": function () {
               cmSaveAll();
@@ -2924,6 +2957,7 @@ function ensureCoatCm() {
       }
       if (editing) {
         view.innerHTML = "";
+        view.style.removeProperty("--letter-font");
         view.setAttribute("hidden", "");
         showCm(true);
         if (editBtn) editBtn.setAttribute("hidden", "");
@@ -2940,6 +2974,11 @@ function ensureCoatCm() {
             : '<p class="readme-letter-empty">(empty letter — hit Edit)</p>';
         }
         view.innerHTML = html;
+        var slug = String((blot && blot.letter_font) || "bitter")
+          .toLowerCase()
+          .replace(/[^a-z0-9-]/g, "");
+        if (!slug) slug = "bitter";
+        view.style.setProperty("--letter-font", "var(--font-" + slug + ")");
         view.removeAttribute("hidden");
         showCm(false);
         if (editBtn) editBtn.removeAttribute("hidden");
@@ -4289,6 +4328,7 @@ function ensureCoatCm() {
         if (houseRaw.indexOf("detective") >= 0 || houseRaw.indexOf("agent") >= 0) houseSlug = "detective";
         else if (houseRaw.indexOf("charlie") >= 0) houseSlug = "charlie";
         else if (houseRaw.indexOf("tps") >= 0) houseSlug = "tps";
+        else if (houseRaw.indexOf("developer") >= 0) houseSlug = "developer";
         else if (houseRaw.indexOf("librarian") >= 0 || houseRaw.indexOf("io") >= 0) houseSlug = "librarian";
         var houseClass = houseSlug ? " house-" + houseSlug : "";
         var crate = String(card.crate || "").trim();
@@ -5209,11 +5249,12 @@ if (letterFace === "page") {
     }
 
     function blotterApi() {
+      if (cfg.id === "developer") return "/api/developer/dev";
       return cfg.id === "librarian" ? "/api/librarian/blot" : "/api/detective/hunt";
     }
 
     function blotterHouse() {
-      return cfg.id === "detective" || cfg.id === "librarian";
+      return cfg.id === "detective" || cfg.id === "librarian" || cfg.id === "developer";
     }
 
     function pinHunt(e) {
@@ -6539,6 +6580,91 @@ function revealCabinetModal(focusEl) {
       });
     }
 
+    /* Deck New Card (newcard 20260926): a free card in any tray, no page needed. */
+    var NEW_CARD_TRAYS = ["librarian", "detective", "charlie", "tps", "developer"];
+    var NEW_CARD_MAKERS = {
+      librarian: "Librarian",
+      detective: "Detective",
+      charlie: "Weaver",
+      tps: "TPS event",
+      developer: "Developer",
+    };
+
+    function newCardTrayHere() {
+      var v = String(vaultPath() || "")
+        .replace(/\\/g, "/")
+        .replace(/^\/+/, "");
+      var m = /^(?:go\.)?trays\/([^\/]+)/i.exec(v);
+      var t = m ? String(m[1]).toLowerCase() : "";
+      return NEW_CARD_TRAYS.indexOf(t) >= 0 ? t : "librarian";
+    }
+
+    function openNewCardModal() {
+      if (librarianOff()) return;
+      withFreshVault(function () {
+        if (librarianOff()) return;
+        modalMode = "new-card";
+        editLoreCrate = "";
+        var titleEl = $(ids.modalTitle);
+        var body = $(ids.modalBody);
+        var modal = $(ids.modal);
+        if (!titleEl || !body || !modal) return;
+        titleEl.textContent = "New Card";
+        var okBtn = modal.querySelector("[data-modal-ok]");
+        if (okBtn) {
+          okBtn.textContent = "Confirm";
+          okBtn.disabled = false;
+        }
+        var trayHere = newCardTrayHere();
+        var trayOpts = NEW_CARD_TRAYS.map(function (t) {
+          return (
+            '<option value="' +
+            escapeHtml(t) +
+            '"' +
+            (t === trayHere ? " selected" : "") +
+            ">" +
+            escapeHtml(t) +
+            "</option>"
+          );
+        }).join("");
+        body.innerHTML =
+          '<p class="librarian-onto">a free card in the deck - no page needed</p>' +
+          "<label>tray</label>" +
+          '<select data-field="tray" class="librarian-leaf tagbay-input">' +
+          trayOpts +
+          "</select>" +
+          "<label>class</label>" +
+          '<input data-field="class" class="librarian-leaf tagbay-input" placeholder="e.g. recovered">' +
+          '<label>maker <em>(corner - blank = <span data-new-card-maker>' +
+          escapeHtml(NEW_CARD_MAKERS[trayHere] || "this tray") +
+          "</span>)</em></label>" +
+          '<input data-field="maker" class="librarian-leaf tagbay-input" placeholder="' +
+          escapeHtml(NEW_CARD_MAKERS[trayHere] || "Teehee, Agent K, SAM.exe.") +
+          '">' +
+          "<label>lore title</label>" +
+          '<input data-field="title" class="librarian-leaf tagbay-input" placeholder="names the file">' +
+          "<label>lore line</label>" +
+          '<textarea data-field="line" class="librarian-leaf" rows="3" maxlength="255" placeholder="255 characters"></textarea>' +
+          "<label>time</label>" +
+          '<input data-field="time" class="librarian-leaf tagbay-input" placeholder="blank = now">' +
+          '<label class="catalog-check"><input type="checkbox" data-field="attach"> attach to ' +
+          escapeHtml(ontoLabel()) +
+          "</label>";
+        var traySel = body.querySelector('[data-field="tray"]');
+        if (traySel) {
+          traySel.addEventListener("change", function () {
+            var mk = NEW_CARD_MAKERS[traySel.value] || "this tray";
+            var hint = body.querySelector("[data-new-card-maker]");
+            if (hint) hint.textContent = mk;
+            var makerIn = body.querySelector('[data-field="maker"]');
+            if (makerIn) makerIn.setAttribute("placeholder", mk);
+          });
+        }
+        revealCabinetModal(body.querySelector('[data-field="class"]'));
+        setStatus("new card");
+      });
+    }
+
 function openAttachModal() {
       if (librarianOff()) return;
       withFreshVault(function () {
@@ -6865,6 +6991,7 @@ function openAttachModal() {
                 if (houseRaw.indexOf("detective") >= 0 || houseRaw.indexOf("agent") >= 0) strip = "#c4202a";
                 else if (houseRaw.indexOf("charlie") >= 0) strip = "#c9892d";
                 else if (houseRaw.indexOf("tps") >= 0) strip = "#c42820";
+                else if (houseRaw.indexOf("developer") >= 0) strip = "#0000aa";
                 else if (houseRaw.indexOf("librarian") >= 0 || houseRaw.indexOf("io") >= 0)
                   strip = "#38b433";
                 var preview = String(card.line || "").trim();
@@ -7424,6 +7551,67 @@ function fieldVal(body, name, isCheck) {
           });
         return;
       }
+      if (modalMode === "new-card") {
+        var ncTray = String(fieldVal(body, "tray") || "").trim().toLowerCase() || "librarian";
+        var ncClass = String(fieldVal(body, "class") || "").trim();
+        var ncMaker = String(fieldVal(body, "maker") || "").trim();
+        var ncTitle = String(fieldVal(body, "title") || "").trim();
+        var ncLine = String(fieldVal(body, "line") || "").trim();
+        var ncWhen = String(fieldVal(body, "time") || "").trim();
+        var ncAttach = !!fieldVal(body, "attach", true);
+        if (!ncTitle) {
+          setStatus("need a lore title", true);
+          return;
+        }
+        if (!ncLine) {
+          setStatus("need a lore line", true);
+          return;
+        }
+        withFreshVault(function (pocket) {
+          if (librarianOff()) return;
+          var ncPayload = {
+            mouth: ncTray,
+            class: ncClass,
+            title: ncTitle,
+            line: ncLine,
+            time: ncWhen,
+            maker: ncMaker,
+          };
+          if (ncAttach) {
+            ncPayload.pocket = pocket;
+            ncPayload.onto = catalogOnto;
+          }
+          setStatus("making card.");
+          api("POST", "/api/cards/lore/new", ncPayload)
+            .then(function (data) {
+              attachMetaCache = null;
+              closeModal();
+              var made = (data && data.file) || ncTitle;
+              if (ncAttach && data && data.shelf) {
+                blot = data.shelf;
+                render();
+                try {
+                  refreshDesk();
+                } catch (e) {}
+              }
+              if (ncAttach && !(data && data.attached)) {
+                setStatus(
+                  "made " + made + " in " + ncTray + " - not attached" +
+                    (data && data.attach_error ? " (" + data.attach_error + ")" : ""),
+                  true
+                );
+                return;
+              }
+              setStatus(
+                "made " + made + " in " + ncTray + (ncAttach ? " - attached to " + ontoLabel() : "")
+              );
+            })
+            .catch(function (err) {
+              setStatus(err.message || "could not make card", true);
+            });
+        });
+        return;
+      }
       if (modalMode === "lore" || modalMode === "lore-edit") {
         var klass = String(fieldVal(body, "class") || "").trim();
         var title = String(fieldVal(body, "title") || "").trim();
@@ -7508,13 +7696,14 @@ function fieldVal(body, name, isCheck) {
             '<div class="librarian-kicker">' +
             escapeHtml(cfg.kicker) +
             "</div>" +
-            '<p class="librarian-hint">lore cards on this page and its shell. Search hunts the whole deck.</p>' +
+            '<p class="librarian-hint">quest cards on this page and its shell. Search hunts the whole deck.</p>' +
             '<form class="lore-search-pad" data-lore-search>' +
             '<input type="search" data-lore-q placeholder="search the deck" autocomplete="off" spellcheck="false">' +
             '<button type="submit">look</button>' +
             "</form>" +
             '<div class="catalog-actions">' +
             '<button type="button" class="librarian-store" data-attach-lore>Attach Lore</button>' +
+            '<button type="button" class="librarian-store" data-new-card>New Card</button>' +
             "</div>" +
             '<p class="librarian-status" id="' +
             ids.status +
@@ -7533,17 +7722,23 @@ function fieldVal(body, name, isCheck) {
             '<button type="button" class="catalog-onto-btn is-on" data-catalog-onto="page">this page</button>' +
             "</div>" +
             "</div>" +
-            (cfg.id === "detective" || cfg.id === "librarian"
-              ? '<button type="button" class="hunt-toggle" data-hunt-open>pin slip</button>' +
+            (cfg.id === "detective" || cfg.id === "librarian" || cfg.id === "developer"
+              ? '<button type="button" class="hunt-toggle" data-hunt-open>' +
+                (cfg.id === "developer" ? "pin dev note" : "pin slip") +
+                "</button>" +
                 '<form class="hunt-pad" hidden autocomplete="off">' +
                 '<input class="hunt-title tagbay-input" type="text" data-hunt-title placeholder="' +
-                (cfg.id === "librarian" ? "a note" : "a thought") +
+                (cfg.id === "developer" ? "a dev note" : cfg.id === "librarian" ? "a note" : "a thought") +
                 '">' +
                 '<input class="hunt-mind tagbay-input" type="text" data-hunt-mind placeholder="' +
-                (cfg.id === "librarian" ? "in the margin (optional)" : "mindset (optional)") +
+                (cfg.id === "developer"
+                  ? "context (optional)"
+                  : cfg.id === "librarian"
+                    ? "in the margin (optional)"
+                    : "mindset (optional)") +
                 '">' +
                 '<textarea class="hunt-body tagbay-input" data-hunt-body rows="2" placeholder="' +
-                (cfg.id === "librarian" ? "the card" : "the fragment") +
+                (cfg.id === "developer" ? "the note" : cfg.id === "librarian" ? "the card" : "the fragment") +
                 '"></textarea>' +
                 '<div class="hunt-pad-tools">' +
                 '<button type="submit" class="librarian-store" data-add-hunt>keep</button>' +
@@ -8113,12 +8308,21 @@ function fieldVal(body, name, isCheck) {
         var host = pane.closest("#readmeRoom, #readmePage, #readmeCoatPane, #readmeHelpPane, #readmeHostsPane, #readmeCratesPane") || pane;
         if (host.hidden || (host.getAttribute && host.getAttribute("hidden") !== null)) {
           wrap.style.display = "none";
+          el._cmFitKey = "";
           return;
         }
         wrap.style.display = "";
+        /* csseditor-lag: skip editors that are not rendered, and skip when the size is unchanged */
+        if (!wrap.getClientRects().length) {
+          el._cmFitKey = "";
+          return;
+        }
         var bar = pane.querySelector(".readme-pane-bar");
         var h = pane.clientHeight - (bar ? bar.offsetHeight : 0) - 2;
         if (!(h > 60)) h = 120;
+        var fitKey = h + "x" + pane.clientWidth;
+        if (el._cmFitKey === fitKey) return;
+        el._cmFitKey = fitKey;
         try {
           el._cm.setSize("100%", h);
           el._cm.refresh();
@@ -8162,23 +8366,22 @@ function fieldVal(body, name, isCheck) {
         pull($(ids.headers));
         pull($(ids.markdown));
         if (letterFace === "coat") pull($(ids.coat));
+        /* csseditor-lag: one rAF + the 200ms pass; hidden editors are skipped */
         function kick() {
           cmRebuildList();
-          cmRefreshAll();
           try {
             cmFitAllPanes();
-          } catch (e) {
-            for (var i = 0; i < readmeCms.length; i++) {
-              try {
-                readmeCms[i].refresh();
-              } catch (e2) {}
-            }
+          } catch (e) {}
+          for (var i = 0; i < readmeCms.length; i++) {
+            try {
+              var kw = readmeCms[i].getWrapperElement();
+              if (!kw || kw.style.display === "none" || !kw.getClientRects().length) continue;
+              readmeCms[i].refresh();
+            } catch (e2) {}
           }
         }
         window.requestAnimationFrame(function () {
           kick();
-          window.requestAnimationFrame(kick);
-          window.setTimeout(kick, 50);
           window.setTimeout(kick, 200);
         });
       }
@@ -8205,7 +8408,7 @@ function fieldVal(body, name, isCheck) {
                 lineWrapping: true,
                 tabSize: 2,
                 indentWithTabs: false,
-                viewportMargin: Infinity,
+                viewportMargin: 10, /* csseditor-lag: render only near the viewport */
                 extraKeys: {
                   "Ctrl-S": function () {
                     cmSaveAll();
@@ -8841,6 +9044,14 @@ function fieldVal(body, name, isCheck) {
           });
           return;
         }
+        var newCardBtn = e.target && e.target.closest ? e.target.closest("[data-new-card]") : null;
+        if (newCardBtn) {
+          e.preventDefault();
+          toggleOrOpenCabinet(["new-card"], function () {
+            openNewCardModal();
+          });
+          return;
+        }
         var cancel = e.target && e.target.closest ? e.target.closest("[data-modal-cancel]") : null;
         if (cancel) {
           e.preventDefault();
@@ -8928,7 +9139,7 @@ function fieldVal(body, name, isCheck) {
             }
             return;
           }
-          if (key !== cfg.hotkey.key) return;
+          if (!cfg.hotkey || key !== cfg.hotkey.key) return;
           if (!(e.ctrlKey || e.metaKey) || e.altKey) return;
           if (!!e.shiftKey !== !!cfg.hotkey.shift) return;
           e.preventDefault();
@@ -8939,6 +9150,11 @@ function fieldVal(body, name, isCheck) {
             return;
           }
           /* Desk: dock/toggle the rail (keep BIOS). pop / Ctrl+Shift+O still open windows. */
+          if (cfg.id === "cards" && open && shelves.readme && shelves.readme.applyOpen) {
+            /* Q with DECK showing flips back to BIOS, like the DECK chip - never leaves the BIOS side empty. */
+            shelves.readme.applyOpen(true);
+            return;
+          }
           toggle();
         },
         true
@@ -8968,6 +9184,7 @@ function fieldVal(body, name, isCheck) {
       librarian: "is-libbay",
       detective: "is-agentbay",
       agent: "is-agentbay",
+      developer: "is-libbay",
       tps: "is-tpsbay",
       crate: "is-cratebay",
     };
@@ -9101,6 +9318,8 @@ function fieldVal(body, name, isCheck) {
           ? "Detective index"
           : look.kind === "librarian"
             ? "Librarian catalog"
+            : look.kind === "developer"
+            ? "Dev notes"
             : look.kind === "tps"
               ? "TPS report"
               : look.kind === "crate"
@@ -9308,7 +9527,9 @@ function fieldVal(body, name, isCheck) {
       }
       return true;
     });
-    var mouths = HOUSES.map(function (cfg) {
+    var mouths = HOUSES.filter(function (cfg) {
+      return cfg.cabinet !== false;
+    }).map(function (cfg) {
       return {
         label: cfg.menu,
         items: [
@@ -9373,6 +9594,7 @@ function fieldVal(body, name, isCheck) {
     function fillMenu() {
       menu.textContent = "";
       HOUSES.forEach(function (cfg) {
+        if (cfg.cabinet === false) return;
         var shelf = shelves[cfg.id];
         var on = shelf && shelf.isOpen && shelf.isOpen();
         var item = document.createElement("button");
@@ -9512,6 +9734,13 @@ function fieldVal(body, name, isCheck) {
         if (sessionStorage.getItem(cfg.openKey) === "1") want = true;
         if (cfg.openKeyLegacy && sessionStorage.getItem(cfg.openKeyLegacy) === "1") want = true;
       } catch (e) {}
+      if (want && cfg.id === "cards" && shelves.readme && shelves.readme.isOpen()) {
+        /* Stale save with BIOS and DECK both open - they are a flip pair, keep BIOS. */
+        try {
+          sessionStorage.removeItem(cfg.openKey);
+        } catch (e) {}
+        want = false;
+      }
       if (want && shelves[cfg.id] && shelves[cfg.id].applyOpen) {
         shelves[cfg.id].applyOpen(true);
       }
@@ -9531,42 +9760,57 @@ function fieldVal(body, name, isCheck) {
 /* rail-house-switcher */
 (function () {
   if (document.documentElement.getAttribute("data-sidecar")) return;
-  // Catalog rails + TPS + Deck. BIOS stays a separate window — not in this cycle.
-  var RAIL_IDS = ["librarian", "charlie", "detective", "tps", "cards"];
+  // Catalog rails + TPS. BIOS stays a separate window — not in this cycle.
+  var RAIL_IDS = ["librarian", "charlie", "detective", "developer", "tps"];
+  // DECK (cards) is not a cabinet: the BIOS title chip flips BIOS -> DECK and the
+  // DECK chip flips back. Same close-then-open move the cabinet chips use.
+  var FLIP_IDS = ["readme", "cards"];
 
   function getShelves() {
     return window.pocketShelves || null;
+  }
+
+  function wireChip(id, ring, tip) {
+    var aside = document.getElementById(id);
+    if (!aside || aside.hasAttribute("hidden")) return;
+    var strong =
+      aside.querySelector(".librarian-head strong") ||
+      aside.querySelector(".charlie-mark") ||
+      aside.querySelector(".tps-mark");
+    if (!strong) return;
+    if (strong.getAttribute("data-rail-switch") === "1") return;
+    strong.setAttribute("data-rail-switch", "1");
+    strong.title = tip;
+    strong.style.cursor = "pointer";
+    strong.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var sh = getShelves();
+      if (!sh) return;
+      var cur = ring.indexOf(id);
+      if (cur < 0) cur = 0;
+      var next = ring[(cur + 1) % ring.length];
+      ring.forEach(function (hid) {
+        if (sh[hid] && sh[hid].applyOpen) sh[hid].applyOpen(false);
+      });
+      if (sh[next] && sh[next].applyOpen) sh[next].applyOpen(true);
+      window.setTimeout(paintSwitchers, 30);
+    });
   }
 
   function paintSwitchers() {
     var shelves = getShelves();
     if (!shelves) return;
     RAIL_IDS.forEach(function (id) {
-      var aside = document.getElementById(id);
-      if (!aside || aside.hasAttribute("hidden")) return;
-      var strong =
-        aside.querySelector(".librarian-head strong") ||
-        aside.querySelector(".charlie-mark") ||
-        aside.querySelector(".tps-mark");
-      if (!strong) return;
-      if (strong.getAttribute("data-rail-switch") === "1") return;
-      strong.setAttribute("data-rail-switch", "1");
-      strong.title = "Click to switch cabinet (Librarian / Charlie / Detective / TPS / Deck)";
-      strong.style.cursor = "pointer";
-      strong.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var sh = getShelves();
-        if (!sh) return;
-        var cur = RAIL_IDS.indexOf(id);
-        if (cur < 0) cur = 0;
-        var next = RAIL_IDS[(cur + 1) % RAIL_IDS.length];
-        RAIL_IDS.forEach(function (hid) {
-          if (sh[hid] && sh[hid].applyOpen) sh[hid].applyOpen(false);
-        });
-        if (sh[next] && sh[next].applyOpen) sh[next].applyOpen(true);
-        window.setTimeout(paintSwitchers, 30);
-      });
+      wireChip(id, RAIL_IDS, "Click to switch cabinet (Librarian / Charlie / Detective / Developer / TPS)");
+    });
+    if (!shelves.readme || !shelves.cards) return;
+    FLIP_IDS.forEach(function (id) {
+      wireChip(
+        id,
+        FLIP_IDS,
+        id === "readme" ? "Click to flip to DECK (cards) - Ctrl+Shift+Q" : "Click to flip back to BIOS"
+      );
     });
   }
 
@@ -9608,7 +9852,7 @@ function fieldVal(body, name, isCheck) {
   if (typeof SIDECAR !== "undefined" && SIDECAR) return;
   var KEY = "pocket-go-col-widths-v1";
   // Catalog rails share one column width (chip-cycle same slot).
-  var CATALOG_IDS = { librarian: 1, charlie: 1, detective: 1, agent: 1, tps: 1, cards: 1 };
+  var CATALOG_IDS = { librarian: 1, charlie: 1, detective: 1, agent: 1, developer: 1, tps: 1 };
   var CATALOG_KEY = "catalog-rail";
 
   function loadMap() {
@@ -9628,6 +9872,7 @@ function fieldVal(body, name, isCheck) {
   }
   function widthKey(el) {
     var id = houseId(el);
+    if (id === "cards") return "readme"; /* DECK flips in from the BIOS chip - share the BIOS width */
     if (CATALOG_IDS[id]) return CATALOG_KEY;
     return id;
   }
@@ -9667,8 +9912,9 @@ function fieldVal(body, name, isCheck) {
       var dx = e.clientX - startX;
       /* grip is on left edge — drag left = wider panel (boundary moves into the page) */
       var next = Math.round(startW - dx);
-      var min = el.classList.contains("is-readme") ? 160 : 120;
-      var max = el.classList.contains("is-readme") ? 960 : 760;
+      var biosWide = el.classList.contains("is-readme") || el.classList.contains("is-cards");
+      var min = biosWide ? 160 : 120;
+      var max = biosWide ? 960 : 760;
       if (next < min) next = min;
       if (next > max) next = max;
       el.style.flexBasis = next + "px";

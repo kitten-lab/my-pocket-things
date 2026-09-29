@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-secret-lairs/
+crate: crate.59C7A3F4118735A2
+fields:
+  - type: input
+    label: vault
+    value: go.to
+  - type: input
+    label: author
+    value: SDK-808

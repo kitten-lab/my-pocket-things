@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.ineffable/_index.md
+crate: crate.5B722ED7024EF9A1
+fields:
+  - type: input
+    label: name
+    value: Ineffable Box
+  - type: input
+    label: class
+    value: box
+  - type: input
+    label: type
+    value: sealed chambers
+  - type: input
+    label: known for
+    value: OMAN omens; JASMINE hymns; TEEHEE secrets; mid-talk notice goes inside
+  - type: input
+    label: contains
+    value: omens; hymns; secrets

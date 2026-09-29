@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.media/books/The Machine Stops.md
+crate: crate.7C2E9A1F4B8D6035
+fields:
+  - type: input
+    label: title
+    value: The Machine Stops
+  - type: input
+    label: kind
+    value: book
+  - type: input
+    label: dept
+    value: books
+  - type: input
+    label: author
+    value: E. M. Forster
+  - type: input
+    label: form
+    value: PDF
+  - type: input
+    label: holds
+    value: mats/docs/Machine_stops.pdf
+  - type: input
+    label: references
+    value: https://x.com/elonmusk/status/2099946406345937242
+  - type: input
+    label: arrival
+    value: Woken from sleep; the post was waiting. Marked to reopen later.
+  - type: input
+    label: crossings
+    value: go.cast/Elon, go.tags/elon

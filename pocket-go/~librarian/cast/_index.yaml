@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.cast/_index.md
+crate: crate.C1648FB59A716D63
+fields:
+  - type: input
+    label: name
+    value: Cast
+  - type: input
+    label: class
+    value: room
+  - type: input
+    label: type
+    value: people and archetypes with crossings

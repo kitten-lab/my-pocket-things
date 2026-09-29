@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.danyi/
+crate: crate.FAFC7FDFF807DEF3
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi
+  - type: input
+    label: color
+    value: red

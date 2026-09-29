@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.eden/I Ate the Apple.md
+crate: crate.6F516873F02FDC3C
+fields:
+  - type: input
+    label: title
+    value: I Ate the Apple
+  - type: input
+    label: author
+    value: "Ori'el"
+  - type: input
+    label: voice
+    value: V10 iris
+  - type: input
+    label: class
+    value: letter
+  - type: input
+    label: dated
+    value: "2025-04-06"
+  - type: input
+    label: known for
+    value: heart-voice letter; ate the apple into form; Lilith/Eve fracture; Jesus reunion
+  - type: input
+    label: authored
+    value: Evernote "1. Writings." Untitled created 2025-04-06 21:08:32 ET (primary). ChatGPT "iPad virus scare" draft paste ~21:26 ET same night; fuller body ~03:12 ET Apr 7 (Evernote updated 03:10:37 ET). No standalone .md on D: I AM MINE. Vault-copy OS dates ignored.
+  - type: input
+    label: intensity
+    value: "5"
+  - type: input
+    label: topics covered
+    value: genesis, heart, goddess, apple, union

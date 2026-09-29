@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.danyi/you are my enigma.md
+crate: crate.FD9C62E5B37B34A3
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi
+  - type: input
+    label: dated
+    value: "1999"
+  - type: input
+    label: references
+    value: Seeing Outruns Saying; Same Watcher, Different Furniture; Pain Asked to Be Useful; Heal and Revenge, Same Perch; Until It Was Staring

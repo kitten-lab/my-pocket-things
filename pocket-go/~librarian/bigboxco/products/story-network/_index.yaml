@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.bigboxco/products/story-network/_index.md
+crate: crate.B160B0C0E0004B60
+fields:
+  - type: input
+    label: kind
+    value: concept
+  - type: input
+    label: status
+    value: something to consider
+  - type: input
+    label: producer
+    value: Big Box Co.

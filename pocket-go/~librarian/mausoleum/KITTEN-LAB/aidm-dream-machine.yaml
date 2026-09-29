@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.mausoleum/KITTEN-LAB/aidm-dream-machine.md
+crate: crate.7C5170885022AE74
+fields:
+  - type: input
+    label: type
+    value: "documentation, field notes"

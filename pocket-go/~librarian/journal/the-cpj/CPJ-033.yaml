@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-033.md
+crate: crate.9FFE991CA3C07E72
+fields:
+  - type: input
+    label: page
+    value: "033"
+  - type: input
+    label: title
+    value: Root of Her Injection
+  - type: input
+    label: dated
+    value: "2020-01-09"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: hand
+    value: Virgo / clean hand
+  - type: input
+    label: contains
+    value: prose; tarot spread; diagram
+  - type: input
+    label: topics covered
+    value: Katie / nanny, family, community, full moon, Thoth
+  - type: input
+    label: deck
+    value: Thoth
+  - type: input
+    label: continues from
+    value: CPJ-032 Illusive Friendship

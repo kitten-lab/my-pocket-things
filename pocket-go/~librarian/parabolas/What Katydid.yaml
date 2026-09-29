@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.parabolas/What Katydid.md
+crate: crate.82B0C1E60000D4B6
+fields:
+  - type: input
+    label: title
+    value: What Katydid
+  - type: input
+    label: class
+    value: parabola
+  - type: input
+    label: dated
+    value: "2025-09-14"
+  - type: input
+    label: when
+    value: "2025-09-14 21:48 ET"
+  - type: input
+    label: known for
+    value: two katydids; Katy and Syd; K.D.; anima/animus evening
+  - type: input
+    label: topics covered
+    value: katydid, self-trust, anima, animus, Katy, Syd
+  - type: input
+    label: references
+    value: the Ungiven Chocolate Rose; Cricket Mid-Heat; Threshold Cicada Grasshopper; Only
+  - type: input
+    label: author
+    value: "Ori'el"

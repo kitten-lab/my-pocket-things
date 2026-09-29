@@ -1,7 +1,9 @@
 ---
 crate: crate.560A0F4CEA091344
-title: help desk of the pocketGo
+title: HELP DESK
+deck: The help desk of the pocketGo!
 environment: help
+section: ASPECTS LOBBY
 ---
 
 {{div:.pg-frame.pg-rail.pg-rail-left}}

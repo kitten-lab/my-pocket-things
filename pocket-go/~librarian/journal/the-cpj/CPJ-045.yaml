@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-045.md
+crate: crate.A62595106E13FE82
+fields:
+  - type: input
+    label: page
+    value: "045"
+  - type: input
+    label: title
+    value: I Wonder About Cain
+  - type: input
+    label: dated
+    value: "2020-01-15"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose
+  - type: input
+    label: topics covered
+    value: sun and moon, Cain and Abel, rejection, anger
+  - type: input
+    label: known for
+    value: celebrate the sun in the moon; Cain resenting Abel

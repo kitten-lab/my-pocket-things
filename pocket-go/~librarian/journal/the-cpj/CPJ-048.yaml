@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-048.md
+crate: crate.D2D07BAA1C523942
+fields:
+  - type: input
+    label: page
+    value: "048"
+  - type: input
+    label: title
+    value: Cain Hides in Shame
+  - type: input
+    label: dated
+    value: "2020-01-15"
+  - type: input
+    label: class
+    value: marker
+  - type: input
+    label: contains
+    value: prose; continues
+  - type: input
+    label: topics covered
+    value: Cain and Abel, shame, Self love, God, Other
+  - type: input
+    label: continues from
+    value: CPJ-047
+  - type: input
+    label: references
+    value: Shame Was the Split; Art Overflowed Until Form; It Kills Every Container

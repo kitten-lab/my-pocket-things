@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-secret-lairs/chesters11235/index.md
+crate: crate.5750316656BCA688
+fields:
+  - type: input
+    label: vault
+    value: _imported.to/chesters
+  - type: input
+    label: author
+    value: SDK-808

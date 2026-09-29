@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-054.md
+crate: crate.BF7FF324FC2FFC15
+fields:
+  - type: input
+    label: page
+    value: "054"
+  - type: input
+    label: title
+    value: Bubble Verse
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: diagram; notes; continues
+  - type: input
+    label: topics covered
+    value: conception, Eve, Eden, Pangaea, Truman Show, dream
+  - type: input
+    label: known for
+    value: less dated more random; bubble verse

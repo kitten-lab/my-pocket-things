@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-035.md
+crate: crate.6DC75FA52F66B0B1
+fields:
+  - type: input
+    label: page
+    value: "035"
+  - type: input
+    label: title
+    value: Your Sun in My Moon
+  - type: input
+    label: dated
+    value: "2020-01-10"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: verse
+  - type: input
+    label: topics covered
+    value: Other, internal lover, reflection, moon, sun
+  - type: input
+    label: known for
+    value: endless call to the internal lover who never comes home outside

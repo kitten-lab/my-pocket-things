@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.poet/hall-of-ocean-songs/_index.md
+crate: crate.C8D4F1A27E395B60
+fields:
+  - type: input
+    label: title
+    value: Hall of Ocean Songs
+  - type: input
+    label: kind
+    value: hall
+  - type: input
+    label: vibe
+    value: water speech, overflow, cry-you-a-river, lovers who were weapons
+  - type: input
+    label: deck
+    value: The Rooms of Her Painted Words
+  - type: input
+    label: contains
+    value: tide / river / ocean poems; ball thrown back across the court
+  - type: input
+    label: first leaf
+    value: Cry a River 1
+  - type: input
+    label: chapbook aim
+    value: and this is why the ocean cried blood

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.media/movies/Toy Story.md
+crate: crate.C68CE0D609CDFB9B
+fields:
+  - type: input
+    label: title
+    value: Toy Story
+  - type: input
+    label: kind
+    value: movie
+  - type: input
+    label: dept
+    value: movies

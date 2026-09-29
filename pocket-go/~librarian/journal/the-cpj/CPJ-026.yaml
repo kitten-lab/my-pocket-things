@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-026.md
+crate: crate.F7C6D11A4098A03C
+fields:
+  - type: input
+    label: page
+    value: "026"
+  - type: input
+    label: class
+    value: working
+  - type: input
+    label: contains
+    value: diagram; verse
+  - type: input
+    label: topics covered
+    value: shadow, light, masc/femme

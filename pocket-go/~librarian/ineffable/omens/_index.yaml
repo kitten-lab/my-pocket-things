@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.ineffable/omens/_index.md
+crate: crate.03F67685AF766CD2
+fields:
+  - type: input
+    label: name
+    value: "Oman's Omens"
+  - type: input
+    label: class
+    value: chamber
+  - type: input
+    label: chip
+    value: OMAN
+  - type: input
+    label: known for
+    value: mid-talk animal / omen drops; capture first, not stamp as law
+  - type: input
+    label: contains
+    value: Cricket Mid-Heat; Threshold Cicada Grasshopper

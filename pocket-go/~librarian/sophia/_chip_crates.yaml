@@ -1,0 +1,7 @@
+# Go crate ledger for guest .chip files. Keyed by chip.uid.
+
+leaf[100]: crate.699C3E78C874C8DB
+leaf[68]: crate.9BE06AB03E09F066
+leaf[6]: crate.0D7ABC3647658A51
+leaf[7]: crate.94DC9477D812BD1F
+leaf[98]: crate.FC679CA7F71BE85B

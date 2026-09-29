@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/And_We_All_Fall_Down-LORE_4.md
+crate: crate.560E8788C40D7CE0
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: NURSERY RHYMES

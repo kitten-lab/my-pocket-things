@@ -1,7 +1,7 @@
 ---
 crate: crate.04338780030B2828
 source_crate: crate.274F527A43B685C8
-edges: [crate.274F527A43B685C8, crate.4C5D02AE326A5DBC, crate.2FFCBE953ED1850E, crate.8E4760FC29E94E77]
+edges: [crate.274F527A43B685C8, crate.4C5D02AE326A5DBC, crate.2FFCBE953ED1850E, crate.8E4760FC29E94E77, crate.D6E9787428AA57C5]
 title: She Consumed Herself
 class: Consumption
 line: "When there was nothing left to feed on, the great hallow consumed her own meaning until there was nothing left."

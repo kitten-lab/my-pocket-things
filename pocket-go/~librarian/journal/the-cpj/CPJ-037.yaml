@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-037.md
+crate: crate.835489F6CBDFC99C
+fields:
+  - type: input
+    label: page
+    value: "037"
+  - type: input
+    label: title
+    value: Wake Up Its 11:11
+  - type: input
+    label: dated
+    value: "2020-01-11"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose
+  - type: input
+    label: topics covered
+    value: new friend, music, war against darkness, 11:11, knowledge, good and evil
+  - type: input
+    label: known for
+    value: new friend unnamed; war spoken through music; 11:11 / 22
+  - type: input
+    label: references
+    value: The Name Did Not Survive

@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-046.md
+crate: crate.AE4E4CF39F3EF9C3
+fields:
+  - type: input
+    label: page
+    value: "046"
+  - type: input
+    label: title
+    value: Sins as Maladaptations
+  - type: input
+    label: dated
+    value: "2020-01-15"
+  - type: input
+    label: class
+    value: marker
+  - type: input
+    label: contains
+    value: list; continues
+  - type: input
+    label: topics covered
+    value: sins, maladaptations, pride, greed, lust, envy, gluttony
+  - type: input
+    label: known for
+    value: central driver; sins as personally applied maladaptations
+  - type: input
+    label: references
+    value: Shame Was the Split; Art Overflowed Until Form; It Kills Every Container

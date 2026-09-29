@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Deckmaster-LORE_14.md
+crate: crate.A7945C3FE86501F6
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: TOY

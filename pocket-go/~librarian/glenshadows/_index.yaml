@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.glenshadows/_index.md
+crate: crate.B494D4D49DA64556
+fields:
+  - type: input
+    label: name
+    value: Glen Shadows Tavern
+  - type: input
+    label: class
+    value: room
+  - type: input
+    label: type
+    value: walkable geography
+  - type: input
+    label: known for
+    value: found + new RP; floor from 001-OT-130; crates as nodes
+  - type: input
+    label: contains
+    value: Jace Barkeep; Too Young; Remir at Nia's; Gideon Confess; Bag 001-OT-130
+  - type: input
+    label: source bag
+    value: "001-OT-130"

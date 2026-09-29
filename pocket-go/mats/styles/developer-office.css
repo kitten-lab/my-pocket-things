@@ -1,0 +1,1719 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+
+/* developer-office - go.developer.office, the night lab of A. Mira.
+   A graphite workbench after hours: midnight mast with a door sign, a
+   workbench rail, a recessed INTAKE TRAY where everything arrives, the desk
+   it gets pulled onto, a staff badge clipped at the foot of the rail, and a
+   graphite sheet with a faint engineering grid. Dark, layered, warm-lit.
+   One face (IBM Plex Mono). No tilt, no glow, compact rows.
+
+   Colour means something (no "blue = done"):
+     amber   intake: the inbox tray, the report form, prompts, the badge
+     green   the desk / terminal / comments: what is being worked on
+     blue    plain links (softened)            plum    #tags
+     copper  filed things: reports on record, ^code refs, warnings
+   Sorting reads top-down in the rail: INBOX (all data lands here, one
+   numbered bin per folder) -> ON THE DESK (the open bin's files) -> back.
+   Shell (_shell.md): .side > .dev-intake / .dev-desk / .dev-return /
+   .dev-hours / .dev-badge, then .content. Page content classes at the end.
+   Phone: the rail folds into the shared rail drawer (www.js + www.css);
+   the page is one framed card. */
+
+.go-shell {
+  --night: #0b0d10;
+  --bg: #12161b;
+  --panel: #161b21;
+  --panel-hi: #1c222a;
+  --tray: #0d1014;
+  --well: #222a34;
+  --rule: #29313b;
+  --rule-hi: #3b4553;
+  --ink: #d8d3c6;
+  --hi: #f2ede1;
+  --mute: #8f9097;
+  --amber: #e2aa5c;
+  --amber-lo: #a37437;
+  --green: #93c49b;
+  --green-lo: #4f7a58;
+  --blue: #86a9d8;
+  --copper: #cf8a63;
+  --copper-lo: #8a5234;
+  --plum: #b7a0d9;
+  --tty: #0b0e0c;
+  --tty-ink: #cfe0c4;
+  --enamel: #1b1916;
+  --accent: var(--amber);
+  --paper: var(--bg);
+  --line: var(--rule);
+  --visited: var(--blue);
+  --rail: 222px;
+  --rail-drawer-label: "inbox & desk";
+  --rail-drawer-noun: "file files";
+  --rail-drawer-bg: var(--panel-hi);
+  --rail-drawer-ink: #eed7b0;
+  --rail-drawer-line: var(--amber-lo);
+  --rail-drawer-font: inherit;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", "Share Tech Mono", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* one family, no exceptions (tags, code, inputs, buttons, the drawer bar) */
+.go-shell *,
+.go-shell *::before,
+.go-shell *::after {
+  font-family: inherit !important;
+}
+
+.go-shell ::selection {
+  background: var(--amber);
+  color: var(--night);
+}
+
+#browserWindow {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "mast mast"
+    "side content"
+    "foot foot";
+  background: var(--night);
+}
+
+#browserWindow > :not(.mast):not(.side):not(.content):not(.foot) {
+  grid-column: 1 / -1;
+}
+
+.go-shell h1,
+.go-shell h2,
+.go-shell h3,
+.go-shell h4,
+.go-shell h5,
+.go-shell h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--hi);
+}
+
+.go-shell a,
+.go-shell a:link,
+.go-shell a:visited,
+.go-shell a.been {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.go-shell a:hover { color: var(--hi); }
+
+/* ---------- mast: the door sign ---------- */
+.go-shell .mast {
+  grid-area: mast;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 7px 14px 6px;
+  background: linear-gradient(180deg, #1f2631 0, #171c24 100%);
+  color: var(--hi);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-shadow: none;
+  border-bottom: 1px solid #07090b;
+  box-shadow: inset 0 -1px 0 var(--amber-lo), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* lamp over the door (lit, not glowing) */
+.go-shell .mast::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  background: var(--amber);
+  border: 1px solid #5a3f1c;
+  border-radius: 1px;
+}
+
+.go-shell .mast::after {
+  content: "remote office \00b7  963.13";
+  margin-left: auto;
+  color: var(--mute);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+
+/* ---------- rail: the workbench ---------- */
+.go-shell .side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: auto;
+  padding: 10px 9px 10px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 23px, rgba(255, 255, 255, 0.018) 23px 24px),
+    var(--panel);
+  color: var(--ink);
+  border-right: 1px solid #07090b;
+  box-shadow: inset -1px 0 0 var(--rule);
+  font-size: 11px;
+  line-height: 1.4;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-hi) transparent;
+}
+
+.go-shell .side p {
+  margin: 0;
+  white-space: normal;
+}
+
+.go-shell .side p:empty { display: none; }
+
+.go-shell .side > div {
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+/* section labels (inbox / on the desk) */
+.go-shell .side .dev-intake > p > em,
+.go-shell .side .dev-desk > p > em {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* INBOX: the intake tray. A recessed amber-lipped well on the bench where
+   Jack Nim's paper lands. Each bin (one per folder, arrival order) is a warm
+   thermal slip lying in the well; offset sheet edges under the last slip
+   show the pile; the open bin is the sheet pulled proud. The fax header on
+   the top sheet and the P.nn page numbers are pure CSS (no per-item data).
+   The count sits in the tray lip, the caption is stamped on the front lip.
+   A later/ bin, if one ever appears in this navbar, is bundled apart at the
+   foot of the tray as a clipped holding pile (dormant until then). */
+.go-shell .side .dev-intake {
+  --slip: #d0c9b6;
+  --slip-hi: #e8e1ce;
+  --slip-ink: #221e17;
+  --slip-meta: #65533a;
+  --slip-edge: #a09884;
+  --slip-edge-lo: #807966;
+  --lip: #9c6f35;
+  position: relative;
+  padding: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.014) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #06080a 0, var(--tray) 16px, #10141a 100%);
+  border: 1px solid #07090b;
+  border-top: 2px solid var(--amber);
+  border-radius: 2px 2px 3px 3px;
+  box-shadow:
+    inset 0 9px 10px -6px rgba(0, 0, 0, 0.9),
+    inset 4px 0 5px -4px rgba(0, 0, 0, 0.8),
+    inset -4px 0 5px -4px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* back wall: the tray label */
+.go-shell .side .dev-intake > p > em {
+  padding: 5px 44px 5px 8px;
+  background: linear-gradient(180deg, #1a1f26 0, #11151a 100%);
+  border-bottom: 1px solid #07090b;
+  box-shadow: 0 1px 0 rgba(226, 170, 92, 0.12);
+  color: var(--amber);
+}
+
+.go-shell .side .dev-intake > p > em::before {
+  content: "\2193";
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.go-shell .side .dev-intake > p > em::after {
+  content: "intake";
+  color: var(--mute);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+/* the pile of slips, lying in the well */
+.go-shell .side .dev-intake nav.pg-navbar {
+  display: flex;
+  flex-direction: column;
+  margin: 7px 7px 0;
+  padding: 0 0 11px;
+  border: 0;
+  background: none;
+  counter-reset: bin;
+}
+
+/* fax header printed along the top sheet */
+.go-shell .side .dev-intake nav.pg-navbar::before {
+  content: "RX\00b7" "FAX  TO\00b7" "A.MIRA  963.13";
+  display: block;
+  order: -1;
+  padding: 3px 7px 2px;
+  background:
+    repeating-linear-gradient(0deg, rgba(40, 30, 15, 0.032) 0 1px, transparent 1px 3px),
+    var(--slip);
+  border-bottom: 1px solid rgba(34, 30, 23, 0.55);
+  border-radius: 1px 1px 0 0;
+  color: var(--slip-meta);
+  font-size: 8.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-align: justify;
+  text-align-last: justify;
+  white-space: nowrap;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar:not(:has(a))::before { display: none; }
+
+/* one thermal slip per bin */
+.go-shell .side .dev-intake nav.pg-navbar a {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+  padding: 3px 7px 3px 7px;
+  border: 0;
+  border-bottom: 1px dashed rgba(34, 30, 23, 0.32);
+  background:
+    repeating-linear-gradient(0deg, rgba(40, 30, 15, 0.028) 0 1px, transparent 1px 3px),
+    var(--slip);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: var(--slip-ink);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  counter-increment: bin;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a:link,
+.go-shell .side .dev-intake nav.pg-navbar a:visited,
+.go-shell .side .dev-intake nav.pg-navbar a.been { color: var(--slip-ink); }
+
+/* page number, fax style */
+.go-shell .side .dev-intake nav.pg-navbar a::before {
+  content: "P." counter(bin, decimal-leading-zero);
+  flex: 0 0 auto;
+  color: var(--slip-meta);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a::after {
+  content: "/";
+  margin-left: -7px;
+  color: var(--slip-meta);
+  font-weight: 400;
+}
+
+/* the bottom sheet carries the pile: offset sheet edges under the stack */
+.go-shell .side .dev-intake nav.pg-navbar a:nth-last-child(1 of :not([href$="p=later"])) {
+  border-bottom: 0;
+  border-radius: 0 0 1px 1px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    1px 3px 0 -1px var(--slip-edge),
+    1px 4px 0 -1px rgba(0, 0, 0, 0.6),
+    -1px 6px 0 -2px var(--slip-edge-lo),
+    -1px 7px 0 -2px rgba(0, 0, 0, 0.6),
+    0 9px 0 -3px #67614f,
+    0 10px 0 -3px rgba(0, 0, 0, 0.6);
+  overflow: visible;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a:hover {
+  background:
+    repeating-linear-gradient(0deg, rgba(40, 30, 15, 0.028) 0 1px, transparent 1px 3px),
+    #e4ddcb;
+  color: #000;
+}
+
+/* the open bin: the sheet pulled proud of the pile */
+.go-shell .side .dev-intake nav.pg-navbar a.on {
+  z-index: 1;
+  background:
+    repeating-linear-gradient(0deg, rgba(40, 30, 15, 0.022) 0 1px, transparent 1px 3px),
+    var(--slip-hi);
+  color: #14110c;
+  font-weight: 600;
+  box-shadow:
+    inset 3px 0 0 var(--amber),
+    inset 4px 0 0 #7a5424,
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a.on::before { color: #93601f; font-weight: 500; }
+
+.go-shell .side .dev-intake nav.pg-navbar a.on:nth-last-child(1 of :not([href$="p=later"])) {
+  box-shadow:
+    inset 3px 0 0 var(--amber),
+    inset 4px 0 0 #7a5424,
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    1px 3px 0 -1px var(--slip-edge),
+    1px 4px 0 -1px rgba(0, 0, 0, 0.6),
+    -1px 6px 0 -2px var(--slip-edge-lo),
+    -1px 7px 0 -2px rgba(0, 0, 0, 0.6),
+    0 9px 0 -3px #67614f,
+    0 10px 0 -3px rgba(0, 0, 0, 0.6);
+}
+
+/* bin count, lifted into the tray lip */
+.go-shell .side .dev-intake nav.pg-navbar::after {
+  content: counter(bin, decimal-leading-zero);
+  position: absolute;
+  top: 4px;
+  right: 7px;
+  padding: 0 5px;
+  background: #0b0d10;
+  border: 1px solid var(--amber-lo);
+  border-radius: 2px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+  color: var(--amber);
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+}
+
+/* front lip of the tray, caption stamped into the metal */
+.go-shell .side .dev-intake::after {
+  content: "all data lands here first";
+  display: block;
+  margin: 2px 0 0;
+  padding: 3px 8px 3px;
+  background: linear-gradient(180deg, #c18b45 0, var(--lip) 2px, #7d5728 100%);
+  border-top: 1px solid #3a2810;
+  border-radius: 0 0 2px 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 226, 170, 0.28), 0 2px 0 #07090b;
+  color: #1d1409;
+  font-size: 9.5px;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* LATER (dormant): a later/ bin, if it ever lands in this navbar, is set
+   apart at the foot of the tray as a clipped, banded holding pile. It is
+   not counted as intake. */
+.go-shell .side .dev-intake nav.pg-navbar a[href$="p=later"] {
+  order: 99;
+  counter-increment: none;
+  margin: 13px 0 7px;
+  padding-left: 24px;
+  border: 0;
+  border-radius: 1px;
+  overflow: visible;
+  background:
+    linear-gradient(90deg, transparent 0 54%, #8a5234 54% 60%, transparent 60%),
+    repeating-linear-gradient(0deg, rgba(40, 25, 10, 0.032) 0 1px, transparent 1px 3px),
+    #c6b39c;
+  color: #2a1d12;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    0 3px 0 -1px #a8927a,
+    0 4px 0 -1px rgba(0, 0, 0, 0.6),
+    0 6px 0 -1px #968068,
+    0 7px 0 -1px rgba(0, 0, 0, 0.6),
+    0 9px 0 -2px #7d6a55,
+    0 10px 0 -2px rgba(0, 0, 0, 0.6);
+}
+
+/* binder clip gripping the pile */
+.go-shell .side .dev-intake nav.pg-navbar a[href$="p=later"]::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  width: 12px;
+  height: 14px;
+  background:
+    linear-gradient(#aeb6bf, #aeb6bf) 3px 0 / 6px 1px no-repeat,
+    linear-gradient(#aeb6bf, #aeb6bf) 3px 0 / 1px 7px no-repeat,
+    linear-gradient(#aeb6bf, #aeb6bf) 8px 0 / 1px 7px no-repeat,
+    linear-gradient(180deg, #58616d 0, #252a31 100%) 1px 6px / 10px 7px no-repeat,
+    linear-gradient(#07090b, #07090b) 0 5px / 12px 9px no-repeat;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a[href$="p=later"]::after {
+  content: "on hold";
+  margin-left: auto;
+  padding: 0 4px;
+  background: #e2d3bd;
+  border: 1px solid #8a5234;
+  border-radius: 1px;
+  color: #6e3f25;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .side .dev-intake nav.pg-navbar a[href$="p=later"]:hover { background:
+    linear-gradient(90deg, transparent 0 54%, #8a5234 54% 60%, transparent 60%),
+    #d2c0a8; }
+
+.go-shell .side .dev-intake nav.pg-navbar a[href$="p=later"].on {
+  background:
+    linear-gradient(90deg, transparent 0 54%, #cf8a63 54% 60%, transparent 60%),
+    #d8c6ad;
+  box-shadow:
+    inset 3px 0 0 var(--copper),
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    0 3px 0 -1px #a8927a,
+    0 4px 0 -1px rgba(0, 0, 0, 0.6),
+    0 6px 0 -1px #968068,
+    0 7px 0 -1px rgba(0, 0, 0, 0.6),
+    0 9px 0 -2px #7d6a55,
+    0 10px 0 -2px rgba(0, 0, 0, 0.6);
+}
+/* ON THE DESK: the open bin's files, pulled out of the tray */
+.go-shell .side .dev-desk {
+  position: relative;
+  padding: 0 0 2px;
+  border-left: 1px solid var(--green-lo);
+  margin-left: 6px;
+}
+
+.go-shell .side .dev-desk::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -1px;
+  height: 10px;
+  border-left: 1px dashed var(--green-lo);
+}
+
+.go-shell .side .dev-desk > p > em {
+  padding: 1px 44px 3px 8px;
+  color: var(--green);
+}
+
+.go-shell .side .dev-desk > p > em::before {
+  content: "\21b3";
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.go-shell .side .dev-desk ul.dir {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  counter-reset: desk;
+}
+
+.go-shell .side .dev-desk ul.dir > li {
+  margin: 0;
+  padding: 0;
+  counter-increment: desk;
+}
+
+.go-shell .side .dev-desk ul.dir > li::before { content: none !important; }
+
+.go-shell .side .dev-desk ul.dir a {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+  padding: 2px 8px 2px 8px;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  background: none;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.go-shell .side .dev-desk ul.dir a::before {
+  content: "\203a";
+  flex: 0 0 auto;
+  color: var(--green-lo);
+}
+
+.go-shell .side .dev-desk ul.dir a .name {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.go-shell .side .dev-desk ul.dir a:hover {
+  background: #1a2019;
+  color: var(--hi);
+}
+
+.go-shell .side .dev-desk ul.dir a.on {
+  background: #18201a;
+  border-left-color: var(--green);
+  color: var(--hi);
+  font-weight: 500;
+}
+
+.go-shell .side .dev-desk ul.dir a.on::before { color: var(--green); }
+
+.go-shell .side .dev-desk ul.dir::after {
+  content: counter(desk, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  right: 7px;
+  padding: 0 5px;
+  border: 1px solid var(--green-lo);
+  border-radius: 2px;
+  color: var(--green);
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+}
+
+/* "no notes here." - a clear desk */
+.go-shell .side .dev-desk > p:not(:has(em)) {
+  margin: 1px 8px 0 8px;
+  padding: 2px 7px;
+  border: 1px dashed var(--rule-hi);
+  color: var(--mute);
+  font-size: 10.5px;
+  font-style: italic;
+}
+
+/* RETURN: back up the stack (hidden on the office front) */
+.go-shell .side .dev-return:not(:has(a)) { display: none; }
+
+.go-shell .side .dev-return {
+  padding: 5px 8px 0;
+  border-top: 1px solid var(--rule);
+  color: var(--mute);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+}
+
+.go-shell .side .dev-return a {
+  display: block;
+  margin-top: 1px;
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.go-shell .side .dev-return a::before {
+  content: "\2190  ";
+  color: var(--mute);
+}
+
+.go-shell .side .dev-return a:hover { color: var(--hi); }
+
+/* posted notice: book of hours + room jumper */
+.go-shell .side .dev-hours {
+  padding: 6px 8px 7px;
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--copper-lo);
+  color: #c4bfb3;
+  font-size: 10.5px;
+}
+
+.go-shell .side .dev-hours h4,
+.go-shell .side .dev-hours h5,
+.go-shell .side .dev-hours h6 {
+  margin: 0 0 1px;
+  color: var(--copper);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .side .dev-hours p + h5,
+.go-shell .side .dev-hours p + h4 { margin-top: 5px; }
+
+.go-shell .side .dev-hours p {
+  white-space: normal;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.go-shell .side .dev-hours ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.go-shell .side .dev-hours ul.bullets > li {
+  margin: 0;
+  padding: 1px 0;
+}
+
+.go-shell .side .dev-hours ul.bullets > li::before {
+  content: "\2197";
+  position: static;
+  display: inline-block;
+  width: 1.6ch;
+  color: var(--mute);
+}
+
+.go-shell .side .dev-hours li a { color: var(--blue); }
+.go-shell .side .dev-hours li a:hover { color: var(--hi); }
+
+/* ---------- room badge: staff ID, clipped at the foot of the rail ----------
+   Dark enamel card in a brass rim, punched lanyard slot, contact chip,
+   amber org band, the office number, a login line, a barcode + serial. */
+.go-shell .side .dev-badge {
+  position: relative;
+  padding: 14px 10px 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0, transparent 40%),
+    var(--enamel);
+  border: 1px solid #6e5330;
+  border-radius: 5px;
+  box-shadow:
+    inset 0 0 0 2px var(--enamel),
+    inset 0 0 0 3px rgba(226, 170, 92, 0.28),
+    0 2px 0 #07090b,
+    0 3px 6px rgba(0, 0, 0, 0.35);
+  color: var(--ink);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+.go-shell .side .dev-badge { margin-top: auto; }
+
+/* lanyard slot */
+.go-shell .side .dev-badge::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 30px;
+  height: 4px;
+  margin-left: -15px;
+  background: var(--panel);
+  border: 1px solid #07090b;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* contact chip */
+.go-shell .side .dev-badge::after {
+  content: "";
+  position: absolute;
+  top: 43px;
+  right: 11px;
+  width: 22px;
+  height: 17px;
+  background:
+    linear-gradient(90deg, transparent 6px, rgba(60, 40, 14, 0.7) 6px 7px, transparent 7px 13px, rgba(60, 40, 14, 0.7) 13px 14px, transparent 14px),
+    linear-gradient(180deg, transparent 7px, rgba(60, 40, 14, 0.7) 7px 8px, transparent 8px),
+    linear-gradient(135deg, #e9c47e 0, #b98b45 100%);
+  border: 1px solid #6e5330;
+  border-radius: 3px;
+}
+
+.go-shell .side .dev-badge .dev-badge-org {
+  display: block;
+  margin: 0 -10px 6px;
+  padding: 2px 10px;
+  background: linear-gradient(180deg, #2a2317 0, #231d14 100%);
+  border-top: 1px solid rgba(226, 170, 92, 0.35);
+  border-bottom: 1px solid rgba(226, 170, 92, 0.35);
+  color: var(--amber);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* "OFFICE NUMBER 963.13" prints as a badge: small label, big number
+   (11ch forces the break after the label; ::first-line sizes the label) */
+.go-shell .side .dev-badge h3 {
+  max-width: 11ch;
+  margin: 0 0 4px;
+  color: var(--hi);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.go-shell .side .dev-badge h3::first-line {
+  color: var(--mute);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.go-shell .side .dev-badge .accent {
+  display: block;
+  margin: 0 0 1px;
+  color: var(--green);
+  font-size: 10.5px;
+}
+
+.go-shell .side .dev-badge .accent::before {
+  content: "> ";
+  color: var(--amber-lo);
+}
+
+.go-shell .side .dev-badge .dev-badge-role {
+  display: block;
+  color: #c4bfb3;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.go-shell .side .dev-badge .dev-badge-serial {
+  display: block;
+  margin: 6px 0 0;
+  padding: 16px 0 0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(216, 211, 198, 0.55) 0 1px, transparent 1px 3px,
+      rgba(216, 211, 198, 0.55) 3px 5px, transparent 5px 6px,
+      rgba(216, 211, 198, 0.55) 6px 7px, transparent 7px 10px,
+      rgba(216, 211, 198, 0.55) 10px 11px, transparent 11px 12px,
+      rgba(216, 211, 198, 0.55) 12px 14px, transparent 14px 17px)
+    0 0 / 100% 12px no-repeat;
+  color: var(--mute);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.go-shell .side .dev-badge p { white-space: normal; }
+
+/* ---------- content sheet ---------- */
+.go-shell .content {
+  grid-area: content;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 22px 30px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1.2px) 0 0 / 18px 18px,
+    var(--bg);
+  color: var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-hi) transparent;
+}
+
+.go-shell .content > * { max-width: 92ch; }
+.go-shell .content > *:first-child { margin-top: 0; }
+
+.go-shell .content h1 {
+  margin: 0 0 12px;
+  padding: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  color: var(--hi);
+  border-bottom: 1px solid var(--rule-hi);
+  background: linear-gradient(90deg, var(--amber) 0 56px, transparent 56px) 0 100% / 100% 2px no-repeat;
+}
+
+.go-shell .content h2 {
+  margin: 16px 0 6px;
+  font-size: 13px;
+  color: var(--hi);
+}
+
+.go-shell .content h3 {
+  margin: 12px 0 8px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* h4-h6: comment lines in the developer's hand */
+.go-shell .content h4,
+.go-shell .content h5,
+.go-shell .content h6 {
+  margin: 14px 0 5px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--green);
+}
+
+.go-shell .content h4::before,
+.go-shell .content h5::before,
+.go-shell .content h6::before {
+  content: "// ";
+  color: var(--green-lo);
+}
+
+.go-shell .content p,
+.go-shell .content li {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.go-shell .content strong,
+.go-shell .content b {
+  font-weight: 600;
+  color: var(--hi);
+}
+
+.go-shell .content em { font-style: italic; color: #e6dfcf; }
+
+.go-shell .content a:hover { text-decoration: underline; }
+
+.go-shell .content a.tag,
+.go-shell .content a.tag:visited {
+  font-size: inherit;
+  color: var(--plum);
+  text-decoration: none;
+}
+
+.go-shell .content a.tag::before { content: "#"; color: #7d7394; }
+.go-shell .content a.tag:hover { color: var(--hi); }
+
+/* ^code refs: copper, filed */
+.go-shell .content a.chipcode,
+.go-shell .content a.chipcode:link,
+.go-shell .content a.chipcode:visited,
+.go-shell .content a.chipcode.been {
+  padding: 0 4px;
+  background: rgba(207, 138, 99, 0.09);
+  border: 1px solid var(--copper-lo);
+  border-radius: 2px;
+  color: var(--copper);
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.go-shell .content a.chipcode:hover { color: var(--hi); border-color: var(--copper); }
+
+.go-shell .content code {
+  padding: 0 4px;
+  background: #1f1b15;
+  border: 1px solid #3d3322;
+  border-radius: 2px;
+  color: #ecc98f;
+  font-size: 11px;
+}
+
+/* terminal glass */
+.go-shell .content pre,
+.go-shell .content pre.ascii {
+  position: relative;
+  margin: 0 0 14px;
+  padding: 26px 14px 10px;
+  overflow: auto;
+  background: var(--tty);
+  border: 1px solid #25302a;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.03);
+  color: var(--tty-ink);
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.go-shell .content pre::before {
+  content: "tty0 \00b7  kitten-lab";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3px 10px 2px;
+  background: #161c18;
+  border-bottom: 1px solid #25302a;
+  color: #7f9483;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.go-shell .content pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.go-shell .content hr {
+  height: 0;
+  margin: 16px 0 12px;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  background: none;
+}
+
+.go-shell .content ul:not(.dir),
+.go-shell .content ol {
+  margin: 0 0 10px;
+  padding-left: 2.4ch;
+}
+
+.go-shell .content ul:not(.dir) > li::marker { color: var(--amber-lo); }
+.go-shell .content ol > li::marker { color: var(--amber-lo); }
+
+.go-shell .content blockquote {
+  margin: 0 0 12px;
+  padding: 1px 0 1px 12px;
+  border-left: 2px solid var(--amber-lo);
+  color: #c9c3b5;
+}
+
+.go-shell .content blockquote p { font-style: italic; }
+
+/* ---------- bin contents: a folder's listing, sorted rows ---------- */
+.go-shell .content ul.dir {
+  list-style: none;
+  max-width: 72ch;
+  margin: 0 0 14px;
+  padding: 0;
+  background: rgba(13, 16, 20, 0.7);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--green-lo);
+  counter-reset: devrow;
+}
+
+.go-shell .content ul.dir::before {
+  content: "\21b3  sorted into this bin";
+  display: block;
+  padding: 3px 8px 2px;
+  border-bottom: 1px solid var(--rule-hi);
+  color: var(--green);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: pre;
+  overflow: hidden;
+}
+
+.go-shell .content ul.dir > li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--rule);
+  counter-increment: devrow;
+}
+
+.go-shell .content ul.dir > li:last-child { border-bottom: 0; }
+.go-shell .content ul.dir > li::before { content: none !important; }
+
+.go-shell .content ul.dir a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 3px 8px;
+  color: var(--ink);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.go-shell .content ul.dir a::before {
+  content: counter(devrow, decimal-leading-zero) "  \203a";
+  flex: 0 0 auto;
+  color: var(--green-lo);
+  font-size: 11px;
+  white-space: pre;
+}
+
+.go-shell .content ul.dir a .name { flex: 1 1 auto; min-width: 0; }
+
+.go-shell .content ul.dir a.is-dir .name::after { content: "/"; color: var(--mute); }
+.go-shell .content ul.dir a.is-dir::before { color: var(--amber-lo); }
+
+.go-shell .content ul.dir a:hover {
+  background: #18201a;
+  color: var(--hi);
+  text-decoration: none;
+}
+
+.go-shell .content ul.dir::after {
+  content: counter(devrow) " sorted here";
+  display: block;
+  padding: 3px 8px 3px;
+  border-top: 1px solid var(--rule-hi);
+  color: var(--mute);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- report form: the intake slot (same amber lip as the inbox) ---------- */
+.go-shell .content form.pg-injector {
+  display: grid;
+  grid-template-columns: 14ch minmax(0, 1fr);
+  gap: 0;
+  max-width: 64ch;
+  margin: 0 0 14px;
+  padding: 0;
+  background: var(--tray);
+  border: 1px solid #07090b;
+  border-top: 2px solid var(--amber);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.go-shell .content form.pg-injector::before {
+  content: "\2193  intake \00b7  new report \2192  this bin";
+  grid-column: 1 / -1;
+  padding: 4px 10px 3px;
+  border-bottom: 1px dashed var(--rule-hi);
+  color: var(--amber);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .content form.pg-injector .pg-injector-row {
+  display: contents;
+}
+
+.go-shell .content form.pg-injector .pg-injector-label {
+  display: block;
+  margin: 0;
+  padding: 6px 10px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--mute);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.go-shell .content form.pg-injector .pg-injector-field {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 27px;
+  margin: 0;
+  padding: 5px 9px;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: #0a0d10;
+  color: var(--hi);
+  font-size: 12px;
+  line-height: 1.4;
+  outline: none;
+  box-shadow: none;
+  caret-color: var(--amber);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.go-shell .content form.pg-injector textarea.pg-injector-field {
+  min-height: 6.5em;
+  resize: vertical;
+}
+
+.go-shell .content form.pg-injector .pg-injector-field:focus {
+  background: #0e1115;
+  box-shadow: inset 2px 0 0 var(--amber);
+}
+
+.go-shell .content form.pg-injector button {
+  grid-column: 2;
+  justify-self: start;
+  margin: 6px 9px;
+  padding: 3px 14px;
+  border: 1px solid var(--amber-lo);
+  border-radius: 2px;
+  background: #221c12;
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.go-shell .content form.pg-injector button:hover,
+.go-shell .content form.pg-injector button:focus-visible {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--night);
+  outline: none;
+}
+
+/* ---------- filed reports ({{faces}}): copper tickets, one row each ---------- */
+.go-shell .content hr + .faces { border-top: 0; }
+.go-shell .content hr:has(+ .faces) { margin-bottom: 8px; border-top-color: var(--rule); }
+
+.go-shell .content .faces {
+  display: block;
+  gap: 0;
+  max-width: 84ch;
+  margin: 0 0 12px;
+  padding: 0;
+  border-top: 0;
+  counter-reset: filed;
+}
+
+.go-shell .content .faces::before {
+  content: "filed \00b7  on record";
+  display: block;
+  padding: 0 2px 4px;
+  color: var(--copper);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .content .faces .face-deck {
+  display: block;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.go-shell .content .faces .face-deck-label {
+  margin: 0;
+  padding: 6px 8px 2px;
+  border: 0;
+  color: var(--mute);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.go-shell .content .faces article.face {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 14px;
+  align-items: baseline;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  margin: 0 0 3px;
+  padding: 4px 9px 4px 10px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--copper);
+  border-radius: 2px;
+  box-shadow: none;
+  transform: none;
+  rotate: none;
+  cursor: pointer;
+  counter-increment: filed;
+}
+
+.go-shell .content .faces article.face:hover,
+.go-shell .content .faces article.face:focus-visible {
+  background: var(--panel-hi);
+  border-color: var(--rule-hi);
+  border-left-color: var(--copper);
+  outline: none;
+}
+
+.go-shell .content .faces article.face > h1,
+.go-shell .content .faces article.face > h2 {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--hi);
+}
+
+.go-shell .content .faces article.face > h1::before,
+.go-shell .content .faces article.face > h2::before {
+  content: "#" counter(filed, decimal-leading-zero) "  ";
+  color: var(--copper);
+  font-weight: 400;
+  white-space: pre;
+}
+
+.go-shell .content .faces article.face:hover > h1 { color: #ffd9c2; }
+
+.go-shell .content .faces article.face > p {
+  grid-column: 1 / -1;
+  margin: 1px 0 0;
+  overflow: hidden;
+  white-space: nowrap !important;
+  text-overflow: ellipsis;
+  color: var(--mute);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.go-shell .content .faces article.face > .md-gap { display: none; }
+
+.go-shell .content .faces article.face > .chips {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.go-shell .content .faces::after {
+  content: counter(filed) " on file";
+  display: block;
+  padding: 2px 2px 0;
+  color: var(--mute);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* chips (tps created etc.): plain key value */
+.go-shell .content .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 10.5px;
+}
+
+.go-shell .content .faces .chips { margin: 0; }
+
+.go-shell .content .chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+}
+
+.go-shell .content .chip .chip-label,
+.go-shell .content .chip a.chip-label {
+  color: var(--mute);
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.go-shell .content .chip .chip-value,
+.go-shell .content .chip a.chip-value {
+  color: #d9c4a8;
+}
+
+/* ---------- foot: status line ---------- */
+.go-shell .foot {
+  grid-area: foot;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  padding: 4px 14px;
+  background: var(--panel-hi);
+  color: var(--mute);
+  border-top: 1px solid #07090b;
+  box-shadow: inset 0 1px 0 var(--rule);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .foot::before {
+  content: "\25cf  ready";
+  color: var(--green);
+  letter-spacing: 0.12em;
+  white-space: pre;
+}
+
+.go-shell .foot::after {
+  content: "pc:kitten-lab";
+  margin-left: auto;
+  color: #6f7178;
+  letter-spacing: 0.1em;
+  text-transform: none;
+}
+
+/* ---------- phone: one framed card (capture view); rail in the shared drawer ---------- */
+@media (max-width: 720px) {
+  #browserWindow {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 8px 8px 10px;
+    background: var(--night);
+  }
+
+  .go-shell .mast,
+  .go-shell.rail-drawer-on .rail-drawer-toggle,
+  .go-shell .side,
+  .go-shell .content {
+    border-left: 1px solid var(--rule-hi);
+    border-right: 1px solid var(--rule-hi);
+  }
+
+  .go-shell .mast {
+    flex: 0 0 auto;
+    padding: 8px 12px 7px;
+    border-top: 1px solid var(--rule-hi);
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .go-shell .mast::after { content: "963.13"; letter-spacing: 0.1em; }
+
+  .go-shell.rail-drawer-on .rail-drawer-toggle {
+    opacity: 1;
+    letter-spacing: 0.1em;
+  }
+
+  .go-shell.rail-drawer-on .rail-drawer-glyph { color: var(--amber); }
+
+  .go-shell .side {
+    flex: 0 0 auto;
+    overflow: visible;
+    padding: 10px 10px 12px;
+    border-bottom: 1px solid var(--amber-lo);
+    box-shadow: none;
+  }
+
+  .go-shell .side .dev-intake nav.pg-navbar a,
+  .go-shell .side .dev-desk ul.dir a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .go-shell .side .dev-desk ul.dir a .name { white-space: normal; }
+
+  .go-shell .side .dev-hours,
+  .go-shell .side .dev-badge { margin-top: 0; font-size: 11px; }
+
+  .go-shell .content {
+    flex: 1 0 auto;
+    overflow: visible;
+    padding: 16px 15px 24px;
+    border-bottom: 1px solid var(--rule-hi);
+    border-radius: 0 0 4px 4px;
+  }
+
+  .go-shell .content p,
+  .go-shell .content li { font-size: 12.5px; }
+
+  .go-shell .content .faces article.face {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .go-shell .content .faces article.face > .chips {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .go-shell .content form.pg-injector {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .go-shell .content form.pg-injector .pg-injector-label {
+    padding: 5px 9px 2px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .go-shell .content form.pg-injector button { grid-column: 1; }
+}
+
+/* ---------- page content layer (content sheet only) ----------
+   Reusable classes for pages in the office, in the developer's voice.
+   Scoped to .content; the rail is untouched. One face (Plex Mono).
+   Markup in a page .md (each token on its own line):
+
+   log entry header  {{div:.dev-log}}
+                     {{span:.dev-stamp}}2026-09-27 16:40{{/span}}
+                     {{span:.dev-branch}}branch OT-107 / main{{/span}}
+                     # Title of the entry
+                     {{/div}}
+   stamp (inline)    {{span:.dev-stamp}}2026-09-27{{/span}}
+   terminal snippet  {{div:.dev-snippet}}
+                     ### build.log              (optional: replaces "tty")
+                     $ run documentation builder
+                     ok: 3 crates written
+                     {{/div}}
+   note              {{div:.dev-note}} ... {{/div}}        label "dev note"
+   warning note      {{div:.dev-note.warn}} ... {{/div}}   label "heads up"
+   shipped note      {{div:.dev-note.ok}} ... {{/div}}     label "shipped"
+                     Open a note with "### Your label" to replace its label.
+   ticket            {{div:.dev-ticket}}
+                     {{span:.dev-ticket-no}}OT-107{{/span}}
+                     {{span:.dev-status}}open{{/span}}
+                     ### Short ticket title
+                     What the ticket is about.
+                     {{/div}}
+   status variants   {{span:.dev-status.shipped}}  {{span:.dev-status.blocked}}
+                     {{span:.dev-status.closed}}   (default = open, amber) */
+
+.go-shell .content .dev-log {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0 0 14px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--rule-hi);
+  background: linear-gradient(90deg, var(--amber) 0 56px, transparent 56px) 0 100% / 100% 2px no-repeat;
+}
+
+.go-shell .content .dev-log > h1,
+.go-shell .content .dev-log > h2,
+.go-shell .content .dev-log > h3,
+.go-shell .content .dev-log > p {
+  flex: 1 0 100%;
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.go-shell .content .dev-stamp {
+  display: inline-block;
+  padding: 0 6px;
+  background: #1f1b15;
+  border: 1px solid var(--amber-lo);
+  border-radius: 2px;
+  color: var(--amber);
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.go-shell .content .dev-branch {
+  color: var(--green);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+}
+
+/* terminal snippet: same glass as pre */
+.go-shell .content .dev-snippet {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 72ch;
+  margin: 0 0 14px;
+  padding: 26px 14px 9px;
+  background: var(--tty);
+  border: 1px solid #25302a;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+  color: var(--tty-ink);
+  overflow-wrap: anywhere;
+}
+
+.go-shell .content .dev-snippet::before,
+.go-shell .content .dev-snippet > h3:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 3px 10px 2px;
+  background: #161c18;
+  border-bottom: 1px solid #25302a;
+  color: #7f9483;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: none;
+}
+
+.go-shell .content .dev-snippet::before { content: "tty"; }
+.go-shell .content .dev-snippet:has(> h3:first-child)::before { content: none; }
+
+.go-shell .content .dev-snippet p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.go-shell .content .dev-snippet pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.go-shell .content .dev-snippet pre::before { content: none; }
+
+/* note: dev note (blue), .warn heads up (copper), .ok shipped (green) */
+.go-shell .content .dev-note {
+  --note: var(--blue);
+  box-sizing: border-box;
+  max-width: 72ch;
+  margin: 2px 0 14px;
+  padding: 5px 12px 7px;
+  background: rgba(134, 169, 216, 0.06);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--note);
+  border-radius: 2px;
+  overflow-wrap: anywhere;
+}
+
+.go-shell .content .dev-note.warn { --note: var(--copper); background: rgba(207, 138, 99, 0.07); }
+.go-shell .content .dev-note.ok { --note: var(--green); background: rgba(147, 196, 155, 0.06); }
+
+.go-shell .content .dev-note::before,
+.go-shell .content .dev-note > h3:first-child {
+  display: block;
+  margin: 0 0 3px;
+  padding: 0;
+  border: 0;
+  color: var(--note);
+  font-size: 9.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.go-shell .content .dev-note::before { content: "dev note"; }
+.go-shell .content .dev-note.warn::before { content: "heads up"; }
+.go-shell .content .dev-note.ok::before { content: "shipped"; }
+.go-shell .content .dev-note:has(> h3:first-child)::before { content: none; }
+
+.go-shell .content .dev-note p {
+  margin: 0 0 4px;
+  line-height: 1.55;
+}
+
+.go-shell .content .dev-note p:last-child { margin-bottom: 0; }
+
+/* ticket: a compact card - number, status, title, one line or two */
+.go-shell .content .dev-ticket {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  box-sizing: border-box;
+  max-width: 72ch;
+  margin: 2px 0 10px;
+  padding: 5px 10px 6px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--copper);
+  border-radius: 2px;
+  overflow-wrap: anywhere;
+}
+
+.go-shell .content .dev-ticket > h3 {
+  flex: 1 1 auto;
+  order: 1;
+  min-width: 0;
+  margin: 0;
+  color: var(--hi);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.go-shell .content .dev-ticket > p {
+  flex: 1 0 100%;
+  order: 3;
+  margin: 1px 0 0;
+  color: #c9c3b5;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.go-shell .content .dev-ticket-no {
+  order: 0;
+  color: var(--copper);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+
+.go-shell .content .dev-status {
+  --st: var(--amber);
+  order: 2;
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid var(--st);
+  border-radius: 8px;
+  color: var(--st);
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.go-shell .content .dev-status.shipped { --st: var(--green); }
+.go-shell .content .dev-status.blocked { --st: var(--copper); }
+.go-shell .content .dev-status.closed { --st: var(--mute); }
+
+@media (max-width: 720px) {
+  .go-shell .content .dev-snippet,
+  .go-shell .content .dev-note,
+  .go-shell .content .dev-ticket { max-width: none; }
+}

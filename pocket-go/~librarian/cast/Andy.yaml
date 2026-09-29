@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.cast/Andy.md
+crate: crate.AD5B6691AE7760D8
+fields:
+  - type: input
+    label: title
+    value: Andy
+  - type: input
+    label: kind
+    value: figure
+  - type: input
+    label: role
+    value: boyfriend before Shane

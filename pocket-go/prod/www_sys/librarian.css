@@ -40,6 +40,7 @@
 body.librarian-open #librarian,
 body.readme-open #readme,
 body.detective-open #detective,
+body.developer-open #developer,
 body.agent-open #agent,
 body.charlie-open #charlie,
 body.tps-open #tps,
@@ -66,6 +67,14 @@ body.cards-open #cards {
   color: #ffffff;
   background: #0000aa;
   box-shadow: none;
+}
+
+/* DECK (cards) flips in from the BIOS chip - same column width as BIOS. */
+.librarian.is-cards {
+  flex-basis: 34rem;
+  width: 34rem;
+  min-width: 16rem;
+  max-width: none;
 }
 
 .librarian.is-readme .librarian-head {
@@ -2797,6 +2806,7 @@ html[data-sidecar] .librarian,
 html[data-sidecar] body.readme-open #readme,
 html[data-sidecar] body.librarian-open #librarian,
 html[data-sidecar] body.detective-open #detective,
+html[data-sidecar] body.developer-open #developer,
 html[data-sidecar] body.agent-open #agent,
 html[data-sidecar] body.charlie-open #charlie,
 html[data-sidecar] body.tps-open #tps,
@@ -3045,7 +3055,8 @@ html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian {
   max-width: none;
 }
 
-html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme {
+html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme,
+html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-cards {
   flex-basis: 36rem;
   width: 36rem;
   max-width: none;
@@ -3058,7 +3069,8 @@ html.deck-dock-roomy:not([data-sidecar]):not([data-sheet]) .librarian.is-readme 
     max-width: none;
   }
 
-  html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian.is-readme {
+  html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian.is-readme,
+  html:not([data-sidecar]):not([data-sheet]):not(.deck-dock-roomy) .librarian.is-cards {
     flex-basis: 34rem;
     width: 34rem;
     max-width: none;
@@ -4853,12 +4865,12 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
   padding: 0.55rem 0.7rem 0.7rem;
   background: #0000aa;
   color: #ffffff;
-  /* sharp BIOS data printout — glass mono, compact */
-  font-family: var(--font-glass, "Share Tech Mono"), "IBM Plex Mono", "Consolas", monospace;
-  font-size: 11px;
+  /* letter print — readable serif for screen + paper */
+  font-family: var(--letter-font, var(--font-bitter), Georgia, serif);
+  font-size: 11pt;
   font-weight: 400;
-  line-height: 1.38;
-  letter-spacing: 0.03em;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
   border: 1px solid #ffffff55;
   border-top: none;
   box-shadow: none;
@@ -4911,15 +4923,15 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
 .librarian.is-readme .readme-letter-view h5,
 .librarian.is-readme .readme-letter-view h6 {
   font-family: inherit;
-  font-weight: 400;
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.3;
   text-shadow: none;
+  text-transform: none;
   margin: 0.65rem 0 0.2rem;
 }
 .librarian.is-readme .readme-letter-view h1 {
-  font-size: 1.2em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 1.35em;
+  letter-spacing: 0.02em;
   color: #ffffff;
   margin-top: 0.85rem;
   margin-bottom: 0.3rem;
@@ -4927,35 +4939,32 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
   padding-bottom: 0.2rem;
 }
 .librarian.is-readme .readme-letter-view h2 {
-  font-size: 1.05em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 0.015em;
   color: #ffff55;
   margin-top: 0.75rem;
 }
 .librarian.is-readme .readme-letter-view h3 {
-  font-size: 1em;
-  letter-spacing: 0.06em;
+  font-size: 1.1em;
+  letter-spacing: 0.01em;
   color: #55ffff;
   margin-top: 0.65rem;
 }
 .librarian.is-readme .readme-letter-view h4 {
-  font-size: 0.95em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 1.05em;
+  letter-spacing: 0.01em;
   color: #cccccc;
   margin-top: 0.55rem;
 }
 .librarian.is-readme .readme-letter-view h5 {
-  font-size: 0.9em;
-  letter-spacing: 0.05em;
+  font-size: 1em;
+  letter-spacing: 0.01em;
   color: #bbbbbb;
   margin-top: 0.5rem;
 }
 .librarian.is-readme .readme-letter-view h6 {
-  font-size: 0.85em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.95em;
+  letter-spacing: 0.01em;
   color: #aaaaaa;
   margin-top: 0.45rem;
 }
@@ -4981,12 +4990,14 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
 }
 .librarian.is-readme .readme-letter-view ul,
 .librarian.is-readme .readme-letter-view ol {
-  margin: 0 0 0.45rem 1rem;
-  padding: 0;
+  margin: 0 0 0.45rem 0;
+  padding-left: 1.4em;
+  list-style-position: outside;
   color: #eeeeee;
 }
 .librarian.is-readme .readme-letter-view li {
   margin: 0.08rem 0;
+  padding-left: 0.15em;
 }
 .librarian.is-readme .readme-letter-view code {
   font-family: inherit;
@@ -5043,9 +5054,9 @@ html[data-sidecar="cards"] .librarian.is-cards .card-shelf {
 .librarian.is-readme .readme-letter-view th {
   color: #ffff55;
   background: #000088;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 .librarian.is-readme .readme-letter-view td {
   color: #eeeeee;
@@ -8309,4 +8320,600 @@ html:not([data-sidecar]):not([data-sheet]) .librarian.is-agent .catalog-meta-hea
   padding: 2px 6px;
 }
 
+/* —— Developer cabinet ——
+   Rides the librarian catalog chrome (skin: is-librarian is-developer).
+   BIOS blue booth + cyan/yellow ink; dev-note slips read like terminal cards.
+   A cabinet, not a second BIOS: no letter bezel, no IDE workbench. */
+.librarian.is-librarian.is-developer {
+  --booth: #0000aa;
+  --booth-hi: #1010c0;
+  --slip: #000088;
+  --slip-pink: #00007a;
+  --rule: #55ffff;
+  --ink: #ffffff;
+  --stamp: #ffff55;
+  --ok: #55ffff;
+  --mute: #aaaaaa;
+  --fill-edge: rgba(85, 255, 255, 0.3);
+  --fill-inset: #ffffff10;
+  font-family: "IBM Plex Mono", "Share Tech Mono", "Courier New", monospace;
+  background: linear-gradient(180deg, var(--booth-hi) 0 2.35rem, var(--booth) 2.35rem);
+}
 
+.librarian.is-librarian.is-developer .librarian-head,
+.librarian.is-librarian.is-developer .librarian-head strong {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+}
+
+.librarian.is-librarian.is-developer .librarian-count,
+.librarian.is-librarian.is-developer .librarian-path,
+.librarian.is-librarian.is-developer .librarian-hint,
+.librarian.is-librarian.is-developer .librarian-status {
+  color: #55ffff;
+}
+
+.librarian.is-librarian.is-developer .librarian-kicker {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #ffff55;
+  border-bottom-color: #55ffff66;
+}
+
+.librarian.is-librarian.is-developer .hunt-toggle {
+  color: #ffff55;
+  border-bottom-color: #ffff55;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.librarian.is-librarian.is-developer .hunt-pad {
+  background: #000088;
+  border-color: #55ffff;
+}
+
+.librarian.is-librarian.is-developer .hunt-pad .tagbay-input,
+.librarian.is-librarian.is-developer .hunt-pad textarea.hunt-body {
+  background: #000066;
+  color: #ffffff;
+  border-color: #55ffff99;
+  caret-color: #ffff55;
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+}
+
+.librarian.is-librarian.is-developer .hunt-slips > .catalog-head {
+  font-family: "IBM Plex Mono", monospace;
+  color: #55ffff;
+  border-bottom-color: #55ffff66;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip {
+  background: #000066;
+  color: #ffffff;
+  border: 1px solid #55ffff66;
+  border-left: 4px solid #ffff55;
+  box-shadow: none;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip.hunt-slip-n2 {
+  border-left-color: #55ffff;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip.hunt-slip-n3 {
+  border-left-color: #ffffff;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip-title {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  font-size: 13px;
+  color: #ffff55;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip-title:hover {
+  color: #55ffff;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip-body {
+  font-family: "IBM Plex Mono", "Share Tech Mono", monospace;
+  color: #e8e8ff;
+}
+
+.librarian.is-librarian.is-developer .hunt-slip-meta {
+  color: #55ffff;
+}
+
+html[data-sidecar="developer"] body {
+  background: #0000aa;
+}
+html[data-sidecar="developer"] .wwwExplorer_mark {
+  background: #000088;
+  color: #ffff55;
+}
+html[data-sidecar="developer"] .wwwExplorer_windowTitleBar {
+  background-image: linear-gradient(to top, #000088, #1010c0);
+  border-color: #000066;
+}
+
+/* ==== QUEST CARDS deck pane — CARDS_PHASE2 facelift ====
+   Same quest look as go.trays: walnut pane, brass plate header, clear
+   buttons, a dark felt well holding square paper card faces with strips.
+   Restyle only: every class/data hook the JS uses is unchanged. */
+#cards.librarian.is-cards {
+  --q-walnut-0: #1c1009;
+  --q-walnut-1: #2a190e;
+  --q-walnut-2: #3a2415;
+  --q-walnut-3: #56361f;
+  --q-brass-hi: #f3dc98;
+  --q-brass: #caa24e;
+  --q-brass-lo: #8c6a2a;
+  --q-engrave: #2a1a07;
+  --q-cream: #f3e6c8;
+  --q-cream-dim: #d4c29e;
+  --q-paper: #f7efd9;
+  --q-ink: #1e140c;
+  color: var(--q-cream);
+  background:
+    repeating-linear-gradient(179deg, rgba(0, 0, 0, 0.13) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(181deg, rgba(255, 214, 160, 0.045) 0 2px, transparent 2px 11px),
+    linear-gradient(180deg, var(--q-walnut-2) 0%, var(--q-walnut-1) 45%, var(--q-walnut-0) 100%);
+  border-left: 1px solid #0e0703;
+  box-shadow: inset 1px 0 0 rgba(255, 228, 180, 0.12);
+}
+
+/* header: brass nameplate + small paper tool buttons */
+#cards.librarian.is-cards .librarian-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px 7px;
+  border-bottom: 1px solid #0e0703;
+  box-shadow: 0 1px 0 rgba(255, 228, 180, 0.1);
+  color: var(--q-cream);
+  white-space: nowrap;
+}
+
+#cards.librarian.is-cards .librarian-mast {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+#cards.librarian.is-cards .librarian-mast strong {
+  display: inline-block;
+  padding: 5px 12px 4px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--q-engrave);
+  background: linear-gradient(180deg, var(--q-brass-hi) 0%, var(--q-brass) 50%, var(--q-brass-lo) 100%);
+  border: 1px solid #5a4018;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 250, 220, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 0 rgba(255, 240, 200, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#cards.librarian.is-cards .librarian-head strong::after {
+  content: "";
+}
+
+#cards.librarian.is-cards .librarian-count {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--q-brass-hi);
+}
+
+#cards.librarian.is-cards .librarian-head-tools {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+#cards.librarian.is-cards .librarian-head-tools .tagbay-copy,
+#cards.librarian.is-cards .librarian-head-tools .librarian-pop {
+  min-width: 26px;
+  height: 24px;
+  margin: 0;
+  padding: 0 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #b8a67e;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+#cards.librarian.is-cards .librarian-head-tools .tagbay-copy:hover,
+#cards.librarian.is-cards .librarian-head-tools .librarian-pop:hover {
+  background: #fffaf0;
+  outline: 2px solid var(--q-brass-hi);
+}
+
+#cards.librarian.is-cards .librarian-path {
+  padding: 6px 11px 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--q-cream-dim);
+}
+
+#cards.librarian.is-cards .tagbay-crate {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--q-cream-dim);
+}
+
+#cards.librarian.is-cards .tagbay-crate a,
+#cards.librarian.is-cards .tagbay-crate .tagbay-crate-id {
+  color: var(--q-brass-hi);
+  text-decoration: none;
+}
+
+#cards.librarian.is-cards .tagbay-crate .tagbay-copy,
+#cards.librarian.is-cards .tagbay-crate .tagbay-issue {
+  padding: 2px 7px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #b8a67e;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* composer: DECK label, search, two clear buttons */
+#cards.librarian.is-cards .librarian-composer {
+  margin: 0 10px 8px;
+  padding: 9px 10px 10px;
+  background:
+    repeating-linear-gradient(179deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, var(--q-walnut-3), var(--q-walnut-2));
+  border: 1px solid #0e0703;
+  border-top: 4px solid var(--q-brass);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 228, 180, 0.16), 0 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+#cards.librarian.is-cards .librarian-kicker {
+  margin: 0 0 3px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--q-brass-hi);
+}
+
+#cards.librarian.is-cards .librarian-hint {
+  margin: 0 0 8px;
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--q-cream);
+}
+
+#cards.librarian.is-cards .lore-search-pad {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+
+#cards.librarian.is-cards .lore-search-pad input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 32px;
+  padding: 0 10px;
+  font-family: Literata, Georgia, serif;
+  font-size: 13px;
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #5a4018;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 3px rgba(60, 36, 8, 0.22);
+}
+
+#cards.librarian.is-cards .lore-search-pad input::placeholder {
+  color: #7a6048;
+}
+
+#cards.librarian.is-cards .lore-search-pad input:focus {
+  outline: 2px solid var(--q-brass);
+  outline-offset: 1px;
+}
+
+#cards.librarian.is-cards .lore-search-pad button {
+  flex: 0 0 auto;
+  height: 32px;
+  padding: 0 14px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--q-engrave);
+  background: linear-gradient(180deg, var(--q-brass-hi), var(--q-brass) 55%, var(--q-brass-lo));
+  border: 1px solid #5a4018;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 250, 220, 0.7), 0 2px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+#cards.librarian.is-cards .catalog-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+#cards.librarian.is-cards .catalog-actions .librarian-store {
+  width: 100%;
+  height: 34px;
+  margin: 0;
+  padding: 0 8px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #b8a67e;
+  border-left: 5px solid var(--q-brass);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+#cards.librarian.is-cards .catalog-actions .librarian-store[data-new-card] {
+  color: var(--q-engrave);
+  background: linear-gradient(180deg, var(--q-brass-hi), var(--q-brass) 55%, var(--q-brass-lo));
+  border: 1px solid #5a4018;
+  box-shadow: inset 0 1px 0 rgba(255, 250, 220, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#cards.librarian.is-cards .catalog-actions .librarian-store:hover {
+  filter: brightness(1.06);
+  outline: 2px solid var(--q-brass-hi);
+}
+
+#cards.librarian.is-cards .librarian-status {
+  margin: 6px 0 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  color: var(--q-brass-hi);
+}
+
+#cards.librarian.is-cards .librarian-status:empty {
+  display: none;
+}
+
+/* the shelf: felt well, square paper faces */
+#cards.librarian.is-cards .librarian-stack {
+  margin: 0 10px 10px;
+  padding: 10px;
+  background: linear-gradient(180deg, #140b05, #20130a);
+  border: 1px solid #0e0703;
+  border-radius: 4px;
+  box-shadow: inset 0 5px 12px rgba(0, 0, 0, 0.72), 0 1px 0 rgba(255, 228, 180, 0.1);
+}
+
+#cards.librarian.is-cards .librarian-empty {
+  margin: 4px 2px;
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--q-cream-dim);
+}
+
+#cards.librarian.is-cards .card-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard {
+  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+#cards.librarian.is-cards .card-shelf-item:not(.is-open) .lorecard {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  padding: 13px 11px 12px;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard::before {
+  height: 6px;
+}
+
+#cards.librarian.is-cards .card-shelf-item:not(.is-open) .lorecard::after {
+  display: none;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard .kicker {
+  padding-right: 58px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: color-mix(in srgb, var(--card-strip, var(--lc-margin)) 78%, #000);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard .house,
+#cards.librarian.is-cards .card-shelf-item .lorecard .made {
+  top: 13px;
+  right: 10px;
+  max-width: 56px;
+  font-size: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard h1 {
+  font-family: Literata, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  margin: 5px 0 5px;
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--lc-ink, #1e140c);
+}
+
+#cards.librarian.is-cards .card-shelf-item:not(.is-open) .lorecard h1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#cards.librarian.is-cards .card-shelf-item .lorecard .line {
+  min-height: 0;
+  font-size: 12px;
+  line-height: 1.38;
+  color: var(--lc-ink, #1e140c);
+}
+
+#cards.librarian.is-cards .card-shelf-item:not(.is-open) .lorecard .line {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#cards.librarian.is-cards .card-shelf-item:hover .lorecard,
+#cards.librarian.is-cards .card-shelf-item:focus .lorecard {
+  box-shadow: 0 0 0 3px var(--q-brass-hi), 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+#cards.librarian.is-cards .card-shelf-item.is-open .lorecard {
+  padding: 16px 16px 20px;
+  font-size: 13px;
+}
+
+#cards.librarian.is-cards .card-shelf-item.is-open .lorecard h1 {
+  font-size: 19px;
+}
+
+#cards.librarian.is-cards .card-shelf-item.is-open .lorecard .line {
+  font-size: 14px;
+}
+
+/* deck search hits */
+#cards.librarian.is-cards .lore-chip.deck-hit {
+  position: relative;
+  margin: 0 0 8px;
+  padding: 9px 11px 9px 14px;
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #b8a67e;
+  border-left: 5px solid var(--q-brass);
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-title {
+  display: block;
+  margin: 0 0 3px;
+  font-family: Literata, Georgia, serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--q-ink);
+  text-decoration: none;
+}
+
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-title:hover {
+  text-decoration: underline;
+}
+
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-class,
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-house {
+  margin-right: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a4a38;
+}
+
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-line {
+  margin: 4px 0 0;
+  font-family: Literata, Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.38;
+  color: #3e2a1c;
+}
+
+#cards.librarian.is-cards .lore-chip.deck-hit .lore-chip-pop {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: #6a4a38;
+}
+
+/* scrollbars in the well */
+#cards.librarian.is-cards .librarian-stack {
+  scrollbar-width: thin;
+  scrollbar-color: var(--q-brass-lo) #140b05;
+}
+
+/* attach picker / new card modal: paper sheet with a brass edge */
+#cards.librarian.is-cards .librarian-modal-card {
+  color: var(--q-ink);
+  background: var(--q-paper);
+  border: 1px solid #5a4018;
+  border-top: 4px solid var(--q-brass);
+  border-radius: 3px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+#cards.librarian.is-cards .librarian-modal-card > strong {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--q-engrave);
+}
+
+#cards.librarian.is-cards .librarian-modal-actions button {
+  height: 28px;
+  padding: 0 12px;
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--q-ink);
+  background: #fffaf0;
+  border: 1px solid #b8a67e;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#cards.librarian.is-cards .librarian-modal-actions .librarian-store {
+  color: var(--q-engrave);
+  background: linear-gradient(180deg, var(--q-brass-hi), var(--q-brass) 55%, var(--q-brass-lo));
+  border: 1px solid #5a4018;
+}

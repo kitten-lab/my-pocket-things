@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-052.md
+crate: crate.862359C871CDE156
+fields:
+  - type: input
+    label: page
+    value: "052"
+  - type: input
+    label: title
+    value: First Trauma Exile
+  - type: input
+    label: dated
+    value: "2020-01-16"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose
+  - type: input
+    label: topics covered
+    value: Adam, shame, first trauma, exile, doubt fear worry
+  - type: input
+    label: known for
+    value: Adam scares himself into first trauma; tower collapse from DOUBT FEAR WORRY
+  - type: input
+    label: continues from
+    value: CPJ-051

@@ -8,3 +8,9 @@ fields:
   - type: input
     label: messages
     value: 67b128b8-8938-8004-a635-f18ff8cee3a7.2
+  - type: input
+    label: code
+    value: OT-008.T01.B002
+  - type: bool
+    label: considered
+    value: true

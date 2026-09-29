@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-038.md
+crate: crate.02A274ACFC4D8527
+fields:
+  - type: input
+    label: page
+    value: "038"
+  - type: input
+    label: title
+    value: Divine 3 as Atom
+  - type: input
+    label: dated
+    value: "2020-01-12"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: diagram; prose
+  - type: input
+    label: topics covered
+    value: biblical science, God as energy, Divine 3, Trimurti, atom, shadow
+  - type: input
+    label: known for
+    value: electron Brahma / proton Vishnu / neutron Shiva

@@ -433,3 +433,48 @@
     font-size: 1.65em;
   }
 }
+
+/* ——— phone capture frame: masthead + one story, ready to screenshot.
+   Headlines fold into the shared rail drawer (www.js / www.css); the ad
+   gutter and the mouse line stay out of the frame; the ticker is one line. */
+@media (max-width: 720px) {
+  .go-shell {
+    --rail-drawer-label: "headlines";
+    --rail-drawer-noun: "story stories";
+    --rail-drawer-bg: #111;
+    --rail-drawer-ink: #f2f2f2;
+    --rail-drawer-line: var(--tmz);
+    --rail-drawer-font: var(--font-barlow), sans-serif;
+  }
+
+  .go-shell .ticker p {
+    overflow: hidden;
+    white-space: nowrap !important;
+    text-overflow: ellipsis;
+  }
+
+  .go-shell .page {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .go-shell .headlines {
+    flex: 0 0 auto;
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .go-shell .story {
+    flex: 1 0 auto;
+    overflow: visible;
+    padding: 1.3em 1.4em 2.2em;
+  }
+
+  .go-shell .ads,
+  .go-shell .mouse {
+    display: none;
+  }
+}

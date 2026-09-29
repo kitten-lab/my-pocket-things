@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.media/movies/_index.md
+crate: crate.13FBD0817F48AA6E
+fields:
+  - type: input
+    label: title
+    value: movies
+  - type: input
+    label: kind
+    value: aisle
+  - type: input
+    label: dept
+    value: movies

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-053.md
+crate: crate.31762ED4DD429FBF
+fields:
+  - type: input
+    label: page
+    value: "053"
+  - type: input
+    label: title
+    value: Hebrew Lessons 1
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: lesson; diagram
+  - type: input
+    label: topics covered
+    value: Hebrew, Alef, Bet, Gimel, Dalet, sephirot
+  - type: input
+    label: known for
+    value: Hebrew Lessons #1; Alef through Dalet
+  - type: input
+    label: references
+    value: Abracadabra in the Letters

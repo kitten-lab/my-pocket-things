@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.cast/Elijah.md
+crate: crate.0515DF6CF8458237
+fields:
+  - type: input
+    label: hebrew
+    value: אלי
+  - type: input
+    label: cast root
+    value: ELI

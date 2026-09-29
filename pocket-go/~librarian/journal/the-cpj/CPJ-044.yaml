@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-044.md
+crate: crate.1D0387850580BD94
+fields:
+  - type: input
+    label: page
+    value: "044"
+  - type: input
+    label: title
+    value: Two Halves Creation
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: prose
+  - type: input
+    label: topics covered
+    value: male/female, creation, overflow, Brainfog
+  - type: input
+    label: known for
+    value: two halves of the same whole; Brainfog note

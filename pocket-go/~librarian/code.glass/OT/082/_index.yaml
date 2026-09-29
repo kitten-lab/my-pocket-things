@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/082
+crate: crate.CAA3B1DB3E0BF821
+fields:
+  - type: input
+    label: title
+    value: Vow of Light
+  - type: input
+    label: references
+    value: "aidm, cabin, crossroads, inner-child, misery, offering, ritual, ven"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.glass/Storage Unit Sam.md
+crate: crate.6F378879C6AD1E64
+fields:
+  - type: input
+    label: title
+    value: Storage Unit Sam
+  - type: input
+    label: class
+    value: glass-talk
+  - type: input
+    label: environment
+    value: glass
+  - type: input
+    label: dated
+    value: "2026-03-25"

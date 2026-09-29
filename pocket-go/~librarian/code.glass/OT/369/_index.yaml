@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/369
+crate: crate.9602E8DBF6A64B2E
+fields:
+  - type: input
+    label: title
+    value: Emotional relay dynamics
+  - type: input
+    label: references
+    value: "aidm, cabin, chester, encode, misery, offering, redact, ritual, terminal"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic, theory, therapeutic"

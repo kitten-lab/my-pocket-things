@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/ops-blotter.md
+crate: crate.B160B0C0E0004B82
+fields:
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: kind
+    value: operations

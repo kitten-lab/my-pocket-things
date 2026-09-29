@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.report/jasmine/a good fortune.md
+crate: crate.9AE34047F51AD820
+fields:
+  - type: input
+    label: type
+    value: logger
+  - type: input
+    label: class
+    value: body knowing
+  - type: input
+    label: sub-class
+    value: echos of him
+  - type: time
+    label: posted on
+    value: 1790229728

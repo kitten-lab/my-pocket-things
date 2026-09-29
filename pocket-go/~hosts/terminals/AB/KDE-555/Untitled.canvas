@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"9c088af51ec2020b","x":-500,"y":-380,"width":280,"height":50,"type":"text","text":"the Database (Akashic Field)"},
+		{"id":"cf852824a423213c","type":"text","text":"Jack's Cross (Christian Government)","x":-160,"y":-380,"width":285,"height":50},
+		{"id":"825c997527f312d7","x":-500,"y":-220,"width":280,"height":50,"type":"text","text":"MYTHLEAK (Counter-Culture)"},
+		{"id":"c9109f81af82af82","type":"text","text":"Chester's Imports (???)","x":-160,"y":-220,"width":285,"height":50}
+	],
+	"edges":[]
+}

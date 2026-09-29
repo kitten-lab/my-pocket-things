@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.tags/
+crate: crate.2B621ED29E6B0A2A
+fields:
+  - type: input
+    label: name
+    value: Tags
+  - type: input
+    label: class
+    value: bay
+  - type: input
+    label: type
+    value: motif bay
+  - type: input
+    label: known for
+    value: "tags, data"

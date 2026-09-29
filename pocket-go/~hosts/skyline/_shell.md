@@ -2,7 +2,7 @@
 crate: crate.4FE92D4ABE0A42BD
 title: THE SKYLINE
 deck: ON THE WIRES, OF THE WIRES
-section: The Citadel
+section: THE CITADEL
 environment: skyline
 ---
 

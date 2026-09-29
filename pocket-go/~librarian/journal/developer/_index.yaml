@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.journal/developer
+crate: crate.B4901C0F241ADF1B
+fields:
+  - type: input
+    label: type
+    value: journal

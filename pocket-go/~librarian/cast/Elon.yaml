@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.cast/Elon.md
+crate: crate.E193D8BBD5369DAF
+fields:
+  - type: input
+    label: title
+    value: Elon
+  - type: input
+    label: kind
+    value: figure
+  - type: input
+    label: role
+    value: animus / archetype

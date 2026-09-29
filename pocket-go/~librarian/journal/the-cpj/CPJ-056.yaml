@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-056.md
+crate: crate.96B118DC1C6FCD1D
+fields:
+  - type: input
+    label: page
+    value: "056"
+  - type: input
+    label: title
+    value: Egypt Atum Is Atom
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: diagram; notes; continues
+  - type: input
+    label: topics covered
+    value: Solomon temple, Kabbalah, Atum, atom, Big Bang, Jung
+  - type: input
+    label: known for
+    value: Egypt - Atum is atom; Seven Sermons to read

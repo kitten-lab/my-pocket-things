@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/_index.md
+crate: crate.B160B0C0E0004B80
+fields:
+  - type: input
+    label: kind
+    value: org-workspace
+  - type: input
+    label: producer
+    value: Big Box Co.

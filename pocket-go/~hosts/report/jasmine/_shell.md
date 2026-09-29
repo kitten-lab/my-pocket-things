@@ -1,9 +1,10 @@
 ---
 crate: crate.5D0A6B34812AA144
-title: body knowings
-deck: jasmine logger — intimate knowings
+title: WHISPERS OF HYMN
+deck: REPORT DESK OF PRINCESS JASMINE
 environment: logger-strange
 ---
+
 {{div:.walk}}
 {{div:.blotter-head}}
 {{div:.desk-mark}}BODY KNOWINGS{{/div}}

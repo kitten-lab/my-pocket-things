@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-university/11/
+crate: crate.323E39D43DDCF5B4
+fields:
+  - type: input
+    label: vault
+    value: _imported.to/be/the-university/11
+  - type: input
+    label: author
+    value: SDK-808

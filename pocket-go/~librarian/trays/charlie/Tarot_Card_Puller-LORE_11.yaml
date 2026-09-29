@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Tarot_Card_Puller-LORE_11.md
+crate: crate.C66CF1B38A54AEF7
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: TOY

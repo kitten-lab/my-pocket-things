@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-031.md
+crate: crate.0AC4375CD7BDD3BA
+fields:
+  - type: input
+    label: page
+    value: "031"
+  - type: input
+    label: title
+    value: Full Moon in Cancer
+  - type: input
+    label: dated
+    value: "2020-01-09"
+  - type: input
+    label: class
+    value: working
+  - type: input
+    label: hand
+    value: Virgo / clean hand
+  - type: input
+    label: contains
+    value: intentions; working; illustration
+  - type: input
+    label: topics covered
+    value: full moon, Cancer, Divine Mother, Self, love, truth
+  - type: input
+    label: known for
+    value: I AM BOUNDLESS infinity working

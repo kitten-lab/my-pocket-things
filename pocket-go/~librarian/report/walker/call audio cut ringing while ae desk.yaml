@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.report/walker/call audio cut ringing while ae desk.md
+crate: crate.78477E12D51A545D
+fields:
+  - type: input
+    label: type
+    value: strange happening
+  - type: input
+    label: class
+    value: echo
+  - type: input
+    label: sub-class
+    value: body-knowing
+  - type: input
+    label: features
+    value: audio-cut; ringing-ears; ear-pressure; three-messages-unheard; uncanny-timing; ae-desk; narrative-harmonics; aelion-talking; precision-routing-test
+  - type: input
+    label: clock
+    value: 2026-09-24 ~12:54 AM ET
+  - type: input
+    label: utterance-at
+    value: 2026-09-24T00:54:00-04:00
+  - type: input
+    label: posted from
+    value: ae routing desk
+  - type: input
+    label: owner
+    value: Walker
+  - type: input
+    label: cites
+    value: bot-haven/ae/routing-log.md; ~detective/report/walker/call audio cut ringing while ae desk.yaml

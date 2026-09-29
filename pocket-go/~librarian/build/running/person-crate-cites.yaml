@@ -1,0 +1,22 @@
+house: LIBRARIAN
+pocket: go.build/running/person-crate-cites.md
+crate: crate.E392F2087DF11714
+fields:
+  - type: input
+    label: title
+    value: Person crate cites
+  - type: input
+    label: class
+    value: build-plan
+  - type: input
+    label: status
+    value: PLAN
+  - type: input
+    label: section
+    value: running
+  - type: input
+    label: dated
+    value: "2026-09-15"
+  - type: input
+    label: topics covered
+    value: Venn codes, Venn chips, Cast, crate cites

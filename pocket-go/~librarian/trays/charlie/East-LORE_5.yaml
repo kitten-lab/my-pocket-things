@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/East-LORE_5.md
+crate: crate.E9CC0934A8280D8F
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: WORD PLAY

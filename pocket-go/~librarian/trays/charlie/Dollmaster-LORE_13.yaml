@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Dollmaster-LORE_13.md
+crate: crate.BEDE1E71EFF78538
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: TOY

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-042.md
+crate: crate.54B47CB2D8F5E098
+fields:
+  - type: input
+    label: page
+    value: "042"
+  - type: input
+    label: title
+    value: Vessel Overflowed
+  - type: input
+    label: dated
+    value: "2020-01-14"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: research list; prose; continues
+  - type: input
+    label: topics covered
+    value: research, vessel, Divine Mother, creation, light
+  - type: input
+    label: known for
+    value: vessel filled with light broke and overflowed

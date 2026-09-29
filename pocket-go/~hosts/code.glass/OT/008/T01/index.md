@@ -4,6 +4,7 @@ title: T01
 kind: code
 code: OT-008.T01
 environment: codes
+tags: inner-child, offering
 ---
 
 # {{code}}

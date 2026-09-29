@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Echo_Wolf-LORE_10.md
+crate: crate.7C99A6CA7399EB98
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: TOY

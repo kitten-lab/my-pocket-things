@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/107
+crate: crate.A83CC557195283D1
+fields:
+  - type: input
+    label: title
+    value: Seal Pause Reflection
+  - type: input
+    label: references
+    value: "misery, offering, ritual"
+  - type: input
+    label: energy
+    value: "activated, mythic, product, romantic"

@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/developer/AIDM_Overview_Card-LORE_2.md
+crate: crate.B5AEE2DBD0214502
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Developer
+  - type: input
+    label: card type
+    value: DOCUMENTATION

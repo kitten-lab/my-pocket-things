@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.cast/Shane.md
+crate: crate.6ADDDD69639FD2D1
+fields:
+  - type: input
+    label: title
+    value: Shane
+  - type: input
+    label: kind
+    value: figure
+  - type: input
+    label: role
+    value: ex-husband / father of Olivia and Elijah
+  - type: input
+    label: position
+    value: John-position
+  - type: input
+    label: beheading
+    value: conceptual - lose narrativize seat (not literal)

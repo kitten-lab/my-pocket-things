@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.to/the-university/11/great-myth-archives/
+crate: crate.2536A3067F977797
+fields:
+  - type: input
+    label: vault
+    value: _imported.to/be/the-university/11/great-myth-archives
+  - type: input
+    label: author
+    value: SDK-808

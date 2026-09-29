@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-030.md
+crate: crate.09E41366202B246F
+fields:
+  - type: input
+    label: page
+    value: "030"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: contains
+    value: illustration
+  - type: input
+    label: topics covered
+    value: sister, family

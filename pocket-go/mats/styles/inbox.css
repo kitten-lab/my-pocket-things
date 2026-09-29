@@ -1,100 +1,856 @@
 @import url("/styles/fonts.css");
 
-:root {
-  /* dawn — soft peach sky, warm paper */
-  --bg: #f3e9df;
-  --paper: #fff8f0;
-  --ink: #2a2420;
-  --mute: #7a6a60;
-  --line: #e0d0c4;
-  --accent: #c45c6a;
-  --side: #f7efe6;
-  --visited: #7a5a6e;
-  --chip-bg: #f7efe6;
-  --chip-ink: #2a2420;
-  --chip-line: #e0d0c4;
-  --chip-accent: #c45c6a;
-  --tree-line: #d8c8bc;
-  --link: #b84858;
+/* go.inbox - the Morning Inbox. A reading room, not a tray.
 
-  --font: var(--font-sans, system-ui, sans-serif);
-  --font-head: var(--font-display, Georgia, "Times New Roman", serif);
-  --font-mono: var(--font-mono, ui-monospace, monospace);
-  --font-size: 15px;
-  --font-size-sm: 0.82em;
-  --font-size-lg: 1.35em;
-  --font-size-xl: 1.75em;
-  --line-height: 1.5;
-  --weight-body: 400;
-  --weight-head: 650;
-  --weight-strong: 650;
-  --tracking-head: 0.03em;
+   The pocket's morning paper: one warm newsprint sheet laid out under
+   early kiosk light. A broadsheet masthead (ears, nameplate, thick-thin
+   rule, the day's deck line), a slim "inside today" sections strip, then a
+   single reading column with a real measure (about 68-72 characters), generous leading
+   and one serif text face with true italics. Long chat logs read like an
+   interview transcript: speaker lines in small caps with a hairline, turns
+   set as plain paragraphs, quoted windows as a quiet ruled indent, wire
+   copy (pre) on a tinted strip. Kickers come from the page's own front
+   matter ({{from}} {{for}} {{kind}} {{date}} {{clock}} {{status}}) and the
+   folder (faxes / later). No tilt, no mono dress, no trays.
 
-  --pad: 0.85em;
-  --gap: 0.55em;
-  --side-w: 12em;
-  --max: 42em;
-  --tree-indent: 0.95em;
-  --radius-chip: 999px;
-}
+   Palette: newsprint rosa paper, warm ink, one press red for kickers and
+   rules, ink blue links. The stage around the sheet is a dusk-slate
+   kiosk wall with a warm lamp above it, so the paper has somewhere to sit.
+
+   Shell (~hosts/inbox/_shell.md):
+     .pg-frame.pg-stack.inb-edition
+       .pg-head.inb-mast > .inb-ears (.inb-ear .inb-motto) / .inb-nameplate / .inb-deckline
+       .pg-side.inb-sections > nav.pg-navbar       (folds into the phone drawer)
+       .pg-body > .inb-dateline (spans) + paper
+       .pg-foot
+   html base font-size is 11px (postage chrome); page type is px/em here. */
 
 .go-shell {
-  font-family: var(--font);
-  font-size: var(--font-size);
-  font-weight: var(--weight-body);
-  line-height: var(--line-height);
-  color: var(--ink);
-  background: var(--bg);
+  --inb-stage: #46505a;
+  --inb-stage-deep: #262c33;
+  --inb-lamp: rgba(255, 214, 168, 0.34);
+  --inb-paper: #fbf2e8;
+  --inb-paper-low: #f4e6d8;
+  --inb-tint: #f0dfcf;
+  --inb-ink: #2a2320;
+  --inb-ink-2: #56463f;
+  --inb-mute: #8a766c;
+  --inb-rule: #dcc5b4;
+  --inb-rule-hard: #2e2623;
+  --inb-red: #a4352d;
+  --inb-blue: #2c4b69;
+  --inb-plum: #6a4763;
+  --inb-sel: #f2d7a0;
+  --inb-text: "Sitka Text", "Iowan Old Style", Charter, "Bitstream Charter", "Source Serif 4", Georgia, serif;
+  --inb-head: "Newsreader", "Sitka Heading", "Sitka Text", "Iowan Old Style", Georgia, serif;
+  --inb-mono: "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+  --inb-measure: 580px; /* ~68-72 characters of Sitka Text at 17px; px so every block shares one left edge */
+  --inb-gutter: 46px;
+
+  /* names the shared sheets read */
+  --bg: var(--inb-stage);
+  --paper: var(--inb-paper);
+  --ink: var(--inb-ink);
+  --mute: var(--inb-mute);
+  --line: var(--inb-rule);
+  --accent: var(--inb-red);
+  --link: var(--inb-blue);
+  --visited: var(--inb-plum);
+  --chip-bg: transparent;
+  --meta-yp-bg: transparent;
+
+  /* shared phone drawer, in this room's voice */
+  --rail-drawer-label: "inside today";
+  --rail-drawer-noun: "page pages";
+  --rail-drawer-bg: var(--inb-paper-low);
+  --rail-drawer-ink: var(--inb-red);
+  --rail-drawer-line: var(--inb-rule);
+  --rail-drawer-font: var(--inb-text);
+
+  font-family: var(--inb-text);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.62;
+  color: var(--inb-ink);
+  background-color: var(--inb-stage-deep);
+  background-image:
+    radial-gradient(ellipse 72% 60% at 50% -12%, var(--inb-lamp), rgba(255, 214, 168, 0) 72%),
+    linear-gradient(180deg, var(--inb-stage) 0%, var(--inb-stage-deep) 100%);
 }
 
-.go-shell .pg-stack.pg-frame {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: 0 1px 0 #ffffffaa inset;
+.go-shell ::selection {
+  background: var(--inb-sel);
+  color: var(--inb-ink);
 }
 
-.go-shell .pg-head {
-  font-family: var(--font-head);
-  font-weight: var(--weight-head);
-  letter-spacing: var(--tracking-head);
-  color: var(--accent);
-  padding: var(--pad);
-  border-bottom: 1px solid var(--line);
-}
-
-.go-shell .pg-navbar,
-.go-shell nav.pg-navbar {
-  background: var(--side);
-  border-bottom: 1px solid var(--line);
-  padding: 0.35em var(--pad);
-}
-
-.go-shell .pg-body {
-  padding: var(--pad);
-  max-width: var(--max);
-}
-
-.go-shell h1, .go-shell h2, .go-shell h3 {
-  font-family: var(--font-head);
-  font-weight: var(--weight-head);
-  letter-spacing: var(--tracking-head);
-  color: var(--ink);
-}
-
-.go-shell a:link { color: var(--link); }
-.go-shell a:visited, .go-shell a.been { color: var(--visited); }
-
-.go-shell .chip,
-.go-shell .chips .chip {
-  background: var(--chip-bg);
-  color: var(--chip-ink);
-  border: 1px solid var(--chip-line);
-  border-radius: var(--radius-chip);
-}
-
-.go-shell p { max-width: var(--max); }
-.go-shell hr {
+/* ---------- the sheet ---------- */
+.go-shell .inb-edition {
+  position: relative;
+  width: min(780px, calc(100% - 56px));
+  margin: 30px auto 46px;
+  padding: 0 0 6px;
   border: 0;
-  border-top: 1px dashed var(--line);
-  margin: 1.1em 0;
+  color: var(--inb-ink);
+  background-color: var(--inb-paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .30 0 0 0 0 .21 0 0 0 0 .16 .26 0 0 0 -.07'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.011' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .36 0 0 0 0 .28 .16 0 0 0 -.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(255, 252, 247, 0.8) 0, rgba(255, 252, 247, 0) 320px),
+    linear-gradient(180deg, var(--inb-paper) 0%, var(--inb-paper-low) 100%);
+  box-shadow:
+    0 0 0 1px rgba(38, 24, 18, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 26px 54px -22px rgba(0, 0, 0, 0.62);
+}
+
+.go-shell .inb-edition p {
+  max-width: none;
+}
+
+/* ---------- masthead ---------- */
+.go-shell .inb-mast {
+  padding: 16px var(--inb-gutter) 0;
+  border: 0;
+  background: none;
+  color: var(--inb-ink);
+  font-family: var(--inb-text);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: center;
+}
+.go-shell .inb-mast p {
+  margin: 0;
+  white-space: normal;
+}
+.go-shell .inb-ears {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  font-size: 0.74em;
+  line-height: 1.3;
+  color: var(--inb-ink-2);
+}
+.go-shell .inb-ear {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.16em;
+}
+.go-shell .inb-motto {
+  font-style: italic;
+}
+.go-shell .inb-ears > span:empty {
+  display: none;
+}
+.go-shell .inb-nameplate {
+  padding: 10px 0 12px;
+}
+.go-shell .inb-nameplate a.home,
+.go-shell .inb-nameplate a.home:link,
+.go-shell .inb-nameplate a.home:visited {
+  font-family: var(--inb-head);
+  font-weight: 600;
+  font-size: 3.05em;
+  line-height: 1;
+  letter-spacing: -0.012em;
+  color: var(--inb-ink);
+  text-decoration: none;
+}
+.go-shell .inb-nameplate a.home:hover {
+  color: var(--inb-red);
+}
+/* thick-thin rule over the deck line, hairline under it */
+.go-shell .inb-deckline {
+  padding: 13px 0 8px;
+  border-bottom: 1px solid var(--inb-rule-hard);
+  background:
+    linear-gradient(var(--inb-rule-hard), var(--inb-rule-hard)) 0 0 / 100% 3px no-repeat,
+    linear-gradient(var(--inb-rule-hard), var(--inb-rule-hard)) 0 6px / 100% 1px no-repeat;
+  font-size: 0.9em;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--inb-ink-2);
+}
+
+/* ---------- sections strip (the rail; phone drawer folds it) ---------- */
+.go-shell .inb-sections {
+  margin: 0 var(--inb-gutter);
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--inb-rule);
+  background: none;
+}
+.go-shell .inb-sections p {
+  margin: 0;
+}
+.go-shell .inb-sections nav.pg-navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0 7px;
+  border: 0;
+  background: none;
+  font-size: 0.86em;
+  line-height: 1.3;
+}
+.go-shell .inb-sections nav.pg-navbar a,
+.go-shell .inb-sections nav.pg-navbar a:link,
+.go-shell .inb-sections nav.pg-navbar a:visited {
+  padding: 0 1.15em;
+  color: var(--inb-ink-2);
+  font-variant-caps: small-caps;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.go-shell .inb-sections nav.pg-navbar a + a {
+  border-left: 1px solid var(--inb-rule);
+}
+.go-shell .inb-sections nav.pg-navbar a:hover {
+  color: var(--inb-red);
+}
+.go-shell .inb-sections nav.pg-navbar a.on,
+html[data-vault^="go.inbox/faxes/"] .go-shell .inb-sections nav.pg-navbar a[href$="p=faxes"],
+html[data-vault^="go.inbox/later/"] .go-shell .inb-sections nav.pg-navbar a[href$="p=later"] {
+  color: var(--inb-red);
+  font-weight: 700;
+}
+
+/* ---------- the reading column ---------- */
+.go-shell .inb-edition .pg-body {
+  max-width: none;
+  padding: 30px var(--inb-gutter) 34px;
+  font-size: 1em;
+}
+.go-shell .inb-edition .pg-body > * {
+  max-width: var(--inb-measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* dateline + kicker: folder, then the page's own front matter */
+.go-shell .inb-dateline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  row-gap: 0.15em;
+  margin-bottom: 12px;
+  font-size: 0.76em;
+  line-height: 1.4;
+  color: var(--inb-ink-2);
+}
+.go-shell .inb-dateline > span:empty {
+  display: none;
+}
+.go-shell .inb-dateline:not(:has(> span:not(:empty))) {
+  display: none;
+}
+.go-shell .inb-dateline > span:not(:empty) ~ span:not(:empty) {
+  margin-left: 0.7em;
+  padding-left: 0.7em;
+  border-left: 1px solid var(--inb-rule);
+}
+html[data-vault^="go.inbox/faxes/"] .go-shell .inb-dateline::before,
+html[data-vault^="go.inbox/later/"] .go-shell .inb-dateline::before {
+  margin-right: 0.9em;
+  color: var(--inb-red);
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.16em;
+}
+html[data-vault^="go.inbox/faxes/"] .go-shell .inb-dateline::before {
+  content: "faxes";
+}
+html[data-vault^="go.inbox/later/"] .go-shell .inb-dateline::before {
+  content: "later";
+}
+.go-shell .inb-from {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--inb-ink);
+}
+.go-shell .inb-from::before,
+.go-shell .inb-for::before {
+  font-style: italic;
+  font-variant-caps: normal;
+  letter-spacing: 0;
+  color: var(--inb-mute);
+}
+.go-shell .inb-from::before {
+  content: "from ";
+}
+.go-shell .inb-for::before {
+  content: "for ";
+}
+.go-shell .inb-kind {
+  font-style: italic;
+}
+.go-shell .inb-date,
+.go-shell .inb-clock {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.go-shell .inb-status {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1em;
+  color: var(--inb-red);
+}
+
+/* headline + standfirst */
+.go-shell .inb-edition .pg-body h1 {
+  margin-top: 0.05em;
+  margin-bottom: 0.42em;
+  font-family: var(--inb-head);
+  font-weight: 600;
+  font-size: 2.3em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--inb-ink);
+  text-wrap: balance;
+}
+.go-shell .inb-edition .pg-body > h1 + p {
+  font-size: 1.13em;
+  line-height: 1.5;
+  color: var(--inb-ink-2);
+}
+
+/* running text */
+.go-shell .inb-edition .pg-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  hanging-punctuation: first;
+}
+/* hard-break lines ("two spaces + enter") arrive as <br> plus stray
+   newlines; set them as single lines. Soft-line paragraphs keep pre-wrap. */
+.go-shell .inb-edition .pg-body p:has(br) {
+  white-space: normal;
+}
+.go-shell .inb-edition .pg-body p.md-gap {
+  height: 0.85em;
+}
+.go-shell .inb-edition .pg-body strong,
+.go-shell .inb-edition .pg-body b {
+  font-weight: 700;
+  color: #221b18;
+}
+.go-shell .inb-edition .pg-body a:link {
+  color: var(--inb-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(44, 75, 105, 0.42);
+}
+.go-shell .inb-edition .pg-body a:visited,
+.go-shell .inb-edition .pg-body a.been {
+  color: var(--inb-plum);
+  text-decoration-color: rgba(106, 71, 99, 0.4);
+}
+.go-shell .inb-edition .pg-body a:hover {
+  color: var(--inb-red);
+  text-decoration-color: currentColor;
+}
+.go-shell .inb-edition a:focus-visible {
+  outline: 2px solid var(--inb-red);
+  outline-offset: 2px;
+}
+
+/* section heads: a short press-red bar, then the headline */
+.go-shell .inb-edition .pg-body h2 {
+  margin-top: 2.1em;
+  margin-bottom: 0.5em;
+  font-family: var(--inb-head);
+  font-weight: 600;
+  font-size: 1.46em;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--inb-ink);
+  text-wrap: balance;
+}
+.go-shell .inb-edition .pg-body h2::before {
+  content: "";
+  display: block;
+  width: 2.2em;
+  height: 2px;
+  margin-bottom: 0.6em;
+  background: var(--inb-red);
+}
+.go-shell .inb-edition .pg-body h2 a.chipcode,
+.go-shell .inb-edition .pg-body h2 a.peoplecode {
+  font-family: var(--inb-text);
+  font-weight: 700;
+  font-size: 0.6em;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.05em;
+  vertical-align: 0.18em;
+  color: var(--inb-red);
+  text-decoration: none;
+}
+.go-shell .inb-edition .pg-body h2 a.chipcode:hover,
+.go-shell .inb-edition .pg-body h2 a.peoplecode:hover {
+  text-decoration: underline;
+}
+.go-shell .inb-edition .pg-body a.chipcode,
+.go-shell .inb-edition .pg-body a.peoplecode {
+  font-family: var(--inb-text);
+  font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+
+/* speaker lines (### B1237 . USER): interview transcript, small caps + hairline */
+.go-shell .inb-edition .pg-body h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  margin-top: 1.9em;
+  margin-bottom: 0.4em;
+  font-family: var(--inb-text);
+  font-weight: 700;
+  font-size: 0.9em;
+  line-height: 1.3;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.12em;
+  color: var(--inb-ink-2);
+}
+.go-shell .inb-edition .pg-body h3::after {
+  content: "";
+  flex: 1 1 auto;
+  min-width: 2em;
+  border-top: 1px solid var(--inb-rule);
+}
+.go-shell .inb-edition .pg-body h2 + h3,
+.go-shell .inb-edition .pg-body h2 + p.md-gap + h3 {
+  margin-top: 1.1em;
+}
+.go-shell .inb-edition .pg-body h4,
+.go-shell .inb-edition .pg-body h5,
+.go-shell .inb-edition .pg-body h6 {
+  margin-top: 1.4em;
+  margin-bottom: 0.3em;
+  font-family: var(--inb-text);
+  font-weight: 700;
+  font-size: 1em;
+  font-style: italic;
+  color: var(--inb-ink);
+}
+
+/* quoted windows: a quiet ruled indent */
+.go-shell .inb-edition .pg-body blockquote {
+  margin-top: 0.9em;
+  margin-bottom: 0.9em;
+  padding: 0.05em 0 0.05em 1.15em;
+  border-left: 2px solid rgba(164, 53, 45, 0.55);
+  color: var(--inb-ink-2);
+}
+.go-shell .inb-edition .pg-body p.md-gap + blockquote {
+  margin-top: 0.1em;
+}
+.go-shell .inb-edition .pg-body blockquote > * {
+  max-width: none;
+}
+.go-shell .inb-edition .pg-body blockquote p {
+  margin: 0;
+}
+
+/* wire copy */
+.go-shell .inb-edition .pg-body pre,
+.go-shell .inb-edition .pg-body pre.code {
+  margin-top: 1.1em;
+  margin-bottom: 1.1em;
+  padding: 0.95em 1.15em;
+  border-top: 1px solid var(--inb-rule);
+  border-bottom: 1px solid var(--inb-rule);
+  background: rgba(214, 186, 162, 0.22);
+  color: #3a2f2a;
+  font-family: var(--inb-mono);
+  font-size: 0.8em;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+}
+.go-shell .inb-edition .pg-body :not(pre) > code {
+  padding: 0.05em 0.3em;
+  border-radius: 2px;
+  background: rgba(214, 186, 162, 0.3);
+  font-family: var(--inb-mono);
+  font-size: 0.82em;
+}
+
+/* lists */
+.go-shell .inb-edition .pg-body ul.bullets {
+  margin-top: 0.35em;
+  margin-bottom: 0.9em;
+}
+.go-shell .inb-edition .pg-body ul.bullets > li {
+  margin: 0.28em 0;
+  padding-left: 1.35em;
+}
+.go-shell .inb-edition .pg-body ul.bullets > li:not(.bullet)::before {
+  content: "\2013";
+  left: 0.15em;
+  top: 0.08em;
+  color: var(--inb-red);
+}
+.go-shell .inb-edition .pg-body ul.bullets > li.bullet::before {
+  border-color: var(--inb-ink-2);
+  border-width: 1px;
+  background: transparent;
+}
+.go-shell .inb-edition .pg-body ol {
+  padding-left: 1.6em;
+}
+
+.go-shell .inb-edition .pg-body hr {
+  width: 30%;
+  margin: 2.3em auto;
+  border: 0;
+  border-top: 1px solid var(--inb-rule);
+}
+
+/* tables (trunk maps, chronologies): newspaper tabular matter - hairline
+   rows, no cage, small-caps heads; allowed a little wider than the column */
+.go-shell .inb-edition .pg-body > .md-table-wrap {
+  max-width: none;
+  margin-top: 0.9em;
+  margin-bottom: 1.2em;
+}
+.go-shell .inb-edition .pg-body table,
+.go-shell .inb-edition .pg-body table.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid var(--inb-rule-hard);
+  border-bottom: 1px solid var(--inb-rule-hard);
+  font-size: 0.82em;
+  line-height: 1.42;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.go-shell .inb-edition .pg-body table th,
+.go-shell .inb-edition .pg-body table td {
+  padding: 0.42em 0.7em 0.42em 0;
+  border: 0;
+  border-bottom: 1px solid var(--inb-rule);
+  background: transparent;
+  text-align: left;
+  vertical-align: top;
+}
+.go-shell .inb-edition .pg-body table th {
+  padding-top: 0.5em;
+  font-weight: 700;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  color: var(--inb-ink-2);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--inb-rule-hard);
+}
+.go-shell .inb-edition .pg-body table tr:last-child td {
+  border-bottom: 0;
+}
+.go-shell .inb-edition .pg-body table td.is-right,
+.go-shell .inb-edition .pg-body table th.is-right {
+  text-align: right;
+}
+.go-shell .inb-edition .pg-body table td.is-center,
+.go-shell .inb-edition .pg-body table th.is-center {
+  text-align: center;
+}
+/* folder pages: an index of headlines, set in two newspaper columns */
+.go-shell .inb-edition .pg-body ul.dir {
+  margin-top: 1.1em;
+  margin-bottom: 0.6em;
+  padding: 0.35em 0 0;
+  list-style: none;
+  border-top: 2px solid var(--inb-rule-hard);
+}
+.go-shell .inb-edition .pg-body ul.dir li {
+  margin: 0;
+  padding: 0;
+  break-inside: avoid;
+  border-bottom: 1px solid var(--inb-rule);
+}
+.go-shell .inb-edition .pg-body ul.dir a,
+.go-shell .inb-edition .pg-body ul.dir a:link,
+.go-shell .inb-edition .pg-body ul.dir a:visited {
+  display: block;
+  padding: 0.55em 0.1em 0.6em;
+  font-family: var(--inb-head);
+  font-weight: 600;
+  font-size: 1.08em;
+  line-height: 1.28;
+  color: var(--inb-ink);
+  text-decoration: none;
+}
+.go-shell .inb-edition .pg-body ul.dir a:visited,
+.go-shell .inb-edition .pg-body ul.dir a.been {
+  color: var(--inb-ink-2);
+}
+.go-shell .inb-edition .pg-body ul.dir a:hover {
+  color: var(--inb-red);
+}
+@media (min-width: 900px) {
+  .go-shell .inb-edition .pg-body ul.dir {
+    columns: 2;
+    column-gap: 2.4em;
+    column-rule: 1px solid var(--inb-rule);
+  }
+}
+
+/* {{meta}} chips on later pages: a quiet filed-under footnote */
+.go-shell .inb-edition .pg-body .chips {
+  margin-top: 2.2em;
+  padding: 0.9em 0 0;
+  gap: 0.25em 0.9em;
+  border: 0;
+  border-top: 1px solid var(--inb-rule);
+  background: transparent;
+  font-size: 0.8em;
+  color: var(--inb-mute);
+}
+.go-shell .inb-edition .pg-body .chip {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.go-shell .inb-edition .pg-body .chip-label,
+.go-shell .inb-edition .pg-body .chip-label:link,
+.go-shell .inb-edition .pg-body .chip-label:visited {
+  font-family: var(--inb-text);
+  font-size: 1em;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--inb-mute);
+  text-decoration: none;
+}
+.go-shell .inb-edition .pg-body .chip-values,
+.go-shell .inb-edition .pg-body .chip-value,
+.go-shell .inb-edition .pg-body .chip-sep {
+  font-family: var(--inb-text);
+  font-size: 1em;
+}
+.go-shell .inb-edition .pg-body .chip-value:link,
+.go-shell .inb-edition .pg-body .chip-value:visited {
+  color: var(--inb-ink-2);
+  text-decoration: none;
+}
+.go-shell .inb-edition .pg-body .chip-value:hover {
+  color: var(--inb-red);
+  text-decoration: underline;
+}
+
+/* foot: thin-over-thick, the bottom of the sheet */
+.go-shell .inb-edition .pg-foot {
+  height: 12px;
+  margin: 0 var(--inb-gutter) 14px;
+  padding: 0;
+  border: 0;
+  background:
+    linear-gradient(var(--inb-rule-hard), var(--inb-rule-hard)) 0 0 / 100% 1px no-repeat,
+    linear-gradient(var(--inb-rule-hard), var(--inb-rule-hard)) 0 4px / 100% 3px no-repeat;
+}
+
+/* ---------- phone: one screenshot-ready reading column ---------- */
+@media (max-width: 720px) {
+  .go-shell {
+    --inb-gutter: 18px;
+    background: var(--inb-paper);
+  }
+  .go-shell .inb-edition {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+  .go-shell .inb-mast {
+    padding-top: 10px;
+  }
+  .go-shell .inb-ears {
+    font-size: 0.68em;
+  }
+  .go-shell .inb-nameplate {
+    padding: 6px 0 9px;
+  }
+  .go-shell .inb-nameplate a.home,
+  .go-shell .inb-nameplate a.home:link,
+  .go-shell .inb-nameplate a.home:visited {
+    font-size: 2.15em;
+  }
+  .go-shell .inb-deckline {
+    padding: 11px 0 6px;
+    font-size: 0.84em;
+  }
+  .go-shell .inb-edition .pg-body {
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+  .go-shell .inb-edition .pg-body h1 {
+    font-size: 1.8em;
+  }
+  .go-shell .inb-edition .pg-body > h1 + p {
+    font-size: 1.06em;
+  }
+  .go-shell .inb-edition .pg-body h2 {
+    font-size: 1.28em;
+  }
+  .go-shell .inb-edition .pg-body blockquote {
+    padding-left: 0.9em;
+  }
+  .go-shell .inb-dateline {
+    column-gap: 0.85em;
+  }
+  .go-shell .inb-edition .pg-body table,
+  .go-shell .inb-edition .pg-body table.md-table {
+    font-size: 0.76em;
+  }
+  .go-shell .inb-edition .pg-body table th {
+    white-space: normal;
+  }
+  .go-shell .inb-dateline > span:not(:empty) ~ span:not(:empty) {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+  .go-shell .inb-edition .pg-body pre,
+  .go-shell .inb-edition .pg-body pre.code {
+    padding: 0.8em 0.85em;
+  }
+  /* the drawer bar sits in the masthead's place for the sections strip */
+  .go-shell.rail-drawer-on .rail-drawer-toggle {
+    width: calc(100% - 36px);
+    margin: 0 18px;
+    padding: 6px 2px 7px;
+    border-bottom: 1px solid var(--rail-drawer-line);
+    background: transparent;
+    color: var(--rail-drawer-ink);
+    font-size: 13px;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.12em;
+    opacity: 1;
+  }
+  .go-shell.rail-drawer-on .rail-drawer-glyph {
+    font-size: 12px;
+    color: var(--inb-ink-2);
+  }
+  .go-shell.rail-drawer-on .rail-drawer-caret {
+    color: var(--inb-ink-2);
+  }
+  .go-shell.rail-drawer-on .rail-drawer-toggle[aria-expanded="true"] {
+    background: var(--rail-drawer-bg);
+  }
+  .go-shell.rail-drawer-open .inb-sections {
+    background: var(--rail-drawer-bg);
+  }
+  .go-shell.rail-drawer-open .inb-sections nav.pg-navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2px 0 6px;
+    font-size: 1em;
+  }
+  .go-shell.rail-drawer-open .inb-sections nav.pg-navbar a {
+    padding: 0.45em 0.6em;
+    border-left: 0;
+    border-top: 1px solid var(--inb-rule);
+    text-align: left;
+  }
+  .go-shell.rail-drawer-open .inb-sections nav.pg-navbar a:first-child {
+    border-top: 0;
+  }
+}
+
+/* ---------- cabinet stamps (front matter mark: librarian / detective) ----------
+   The server paints <div class="go-marks"><span class="go-stamp ink-*">...</span></div>
+   as a sibling BEFORE main#browserWindow, inside .go-shell (page_marks_html in
+   server.py). The only stamp rules live in the shared prod/www_sys/dress.css
+   (.go-marks / .go-stamp / .ink-*): absolute to .go-shell's top-right corner,
+   0.78rem type (about 8.6px on the 11px postage root). On this sheet that left two
+   tiny stamps out on the dark stage, pinned to the pane while the paper
+   scrolled under them. The office sheets carry no stamp rules of their own.
+
+   Inbox only: the stamp is anchored (CSS anchor positioning) to the masthead,
+   pressed into the right corner of the nameplate row, and scrolls away with
+   the sheet (.go-shell clips it). Not sticky, not fixed. An inked rounded double
+   border, a worn-ink mask and a -6deg tilt (the one tilt this room allows:
+   Kitten's call, this stamp only). mark: librarian, detective (both) overlaps
+   two stamps. Inks stay the cabinet inks: librarian teal-green, detective red.
+   Browsers without anchor positioning get no stamp rather than a pinned one. */
+.go-shell:has(.inb-mast) .inb-mast {
+  anchor-name: --inb-mast;
+}
+@supports (anchor-name: --inb-mast) and (position-anchor: --inb-mast) {
+  .go-shell:has(.inb-mast) > .go-marks {
+    position: absolute;
+    position-anchor: --inb-mast;
+    top: calc(anchor(top) + 40px);
+    right: calc(anchor(right) + 30px);
+    left: auto;
+    bottom: auto;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    max-width: none;
+    pointer-events: none;
+  }
+  .go-shell:has(.inb-mast) > .go-marks > .go-stamp {
+    display: block;
+    padding: 5px 9px 4px;
+    font-family: var(--inb-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 2px solid currentColor;
+    border-radius: 7px;
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+    background: transparent;
+    box-shadow: none;
+    opacity: 0.8;
+    mix-blend-mode: multiply;
+    transform: rotate(-6deg);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.5 1.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.5 1.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+    -webkit-mask-size: 120px 60px;
+    mask-size: 120px 60px;
+  }
+  /* second cabinet (mark: both): pressed again, overlapping, a hair off-angle */
+  .go-shell:has(.inb-mast) > .go-marks > .go-stamp + .go-stamp {
+    margin-top: -7px;
+    margin-right: 20px;
+    transform: rotate(-4deg);
+  }
+  .go-shell:has(.inb-mast) > .go-marks > .go-stamp.ink-teal {
+    color: #2a6e62;
+  }
+  .go-shell:has(.inb-mast) > .go-marks > .go-stamp.ink-rose {
+    color: #a4352d;
+  }
+  @media (max-width: 720px) {
+    /* phone: smaller press, tucked into the corner beside the nameplate */
+    .go-shell:has(.inb-mast) > .go-marks {
+      top: calc(anchor(top) + 27px);
+      right: calc(anchor(right) + 6px);
+    }
+    .go-shell:has(.inb-mast) > .go-marks > .go-stamp {
+      padding: 3px 5px 2px;
+      font-size: 8.5px;
+      letter-spacing: 0.14em;
+      border-width: 1.5px;
+      border-radius: 5px;
+      outline-offset: 1.5px;
+    }
+    .go-shell:has(.inb-mast) > .go-marks > .go-stamp + .go-stamp {
+      margin-top: -4px;
+      margin-right: 10px;
+    }
+  }
+}
+@supports not ((anchor-name: --inb-mast) and (position-anchor: --inb-mast)) {
+  .go-shell:has(.inb-mast) > .go-marks {
+    display: none;
+  }
 }

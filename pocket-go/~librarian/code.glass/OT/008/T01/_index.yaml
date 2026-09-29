@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.code.glass/OT/008/T01
+crate: crate.81080E59E7CAF61A
+fields:
+  - type: input
+    label: title
+    value: Chaos is the inner child
+  - type: input
+    label: messages
+    value: "67b128b8-8938-8004-a635-f18ff8cee3a7.0, 67b128b8-8938-8004-a635-f18ff8cee3a7.1, 67b128b8-8938-8004-a635-f18ff8cee3a7.2, 67b128b8-8938-8004-a635-f18ff8cee3a7.3"

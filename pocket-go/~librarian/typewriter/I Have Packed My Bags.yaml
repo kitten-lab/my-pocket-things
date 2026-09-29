@@ -1,0 +1,28 @@
+house: LIBRARIAN
+pocket: go.typewriter/I Have Packed My Bags.md
+crate: crate.3EB6F0B2C07B3C27
+fields:
+  - type: input
+    label: title
+    value: I Have Packed My Bags
+  - type: input
+    label: author
+    value: "Ori'el"
+  - type: input
+    label: voice
+    value: V08 wine
+  - type: input
+    label: class
+    value: story
+  - type: input
+    label: known for
+    value: Chapter 0 departure; Lindsey / Marloes / Kevin mouths; round trip that is not
+  - type: input
+    label: topics covered
+    value: departure, grief, escape, drink
+  - type: input
+    label: intensity
+    value: "3"
+  - type: input
+    label: contains
+    value: prose; chapter

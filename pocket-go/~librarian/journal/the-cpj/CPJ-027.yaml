@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-027.md
+crate: crate.0B166DF21C020CB4
+fields:
+  - type: input
+    label: page
+    value: "027"
+  - type: input
+    label: class
+    value: entry
+  - type: input
+    label: topics covered
+    value: Self, projection, empathy
+  - type: input
+    label: references
+    value: Katy

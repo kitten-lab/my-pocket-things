@@ -58,6 +58,7 @@ Put these where you want the machine to print a list or a hole.
 | `{{subshell}}` | | hole in a nested `_shell.md`. Picks up the next `{{paper}}` shell and sits in that paper hole; this file's chrome wraps the inner page. Cabinets stamp this hall's crate. |
 | `{{images}}` | `{{slides}}` | image files in **this folder** (not subfolders) as a slideshow. Filename order. A thumbnail rail is part of the show; a standalone `{{thumbs}}` can split later. |
 | `{{faces}}` | `{{cards}}` | the **body** of each note in the open hall, printed in place (a grid of card faces). Follows the paper room, not a parent shell's folder. Each note fills from its own YAML; `{{meta}}` / cabinet chips on that note print. Click a face to open it on the desk. Listing slots (`{{files}}` `{{faces}}` `{{doors}}`) inside those notes are not expanded. Not subfolders. |
+| `{{faces:created}}` | `{{cards:created}}` | same face grid, **TPS created** newest first (flat — no class decks). Missing created stamp falls back to disk mtime. |
 | `{{face:crate.XXXX}}` | `{{card:crate.XXXX}}` | one note, anywhere under a go.* or roam.* host, whose `crate:` matches. Prints that file's body in place. Click it the same way as a face in the grid. Cross-host. Not wiki. The 16 hex can omit the `crate.` prefix. |
 | `{{link:crate.XXXX}}` | `{{crate:XXXX}}` | plain door to that crate — title as a wiki-style link (`/?k=`). Optional `\|label`. Cross-host. Not the face/frame. |
 | `{{cover}}` | `{{jacket}}` | this page's cover object, printed where you put the token. Reads YAML `cover:` (or `jacket:`). Picture from `mats/imgs/` or this host. No picture → cloth with the title. The **environment** dresses it: bookstore makes a book; another skin can make a banner. Same art `{{files}}` uses on a shelf. |
@@ -68,7 +69,7 @@ Put these where you want the machine to print a list or a hole.
 | `{{injector}}` … `{{/injector}}` | | on-page insert form. Clay outside `{{hidden:…}}` is the page body. `{{hidden:frontmatter}}` is YAML identity (`{{text:title}}`). `{{hidden:lib}}` / `{{hidden:tps}}` file that cabinet (`lib` → librarian). Nested `{{text:type}}` is a form field that files on that row. Standing `{{log-type}}` and `{{time:now}}` fill from the hall / the clock. Minted note prints in injector order (`# {{title}}`, body fields, then `{{meta}}` / `{{meta:tps}}` where those cabinets sat). YAML stays thin (`crate` `title` `environment`). |
 | `{{recent}}` | `{{recent:N}}` | last 25 notes and canvases kept (disk mtime), newest first, as jump links. Across every host plus lobby notes. Type `recent` on the bar. Optional count, cap 100. Hidden names (`_` `.` `~`) stay off. `recent.md` does not list itself. |
 
-If a page has **none** of `{{files}}` / `{{spines}}` / `{{doors}}` / `{{dir}}` / `{{dirtree}}` / `{{tree}}` / `{{images}}` / `{{faces}}` / `{{recent}}`, the reader appends doors (at vault root) or a full `{{dir}}` listing (everywhere else).
+If a page has **none** of `{{files}}` / `{{spines}}` / `{{doors}}` / `{{dir}}` / `{{dirtree}}` / `{{tree}}` / `{{images}}` / `{{faces}}` / `{{faces:created}}` / `{{recent}}`, the reader appends doors (at vault root) or a full `{{dir}}` listing (everywhere else).
 
 Every slot also answers `{{tool:name}}` - `{{tool:codelook}}`, `{{tool:doors:roam}}`. Bare `{{codelook}}` still works.
 

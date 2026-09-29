@@ -1,0 +1,16 @@
+house: LIBRARIAN
+pocket: go.danyi/Journals Interlude.md
+crate: crate.070059614CF7C87F
+fields:
+  - type: input
+    label: vault
+    value: DANYI.COM
+  - type: input
+    label: author
+    value: Danyi
+  - type: input
+    label: dated
+    value: "2001"
+  - type: input
+    label: references
+    value: Same Watcher, Different Furniture; Interruption's Technology; Until It Was Staring

@@ -1,0 +1,25 @@
+house: LIBRARIAN
+pocket: go.works/songs/Only.md
+crate: crate.6F0C5970ECA3A530
+fields:
+  - type: input
+    label: name
+    value: Only
+  - type: input
+    label: kind
+    value: song
+  - type: input
+    label: artist
+    value: Nine Inch Nails
+  - type: input
+    label: album
+    value: With Teeth
+  - type: input
+    label: released
+    value: "2005-07-12"
+  - type: input
+    label: known for
+    value: there is no you / there is only me; sat with Parabolas
+  - type: input
+    label: references
+    value: What Katydid; the Ungiven Chocolate Rose

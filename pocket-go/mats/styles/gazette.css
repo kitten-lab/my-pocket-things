@@ -1,6 +1,6 @@
-/* go.news.gazette -- Lobby Gazette newsletter home
-   empty news-shell twin of skyline (sk-* layout), teal ribbon voice
-   Kitty Hawk Marketing Wing / floor correspondent
+/* go.news.gazette -- Lobby Gazette weekday dispatch home
+   news-site layout (lead + just-in + edition cards), skyline sk-* twin
+   Kitty Hawk Marketing Wing / Lobby desk
    html rem is postage -- type and gutters in em/px
    fill-stage / inner-scroll -- never 100vh */
 
@@ -63,7 +63,7 @@
   display: inline !important;
 }
 
-/* ——— teal ribbon banner ——— */
+/* ——— house banner ——— */
 .go-shell .sk-banner {
   flex: 0 0 auto;
   display: flex;
@@ -154,7 +154,7 @@
 }
 
 .go-shell .sk-ident::after {
-  content: "TEAL RIBBON";
+  content: "ON THE WIRE";
   display: inline-block;
   margin-left: 0.8em;
   padding: 0.08em 0.4em;
@@ -266,7 +266,9 @@
   box-shadow: 0 1px 0 rgba(15, 42, 44, 0.06);
 }
 
-.go-shell .sk-paper:has(.sk-grid) {
+.go-shell .sk-paper:has(.sk-edgrid),
+.go-shell .sk-paper:has(.sk-lead),
+.go-shell .sk-paper:has(.sk-justin) {
   max-width: 64em;
 }
 
@@ -286,7 +288,8 @@
 
 .go-shell .sk-paper p.md-gap,
 .go-shell .sk-paper .md-gap,
-.go-shell .sk-aside p.md-gap {
+.go-shell .sk-aside p.md-gap,
+.go-shell .sk-rail p.md-gap {
   display: none !important;
 }
 
@@ -307,20 +310,167 @@
   margin: 0;
 }
 
-.go-shell .sk-grid {
+/* ——— just in / wire strip ——— */
+.go-shell .sk-justin {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0 0 1.1em;
+  border: 1px solid var(--line);
+  background: #e8f0f0;
+}
+
+.go-shell .sk-justin-label {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0.45em 0.7em;
+  background: var(--sk-navy-mid);
+  color: #f4fbfa;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-justin-label p {
+  margin: 0;
+}
+
+.go-shell .sk-justin-items {
+  flex: 1 1 auto;
+  padding: 0.5em 0.85em;
+  color: var(--ink);
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.86em;
+  line-height: 1.4;
+}
+
+.go-shell .sk-justin-items p {
+  margin: 0;
+  max-width: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ——— lead / top story ——— */
+.go-shell .sk-lead {
+  margin: 0 0 1.25em;
+  padding: 0.9em 1em 1em;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sk-gold);
+}
+
+.go-shell .sk-lead-kicker {
+  margin: 0 0 0.35em;
+  color: var(--sk-blue);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-lead-kicker p {
+  margin: 0;
+}
+
+.go-shell .sk-lead h1,
+.go-shell .sk-lead > h1 {
+  margin: 0 0 0.4em;
+  font-size: 1.55em;
+}
+
+.go-shell .sk-lede {
+  color: var(--mute);
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.go-shell .sk-lede p {
+  margin: 0 0 0.75em;
+  max-width: 48em;
+}
+
+.go-shell .sk-lead > p:last-child,
+.go-shell .sk-lead a {
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.82em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ——— edition card grid ——— */
+.go-shell .sk-edgrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 16.8em;
-  gap: 1.2em 1.6em;
-  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(16.5em, 1fr));
+  gap: 0.85em;
+  margin: 0.4em 0 1.2em;
 }
 
-.go-shell .sk-col p:last-child,
-.go-shell .sk-aside p:last-child {
-  margin-bottom: 0;
+.go-shell .sk-edcard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  padding: 0.75em 0.85em 0.9em;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--sk-gold);
+  box-shadow: 0 1px 0 rgba(15, 42, 44, 0.04);
 }
 
-.go-shell .sk-aside {
-  padding: 0.7em 0.8em 0.85em;
+.go-shell .sk-edcard-date {
+  margin: 0;
+  color: var(--sk-blue);
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.66em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.go-shell .sk-edcard-date p {
+  margin: 0;
+}
+
+.go-shell .sk-edcard h3 {
+  margin: 0.1em 0 0.25em;
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: 1.05em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.go-shell .sk-edcard p {
+  margin: 0 0 0.45em;
+  max-width: none;
+  color: var(--mute);
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.86em;
+  line-height: 1.35;
+}
+
+.go-shell .sk-edcard a {
+  margin-top: auto;
+  font-family: var(--font-sans-cond), sans-serif;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ——— side rail on home ——— */
+.go-shell .sk-rail {
+  margin: 0.4em 0 0;
+  padding: 0.7em 0.85em 0.9em;
   background: #e8f0f0;
   border: 1px solid var(--line);
   border-top: 3px solid var(--sk-gold);
@@ -342,6 +492,33 @@
 
 .go-shell .sk-aside-kicker p {
   margin: 0;
+}
+
+.go-shell .sk-rail p,
+.go-shell .sk-rail li {
+  font-family: var(--font-franklin), sans-serif;
+  font-size: 0.86em;
+  line-height: 1.4;
+  max-width: none;
+}
+
+.go-shell .sk-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16.8em;
+  gap: 1.2em 1.6em;
+  align-items: start;
+}
+
+.go-shell .sk-col p:last-child,
+.go-shell .sk-aside p:last-child {
+  margin-bottom: 0;
+}
+
+.go-shell .sk-aside {
+  padding: 0.7em 0.8em 0.85em;
+  background: #e8f0f0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--sk-gold);
 }
 
 .go-shell .sk-aside h3 {
@@ -401,16 +578,11 @@
 }
 
 .go-shell .sk-paper h1 + p,
-.go-shell .sk-main h1 + p,
-.go-shell .sk-lede {
+.go-shell .sk-main h1 + p {
   color: var(--mute);
   font-family: var(--font-franklin), sans-serif;
   font-size: 0.95em;
   line-height: 1.4;
-}
-
-.go-shell .sk-lede p {
-  margin: 0 0 0.75em;
 }
 
 .go-shell .sk-paper a,
@@ -557,6 +729,14 @@
   }
 
   .go-shell .sk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .go-shell .sk-justin {
+    flex-direction: column;
+  }
+
+  .go-shell .sk-edgrid {
     grid-template-columns: 1fr;
   }
 

@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.journal/night/2026-09-10 - A New Journal.md
+crate: crate.FEC8CEF6C19D379E
+fields:
+  - type: input
+    label: title
+    value: 01 A New Journal
+  - type: time
+    label: posted
+    value: 1789102260

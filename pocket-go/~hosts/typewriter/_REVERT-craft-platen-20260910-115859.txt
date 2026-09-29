@@ -1,0 +1,3 @@
+Revert craft platen preview:
+  copy _index.md.bak-craft-platen-20260910-115859 -> _index.md
+  copy mats/styles/typewriter.css.bak-craft-platen-20260910-115859 -> typewriter.css

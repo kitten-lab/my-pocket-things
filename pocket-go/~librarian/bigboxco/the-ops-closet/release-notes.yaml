@@ -1,0 +1,10 @@
+house: LIBRARIAN
+pocket: go.bigboxco/the-ops-closet/release-notes.md
+crate: crate.B160B0C0E0004B83
+fields:
+  - type: input
+    label: class
+    value: release-training
+  - type: input
+    label: kind
+    value: operations

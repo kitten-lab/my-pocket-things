@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.tags/index.md
+crate: crate.2B621ED29E6B0A2A
+fields:
+  - type: input
+    label: title
+    value: Tags
+  - type: input
+    label: class
+    value: blotter
+  - type: input
+    label: known for
+    value: search mints or opens a word; Charlie clicks land here

@@ -1,0 +1,19 @@
+house: LIBRARIAN
+pocket: go.glenshadows/leaves/jace-barkeep.md
+crate: crate.12BB337FF9684EA7
+fields:
+  - type: input
+    label: title
+    value: Jace Barkeep
+  - type: input
+    label: class
+    value: floor
+  - type: input
+    label: layer
+    value: floor
+  - type: input
+    label: known for
+    value: Glenshadow first name; barkeep; tavern owner; never the same when he left
+  - type: input
+    label: source bag
+    value: "001-OT-130"

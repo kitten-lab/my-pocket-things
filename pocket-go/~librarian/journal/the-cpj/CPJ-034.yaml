@@ -1,0 +1,31 @@
+house: LIBRARIAN
+pocket: go.journal/the-cpj/CPJ-034.md
+crate: crate.582AA85885406573
+fields:
+  - type: input
+    label: page
+    value: "034"
+  - type: input
+    label: title
+    value: Full Moon Interpretation
+  - type: input
+    label: dated
+    value: "2020-01-09"
+  - type: input
+    label: class
+    value: marker
+  - type: input
+    label: hand
+    value: Virgo / clean hand
+  - type: input
+    label: contains
+    value: interpretation; closing
+  - type: input
+    label: topics covered
+    value: full moon, self, consciousness, Queen, destiny
+  - type: input
+    label: known for
+    value: true base desires marker; I see the moon and she sees me
+  - type: input
+    label: references
+    value: CPJ-033 Thoth spread

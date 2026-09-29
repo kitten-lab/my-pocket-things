@@ -1,0 +1,7 @@
+house: LIBRARIAN
+pocket: go.detective.office/
+crate: crate.3B3A596B8ADF0DB1
+fields:
+  - type: input
+    label: author
+    value: "kde, the-network, kat"

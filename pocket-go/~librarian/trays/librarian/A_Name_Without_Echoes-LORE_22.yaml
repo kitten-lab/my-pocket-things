@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/librarian/A_Name_Without_Echoes-LORE_22.md
+crate: crate.BD8D6D5BC25FD714
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: The Librarian
+  - type: input
+    label: card type
+    value: Name Game

@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon-12751506-font.eot");
+  src: url("./Flaticon-12751506-font.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon-12751506-font.woff2") format("woff2"),
+       url("./Flaticon-12751506-font.woff") format("woff"),
+       url("./Flaticon-12751506-font.ttf") format("truetype"),
+       url("./Flaticon-12751506-font.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon-12751506-font.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+      display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    display: block;
+}
+
+.flaticon_12751506-001-mail:before { content: "\f100"; }
+.flaticon_12751506-002-photo-book:before { content: "\f101"; }
+.flaticon_12751506-003-bouquet:before { content: "\f102"; }
+.flaticon_12751506-004-wine-glass:before { content: "\f103"; }
+.flaticon_12751506-005-ring:before { content: "\f104"; }
+.flaticon_12751506-006-gift-box:before { content: "\f105"; }
+.flaticon_12751506-007-chocolate:before { content: "\f106"; }
+.flaticon_12751506-008-calendar:before { content: "\f107"; }
+.flaticon_12751506-009-gift-box:before { content: "\f108"; }
+.flaticon_12751506-010-letter:before { content: "\f109"; }
+.flaticon_12751506-011-lock:before { content: "\f10a"; }
+.flaticon_12751506-012-muffin:before { content: "\f10b"; }
+.flaticon_12751506-013-archer:before { content: "\f10c"; }
+.flaticon_12751506-014-bottle:before { content: "\f10d"; }
+.flaticon_12751506-015-confetti:before { content: "\f10e"; }
+.flaticon_12751506-016-ice-cream:before { content: "\f10f"; }
+.flaticon_12751506-017-marriage:before { content: "\f110"; }
+.flaticon_12751506-018-smartphone:before { content: "\f111"; }
+.flaticon_12751506-019-laptop:before { content: "\f112"; }
+.flaticon_12751506-020-chat:before { content: "\f113"; }
+.flaticon_12751506-021-bottle:before { content: "\f114"; }
+.flaticon_12751506-022-wedding-arch:before { content: "\f115"; }
+.flaticon_12751506-023-archer:before { content: "\f116"; }
+.flaticon_12751506-024-donut:before { content: "\f117"; }
+.flaticon_12751506-025-marriage-certificate:before { content: "\f118"; }
+.flaticon_12751506-026-flask:before { content: "\f119"; }
+.flaticon_12751506-027-angel:before { content: "\f11a"; }
+.flaticon_12751506-028-ribbon:before { content: "\f11b"; }
+.flaticon_12751506-029-coffee:before { content: "\f11c"; }
+.flaticon_12751506-030-tshirt:before { content: "\f11d"; }
+.flaticon_12751506-031-key:before { content: "\f11e"; }
+.flaticon_12751506-032-couple:before { content: "\f11f"; }
+.flaticon_12751506-033-website:before { content: "\f120"; }
+.flaticon_12751506-034-bed:before { content: "\f121"; }
+.flaticon_12751506-035-letter:before { content: "\f122"; }
+.flaticon_12751506-036-candy:before { content: "\f123"; }
+.flaticon_12751506-037-flag:before { content: "\f124"; }
+.flaticon_12751506-038-label:before { content: "\f125"; }
+.flaticon_12751506-039-balloon:before { content: "\f126"; }
+.flaticon_12751506-040-love:before { content: "\f127"; }
+.flaticon_12751506-041-wand:before { content: "\f128"; }
+.flaticon_12751506-042-cupid:before { content: "\f129"; }
+.flaticon_12751506-043-hot-air-balloon:before { content: "\f12a"; }
+.flaticon_12751506-044-chruch:before { content: "\f12b"; }
+.flaticon_12751506-045-sticker:before { content: "\f12c"; }
+.flaticon_12751506-046-diary:before { content: "\f12d"; }
+.flaticon_12751506-047-calendar:before { content: "\f12e"; }
+.flaticon_12751506-048-music:before { content: "\f12f"; }
+.flaticon_12751506-049-ring-box:before { content: "\f130"; }
+.flaticon_12751506-050-cake:before { content: "\f131"; }

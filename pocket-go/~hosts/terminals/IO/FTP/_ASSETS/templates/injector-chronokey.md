@@ -1,0 +1,1 @@
+<% tp.date.now("YQ:WW-MM:edd-DDA.XN") %>

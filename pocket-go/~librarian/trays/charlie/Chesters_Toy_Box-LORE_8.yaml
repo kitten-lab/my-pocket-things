@@ -1,0 +1,13 @@
+house: LIBRARIAN
+pocket: go.trays/charlie/Chesters_Toy_Box-LORE_8.md
+crate: crate.0F3FB9F7D50F2BE8
+fields:
+  - type: input
+    label: class
+    value: lore card
+  - type: input
+    label: author
+    value: Charlie
+  - type: input
+    label: card type
+    value: PRODUCER
